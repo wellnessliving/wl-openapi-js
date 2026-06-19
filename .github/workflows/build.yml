@@ -20,7 +20,6 @@ concurrency:
 
 permissions:
   contents: write
-  packages: write
 
 jobs:
   build:
@@ -35,8 +34,6 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@wellnessliving'
 
       - name: Install dependencies
         run: npm ci
@@ -53,40 +50,60 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          git add stable/ dev/
-          [ -d production ] && git add production/ || true
-          if git diff --staged --quiet; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-            echo "No changes - SDK is up to date."
+          STABLE_VER=$(grep -m1 'Spec version:' stable/wl-sdk.js | awk '{print $NF}')
+          DEV_VER=$(grep -m1 'Spec version:' dev/wl-sdk.js | awk '{print $NF}')
+          echo "stable_ver=${STABLE_VER}" >> $GITHUB_OUTPUT
+          echo "dev_ver=${DEV_VER}" >> $GITHUB_OUTPUT
+          echo "method_count=$(grep -m1 'Endpoints:' stable/wl-sdk.js | awk '{print $NF}')" >> $GITHUB_OUTPUT
+          if [ -f production/wl-sdk.js ]; then
+            PROD_VER=$(grep -m1 'Spec version:' production/wl-sdk.js | awk '{print $NF}')
+            echo "prod_ver=${PROD_VER}" >> $GITHUB_OUTPUT
+            echo "has_production=true" >> $GITHUB_OUTPUT
+            ROOT_VER="$PROD_VER"
           else
-            echo "changed=true" >> $GITHUB_OUTPUT
-            STABLE_VER=$(grep -m1 'Spec version:' stable/wl-sdk.js | awk '{print $NF}')
-            echo "stable_ver=${STABLE_VER}" >> $GITHUB_OUTPUT
-            echo "dev_ver=$(grep -m1 'Spec version:' dev/wl-sdk.js | awk '{print $NF}')" >> $GITHUB_OUTPUT
-            echo "method_count=$(grep -m1 'Endpoints:' stable/wl-sdk.js | awk '{print $NF}')" >> $GITHUB_OUTPUT
-            if [ -f production/wl-sdk.js ]; then
-              echo "prod_ver=$(grep -m1 'Spec version:' production/wl-sdk.js | awk '{print $NF}')" >> $GITHUB_OUTPUT
-              echo "has_production=true" >> $GITHUB_OUTPUT
-            else
-              echo "has_production=false" >> $GITHUB_OUTPUT
-            fi
-            echo "Changes detected - will commit and release."
+            echo "prod_ver=" >> $GITHUB_OUTPUT
+            echo "has_production=false" >> $GITHUB_OUTPUT
+            ROOT_VER="$STABLE_VER"
           fi
 
-      - name: Update package.json version
-        if: steps.changes.outputs.changed == 'true'
+          CURRENT_VER=$(node -e "console.log(require('./package.json').version)")
+          if [ "$ROOT_VER" != "$CURRENT_VER" ] || [ ! -f wl-sdk.js ]; then
+            echo "main_changed=true" >> $GITHUB_OUTPUT
+            echo "Changes detected: root ${CURRENT_VER} -> ${ROOT_VER}"
+          else
+            echo "main_changed=false" >> $GITHUB_OUTPUT
+            echo "No changes to main root - SDK is up to date."
+          fi
+
+      - name: Update root SDK files and package.json version
+        if: steps.changes.outputs.main_changed == 'true'
         run: |
+          HAS_PROD="${{ steps.changes.outputs.has_production }}"
+          PROD_VER="${{ steps.changes.outputs.prod_ver }}"
           STABLE_VER="${{ steps.changes.outputs.stable_ver }}"
+
+          if [ "$HAS_PROD" = "true" ]; then
+            SRC_DIR="production"
+            PKG_VER="$PROD_VER"
+          else
+            SRC_DIR="stable"
+            PKG_VER="$STABLE_VER"
+          fi
+          cp "${SRC_DIR}/wl-sdk.js" ./wl-sdk.js
+          cp "${SRC_DIR}/wl-sdk.esm.js" ./wl-sdk.esm.js
+          cp "${SRC_DIR}/wl-sdk.cjs.js" ./wl-sdk.cjs.js
+          cp "${SRC_DIR}/wl-sdk.d.ts" ./wl-sdk.d.ts
+
           node -e "
             const fs = require('fs');
             const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
             pkg.version = process.argv[1];
             fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
-          " "$STABLE_VER"
-          git add package.json
+          " "$PKG_VER"
+          git add wl-sdk.js wl-sdk.esm.js wl-sdk.cjs.js wl-sdk.d.ts package.json
 
-      - name: Commit and push
-        if: steps.changes.outputs.changed == 'true'
+      - name: Commit and push main
+        if: steps.changes.outputs.main_changed == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
@@ -102,8 +119,96 @@ jobs:
           git pull --rebase origin main
           git push
 
+      - name: Push stable branch
+        run: |
+          STABLE_VER="${{ steps.changes.outputs.stable_ver }}"
+          WORKSPACE="${{ github.workspace }}"
+          TOKEN="${{ github.token }}"
+          REPO="${{ github.repository }}"
+
+          node -e "
+            const pkg = {
+              name: '@wellnessliving/sdk',
+              version: process.argv[1],
+              description: 'WellnessLiving JavaScript/TypeScript SDK - auto-generated from OpenAPI spec',
+              main: 'wl-sdk.cjs.js',
+              module: 'wl-sdk.esm.js',
+              browser: 'wl-sdk.js',
+              types: 'wl-sdk.d.ts',
+              engines: { node: '>=18.0.0' }
+            };
+            require('fs').writeFileSync('/tmp/pkg-stable.json', JSON.stringify(pkg, null, 2) + '\n');
+          " "$STABLE_VER"
+
+          mkdir -p /tmp/sdk-stable
+          cd /tmp/sdk-stable
+          git init
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote add origin "https://x-access-token:${TOKEN}@github.com/${REPO}"
+          if git fetch origin stable --depth=1 2>/dev/null; then
+            git checkout stable
+          else
+            git checkout --orphan stable
+          fi
+          git rm -rf . --quiet 2>/dev/null || true
+
+          cp "${WORKSPACE}/stable/wl-sdk.js" .
+          cp "${WORKSPACE}/stable/wl-sdk.esm.js" .
+          cp "${WORKSPACE}/stable/wl-sdk.cjs.js" .
+          cp "${WORKSPACE}/stable/wl-sdk.d.ts" .
+          cp /tmp/pkg-stable.json ./package.json
+
+          git add .
+          git diff --staged --quiet || git commit -m "stable: ${STABLE_VER}"
+          git push origin HEAD:stable
+
+      - name: Push dev branch
+        run: |
+          DEV_VER="${{ steps.changes.outputs.dev_ver }}"
+          WORKSPACE="${{ github.workspace }}"
+          TOKEN="${{ github.token }}"
+          REPO="${{ github.repository }}"
+
+          node -e "
+            const pkg = {
+              name: '@wellnessliving/sdk',
+              version: process.argv[1],
+              description: 'WellnessLiving JavaScript/TypeScript SDK - auto-generated from OpenAPI spec',
+              main: 'wl-sdk.cjs.js',
+              module: 'wl-sdk.esm.js',
+              browser: 'wl-sdk.js',
+              types: 'wl-sdk.d.ts',
+              engines: { node: '>=18.0.0' }
+            };
+            require('fs').writeFileSync('/tmp/pkg-dev.json', JSON.stringify(pkg, null, 2) + '\n');
+          " "$DEV_VER"
+
+          mkdir -p /tmp/sdk-dev
+          cd /tmp/sdk-dev
+          git init
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote add origin "https://x-access-token:${TOKEN}@github.com/${REPO}"
+          if git fetch origin dev --depth=1 2>/dev/null; then
+            git checkout dev
+          else
+            git checkout --orphan dev
+          fi
+          git rm -rf . --quiet 2>/dev/null || true
+
+          cp "${WORKSPACE}/dev/wl-sdk.js" .
+          cp "${WORKSPACE}/dev/wl-sdk.esm.js" .
+          cp "${WORKSPACE}/dev/wl-sdk.cjs.js" .
+          cp "${WORKSPACE}/dev/wl-sdk.d.ts" .
+          cp /tmp/pkg-dev.json ./package.json
+
+          git add .
+          git diff --staged --quiet || git commit -m "dev: ${DEV_VER}"
+          git push origin HEAD:dev
+
       - name: Create GitHub Release
-        if: steps.changes.outputs.changed == 'true'
+        if: steps.changes.outputs.main_changed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -125,8 +230,8 @@ jobs:
             PROD_ROW=""
           fi
 
-          printf '## WellnessLiving JavaScript SDK %s\n\n| | |\n|---|---|\n| Stable spec | `%s` |\n| Dev spec | `%s` |\n%s\n| Endpoints | %s |\n\n## CDN links (jsDelivr)\n\n```html\n<!-- Stable (browser UMD) -->\n<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-openapi-js@%s/stable/wl-sdk.js"></script>\n\n<!-- Dev (browser UMD) -->\n<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-openapi-js@%s/dev/wl-sdk.js"></script>\n```\n\n## npm (GitHub Packages)\n\n```\nnpm install @wellnessliving/sdk@%s\n```\n\n---\nAuto-generated from [wellnessliving/openapi](https://github.com/wellnessliving/openapi).\n' \
-            "$TAG" "$STABLE_VER" "$DEV_VER" "$PROD_ROW" "$METHOD_COUNT" "$TAG" "$TAG" "$STABLE_VER" > /tmp/release-notes.md
+          printf '## WellnessLiving JavaScript SDK %s\n\n| | |\n|---|---|\n| Stable spec | `%s` |\n| Dev spec | `%s` |\n%s\n| Endpoints | %s |\n\n## Install\n\n```bash\n# Production / default\nnpm install github:wellnessliving/wl-openapi-js\n\n# Stable\nnpm install github:wellnessliving/wl-openapi-js#stable\n\n# Dev\nnpm install github:wellnessliving/wl-openapi-js#dev\n```\n\n## CDN links (jsDelivr)\n\n```html\n<!-- Stable (browser UMD) -->\n<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-openapi-js@stable/wl-sdk.js"></script>\n\n<!-- Dev (browser UMD) -->\n<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-openapi-js@dev/wl-sdk.js"></script>\n```\n\n---\nAuto-generated from [wellnessliving/openapi](https://github.com/wellnessliving/openapi).\n' \
+            "$TAG" "$STABLE_VER" "$DEV_VER" "$PROD_ROW" "$METHOD_COUNT" > /tmp/release-notes.md
 
           cp stable/wl-sdk.js /tmp/wl-sdk-stable.js
           cp dev/wl-sdk.js /tmp/wl-sdk-dev.js
@@ -158,9 +263,3 @@ jobs:
             $EXTRA_ASSETS \
             --title "SDK ${TAG}" \
             --notes-file /tmp/release-notes.md
-
-      - name: Publish to GitHub Packages
-        if: steps.changes.outputs.changed == 'true'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm publish

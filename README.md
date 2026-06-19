@@ -3,16 +3,17 @@
 Auto-generated JavaScript and TypeScript SDK for the WellnessLiving API,
 built from the OpenAPI spec at https://github.com/wellnessliving/openapi.
 
-## Channels: stable vs dev vs production
+## Channels
 
-| Channel        | Based on                     | When to use                                              |
-|----------------|------------------------------|----------------------------------------------------------|
-| `stable/`      | `stable/openapi.yaml`        | Current release — endpoints available in production now  |
-| `dev/`         | `dev/openapi.yaml`           | Preview — includes endpoints not yet in stable           |
-| `production/`  | `production/openapi.yaml`    | _(soon)_ Strictly released endpoints only, no beta       |
+Each channel matches a WellnessLiving environment. Install the one you are testing against:
 
-`production` is generated automatically if `production/openapi.yaml` appears in the openapi repo.
-Until then the `production/` folder does not exist.
+| Channel       | Branch    | WL environment       | Install command                                           |
+|---------------|-----------|----------------------|-----------------------------------------------------------|
+| Production    | `main`    | Production servers   | `npm install github:wellnessliving/wl-openapi-js`         |
+| Stable        | `stable`  | Stable / staging     | `npm install github:wellnessliving/wl-openapi-js#stable`  |
+| Dev           | `dev`     | Dev / trunk          | `npm install github:wellnessliving/wl-openapi-js#dev`     |
+
+No GitHub token or `.npmrc` setup required — the repository is public.
 
 ## File formats
 
@@ -25,9 +26,6 @@ Each channel produces four files:
 | `wl-sdk.cjs.js`  | CommonJS                | Node.js `require()`                       |
 | `wl-sdk.d.ts`    | TypeScript declarations | IDE autocompletion for all three above    |
 
-The UMD file (`wl-sdk.js`) is self-contained — no imports, works directly in a browser.
-The ESM and CJS files are the TypeScript-compiled versions with full type information.
-
 ---
 
 ## Option A: Browser `<script>` tag (UMD)
@@ -35,11 +33,11 @@ The ESM and CJS files are the TypeScript-compiled versions with full type inform
 No install required — load directly from CDN.
 
 ```html
-<!-- Pinned to a specific version (recommended for production) -->
-<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-openapi-js@v1.1.20260619090040/stable/wl-sdk.js"></script>
+<!-- Stable channel -->
+<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-openapi-js@stable/wl-sdk.js"></script>
 
-<!-- Always latest (use for development) -->
-<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-openapi-js@main/stable/wl-sdk.js"></script>
+<!-- Dev channel -->
+<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-openapi-js@dev/wl-sdk.js"></script>
 
 <script>
   var client = new WlSdk({ token: 'YOUR_JWT_TOKEN' });
@@ -56,16 +54,22 @@ Method names are derived from the URL path in camelCase:
 
 ---
 
-## Option B: npm package with TypeScript (ESM / CJS)
+## Option B: npm (ESM / CJS + TypeScript)
+
+Install the channel matching your WellnessLiving environment:
 
 ```bash
-# Add to .npmrc first:
-@wellnessliving:registry=https://npm.pkg.github.com
+# Stable (most common)
+npm install github:wellnessliving/wl-openapi-js#stable
 
-npm install @wellnessliving/sdk
+# Dev / trunk
+npm install github:wellnessliving/wl-openapi-js#dev
+
+# Production
+npm install github:wellnessliving/wl-openapi-js
 ```
 
-The npm package uses a **namespace-based API** that mirrors the URL structure:
+The import is always the same regardless of channel:
 
 ```typescript
 import WlClient, { WlApiError } from '@wellnessliving/sdk';
@@ -78,6 +82,8 @@ const data = await client.wl.business.data({ k_business: '1000' });
 // URL: /Thoth/WlPay/Account/Charge.json
 const charge = await client.thoth.wlPay.account.charge({ ... });
 ```
+
+Switching environments = change the `package.json` dependency to the other branch and run `npm install`.
 
 ### Error handling
 
@@ -92,16 +98,10 @@ try {
 }
 ```
 
-### Dev channel
+### Pinning to a specific version
 
-```typescript
-import WlClient from '@wellnessliving/sdk/dev';
-```
-
-### Production channel _(soon)_
-
-```typescript
-import WlClient from '@wellnessliving/sdk/production';
+```bash
+npm install github:wellnessliving/wl-openapi-js#stable-v1.1.20260619090040
 ```
 
 ### Constructor options
@@ -148,11 +148,10 @@ all files whenever the upstream OpenAPI spec changes, and also runs daily at 08:
 Each build:
 1. Downloads the latest `stable/openapi.yaml` and `dev/openapi.yaml`
 2. Generates `stable/wl-sdk.js` and `dev/wl-sdk.js` (browser UMD)
-3. Generates `src/stable/index.ts` and `src/dev/index.ts` (TypeScript source)
-4. Compiles to `*.esm.js`, `*.cjs.js`, `*.d.ts`
-5. Commits and pushes all output files
-6. Creates a GitHub Release with all 8 files as assets
-7. Publishes `@wellnessliving/sdk` to GitHub Packages
+3. Generates TypeScript source and compiles to `*.esm.js`, `*.cjs.js`, `*.d.ts`
+4. Updates root files on `main` (production or stable fallback)
+5. Pushes flat distribution files to `stable` and `dev` branches
+6. Creates a GitHub Release with all files as assets
 
 See [docs/notify-setup.md](docs/notify-setup.md) for cross-repo trigger setup.
 
