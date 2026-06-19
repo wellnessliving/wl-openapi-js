@@ -228,6 +228,78 @@ function firstLine(text, maxLen)
 }
 
 /**
+ * Extracts top-level properties from the 200 response schema of an operation.
+ *
+ * @param {Object} spec Full parsed OpenAPI spec.
+ * @param {Object} operation OpenAPI operation object.
+ * @returns {{name: string, type: string, description: string}[]}
+ */
+function getResponseProperties(spec, operation)
+{
+  const response = operation.responses && (operation.responses['200'] || operation.responses[200]);
+  if (!response)
+  {
+    return [];
+  }
+
+  const ref = response.$ref ? resolveRef(spec, response.$ref) : response;
+  if (!ref)
+  {
+    return [];
+  }
+
+  const content = ref.content;
+  if (!content)
+  {
+    return [];
+  }
+
+  const jsonContent = content['application/json'];
+  if (!jsonContent || !jsonContent.schema)
+  {
+    return [];
+  }
+
+  let schema = jsonContent.schema;
+  if (schema.$ref)
+  {
+    schema = resolveRef(spec, schema.$ref) || schema;
+  }
+
+  const properties = schema.properties;
+  if (!properties || typeof properties !== 'object')
+  {
+    return [];
+  }
+
+  const result = [];
+  const MAX_PROPS = 20;
+
+  for (const [name, propSchema] of Object.entries(properties))
+  {
+    if (result.length >= MAX_PROPS)
+    {
+      result.push({ name: '...', type: '*', description: '' });
+      break;
+    }
+
+    let resolved = propSchema;
+    if (propSchema.$ref)
+    {
+      resolved = resolveRef(spec, propSchema.$ref) || propSchema;
+    }
+
+    result.push({
+      name: name,
+      type: schemaToJsType(spec, resolved),
+      description: resolved.description || '',
+    });
+  }
+
+  return result;
+}
+
+/**
  * Generates a JSDoc block comment for an API operation.
  *
  * @param {Object} spec Full parsed OpenAPI spec.
@@ -298,7 +370,22 @@ function buildJsDoc(spec, operation, pathLevelParams)
     lines.push(' * @param {Object} [params] Request parameters.');
   }
 
-  lines.push(' * @returns {Promise<Object>} Parsed API response.');
+  const responseProps = getResponseProperties(spec, operation);
+
+  if (responseProps.length > 0)
+  {
+    lines.push(' * @returns {Promise<Object>} Response data.');
+    for (const prop of responseProps)
+    {
+      const desc = prop.description ? ' ' + escDoc(firstLine(prop.description, 80)) : '';
+      lines.push(' *  `' + prop.name + '` {' + prop.type + '}' + desc);
+    }
+  }
+  else
+  {
+    lines.push(' * @returns {Promise<Object>} Response data.');
+  }
+
   lines.push(' */');
 
   return lines.join('\n');
