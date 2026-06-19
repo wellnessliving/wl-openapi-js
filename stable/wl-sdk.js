@@ -237,7 +237,8 @@
    * @param {?number} [params.f_radius] Search radius in kilometers. Required.
    * @param {?string} [params.m_price_max] Maximum price to search by (inclusive). Decimal string in dollars (e.g. `"100.00"`).
    * @param {?string} [params.m_price_min] Minimum price to search by (inclusive). Decimal string in dollars (e.g. `"0.00"`).
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_class_session` {Object[]}
    */
   WlClient.prototype.thothExplorerSearchClassSessionClassSessionSearch = function(params)
   {
@@ -251,7 +252,19 @@
    * If the report is being generated now, partial content may be returned.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_dynamic` {*[][]|Object[]} A list of dynamic fields in this report.
+   *  `a_field` {string[]} A list of fields in this report.
+   *  `a_row` {string[][]} Report data.
+   *  `a_stale` {number[]} A list of stale rows.
+   *  `a_warning` {string[]} Warning list of the report.
+   *  `dtu_complete` {string} Date and time when this report has completed generation.
+   *  `dtu_queue` {string} Date and time when this report was put on generation queue.
+   *  `dtu_start` {string} Date and time when generation of this report has started.
+   *  `i_cas_change` {number} A CAS (compare-and-swap) number that allows to track changes in the report st...
+   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation.
+   *  `s_report` {string} Key of this report.
+   *  `text_error` {string} Text of an error message that occurred during generation of the report.
    */
   WlClient.prototype.thothReportCoreGeneratorQuery = function(params)
   {
@@ -265,7 +278,10 @@
    * @param {boolean} params.is_owner If `true`, information for the account's owner is returned. Clients can be configured to pay for ...
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.uid The key of the user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_account` {Object[]}
+   *  `a_account_nx` {*[][]} A list of accounts that is not created for this user yet.
+   *  `is_debtor` {boolean} Determines whether the user is a debtor. If `true` - the owner of this accoun...
    */
   WlClient.prototype.thothWlPayAccountAccount = function(params)
   {
@@ -280,7 +296,21 @@
    * @param {string} params.k_currency The key of the currency to retrieve payment information for.
    * @param {string} params.k_location The key of the location to retrieve payment information for.
    * @param {?string} [params.uid_owner] The user ID to retrieve payment information for. Primary key in the PassportLoginSql table.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_card_system` {number[]} A list of supported bank card systems.
+   *  `a_method_staff` {number[]} A list of payment methods enabled for staff members. The ID is one of [RsPayM...
+   *  `a_method_support` {Object[]}
+   *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
+   *  `a_pay_processor` {?Object[]}
+   *  `dl_now` {string} Current local date in current location [EnvironmentApi](/Thoth/WlPay/Form/Env...
+   *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
+   *  `f_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a percent of transaction...
+   *  `id_locale` {?number} A list of locales.
+   *  `is_save_optional` {boolean} `true` if clients can choose whether their banking and credit card informatio...
+   *  `is_save_source` {boolean} Determines whether newly added payment sources should be saved. This will be ...
+   *  `is_tip` {boolean} Whether tips are accepted.
+   *  `m_surcharge` {?string} Surcharge amount for payment with card represented as a fixed amount.
+   *  `m_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a fixed amount.
    */
   WlClient.prototype.thothWlPayFormEnvironmentUser = function(params)
   {
@@ -296,7 +326,21 @@
    * @param {string} params.k_currency The key of the currency to retrieve payment information for.
    * @param {string} params.k_location The key of the location to retrieve payment information for.
    * @param {?string} [params.uid_owner] The user ID to retrieve payment information for. Primary key in the PassportLoginSql table.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_card_system` {number[]} A list of supported bank card systems.
+   *  `a_method_staff` {number[]} A list of payment methods enabled for staff members. The ID is one of [RsPayM...
+   *  `a_method_support` {Object[]}
+   *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
+   *  `a_pay_processor` {?Object[]}
+   *  `dl_now` {string} Current local date in current location [EnvironmentApi](/Thoth/WlPay/Form/Env...
+   *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
+   *  `f_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a percent of transaction...
+   *  `id_locale` {?number} A list of locales.
+   *  `is_save_optional` {boolean} `true` if clients can choose whether their banking and credit card informatio...
+   *  `is_save_source` {boolean} Determines whether newly added payment sources should be saved. This will be ...
+   *  `is_tip` {boolean} Whether tips are accepted.
+   *  `m_surcharge` {?string} Surcharge amount for payment with card represented as a fixed amount.
+   *  `m_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a fixed amount.
    */
   WlClient.prototype.thothWlPayFormEnvironment = function(params)
   {
@@ -311,7 +355,8 @@
    * @param {string} params.k_business The business key.
    * @param {boolean} params.show_manual Whether payment method [RsPayMethodSid::ACCOUNT_MANUAL](#/components/schemas/RsPayMethodSid) shou...
    * @param {string} params.uid The key of a user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_pay_method` {Object[]}
    */
   WlClient.prototype.thothWlPayMethodList = function(params)
   {
@@ -324,7 +369,10 @@
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Business key.
    * @param {string} params.uid Key of a user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_pay_owner` {number} A list of money owners from which account money can be transferred.
+   *  `k_pay_owner` {string} The payment owner key. This is used for financial transactions.
+   *  `k_pay_owner_money` {string} Key of the money owner.
    */
   WlClient.prototype.thothWlPayOwnerOwner = function(params)
   {
@@ -338,7 +386,8 @@
    * @param {number} params.id_pay_owner The ID of the payment owner type.
    * @param {string} params.k_business Business key, where the payment is performed.
    * @param {string} params.k_id The primary key of a payment owner.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_pay_address` {*[]} The payee's address information.
    */
   WlClient.prototype.thothWlPayAddressAddress = function(params)
   {
@@ -351,7 +400,15 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key number used internally by WellnessLiving.
    * @param {string} params.uid The key of the user whose data should be retrieved.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_geo_country` {?string} The country key.
+   *  `k_geo_region` {?string} The region ID.
+   *  `s_city` {?string} The name of the city in the address.
+   *  `s_name` {?string} The client name as listed in their address.
+   *  `s_phone` {?string} The client phone number.
+   *  `s_postal` {?string} The client postal or zip code.
+   *  `s_street1` {?string} The first line of the client address.
+   *  `s_street2` {?string} The second line of the client address.
    */
   WlClient.prototype.thothWlPayAddressProfile = function(params)
   {
@@ -367,7 +424,9 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.i_argument Example argument.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `i_result` {number} Example result.
+   *  `s_log` {string} Key of the log record written by the API controller.
    */
   WlClient.prototype.coreRequestExample = function(params)
   {
@@ -384,7 +443,8 @@
    * @param {Object} [params] Request parameters.
    * @param {?number} params.id_locale The locale ID used as a filter. The locale is generally a country.
    * @param {string} params.s_value The city name (or a fragment of the city name) used for the search.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
    */
   WlClient.prototype.coreGeoCombobox = function(params)
   {
@@ -399,7 +459,7 @@
    * @deprecated Use {@link Core\Google\Captcha\GoogleCaptchaApi} instead of this.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.coreGoogleGoogleCaptcha = function(params)
   {
@@ -416,7 +476,8 @@
    * channel are returned so the client does not miss events that arrived before the subscription was set up.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_message_broadcast` {Object|Object|Object|Object[]}
    */
   WlClient.prototype.coreWebSocketSubscribe = function(params)
   {
@@ -430,7 +491,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.s_class_name Name of the Sid class to get list from.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
    */
   WlClient.prototype.coreSidCoreSid = function(params)
   {
@@ -447,7 +509,9 @@
    * @param {Object} [params] Request parameters.
    * @param {Object|Object|Object|Object[]} params.a_arguments Arguments for creating CAPTCHA object.
    * @param {number} params.cid_captcha The CID of the CAPTCHA.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `is_enable_v3` {boolean} `true` if enabled V3 captcha enabled.
+   *  `is_require` {boolean} This will be `true` if a CAPTCHA is required. Otherwise, this will be `false`.
    */
   WlClient.prototype.coreCaptchaCaptchaRequire = function(params)
   {
@@ -462,7 +526,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.uid The client for whom the Microsoft account will be unlinked.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.socialMicrosoftLoginDelete = function(params)
   {
@@ -479,7 +543,9 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.uid The client for whom the Microsoft account will be unlinked.
    * @param {string} params.url_redirect The Redirect URI for external applications.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `is_exists` {boolean} If `true`, the user has a bound Microsoft account. Otherwise, this will be `f...
+   *  `url_login` {string} The Microsoft OAuth 2.0 authorization link.
    */
   WlClient.prototype.socialMicrosoftLoginGet = function(params)
   {
@@ -496,7 +562,7 @@
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_external If authorization is performed in a third-party application, set this flag in case of authorizatio...
    * @param {string} params.url_redirect The Redirect URI for external applications.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.socialMicrosoftLoginPost = function(params)
   {
@@ -519,7 +585,7 @@
    * @param {string} params.k_business Key of the business within which the action is performed.
    * @param {?string} [params.k_class_period] The class period key.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlScheduleCancelGet = function(params)
   {
@@ -541,7 +607,7 @@
    * @param {string} params.k_business Key of the business within which the action is performed.
    * @param {?string} [params.k_class_period] The class period key.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlScheduleCancelPost = function(params)
   {
@@ -567,7 +633,8 @@
    * @param {boolean} params.is_virtual `true` to include only virtual classes;
    * @param {string} params.k_business Business key.
    * @param {string} params.k_timezone Timezone key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `dl_next_available` {?string} Nearest session date available for booking in user's or business timezone.
    */
   WlClient.prototype.wlScheduleScheduleAvailableDate = function(params)
   {
@@ -586,7 +653,28 @@
    * @param {string} params.k_business The business key.
    * @param {?string} [params.k_timezone] The time zone key.
    * @param {string} params.k_visit The visit key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_cancel` {Object[]}
+   *  `a_resource` {?string[]} An array of service resources.
+   *  `a_resource_alias` {?Object[]}
+   *  `a_staff` {string[]} The list of keys of staff members that conduct the class.
+   *  `a_uid_staff` {string[]} The list of user IDs of staff members that conduct the class.
+   *  `dt_date` {string} The visit date and time in UTC and in MySQL format.
+   *  `dtl_date` {string} The visit date in the location's time zone and in MySQL format.
+   *  `i_duration` {number} The service duration (in minutes).
+   *  `i_wait_spot` {number} The client's place in a waiting list.
+   *  `id_mode` {number} The source of a visit.
+   *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc.
+   *  `is_event` {boolean} Determines whether the visit is from an event.
+   *  `is_request` {boolean} Whether this visit is requested and requires staff confirmation.
+   *  `k_class` {string} The class key.
+   *  `k_class_period` {string} The class period key.
+   *  `k_location` {string} The key of the location where visit provides.
+   *  `k_service` {?string} The service key.
+   *  `k_staff` {?string} The key of the staff providing the appointment.
+   *  `s_calendar_file_content` {string} The .ics file for adding the service to a phone calendar.
+   *  `text_abbr_timezone` {string} The text abbreviation of the time zone.
+   *  `...` {*}
    */
   WlClient.prototype.wlVisitVisitStatusGet = function(params)
   {
@@ -607,7 +695,7 @@
    * @param {?string} [params.k_mail_pattern_live] The email pattern key.
    * @param {string} params.k_visit The visit key.
    * @param {string} params.text_reason The reason the visit was canceled.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlVisitVisitStatusPost = function(params)
   {
@@ -625,7 +713,9 @@
    * @param {number} params.id_directory The ID of the directory if locations should be filtered by enabling directory integration.
    * @param {string} params.s_business A list of businesses. Business primary keys are serialized with JSON.
    * @param {string} params.s_location A list of locations. Location primary keys are serialized with JSON.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_location` {Object[]}
+   *  `a_location_full` {Object[]}
    */
   WlClient.prototype.wlLocationListBulk = function(params)
   {
@@ -641,7 +731,8 @@
    *  Returns the key of the created or updated location.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_location` {?string} The key of the location.
    */
   WlClient.prototype.wlLocationLocation = function(params)
   {
@@ -660,7 +751,8 @@
    * @param {string} params.k_business The business key used internally by WellnessLiving.
    * @param {string} params.s_business The primary keys of the selected businesses.
    * @param {boolean} params.show_remove Determines whether removed locations should be returned.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_location` {Object[]}
    */
   WlClient.prototype.wlLocationList = function(params)
   {
@@ -675,7 +767,8 @@
    *  business, and optionally adds them to the lead report and sets intents.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `uid` {string} The key of the user.
    */
   WlClient.prototype.wlProfileProfileCreate = function(params)
   {
@@ -710,7 +803,9 @@
    * @param {string} params.k_skin The skin key if an event list is used for widget mode.
    * @param {string} params.text_search Search string to filter events by name.
    * @param {?string} [params.uid] The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_enrollment_block_list` {string[]} List of available enrollment blocks matching the requested parameters.
+   *  `a_event_list` {Object[]} A list of events corresponding to requested parameters.
    */
   WlClient.prototype.wlEventEventListGet = function(params)
   {
@@ -726,7 +821,7 @@
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] The event business key to retrieve a list of all event sessions in business.
    * @param {?string} [params.uid] The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlEventEventListPut = function(params)
   {
@@ -741,7 +836,7 @@
    * each session individually.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlEventEventCancelWhole = function(params)
   {
@@ -761,7 +856,28 @@
    * @param {number} params.i_logo_width The maximum width of the business image (in pixels).
    * @param {string} params.k_business The business key.
    * @param {string} params.text_token The authorization token.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_service_list` {number[]} A list of all business services and their availability data.
+   *  `a_tip_predefine` {number[]} The list of predefined tips in percentages.
+   *  `id_category` {number} A list of client booking flow types.
+   *  `id_claim_status` {number} Business status for managing claim request behavior.
+   *  `id_currency` {number} A list of currencies.
+   *  `id_locale` {?number} A list of locales.
+   *  `id_rank_type` {?number} Types of the possible ranks in different business.
+   *  `id_region` {number} List of available data center regions.
+   *  `is_apply_surcharge` {boolean} Determines whether surcharges to client payments are enabled in the business.
+   *  `is_franchise` {boolean} `true` if business is a franchisor or franchisee.
+   *  `is_location_multiple` {boolean} Determines whether the business has multiple locations (including inactive lo...
+   *  `is_profile_timezone` {boolean} `true` - clients of the business can select a custom time zone in their profile.
+   *  `is_progress_client` {boolean} If `true`, clients can enter the progress log. Otherwise, this will be `false`.
+   *  `is_progress_verify` {boolean} If `true`, verification of the progress log by a staff member is required. Ot...
+   *  `is_quiz_available` {boolean} Determines whether quizzes are available in the business.
+   *  `is_test` {boolean} Determines if the business operates in testing mode.
+   *  `is_tip` {boolean} If `true`, tips are available in the business. Otherwise, this will be `false`.
+   *  `is_tip_deny` {boolean} If `true`, the business has the "No tip" option displayed. Otherwise, this wi...
+   *  `is_tip_sign` {boolean} If `true`, the client must sign after selecting the tip. Otherwise, this will...
+   *  `k_business_franchisor` {string} The franchisor business key. This will be empty if this business is the franc...
+   *  `...` {*}
    */
   WlClient.prototype.wlBusinessData = function(params)
   {
@@ -776,7 +892,11 @@
    * staff account - all in a single transaction. Rate-limited per IP and globally to prevent abuse.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_business` {string} The key of the business.
+   *  `k_location` {?string} The key of the location for update or after creating.
+   *  `uid` {?string} The UID of the created staff member or `null` if no staff member should be cr...
+   *  `url_password_change` {?string} Url for password change page.
    */
   WlClient.prototype.wlBusinessBusinessPost = function(params)
   {
@@ -791,7 +911,11 @@
    * staff account. The business must not already be claimed and the location must belong to it.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_business` {string} The key of the business.
+   *  `k_location` {?string} The key of the location for update or after creating.
+   *  `uid` {?string} The UID of the created staff member or `null` if no staff member should be cr...
+   *  `url_password_change` {?string} Url for password change page.
    */
   WlClient.prototype.wlBusinessBusinessPut = function(params)
   {
@@ -814,7 +938,10 @@
    * @param {string} params.text_google_plus The Google Plus user ID. This won't be empty if the staff member is logging in with Google.
    * @param {string} params.text_mail The staff member's email to determine their UID. This won't be empty if the staff member is loggi...
    * @param {string} params.uid User key. Empty if user is not logged in, but their authorization data is known.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_business` {string[]} The businesses the staff member belongs to.
+   *  `a_business_data` {Object[]}
+   *  `uid_mail` {string} The staff member key, determined by their email. This will be empty if the UI...
    */
   WlClient.prototype.wlBusinessBusinessAccess = function(params)
   {
@@ -836,7 +963,9 @@
    * @param {string} params.k_business The key of business for which the report must be generated.
    * @param {string} params.s_filter Filter settings in encoded format.
    * @param {string} params.s_sort The field to use for sorting report data.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_data` {*[]} The report contents.
+   *  `a_total` {*[]} The report total.
    */
   WlClient.prototype.wlReportData = function(params)
   {
@@ -853,7 +982,8 @@
    * @param {number} params.cid_report Report CID.
    * @param {number} params.id_report Report ID.
    * @param {string} params.k_business ID of business for which access must be checked.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `has_access` {boolean} `true` - access is granted; `false` - access is denied.
    */
   WlClient.prototype.wlReportAccess = function(params)
   {
@@ -874,7 +1004,8 @@
    * @param {string} params.k_business The key of business for which the report collection must be generated.
    * @param {string} params.s_filter Filter settings in encoded format.
    * @param {string} params.s_sort The field to use for sorting report data.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_data` {*[][]} List of the reports contents. Key is the report id from [RsReportSid](#/compo...
    */
   WlClient.prototype.wlReportPageData = function(params)
   {
@@ -894,7 +1025,8 @@
    * @param {boolean} params.is_request_debt Defines whether new debts should be returned or only previously sent debts.
    * @param {boolean} params.is_test Defines whether debts for test or real business should be returned.
    * @param {?string} [params.k_business] The business key for which debts should be returned.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_debt` {Object[]}
    */
   WlClient.prototype.wlCollectorDebtList = function(params)
   {
@@ -912,7 +1044,8 @@
    * @param {number} params.id_currency The currency of the payment.
    * @param {string} params.k_business The key of the business from which the debt originates.
    * @param {string} params.uid The key of the user with the debt.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_pay_transaction` {string} The transaction key generated to register the payment.
    */
   WlClient.prototype.wlCollectorDebtPay = function(params)
   {
@@ -931,7 +1064,8 @@
    * @param {?string} [params.dl_start] If set, this is the start of the date window. Only debt payments added on or after this date will...
    * @param {boolean} params.is_test If `true`, debt payments from test businesses will be returned. Otherwise, this will be `false` i...
    * @param {?string} [params.k_business] The business key for which debt payments should be returned.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_transaction` {Object[]}
    */
   WlClient.prototype.wlCollectorDebtTransaction = function(params)
   {
@@ -953,7 +1087,10 @@
    * @param {string} params.k_business Business key.
    * @param {?string} [params.k_location] Location key for which need show announcement.
    * @param {string} params.text_search The filter phrase to filter announcements by name.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
+   *  `id_order` {?number} List of possible sort order.
+   *  `id_sort_field` {?number} List of fields by which you can sort.
    */
   WlClient.prototype.wlAnnouncementAnnouncementList = function(params)
   {
@@ -969,7 +1106,11 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of business to which the new user must be captured.
    * @param {string} params.k_skin The key of the widget skin. If left empty, then the default skin is used.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_field_list` {Object[]}
+   *  `a_skin` {Object[]}
+   *  `can_use_free_purchase` {?boolean} Whether it is possible to give free promotion when adding a user (only if fre...
+   *  `url_captcha` {string} The URL to load the image with a captcha test.
    */
   WlClient.prototype.wlLeadLeadGet = function(params)
   {
@@ -988,7 +1129,10 @@
    * @param {boolean} params.is_backend This will be `true` if the API is being used from the backend. Otherwise, this will be `false`.
    * @param {string} params.k_business The key of business to which the new user must be captured.
    * @param {string} params.k_skin The key of the widget skin. If left empty, then the default skin is used.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_lead_source` {?string} Key of the lead source.
+   *  `text_sign_in_error` {string} An error code if the lead is not signed in after creation.
+   *  `uid` {string} The key of the new user.
    */
   WlClient.prototype.wlLeadLeadPost = function(params)
   {
@@ -1004,7 +1148,8 @@
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_franchise Determines whether to return promotions created by Enterprise Locations (for Enterprise Cloud bus...
    * @param {string} params.k_business The business key used to get the promotions.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_promotion` {Object[]}
    */
   WlClient.prototype.wlPromotionPromotionList = function(params)
   {
@@ -1019,7 +1164,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business.
    * @param {string} params.k_promotion The key of the promotion.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlPromotionPromotionDelete = function(params)
   {
@@ -1035,7 +1180,9 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business.
    * @param {string} params.k_promotion The key of the promotion.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_promotion` {Object[]}
+   *  `o_guest_settings` {Object|*[]|null} Guest passes settings for promotion. This will be `null` if there are no gues...
    */
   WlClient.prototype.wlPromotionPromotionGet = function(params)
   {
@@ -1051,7 +1198,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business.
    * @param {string} params.k_promotion The key of the promotion.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlPromotionPromotionPost = function(params)
   {
@@ -1070,7 +1217,23 @@
    * @param {number} params.i_photo_width The width of the requested photo.
    * @param {string} params.k_business The key of the business. Users can be in multiple businesses.
    * @param {?string} [params.uid] The key of the user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `can_postcard` {boolean} Whether this user can send postcards.
+   *  `can_send_message` {boolean} Whether this user can send SMS. If `true` - user can send SMS, otherwise - `f...
+   *  `id_gender` {number} String identifiers for gender.
+   *  `is_photo_empty` {boolean} Whether photo is uploaded.
+   *  `k_staff` {string} The user's staff key for the specified business.
+   *  `s_first_name` {string} The first name of the user.
+   *  `s_last_name` {string} The surname of the user.
+   *  `text_mail_client` {string} The client`s mailing address.
+   *  `text_mail_staff` {string} The staff member's mailing address.
+   *  `text_name_first_staff` {string} The staff member's first name.
+   *  `text_name_full_client` {string} The user's login name. This is returned in cases when neither the first name ...
+   *  `text_name_full_staff` {string} The staff member's full name.
+   *  `text_name_last_staff` {string} The staff member's last name.
+   *  `uid` {?string} The key of the user.
+   *  `uid_staff` {?string} The user's UID as a staff member for the specified business.
+   *  `url_photo` {string} The URL where the user photo can be retrieved.
    */
   WlClient.prototype.wlLoginLoginGet = function(params)
   {
@@ -1089,7 +1252,8 @@
    * @param {number} params.i_photo_height The height of the requested photo.
    * @param {number} params.i_photo_width The width of the requested photo.
    * @param {string} params.k_business The key of the business. Users can be in multiple businesses.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login` {Object[]}
    */
   WlClient.prototype.wlLoginLoginPost = function(params)
   {
@@ -1106,7 +1270,7 @@
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {string} params.k_quiz_login Quiz login key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlQuizQuizElementDelete = function(params)
   {
@@ -1129,7 +1293,20 @@
    * @param {string} params.k_quiz Quiz key.
    * @param {string} params.k_quiz_login Quiz login key.
    * @param {string} params.uid_client UID of the client for which quiz requested.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_access_log` {Object[]}
+   *  `a_element` {Object|Object|Object|Object[]}
+   *  `a_setting` {Object[]}
+   *  `can_amend` {boolean} Whether user has privileges to amend form.
+   *  `i_responses` {number} Number of responses for specific quiz.
+   *  `is_active` {boolean} Quiz active status.
+   *  `is_imported` {boolean} `true` if quiz is imported, `false` otherwise.
+   *  `is_prevent_franchisee` {boolean} Whether form can be edited by franchisee.
+   *  `k_business_type` {?string} Business type key. Used only for forms in the system business.
+   *  `show_numbering` {boolean} Whether to show numbering of the form elements that supports numbering.
+   *  `text_title` {string} Quiz form title.
+   *  `url_quiz` {string} Direct URL to quiz.
+   *  `url_quiz_kiosk` {string} Kiosk direct URL to quiz.
    */
   WlClient.prototype.wlQuizQuizElementGet = function(params)
   {
@@ -1149,7 +1326,8 @@
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {string} params.k_quiz_login Quiz login key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_quiz` {string} Quiz key.
    */
   WlClient.prototype.wlQuizQuizElementPost = function(params)
   {
@@ -1167,7 +1345,10 @@
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {string} params.k_quiz_login Quiz login key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_setting` {Object[]}
+   *  `url_quiz` {string} Direct URL to quiz.
+   *  `url_quiz_kiosk` {string} Kiosk direct URL to quiz.
    */
   WlClient.prototype.wlQuizQuizElementPut = function(params)
   {
@@ -1183,7 +1364,7 @@
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {string} params.k_quiz_login Quiz login key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlQuizQuizElement72Delete = function(params)
   {
@@ -1205,7 +1386,20 @@
    * @param {string} params.k_quiz Quiz key.
    * @param {string} params.k_quiz_login Quiz login key.
    * @param {string} params.uid_client UID of the client for which quiz requested.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_access_log` {Object[]}
+   *  `a_element` {Object|Object|Object|Object[]}
+   *  `a_setting` {Object[]}
+   *  `can_amend` {boolean} Whether user has privileges to amend form.
+   *  `i_responses` {number} Number of responses for specific quiz.
+   *  `is_active` {boolean} Quiz active status.
+   *  `is_imported` {boolean} `true` if quiz is imported, `false` otherwise.
+   *  `is_prevent_franchisee` {boolean} Whether form can be edited by franchisee.
+   *  `k_business_type` {?string} Business type key. Used only for forms in the system business.
+   *  `show_numbering` {boolean} Whether to show numbering of the form elements that supports numbering.
+   *  `text_title` {string} Quiz form title.
+   *  `url_quiz` {string} Direct URL to quiz.
+   *  `url_quiz_kiosk` {string} Kiosk direct URL to quiz.
    */
   WlClient.prototype.wlQuizQuizElement72Get = function(params)
   {
@@ -1224,7 +1418,8 @@
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {string} params.k_quiz_login Quiz login key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_quiz` {string} Quiz key.
    */
   WlClient.prototype.wlQuizQuizElement72Post = function(params)
   {
@@ -1241,7 +1436,10 @@
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {string} params.k_quiz_login Quiz login key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_setting` {Object[]}
+   *  `url_quiz` {string} Direct URL to quiz.
+   *  `url_quiz_kiosk` {string} Kiosk direct URL to quiz.
    */
   WlClient.prototype.wlQuizQuizElement72Put = function(params)
   {
@@ -1259,7 +1457,7 @@
    * @param {boolean} params.is_backend If `true`, the API is being used from backend. Otherwise, this will be `false`.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_video The video key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlVideoVideoElementDelete = function(params)
   {
@@ -1278,7 +1476,28 @@
    * @param {boolean} params.is_backend If `true`, the API is being used from backend. Otherwise, this will be `false`.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_video The video key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_location` {string[]} The keys of the locations where this video is available.
+   *  `a_staff` {string[]} The keys of the user staff members who are on the video.
+   *  `a_staff_info` {Object[]}
+   *  `a_staff_uid` {string[]} The user IDs of the staff members who are on the video (authoritative list fo...
+   *  `a_video_category` {string[]} The video category keys where this video can be found.
+   *  `a_video_tag` {string[]} The video tag keys.
+   *  `dtl_publish` {?string} The date and time when the video was published.
+   *  `dtl_unpublish` {?string} The date and time when the video was unpublished.
+   *  `dtl_upload` {string} The date when the video was uploaded.
+   *  `html_embed` {string} The video embed code.
+   *  `i_calorie` {number} The count of burned calories associated with the video.
+   *  `i_current_percent` {number} The current time as a percentage of the video duration at which the user is a...
+   *  `i_current_time` {number} The current time in seconds at which the user is at in the video.
+   *  `i_duration` {number} The video duration in seconds.
+   *  `i_watch` {number} The number of video views.
+   *  `id_embed_source` {?number} List of embed video sources.
+   *  `id_location_select` {number} A list of two answers for any question: Yes or No.
+   *  `id_source` {number} List of video types.
+   *  `is_calorie` {boolean} If `true`, the calorie count will be displayed on the video.
+   *  `is_converted` {boolean} If `true`, the video is converted.
+   *  `...` {*}
    */
   WlClient.prototype.wlVideoVideoElementGet = function(params)
   {
@@ -1298,7 +1517,8 @@
    * @param {boolean} params.is_converted If `true`, the video is converted.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_video The video key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_video` {string} The video key.
    */
   WlClient.prototype.wlVideoVideoElementPost = function(params)
   {
@@ -1313,7 +1533,9 @@
    * the user an immediate validation error without persisting the video record.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_embed_source` {?number} List of embed video sources.
+   *  `json_setup` {string} Video.js media player initialization parameters in JSON format.
    */
   WlClient.prototype.wlVideoVideoElementPut = function(params)
   {
@@ -1345,7 +1567,13 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.text_search The filter phrase to filter videos by name.
    * @param {?string} [params.uid] UID of the client who request list of videos.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
+   *  `a_page` {Object[]}
+   *  `id_embed_source` {?number} List of embed video sources.
+   *  `id_order` {?number} List of possible sort order.
+   *  `id_sort` {?number} List of video catalog sorting types.
+   *  `json_setup` {string} Video.js media player initialization parameters in JSON format.
    */
   WlClient.prototype.wlVideoVideoListGet = function(params)
   {
@@ -1362,7 +1590,9 @@
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_backend If `true`, the API is being used from backend. Otherwise, this will be `false`.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_embed_source` {?number} List of embed video sources.
+   *  `json_setup` {string} Video.js media player initialization parameters in JSON format.
    */
   WlClient.prototype.wlVideoVideoListPut = function(params)
   {
@@ -1377,7 +1607,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_channel Messenger channel key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlFitbuilderMessage = function(params)
   {
@@ -1392,7 +1622,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlMailSendMail = function(params)
   {
@@ -1409,7 +1639,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_staff] The key of the staff member resolved and used internally by this API.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_staff` {?string} The key of the staff member resolved and used internally by this API.
    */
   WlClient.prototype.wlStaffStaffElement = function(params)
   {
@@ -1426,7 +1657,8 @@
    * @param {number} params.id_skin Skin type, one of [RsSkinSid](#/components/schemas/RsSkinSid) constants.
    * @param {string} params.k_business Key of the business.
    * @param {string} params.s_foreign_id Foreign skin key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_skin` {string} Skin key.
    */
   WlClient.prototype.wlSkinSkinForeignDelete = function(params)
   {
@@ -1444,7 +1676,8 @@
    * @param {number} params.id_skin Skin type, one of [RsSkinSid](#/components/schemas/RsSkinSid) constants.
    * @param {string} params.k_business Key of the business.
    * @param {string} params.s_foreign_id Foreign skin key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_skin` {string} Skin key.
    */
   WlClient.prototype.wlSkinSkinForeignPost = function(params)
   {
@@ -1462,7 +1695,8 @@
    * @param {number} params.id_skin Skin type, one of [RsSkinSid](#/components/schemas/RsSkinSid) constants.
    * @param {string} params.k_business Key of the business.
    * @param {string} params.s_foreign_id Foreign skin key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_skin` {string} Skin key.
    */
   WlClient.prototype.wlSkinSkinForeignPut = function(params)
   {
@@ -1478,7 +1712,10 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key of the tags.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
+   *  `has_fee` {boolean} Whether a business did set up a penalty fee for failed automatic payments.
+   *  `has_surcharge` {boolean} Whether a business did set up surcharges.
    */
   WlClient.prototype.wlTagTagListGet = function(params)
   {
@@ -1494,7 +1731,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key of the tags.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
    */
   WlClient.prototype.wlTagTagListPost = function(params)
   {
@@ -1509,7 +1747,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_tax The tax key to get information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `text_tax` {string} The tax title.
    */
   WlClient.prototype.wlTaxTax = function(params)
   {
@@ -1524,7 +1763,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business for which to get a list of taxes.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
    */
   WlClient.prototype.wlTaxTaxList = function(params)
   {
@@ -1538,7 +1778,19 @@
    * information if the business awards points for leaving a review.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `i_score` {number} Reward score for leaving a review.
+   *  `i_score_facebook` {number} Reward score for sharing a review on Facebook.
+   *  `i_score_twitter` {number} Reward score for sharing a review on Twitter.
+   *  `is_score` {boolean} If a reward score for leaving a review exists.
+   *  `is_score_facebook` {boolean} If a reward score for sharing a review on Facebook exists.
+   *  `is_score_twitter` {boolean} If a reward score for sharing a review on Twitter exists.
+   *  `is_share_points` {boolean} If a reward score for sharing exists.
+   *  `is_share_points_none` {boolean} If a reward score does not exist for leaving a review or sharing the review.
+   *  `k_login_activity` {string} The key of the review writing activity. This will be empty if the review was ...
+   *  `k_review` {string} Review key.
+   *  `uid` {string} The UID of client who leaves review.
+   *  `url_share` {string} The sharing url of the review.
    */
   WlClient.prototype.wlReviewReview = function(params)
   {
@@ -1552,7 +1804,7 @@
    * specified review as featured; if unfeaturing, clears the featured flag on the given review.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlReviewReviewFeature = function(params)
   {
@@ -1566,7 +1818,7 @@
    * and records the replying staff or admin user.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlReviewReviewReply = function(params)
   {
@@ -1582,7 +1834,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_rank_category Rank category keys. Used to filter belts by belt categories.
    * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_rank_list` {Object[]}
    */
   WlClient.prototype.wlRankRank = function(params)
   {
@@ -1599,7 +1852,10 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.dl_work The date working hours are required for.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_location_holiday` {string[]} A list of the location's closed day titles by location keys on the date `dl_w...
+   *  `is_business_holiday` {boolean} `true` if the business has a closed day on the date `dl_work`, `false` if oth...
+   *  `text_business_title` {string} The message used for the business's closed day on the date `dl_work`.
    */
   WlClient.prototype.wlHolidayHoliday = function(params)
   {
@@ -1614,7 +1870,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_business_holidays` {Object[]}
    */
   WlClient.prototype.wlHolidayBulkBusinessHoliday = function(params)
   {
@@ -1630,7 +1887,7 @@
    * @param {string} params.k_business The ID of the business the user account belongs to.
    * @param {string} params.k_pay_account The ID of the user account to refill.
    * @param {string} params.uid The ID of the user whose account is being refilled.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.thothWlPayAccountChargeCharge = function(params)
   {
@@ -1646,7 +1903,16 @@
    * @param {number} params.i_page The page of the report, starting from 0.
    * @param {boolean} params.is_refresh Determines whether the report should be refreshed.
    * @param {string} params.k_business The key of the business for which report should be generated.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_field` {string[]} A list of fields in the report.
+   *  `a_row` {*[]} The report data.
+   *  `a_warning` {string[]} The warning list of the report.
+   *  `dtu_complete` {?string} The date and time if the report has completed generation. Otherwise, this wil...
+   *  `dtu_queue` {?string} The date and time if this report has been put in the generation queue. Otherw...
+   *  `dtu_start` {?string} The date and time if generation of this report has started. Otherwise, this w...
+   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation.
+   *  `is_more` {boolean} Determines whether to show more rows in the report.
+   *  `is_report_complete` {boolean} Determines whether the report is complete.
    */
   WlClient.prototype.thothWlPayTransactionReportTransactionAllPayment = function(params)
   {
@@ -1660,7 +1926,10 @@
    * @param {string} params.k_business ID of current business.
    * @param {string} params.k_location Location to show information for.
    * @param {string} params.uid ID of a user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_bank_card` {Object[]}
+   *  `a_list` {*[]} List of bank cards.
+   *  `can_add` {boolean} Whether new card can be added.
    */
   WlClient.prototype.thothWlPayBankCardList = function(params)
   {
@@ -1679,7 +1948,23 @@
    * @param {boolean} params.is_temporary If `true`, the temporary image will be retrieved. Otherwise, this will be `false`.
    * @param {string} params.k_id The image ID set in `s_class`.
    * @param {string} params.s_class The name of the class that manages this image.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_text_empty` {?Object[]}
+   *  `html_image_hint` {string} An HTML string to use for the image recommendation.
+   *  `i_height_max` {?number} The maximum height of image.
+   *  `i_height_min` {?number} The minimum height of image.
+   *  `i_thumbnail_height` {?number} The height of the thumbnail image.
+   *  `i_thumbnail_width` {?number} The width of the thumbnail image.
+   *  `i_width_max` {?number} The maximum width of the image.
+   *  `i_width_min` {?number} The minimum width of the image.
+   *  `is_circular` {?boolean} If `true`, the image is treated as circular. Otherwise, this will be `false`.
+   *  `is_delete_allow` {?boolean} If `true`, image deletion is permitted. Otherwise, this will be `false`.
+   *  `s_code` {?string} The link protection code.
+   *  `s_link` {?string} The image link.
+   *  `url_empty` {?string} The image URL that should be displayed in cases where no image is uploaded.
+   *  `url_thumbnail` {?string} The thumbnail URL of the image.
+   *  `url_upload` {?string} The script URL where new image should be uploaded from.
+   *  `url_view` {?string} The URL of the full image.
    */
   WlClient.prototype.coreDriveImageUploadImageUploadGet = function(params)
   {
@@ -1697,7 +1982,8 @@
    * @param {Object} [params] Request parameters.
    * @param {*[]} params.a_config Allows to give custom parameters which can be required for different types of images.
    * @param {string} params.s_class The name of the class that manages this image.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_image` {Object[]}
    */
   WlClient.prototype.coreDriveImageUploadImageUploadPost = function(params)
   {
@@ -1715,7 +2001,23 @@
    * @param {boolean} params.is_temporary If `true`, the temporary image will be retrieved. Otherwise, this will be `false`.
    * @param {string} params.k_id The image ID set in `s_class`.
    * @param {string} params.s_class The name of the class that manages this image.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_text_empty` {?Object[]}
+   *  `html_image_hint` {string} An HTML string to use for the image recommendation.
+   *  `i_height_max` {?number} The maximum height of image.
+   *  `i_height_min` {?number} The minimum height of image.
+   *  `i_thumbnail_height` {?number} The height of the thumbnail image.
+   *  `i_thumbnail_width` {?number} The width of the thumbnail image.
+   *  `i_width_max` {?number} The maximum width of the image.
+   *  `i_width_min` {?number} The minimum width of the image.
+   *  `is_circular` {?boolean} If `true`, the image is treated as circular. Otherwise, this will be `false`.
+   *  `is_delete_allow` {?boolean} If `true`, image deletion is permitted. Otherwise, this will be `false`.
+   *  `s_code` {?string} The link protection code.
+   *  `s_link` {?string} The image link.
+   *  `url_empty` {?string} The image URL that should be displayed in cases where no image is uploaded.
+   *  `url_thumbnail` {?string} The thumbnail URL of the image.
+   *  `url_upload` {?string} The script URL where new image should be uploaded from.
+   *  `url_view` {?string} The URL of the full image.
    */
   WlClient.prototype.coreDriveImageUploadImageUploadPut = function(params)
   {
@@ -1732,7 +2034,17 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_id The key of the image within `s_class`.
    * @param {string} params.s_class The name of the class that manages this image.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `has_crop` {boolean} If `true`, a crop is used. Otherwise, this will be `false` if a crop isn't us...
+   *  `i_height` {number} The actual height of the thumbnail image.
+   *  `i_height_src` {number} The height of the original image.
+   *  `i_rotate` {number} The angle of the image rotation compared to the original.
+   *  `i_width` {number} The actual width of the thumbnail image.
+   *  `i_width_src` {number} The width of the original image.
+   *  `id_type_src` {number} List of image types.
+   *  `is_resize` {boolean} If `true`, the thumbnail is a resized variant of the original image.
+   *  `url_thumbnail` {string} The URL to the resized and rotated image in file storage.
+   *  `url_view` {string} The URL to the original image in file storage.
    */
   WlClient.prototype.coreDriveImageUploadImageUploadTemporary = function(params)
   {
@@ -1751,7 +2063,8 @@
    * @param {string} params.s_key_session The session key.
    * @param {string} params.url_domain Alias of `url_origin`.
    * @param {string} params.url_origin Origin for client requests.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `s_key_secret` {string} The secret key for the request signing.
    */
   WlClient.prototype.coreRequestApiKeySecret = function(params)
   {
@@ -1767,7 +2080,9 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.text_push The ID to use to send a security code via a push notification.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `dtu_expire` {string} The expiration date/time of the PIN code.
+   *  `text_pin` {string} The PIN code.
    */
   WlClient.prototype.coreRequestTokenTokenPin = function(params)
   {
@@ -1784,7 +2099,8 @@
    * @param {Object} [params] Request parameters.
    * @param {?number} params.id_locale The locale ID to find regions for. One of the [LocaleSid](#/components/schemas/Core.Locale.Locale...
    * @param {boolean} params.is_locale_all Determines whether to get regions for all locales.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_region` {Object[]}
    */
   WlClient.prototype.coreGeoRegionRegion = function(params)
   {
@@ -1798,7 +2114,7 @@
    * and stores them in the session so that subsequent API requests requiring CAPTCHA verification can use them.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.coreGoogleCaptchaGoogleCaptcha = function(params)
   {
@@ -1812,7 +2128,8 @@
    * Requires reCAPTCHA v3 to be enabled; throws an exception otherwise.
    *
    * @param {Object} [params] Request parameters.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `f_score` {?number} Overridden score value for V3 captcha.
    */
   WlClient.prototype.coreGoogleCaptchaCaptchaScoreGet = function(params)
   {
@@ -1828,7 +2145,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.text_token The user token CAPTCHA from [CaptchaVersionSid::V3](#/components/schemas/Core.Google.Captcha.Capt...
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_response` {number} List of responses for Google Captcha token.
    */
   WlClient.prototype.coreGoogleCaptchaCaptchaScorePost = function(params)
   {
@@ -1843,7 +2161,7 @@
    * score override feature to be enabled.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.coreGoogleCaptchaCaptchaScorePut = function(params)
   {
@@ -1858,7 +2176,10 @@
    * those URLs on the frontend.
    *
    * @param {Object} [params] Request parameters.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `uid` {?string} The current user key.
+   *  `url_password_change` {string} A URL that a user can visit to reset their password.
+   *  `url_register` {string} The URL to the registration page.
    */
   WlClient.prototype.corePassportLoginInfo = function(params)
   {
@@ -1876,7 +2197,7 @@
    * @param {string} params.text_code The verification code, which can be obtained from the "reset password" email link. This is a requ...
    * @param {string} params.text_login The user's login, which can be obtained from the "reset password" email link. This is a required ...
    * @param {string} params.text_mail The user's email address, which can be obtained from the "reset password" email link. This is a r...
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.corePassportChangePasswordChangePasswordApply = function(params)
   {
@@ -1891,7 +2212,8 @@
    * to set a new password using [ChangePasswordApplyApi](/Core/Passport/ChangePassword/ChangePasswordApply.json).
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `text_error` {string} The error code. This will be an empty string if the email has been sent succe...
    */
   WlClient.prototype.corePassportChangePasswordChangePasswordBegin = function(params)
   {
@@ -1906,7 +2228,7 @@
    * for that application, and unlinks the Apple account from the current user.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.socialAppleLoginAppleLoginDelete = function(params)
   {
@@ -1921,7 +2243,7 @@
    * signs them in or creates a new account using the Apple identity.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.socialAppleLoginAppleLoginPost = function(params)
   {
@@ -1936,7 +2258,7 @@
    * using the Facebook identity and the configured Facebook credentials.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.socialFacebookLoginLogin = function(params)
   {
@@ -1950,7 +2272,7 @@
    * credential for the application, and completes the OAuth 2.0 flow to sign the user in or create a new account.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.socialGooglePlusLogin = function(params)
   {
@@ -1970,7 +2292,12 @@
    * ...
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_calendar` {string[]} Keys are dates of the days inside requested date range, when there is at leas...
+   *  `a_quick` {Object[]}
+   *  `a_session` {Object[]}
+   *  `is_timezone_different` {boolean} If `true`, the list of sessions contains sessions from different time zones. ...
+   *  `is_virtual_service` {boolean} If `true`, there exists at least one virtual service by a specified
    */
   WlClient.prototype.wlScheduleClassListClassList68 = function(params)
   {
@@ -2004,7 +2331,11 @@
    * @param {boolean} params.show_class If `true`, classes will be included in the response. `false` - otherwise.
    * @param {boolean} params.show_event If `true`, events are also returned. If `false`, only classes are returned.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_calendar` {string[]} Keys are dates of the days inside requested date range, when there is at leas...
+   *  `a_session` {Object[]}
+   *  `is_timezone_different` {boolean} If `true`, the list of sessions contains sessions from different time zones. ...
+   *  `is_virtual_service` {boolean} If `true`, there exists at least one virtual service by a specified
    */
   WlClient.prototype.wlScheduleClassListClassList = function(params)
   {
@@ -2023,7 +2354,8 @@
    * @param {string} params.k_business The key of the current business.
    * @param {string} params.k_location The key of the current location.
    * @param {string} params.uid The key of the current user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_tab` {Object[]}
    */
   WlClient.prototype.wlScheduleTabTab = function(params)
   {
@@ -2043,7 +2375,14 @@
    * @param {?string} [params.k_business] Key of the business in which the action is performed.
    * @param {string} params.k_class_period The class period key.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_asset` {?Object[]}
+   *  `a_class` {?Object[]}
+   *  `a_location` {?Object[]}
+   *  `a_session_result` {Object[]}
+   *  `a_staff` {?Object[]}
+   *  `a_virtual_location` {string[]} List of other locations where virtual class can be booked.
+   *  `a_visits_required` {Object[]}
    */
   WlClient.prototype.wlScheduleClassViewClassViewGet = function(params)
   {
@@ -2063,7 +2402,13 @@
    * @param {?string} [params.k_business] Key of the business in which the action is performed.
    * @param {string} params.k_class_period The class period key.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_asset` {?Object[]}
+   *  `a_class` {?Object[]}
+   *  `a_location` {?Object[]}
+   *  `a_session_result` {Object[]}
+   *  `a_staff` {?Object[]}
+   *  `a_virtual_location` {string[]} List of other locations where virtual class can be booked.
    */
   WlClient.prototype.wlScheduleClassViewClassViewPost = function(params)
   {
@@ -2080,7 +2425,28 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of the business to which the visit belongs.
    * @param {string} params.k_visit Visit key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_appointment_visit_info` {Object[]}
+   *  `a_asset` {Object[]}
+   *  `a_class_info` {?Object[]}
+   *  `a_resource_image` {?Object[]}
+   *  `a_staff` {Object[]}
+   *  `dt_cancel` {string} The latest date and time for when the visit can be canceled without penalty.
+   *  `dt_date_global` {string} The date and time of the visit in UTC.
+   *  `dt_date_local` {string} The date and time of the visit in the local time zone.
+   *  `dtl_location` {string} Session date/time in timezone of the location where it takes place.
+   *  `html_description` {string} The description of the service.
+   *  `html_special` {string} The special instructions for the service.
+   *  `i_capacity` {?number} Capacity of the service.
+   *  `i_duration` {number} The scheduled duration of the visit.
+   *  `i_wait_spot` {number} Estimated place of reservation on the waiting list.
+   *  `id_note` {?number} A list of types of visit note.
+   *  `id_virtual_provider` {?number} List of possible value of virtual integrations.
+   *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc.
+   *  `is_checkin` {boolean} If `true`, then this visit is ready to be checked in. If `false`, then this v...
+   *  `is_enable_client_cancel` {boolean} This will be `true` if clients can cancel the session. Otherwise, this will b...
+   *  `is_event` {boolean} If `true`, then this visit is a part of a larger event. If `false`, then this...
+   *  `...` {*}
    */
   WlClient.prototype.wlSchedulePagePageElement = function(params)
   {
@@ -2100,7 +2466,8 @@
    * @param {boolean} params.is_past If `true`, then all the client previous visits will be retrieved.
    * @param {string} params.k_business The business key.
    * @param {?string} [params.uid] The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_visit` {Object[]}
    */
   WlClient.prototype.wlSchedulePagePageList = function(params)
   {
@@ -2119,7 +2486,8 @@
    * @param {string} params.k_business The business key. This will be an empty string if not set yet.
    * @param {string} params.k_location Location key.
    * @param {string} params.k_service Service key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_addon_data` {Object[]}
    */
   WlClient.prototype.wlAppointmentEditAddonUpdateGet = function(params)
   {
@@ -2136,7 +2504,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_appointment The appointment key.
    * @param {string} params.k_business The business key. This will be an empty string if not set yet.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlAppointmentEditAddonUpdatePut = function(params)
   {
@@ -2152,7 +2520,27 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_appointment Class identifier to get information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_next` {Object[]}
+   *  `a_previous` {Object[]}
+   *  `a_question` {Object[]}
+   *  `a_resource` {Object[]}
+   *  `a_shop_product_option` {Object[]}
+   *  `dt_date_local` {string} Date/time of appointment in location timezone.
+   *  `i_duration` {?number} Appointment duration (in minutes).
+   *  `i_index` {?number} Index of booked asset.
+   *  `id_appointment_pay` {number} The possible payment types an appointment can have.
+   *  `k_location` {string} Location key.
+   *  `k_login_promotion` {?string} Purchased promotion which provides this appointment.
+   *  `k_resource` {?string} Asset key.
+   *  `k_resource_type` {?string} Asset category key.
+   *  `k_service` {?string} Service key.
+   *  `k_service_category` {?string} Service category key.
+   *  `k_session_pass` {?string} Purchased drop-in which provides this appointment.
+   *  `k_staff` {string} Staff member who conducts this appointment.
+   *  `text_title` {string} Title of the appointment.
+   *  `uid_appointment` {string} User for whom this appointment was booked.
+   *  `uid_staff` {?string} Staff member who conducts this appointment.
    */
   WlClient.prototype.wlAppointmentInfoInfo = function(params)
   {
@@ -2171,7 +2559,8 @@
    * @param {number} params.id_service Type of service to return. One of [ServiceSid](#/components/schemas/Wl.Service.ServiceSid) consta...
    * @param {string} params.k_business The key of the business.
    * @param {string} params.uid The key of the user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_service_last` {string[]} List of last booked services.
    */
   WlClient.prototype.wlAppointmentRecentRecentService = function(params)
   {
@@ -2191,7 +2580,11 @@
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_book_error` {Object[]}
+   *  `a_login_activity_book` {string[]} Primary keys of users' activity that correspond to bookings made.
+   *  `a_visit` {string[]} Primary keys of bookings made.
+   *  `k_login_activity_purchase` {?string} The key of the user's activity corresponding to the purchase made.
    */
   WlClient.prototype.wlBookProcessProcessGroup = function(params)
   {
@@ -2214,7 +2607,21 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_family_relation_login_allow` {?number[]} Relationships who clients are allowed to book for.
+   *  `a_path` {Object[]}
+   *  `id_pay_require` {number} List of possible modes to require amount while booking a class.
+   *  `is_age_require` {boolean} `true` if this class has age restriction and requires user to specify age. `f...
+   *  `is_card_authorize` {boolean} Determines if the client must authorize the credit card.
+   *  `is_event` {boolean} If `true`, the session being booked is an event. Otherwise, this will be `fal...
+   *  `is_family_relation_book` {boolean} Determines whether clients are allowed to book for their relationships withou...
+   *  `is_free` {boolean} Determines whether the class/event is free (price).
+   *  `is_have_ach` {boolean} `true` if the client has an ach account, `false` otherwise.
+   *  `is_have_credit_card` {boolean} If `true`, the client has a credit card. Otherwise, this will be `false`.
+   *  `is_session` {boolean} `true` - the client can select several sessions per booking.
+   *  `is_wait` {boolean} If `true`, the user can be placed on a wait list. Otherwise, this will be `fa...
+   *  `is_wait_list_unpaid` {boolean} If `true`, the user can be placed on a wait list without payment, `false` oth...
+   *  `k_location` {string} The key of the location where the session is booked.
    */
   WlClient.prototype.wlBookProcessProcess = function(params)
   {
@@ -2236,7 +2643,21 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_family_relation_login_allow` {?number[]} Relationships who clients are allowed to book for.
+   *  `a_path` {Object[]}
+   *  `id_pay_require` {number} List of possible modes to require amount while booking a class.
+   *  `is_age_require` {boolean} `true` if this class has age restriction and requires user to specify age. `f...
+   *  `is_card_authorize` {boolean} Determines if the client must authorize the credit card.
+   *  `is_event` {boolean} If `true`, the session being booked is an event. Otherwise, this will be `fal...
+   *  `is_family_relation_book` {boolean} Determines whether clients are allowed to book for their relationships withou...
+   *  `is_free` {boolean} Determines whether the class/event is free (price).
+   *  `is_have_ach` {boolean} `true` if the client has an ach account, `false` otherwise.
+   *  `is_have_credit_card` {boolean} If `true`, the client has a credit card. Otherwise, this will be `false`.
+   *  `is_session` {boolean} `true` - the client can select several sessions per booking.
+   *  `is_wait` {boolean} If `true`, the user can be placed on a wait list. Otherwise, this will be `fa...
+   *  `is_wait_list_unpaid` {boolean} If `true`, the user can be placed on a wait list without payment, `false` oth...
+   *  `k_location` {string} The key of the location where the session is booked.
    */
   WlClient.prototype.wlBookProcessProcess54 = function(params)
   {
@@ -2257,7 +2678,21 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_family_relation_login_allow` {?number[]} Relationships who clients are allowed to book for.
+   *  `a_path` {Object[]}
+   *  `id_pay_require` {number} List of possible modes to require amount while booking a class.
+   *  `is_age_require` {boolean} `true` if this class has age restriction and requires user to specify age. `f...
+   *  `is_card_authorize` {boolean} Determines if the client must authorize the credit card.
+   *  `is_event` {boolean} If `true`, the session being booked is an event. Otherwise, this will be `fal...
+   *  `is_family_relation_book` {boolean} Determines whether clients are allowed to book for their relationships withou...
+   *  `is_free` {boolean} Determines whether the class/event is free (price).
+   *  `is_have_ach` {boolean} `true` if the client has an ach account, `false` otherwise.
+   *  `is_have_credit_card` {boolean} If `true`, the client has a credit card. Otherwise, this will be `false`.
+   *  `is_session` {boolean} `true` - the client can select several sessions per booking.
+   *  `is_wait` {boolean} If `true`, the user can be placed on a wait list. Otherwise, this will be `fa...
+   *  `is_wait_list_unpaid` {boolean} If `true`, the user can be placed on a wait list without payment, `false` oth...
+   *  `k_location` {string} The key of the location where the session is booked.
    */
   WlClient.prototype.wlBookProcessProcess59 = function(params)
   {
@@ -2274,7 +2709,12 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of the business within which the action is performed.
    * @param {string} params.k_visit Visit key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_penalty` {?Object[]}
+   *  `can_cancel` {boolean} `true` if the booking can be canceled online by the specified user, `false` o...
+   *  `is_flag` {boolean} `true` if the client's account will be flagged instead of charging a monetary...
+   *  `is_late` {boolean} `true` if the cancellation would be considered a late cancel, `false` otherwise.
+   *  `is_refund` {boolean} `true` if the visit credit (from the purchase option used to book) will be re...
    */
   WlClient.prototype.wlBookCancelCancelCan = function(params)
   {
@@ -2292,7 +2732,11 @@
    * @param {?string[]} [params.a_uid] User keys.
    * @param {string} params.k_location The location key.
    * @param {?string} [params.uid] The user's key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_flag` {Object[]}
+   *  `a_restrictions_multiple` {?Object[]}
+   *  `a_restrictions_single` {?Object[]}
+   *  `is_flag` {boolean} `true` if the user is flagged and can make purchases, but cannot make new res...
    */
   WlClient.prototype.wlLocationFlagFlag = function(params)
   {
@@ -2306,7 +2750,7 @@
    * working hours for the location. Days not present in the list are treated as non-working days.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLocationWorkTimeLocationWorkTime = function(params)
   {
@@ -2323,7 +2767,28 @@
    * @param {number} params.i_logo_height Maximum location image height.
    * @param {number} params.i_logo_width Maximum location image width.
    * @param {string} params.k_location The location key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_age` {number[]} A list of ages that are permitted for visiting this location.
+   *  `a_amenities` {number[]} A list of facilities that are available in this location.
+   *  `a_level` {string[]} A list of levels that are suitable for visiting this location.
+   *  `a_logo` {Object[]}
+   *  `a_slide` {Object[]}
+   *  `a_work` {Object[]}
+   *  `f_latitude` {number} The latitude coordinate of the location.
+   *  `f_longitude` {number} The longitude coordinate of the location.
+   *  `html_description_full` {string} The full description of the location.
+   *  `html_description_preview` {string} A shorter description of the location. A preview of `html_description_full`.
+   *  `id_industry` {number} List of different types for landing pages based on business types.
+   *  `is_phone` {boolean} `true` if to display phone number on location page. `false` otherwise.
+   *  `is_top_choice` {boolean} `true` if WellnessLiving identifies this is a top choice location, `false` ot...
+   *  `k_business` {string} The key of the business this location belongs to.
+   *  `k_business_type` {string} The key of the business type this location belongs to.
+   *  `k_timezone` {string} The timezone.
+   *  `s_address` {string} The physical address of the location.
+   *  `s_map` {string} A string that can be used in navigator programs.
+   *  `s_phone` {string} The phone number for the location.
+   *  `s_timezone` {string} The system name of the time zone.
+   *  `...` {*}
    */
   WlClient.prototype.wlLocationViewView = function(params)
   {
@@ -2337,7 +2802,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.s_class_name Name of the Sid class to get list from.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
    */
   WlClient.prototype.wlLocationFacilityFacilitySid = function(params)
   {
@@ -2356,7 +2822,19 @@
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.uid The key of the user to edit.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_error_list` {?Object[]}
+   *  `a_phone_inherit` {Object[]}
+   *  `a_structure` {Object[]}
+   *  `can_password_change` {boolean} Whether current user can change password of the given user or not.
+   *  `is_a2p` {boolean} `true` if the A2P 10DLC registration feature is enabled for this business, `f...
+   *  `is_address_inherit` {?boolean} Whether the address be inherited.
+   *  `is_short` {boolean} Indicates whether to display the full profile edit form or the short version.
+   *  `k_lead_source` {?string} Key of the lead source.
+   *  `s_class` {?string} Exception class name.
+   *  `s_code` {?string} Code of the error.
+   *  `text_message` {?string} Error message.
+   *  `uid_inherit_address` {?string} UID of the user, whose address was inherited by the existing client we want t...
    */
   WlClient.prototype.wlProfileEditEditGet = function(params)
   {
@@ -2383,7 +2861,13 @@
    * @param {string} params.uid_existed The UID of an existing user in another business to add to the current business.
    * @param {?string} [params.uid_inherit_address] UID of the user, whose address was inherited by the existing client we want to add.
    * @param {string} params.uid_relative_key UID of the user, whose email was inherited by the existing client we want to add.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_error_list` {?Object[]}
+   *  `s_class` {?string} Exception class name.
+   *  `s_code` {?string} Code of the error.
+   *  `s_status` {?string} Status of the request.
+   *  `text_message` {?string} Error message.
+   *  `uid` {string} The key of the user to edit.
    */
   WlClient.prototype.wlProfileEditEditPost = function(params)
   {
@@ -2404,7 +2888,7 @@
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.uid The key of the user to edit.
    * @param {?string} [params.uid_inherit_address] UID of the user, whose address was inherited by the existing client we want to add.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlProfileEditEditPut = function(params)
   {
@@ -2419,7 +2903,8 @@
    *  user.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `uid` {string} The key of the user added.
    */
   WlClient.prototype.wlProfileEditCreate = function(params)
   {
@@ -2439,7 +2924,19 @@
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.text_token The security token.
    * @param {string} params.uid The key of the user to edit.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_error_list` {?Object[]}
+   *  `a_phone_inherit` {Object[]}
+   *  `a_structure` {Object[]}
+   *  `can_password_change` {boolean} Whether current user can change password of the given user or not.
+   *  `is_a2p` {boolean} `true` if the A2P 10DLC registration feature is enabled for this business, `f...
+   *  `is_address_inherit` {?boolean} Whether the address be inherited.
+   *  `is_short` {boolean} Indicates whether to display the full profile edit form or the short version.
+   *  `k_lead_source` {?string} Key of the lead source.
+   *  `s_class` {?string} Exception class name.
+   *  `s_code` {?string} Code of the error.
+   *  `text_message` {?string} Error message.
+   *  `uid_inherit_address` {?string} UID of the user, whose address was inherited by the existing client we want t...
    */
   WlClient.prototype.wlProfileEditEditByTokenGet = function(params)
   {
@@ -2466,7 +2963,13 @@
    * @param {string} params.uid_existed The UID of an existing user in another business to add to the current business.
    * @param {?string} [params.uid_inherit_address] UID of the user, whose address was inherited by the existing client we want to add.
    * @param {string} params.uid_relative_key UID of the user, whose email was inherited by the existing client we want to add.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_error_list` {?Object[]}
+   *  `s_class` {?string} Exception class name.
+   *  `s_code` {?string} Code of the error.
+   *  `s_status` {?string} Status of the request.
+   *  `text_message` {?string} Error message.
+   *  `uid` {string} The key of the user to edit.
    */
   WlClient.prototype.wlProfileEditEditByTokenPost = function(params)
   {
@@ -2487,7 +2990,7 @@
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.uid The key of the user to edit.
    * @param {?string} [params.uid_inherit_address] UID of the user, whose address was inherited by the existing client we want to add.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlProfileEditEditByTokenPut = function(params)
   {
@@ -2502,7 +3005,7 @@
    *  be skipped by staff with the appropriate access level.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlProfileEditEditPassword = function(params)
   {
@@ -2521,7 +3024,8 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.text_search The filter phrase to filter attach by name.
    * @param {string} params.uid Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
    */
   WlClient.prototype.wlProfileAttachAttachList = function(params)
   {
@@ -2538,7 +3042,7 @@
    * @param {string} params.k_attach Attachment key.
    * @param {string} params.k_business Business key.
    * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlProfileAttachAttachElementDelete = function(params)
   {
@@ -2556,7 +3060,16 @@
    * @param {string} params.k_attach Attachment key.
    * @param {string} params.k_business Business key.
    * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `dtu_create` {string} Date and time of the creation.
+   *  `dtu_edit` {string} Date and time of the last edit.
+   *  `s_show_delete` {string} Flag for showing a delete button.
+   *  `text_description` {?string} Attachment description.
+   *  `text_filename` {?string} Attachment file name.
+   *  `text_filesize` {string} Attachment file size.
+   *  `text_filetype` {string} Attachment file type.
+   *  `url_file` {string} URL to get attachment file.
+   *  `url_preview` {?string} URL to get preview attachment data.
    */
   WlClient.prototype.wlProfileAttachAttachElementGet = function(params)
   {
@@ -2574,7 +3087,8 @@
    * @param {string} params.k_attach Attachment key.
    * @param {string} params.k_business Business key.
    * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_attach` {string} Attachment key.
    */
   WlClient.prototype.wlProfileAttachAttachElementPost = function(params)
   {
@@ -2597,7 +3111,28 @@
    * @param {string} params.k_login_promotion The key of the user's promotion.
    * @param {string} params.k_purchase_item The key of the purchased item. This should be specified only for ordinary purchases, not for thos...
    * @param {string} params.k_session_pass The key of the make-up session used to attend an event.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_component` {Object[]}
+   *  `a_logo` {Object[]}
+   *  `a_restrict` {Object[]}
+   *  `a_tax` {Object[]}
+   *  `can_renew` {boolean} This is `true` only if the purchased item is a promotion and the user can con...
+   *  `dl_purchase` {string} Local date of purchase in MySQL format.
+   *  `dl_start` {string} The start date of the promotion. This is used only if the purchased item is a...
+   *  `dt_end` {string} The expiration date of the promotion. This is used only if the purchased item...
+   *  `dt_hold_end` {string} The end date of the promotion hold. This is used only for promotions on hold.
+   *  `dt_hold_start` {string} The start date of the promotion hold. This is used only for promotions on hold.
+   *  `dt_purchase` {string} The purchase date of the purchased item. This is given in GMT in MySQL format.
+   *  `dt_send` {string} The date for when the email regarding the gift card should be sent (or was se...
+   *  `f_discount_login_type_percent` {number} The percentage value of the discount for the client type. This is empty if th...
+   *  `html_description` {string} The description of the purchased item.
+   *  `i_book` {number} The number of sessions remaining for a promotion. This is used only for promo...
+   *  `i_buy` {number} The number of purchased items bought at the time of purchase.
+   *  `i_discount_count` {number} The percentage value of the discount given by a reward prize. This field will...
+   *  `i_duration` {number} This field is only added for promotions. Duration of promotion. Measurement u...
+   *  `i_left` {number} The number of bookings remaining in this promotion. This value is used only f...
+   *  `i_limit` {number} The number of visits which can be made with this promotion. This is used only...
+   *  `...` {*}
    */
   WlClient.prototype.wlProfilePurchasePurchaseElement = function(params)
   {
@@ -2615,7 +3150,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of a business to show information for.
    * @param {string} params.uid The key of a user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_purchase` {Object[]}
    */
   WlClient.prototype.wlProfilePurchasePurchaseList = function(params)
   {
@@ -2632,7 +3168,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of a business to show information for.
    * @param {string} params.uid The key of a user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_purchase` {Object[]}
    */
   WlClient.prototype.wlProfilePurchaseListPurchaseList = function(params)
   {
@@ -2656,7 +3193,28 @@
    * @param {string} params.k_login_promotion The key of the user's promotion. This should only be specified for promotions given without a pur...
    * @param {string} params.k_purchase_item The key of the purchased item. This should be specified only for ordinary purchases
    * @param {string} params.k_session_pass The ID of the makeup session used to attend an event.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_component` {Object|Object[]}
+   *  `a_logo` {?Object[]}
+   *  `a_restrict` {Object[]}
+   *  `a_tax` {Object[]}
+   *  `can_renew` {boolean} This is `true` only if the purchased item is a promotion and the user can con...
+   *  `dl_cancel` {string} The cancellation date of the promotion. Only available if the item is a promo...
+   *  `dl_end` {string} The expiration date of the promotion. Only available if the item is a promotion.
+   *  `dl_purchase` {string} The local date of the purchase in MySQL format.
+   *  `dl_send` {string} The local date in MySQL format when mail about purchasing was sent (or will b...
+   *  `dl_start` {string} The start date of the promotion. Only available if the item is a promotion.
+   *  `dt_cancel` {string} The local date of cancellation in MySQL format. Only available if the item is...
+   *  `dt_hold_end` {string} The end date of the promotion hold. This is used only for promotions on hold.
+   *  `dt_hold_start` {string} The start date of the promotion hold. Only available if the item is a promoti...
+   *  `dt_purchase` {string} The purchase date of the purchased item. This is given in UTC in MySQL format.
+   *  `dt_redeem` {string} The date in MySQL format when gift card was redeemed. Only available if the i...
+   *  `f_discount_login_type_percent` {number} The percentage value of the discount for the client type. This will be empty ...
+   *  `html_description` {string} The description of the purchased item.
+   *  `i_book` {number} The number of sessions remaining for a promotion. This value is used only for...
+   *  `i_book_duration` {number} Displays the number of minutes of sessions that were booked by this promotion...
+   *  `i_buy` {number} The number of purchased items bought at the time of purchase.
+   *  `...` {*}
    */
   WlClient.prototype.wlProfilePurchaseListPurchaseListElement = function(params)
   {
@@ -2673,7 +3231,9 @@
    * @param {boolean} params.is_backend If `true`, the API is being used from backend. Otherwise, this will be `false`.
    * @param {string} params.k_business The key of the business.
    * @param {string} params.uid The key of the user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_alert` {Object[]}
+   *  `a_warning` {Object[]}
    */
   WlClient.prototype.wlProfileAlertAlert = function(params)
   {
@@ -2689,7 +3249,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of current business.
    * @param {string} params.k_login_note Login note key to edit or get info for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlProfileAlertAlertEditDelete = function(params)
   {
@@ -2707,7 +3267,8 @@
    * @param {string} params.k_business Key of current business.
    * @param {string} params.k_login_note Login note key to edit or get info for.
    * @param {string} params.uid Key of a user to show information or post a note for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_note_data` {Object[]}
    */
   WlClient.prototype.wlProfileAlertAlertEditGet = function(params)
   {
@@ -2725,7 +3286,8 @@
    * @param {string} params.k_business Key of current business.
    * @param {string} params.k_login_note Login note key to edit or get info for.
    * @param {string} params.uid Key of a user to show information or post a note for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_login_note` {string} Login note key to edit or get info for.
    */
   WlClient.prototype.wlProfileAlertAlertEditPost = function(params)
   {
@@ -2742,7 +3304,14 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the current business.
    * @param {string} params.uid The key of the user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `dt_agree` {?string} The date/time of the waiver confirmation.
+   *  `html_contract` {string} The text of the online waiver.
+   *  `i_minor_age` {number} Age of minor which documents can be signed by parent or legal guardian.
+   *  `ip_agree` {?string} The IP address from which the confirmation was carried out.
+   *  `is_agree` {boolean} Flag of successful saving agreement.
+   *  `s_name` {string} The user's name.
+   *  `url_signature` {string|boolean} The URL to the image with the client's signature.
    */
   WlClient.prototype.wlProfileTermTerm = function(params)
   {
@@ -2767,7 +3336,8 @@
    * @param {string} params.k_service Service key.
    * @param {string} params.k_timezone Key of timezone.
    * @param {string} params.uid UID of a user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_visit_list` {Object[]}
    */
   WlClient.prototype.wlProfileAttendanceAttendanceOverlap = function(params)
   {
@@ -2784,7 +3354,14 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.uid The key of the user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `is_account_management_email` {boolean} Determines whether email notifications related to purchases, contracts, and o...
+   *  `is_account_management_sms` {boolean} Determines whether SMS notifications related to purchases, contracts, and oth...
+   *  `is_news_and_updates_email` {boolean} Determines whether email notifications related to news and updates from the b...
+   *  `is_news_and_updates_sms` {boolean} Whether sms notifications related to news and updates from the business regar...
+   *  `is_schedule_and_reminders_email` {boolean} Determines whether email notifications related to the services a client has b...
+   *  `is_schedule_and_reminders_sms` {boolean} Determines whether SMS notifications related to the services a client has boo...
+   *  `text_language` {string} SID of language code.
    */
   WlClient.prototype.wlProfileSettingSettingGet = function(params)
   {
@@ -2800,7 +3377,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.uid The key of the user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlProfileSettingSettingPost = function(params)
   {
@@ -2816,7 +3393,21 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_login_activity The key of the activity item represented by this endpoint.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_credit_score` {string[]} Messages with description what did user do to get account credits as reward p...
+   *  `a_reward_score` {string[]} Messages with description what did user do to get points.
+   *  `can_profile` {boolean} Verifies that current user can view the specified profile.
+   *  `dt_date_gmt` {string} The date of the activity in GMT.
+   *  `dt_date_local` {string} The date of the activity in the client's time zone.
+   *  `html_message` {string} Description of the action, who and what did.
+   *  `i_credit_score` {number} Total amount of account credits user got for `k_login_activity`.
+   *  `i_score` {number} The total amount of rewards points the client received for the activity.
+   *  `i_spend` {number} The rewards points used to redeem a prize.
+   *  `id_icon` {?number} List of available design icons.
+   *  `id_type` {number} Manages identifiers of user activity.
+   *  `k_id` {string} Object ID, for example, class period ID for books and visits.
+   *  `s_message` {string} The description of the activity. This should include the nature of the activi...
+   *  `url_link` {string} Link to share activity with social networks.
    */
   WlClient.prototype.wlProfileActivityElement = function(params)
   {
@@ -2835,7 +3426,8 @@
    * @param {string} params.dl_start Starting date of the date range. Optional.
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.uid The key of the client to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_activity` {string[]} An array listing client activities, where each activity is provided as an ID ...
    */
   WlClient.prototype.wlProfileActivityList = function(params)
   {
@@ -2861,7 +3453,10 @@
    * @param {string} params.m_price_custom The custom price of the item.
    * @param {string} params.s_discount_code The discount code used for the item.
    * @param {string} params.uid The key of the current user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `html_contract` {string} The text of the contract.
+   *  `i_minor_age` {number} Age of minor which documents can be signed by parent or legal guardian.
+   *  `text_title` {string} Title of purchase option.
    */
   WlClient.prototype.wlProfileContractContractGet = function(params)
   {
@@ -2878,7 +3473,7 @@
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.k_purchase_item The key of the selected purchase item.
    * @param {string} params.uid The key of the current user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlProfileContractContractPost = function(params)
   {
@@ -2896,7 +3491,8 @@
    * @param {number} params.i_image_height The image height in pixels. Specify this value if you need the image to be returned in a specific...
    * @param {number} params.i_image_width The image width in pixels. Specify this value if you need the image to be returned in a specific ...
    * @param {string} params.k_location The location key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_class` {Object[]}
    */
   WlClient.prototype.wlClassesClassListBookList = function(params)
   {
@@ -2918,7 +3514,8 @@
    * @param {boolean} params.is_event_include Whether to include events in the result.
    * @param {boolean} params.is_franchise Whether to return franchisee-created classes (if business is franchisor).
    * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_class` {Object[]}
    */
   WlClient.prototype.wlClassesClassListList = function(params)
   {
@@ -2938,7 +3535,8 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.k_class The class key used to get information for a specific class.
    * @param {boolean} params.show_cancelled Defines if canceled schedules should be included in the result.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_class_list` {Object[]}
    */
   WlClient.prototype.wlClassesClassViewElement = function(params)
   {
@@ -2958,7 +3556,9 @@
    * @param {boolean} params.is_related_only `true` - promotions should only be returned if they're related to the given class or event.
    * @param {string} params.k_business The business key.
    * @param {?string} [params.k_class] The class key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_promotion` {Object[]}
+   *  `k_promotion_default` {?string} The default promotion key.
    */
   WlClient.prototype.wlClassesPromotionClassPromotion = function(params)
   {
@@ -2973,7 +3573,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `url_partner` {string} Link to the landing campaign
    */
   WlClient.prototype.wlBusinessPartnerPartnerCodeGet = function(params)
   {
@@ -2988,7 +3589,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlBusinessPartnerPartnerCodePost = function(params)
   {
@@ -3004,7 +3605,14 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.text_code The unique code that a business can provide other businesses to tell them about system.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_business_tour` {number} List of different types for landing pages based on business types.
+   *  `k_business` {string} The business key.
+   *  `text_name_first` {string} The first name of the business representative.
+   *  `text_name_last` {string} The last name of the business representative.
+   *  `text_position` {string} The job title of the business representative.
+   *  `text_review` {string} The text of the review about the WellnessLiving system.
+   *  `url_photo` {?string} A link to the photo of the business representative.
    */
   WlClient.prototype.wlBusinessPartnerPartnerSettings = function(params)
   {
@@ -3021,7 +3629,8 @@
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_prospects `true` returns WellnessLiving customers.
    * @param {boolean} params.is_published Specifies if only businesses having published locations should be returned.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_business_keys` {string[]} A list of business keys.
    */
   WlClient.prototype.wlBusinessAccountBusinessAccount = function(params)
   {
@@ -3037,7 +3646,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.text_mail The email address of the location.
    * @param {string} params.text_phone The phone number of the business, staff and location.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlBusinessClaimBusinessClaimGet = function(params)
   {
@@ -3052,7 +3661,8 @@
    * can share it with the new client.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `url_microsite` {?string} Location microsite URL.
    */
   WlClient.prototype.wlBusinessClaimBusinessClaimPost = function(params)
   {
@@ -3066,7 +3676,7 @@
    * be called once per business after it has been claimed.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlBusinessClaimBusinessClaimPut = function(params)
   {
@@ -3083,7 +3693,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key to get design data.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_data` {Object[]}
    */
   WlClient.prototype.wlBusinessDesignBusinessDesign = function(params)
   {
@@ -3098,7 +3709,7 @@
    * the conversion to the correct partner.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlBusinessLeadBusinessLead = function(params)
   {
@@ -3114,7 +3725,7 @@
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Business key.
    * @param {?string} [params.text_phone] Business phone number(in locale format).
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlBusinessPhonePhoneDelete = function(params)
   {
@@ -3130,7 +3741,10 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_locale` {?number} A list of locales.
+   *  `text_phone` {?string} Business phone number(in locale format).
+   *  `text_phone_mask` {string} Business phone number mask.
    */
   WlClient.prototype.wlBusinessPhonePhoneGet = function(params)
   {
@@ -3147,7 +3761,7 @@
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Business key.
    * @param {?string} [params.text_phone] Business phone number(in locale format).
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlBusinessPhonePhonePost = function(params)
   {
@@ -3165,7 +3779,8 @@
    * @param {boolean} params.is_customer If `true`, the return only active customers, `false` - all business.
    * @param {string} params.text_mail User email to search business keys.
    * @param {string} params.text_name Given business name to search by.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_result` {string[]} Array with business keys that contain given name in their title.
    */
   WlClient.prototype.wlBusinessSearchBusinessSearchUser = function(params)
   {
@@ -3183,7 +3798,8 @@
    * @param {boolean} params.is_customer If `true`, the return only active customers, `false` - all business.
    * @param {boolean} params.is_strict If `true`, returns only active customer businesses, if `false`, returns all businesses.
    * @param {string} params.text_name Given business name to search by.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_result` {string[]} Array with business keys that contain given name in their title.
    */
   WlClient.prototype.wlBusinessSearchBusinessSearch = function(params)
   {
@@ -3199,7 +3815,12 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_business_policy` {Object[]}
+   *  `a_penalty` {Object[]}
+   *  `is_location_client_select` {boolean} Whether client must select a location at checkout.
+   *  `is_location_select` {boolean} Determines whether staff members should select a location at checkout.
+   *  `is_white_label` {boolean} Determines whether the business has white label setting enabled in the admin ...
    */
   WlClient.prototype.wlBusinessConfigBusinessConfig = function(params)
   {
@@ -3215,7 +3836,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_business List of business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_business_region` {number[]} List of region IDs for `a_business`.
    */
   WlClient.prototype.wlBusinessAmazonRegionAmazonRegion = function(params)
   {
@@ -3233,7 +3855,7 @@
    * @param {boolean} params.is_grant Determines whether the user will be granted access or if access will be revoked.
    * @param {string} params.k_location The key of the franchisee location to enter.
    * @param {string} params.uid The key of the user who will be granted access.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlBusinessAuthorizePartnerAuthorizePartner = function(params)
   {
@@ -3251,7 +3873,8 @@
    * @param {Object[]} params.a_config Configuration data used to determine the list of businesses returned. This array has the followin...
    * @param {string} params.k_business Business in which a list of business is requested.
    * @param {string} params.uid User who is requesting the list of businesses.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_select` {Object[]}
    */
   WlClient.prototype.wlBusinessSelectBusinessSelect = function(params)
   {
@@ -3266,7 +3889,8 @@
    * selection of the appropriate demo tour to show on the marketing site.
    *
    * @param {Object} [params] Request parameters.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_business_type` {Object[]}
    */
   WlClient.prototype.wlBusinessTypeBusinessTypeList = function(params)
   {
@@ -3284,7 +3908,9 @@
    * @param {string} params.k_business ID of business to get waiver for.
    * @param {string} params.text_fullname Full username.
    * @param {string} params.uid User key for which the waiver is shown.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `has_waiver` {boolean} Does the business have a waiver or not?
+   *  `html_waiver` {string} Text of the current waiver with the substituted variables.
    */
   WlClient.prototype.wlBusinessWaiverWaiver = function(params)
   {
@@ -3301,7 +3927,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_lead_source` {Object[]}
    */
   WlClient.prototype.wlLeadSourceLeadSourceList = function(params)
   {
@@ -3316,7 +3943,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_lead_source_replace Key of the lead source.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLeadSourceLeadSourceElementDelete = function(params)
   {
@@ -3331,7 +3958,7 @@
    * @deprecated Use {@link Wl\Lead\LeadPageApi::post()} instead. Will be removed after WL-89292 done.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLeadSourceLeadSourceElementPost = function(params)
   {
@@ -3345,7 +3972,8 @@
    * next available sort position, and returns the generated lead source key.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_lead_source` {string} Key of the lead source.
    */
   WlClient.prototype.wlLeadSourceLeadSourceElementPut = function(params)
   {
@@ -3363,7 +3991,8 @@
    * @param {number} params.i_image_width Image width in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {number} params.id_program_type The program type ID, which will be one of the [RsProgramTypeSid](#/components/schemas/RsProgramTy...
    * @param {string} params.k_location The location key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_promotion` {Object[]}
    */
   WlClient.prototype.wlPromotionIndexPromotionIndex = function(params)
   {
@@ -3379,7 +4008,9 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business for which the email address search is being performed.
    * @param {string} params.text_mail The email address to check for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `is_exists` {boolean} If `true`, the user with the specified email address exists in specified busi...
+   *  `uid_use` {?string} Key of the user who using email within the business.
    */
   WlClient.prototype.wlLoginMailMailUse = function(params)
   {
@@ -3396,7 +4027,7 @@
    * @param {?string} [params.k_business] Key of business to which currently handled pause period or login promotion belongs.
    * @param {?string} [params.k_login_promotion] The Purchase Option key. If this key is used, a new hold will be created. The endpoint will retur...
    * @param {?string} [params.k_promotion_pay_pause] The promotion payment hold key. If this key is used, it will edit an existing hold.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLoginPromotionPromotionPayPauseDelete = function(params)
   {
@@ -3418,7 +4049,18 @@
    * @param {?string} [params.k_business] Key of business to which currently handled pause period or login promotion belongs.
    * @param {?string} [params.k_login_promotion] The Purchase Option key. If this key is used, a new hold will be created. The endpoint will retur...
    * @param {?string} [params.k_promotion_pay_pause] The promotion payment hold key. If this key is used, it will edit an existing hold.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_pay_pause_list` {?Object[]}
+   *  `dt_end` {?string} The end date of the current hold, in the local time zone.
+   *  `dt_start` {?string} The start date of the current hold, in the local time zone.
+   *  `dtu_date_notification` {?string} The date when the email notification was sent.
+   *  `is_mail` {boolean} Whether or not to send email notification.
+   *  `is_push` {boolean} Whether or not to send push notification.
+   *  `is_sms` {boolean} Whether or not to send SMS notification.
+   *  `k_login_promotion` {?string} The Purchase Option key. If this key is used, a new hold will be created. The...
+   *  `k_mail_pattern` {?string} Key of the email pattern.
+   *  `k_promotion_pay_pause` {?string} The promotion payment hold key. If this key is used, it will edit an existing...
+   *  `text_note` {?string} Additional notes for the promotion payment pause period.
    */
   WlClient.prototype.wlLoginPromotionPromotionPayPauseGet = function(params)
   {
@@ -3438,7 +4080,8 @@
    * @param {?string} [params.k_business] Key of business to which currently handled pause period or login promotion belongs.
    * @param {?string} [params.k_login_promotion] The Purchase Option key. If this key is used, a new hold will be created. The endpoint will retur...
    * @param {?string} [params.k_promotion_pay_pause] The promotion payment hold key. If this key is used, it will edit an existing hold.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_promotion_pay_pause` {?string} The promotion payment hold key. If this key is used, it will edit an existing...
    */
   WlClient.prototype.wlLoginPromotionPromotionPayPausePost = function(params)
   {
@@ -3457,7 +4100,8 @@
    * @param {?string} [params.dt_start] The start date of the current hold, in the local time zone.
    * @param {?string} [params.k_business] Key of business to which currently handled pause period or login promotion belongs.
    * @param {?string} [params.k_promotion_pay_pause] The promotion payment hold key. If this key is used, it will edit an existing hold.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_promotion_pay_pause` {?string} The promotion payment hold key. If this key is used, it will edit an existing...
    */
   WlClient.prototype.wlLoginPromotionPromotionPayPausePut = function(params)
   {
@@ -3475,7 +4119,16 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of the business.
    * @param {string} params.uid The user's key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_empty_fields_booking` {string[]} List of fields if the user has empty profile fields, which are required for b...
+   *  `a_empty_fields_registration` {string[]} List of fields if the user has empty profile fields, which are required for r...
+   *  `has_credit_card` {boolean} `true` If the user has credit cards on profile, otherwise `false`.
+   *  `has_outstanding_contract` {boolean} `true` if the user has an outstanding contract, otherwise `false`.
+   *  `has_outstanding_waiver` {boolean} `true` If the user has an outstanding waiver for the business, otherwise `fal...
+   *  `has_pending_quizzes` {boolean} `true` If the user has pending registration quizzes to complete, otherwise `f...
+   *  `is_booking_require_card` {boolean} `true` If the user has to provide credit card details before booking, otherwi...
+   *  `is_register_require_card` {boolean} `true` If the user has to provide credit card details to finish their registr...
+   *  `k_location` {?string} Home user`s location.
    */
   WlClient.prototype.wlLoginMemberMemberValidate = function(params)
   {
@@ -3491,7 +4144,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.uid The user's key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_business` {Object[]}
    */
   WlClient.prototype.wlLoginMemberMemberGet = function(params)
   {
@@ -3506,7 +4160,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.uid The user's key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLoginMemberMemberPost = function(params)
   {
@@ -3522,7 +4176,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The user's key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `s_member` {string} The user's ID to get/set.
    */
   WlClient.prototype.wlLoginMemberLoginMemberGet = function(params)
   {
@@ -3539,7 +4194,8 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.s_member The user's ID to get/set.
    * @param {string} params.uid The user's key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `dt_member` {string} The date when client became a member.
    */
   WlClient.prototype.wlLoginMemberLoginMemberPost = function(params)
   {
@@ -3555,7 +4211,17 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of the business.
    * @param {string} params.uid The user's key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_empty_fields_booking` {Object[]}
+   *  `a_empty_fields_registration` {Object[]}
+   *  `a_empty_fields_required` {Object[]}
+   *  `has_credit_card` {boolean} `true` If the user has credit cards on profile, otherwise `false`.
+   *  `has_outstanding_contract` {boolean} `true` if the user has an outstanding contract, otherwise `false`.
+   *  `has_outstanding_waiver` {boolean} `true` If the user has an outstanding waiver for the business, otherwise `fal...
+   *  `has_pending_quizzes` {boolean} `true` If the user has pending registration quizzes to complete, otherwise `f...
+   *  `is_booking_require_card` {boolean} `true` If the user has to provide credit card details before booking, otherwi...
+   *  `is_register_require_card` {boolean} `true` If the user has to provide credit card details to finish their registr...
+   *  `k_location` {?string} Home user`s location.
    */
   WlClient.prototype.wlLoginMemberMemberValidate63 = function(params)
   {
@@ -3572,7 +4238,8 @@
    * @param {number} params.i_page_size The maximum number of members to return in the list.
    * @param {string} params.k_business The key of the business to get a list of members for.
    * @param {string} params.uid_last The last member UID from the previous page.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_uid` {string[]} List of UIDs for all active clients that belong to the business.
    */
   WlClient.prototype.wlLoginMemberLoginMemberListAll = function(params)
   {
@@ -3586,7 +4253,10 @@
    * a member of the business. Returns a status code and a list of any fields that still need to be filled in.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_error_list` {Object[]}
+   *  `s_code` {string} The result code of the request.
+   *  `text_message` {string} The result message of the request.
    */
   WlClient.prototype.wlLoginAddMailUseOk = function(params)
   {
@@ -3606,7 +4276,15 @@
    * @param {string} params.k_appointment The appointment key. Not used if requesting information for a class or event session.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_class_period The class period key. Not used if requesting information for an appointment.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list_active` {Object[]}
+   *  `a_list_confirm` {Object[]}
+   *  `a_list_wait` {Object[]}
+   *  `i_capacity` {number} The maximum capacity of the class or event session.
+   *  `i_client` {number} Count client on the attendance.
+   *  `i_wait_list_limit` {number} The maximum number of clients on wait list of the class or event session.
+   *  `is_wait_list_limit` {boolean} `true` to use class/event specific wait list limit, `false` to use the limit ...
+   *  `k_location` {string} The Location key.
    */
   WlClient.prototype.wlLoginAttendanceAttendanceList = function(params)
   {
@@ -3625,7 +4303,28 @@
    * @param {string} params.k_appointment ID of appointment to get information for.
    * @param {string} params.k_business ID of business to get information for.
    * @param {string} params.k_class_period ID of class period to get information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_appointment_visit_info` {Object[]}
+   *  `a_logo` {Object[]}
+   *  `a_purchase_option_default` {Object[]}
+   *  `a_resource` {string[]} Assets which are bound to this session.
+   *  `a_resource_layout` {Object[]}
+   *  `a_staff` {Object[]}
+   *  `dt_confirm` {string} Confirmation date+time of appointment in MySQL format. If client never confir...
+   *  `dt_date_global` {string} Start date of the session in MySQL format in GMT.
+   *  `dtl_end` {string} End date and time of the session in MySQL format in local timezone.
+   *  `dtu_end` {string} End date and time of the session in MySQL format in GMT.
+   *  `dtu_wait_promote` {string} Date and time in UTC when the visit is promoted from wait list to active list.
+   *  `has_note` {boolean} Whether notes added to visit.
+   *  `i_duration` {number} Duration of the session in minutes.
+   *  `id_note` {?number} A list of types of visit note.
+   *  `id_service` {number} Identifiers for services types.
+   *  `is_start_virtual_service` {boolean} Whether this service be carried out in Zoom.
+   *  `k_class` {string} Class identifier. Not empty if service is class or event reservation.
+   *  `k_location` {string} Location identifier.
+   *  `k_resource` {string} Resource identifier. Not empty if service is asset reservation.
+   *  `k_service` {string} Service identifier. Not empty if service is appointment reservation.
+   *  `...` {*}
    */
   WlClient.prototype.wlLoginAttendanceAttendanceInfo = function(params)
   {
@@ -3646,7 +4345,15 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.k_class_period The class period key. Not used if requesting information for an appointment.
    * @param {string} params.text_token The security token.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list_active` {Object[]}
+   *  `a_list_confirm` {Object[]}
+   *  `a_list_wait` {Object[]}
+   *  `i_capacity` {number} The maximum capacity of the class or event session.
+   *  `i_client` {number} Count client on the attendance.
+   *  `i_wait_list_limit` {number} The maximum number of clients on wait list of the class or event session.
+   *  `is_wait_list_limit` {boolean} `true` to use class/event specific wait list limit, `false` to use the limit ...
+   *  `k_location` {string} The Location key.
    */
   WlClient.prototype.wlLoginAttendanceAttendanceListByToken = function(params)
   {
@@ -3666,7 +4373,28 @@
    * @param {string} params.k_business ID of business to get information for.
    * @param {string} params.k_class_period ID of class period to get information for.
    * @param {string} params.text_token The security token.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_appointment_visit_info` {Object[]}
+   *  `a_logo` {Object[]}
+   *  `a_purchase_option_default` {Object[]}
+   *  `a_resource` {string[]} Assets which are bound to this session.
+   *  `a_resource_layout` {Object[]}
+   *  `a_staff` {Object[]}
+   *  `dt_confirm` {string} Confirmation date+time of appointment in MySQL format. If client never confir...
+   *  `dt_date_global` {string} Start date of the session in MySQL format in GMT.
+   *  `dtl_end` {string} End date and time of the session in MySQL format in local timezone.
+   *  `dtu_end` {string} End date and time of the session in MySQL format in GMT.
+   *  `dtu_wait_promote` {string} Date and time in UTC when the visit is promoted from wait list to active list.
+   *  `has_note` {boolean} Whether notes added to visit.
+   *  `i_duration` {number} Duration of the session in minutes.
+   *  `id_note` {?number} A list of types of visit note.
+   *  `id_service` {number} Identifiers for services types.
+   *  `is_start_virtual_service` {boolean} Whether this service be carried out in Zoom.
+   *  `k_class` {string} Class identifier. Not empty if service is class or event reservation.
+   *  `k_location` {string} Location identifier.
+   *  `k_resource` {string} Resource identifier. Not empty if service is asset reservation.
+   *  `k_service` {string} Service identifier. Not empty if service is appointment reservation.
+   *  `...` {*}
    */
   WlClient.prototype.wlLoginAttendanceAttendanceInfoByToken = function(params)
   {
@@ -3684,7 +4412,8 @@
    * @param {string} params.k_business Business to search user in.
    * @param {string} params.text_mail Email to search.
    * @param {string} params.text_phone Phone to search.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `uid` {string} User's primary key.
    */
   WlClient.prototype.wlLoginSearchConcerto = function(params)
   {
@@ -3701,7 +4430,8 @@
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_franchisor If `true`, this `k_business` is a franchisor, and login types of all franchisees should be returned.
    * @param {string} params.k_business The business key used internally by WellnessLiving.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_type_list` {Object[]}
    */
   WlClient.prototype.wlLoginTypeLoginType = function(params)
   {
@@ -3716,7 +4446,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_login_promotion The key of the purchased promotion.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLoginPermissionPermission = function(params)
   {
@@ -3733,7 +4463,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of business.
    * @param {string} params.uid The user's key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `html_contract` {string} Formatted text of business liability release. Not empty if the business has a...
    */
   WlClient.prototype.wlLoginAgreeAgreeGet = function(params)
   {
@@ -3749,7 +4480,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of business.
    * @param {string} params.uid The user's key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLoginAgreeAgreePost = function(params)
   {
@@ -3766,7 +4497,9 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.s_code The gift card.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_login_coupon` {string} The gift card reference number for this specific user. WellnessLiving uses th...
+   *  `m_amount` {string} The gift card amount.
    */
   WlClient.prototype.wlLoginCouponCoupon = function(params)
   {
@@ -3792,7 +4525,8 @@
    * @param {string} params.m_price_max Maximum price of the product. 0 means no filter by maximum price.
    * @param {string} params.m_price_min Minimum price of the product.
    * @param {string} params.uid User key. Empty string means return products purchased by walk-in.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_product` {Object[]}
    */
   WlClient.prototype.wlLoginProductProduct = function(params)
   {
@@ -3811,7 +4545,7 @@
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {?string} [params.k_quiz_response] Quiz response key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlQuizResponseResponse65Delete = function(params)
   {
@@ -3831,7 +4565,22 @@
    * @param {boolean} params.is_simple Whether quiz response received by kiosk or direct mode link.
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {?string} [params.k_quiz_response] Quiz response key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_access_log` {Object[]}
+   *  `a_element` {Object|Object|Object|Object[]}
+   *  `a_service_info` {Object[]}
+   *  `can_amend` {boolean} Whether response can be amended by current user.
+   *  `dtu_response` {string} Date when response was submitted.
+   *  `id_source` {number} List of sources where quiz response can be generated.
+   *  `id_status` {number} List of response statuses.
+   *  `show_numbering` {boolean} Whether to show numbering of the form elements that supports numbering.
+   *  `text_add_date` {string} Date when response added.
+   *  `text_amend_date` {string} Date when response amended.
+   *  `text_amend_user` {string} Name of the user who amend the response.
+   *  `text_complete_date` {string} Date when response completed.
+   *  `text_complete_user` {string} Name of the user who complete the response.
+   *  `text_response_by` {string} Name of the user who owned the response.
+   *  `text_title` {?string} Title of the filled form.
    */
   WlClient.prototype.wlQuizResponseResponse65Get = function(params)
   {
@@ -3852,7 +4601,8 @@
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {?string} [params.k_quiz_response] Quiz response key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_quiz_response` {?string} Quiz response key.
    */
   WlClient.prototype.wlQuizResponseResponse65Post = function(params)
   {
@@ -3872,7 +4622,7 @@
    * @param {string} params.k_quiz Quiz key.
    * @param {?string} [params.k_quiz_response] Quiz response key.
    * @param {?string} [params.uid_link] User's key for the response association.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlQuizResponseResponse65Put = function(params)
   {
@@ -3892,7 +4642,7 @@
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {?string} [params.k_quiz_response] Quiz response key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlQuizResponseResponseDelete = function(params)
   {
@@ -3912,7 +4662,22 @@
    * @param {boolean} params.is_simple Whether quiz response received by kiosk or direct mode link.
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {?string} [params.k_quiz_response] Quiz response key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_access_log` {Object[]}
+   *  `a_element` {Object|Object|Object|Object[]}
+   *  `a_service_info` {Object[]}
+   *  `can_amend` {boolean} Whether response can be amended by current user.
+   *  `dtu_response` {string} Date when response was submitted.
+   *  `id_source` {number} List of sources where quiz response can be generated.
+   *  `id_status` {number} List of response statuses.
+   *  `show_numbering` {boolean} Whether to show numbering of the form elements that supports numbering.
+   *  `text_add_date` {string} Date when response added.
+   *  `text_amend_date` {string} Date when response amended.
+   *  `text_amend_user` {string} Name of the user who amend the response.
+   *  `text_complete_date` {string} Date when response completed.
+   *  `text_complete_user` {string} Name of the user who complete the response.
+   *  `text_response_by` {string} Name of the user who owned the response.
+   *  `text_title` {?string} Title of the filled form.
    */
   WlClient.prototype.wlQuizResponseResponseGet = function(params)
   {
@@ -3933,7 +4698,8 @@
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {?string} [params.k_quiz_response] Quiz response key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_quiz_response` {?string} Quiz response key.
    */
   WlClient.prototype.wlQuizResponseResponsePost = function(params)
   {
@@ -3954,7 +4720,7 @@
    * @param {string} params.k_quiz Quiz key.
    * @param {?string} [params.k_quiz_response] Quiz response key.
    * @param {?string} [params.uid_link] User's key for the response association.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlQuizResponseResponsePut = function(params)
   {
@@ -3984,7 +4750,28 @@
    * @param {?string} [params.k_shop_product_option] The product option key.
    * @param {?string} [params.text_item] A list of goods to get information for. Every element must contain the next keys:
    * @param {string} params.uid_customer The UID of a customer (user) for whom the purchase is made. This is used in the backend to calcul...
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_age_restriction` {Object[]}
+   *  `a_data` {Object[]}
+   *  `a_image` {Object[]}
+   *  `a_image_list` {Object[]}
+   *  `a_installment_template` {Object[]}
+   *  `a_item` {Object[]}
+   *  `a_tax` {Object[]}
+   *  `f_price` {?string} The price of the sale item.
+   *  `f_price_include` {?string} The price of the sale item, including tax.
+   *  `f_price_retail_product` {string} The retail price of the product. This will be empty if this isn't a product.
+   *  `f_price_total_enrollment` {string} Full price of event. This will be empty if this isn't an event.
+   *  `f_tax` {?string} The tax amount.
+   *  `html_description` {?string} The sale item description.
+   *  `html_special` {?string} Special instructions for the sale item.
+   *  `id_purchase_item` {number} A list of purchase types.
+   *  `id_purchase_option_view` {number} A list of Purchase Option view types.
+   *  `id_sale` {number} List of sale categories on the store page.
+   *  `is_contract` {boolean} If `true`, the item requires a contract. Otherwise, this will be `false`.
+   *  `k_id` {string} The item key.
+   *  `k_shop_product_option` {?string} The product option key.
+   *  `...` {*}
    */
   WlClient.prototype.wlCatalogCatalogListElement = function(params)
   {
@@ -4004,7 +4791,9 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.k_location The key of a location. If `0`, all products in the business are retrieved.
    * @param {string} params.uid The key of user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_product` {Object[]}
+   *  `a_product_duplicate` {Object[]}
    */
   WlClient.prototype.wlCatalogCatalogListList = function(params)
   {
@@ -4024,7 +4813,12 @@
    * @param {string} params.k_business The business key to get products for.
    * @param {string} params.k_shop_category The selected shop category.
    * @param {string} params.s_cache_key The cache key used to get products.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_category_sort` {Object[]}
+   *  `a_product` {Object[]}
+   *  `i_last` {number} The currently shown element.
+   *  `is_load_more` {boolean} Determines whether more products can be loaded.
+   *  `s_cache_key` {string} The cache key used to get products.
    */
   WlClient.prototype.wlCatalogCatalogListCatalogProduct = function(params)
   {
@@ -4046,7 +4840,9 @@
    * @param {string} params.k_business The business key (required).
    * @param {string} params.k_location The location key (required).
    * @param {string} params.uid The user's key (required).
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_login_activity` {?string} The key of login activity.
+   *  `k_purchase` {string} The purchase key created during payment.
    */
   WlClient.prototype.wlCatalogPaymentPayment = function(params)
   {
@@ -4067,7 +4863,20 @@
    * @param {string} params.k_login_prize The login prize key.
    * @param {?string} [params.text_discount_code] The discount code.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_discount_item` {string[]} The list of discounts for each item.
+   *  `a_item` {Object[]}
+   *  `a_prize_propose` {Object[]}
+   *  `a_reward_item` {Object[]}
+   *  `a_reward_propose` {Object[]}
+   *  `a_tax_list` {string[]} Values derived for individual tax rates.
+   *  `i_score` {?number} Amount of client's reward points.
+   *  `m_discount` {?string} The full discount of the cart.
+   *  `m_discount_total` {string} The total discount amount.
+   *  `m_subtotal` {?string} The total amount in the catalog cart without tax.
+   *  `m_tax` {?string} The tax amount.
+   *  `m_tip_purchase` {?string} The amount of appointment tips.
+   *  `m_total` {?string} The total amount in the catalog cart.
    */
   WlClient.prototype.wlCatalogCartCart = function(params)
   {
@@ -4086,7 +4895,11 @@
    * @param {string} params.k_business The business in which the purchase will be made.
    * @param {string} params.k_promotion The promotion key to add to the cart.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `i_purchase_already` {?number} The quantity if promotions have already been purchased by the current user.
+   *  `i_purchase_current` {?number} The current quantity of a promotion with the quantity limit in the cart.
+   *  `i_quantity_limit` {?number} The quantity limit of the promotion.
+   *  `is_limit_exceeded` {?boolean} Determines whether the limit quantity has been exceeded.
    */
   WlClient.prototype.wlCatalogCartLimitQuantity = function(params)
   {
@@ -4102,7 +4915,8 @@
    * skipped - no record is created for them.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_video_watch` {string} The video watch key.
    */
   WlClient.prototype.wlVideoWatchWatchPost = function(params)
   {
@@ -4117,7 +4931,7 @@
    * already stored are silently ignored to handle out-of-order requests.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlVideoWatchWatchPut = function(params)
   {
@@ -4133,7 +4947,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_video_category The category key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlVideoCategoryCategoryElementDelete = function(params)
   {
@@ -4149,7 +4963,15 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_video_category The category key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_type` {string[]} A list of client and member types who can access videos from the category.
+   *  `a_member_group` {string[]} A list of member groups who can access videos from the category.
+   *  `i_order` {number} The category's placement in the business's list of categories.
+   *  `is_cloud_recording` {boolean} This will be `true` if the video category is for cloud session recordings. Ot...
+   *  `is_login_type` {boolean} This will be `true` if some client or member types can grant access to the vi...
+   *  `is_member_group` {boolean} This will be `true` if some member groups can grant access to the video categ...
+   *  `k_video_category` {string} The category key.
+   *  `text_title` {string} The category name.
    */
   WlClient.prototype.wlVideoCategoryCategoryElementGet = function(params)
   {
@@ -4166,7 +4988,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_video_category The category key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_video_category` {string} The category key.
    */
   WlClient.prototype.wlVideoCategoryCategoryElementPut = function(params)
   {
@@ -4185,7 +5008,8 @@
    * @param {boolean} params.is_skip_empty_group If `true`, groups that are missing videos won't be displayed. Otherwise, this will be `false`.
    * @param {string} params.k_business The business key.
    * @param {string} params.text_filter The filter phrase used to filter categories by name.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_video_category` {Object[]}
    */
   WlClient.prototype.wlVideoCategoryCategoryListGet = function(params)
   {
@@ -4201,7 +5025,7 @@
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_backend If `true`, the API is being used from backend. Otherwise, this will be `false`.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlVideoCategoryCategoryListPut = function(params)
   {
@@ -4219,7 +5043,7 @@
    * @param {boolean} params.is_delete_confirm If `true`, confirmation is required to delete videos. Otherwise, this will be `false`.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_video_level The video level key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlVideoLevelLevelDelete = function(params)
   {
@@ -4236,7 +5060,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_video_level The video level key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_video_level` {string} The video level key.
    */
   WlClient.prototype.wlVideoLevelLevelPost = function(params)
   {
@@ -4252,7 +5077,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_video_level The video level key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlVideoLevelLevelPut = function(params)
   {
@@ -4267,7 +5092,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_level_list` {Object[]}
    */
   WlClient.prototype.wlVideoLevelLevelListGet = function(params)
   {
@@ -4282,7 +5108,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlVideoLevelLevelListPut = function(params)
   {
@@ -4300,7 +5126,7 @@
    * @param {boolean} params.is_delete_confirm If `true`, confirmation is required to delete videos. Otherwise, this will be `false`.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_video_tag The video tag key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlVideoTagTagDelete = function(params)
   {
@@ -4316,7 +5142,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_video_tag The video tag key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_video_tag` {string} The video tag key.
    */
   WlClient.prototype.wlVideoTagTagPost = function(params)
   {
@@ -4332,7 +5159,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_video_tag The video tag key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlVideoTagTagPut = function(params)
   {
@@ -4347,7 +5174,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_tag_list` {Object[]}
    */
   WlClient.prototype.wlVideoTagTagList = function(params)
   {
@@ -4361,7 +5189,7 @@
    * delegates to the parent Google login flow to authenticate the user.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlGoogleLoginGoogleLogin = function(params)
   {
@@ -4375,7 +5203,7 @@
    * not attend the session.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlReceptionRosterAttendanceListNotAttend = function(params)
   {
@@ -4394,7 +5222,9 @@
    * @param {string} params.k_class_period The class period key.
    * @param {string} params.s_secret The secret for authenticating the attendance kiosk.
    * @param {string} params.uid The client's user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_visit` {string} The visit key.
+   *  `text_message` {string} The status message displayed on a successful check-in.
    */
   WlClient.prototype.wlReceptionRosterAttendanceListAttend = function(params)
   {
@@ -4408,7 +5238,9 @@
    * indicating whether the client was placed on the class list or the waitlist.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `is_wait` {boolean} `true` if the client is on the waitlist for the class, `false` if they are on...
+   *  `text_message` {string} The status message displayed on a successful booking.
    */
   WlClient.prototype.wlReceptionRosterAttendanceListBook = function(params)
   {
@@ -4424,7 +5256,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of the business.
    * @param {string} params.k_location Key of the location.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `s_secret` {string} Secret string.
    */
   WlClient.prototype.wlReceptionRosterAttendanceSecret = function(params)
   {
@@ -4442,7 +5275,10 @@
    * @param {string} params.k_location The location key, where the Self Check-In Web App is started.
    * @param {string} params.s_secret The key of the Self Check-In Web App.
    * @param {string} params.uid The key of the user to show the schedule for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_class` {Object[]}
+   *  `a_schedule_class_all` {number[]} All types of services that appear in the schedule.
+   *  `html_schedule` {string} The schedule to be shown in the Self Check-In Web App for the selected user.
    */
   WlClient.prototype.wlReceptionApplicationReceptionScheduleGet = function(params)
   {
@@ -4460,7 +5296,10 @@
    * @param {string} params.k_location The location key, where the Self Check-In Web App is started.
    * @param {string} params.s_secret The key of the Self Check-In Web App.
    * @param {string} params.uid The key of the user to show the schedule for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_confirmation_data` {Object[]}
+   *  `html_confirmation` {string} The confirmation template to be shown in the Self Check-In Web App for the se...
+   *  `k_visit` {string} The visit key, which was added or checked in.
    */
   WlClient.prototype.wlReceptionApplicationReceptionSchedulePost = function(params)
   {
@@ -4485,7 +5324,20 @@
    * @param {string} params.s_secret Key of the Check In application.
    * @param {string} params.s_show A list of icons with additional information about the business member.
    * @param {string} params.uid ID of a user to retrieve member information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_info` {?Object[]}
+   *  `a_items` {Object[]}
+   *  `a_result_list` {?Object[]}
+   *  `a_visit_last` {Object[]}
+   *  `a_visit_next` {Object[]}
+   *  `i_lifetime_visit` {number} Count attend visits for one client.
+   *  `is_traveller` {?boolean} If `true`, the client is a traveler. Otherwise, this will be `false`.
+   *  `m_lifetime_value` {string} The member's lifetime value.
+   *  `s_member` {?string} The member ID.
+   *  `text_first_name` {string} First user's name.
+   *  `text_fullname` {string} Full user's name.
+   *  `url_barcode` {string} URL to barcode image.
+   *  `url_email` {string} URL to email.
    */
   WlClient.prototype.wlReceptionApplicationMemberInfo = function(params)
   {
@@ -4502,7 +5354,9 @@
    * @param {string} params.k_business Key of the business, where Check In application is started.
    * @param {string} params.k_location Key of the location, where Check In application is started.
    * @param {string} params.s_secret Key of the Check In application.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_select` {Object[]}
+   *  `uid` {string} Key of the authorized user.
    */
   WlClient.prototype.wlReceptionApplicationReceptionAuthorize = function(params)
   {
@@ -4517,7 +5371,26 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of the business, where application is run.
    * @param {string} params.k_location Key of the location, where application is run.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_reception_logo` {Object[]}
+   *  `hide_profile_images` {boolean} `true` - client profile images will be hidden after the client signs in on th...
+   *  `i_book_open` {number} Number of minutes for the client check-in window after session has started.
+   *  `i_confirm_delay` {number} Delay in seconds on Check-in Confirmation Screen before redirect to Login scr...
+   *  `i_schedule_delay` {number} Delay in seconds on Schedule Screen before redirect to Login screen.
+   *  `id_failed_sound` {number} List of sounds used for check ins.
+   *  `id_success_sound` {number} List of sounds used for check ins.
+   *  `is_attend_free` {boolean} `true` - allow client to check-in unpaid;
+   *  `is_auto_check_in` {boolean} If only one service available with the look ahead window the client will:
+   *  `is_book_open` {boolean} `true` - allow clients to check-in to sessions in progress;
+   *  `is_book_optional` {boolean} `true` - allow client check-in without booking prior;
+   *  `is_client_id` {boolean} `true` - enable check-in by client id;
+   *  `is_mail` {boolean} `true` - enable check-in by email;
+   *  `is_password` {boolean} `true` - require password while check-in;
+   *  `is_phone` {boolean} `true` - enable check-in by phone;
+   *  `is_reconcile_auto` {boolean} `true` - automatically reconcile unpaid visits upon check in;
+   *  `show_business_name` {boolean} `true` - show business name on client self check-in page;
+   *  `show_confirm_screen` {boolean} `true` - show confirm screen after client self check-in;
+   *  `text_business_name` {string} Name of the business to display on the client self check-in page.
    */
   WlClient.prototype.wlReceptionDesignReceptionDesign = function(params)
   {
@@ -4533,7 +5406,21 @@
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_url_public Whether `url_print` and `url_print_receipt` require authentication.
    * @param {?string} [params.k_purchase] The key of the purchase.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_account_rest` {Object[]}
+   *  `a_business` {Object[]}
+   *  `a_card` {Object[]}
+   *  `a_customer` {Object[]}
+   *  `a_pay_method` {Object[]}
+   *  `a_price` {Object[]}
+   *  `a_purchase_item` {Object[]}
+   *  `dtl_purchase` {string} The local date of the purchase in MySQL format.
+   *  `has_signature` {boolean} Determines whether the payment contained a signature.
+   *  `html_receipt` {string} HTML representation of the purchase receipt.
+   *  `text_purchase_id` {string} The normalized purchase ID.
+   *  `text_receipt` {string} The receipt text set in the store settings.
+   *  `url_print` {string} The URL for printing on a normal printer.
+   *  `url_print_receipt` {string} The URL for printing on a receipt printer.
    */
   WlClient.prototype.wlPurchaseReceiptPurchaseReceipt = function(params)
   {
@@ -4547,7 +5434,7 @@
    * (staff member or client), recording the action in the mail history log.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlPurchaseMailPurchaseMail = function(params)
   {
@@ -4561,7 +5448,8 @@
    * and returns the social network URL for sharing.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `url_share` {string} The URL to the sharing page.
    */
   WlClient.prototype.wlPurchaseSharePurchaseShare = function(params)
   {
@@ -4577,7 +5465,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the franchisee business.
    * @param {string} params.k_promotion The key of the promotion.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_wellness_program` {Object[]}
    */
   WlClient.prototype.wlInsuranceCatalogProgramList = function(params)
   {
@@ -4592,7 +5481,8 @@
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_franchise Whether to return franchisee-created appointment types (if business is franchisor).
    * @param {string} params.k_business Business key, primary key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_service` {Object[]}
    */
   WlClient.prototype.wlServiceServiceListList = function(params)
   {
@@ -4608,7 +5498,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of the business.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `text_phone_sender` {?string} Phone number of the business, which is added as sender for 2-Way SMS feature.
    */
   WlClient.prototype.wlSmsPhoneBusinessPhone = function(params)
   {
@@ -4630,7 +5521,7 @@
    * @param {string} params.k_id Unique identifier for the link.
    * @param {string} params.text_action Action type. Must be 'purchase' or 'booking'.
    * @param {string} params.uid User ID. Required.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlAiAgentLinkSendMail = function(params)
   {
@@ -4647,7 +5538,10 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of business to get privileges for.
    * @param {string} params.uid User key to get privileges for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_privilege_passport` {string[]} List of privileges, if user is administrator.
+   *  `a_privilege_staff` {number[]} List of privileges, if the given user is a staff member in the give business.
+   *  `is_admin` {boolean} Whether this user is a super-administrator because he is a studio staff member.
    */
   WlClient.prototype.wlStaffPrivilegePrivilegeList = function(params)
   {
@@ -4667,7 +5561,8 @@
    * @param {boolean} params.is_check_staff_access Determines that only staff members which the current user has access to should be retrieved.
    * @param {boolean} params.is_staff_inactive Whether inactive and removed staff members are available.
    * @param {string} params.k_business The key of the business to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_staff` {Object[]}
    */
   WlClient.prototype.wlStaffStaffListStaffList = function(params)
   {
@@ -4689,7 +5584,10 @@
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.k_staff The staff member key.
    * @param {string} params.uid_staff The staff member user ID.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_class_day` {Object[]}
+   *  `a_result_list` {Object[]}
+   *  `a_staff` {Object[]}
    */
   WlClient.prototype.wlStaffStaffViewStaffView = function(params)
   {
@@ -4708,7 +5606,10 @@
    * @param {number} params.i_image_width Image width in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.uid_staff The staff member user ID.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_class_day` {Object[]}
+   *  `a_result_list` {Object[]}
+   *  `a_staff` {Object[]}
    */
   WlClient.prototype.wlStaffStaffViewStaffView74 = function(params)
   {
@@ -4725,7 +5626,8 @@
    * @param {string} params.k_business Key of current business.
    * @param {string} params.k_reward_action_category Key of reward action category.
    * @param {string} params.uid Key of a user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_reward_action` {Object[]}
    */
   WlClient.prototype.wlRewardActionAction = function(params)
   {
@@ -4739,7 +5641,7 @@
    * persists only the provided fields while logging the changes.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlRewardActionActionWrite = function(params)
   {
@@ -4756,7 +5658,11 @@
    * @param {string} params.k_business Business to show information for.
    * @param {string} params.k_reward_action Reward action to show information for.
    * @param {string} params.uid User to retrieve information about.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `i_score` {number} Points amount that will be added to user account after successful accomplishm...
+   *  `id_reward_score` {?number} Types of reward actions.
+   *  `is_request` {boolean} `true` if user has requested points for action accomplishment, `false` otherw...
+   *  `s_description` {string} User friendly reward action description.
    */
   WlClient.prototype.wlRewardActionElementGet = function(params)
   {
@@ -4773,7 +5679,7 @@
    * @param {string} params.k_business Business to show information for.
    * @param {string} params.k_reward_action Reward action to show information for.
    * @param {string} params.uid User to retrieve information about.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlRewardActionElementPost = function(params)
   {
@@ -4789,7 +5695,8 @@
    * @param {Object} [params] Request parameters.
    * @param {?number} params.id_reward_score ID of type of reward action. One of [RsRewardScoreSid](#/components/schemas/RsRewardScoreSid) con...
    * @param {string} params.k_business Key of a business to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_reward_action` {Object[]}
    */
   WlClient.prototype.wlRewardActionActionType = function(params)
   {
@@ -4804,7 +5711,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_login_activity List of login activity keys for which points should be added or returned.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `i_score` {number} Depending on arguments specified during API request might be:
    */
   WlClient.prototype.wlRewardScoreScoreGet = function(params)
   {
@@ -4819,7 +5727,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_login_activity List of login activity keys for which points should be added or returned.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlRewardScoreScorePost = function(params)
   {
@@ -4833,7 +5741,7 @@
    * adjustment to the user's reward balance within a transaction.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlRewardScoreScorePut = function(params)
   {
@@ -4851,7 +5759,11 @@
    * @param {string} params.k_business Business to show information for.
    * @param {string} params.k_reward_board Reward board to show information for.
    * @param {string} params.uid User to retrieve information about.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_reward` {?Object[]}
+   *  `i_score` {number} Score in points.
+   *  `s_name` {string} User name.
+   *  `url_logo` {string} User logo.
    */
   WlClient.prototype.wlRewardBoardElement = function(params)
   {
@@ -4867,7 +5779,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business ID of a business to show information for.
    * @param {string} params.k_reward_board ID of reward board to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_uid` {number[]} A list of UID items.
    */
   WlClient.prototype.wlRewardBoardList = function(params)
   {
@@ -4883,7 +5796,9 @@
    * @param {string} params.k_business Business to show information for.
    * @param {string} params.k_reward_prize Key of redeemable prize.
    * @param {string} params.uid User to retrieve information about.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `i_score` {number} Prize price in wellnessliving points.
+   *  `s_description` {string} User friendly prize description.
    */
   WlClient.prototype.wlRewardPrizeElementGet = function(params)
   {
@@ -4900,7 +5815,8 @@
    * @param {string} params.k_business Business to show information for.
    * @param {string} params.k_reward_prize Key of redeemable prize.
    * @param {string} params.uid User to retrieve information about.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_login_prize` {string} Key of login prize.
    */
   WlClient.prototype.wlRewardPrizeElementPost = function(params)
   {
@@ -4915,7 +5831,9 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of current business.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_prize` {string[]} Array of prize keys.
+   *  `a_score` {number[]} Array of prize scores.
    */
   WlClient.prototype.wlRewardPrizePrize = function(params)
   {
@@ -4930,7 +5848,7 @@
    * Optionally restricts recipients to specific UIDs via `$s_uid`. Requires the `rs.profile` privilege.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlNotificationSendNotificationSend = function(params)
   {
@@ -4946,7 +5864,8 @@
    * @param {Object} [params] Request parameters.
    * @param {number} params.id_notification ID of the notification. See [RsMailSid](#/components/schemas/RsMailSid).
    * @param {string} params.k_business Key of the business where information about notification should be retrieved.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_info` {*[]} Information about mail.
    */
   WlClient.prototype.wlNotificationSendNotificationInfo = function(params)
   {
@@ -4961,7 +5880,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.text_phone Phone number to be validated.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlNotificationOtpPhoneOtpGet = function(params)
   {
@@ -4976,7 +5895,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.text_phone Phone number to be validated.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlNotificationOtpPhoneOtpPost = function(params)
   {
@@ -4991,7 +5910,10 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `uid` {?string} The current user key.
+   *  `url_password_change` {string} A URL that a user can visit to reset their password.
+   *  `url_register` {string} The URL to the registration page.
    */
   WlClient.prototype.wlPassportLoginInfo = function(params)
   {
@@ -5008,7 +5930,8 @@
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_billing_confirm Whether customization billing is confirmed.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `s_link` {string} Name of the link to default application skin.
    */
   WlClient.prototype.wlSkinApplicationSkinDelete = function(params)
   {
@@ -5024,7 +5947,10 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_skin` {*[]} Skin information.
+   *  `has_pay` {boolean} Determines current business account contains amount for the application custo...
+   *  `s_link` {string} Name of the link to default application skin.
    */
   WlClient.prototype.wlSkinApplicationSkinGet = function(params)
   {
@@ -5039,7 +5965,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_widget_skin` {Object[]}
    */
   WlClient.prototype.wlSkinWidgetSkinWidgetList = function(params)
   {
@@ -5063,7 +5990,19 @@
    * @param {string} params.k_visit ID of the visit, if we show icons on the attendance list and information that depends on visit is...
    * @param {string} params.s_show A list of icons with additional information about the business member.
    * @param {string} params.uid ID of a user to retrieve member information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_info` {?Object[]}
+   *  `a_result_list` {?Object[]}
+   *  `a_visit_last` {Object[]}
+   *  `a_visit_next` {Object[]}
+   *  `i_lifetime_visit` {number} Count attend visits for one client.
+   *  `is_traveller` {?boolean} If `true`, the client is a traveler. Otherwise, this will be `false`.
+   *  `m_lifetime_value` {string} The member's lifetime value.
+   *  `s_member` {?string} The member ID.
+   *  `text_first_name` {string} First user's name.
+   *  `text_fullname` {string} Full user's name.
+   *  `url_barcode` {string} URL to barcode image.
+   *  `url_email` {string} URL to email.
    */
   WlClient.prototype.wlMemberInfoInfo = function(params)
   {
@@ -5080,7 +6019,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business for which to get a list of clients.
    * @param {string} params.s_promotion_keys The comma-separated list of the Purchase Option keys.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_clients` {Object[]}
    */
   WlClient.prototype.wlMemberPurchaseMemberByPromotion = function(params)
   {
@@ -5099,7 +6039,28 @@
    * @param {string} params.k_business The key of the business.
    * @param {boolean} params.not_cached `true` to ignore cache and load information from the database directly.
    * @param {string} params.uid The key of the user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_custom_field` {Object[]}
+   *  `a_member_group` {string[]} List of member groups that the user belongs to.
+   *  `a_photo` {Object[]}
+   *  `a_result_list` {Object[]}
+   *  `can_introductory` {boolean} Whether the user can purchase introductory offers.
+   *  `dt_add` {string} The date the user was added, given in UTC time.
+   *  `dt_birth` {string} The user's birthday. This will be `null` if the birthday isn't set yet.
+   *  `has_discount` {?boolean} Whether client's login type has a discount.
+   *  `id_gender` {number} String identifiers for gender.
+   *  `is_calendar_google` {boolean} This will be `true` if the user has Google Calendar linked to their account; ...
+   *  `is_calendar_microsoft` {boolean} This will be `true` if the user has Microsoft Calendar linked to their accoun...
+   *  `is_customer_new` {boolean} This will be `true` if the user has never made purchases or reservations in t...
+   *  `is_traveller` {boolean} This will be `true` if the user is a traveler. A traveler is someone whose ho...
+   *  `k_city` {?string} City key.
+   *  `k_login_type` {string} The key of the login type. The login type describes the user's client type in...
+   *  `s_first_name` {string} The user's first name.
+   *  `s_last_name` {string} The user's last name.
+   *  `s_mail` {string} The user's email address.
+   *  `s_member` {string} The user's member ID in the business. Also referred to as the client ID in th...
+   *  `s_phone` {string} The user's phone number.
+   *  `...` {*}
    */
   WlClient.prototype.wlUserInfoUserInfo = function(params)
   {
@@ -5116,7 +6077,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business.
    * @param {string} params.uid Key of the user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_integration` {?Object[]}
    */
   WlClient.prototype.wlUserInfoUserIntegration = function(params)
   {
@@ -5133,7 +6095,15 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the current business.
    * @param {string} params.s_search The string to be used for searching for a referrer.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_photo` {Object[]}
+   *  `s_email` {string} The email address of the referrer.
+   *  `s_member` {string} The business client ID of the referrer.
+   *  `s_name_first` {string} The first name of the referrer.
+   *  `s_name_last` {string} The last name of the referrer.
+   *  `s_phone` {string} The phone number of the referrer.
+   *  `text_name_public` {?string} Composes name of the referrer for public usage.
+   *  `uid_referrer` {string} The referrer's user key.
    */
   WlClient.prototype.wlUserReferrerReferrer = function(params)
   {
@@ -5148,7 +6118,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key of the discount codes.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
    */
   WlClient.prototype.wlDiscountCodeDiscountCode = function(params)
   {
@@ -5164,7 +6135,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business to get shop categories for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_shop_category` {Object[]}
    */
   WlClient.prototype.wlShopCategoryCategoryGet = function(params)
   {
@@ -5179,7 +6151,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business to get shop categories for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_shop_category` {string} Key of the created shop category.
    */
   WlClient.prototype.wlShopCategoryCategoryPost = function(params)
   {
@@ -5194,7 +6167,16 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_resource_layout The key of the layout.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_resource` {Object[]}
+   *  `a_shape_custom` {Object[]}
+   *  `a_shape_icon` {Object[]}
+   *  `i_grid` {number} The grid size.
+   *  `is_grid` {boolean} This will be `true` if snap to grid is enabled. Otherwise, this will be `false`.
+   *  `k_resource_type` {string} The key of the asset category.
+   *  `s_color_active` {string} The color for active assets. Hex encoding with prefix `#`.
+   *  `show_name` {boolean} This will be `true` if asset names are displayed. Otherwise, this will be `fa...
+   *  `show_number` {boolean} This will be `true` if asset numbers are displayed. Otherwise, this will be `...
    */
   WlClient.prototype.wlResourceLayoutLayout = function(params)
   {
@@ -5211,7 +6193,8 @@
    * @param {number} params.id_category Type of the resource.
    * @param {boolean} params.is_franchise Whether to return franchisee-created resources (if business is franchisor).
    * @param {string} params.k_business Business key, primary key in RsBusinessSql.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_resource` {Object[]}
    */
   WlClient.prototype.wlResourceResourceListList = function(params)
   {
@@ -5229,7 +6212,8 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
    * @param {string} params.uid_delete The key of the related user who `uid` must be removed.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_relation` {Object[]}
    */
   WlClient.prototype.wlFamilyRelationRelationDelete = function(params)
   {
@@ -5246,7 +6230,8 @@
    * @param {number} params.id_flow ID of the user behavior flow.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_relation` {Object[]}
    */
   WlClient.prototype.wlFamilyRelationRelationGet = function(params)
   {
@@ -5264,7 +6249,8 @@
    * @param {number} params.id_flow ID of the user behavior flow.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_relation` {Object[]}
    */
   WlClient.prototype.wlFamilyRelationRelationPost = function(params)
   {
@@ -5279,7 +6265,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_business_relationships` {number[]} The relationship types in the business.
    */
   WlClient.prototype.wlFamilyRelationFamilyRelation = function(params)
   {
@@ -5297,7 +6284,8 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
    * @param {string} params.uid_delete The key of the related user who [RelationApi](/Wl/Family/Relation/Relation.json) must be removed.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_relation` {Object[]}
    */
   WlClient.prototype.wlFamilyRelationRelation72Delete = function(params)
   {
@@ -5314,7 +6302,8 @@
    * @param {number} params.id_flow ID of the user behavior flow.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_relation` {Object[]}
    */
   WlClient.prototype.wlFamilyRelationRelation72Get = function(params)
   {
@@ -5332,7 +6321,8 @@
    * @param {number} params.id_flow ID of the user behavior flow.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_relation` {Object[]}
    */
   WlClient.prototype.wlFamilyRelationRelation72Post = function(params)
   {
@@ -5353,7 +6343,8 @@
    * @param {string} params.k_business The key of the business.
    * @param {string} params.s_guid The randomly generated 32 character string used to authenticate Autymate requests for the business.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_status` {number} List of statuses of an Autymate enrollment notification.
    */
   WlClient.prototype.wlIntegrationAutymateAutymateActivate = function(params)
   {
@@ -5374,7 +6365,16 @@
    * @param {boolean} params.is_refresh Determines whether this report should be refreshed.
    * @param {string} params.k_business The key of the business for which the report must be generated.
    * @param {string} params.s_guid The randomly generated 32 character string used to authenticate requests.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_field` {string[]} The list of fields in this report.
+   *  `a_row` {string[][]} The report data.
+   *  `a_warning` {string[]} The warning list of the report, if applicable.
+   *  `dtu_complete` {?string} The date and time when this report has completed generation.
+   *  `dtu_queue` {?string} The date and time when this report was put in the generation queue.
+   *  `dtu_start` {?string} The date and time when generation of this report was started.
+   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation.
+   *  `is_more` {boolean} If `true` then there are more report rows to get. Otherwise, `false` if all r...
+   *  `is_report_complete` {boolean} Determines whether this report is complete. If this report is accessed on the...
    */
   WlClient.prototype.wlIntegrationAutymateReport = function(params)
   {
@@ -5389,7 +6389,8 @@
    * identifiers are rate-limited with a penalty block mechanism.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_result` {boolean[]} The key of the SAML identifier.
    */
   WlClient.prototype.wlIntegrationSamlSamlUserDeactivation = function(params)
   {
@@ -5409,7 +6410,12 @@
    * @param {boolean} params.is_include_churn Determines whether to include churned/removed locations.
    * @param {boolean} params.is_include_non_api Determines whether to include locations marked to not be displayed on franchisor website.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_city_list` {Object[]}
+   *  `a_country_list` {Object[]}
+   *  `a_location_list` {Object[]}
+   *  `a_region_list` {Object[]}
+   *  `a_state_list` {Object[]}
    */
   WlClient.prototype.wlIntegrationCurvesCurvesFranchiseLocation = function(params)
   {
@@ -5428,7 +6434,8 @@
    * @param {string} params.k_location The location key.
    * @param {string} params.s_member The member ID.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `can_access` {boolean} Whether the specified user can access the location.
    */
   WlClient.prototype.wlIntegrationDragonFlyAccess = function(params)
   {
@@ -5446,7 +6453,8 @@
    * @param {boolean} params.is_frontend `true` to get only gift cards available for current user; `false` to get all gift cards.
    * @param {boolean} params.is_inactive_include A flag to include disabled items in the query result
    * @param {string} params.k_business The business key to retrieve a list of all the gift cards in a business.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_coupon` {Object[]}
    */
   WlClient.prototype.wlCouponCouponListList = function(params)
   {
@@ -5461,7 +6469,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.uid The client for whom the Microsoft account will be unlinked.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlMicrosoftLoginMicrosoftLoginDelete = function(params)
   {
@@ -5478,7 +6486,9 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.uid The client for whom the Microsoft account will be unlinked.
    * @param {string} params.url_redirect The Redirect URI for external applications.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `is_exists` {boolean} If `true`, the user has a bound Microsoft account. Otherwise, this will be `f...
+   *  `url_login` {string} The Microsoft OAuth 2.0 authorization link.
    */
   WlClient.prototype.wlMicrosoftLoginMicrosoftLoginGet = function(params)
   {
@@ -5494,7 +6504,7 @@
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_external If authorization is performed in a third-party application, set this flag in case of authorizatio...
    * @param {string} params.url_redirect The Redirect URI for external applications.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlMicrosoftLoginMicrosoftLoginPost = function(params)
   {
@@ -5509,7 +6519,8 @@
    * services in directory searches. No authentication or input parameters are required.
    *
    * @param {Object} [params] Request parameters.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_search_tag` {Object[]}
    */
   WlClient.prototype.wlSearchTagSearchTagList = function(params)
   {
@@ -5524,7 +6535,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_review The review key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlReviewReviewListReviewElementDelete = function(params)
   {
@@ -5540,7 +6551,8 @@
    * @param {string} params.k_business The key of the business to which the review belongs.
    * @param {string} params.k_review The review key.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_review` {Object[]}
    */
   WlClient.prototype.wlReviewReviewListReviewElementGet = function(params)
   {
@@ -5559,7 +6571,8 @@
    * @param {string} params.k_business Business key. If not specified, location key needs to be specified.
    * @param {string} params.k_location The key of the location to show reviews for. If not specified, business key should be specified.
    * @param {string} params.uid The user's key. WellnessLiving allows staff to check low-rated reviews before posting them. Staff...
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_review` {Object[]}
    */
   WlClient.prototype.wlReviewReviewListReviewList = function(params)
   {
@@ -5577,7 +6590,8 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.k_location The location key.
    * @param {string} params.uid The key of the user making the gym visit.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `url_catalog` {string} Url to the business catalog with items that can be used to pay for the visit.
    */
   WlClient.prototype.wlGymVisitVisitAdd = function(params)
   {
@@ -5592,7 +6606,8 @@
    * destination URL to deep-link directly to the shared items.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `s_secret` {string} Secret key for access shared object.
    */
   WlClient.prototype.wlSocialShareSocialShare = function(params)
   {
@@ -5606,7 +6621,7 @@
    * delegates to the parent Facebook login flow to authenticate the user.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlFacebookLoginFacebookLogin = function(params)
   {
@@ -5619,7 +6634,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key number used internally by WellnessLiving.
    * @param {string} params.k_pay_bank Pay bank key to delete.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.thothWlPayBankCardAddAddDelete = function(params)
   {
@@ -5634,7 +6649,8 @@
    * @param {string} params.k_business The business key number used internally by WellnessLiving.
    * @param {string} params.k_location The location key.
    * @param {string} params.k_pay_owner The payment owner ID. This is different from the user ID. It can be found with
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `html_widget` {string} The HTML form containing the fields required to add a card.
    */
   WlClient.prototype.thothWlPayBankCardAddAddGet = function(params)
   {
@@ -5648,7 +6664,7 @@
    * @param {string} params.k_business The business key number used internally by WellnessLiving.
    * @param {string} params.k_location The location key.
    * @param {string} params.k_pay_owner The payment owner ID. This is different from the user ID. It can be found with
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.thothWlPayBankCardAddAddPost = function(params)
   {
@@ -5662,7 +6678,7 @@
    * the matching entries from the allowed origins for the current application, then clears the origin cache.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.coreRequestApiApplicationOriginDelete = function(params)
   {
@@ -5676,7 +6692,8 @@
    * origin URL and each value is an optional API domain used to proxy requests from that origin.
    *
    * @param {Object} [params] Request parameters.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {?string[]} A list of origins.
    */
   WlClient.prototype.coreRequestApiApplicationOriginGet = function(params)
   {
@@ -5690,7 +6707,7 @@
    * inserts or updates the entries in the allowed origins for the current application, then clears the origin cache.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.coreRequestApiApplicationOriginPut = function(params)
   {
@@ -5705,7 +6722,8 @@
    * attempts have occurred, starts a session for the user, and returns a redirect URL if applicable.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `url_redirect` {string} An optional URL for redirection after the user has signed in to the web appli...
    */
   WlClient.prototype.corePassportLoginEnterEnter = function(params)
   {
@@ -5722,7 +6740,10 @@
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.s_login] User login.
    * @param {string} params.s_type The session type to store the notepad in.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_region` {number} List of available data center regions.
+   *  `s_hash` {string} The hash type.
+   *  `s_notepad` {string} The notepad value, which is used to hash the user's password.
    */
   WlClient.prototype.corePassportLoginEnterNotepad = function(params)
   {
@@ -5737,7 +6758,9 @@
    * An optional application ID and custom confirmation URL may be provided.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `json_confirm_config` {string} JSON configuration for confirmation email.
+   *  `url_confirm` {string} The URL to the confirmation page. This link is used in a confirmation email.
    */
   WlClient.prototype.corePassportLoginRegisterRegister = function(params)
   {
@@ -5754,7 +6777,8 @@
    * @param {string} params.text_code The unique registration code.
    * @param {string} params.text_login The user's login.
    * @param {string} params.text_mail The user's email.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `uid` {string} The key of the new registered user.
    */
   WlClient.prototype.corePassportLoginRegisterRegisterConfirm = function(params)
   {
@@ -5769,7 +6793,7 @@
    * via SAML SSO, as API-based logout is not supported in that case.
    *
    * @param {Object} [params] Request parameters.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.corePassportLoginSignOutSignOut = function(params)
   {
@@ -5783,7 +6807,8 @@
    * header and user ID that can be passed to other services to authenticate the user without sharing session cookies.
    *
    * @param {Object} [params] Request parameters.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `s_token` {string} Jwt token that allows to authenticate user.
    */
   WlClient.prototype.corePassportEnterJwtJwtToken = function(params)
   {
@@ -5799,7 +6824,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.text_email The email address.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `is_exist` {boolean} Determines whether the email address exists.
    */
   WlClient.prototype.corePassportUserEmailEmailExist = function(params)
   {
@@ -5821,7 +6847,9 @@
    * @param {string} params.dt_date The date of the sessions in Coordinated Universal Time (UTC) and MySQL format.
    * @param {string} params.k_business Business key.
    * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_schedule` {Object[]}
+   *  `is_virtual_service` {boolean} `true` - If the business has at least one virtual service, `false` - otherwise.
    */
   WlClient.prototype.wlScheduleScheduleListStaffAppScheduleList = function(params)
   {
@@ -5844,7 +6872,9 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.text_token The security token.
    * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_schedule` {Object[]}
+   *  `is_virtual_service` {boolean} `true` - If the business has at least one virtual service, `false` - otherwise.
    */
   WlClient.prototype.wlScheduleScheduleListStaffAppScheduleListByToken = function(params)
   {
@@ -5870,7 +6900,10 @@
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.k_service_category The key of a service category to show information for.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_service` {Object[]}
+   *  `is_multiple_booking` {boolean} Whether services allow multiple appointment booking.
+   *  `k_location` {string} Location to show available appointment booking schedule.
    */
   WlClient.prototype.wlAppointmentBookServiceServiceList52 = function(params)
   {
@@ -5893,7 +6926,10 @@
    * @param {string} params.k_class_tab The class tab key used to filter services.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_category` {Object[]}
+   *  `is_client_flag` {boolean} `true` - if client has a flag, `false` - otherwise.
+   *  `k_location` {string} Location to show available appointment booking schedule.
    */
   WlClient.prototype.wlAppointmentBookServiceCategory = function(params)
   {
@@ -5921,7 +6957,10 @@
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.k_service_category The key of a service category to show information for.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_service` {Object[]}
+   *  `is_multiple_booking` {boolean} Whether services allow multiple appointment booking.
+   *  `k_location` {string} Location to show available appointment booking schedule.
    */
   WlClient.prototype.wlAppointmentBookServiceServiceList = function(params)
   {
@@ -5940,7 +6979,7 @@
    * @param {string} params.k_location The location key.
    * @param {string} params.k_service The service key.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlAppointmentBookServiceServiceCheck = function(params)
   {
@@ -5964,7 +7003,11 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_appointment` {Object[]}
+   *  `a_login_activity_visit` {string[]} The activity IDs of bookings that have been made.
+   *  `a_visit` {string[]} The visit IDs.
+   *  `a_visit_provider` {string[][]} Keys of booked visits.
    */
   WlClient.prototype.wlAppointmentBookFinishFinishMultiple = function(params)
   {
@@ -5984,7 +7027,9 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_notification` {Object[]}
+   *  `k_location` {string} Location to show available appointment booking schedule.
    */
   WlClient.prototype.wlAppointmentBookFinishFinishGet = function(params)
   {
@@ -6010,7 +7055,11 @@
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {?string} [params.k_timezone] Key of timezone.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_appointment` {Object[]}
+   *  `a_login_activity_visit` {string[]} The activity keys of the bookings that were made.
+   *  `a_visit` {string[]} The keys of visits.
+   *  `a_visit_payment` {Object[]}
    */
   WlClient.prototype.wlAppointmentBookFinishFinishPost = function(params)
   {
@@ -6029,7 +7078,9 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_notification` {Object[]}
+   *  `k_location` {string} Location to show available appointment booking schedule.
    */
   WlClient.prototype.wlAppointmentBookFinishFinish47Get = function(params)
   {
@@ -6053,7 +7104,11 @@
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {?string} [params.k_timezone] Key of timezone.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_appointment` {Object[]}
+   *  `a_login_activity_visit` {string[]} The activity keys of the bookings that were made.
+   *  `a_visit` {string[]} The keys of visits.
+   *  `a_visit_payment` {Object[]}
    */
   WlClient.prototype.wlAppointmentBookFinishFinish47Post = function(params)
   {
@@ -6084,7 +7139,17 @@
    * @param {string} params.k_service The service key used to select available Purchase Options.
    * @param {?string} [params.k_timezone] The timezone key for `dt_date`.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_prize` {Object[]}
+   *  `a_login_promotion` {Object[]}
+   *  `a_purchase` {Object[]}
+   *  `a_reward_prize` {Object[]}
+   *  `a_session_pass` {Object[]}
+   *  `is_single_default` {boolean} Indicates if drop-in rate should be the default purchase option.
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   *  `k_login_promotion` {?string} The Purchase Option ID used to pay for the appointment.
+   *  `k_promotion_default` {string} Default promotion key.
+   *  `text_login_promotion` {string} Login promotion title suitable to pay for the services.
    */
   WlClient.prototype.wlAppointmentBookPurchasePurchase = function(params)
   {
@@ -6116,7 +7181,17 @@
    * @param {string} params.k_service The service key used to select available Purchase Options.
    * @param {?string} [params.k_timezone] The timezone key for [PurchaseApi](/Wl/Appointment/Book/Purchase/Purchase.json).
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_prize` {Object[]}
+   *  `a_login_promotion` {Object[]}
+   *  `a_purchase` {Object[]}
+   *  `a_reward_prize` {Object[]}
+   *  `a_session_pass` {Object[]}
+   *  `is_single_default` {boolean} Indicates if drop-in rate should be the default purchase option.
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   *  `k_login_promotion` {?string} The Purchase Option ID used to pay for the appointment.
+   *  `k_promotion_default` {string} Default promotion key.
+   *  `text_login_promotion` {string} Login promotion title suitable to pay for the services.
    */
   WlClient.prototype.wlAppointmentBookPurchasePurchase72 = function(params)
   {
@@ -6152,7 +7227,13 @@
    * @param {string} params.s_product A list of service add-ons keys(encoded as JSON string).
    * @param {string} params.uid The user key.
    * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_time` {Object[]}
+   *  `dt_date` {string} The date to show the available appointment booking schedule.
+   *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
+   *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
+   *  `is_waitlist` {boolean} Whether list of available times contains slots with only waitlist booking ava...
+   *  `k_location` {string} Location to show available appointment booking schedule.
    */
   WlClient.prototype.wlAppointmentBookScheduleDayTime = function(params)
   {
@@ -6189,7 +7270,19 @@
    * @param {string} params.s_product A list of service add-ons keys(encoded as JSON string).
    * @param {string} params.uid The user key.
    * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_date` {Object[]}
+   *  `a_time` {Object[]}
+   *  `a_timezone_data` {Object[]}
+   *  `a_week_name` {Object[]}
+   *  `can_backwards` {boolean} Whether previous calendar period can be shown (start of shown period later th...
+   *  `dt_date` {string} The date to show the available appointment booking schedule.
+   *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
+   *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
+   *  `i_week_end` {number} A class for the days of the week.
+   *  `i_week_start` {number} A class for the days of the week.
+   *  `is_waitlist` {boolean} Whether list of available times contains slots with only waitlist booking ava...
+   *  `k_location` {string} Location to show available appointment booking schedule.
    */
   WlClient.prototype.wlAppointmentBookScheduleCalendar = function(params)
   {
@@ -6223,7 +7316,13 @@
    * @param {string} params.s_product A list of service add-ons keys(encoded as JSON string).
    * @param {string} params.uid The user key.
    * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `dt_date` {string} Start date to search next available date in MySQL format. If empty, the searc...
+   *  `dt_next` {string} Next available date in MySQL format.
+   *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
+   *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
+   *  `is_waitlist` {boolean} Whether list of available times contains slots with only waitlist booking ava...
+   *  `k_location` {string} Location to show available appointment booking schedule.
    */
   WlClient.prototype.wlAppointmentBookScheduleNextAvailableDay = function(params)
   {
@@ -6251,7 +7350,10 @@
    * @param {string} params.k_resource_category The asset category key to show information for.
    * @param {string} params.k_timezone Timezone of date and time of asset booking.
    * @param {?string} [params.uid] Client to get information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_asset` {Object[]}
+   *  `a_asset_busy` {string|boolean[][]} A list of reserved assets.
+   *  `k_resource_layout` {string} The asset layout key.
    */
   WlClient.prototype.wlAppointmentBookAssetAssetList = function(params)
   {
@@ -6270,7 +7372,8 @@
    * @param {boolean} params.is_tab_all `true` - search in all tabs.
    * @param {string} params.k_class_tab The class tab key to use for filtering services.
    * @param {string} params.k_location The key of the location to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_category` {Object[]}
    */
   WlClient.prototype.wlAppointmentBookAssetCategory = function(params)
   {
@@ -6301,7 +7404,16 @@
    * @param {string} params.text_coupon_code Gift card code.
    * @param {string} params.text_discount_code The discount code to be applied to the purchase.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_promotion_data` {Object[]}
+   *  `a_purchase` {Object[]}
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   *  `m_coupon` {string} Gift card amount.
+   *  `m_discount` {string} Discount amount.
+   *  `m_surcharge` {string} Surcharge amount calculated for credit cards (Virtual Terminal and Card Swiper).
+   *  `m_surcharge_ach` {string} Surcharge amount calculated for money transfers from account: ACH, Direct Entry.
+   *  `m_tax` {string} The tax of service.
+   *  `m_total` {string} The total cost of the purchase.
    */
   WlClient.prototype.wlAppointmentBookPaymentPaymentGet = function(params)
   {
@@ -6327,7 +7439,11 @@
    * @param {string} params.text_coupon_code Gift card code.
    * @param {string} params.text_discount_code The discount code to be applied to the purchase.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_purchase_item` {?string[]} The purchase item keys from the database.
+   *  `id_pay` {number} The possible payment types an appointment can have.
+   *  `k_login_activity_purchase` {string} The key of activity of the purchase made.
+   *  `k_login_prize` {string} Login prize key. In case when appointment paid by reward prize, there is the ...
    */
   WlClient.prototype.wlAppointmentBookPaymentPaymentPost = function(params)
   {
@@ -6351,7 +7467,17 @@
    * @param {string} params.text_coupon_code The gift card code.
    * @param {string} params.text_discount_code The discount code.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_promotion_data` {Object[]}
+   *  `a_purchase` {Object[]}
+   *  `a_total` {string[]} The list of amounts to pay for appointments from the batch, with taxes and wi...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   *  `m_coupon` {string} The gift card amount.
+   *  `m_discount` {string} The discount amount.
+   *  `m_surcharge` {string} Surcharge amount calculated for credit cards (Virtual Terminal and Card Swiper).
+   *  `m_surcharge_ach` {string} Surcharge amount calculated for money transfers from account: ACH, Direct Entry.
+   *  `m_tax` {string} The amount of tax to pay.
+   *  `m_total` {string} The price of the service, with taxes and without surcharges.
    */
   WlClient.prototype.wlAppointmentBookPaymentPaymentMultipleGet = function(params)
   {
@@ -6373,7 +7499,11 @@
    * @param {string} params.text_coupon_code The gift card code.
    * @param {string} params.text_discount_code The discount code.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_prize` {string[]} The list of redeemed prizes.
+   *  `a_pay` {number[]} The payment type for the appointment. One of the [RsAppointmentPaySid](#/comp...
+   *  `a_purchase_item` {?string[][]} The keys of purchased items.
+   *  `k_login_activity_purchase` {string} Key of the activity for the purchase made. This will be empty if no purchase ...
    */
   WlClient.prototype.wlAppointmentBookPaymentPaymentMultiplePost = function(params)
   {
@@ -6402,7 +7532,16 @@
    * @param {string} params.text_coupon_code Gift card code.
    * @param {string} params.text_discount_code The discount code to be applied to the purchase.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_promotion_data` {Object[]}
+   *  `a_purchase` {Object[]}
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   *  `m_coupon` {string} Gift card amount.
+   *  `m_discount` {string} Discount amount.
+   *  `m_surcharge` {string} Surcharge amount calculated for credit cards (Virtual Terminal and Card Swiper).
+   *  `m_surcharge_ach` {string} Surcharge amount calculated for money transfers from account: ACH, Direct Entry.
+   *  `m_tax` {string} The tax of service.
+   *  `m_total` {string} The total cost of the purchase.
    */
   WlClient.prototype.wlAppointmentBookPaymentPaymentPostGet = function(params)
   {
@@ -6426,7 +7565,11 @@
    * @param {string} params.text_coupon_code Gift card code.
    * @param {string} params.text_discount_code The discount code to be applied to the purchase.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_purchase_item` {?string[]} The purchase item keys from the database.
+   *  `id_pay` {number} The possible payment types an appointment can have.
+   *  `k_login_activity_purchase` {string} The key of activity of the purchase made.
+   *  `k_login_prize` {string} Login prize key. In case when appointment paid by reward prize, there is the ...
    */
   WlClient.prototype.wlAppointmentBookPaymentPaymentPostPost = function(params)
   {
@@ -6442,7 +7585,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_service The service key used for retrieving questions.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_question` {Object[]}
    */
   WlClient.prototype.wlAppointmentBookQuestionQuestion = function(params)
   {
@@ -6466,7 +7610,12 @@
    * @param {string} params.k_service The key of a service for which to show information.
    * @param {?string} [params.k_timezone] User's timezone.
    * @param {?string} [params.uid] The user key for whom the service is booking.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_staff` {Object[]}
+   *  `can_book_unavailable_staff` {boolean} Can staff booked unavailable staff.
+   *  `has_gender` {boolean} Determines whether to select the staff member's gender for the appointment.
+   *  `has_staff` {boolean} Determines whether to select staff member(s) for the appointment.
+   *  `is_gender_different` {boolean} Determines if the staff list has male and female members.
    */
   WlClient.prototype.wlAppointmentBookStaffList = function(params)
   {
@@ -6484,7 +7633,8 @@
    * @param {string} params.k_location The key of a location where appointment is going to be booked.
    * @param {string} params.k_service The key of a service to show information for.
    * @param {?string} [params.uid] The key of a user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_product` {Object[]}
    */
   WlClient.prototype.wlAppointmentBookProductProduct62 = function(params)
   {
@@ -6500,7 +7650,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_service The key of a service to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_product` {Object[]}
    */
   WlClient.prototype.wlAppointmentBookProductProduct = function(params)
   {
@@ -6530,7 +7681,14 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_prize` {Object[]}
+   *  `a_login_promotion` {Object[]}
+   *  `a_purchase` {Object[]}
+   *  `a_reward_prize` {Object[]}
+   *  `a_session_pass` {Object[]}
+   *  `is_single_default` {boolean} Indicates if the drop-in rate should be the default promotion.
+   *  `k_promotion_default` {string} The default Purchase Option key.
    */
   WlClient.prototype.wlBookProcessPurchasePurchase = function(params)
   {
@@ -6551,7 +7709,15 @@
    * @param {string} params.k_location The key of the location in which the purchase is made.
    * @param {string} params.text_discount_code The discount code.
    * @param {string} params.uid The key of the current user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_tax` {string[]} A list of taxes for the given purchase options.
+   *  `m_cost` {string} The total cost of the given purchase options.
+   *  `m_discount` {string} The amount of the whole discount for the given purchase options.
+   *  `m_discount_code` {string} The discount amount provided by a discount code for the given purchase options.
+   *  `m_discount_login` {string} The discount amount for the client type for the given purchase options.
+   *  `m_price` {string} The price of the given purchase options (with or without taxes, depending on ...
+   *  `m_subtotal` {string} The amount of subtotal for the given purchase options.
+   *  `m_tax` {string} The amount of taxes for the given purchase options.
    */
   WlClient.prototype.wlBookProcessPurchasePurchaseElementGroup = function(params)
   {
@@ -6581,7 +7747,14 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_prize` {Object[]}
+   *  `a_login_promotion` {Object[]}
+   *  `a_purchase` {Object[]}
+   *  `a_reward_prize` {Object[]}
+   *  `a_session_pass` {Object[]}
+   *  `is_single_default` {boolean} Indicates if the drop-in rate should be the default promotion.
+   *  `k_promotion_default` {string} The default Purchase Option key.
    */
   WlClient.prototype.wlBookProcessPurchasePurchase56 = function(params)
   {
@@ -6607,7 +7780,15 @@
    * @param {string} params.k_reward_prize The key of the reward prize.
    * @param {string} params.text_discount_code The discount code.
    * @param {string} params.uid The key of the current user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_tax` {string[]} A list of taxes for the given purchase options.
+   *  `m_cost` {string} The total cost of the given purchase options.
+   *  `m_discount` {string} The amount of the whole discount for the given purchase options.
+   *  `m_discount_code` {string} The discount amount provided by a discount code for the given purchase options.
+   *  `m_discount_login` {string} The discount amount for the client type for the given purchase options.
+   *  `m_price` {string} The price of the given purchase options (with or without taxes, depending on ...
+   *  `m_subtotal` {string} The amount of subtotal for the given purchase options.
+   *  `m_tax` {string} The amount of taxes for the given purchase options.
    */
   WlClient.prototype.wlBookProcessPurchasePurchaseElement = function(params)
   {
@@ -6627,7 +7808,8 @@
    * @param {?string} [params.k_location] The key of the location in which the purchase is made.
    * @param {string} params.text_discount_code The discount code.
    * @param {string} params.uid The key of the user making the purchase.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_purchase_item_result` {Object[]}
    */
   WlClient.prototype.wlBookProcessPurchasePurchaseElementList = function(params)
   {
@@ -6648,7 +7830,7 @@
    * @param {string} params.k_business The business where `uid_from` creates the new relative.
    * @param {string} params.k_class_period The key of the session to check for booking availability.
    * @param {string} params.uid_from The user who's adding the new relative.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlBookProcessRelationRelationGet = function(params)
   {
@@ -6665,7 +7847,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business where `uid_from` creates the new relative.
    * @param {string} params.uid_from The user who's adding the new relative.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `uid_create` {string} The newly added relative.
    */
   WlClient.prototype.wlBookProcessRelationRelationPost = function(params)
   {
@@ -6689,7 +7872,8 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_resource_all` {Object[]}
    */
   WlClient.prototype.wlBookProcessResourceResourceGet = function(params)
   {
@@ -6713,7 +7897,10 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_activity` {string[]} The keys of a user's activity.
+   *  `a_visit` {string[]} The keys of the bookings that have been made.
+   *  `is_next` {boolean} `true` - the next steps of the booking wizard are required (for example, to p...
    */
   WlClient.prototype.wlBookProcessResourceResourcePost = function(params)
   {
@@ -6736,7 +7923,8 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_resource_all` {Object[]}
    */
   WlClient.prototype.wlBookProcessResourceResource54Get = function(params)
   {
@@ -6759,7 +7947,10 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_activity` {string[]} The keys of a user's activity.
+   *  `a_visit` {string[]} The keys of the bookings that have been made.
+   *  `is_next` {boolean} `true` - the next steps of the booking wizard are required (for example, to p...
    */
   WlClient.prototype.wlBookProcessResourceResource54Post = function(params)
   {
@@ -6781,7 +7972,10 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_activity_book` {string[]} Keys of the user's activity which correspond to bookings made.
+   *  `a_visit` {string[]} The keys of bookings made.
+   *  `k_login_activity_purchase` {string} The keys of the user's activity corresponding to the purchase made. This won'...
    */
   WlClient.prototype.wlBookProcessPaymentPayment = function(params)
   {
@@ -6804,7 +7998,10 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_activity` {string[]} The keys for the user's activities. This will be populated upon completion of...
+   *  `a_visit` {string[]} The keys of the bookings that have been made.
+   *  `is_next` {boolean} If `true`, the next steps of the booking wizard are required to purchase an i...
    */
   WlClient.prototype.wlBookProcessStoreStore = function(params)
   {
@@ -6825,7 +8022,8 @@
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_purchase_item_distribute` {Object[]}
    */
   WlClient.prototype.wlBookProcessStoreStoreGroup = function(params)
   {
@@ -6849,7 +8047,28 @@
    * @param {boolean} params.show_class_capacity `true` if class capacity should be shown,
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_day_available` {?number[]} Week days available for recurring booking. Constants of [ADateWeekSid](#/comp...
+   *  `a_session_all` {Object[]}
+   *  `a_session_free` {Object[]}
+   *  `a_staff` {Object[]}
+   *  `dl_end` {string} Date when this class session occurrences stop.
+   *  `dt_date_local` {string} The date/time of the session the user is booking in MySQL format in the locat...
+   *  `hide_price` {boolean} `true` if price for the individual session should be hidden, if client has ap...
+   *  `html_contract` {string} The text of the contract to which the user must agree before book this session.
+   *  `html_duration` {string} Class duration in human-readable format.
+   *  `html_special` {string} The special instructions for the class.
+   *  `html_special_preview` {string} Special instructions preview for class.
+   *  `i_available` {?number} Number of available spots.
+   *  `i_book` {?number} Number of booked spots.
+   *  `i_duration` {number} The duration of the session in minutes.
+   *  `i_wait` {number} Total number of clients on the wait list.
+   *  `i_wait_limit` {?number} Total capacity the wait list.
+   *  `i_wait_spot` {number} Estimated place of reservation on the waiting list.
+   *  `is_book_repeat_client` {boolean} `true` if recurring booking is available, `false` otherwise.
+   *  `is_book_repeat_no_end_date` {boolean} `true` if the setting for frequency during class recurring booking will be `n...
+   *  `is_event_session` {boolean} Can client chooses several session per booking.
+   *  `...` {*}
    */
   WlClient.prototype.wlBookProcessInfoInfoGet = function(params)
   {
@@ -6872,7 +8091,13 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_activity` {string[]} The keys of users' activity.
+   *  `a_visit` {string[]} The keys of the bookings made.
+   *  `a_visit_payment` {Object[]}
+   *  `is_card_authorize` {boolean} If client must authorize credit card.
+   *  `is_force_book` {boolean} Can the class/event be booked immediately or not.
+   *  `is_next` {boolean} `true` - next steps of the wizard are needed (for example, to purchase someth...
    */
   WlClient.prototype.wlBookProcessInfoInfoPost = function(params)
   {
@@ -6894,7 +8119,28 @@
    * @param {boolean} params.show_class_capacity `true` if class capacity should be shown,
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_day_available` {?number[]} Week days available for recurring booking. Constants of [ADateWeekSid](#/comp...
+   *  `a_session_all` {Object[]}
+   *  `a_session_free` {Object[]}
+   *  `a_staff` {Object[]}
+   *  `dl_end` {string} Date when this class session occurrences stop.
+   *  `dt_date_local` {string} The date/time of the session the user is booking in MySQL format in the locat...
+   *  `hide_price` {boolean} `true` if price for the individual session should be hidden, if client has ap...
+   *  `html_contract` {string} The text of the contract to which the user must agree before book this session.
+   *  `html_duration` {string} Class duration in human-readable format.
+   *  `html_special` {string} The special instructions for the class.
+   *  `html_special_preview` {string} Special instructions preview for class.
+   *  `i_available` {?number} Number of available spots.
+   *  `i_book` {?number} Number of booked spots.
+   *  `i_duration` {number} The duration of the session in minutes.
+   *  `i_wait` {number} Total number of clients on the wait list.
+   *  `i_wait_limit` {?number} Total capacity the wait list.
+   *  `i_wait_spot` {number} Estimated place of reservation on the waiting list.
+   *  `is_book_repeat_client` {boolean} `true` if recurring booking is available, `false` otherwise.
+   *  `is_book_repeat_no_end_date` {boolean} `true` if the setting for frequency during class recurring booking will be `n...
+   *  `is_event_session` {boolean} Can client chooses several session per booking.
+   *  `...` {*}
    */
   WlClient.prototype.wlBookProcessInfoInfo54Get = function(params)
   {
@@ -6916,7 +8162,13 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_activity` {string[]} The keys of users' activity.
+   *  `a_visit` {string[]} The keys of the bookings made.
+   *  `a_visit_payment` {Object[]}
+   *  `is_card_authorize` {boolean} If client must authorize credit card.
+   *  `is_force_book` {boolean} Can the class/event be booked immediately or not.
+   *  `is_next` {boolean} `true` - next steps of the wizard are needed (for example, to purchase someth...
    */
   WlClient.prototype.wlBookProcessInfoInfo54Post = function(params)
   {
@@ -6937,7 +8189,9 @@
    * @param {string} params.k_class_period The class period ID that the user started to book.
    * @param {string} params.s_id The unique booking process key.
    * @param {string} params.uid The key of a user who is making the booking.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `can_complete` {boolean} Determines whether users can complete the booking process from the info step.
+   *  `hide_price` {boolean} `true` if price for the individual session should be hidden, if client has ap...
    */
   WlClient.prototype.wlBookProcessInfoInfoCanCompleteGet = function(params)
   {
@@ -6957,7 +8211,8 @@
    * @param {string} params.k_class_period The class period ID that the user started to book.
    * @param {string} params.s_id The unique booking process key.
    * @param {string} params.uid The key of a user who is making the booking.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `can_complete` {boolean} Determines whether users can complete the booking process from the info step.
    */
   WlClient.prototype.wlBookProcessInfoInfoCanCompletePost = function(params)
   {
@@ -6979,7 +8234,8 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_quiz` {Object[]}
    */
   WlClient.prototype.wlBookProcessQuizQuizGet = function(params)
   {
@@ -7001,7 +8257,10 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_activity` {string[]} The user's activity keys.
+   *  `a_visit` {string[]} The keys the bookings that have been made.
+   *  `is_next` {boolean} If `true`, the next steps of the booking wizard are required for the purchase...
    */
   WlClient.prototype.wlBookProcessQuizQuizPost = function(params)
   {
@@ -7033,7 +8292,13 @@
    * @param {string} params.s_uid Encoded list of user keys, who will attend visits.
    * @param {string} params.uid Key of user, who will attend visits.
    * @param {string} params.uid_actor Key of user, who perform booking.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_visit` {Object[]}
+   *  `dt_from` {string} Date to start recurring booking. Not empty only when `id_repeat_end` == [RsRe...
+   *  `dt_to` {string} Date to finish recurring booking. Not empty only when `id_repeat_end` == [RsR...
+   *  `i_count` {number} Possible ways to stop repeatable events.
+   *  `text_date_from` {string} Start date of repeatable period in human-readable format.
+   *  `text_date_to` {string} End date of repeatable period in human-readable format.
    */
   WlClient.prototype.wlBookProcessFrequencyRepeat = function(params)
   {
@@ -7066,7 +8331,13 @@
    * @param {string} params.s_uid Encoded list of user keys, who will attend visits.
    * @param {string} params.uid Key of user, who will attend visits.
    * @param {string} params.uid_actor Key of user, who perform booking.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_visit` {Object[]}
+   *  `dt_from` {string} Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Pro...
+   *  `dt_to` {string} Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Pr...
+   *  `i_count` {number} Possible ways to stop repeatable events.
+   *  `text_date_from` {string} Start date of repeatable period in human-readable format.
+   *  `text_date_to` {string} End date of repeatable period in human-readable format.
    */
   WlClient.prototype.wlBookProcessFrequencyRepeatParallel = function(params)
   {
@@ -7088,7 +8359,8 @@
    * @param {string} params.text_first_name Guest's first name.
    * @param {string} params.text_last_name Guest's last name.
    * @param {string} params.text_mail Guest's email.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `uid` {string} UID of found or created user.
    */
   WlClient.prototype.wlBookProcessGuestGuestProfileGet = function(params)
   {
@@ -7109,7 +8381,8 @@
    * @param {string} params.text_first_name Guest's first name.
    * @param {string} params.text_last_name Guest's last name.
    * @param {string} params.text_mail Guest's email.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `uid` {string} UID of found or created user.
    */
   WlClient.prototype.wlBookProcessGuestGuestProfilePost = function(params)
   {
@@ -7128,7 +8401,17 @@
    * @param {string} params.k_business The business key where the check must be performed.
    * @param {string} params.text_mail The email address to be checked.
    * @param {string} params.uid_want The key of user whose email will be edited.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_business_member_key` {string[]} List of business keys where a user is already a member.
+   *  `a_user` {Object[]}
+   *  `is_added` {boolean} Shows, whether client was registered in the business: `true` if user was adde...
+   *  `is_current_member` {boolean} If `true`, user is already a member of current business, `false` - otherwise.
+   *  `is_limit` {boolean} If `true`, then the number of requests has exceeded the rate limit. Otherwise...
+   *  `is_password_set` {boolean} If `true`, user, who has the specified email, has password set, `false` - oth...
+   *  `is_staff` {boolean} If `true`, user, who has the specified email, is staff in current business, `...
+   *  `is_staff_any_business` {boolean} If `true`, user, who has the specified email, is staff in any business, `fals...
+   *  `is_use` {boolean} If `true`, then the specified email is in use. Otherwise, this will be `false`.
+   *  `uid_result` {string} The key of user who has the specified email.
    */
   WlClient.prototype.wlProfileEditEmailEditEmail67Get = function(params)
   {
@@ -7145,7 +8428,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key where the check must be performed.
    * @param {string} params.uid_want The key of user whose email will be edited.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `is_added` {boolean} Shows, whether client was registered in the business: `true` if user was adde...
    */
   WlClient.prototype.wlProfileEditEmailEditEmail67Post = function(params)
   {
@@ -7165,7 +8449,17 @@
    * @param {string} params.k_business The business key where the check must be performed.
    * @param {string} params.text_mail The email address to be checked.
    * @param {string} params.uid_want The key of user whose email will be edited.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_business_member_key` {string[]} List of business keys where a user is already a member.
+   *  `a_user` {Object[]}
+   *  `is_added` {boolean} Shows, whether client was registered in the business: `true` if user was adde...
+   *  `is_current_member` {boolean} If `true`, user is already a member of current business, `false` - otherwise.
+   *  `is_limit` {boolean} If `true`, then the number of requests has exceeded the rate limit. Otherwise...
+   *  `is_password_set` {boolean} If `true`, user, who has the specified email, has password set, `false` - oth...
+   *  `is_staff` {boolean} If `true`, user, who has the specified email, is staff in current business, `...
+   *  `is_staff_any_business` {boolean} If `true`, user, who has the specified email, is staff in any business, `fals...
+   *  `is_use` {boolean} If `true`, then the specified email is in use. Otherwise, this will be `false`.
+   *  `uid_result` {string} The key of user who has the specified email.
    */
   WlClient.prototype.wlProfileEditEmailEditEmailGet = function(params)
   {
@@ -7183,7 +8477,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key where the check must be performed.
    * @param {string} params.uid_want The key of user whose email will be edited.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `is_added` {boolean} Shows, whether client was registered in the business: `true` if user was adde...
    */
   WlClient.prototype.wlProfileEditEmailEditEmailPost = function(params)
   {
@@ -7203,7 +8498,13 @@
    * @param {boolean} params.is_backend This will be `true` if the API is being used from the backend. Otherwise, this will be `false`.
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.uid The key of the user to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_quiz_login` {Object[]}
+   *  `a_quiz_response` {Object[]}
+   *  `can_amend` {boolean} Whether response can be amended by current user.
+   *  `can_fill` {boolean} Whether response can be filled by current user.
+   *  `can_remove` {boolean} Whether response can be removed by current user.
+   *  `can_view` {boolean} Whether response can be viewed by current user.
    */
   WlClient.prototype.wlProfileFormResponseResponseList = function(params)
   {
@@ -7232,7 +8533,28 @@
    * @param {string} params.s_event A list of event keys serialized with JSON.
    * @param {boolean} params.show_unpublished `true` to show schedule, which is not published yet.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_age_restrictions` {Object[]}
+   *  `a_book_available` {Object[]}
+   *  `a_business_policy` {Object[]}
+   *  `a_class_logo` {Object[]}
+   *  `a_class_tab` {string[]} The list of keys from class tab.
+   *  `a_event` {Object[]}
+   *  `a_installment_template` {Object[]}
+   *  `a_schedule` {Object[]}
+   *  `a_shop_category` {string[]} IDs of online store category.
+   *  `a_staff_logo` {Object[]}
+   *  `a_timezone_info` {Object[]}
+   *  `a_visits_required` {Object[]}
+   *  `dt_book_date` {?string} That date that should be used to go to the booking wizard.
+   *  `dt_early` {?string} The early registration date of the event.
+   *  `dt_end` {string} The end date of the event.
+   *  `dt_start` {string} The start date of the event.
+   *  `hide_application` {boolean} Whether event will be hidden in the White Label mobile application.
+   *  `html_description` {?string} The description of the event.
+   *  `html_special` {string} Special instruction for the event.
+   *  `i_capacity` {?number} Class capacity.
+   *  `...` {*}
    */
   WlClient.prototype.wlEventBookEventViewElement = function(params)
   {
@@ -7251,7 +8573,10 @@
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.k_class_tab The key of the category tab.
    * @param {string} params.uid The user's key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_event` {string[]} A list of event identifiers.
+   *  `a_event_available` {boolean[]} Event availability map.
+   *  `is_virtual_service` {boolean} `true` if exist at least one virtual event
    */
   WlClient.prototype.wlEventBookEventListList = function(params)
   {
@@ -7275,7 +8600,8 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.k_class_period The class period key.
    * @param {string} params.s_id The unique hash string.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_get` {*[]} Step information, depending on the steps.
    */
   WlClient.prototype.wlClassesPeriodModifyModifyGet = function(params)
   {
@@ -7300,7 +8626,11 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.k_class_period The class period key.
    * @param {string} params.s_id The unique hash string.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_step` {number} The list of possible modify mode for class modify wizard.
+   *  `is_back` {?boolean} The step direction.
+   *  `k_class` {?string} The class ID.
+   *  `s_id` {string} The unique hash string.
    */
   WlClient.prototype.wlClassesPeriodModifyModifyPost = function(params)
   {
@@ -7317,7 +8647,10 @@
    * @param {Object} [params] Request parameters.
    * @param {number} params.cid_subscription CID of the subscription information of which is requested.
    * @param {string} params.k_business Business key for which subscription information is requested.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_locale` {?number} A list of locales.
+   *  `id_plan` {number|number|number|number}
+   *  `is_active` {boolean} Whether subscription is active.
    */
   WlClient.prototype.wlBusinessAccountSubscriptionSubscriptionInfo = function(params)
   {
@@ -7336,7 +8669,7 @@
    * @param {boolean} params.is_grant Determines whether the user will be granted access or if access will be revoked.
    * @param {string} params.k_location The key of the location to access.
    * @param {string} params.uid The key of the user who will be granted access.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlBusinessAuthorizeSupportResponseResponse = function(params)
   {
@@ -7355,7 +8688,12 @@
    * @param {boolean} params.is_include_churn Determines whether to include churned/removed locations.
    * @param {boolean} params.is_include_non_api Determines whether to include locations marked to not be displayed on franchisor website.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_city_list` {Object[]}
+   *  `a_country_list` {Object[]}
+   *  `a_location_list` {Object[]}
+   *  `a_region_list` {Object[]}
+   *  `a_state_list` {Object[]}
    */
   WlClient.prototype.wlBusinessFranchiseLocationBusinessFranchiseLocation = function(params)
   {
@@ -7370,7 +8708,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `is_disabled_reward_program` {boolean} `true` Reward program is disabled, `false` - otherwise.
    */
   WlClient.prototype.wlBusinessRewardConfigRewardConfigGet = function(params)
   {
@@ -7385,7 +8724,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlBusinessRewardConfigRewardConfigPost = function(params)
   {
@@ -7401,7 +8740,9 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key used for users to subscribe, unsubscribe, and receive information about the stat...
    * @param {string} params.uid The key of the user whose subscription status needs to be checked or switched to subscribed/unsub...
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `is_subscribe` {?boolean} Information about the user`s subscription.
+   *  `is_subscribe_sms` {?boolean} Information about the user`s subscription.
    */
   WlClient.prototype.wlBusinessUserSubscribeSubscribeGet = function(params)
   {
@@ -7419,7 +8760,7 @@
    * @param {?boolean} [params.is_subscribe_sms] Information about the user`s subscription.
    * @param {string} params.k_business The business key used for users to subscribe, unsubscribe, and receive information about the stat...
    * @param {string} params.uid The key of the user whose subscription status needs to be checked or switched to subscribed/unsub...
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlBusinessUserSubscribeSubscribePut = function(params)
   {
@@ -7435,7 +8776,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_login_promotion The login promotion key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLoginPromotionConvertConvertDelete = function(params)
   {
@@ -7451,7 +8792,22 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_login_promotion The login promotion key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_promotion` {Object[]}
+   *  `dl_convert_max` {string} The last date on what conversion can be scheduled.
+   *  `dl_convert_min` {string} The first date on what conversion can be scheduled.
+   *  `dl_hold_end` {string} Local date, when hold ends, if PO is on hold right now.
+   *  `dl_hold_start` {string} Local date, when hold starts, if PO is on hold right now.
+   *  `id_convert` {number} List of options to convert promotion.
+   *  `id_convert_when` {?number} Different types of conversion behavior: when and how it should be converted.
+   *  `is_edit` {boolean} Determines whether the conversion request is new or editing an existing conve...
+   *  `is_renew` {boolean} `true` if PO is going to be renewed and not converted.
+   *  `s_date_convert` {string} The existing conversion date, returned as a string for the datepicker.
+   *  `s_date_now` {string} The current date, returned as a string.
+   *  `s_title` {string} The Purchase Option title.
+   *  `text_date_expire` {string} Expiration date in string user-friendly format.
+   *  `text_date_payment` {string} Next payment date in string user-friendly format.
+   *  `text_note` {?string} The note for the promotion conversion.
    */
   WlClient.prototype.wlLoginPromotionConvertConvertGet = function(params)
   {
@@ -7473,7 +8829,7 @@
    * @param {string} params.k_login_promotion The login promotion key.
    * @param {string} params.k_promotion_to The promotion key the given promotion will be converted to.
    * @param {?string} [params.text_note] The note for the promotion conversion.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLoginPromotionConvertConvertPost = function(params)
   {
@@ -7490,7 +8846,8 @@
    * @param {?string} [params.k_class] Class key to filter guest passes by.
    * @param {?string} [params.k_location] Location key to filter guest passes by.
    * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
    */
   WlClient.prototype.wlLoginPromotionGuestPassGuestPassList = function(params)
   {
@@ -7505,7 +8862,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_login_promotion Login promotion key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_guest_pass` {Object[]}
    */
   WlClient.prototype.wlLoginPromotionGuestPassGuestPassGet = function(params)
   {
@@ -7521,7 +8879,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_login_promotion Login promotion key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLoginPromotionGuestPassGuestPassPut = function(params)
   {
@@ -7539,7 +8897,10 @@
    * @param {boolean} params.is_refresh `true` if a new dynamic ID should be generated.
    * @param {string} params.k_business Business key.
    * @param {string} params.uid User unique identifier.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `i_expire` {number} Number of seconds left until the dynamic ID expires.
+   *  `text_barcode` {string} Barcode of the member.
+   *  `url_barcode` {string} URL of the barcode image.
    */
   WlClient.prototype.wlLoginMemberDynamicIdDynamicId = function(params)
   {
@@ -7557,7 +8918,15 @@
    * @param {string} params.k_business Key of the business in which the request must be processed.
    * @param {string} params.k_class_period The class period key.
    * @param {string} params.uid_client The client user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_promotion` {Object[]}
+   *  `a_session_pass` {Object[]}
+   *  `is_free` {boolean} If `true`, the session is free with no methods of payment. If `false`, the se...
+   *  `k_login_promotion` {string} The key of the user's promotion to be used for booking.
+   *  `k_session_pass` {string} The key of a session pass that can be used for a single session payment.
+   *  `m_account` {string} Account balance.
+   *  `m_price` {?string} The price of the session, including any taxes and discounts.
+   *  `m_rest` {?string} The user's account balance if they were charged the `m_price` amount.
    */
   WlClient.prototype.wlLoginAttendanceAddAddGet = function(params)
   {
@@ -7577,7 +8946,11 @@
    * @param {string} params.k_business Key of the business in which the request must be processed.
    * @param {string} params.k_class_period The class period key.
    * @param {string} params.uid_client The client user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc.
+   *  `is_paid` {boolean} If `true`, the visit was automatically paid for in any available way during t...
+   *  `k_visit` {string} The key of the booked visit. This will be set on success.
+   *  `url_store` {string} The URL link to the store to allow for the payment of the visit.
    */
   WlClient.prototype.wlLoginAttendanceAddAddPost = function(params)
   {
@@ -7595,7 +8968,9 @@
    * @param {boolean} params.is_franchisee_search_wide `true` - search among whole franchise; `false` - search in specified business only.
    * @param {string} params.k_business The business key number used internally by WellnessLiving.
    * @param {string} params.text_search The search string. Clients can be matched by name or email.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
+   *  `can_add` {boolean} If `true`, then this user can add other users via the Add Client page.
    */
   WlClient.prototype.wlLoginSearchStaffAppList = function(params)
   {
@@ -7620,7 +8995,20 @@
    * @param {?string} [params.text_discount_code] The discount code.
    * @param {string} params.uid_current The key of the current user.
    * @param {string} params.uid_customer The key of the user who performed the purchase.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_discount_code` {Object[]}
+   *  `is_commission` {boolean} Determines whether the business applied a commission at checkout.
+   *  `is_discount_code_mode_select` {boolean} Determines, how staff sees discount codes in Store.
+   *  `is_receipt_note` {boolean} Determines whether to display custom receipt notes at checkout.
+   *  `m_discount` {string} The discount amount in dollars, excluding tax.
+   *  `m_discount_total` {string} The discount amount applied to the cart's total amount, including taxes.
+   *  `m_subtotal` {string} The subtotal amount.
+   *  `m_tax` {string} The amount of tax.
+   *  `m_tip_purchase` {string} The amount of appointment tips.
+   *  `m_total` {string} The cart's total amount.
+   *  `text_error_code` {?string} The discount code's error code.
+   *  `text_error_message` {?string} The discount code's error message.
+   *  `text_receipt_note` {string} The custom receipt note's text.
    */
   WlClient.prototype.wlCatalogStaffAppCatalogCartCatalogCart = function(params)
   {
@@ -7638,7 +9026,9 @@
    * @param {string} params.k_business The key of the business to get categories for.
    * @param {string} params.k_location The location key.
    * @param {string} params.k_visit The visit key to pay for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_shop_product` {Object[]}
+   *  `can_add` {boolean} If `true`, the current user is able to add the purchased item to the account.
    */
   WlClient.prototype.wlCatalogStaffAppCatalogListCatalogList = function(params)
   {
@@ -7662,7 +9052,12 @@
    * @param {string} params.k_shop_product_option The product option key.
    * @param {string} params.m_price The custom price of the sale item.
    * @param {string} params.uid The ID of the user who performed the actions.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_tax_data` {Object[]}
+   *  `m_prorate` {string} The prorated amount.
+   *  `m_subtotal` {string} The amount of the sale item, excluding taxes.
+   *  `m_tax` {string} The calculated amount of tax.
+   *  `m_total` {string} The calculated amount of the sale item, including taxes.
    */
   WlClient.prototype.wlCatalogStaffAppCatalogViewCatalogView = function(params)
   {
@@ -7677,7 +9072,22 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of the business.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_image` {Object[]}
+   *  `hide_profile_images` {boolean} Whether to hide client profile images.
+   *  `i_attendance_direct_delay` {number} Number of seconds of inactivity before automatic redirect.
+   *  `i_book_open` {number} Number of minutes for the client check-in window after session has started.
+   *  `i_book_quick_app` {number} Units of time for the look ahead window for attendance app.
+   *  `i_confirm_delay` {number} Delay in seconds on attendance web app confirmation screen before redirect to...
+   *  `id_attendance_direct` {number} List of places to redirect user from attendance list after inactivity.
+   *  `id_book_quick_app` {number} A class for managing time intervals.
+   *  `is_attend_free` {boolean} `true` if clients are allowed to check-in unpaid, `false` otherwise.
+   *  `is_book_open` {boolean} Whether to allow sign-ins to classes in progress.
+   *  `is_book_optional` {boolean} `true` if clients are allowed to check-in without booking prior,
+   *  `is_book_quick_app` {boolean} `true` if clients are allowed to sign in before session is started.,
+   *  `show_business_name` {boolean} `true` - show business name on attendance web app; `false` - do not show.
+   *  `show_confirm_screen` {boolean} `true` - show confirm screen on attendance web app;
+   *  `text_business_name` {string} Name of the business to display in the attendance web app.
    */
   WlClient.prototype.wlReceptionRosterDesignReceptionRosterDesign = function(params)
   {
@@ -7694,7 +9104,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business in which the enrollment is performed.
    * @param {string} params.k_wellness_program "Wellness Program" key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_field_list` {Object[]}
    */
   WlClient.prototype.wlInsuranceEnrollmentFieldEnrollmentFieldListGet = function(params)
   {
@@ -7710,7 +9121,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business in which the enrollment is performed.
    * @param {string} params.k_wellness_program "Wellness Program" key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlInsuranceEnrollmentFieldEnrollmentFieldListPost = function(params)
   {
@@ -7726,7 +9137,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business ID of a business to show information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_category` {Object[]}
    */
   WlClient.prototype.wlRewardActionCategoryListCategoryList = function(params)
   {
@@ -7742,7 +9154,10 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business ID of a business to show information for.
    * @param {string} params.uid UID to retrieve information about.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `i_board_rank` {number} Current user's rank in the first leaderboard.
+   *  `i_score` {number} Current score in wellnessliving points.
+   *  `s_board_title` {string} Title of the first leaderboard.
    */
   WlClient.prototype.wlRewardScoreCurrentCurrent = function(params)
   {
@@ -7758,7 +9173,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business to show information for.
    * @param {string} params.uid User to retrieve information about.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_reward_board` {?Object[]}
    */
   WlClient.prototype.wlRewardBoardBoardListList = function(params)
   {
@@ -7776,7 +9192,7 @@
    * @param {boolean} params.is_phone Whether OTP code will be sending to user via email.
    * @param {string} params.k_business Business key.
    * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlPassportLoginEnterPassportOtpGet = function(params)
   {
@@ -7792,7 +9208,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `url_redirect` {string} Redirect url after successful authorization.
    */
   WlClient.prototype.wlPassportLoginEnterPassportOtpPost = function(params)
   {
@@ -7809,7 +9226,7 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.text_mail Email address OTP code will be sent to.
    * @param {string} params.text_phone Phone number OTP code will be sent to.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlPassportLoginRegisterRegisterOtpGet = function(params)
   {
@@ -7824,7 +9241,11 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `i_attempt_left` {number} Number of attempts left to submit the correct otp code.
+   *  `s_jwt_token` {string} JWT token generated after successful otp validation.
+   *  `uid` {string} Key of the user, which was signed in after successful otp verification.
+   *  `url_redirect` {string} Redirect url after successful authorization.
    */
   WlClient.prototype.wlPassportLoginRegisterRegisterOtpPost = function(params)
   {
@@ -7838,7 +9259,8 @@
    * in place. Otherwise, a new record is created and linked to the business.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_spa_application` {string} Key of the created or updated application.
    */
   WlClient.prototype.wlSkinApplicationConnectApplicationConnect = function(params)
   {
@@ -7854,7 +9276,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_application` {Object[]}
    */
   WlClient.prototype.wlSkinApplicationResourceApplicationResource = function(params)
   {
@@ -7870,7 +9293,7 @@
    * Automation edit privilege.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlSkinApplicationResourceApplicationResourceMaterial = function(params)
   {
@@ -7884,7 +9307,7 @@
    * The `google-services.json` file must be submitted as `google_services_json`.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlSkinApplicationResourceApplicationResourceUpload = function(params)
   {
@@ -7902,7 +9325,18 @@
    * @param {string} params.k_search_template Key of existing template.
    * @param {string} params.s_search_group Unique string identifying the name of the search group.
    * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_conversion_type` {?number} Lead conversion type.
+   *  `id_member_group_shape` {number} Shapes of client group icons.
+   *  `is_brivo_active` {boolean} Whether Facility Access enabled for group.
+   *  `is_brivo_invitation_active` {boolean} Whether Brivo invitation feature enabled for the group.
+   *  `is_icon` {boolean} `true` to enable group icon. `false` to disable.
+   *  `is_update` {boolean} Whether auto-update enabled for group.
+   *  `k_search_template` {string} Key of existing template.
+   *  `s_color_background` {string} Hexadecimal color of icon background.
+   *  `s_color_foreground` {string} Hexadecimal color of icon foreground.
+   *  `s_icon` {string} Characters on icon.
+   *  `text_title` {string} Title for a client group.
    */
   WlClient.prototype.wlMemberGroupEditEditGet = function(params)
   {
@@ -7920,7 +9354,10 @@
    * @param {string} params.k_search_template Key of existing template.
    * @param {string} params.s_search_group Unique string identifying the name of the search group.
    * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_member_group` {string} Member group primary key in Sql table.
+   *  `k_search_template` {string} Key of existing template.
+   *  `text_warning` {?string} Additional warning message if there were some minor issues with request.
    */
   WlClient.prototype.wlMemberGroupEditEditPost = function(params)
   {
@@ -7938,7 +9375,8 @@
    * @param {string} params.k_search_template Key of existing template.
    * @param {string} params.s_search_group Unique string identifying the name of the search group.
    * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `text_warning` {?string} Additional warning message if there were some minor issues with request.
    */
   WlClient.prototype.wlMemberGroupEditEditPut = function(params)
   {
@@ -7954,7 +9392,7 @@
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Key of the business.
    * @param {string} params.uid_user UID of a user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlMemberGroupUserUserGroupDelete = function(params)
   {
@@ -7970,7 +9408,9 @@
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Key of the business.
    * @param {string} params.uid_user UID of a user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_group_info` {string[]} All groups to which the specified user belongs.
+   *  `is_quick_group` {boolean} Whether the user is in the quick group or not.
    */
   WlClient.prototype.wlMemberGroupUserUserGroupGet = function(params)
   {
@@ -7986,7 +9426,7 @@
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Key of the business.
    * @param {string} params.uid_user UID of a user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlMemberGroupUserUserGroupPost = function(params)
   {
@@ -8000,7 +9440,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlMemberGroupGroupListListDelete = function(params)
   {
@@ -8018,7 +9458,8 @@
    * @param {boolean} params.is_churn_risk Whether include "Isaac Churn Risk" group.
    * @param {boolean} params.is_return_members Whether include a list of members of groups.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_member_group` {Object[]}
    */
   WlClient.prototype.wlMemberGroupGroupListListGet = function(params)
   {
@@ -8033,7 +9474,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlMemberGroupGroupListListPut = function(params)
   {
@@ -8050,7 +9491,13 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_field Field key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `id_field` {number} List of progress log fields.
+   *  `is_active` {?boolean} Whether field is active and should be displayed on page.
+   *  `is_public` {?boolean} Whether this field is public. If this field is set to `false`, this field is ...
+   *  `is_require` {?boolean} Whether field value is required for clients.
+   *  `is_require_staff` {?boolean} Whether field value is required for staffs.
+   *  `text_title` {?string} Field title.
    */
   WlClient.prototype.wlMemberProgressFieldState = function(params)
   {
@@ -8067,7 +9514,7 @@
    * @param {string} params.dt_date Local date without time of the progress log.
    * @param {string} params.k_business Business key.
    * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlMemberProgressLogVerify = function(params)
   {
@@ -8084,7 +9531,28 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_discount_code Key of the discount code. Empty, if this is creation of a new code.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_component` {Object[]}
+   *  `a_login_type` {string[]} List of client types.
+   *  `a_member_group` {string[]} List of client groups.
+   *  `dl_end` {?string} Expiration date. `null` if discount code is never expires.
+   *  `dl_start` {string} Activation date.
+   *  `f_value` {string} Value of the percentage or fixed discount.
+   *  `i_duration` {number} Count of calendar periods from `id_duration` before expiration.
+   *  `i_limit` {number} Maximum count of usage. Zero means unlimited usage.
+   *  `id_duration` {number} A class for managing time intervals.
+   *  `id_duration_type` {number} Class to process string identifiers for duration types
+   *  `is_active` {boolean} `true` means discount code is active.
+   *  `is_auto_renew` {boolean} `true` means membership will auto-renew at discounted rate.
+   *  `is_coupon` {boolean} `true` means discount code can reduce price of the gift cards.
+   *  `is_first_payment` {boolean} `true` means discount code can be applied to first membership payment only.
+   *  `is_login_type` {boolean} `true` means that only selected client types or groups can use this discount ...
+   *  `is_online` {boolean} `true` if clients can use this discount code in online store,
+   *  `is_percent` {boolean} `true` means discount value is percent from the purchase amount.
+   *  `is_purchase_all` {boolean} `true` means discount can be applied to all products and purchase options.
+   *  `s_component` {string} List of product and purchase options that are effected with this discount code.
+   *  `text_code` {string} Discount code that can be used during purchase.
+   *  `...` {*}
    */
   WlClient.prototype.wlDiscountCodeEditDiscountCodeEditGet = function(params)
   {
@@ -8100,7 +9568,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_discount_code Key of the discount code. Empty, if this is creation of a new code.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_discount_code` {string} Key of the discount code. Empty, if this is creation of a new code.
    */
   WlClient.prototype.wlDiscountCodeEditDiscountCodeEditPost = function(params)
   {
@@ -8116,7 +9585,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_discount_code Key of the discount code. Empty, if this is creation of a new code.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `k_discount_code` {string} Key of the discount code. Empty, if this is creation of a new code.
    */
   WlClient.prototype.wlDiscountCodeEditDiscountCodeEditPut = function(params)
   {
@@ -8131,7 +9601,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.cid_credential The CID of the credential.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.coreRequestApiApplicationCredentialCredentialDelete = function(params)
   {
@@ -8146,7 +9616,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.cid_credential The CID of the credential.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `json_credential` {string} An array with the credential.
    */
   WlClient.prototype.coreRequestApiApplicationCredentialCredentialGet = function(params)
   {
@@ -8161,7 +9632,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.cid_credential The CID of the credential.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.coreRequestApiApplicationCredentialCredentialPut = function(params)
   {
@@ -8187,7 +9658,10 @@
    * @param {string} params.k_service The selected service's key.
    * @param {string} params.k_timezone Timezone of date and time of service start.
    * @param {string} params.uid User to get information for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_resource_busy` {string[][]} A list of reserved assets.
+   *  `a_resource_type` {Object[]}
+   *  `can_book_unavailable_assets` {boolean} Can the staff members book reserved assets.
    */
   WlClient.prototype.wlAppointmentBookAssetServiceService = function(params)
   {
@@ -8204,7 +9678,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The user key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_total` {Object[]}
    */
   WlClient.prototype.wlProfileAttendanceScheduleFrontendLifetimeTotals = function(params)
   {
@@ -8220,7 +9695,9 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key to check Achieve app subscription plan.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `is_free` {boolean} If Achieve app has free subscription plan is `true`, otherwise (white label, ...
+   *  `is_white_label` {boolean} If Achieve app has white label subscription plan is `true`, otherwise (free, ...
    */
   WlClient.prototype.wlBusinessAccountSubscriptionAchieveAchieveSubscription = function(params)
   {
@@ -8234,7 +9711,7 @@
    *  and marks the invitation as accepted.
    *
    * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLoginPromotionGuestPassClaimClaim = function(params)
   {
@@ -8249,7 +9726,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.s_secret Secret of the invitation.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLoginPromotionGuestPassInviteInviteDelete = function(params)
   {
@@ -8264,7 +9741,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.s_secret Secret of the invitation.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLoginPromotionGuestPassInviteInvitePut = function(params)
   {
@@ -8285,7 +9762,8 @@
    * @param {?string} [params.k_login_promotion] Key of the login promotion which provides the guest pass invitation.
    * @param {?string} [params.uid_guest] Key of the invited user.
    * @param {?string} [params.uid_host] Key of the host user who sent the invitation.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]}
    */
   WlClient.prototype.wlLoginPromotionGuestPassInviteInviteListGet = function(params)
   {
@@ -8302,7 +9780,7 @@
    * @param {string} params.k_business Key of the business within which guest pass invitations are managed.
    * @param {?string} [params.k_login_promotion] Key of the login promotion which provides the guest pass invitation.
    * @param {?string} [params.uid_guest] Key of the invited user.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLoginPromotionGuestPassInviteInviteListPost = function(params)
   {
@@ -8317,7 +9795,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLoginPromotionGuestPassApplyApply = function(params)
   {
@@ -8333,7 +9811,17 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_field Field key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_measurement` {number[]} A list of field measurement. See [MeasurementSid](#/components/schemas/Wl.Mem...
+   *  `a_type` {number[]} A list of field type. See [TypeSid](#/components/schemas/Wl.Member.Progress.F...
+   *  `id_field` {number} List of progress log fields.
+   *  `id_measurement_unit` {number} Possible measurement units of the progress fields values.
+   *  `id_type` {number} Possible types of the progress fields values.
+   *  `is_active` {boolean} Whether field is active and should be displayed on page.
+   *  `is_public` {boolean} Whether this field is public. If this field is set to `false`, this field is ...
+   *  `is_require` {boolean} Whether field value is required for clients.
+   *  `is_require_staff` {boolean} Whether field value is required for staffs.
+   *  `text_title` {?string} Field title.
    */
   WlClient.prototype.wlMemberProgressFieldEditFieldGet = function(params)
   {
@@ -8349,7 +9837,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_field Field key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `text_title` {?string} Field title.
    */
   WlClient.prototype.wlMemberProgressFieldEditFieldPost = function(params)
   {
@@ -8366,7 +9855,10 @@
    * @param {string} params.dt_date Progress log local date.
    * @param {string} params.k_business Business key.
    * @param {?string} [params.uid] User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_field_list` {Object[]}
+   *  `dt_last` {?string} Last local date when the user entered progress values. `null` if the user had...
+   *  `is_staff` {boolean} How we want to see this page. As a staff or as a user.
    */
   WlClient.prototype.wlMemberProgressLogEditLogGet = function(params)
   {
@@ -8383,7 +9875,8 @@
    * @param {string} params.dt_date Progress log local date.
    * @param {string} params.k_business Business key.
    * @param {?string} [params.uid] User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_field_list` {Object[]}
    */
   WlClient.prototype.wlMemberProgressLogEditLogPost = function(params)
   {
@@ -8400,7 +9893,7 @@
    * @param {?string} [params.dt_date] Local date of the progress picture.
    * @param {?string} [params.k_business] Business key.
    * @param {?string} [params.uid] User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlMemberProgressLogImageImageDelete = function(params)
   {
@@ -8417,7 +9910,8 @@
    * @param {?string} [params.dt_date] Local date of the progress picture.
    * @param {?string} [params.k_business] Business key.
    * @param {?string} [params.uid] User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_image` {Object[]}
    */
   WlClient.prototype.wlMemberProgressLogImageImageGet = function(params)
   {
@@ -8434,7 +9928,7 @@
    * @param {?string} [params.dt_date] Local date of the progress picture.
    * @param {?string} [params.k_business] Business key.
    * @param {?string} [params.uid] User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlMemberProgressLogImageImagePost = function(params)
   {
@@ -8451,7 +9945,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of business to get information for.
    * @param {string} params.uid User key to search dates for.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_date` {string[]} List of local dates of the progress log.
    */
   WlClient.prototype.wlMemberProgressLogCompareCompare = function(params)
   {
@@ -8467,7 +9962,9 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {?string} [params.uid] User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_field_list` {Object[]}
+   *  `is_staff` {boolean} How we want to see this page. As a staff or as a user.
    */
   WlClient.prototype.wlMemberProgressGoalEditGoalGet = function(params)
   {
@@ -8483,7 +9980,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {?string} [params.uid] User key.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_field_list` {Object[]}
    */
   WlClient.prototype.wlMemberProgressGoalEditGoalPost = function(params)
   {
@@ -8505,7 +10003,9 @@
    * @param {number[]} params.a_quantity The list of product option quantities in the store.
    * @param {string} params.k_business The current business.
    * @param {string} params.text_barcode The product barcode, used for the search.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
+   *  `a_product_option` {Object[]}
+   *  `text_user_name` {string} The current username.
    */
   WlClient.prototype.wlShopProductOptionInventoryCountInventoryCountGet = function(params)
   {
@@ -8523,7 +10023,7 @@
    * @param {string[]} params.a_note The list of notes for product options in the store.
    * @param {number[]} params.a_quantity The list of product option quantities in the store.
    * @param {string} params.k_business The current business.
-   * @returns {Promise<Object>} Parsed API response.
+   * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlShopProductOptionInventoryCountInventoryCountPost = function(params)
   {
