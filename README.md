@@ -49,11 +49,11 @@ define(['stable/wl-sdk'], function(WlSdk) {
 
 ## Constructor options
 
-| Option    | Type     | Default                                    | Description                              |
-|-----------|----------|--------------------------------------------|------------------------------------------|
-| `token`   | `string` | `null`                                     | JWT Bearer token for authentication.     |
-| `baseUrl` | `string` | `https://staging.wellnessliving.com`        | API server. Use `https://demo.wellnessliving.com` for Australia. |
-| `timeout` | `number` | `30000`                                    | Request timeout in milliseconds.         |
+| Option    | Type     | Default                              | Description                                                      |
+|-----------|----------|--------------------------------------|------------------------------------------------------------------|
+| `token`   | `string` | `null`                               | JWT Bearer token for authentication.                             |
+| `baseUrl` | `string` | `https://staging.wellnessliving.com` | API server. Use `https://demo.wellnessliving.com` for Australia. |
+| `timeout` | `number` | `30000`                              | Request timeout in milliseconds.                                 |
 
 ## Error handling
 

@@ -20,6 +20,7 @@ concurrency:
 
 permissions:
   contents: write
+  packages: write
 
 jobs:
   build:
@@ -34,20 +35,25 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@wellnessliving'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate stable SDK
-        run: node scripts/generate.js stable
+      - name: Generate browser SDK (stable + dev)
+        run: node scripts/generate.js
 
-      - name: Generate dev SDK
-        run: node scripts/generate.js dev
+      - name: Generate TypeScript SDK (stable + dev)
+        run: node scripts/generate-ts.js
+
+      - name: Compile TypeScript to ESM + CJS + d.ts
+        run: node scripts/compile.js
 
       - name: Check for changes
         id: changes
         run: |
-          git add stable/wl-sdk.js dev/wl-sdk.js
+          git add stable/ dev/
           if git diff --staged --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
             echo "No changes - SDK is up to date."
@@ -59,6 +65,18 @@ jobs:
             echo "method_count=$(grep -m1 'Endpoints:' stable/wl-sdk.js | awk '{print $NF}')" >> $GITHUB_OUTPUT
             echo "Changes detected - will commit and release."
           fi
+
+      - name: Update package.json version
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          STABLE_VER="${{ steps.changes.outputs.stable_ver }}"
+          node -e "
+            const fs = require('fs');
+            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+            pkg.version = process.argv[1];
+            fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+          " "$STABLE_VER"
+          git add package.json
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -87,14 +105,32 @@ jobs:
             exit 0
           fi
 
-          printf '## WellnessLiving JavaScript SDK %s\n\n| | |\n|---|---|\n| Stable spec | `%s` |\n| Dev spec | `%s` |\n| Endpoints | %s |\n\n## CDN links (jsDelivr)\n\n```html\n<!-- Stable -->\n<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-sdk-js-v2@%s/stable/wl-sdk.js"></script>\n\n<!-- Dev -->\n<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-sdk-js-v2@%s/dev/wl-sdk.js"></script>\n```\n\n---\nAuto-generated from [wellnessliving/openapi](https://github.com/wellnessliving/openapi).\n' \
-            "$TAG" "$STABLE_VER" "$DEV_VER" "$METHOD_COUNT" "$TAG" "$TAG" > /tmp/release-notes.md
+          printf '## WellnessLiving JavaScript SDK %s\n\n| | |\n|---|---|\n| Stable spec | `%s` |\n| Dev spec | `%s` |\n| Endpoints | %s |\n\n## CDN links (jsDelivr)\n\n```html\n<!-- Stable (browser UMD) -->\n<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-sdk-js-v2@%s/stable/wl-sdk.js"></script>\n\n<!-- Dev (browser UMD) -->\n<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-sdk-js-v2@%s/dev/wl-sdk.js"></script>\n```\n\n## npm (GitHub Packages)\n\n```\nnpm install @wellnessliving/sdk@%s\n```\n\n---\nAuto-generated from [wellnessliving/openapi](https://github.com/wellnessliving/openapi).\n' \
+            "$TAG" "$STABLE_VER" "$DEV_VER" "$METHOD_COUNT" "$TAG" "$TAG" "$STABLE_VER" > /tmp/release-notes.md
 
           cp stable/wl-sdk.js /tmp/wl-sdk-stable.js
           cp dev/wl-sdk.js /tmp/wl-sdk-dev.js
+          cp stable/wl-sdk.esm.js /tmp/wl-sdk-stable.esm.js
+          cp dev/wl-sdk.esm.js /tmp/wl-sdk-dev.esm.js
+          cp stable/wl-sdk.cjs.js /tmp/wl-sdk-stable.cjs.js
+          cp dev/wl-sdk.cjs.js /tmp/wl-sdk-dev.cjs.js
+          cp stable/wl-sdk.d.ts /tmp/wl-sdk-stable.d.ts
+          cp dev/wl-sdk.d.ts /tmp/wl-sdk-dev.d.ts
 
           gh release create "$TAG" \
             /tmp/wl-sdk-stable.js \
             /tmp/wl-sdk-dev.js \
+            /tmp/wl-sdk-stable.esm.js \
+            /tmp/wl-sdk-dev.esm.js \
+            /tmp/wl-sdk-stable.cjs.js \
+            /tmp/wl-sdk-dev.cjs.js \
+            /tmp/wl-sdk-stable.d.ts \
+            /tmp/wl-sdk-dev.d.ts \
             --title "SDK ${TAG}" \
             --notes-file /tmp/release-notes.md
+
+      - name: Publish to GitHub Packages
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm publish

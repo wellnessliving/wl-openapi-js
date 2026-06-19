@@ -2,3 +2,6 @@ node_modules/
 npm-debug.log*
 .DS_Store
 .idea
+src/
+.tmp-esm-*
+.tmp-cjs-*

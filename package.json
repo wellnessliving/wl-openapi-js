@@ -1,15 +1,47 @@
 {
-  "name": "wl-sdk-js",
-  "version": "2.0.0",
-  "description": "WellnessLiving JavaScript SDK - auto-generated from OpenAPI spec",
-  "private": true,
+  "name": "@wellnessliving/sdk",
+  "version": "0.0.0",
+  "description": "WellnessLiving JavaScript/TypeScript SDK - auto-generated from OpenAPI spec",
+  "main": "stable/wl-sdk.cjs.js",
+  "module": "stable/wl-sdk.esm.js",
+  "browser": "stable/wl-sdk.js",
+  "types": "stable/wl-sdk.d.ts",
+  "exports": {
+    ".": {
+      "import": "./stable/wl-sdk.esm.js",
+      "require": "./stable/wl-sdk.cjs.js",
+      "browser": "./stable/wl-sdk.js",
+      "types": "./stable/wl-sdk.d.ts"
+    },
+    "./dev": {
+      "import": "./dev/wl-sdk.esm.js",
+      "require": "./dev/wl-sdk.cjs.js",
+      "browser": "./dev/wl-sdk.js",
+      "types": "./dev/wl-sdk.d.ts"
+    }
+  },
+  "files": [
+    "stable/",
+    "dev/"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
   "scripts": {
-    "generate": "node scripts/generate.js",
-    "generate:stable": "node scripts/generate.js stable",
-    "generate:dev": "node scripts/generate.js dev"
+    "generate": "node scripts/generate.js && node scripts/generate-ts.js",
+    "generate:stable": "node scripts/generate.js stable && node scripts/generate-ts.js stable",
+    "generate:dev": "node scripts/generate.js dev && node scripts/generate-ts.js dev",
+    "compile": "node scripts/compile.js",
+    "compile:stable": "node scripts/compile.js stable",
+    "compile:dev": "node scripts/compile.js dev",
+    "build": "npm run generate && npm run compile"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
   },
   "engines": {
     "node": ">=18.0.0"
