@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260620034722
+ * Spec version: 1.1.20260620040244
  * Build date:   2026-06-20
  * Endpoints:    454
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260620034722';
+  WlClient.SPEC_VERSION = '1.1.20260620040244';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (454 total)
@@ -238,7 +238,7 @@
    * @param {?string} [params.m_price_max] Maximum price to search by (inclusive). Decimal string in dollars (e.g. `"100.00"`).
    * @param {?string} [params.m_price_min] Minimum price to search by (inclusive). Decimal string in dollars (e.g. `"0.00"`).
    * @returns {Promise<Object>} Response data.
-   *  `a_class_session` {Object[]} List of found class sessions.
+   *  `a_class_session` {Object} List of found class sessions.
    */
   WlClient.prototype.thothExplorerSearchClassSessionClassSessionSearch = function(params)
   {
@@ -279,7 +279,7 @@
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.uid The key of the user to show information for.
    * @returns {Promise<Object>} Response data.
-   *  `a_account` {Object[]} A list of the user's accounts.
+   *  `a_account` {Object} A list of the user's accounts.
    *  `a_account_nx` {*[][]} A list of accounts that is not created for this user yet.
    *  `is_debtor` {boolean} Determines whether the user is a debtor. If `true` - the owner of this accoun...
    */
@@ -492,7 +492,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.s_class_name Name of the Sid class to get list from.
    * @returns {Promise<Object>} Response data.
-   *  `a_list` {Object[]} List of items. Keys are IDs, values are arrays with additional information:
+   *  `a_list` {Object} List of items. Keys are IDs, values are arrays with additional information:
    */
   WlClient.prototype.coreSidCoreSid = function(params)
   {
@@ -507,7 +507,7 @@
    * show the challenge at all and which reCAPTCHA version is active.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object|Object|Object|Object[]} params.a_arguments Arguments for creating CAPTCHA object.
+   * @param {Object|Object|Object|Object} params.a_arguments Arguments for creating CAPTCHA object.
    * @param {number} params.cid_captcha The CID of the CAPTCHA.
    * @returns {Promise<Object>} Response data.
    *  `is_enable_v3` {boolean} `true` if enabled V3 captcha enabled.
@@ -625,7 +625,7 @@
    * @param {string[]} params.a_event Event keys to filter.
    * @param {string[]} params.a_location Location keys to filter.
    * @param {string[]} params.a_staff Staff member keys to filter.
-   * @param {Object[]} params.a_time Time interval:
+   * @param {Object} params.a_time Time interval:
    * @param {string} params.dtu_start The date/time to start from in UTC.
    * @param {number} params.id_class_tab "Book now" tab ID. One of [TabSid](#/components/schemas/Wl.Classes.Tab.TabSid) constants.
    * @param {boolean} params.is_class `true` to include classes; `false` to exclude.
@@ -654,7 +654,7 @@
    * @param {?string} [params.k_timezone] The time zone key.
    * @param {string} params.k_visit The visit key.
    * @returns {Promise<Object>} Response data.
-   *  `a_cancel` {Object[]} Information about whether the given user can cancel an online booking and what
+   *  `a_cancel` {Object} Information about whether the given user can cancel an online booking and what
    *  `a_resource` {?string[]} An array of service resources.
    *  `a_resource_alias` {?Object[]} An array of service resources.
    *  `a_staff` {string[]} The list of keys of staff members that conduct the class.
@@ -714,7 +714,7 @@
    * @param {string} params.s_business A list of businesses. Business primary keys are serialized with JSON.
    * @param {string} params.s_location A list of locations. Location primary keys are serialized with JSON.
    * @returns {Promise<Object>} Response data.
-   *  `a_location` {Object[]} Short-form information about locations.
+   *  `a_location` {Object} Short-form information about locations.
    *  `a_location_full` {Object[]} A list of models with full information about each location.
    */
   WlClient.prototype.wlLocationListBulk = function(params)
@@ -1108,7 +1108,7 @@
    * @param {string} params.k_skin The key of the widget skin. If left empty, then the default skin is used.
    * @returns {Promise<Object>} Response data.
    *  `a_field_list` {Object[]} A list of profile fields in the business. Every element has the following keys:
-   *  `a_skin` {Object[]} The skin configuration:
+   *  `a_skin` {Object} The skin configuration:
    *  `can_use_free_purchase` {?boolean} Whether it is possible to give free promotion when adding a user (only if fre...
    *  `url_captcha` {string} The URL to load the image with a captcha test.
    */
@@ -1296,7 +1296,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_access_log` {Object[]} Access log data.
    *  `a_element` {Object|Object|Object|Object[]} List of quiz elements.
-   *  `a_setting` {Object[]} Quiz settings.
+   *  `a_setting` {Object} Quiz settings.
    *  `can_amend` {boolean} Whether user has privileges to amend form.
    *  `i_responses` {number} Number of responses for specific quiz.
    *  `is_active` {boolean} Quiz active status.
@@ -1346,7 +1346,7 @@
    * @param {string} params.k_quiz Quiz key.
    * @param {string} params.k_quiz_login Quiz login key.
    * @returns {Promise<Object>} Response data.
-   *  `a_setting` {Object[]} Quiz settings.
+   *  `a_setting` {Object} Quiz settings.
    *  `url_quiz` {string} Direct URL to quiz.
    *  `url_quiz_kiosk` {string} Kiosk direct URL to quiz.
    */
@@ -1389,7 +1389,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_access_log` {Object[]} Access log data.
    *  `a_element` {Object|Object|Object|Object[]} List of quiz elements.
-   *  `a_setting` {Object[]} Quiz settings.
+   *  `a_setting` {Object} Quiz settings.
    *  `can_amend` {boolean} Whether user has privileges to amend form.
    *  `i_responses` {number} Number of responses for specific quiz.
    *  `is_active` {boolean} Quiz active status.
@@ -1437,7 +1437,7 @@
    * @param {string} params.k_quiz Quiz key.
    * @param {string} params.k_quiz_login Quiz login key.
    * @returns {Promise<Object>} Response data.
-   *  `a_setting` {Object[]} Quiz settings.
+   *  `a_setting` {Object} Quiz settings.
    *  `url_quiz` {string} Direct URL to quiz.
    *  `url_quiz_kiosk` {string} Kiosk direct URL to quiz.
    */
@@ -1479,7 +1479,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_location` {string[]} The keys of the locations where this video is available.
    *  `a_staff` {string[]} The keys of the user staff members who are on the video.
-   *  `a_staff_info` {Object[]} A list of staff members associated with the video. Every item has the followi...
+   *  `a_staff_info` {Object} A list of staff members associated with the video. Every item has the followi...
    *  `a_staff_uid` {string[]} The user IDs of the staff members who are on the video (authoritative list fo...
    *  `a_video_category` {string[]} The video category keys where this video can be found.
    *  `a_video_tag` {string[]} The video tag keys.
@@ -1569,7 +1569,7 @@
    * @param {?string} [params.uid] UID of the client who request list of videos.
    * @returns {Promise<Object>} Response data.
    *  `a_list` {Object[]} A list of videos.
-   *  `a_page` {Object[]} Pagination data. Empty array if pagination is not active (total video count i...
+   *  `a_page` {Object} Pagination data. Empty array if pagination is not active (total video count i...
    *  `id_embed_source` {?number} List of embed video sources.
    *  `id_order` {?number} List of possible sort order.
    *  `id_sort` {?number} List of video catalog sorting types.
@@ -1927,7 +1927,7 @@
    * @param {string} params.k_location Location to show information for.
    * @param {string} params.uid ID of a user to show information for.
    * @returns {Promise<Object>} Response data.
-   *  `a_bank_card` {Object[]} A list of bank cards.
+   *  `a_bank_card` {Object} A list of bank cards.
    *  `a_list` {*[]} List of bank cards.
    *  `can_add` {boolean} Whether new card can be added.
    */
@@ -1949,7 +1949,7 @@
    * @param {string} params.k_id The image ID set in `s_class`.
    * @param {string} params.s_class The name of the class that manages this image.
    * @returns {Promise<Object>} Response data.
-   *  `a_text_empty` {?Object[]} Information about the text for an empty image upload.
+   *  `a_text_empty` {?Object} Information about the text for an empty image upload.
    *  `html_image_hint` {string} An HTML string to use for the image recommendation.
    *  `i_height_max` {?number} The maximum height of image.
    *  `i_height_min` {?number} The minimum height of image.
@@ -2002,7 +2002,7 @@
    * @param {string} params.k_id The image ID set in `s_class`.
    * @param {string} params.s_class The name of the class that manages this image.
    * @returns {Promise<Object>} Response data.
-   *  `a_text_empty` {?Object[]} Information about the text for an empty image upload.
+   *  `a_text_empty` {?Object} Information about the text for an empty image upload.
    *  `html_image_hint` {string} An HTML string to use for the image recommendation.
    *  `i_height_max` {?number} The maximum height of image.
    *  `i_height_min` {?number} The minimum height of image.
@@ -2294,7 +2294,7 @@
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
    *  `a_calendar` {string[]} Keys are dates of the days inside requested date range, when there is at leas...
-   *  `a_quick` {Object[]} Information about classes/events for quick filter.
+   *  `a_quick` {Object} Information about classes/events for quick filter.
    *  `a_session` {Object[]} A list of classes sessions starting with the date [ClassListApi](/Wl/Schedule...
    *  `is_timezone_different` {boolean} If `true`, the list of sessions contains sessions from different time zones. ...
    *  `is_virtual_service` {boolean} If `true`, there exists at least one virtual service by a specified
@@ -2377,8 +2377,8 @@
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
    *  `a_asset` {?Object[]} Asset list data.
-   *  `a_class` {?Object[]} Detailed information about the class.
-   *  `a_location` {?Object[]} Location data.
+   *  `a_class` {?Object} Detailed information about the class.
+   *  `a_location` {?Object} Location data.
    *  `a_session_result` {Object[]} A list of sessions with information, received in a multiple session mode.
    *  `a_staff` {?Object[]} Staff member list data.
    *  `a_virtual_location` {string[]} List of other locations where virtual class can be booked.
@@ -2404,8 +2404,8 @@
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
    *  `a_asset` {?Object[]} Asset list data.
-   *  `a_class` {?Object[]} Detailed information about the class.
-   *  `a_location` {?Object[]} Location data.
+   *  `a_class` {?Object} Detailed information about the class.
+   *  `a_location` {?Object} Location data.
    *  `a_session_result` {Object[]} A list of sessions with information, received in a multiple session mode.
    *  `a_staff` {?Object[]} Staff member list data.
    *  `a_virtual_location` {string[]} List of other locations where virtual class can be booked.
@@ -2426,10 +2426,10 @@
    * @param {string} params.k_business Key of the business to which the visit belongs.
    * @param {string} params.k_visit Visit key.
    * @returns {Promise<Object>} Response data.
-   *  `a_appointment_visit_info` {Object[]} Additional visit information about this appointment. Empty array if it's not ...
+   *  `a_appointment_visit_info` {Object} Additional visit information about this appointment. Empty array if it's not ...
    *  `a_asset` {Object[]} List of assets: .
-   *  `a_class_info` {?Object[]} Class data:
-   *  `a_resource_image` {?Object[]} Resource image data.
+   *  `a_class_info` {?Object} Class data:
+   *  `a_resource_image` {?Object} Resource image data.
    *  `a_staff` {Object[]} A list of staff members involved in the visit.
    *  `dt_cancel` {string} The latest date and time for when the visit can be canceled without penalty.
    *  `dt_date_global` {string} The date and time of the visit in UTC.
@@ -2487,7 +2487,7 @@
    * @param {string} params.k_location Location key.
    * @param {string} params.k_service Service key.
    * @returns {Promise<Object>} Response data.
-   *  `a_addon_data` {Object[]} Data to show appointment add-ons:
+   *  `a_addon_data` {Object} Data to show appointment add-ons:
    */
   WlClient.prototype.wlAppointmentEditAddonUpdateGet = function(params)
   {
@@ -2521,8 +2521,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_appointment Class identifier to get information for.
    * @returns {Promise<Object>} Response data.
-   *  `a_next` {Object[]} Next appointment data, or empty array if there are no appointments in the fut...
-   *  `a_previous` {Object[]} Previous appointment data, or empty array if there are no appointments in the...
+   *  `a_next` {Object} Next appointment data, or empty array if there are no appointments in the fut...
+   *  `a_previous` {Object} Previous appointment data, or empty array if there are no appointments in the...
    *  `a_question` {Object[]} List of questions and answers:
    *  `a_resource` {Object[]} List of assets used by this appointment. Each element contains:
    *  `a_shop_product_option` {Object[]} List of appointment add-ons. Every element has next keys:
@@ -2710,7 +2710,7 @@
    * @param {string} params.k_business Key of the business within which the action is performed.
    * @param {string} params.k_visit Visit key.
    * @returns {Promise<Object>} Response data.
-   *  `a_penalty` {?Object[]} Penalty data.
+   *  `a_penalty` {?Object} Penalty data.
    *  `can_cancel` {boolean} `true` if the booking can be canceled online by the specified user, `false` o...
    *  `is_flag` {boolean} `true` if the client's account will be flagged instead of charging a monetary...
    *  `is_late` {boolean} `true` if the cancellation would be considered a late cancel, `false` otherwise.
@@ -2733,9 +2733,9 @@
    * @param {string} params.k_location The location key.
    * @param {?string} [params.uid] The user's key.
    * @returns {Promise<Object>} Response data.
-   *  `a_flag` {Object[]} Array with structure:
-   *  `a_restrictions_multiple` {?Object[]} Array, where keys are UIDs to be checked and values are same as `a_restrictio...
-   *  `a_restrictions_single` {?Object[]} `null` if user is not flagged in the location.
+   *  `a_flag` {Object} Array with structure:
+   *  `a_restrictions_multiple` {?Object} Array, where keys are UIDs to be checked and values are same as `a_restrictio...
+   *  `a_restrictions_single` {?Object} `null` if user is not flagged in the location.
    *  `is_flag` {boolean} `true` if the user is flagged and can make purchases, but cannot make new res...
    */
   WlClient.prototype.wlLocationFlagFlag = function(params)
@@ -2771,9 +2771,9 @@
    *  `a_age` {number[]} A list of ages that are permitted for visiting this location.
    *  `a_amenities` {number[]} A list of facilities that are available in this location.
    *  `a_level` {string[]} A list of levels that are suitable for visiting this location.
-   *  `a_logo` {Object[]} Information about the location logo used in WellnessLiving:
-   *  `a_slide` {Object[]} A list of the location images.
-   *  `a_work` {Object[]} The hours of operation for the location.
+   *  `a_logo` {Object} Information about the location logo used in WellnessLiving:
+   *  `a_slide` {Object} A list of the location images.
+   *  `a_work` {Object} The hours of operation for the location.
    *  `f_latitude` {number} The latitude coordinate of the location.
    *  `f_longitude` {number} The longitude coordinate of the location.
    *  `html_description_full` {string} The full description of the location.
@@ -2803,7 +2803,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.s_class_name Name of the Sid class to get list from.
    * @returns {Promise<Object>} Response data.
-   *  `a_list` {Object[]} List of items. Keys are IDs, values are arrays with additional information:
+   *  `a_list` {Object} List of items. Keys are IDs, values are arrays with additional information:
    */
   WlClient.prototype.wlLocationFacilityFacilitySid = function(params)
   {
@@ -2824,7 +2824,7 @@
    * @param {string} params.uid The key of the user to edit.
    * @returns {Promise<Object>} Response data.
    *  `a_error_list` {?Object[]} List of validation errors. `null` if no error occurred.
-   *  `a_phone_inherit` {Object[]} An array contained with information about phone inheritance.
+   *  `a_phone_inherit` {Object} An array contained with information about phone inheritance.
    *  `a_structure` {Object[]} The values and structure of all fields. Array keys are field IDs (`k_field`).
    *  `can_password_change` {boolean} Whether current user can change password of the given user or not.
    *  `is_a2p` {boolean} `true` if the A2P 10DLC registration feature is enabled for this business, `f...
@@ -2926,7 +2926,7 @@
    * @param {string} params.uid The key of the user to edit.
    * @returns {Promise<Object>} Response data.
    *  `a_error_list` {?Object[]} List of validation errors. `null` if no error occurred.
-   *  `a_phone_inherit` {Object[]} An array contained with information about phone inheritance.
+   *  `a_phone_inherit` {Object} An array contained with information about phone inheritance.
    *  `a_structure` {Object[]} The values and structure of all fields. Array keys are field IDs (`k_field`).
    *  `can_password_change` {boolean} Whether current user can change password of the given user or not.
    *  `is_a2p` {boolean} `true` if the A2P 10DLC registration feature is enabled for this business, `f...
@@ -3113,7 +3113,7 @@
    * @param {string} params.k_session_pass The key of the make-up session used to attend an event.
    * @returns {Promise<Object>} Response data.
    *  `a_component` {Object[]} List of components (not empty if this purchase element is a package). Every e...
-   *  `a_logo` {Object[]} An array containing information about the image of the purchased item. Every ...
+   *  `a_logo` {Object} An array containing information about the image of the purchased item. Every ...
    *  `a_restrict` {Object[]} This field is used only for promotions. It contains restrictions that will
    *  `a_tax` {Object[]} The list of taxes paid for the purchased item. Every element has the followin...
    *  `can_renew` {boolean} This is `true` only if the purchased item is a promotion and the user can con...
@@ -3195,7 +3195,7 @@
    * @param {string} params.k_session_pass The ID of the makeup session used to attend an event.
    * @returns {Promise<Object>} Response data.
    *  `a_component` {Object|Object[]} A list of components. This won't be empty if this purchase element is a packa...
-   *  `a_logo` {?Object[]} An array containing information about the image of the purchased item. Every ...
+   *  `a_logo` {?Object} An array containing information about the image of the purchased item. Every ...
    *  `a_restrict` {Object[]} This field is used only for promotions. It contains restrictions that will ap...
    *  `a_tax` {Object[]} The list of taxes paid for the purchased item. Every element has the followin...
    *  `can_renew` {boolean} This is `true` only if the purchased item is a promotion and the user can con...
@@ -3268,7 +3268,7 @@
    * @param {string} params.k_login_note Login note key to edit or get info for.
    * @param {string} params.uid Key of a user to show information or post a note for.
    * @returns {Promise<Object>} Response data.
-   *  `a_login_note_data` {Object[]} Login note information.
+   *  `a_login_note_data` {Object} Login note information.
    */
   WlClient.prototype.wlProfileAlertAlertEditGet = function(params)
   {
@@ -3694,7 +3694,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key to get design data.
    * @returns {Promise<Object>} Response data.
-   *  `a_data` {Object[]} Design data for a business.
+   *  `a_data` {Object} Design data for a business.
    */
   WlClient.prototype.wlBusinessDesignBusinessDesign = function(params)
   {
@@ -3816,8 +3816,8 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @returns {Promise<Object>} Response data.
-   *  `a_business_policy` {Object[]} All business policies connected to clients and bookings.
-   *  `a_penalty` {Object[]} A list of business penalties.
+   *  `a_business_policy` {Object} All business policies connected to clients and bookings.
+   *  `a_penalty` {Object} A list of business penalties.
    *  `is_location_client_select` {boolean} Whether client must select a location at checkout.
    *  `is_location_select` {boolean} Determines whether staff members should select a location at checkout.
    *  `is_white_label` {boolean} Determines whether the business has white label setting enabled in the admin ...
@@ -3870,11 +3870,11 @@
    * and includes selection state, visibility flags, and display configuration.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_config Configuration data used to determine the list of businesses returned. This array has the followin...
+   * @param {Object} params.a_config Configuration data used to determine the list of businesses returned. This array has the followin...
    * @param {string} params.k_business Business in which a list of business is requested.
    * @param {string} params.uid User who is requesting the list of businesses.
    * @returns {Promise<Object>} Response data.
-   *  `a_select` {Object[]} Business list with additional parameters for a business select HTML component.
+   *  `a_select` {Object} Business list with additional parameters for a business select HTML component.
    */
   WlClient.prototype.wlBusinessSelectBusinessSelect = function(params)
   {
@@ -4254,7 +4254,7 @@
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
-   *  `a_error_list` {Object[]} The list of fields with missing information.
+   *  `a_error_list` {Object} The list of fields with missing information.
    *  `s_code` {string} The result code of the request.
    *  `text_message` {string} The result message of the request.
    */
@@ -4304,9 +4304,9 @@
    * @param {string} params.k_business ID of business to get information for.
    * @param {string} params.k_class_period ID of class period to get information for.
    * @returns {Promise<Object>} Response data.
-   *  `a_appointment_visit_info` {Object[]} Additional visit information about this appointment. Empty array if it's not ...
-   *  `a_logo` {Object[]} Service logo information:
-   *  `a_purchase_option_default` {Object[]} Default purchase option information.
+   *  `a_appointment_visit_info` {Object} Additional visit information about this appointment. Empty array if it's not ...
+   *  `a_logo` {Object} Service logo information:
+   *  `a_purchase_option_default` {Object} Default purchase option information.
    *  `a_resource` {string[]} Assets which are bound to this session.
    *  `a_resource_layout` {Object[]} Asset layouts of session:
    *  `a_staff` {Object[]} List of staff members who provide service:
@@ -4374,9 +4374,9 @@
    * @param {string} params.k_class_period ID of class period to get information for.
    * @param {string} params.text_token The security token.
    * @returns {Promise<Object>} Response data.
-   *  `a_appointment_visit_info` {Object[]} Additional visit information about this appointment. Empty array if it's not ...
-   *  `a_logo` {Object[]} Service logo information:
-   *  `a_purchase_option_default` {Object[]} Default purchase option information.
+   *  `a_appointment_visit_info` {Object} Additional visit information about this appointment. Empty array if it's not ...
+   *  `a_logo` {Object} Service logo information:
+   *  `a_purchase_option_default` {Object} Default purchase option information.
    *  `a_resource` {string[]} Assets which are bound to this session.
    *  `a_resource_layout` {Object[]} Asset layouts of session:
    *  `a_staff` {Object[]} List of staff members who provide service:
@@ -4526,7 +4526,7 @@
    * @param {string} params.m_price_min Minimum price of the product.
    * @param {string} params.uid User key. Empty string means return products purchased by walk-in.
    * @returns {Promise<Object>} Response data.
-   *  `a_login_product` {Object[]} List of purchased products:
+   *  `a_login_product` {Object} List of purchased products:
    */
   WlClient.prototype.wlLoginProductProduct = function(params)
   {
@@ -4568,7 +4568,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_access_log` {Object[]} Access log data.
    *  `a_element` {Object|Object|Object|Object[]} List of quiz questions with responses.
-   *  `a_service_info` {Object[]} Information about service if response connected to visit.
+   *  `a_service_info` {Object} Information about service if response connected to visit.
    *  `can_amend` {boolean} Whether response can be amended by current user.
    *  `dtu_response` {string} Date when response was submitted.
    *  `id_source` {number} List of sources where quiz response can be generated.
@@ -4665,7 +4665,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_access_log` {Object[]} Access log data.
    *  `a_element` {Object|Object|Object|Object[]} List of quiz questions with responses.
-   *  `a_service_info` {Object[]} Information about service if response connected to visit.
+   *  `a_service_info` {Object} Information about service if response connected to visit.
    *  `can_amend` {boolean} Whether response can be amended by current user.
    *  `dtu_response` {string} Date when response was submitted.
    *  `id_source` {number} List of sources where quiz response can be generated.
@@ -4735,7 +4735,7 @@
    * description, booking restrictions, and available purchase options.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_discount_code Information about the discount code:
+   * @param {Object} params.a_discount_code Information about the discount code:
    * @param {Object[]} params.a_sale_id_group The list of items grouped by sale categories on the store page.
    * @param {?string} [params.dl_client_prorate] The client prorate date.
    * @param {number} params.i_image_height The image height in pixels. Specify this value if you need the image to be returned in a specific...
@@ -4751,9 +4751,9 @@
    * @param {?string} [params.text_item] A list of goods to get information for. Every element must contain the next keys:
    * @param {string} params.uid_customer The UID of a customer (user) for whom the purchase is made. This is used in the backend to calcul...
    * @returns {Promise<Object>} Response data.
-   *  `a_age_restriction` {Object[]} The age restriction configuration.
-   *  `a_data` {Object[]} Additional information specific for the item.
-   *  `a_image` {Object[]} Image information:
+   *  `a_age_restriction` {Object} The age restriction configuration.
+   *  `a_data` {Object} Additional information specific for the item.
+   *  `a_image` {Object} Image information:
    *  `a_image_list` {Object[]} List of images.
    *  `a_installment_template` {Object[]} A list of installment plans. Each element has the following next keys:
    *  `a_item` {Object[]} The list of information pertaining to the specified item.
@@ -4786,14 +4786,14 @@
    * de-duplicated list and category list support both the flat and category-tabbed views.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_direct_link Arguments from direct purchase link, which can give additional access to products, which are avai...
+   * @param {Object} params.a_direct_link Arguments from direct purchase link, which can give additional access to products, which are avai...
    * @param {boolean} params.is_credit_card_check `true` to consider the requirement to have a credit card for booking
    * @param {string} params.k_business The business key.
    * @param {string} params.k_location The key of a location. If `0`, all products in the business are retrieved.
    * @param {string} params.uid The key of user.
    * @returns {Promise<Object>} Response data.
    *  `a_product` {Object[]} The list of all sale items (de-duplicated). Each element has the following keys:
-   *  `a_product_duplicate` {Object[]} The list of products to show with duplicates.
+   *  `a_product_duplicate` {Object} The list of products to show with duplicates.
    */
   WlClient.prototype.wlCatalogCatalogListList = function(params)
   {
@@ -4808,14 +4808,14 @@
    * configured for the category and a cache key for client-side caching.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_filter Additional data to filter products.
+   * @param {Object} params.a_filter Additional data to filter products.
    * @param {number} params.i_last The currently shown element.
    * @param {string} params.k_business The business key to get products for.
    * @param {string} params.k_shop_category The selected shop category.
    * @param {string} params.s_cache_key The cache key used to get products.
    * @returns {Promise<Object>} Response data.
    *  `a_category_sort` {Object[]} Categories with sort settings. Keys refer to shop category keys. Values refer...
-   *  `a_product` {Object[]} The list of products. Each element has the following keys:
+   *  `a_product` {Object} The list of products. Each element has the following keys:
    *  `i_last` {number} The currently shown element.
    *  `is_load_more` {boolean} Determines whether more products can be loaded.
    *  `s_cache_key` {string} The cache key used to get products.
@@ -4833,7 +4833,7 @@
    * the resulting purchase key so the frontend can redirect to the confirmation page.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_commission The staff commission earned for this purchase. If this isn't empty, it has the next fields:
+   * @param {Object} params.a_commission The staff commission earned for this purchase. If this isn't empty, it has the next fields:
    * @param {number} params.id_mode The WellnessLiving mode type (required). One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSi...
    * @param {boolean} params.is_guest Determines if the payment owner is an anonymous user (optional).
    * @param {boolean} params.is_staff Specify this if operations are performed by the staff member (optional).
@@ -5276,7 +5276,7 @@
    * @param {string} params.s_secret The key of the Self Check-In Web App.
    * @param {string} params.uid The key of the user to show the schedule for.
    * @returns {Promise<Object>} Response data.
-   *  `a_class` {Object[]} A list of sessions to display with the following fields:
+   *  `a_class` {Object} A list of sessions to display with the following fields:
    *  `a_schedule_class_all` {number[]} All types of services that appear in the schedule.
    *  `html_schedule` {string} The schedule to be shown in the Self Check-In Web App for the selected user.
    */
@@ -5297,7 +5297,7 @@
    * @param {string} params.s_secret The key of the Self Check-In Web App.
    * @param {string} params.uid The key of the user to show the schedule for.
    * @returns {Promise<Object>} Response data.
-   *  `a_confirmation_data` {Object[]} Data for the confirmation screen with the following fields:
+   *  `a_confirmation_data` {Object} Data for the confirmation screen with the following fields:
    *  `html_confirmation` {string} The confirmation template to be shown in the Self Check-In Web App for the se...
    *  `k_visit` {string} The visit key, which was added or checked in.
    */
@@ -5325,11 +5325,11 @@
    * @param {string} params.s_show A list of icons with additional information about the business member.
    * @param {string} params.uid ID of a user to retrieve member information for.
    * @returns {Promise<Object>} Response data.
-   *  `a_info` {?Object[]} Additional member data or `null` if any data can be shown.
+   *  `a_info` {?Object} Additional member data or `null` if any data can be shown.
    *  `a_items` {Object[]} The options presented in the web app.
-   *  `a_result_list` {?Object[]} List of users data.
-   *  `a_visit_last` {Object[]} Information about last visit of the user.
-   *  `a_visit_next` {Object[]} Information about next visit of the user.
+   *  `a_result_list` {?Object} List of users data.
+   *  `a_visit_last` {Object} Information about last visit of the user.
+   *  `a_visit_next` {Object} Information about next visit of the user.
    *  `i_lifetime_visit` {number} Count attend visits for one client.
    *  `is_traveller` {?boolean} If `true`, the client is a traveler. Otherwise, this will be `false`.
    *  `m_lifetime_value` {string} The member's lifetime value.
@@ -5407,12 +5407,12 @@
    * @param {boolean} params.is_url_public Whether `url_print` and `url_print_receipt` require authentication.
    * @param {?string} [params.k_purchase] The key of the purchase.
    * @returns {Promise<Object>} Response data.
-   *  `a_account_rest` {Object[]} Information about the account balance for a user's account after payment for ...
-   *  `a_business` {Object[]} Information about the business.
-   *  `a_card` {Object[]} Payment transaction information. Every element has the following keys:
-   *  `a_customer` {Object[]} Information about the customer.
-   *  `a_pay_method` {Object[]} A list of payment methods for the current purchase. Every element has the fol...
-   *  `a_price` {Object[]} Complete information about price information for the purchase.
+   *  `a_account_rest` {Object} Information about the account balance for a user's account after payment for ...
+   *  `a_business` {Object} Information about the business.
+   *  `a_card` {Object} Payment transaction information. Every element has the following keys:
+   *  `a_customer` {Object} Information about the customer.
+   *  `a_pay_method` {Object} A list of payment methods for the current purchase. Every element has the fol...
+   *  `a_price` {Object} Complete information about price information for the purchase.
    *  `a_purchase_item` {Object[]} A list of purchase items. Every element has the following keys:
    *  `dtl_purchase` {string} The local date of the purchase in MySQL format.
    *  `has_signature` {boolean} Determines whether the payment contained a signature.
@@ -5587,7 +5587,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_class_day` {Object[]} An array containing information about the classes this staff member is running.
    *  `a_result_list` {Object[]} An array listing the class sessions the staff member provides at each location.
-   *  `a_staff` {Object[]} An array containing information about the staff member.
+   *  `a_staff` {Object} An array containing information about the staff member.
    */
   WlClient.prototype.wlStaffStaffViewStaffView = function(params)
   {
@@ -5609,7 +5609,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_class_day` {Object[]} An array containing information about the classes this staff member is running.
    *  `a_result_list` {Object[]} An array listing the class sessions the staff member provides at each location.
-   *  `a_staff` {Object[]} An array containing information about the staff member.
+   *  `a_staff` {Object} An array containing information about the staff member.
    */
   WlClient.prototype.wlStaffStaffViewStaffView74 = function(params)
   {
@@ -5991,10 +5991,10 @@
    * @param {string} params.s_show A list of icons with additional information about the business member.
    * @param {string} params.uid ID of a user to retrieve member information for.
    * @returns {Promise<Object>} Response data.
-   *  `a_info` {?Object[]} Additional member data or `null` if any data can be shown.
-   *  `a_result_list` {?Object[]} List of users data.
-   *  `a_visit_last` {Object[]} Information about last visit of the user.
-   *  `a_visit_next` {Object[]} Information about next visit of the user.
+   *  `a_info` {?Object} Additional member data or `null` if any data can be shown.
+   *  `a_result_list` {?Object} List of users data.
+   *  `a_visit_last` {Object} Information about last visit of the user.
+   *  `a_visit_next` {Object} Information about next visit of the user.
    *  `i_lifetime_visit` {number} Count attend visits for one client.
    *  `is_traveller` {?boolean} If `true`, the client is a traveler. Otherwise, this will be `false`.
    *  `m_lifetime_value` {string} The member's lifetime value.
@@ -6042,7 +6042,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_custom_field` {Object[]} List of the custom user fields. Each value is:
    *  `a_member_group` {string[]} List of member groups that the user belongs to.
-   *  `a_photo` {Object[]} Information about the user's photo. The information returned has the followin...
+   *  `a_photo` {Object} Information about the user's photo. The information returned has the followin...
    *  `a_result_list` {Object[]} List of user's data.
    *  `can_introductory` {boolean} Whether the user can purchase introductory offers.
    *  `dt_add` {string} The date the user was added, given in UTC time.
@@ -6078,7 +6078,7 @@
    * @param {string} params.k_business The key of the business.
    * @param {string} params.uid Key of the user.
    * @returns {Promise<Object>} Response data.
-   *  `a_integration` {?Object[]} Information about the integrations the user is connected to. The information ...
+   *  `a_integration` {?Object} Information about the integrations the user is connected to. The information ...
    */
   WlClient.prototype.wlUserInfoUserIntegration = function(params)
   {
@@ -6096,7 +6096,7 @@
    * @param {string} params.k_business The key of the current business.
    * @param {string} params.s_search The string to be used for searching for a referrer.
    * @returns {Promise<Object>} Response data.
-   *  `a_photo` {Object[]} Information about the referrer's photo. The information returned has the foll...
+   *  `a_photo` {Object} Information about the referrer's photo. The information returned has the foll...
    *  `s_email` {string} The email address of the referrer.
    *  `s_member` {string} The business client ID of the referrer.
    *  `s_name_first` {string} The first name of the referrer.
@@ -6136,7 +6136,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business to get shop categories for.
    * @returns {Promise<Object>} Response data.
-   *  `a_shop_category` {Object[]} An array containing information about all store categories.
+   *  `a_shop_category` {Object} An array containing information about all store categories.
    */
   WlClient.prototype.wlShopCategoryCategoryGet = function(params)
   {
@@ -6552,7 +6552,7 @@
    * @param {string} params.k_review The review key.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `a_review` {Object[]} Review data:
+   *  `a_review` {Object} Review data:
    */
   WlClient.prototype.wlReviewReviewListReviewElementGet = function(params)
   {
@@ -6841,7 +6841,7 @@
    * session details such as staff, visit counts, assets, and class images.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_config Configuration options for schedule.
+   * @param {Object} params.a_config Configuration options for schedule.
    * @param {string} params.dl_end The end date of the range from which the list of schedule sessions should be retrieved.
    * @param {string} params.dl_start The start date of the range from which the list of scheduled sessions should be retrieved.
    * @param {string} params.dt_date The date of the sessions in Coordinated Universal Time (UTC) and MySQL format.
@@ -6865,7 +6865,7 @@
    * session details such as staff, visit counts, assets, and class images.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_config Configuration options for schedule.
+   * @param {Object} params.a_config Configuration options for schedule.
    * @param {string} params.dl_end The end date of the range from which the list of schedule sessions should be retrieved.
    * @param {string} params.dl_start The start date of the range from which the list of scheduled sessions should be retrieved.
    * @param {string} params.dt_date The date of the sessions in Coordinated Universal Time (UTC) and MySQL format.
@@ -6901,7 +6901,7 @@
    * @param {string} params.k_service_category The key of a service category to show information for.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `a_service` {Object[]} A list of services with information about them.
+   *  `a_service` {Object} A list of services with information about them.
    *  `is_multiple_booking` {boolean} Whether services allow multiple appointment booking.
    *  `k_location` {string} Location to show available appointment booking schedule.
    */
@@ -6927,7 +6927,7 @@
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `a_category` {Object[]} A list of information about service categories.
+   *  `a_category` {Object} A list of information about service categories.
    *  `is_client_flag` {boolean} `true` - if client has a flag, `false` - otherwise.
    *  `k_location` {string} Location to show available appointment booking schedule.
    */
@@ -6958,7 +6958,7 @@
    * @param {string} params.k_service_category The key of a service category to show information for.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `a_service` {Object[]} A list of services with information about them.
+   *  `a_service` {Object} A list of services with information about them.
    *  `is_multiple_booking` {boolean} Whether services allow multiple appointment booking.
    *  `k_location` {string} Location to show available appointment booking schedule.
    */
@@ -6997,7 +6997,7 @@
    * @param {Object} [params] Request parameters.
    * @param {number[]} params.a_pay The payment type for the appointment. One of the [RsAppointmentPaySid](#/components/schemas/RsApp...
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {Object[]} params.a_user Data to create new users.
+   * @param {Object} params.a_user Data to create new users.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_appointment The appointment key.
    * @param {string} params.k_business The business key.
@@ -7028,7 +7028,7 @@
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `a_notification` {Object[]} Information for sending an appointment notification.
+   *  `a_notification` {Object} Information for sending an appointment notification.
    *  `k_location` {string} Location to show available appointment booking schedule.
    */
   WlClient.prototype.wlAppointmentBookFinishFinishGet = function(params)
@@ -7045,9 +7045,9 @@
    * @deprecated Use {@link Wl\Appointment\Book\Finish\Finish47Api} instead.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_book_data All data from the provider model `Wl_Appointment_Book_ProviderModel`:
+   * @param {Object} params.a_book_data All data from the provider model `Wl_Appointment_Book_ProviderModel`:
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {Object[]} params.a_user Data to create new user.
+   * @param {Object} params.a_user Data to create new user.
    * @param {number} params.id_pay The payment type ID for the appointment. One of the [RsAppointmentPaySid](#/components/schemas/Rs...
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_appointment The appointment key.
@@ -7079,7 +7079,7 @@
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `a_notification` {Object[]} Information for sending an appointment notification.
+   *  `a_notification` {Object} Information for sending an appointment notification.
    *  `k_location` {string} Location to show available appointment booking schedule.
    */
   WlClient.prototype.wlAppointmentBookFinishFinish47Get = function(params)
@@ -7096,7 +7096,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {Object[]} params.a_user Data to create new user.
+   * @param {Object} params.a_user Data to create new user.
    * @param {number} params.id_pay The payment type ID for the appointment. One of the [RsAppointmentPaySid](#/components/schemas/Rs...
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_appointment The appointment key.
@@ -7140,11 +7140,11 @@
    * @param {?string} [params.k_timezone] The timezone key for `dt_date`.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `a_login_prize` {Object[]} Data about the login prize which can be used to pay for service.
+   *  `a_login_prize` {Object} Data about the login prize which can be used to pay for service.
    *  `a_login_promotion` {Object[]} A list of the client's login promotions that can be applied to a given service.
    *  `a_purchase` {Object[]} An array with information about available Purchase Options.
-   *  `a_reward_prize` {Object[]} List of redeemable prizes which can be used to pay for service.
-   *  `a_session_pass` {Object[]} Session pass information in a case if user books same appointment second time...
+   *  `a_reward_prize` {Object} List of redeemable prizes which can be used to pay for service.
+   *  `a_session_pass` {Object} Session pass information in a case if user books same appointment second time...
    *  `is_single_default` {boolean} Indicates if drop-in rate should be the default purchase option.
    *  `k_location` {string} Location to show available appointment booking schedule.
    *  `k_login_promotion` {?string} The Purchase Option ID used to pay for the appointment.
@@ -7182,11 +7182,11 @@
    * @param {?string} [params.k_timezone] The timezone key for [PurchaseApi](/Wl/Appointment/Book/Purchase/Purchase.json).
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `a_login_prize` {Object[]} Data about the login prize which can be used to pay for service.
+   *  `a_login_prize` {Object} Data about the login prize which can be used to pay for service.
    *  `a_login_promotion` {Object[]} A list of the client's login promotions that can be applied to a given service.
    *  `a_purchase` {Object[]} An array with information about available Purchase Options.
-   *  `a_reward_prize` {Object[]} List of redeemable prizes which can be used to pay for service.
-   *  `a_session_pass` {Object[]} Session pass information in a case if user books same appointment second time...
+   *  `a_reward_prize` {Object} List of redeemable prizes which can be used to pay for service.
+   *  `a_session_pass` {Object} Session pass information in a case if user books same appointment second time...
    *  `is_single_default` {boolean} Indicates if drop-in rate should be the default purchase option.
    *  `k_location` {string} Location to show available appointment booking schedule.
    *  `k_login_promotion` {?string} The Purchase Option ID used to pay for the appointment.
@@ -7228,7 +7228,7 @@
    * @param {string} params.uid The user key.
    * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
    * @returns {Promise<Object>} Response data.
-   *  `a_time` {Object[]} An array with a schedule of available appointment booking times.
+   *  `a_time` {Object} An array with a schedule of available appointment booking times.
    *  `dt_date` {string} The date to show the available appointment booking schedule.
    *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
    *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
@@ -7272,9 +7272,9 @@
    * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
    * @returns {Promise<Object>} Response data.
    *  `a_date` {Object[]} A list with all calendar days in the specified month with
-   *  `a_time` {Object[]} An array with a schedule of available appointment booking times.
-   *  `a_timezone_data` {Object[]} Information about timezone.
-   *  `a_week_name` {Object[]} Array with short week day's names (2 letters, i.e. 'Fr') for calendar month v...
+   *  `a_time` {Object} An array with a schedule of available appointment booking times.
+   *  `a_timezone_data` {Object} Information about timezone.
+   *  `a_week_name` {Object} Array with short week day's names (2 letters, i.e. 'Fr') for calendar month v...
    *  `can_backwards` {boolean} Whether previous calendar period can be shown (start of shown period later th...
    *  `dt_date` {string} The date to show the available appointment booking schedule.
    *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
@@ -7389,7 +7389,7 @@
    * @deprecated Use {@link Wl\Appointment\Book\Payment\PaymentPostApi} instead.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_book_data Information detailing an appointment booking:
+   * @param {Object} params.a_book_data Information detailing an appointment booking:
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {number} params.id_mode The key of source mode. A constant of [ModeSid](#/components/schemas/Wl.Mode.ModeSid).
    * @param {number} params.id_purchase_item The purchase item ID. A constant of [RsPurchaseItemSid](#/components/schemas/RsPurchaseItemSid).
@@ -7429,7 +7429,7 @@
    * @deprecated Use {@link Wl\Appointment\Book\Payment\PaymentPostApi} instead.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_book_data Information detailing an appointment booking:
+   * @param {Object} params.a_book_data Information detailing an appointment booking:
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {number} params.id_mode The key of source mode. A constant of [ModeSid](#/components/schemas/Wl.Mode.ModeSid).
    * @param {number} params.id_purchase_item The purchase item ID. A constant of [RsPurchaseItemSid](#/components/schemas/RsPurchaseItemSid).
@@ -7459,7 +7459,7 @@
    *  display a pricing summary.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_book_data The booking process information:
+   * @param {Object} params.a_book_data The booking process information:
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {number} params.id_mode The ID of the source mode. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
@@ -7468,8 +7468,8 @@
    * @param {string} params.text_discount_code The discount code.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `a_promotion_data` {Object[]} Information about the selected login promotion.
-   *  `a_purchase` {Object[]} Fields refer to strings in the format `id_purchase_item-k_id`. Values refer t...
+   *  `a_promotion_data` {Object} Information about the selected login promotion.
+   *  `a_purchase` {Object} Fields refer to strings in the format `id_purchase_item-k_id`. Values refer t...
    *  `a_total` {string[]} The list of amounts to pay for appointments from the batch, with taxes and wi...
    *  `k_location` {string} Location to show available appointment booking schedule.
    *  `m_coupon` {string} The gift card amount.
@@ -7682,7 +7682,7 @@
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
    * @returns {Promise<Object>} Response data.
-   *  `a_login_prize` {Object[]} Data about the login prize which can be used to pay for service.
+   *  `a_login_prize` {Object} Data about the login prize which can be used to pay for service.
    *  `a_login_promotion` {Object[]} A list of the client's login promotions that can be applied to a given service.
    *  `a_purchase` {Object[]} A list of Purchase Options that are available for the session(s) being booked...
    *  `a_reward_prize` {Object[]} List of redeemable prizes which can be used to pay for service.
@@ -7748,7 +7748,7 @@
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
    * @returns {Promise<Object>} Response data.
-   *  `a_login_prize` {Object[]} Data about the login prize which can be used to pay for service.
+   *  `a_login_prize` {Object} Data about the login prize which can be used to pay for service.
    *  `a_login_promotion` {Object[]} A list of the client's login promotions that can be applied to a given service.
    *  `a_purchase` {Object[]} A list of Purchase Options that are available for the session(s) being booked...
    *  `a_reward_prize` {Object[]} List of redeemable prizes which can be used to pay for service.
@@ -8403,7 +8403,7 @@
    * @param {string} params.uid_want The key of user whose email will be edited.
    * @returns {Promise<Object>} Response data.
    *  `a_business_member_key` {string[]} List of business keys where a user is already a member.
-   *  `a_user` {Object[]} Information about the user who occupies the specified email.
+   *  `a_user` {Object} Information about the user who occupies the specified email.
    *  `is_added` {boolean} Shows, whether client was registered in the business: `true` if user was adde...
    *  `is_current_member` {boolean} If `true`, user is already a member of current business, `false` - otherwise.
    *  `is_limit` {boolean} If `true`, then the number of requests has exceeded the rate limit. Otherwise...
@@ -8451,7 +8451,7 @@
    * @param {string} params.uid_want The key of user whose email will be edited.
    * @returns {Promise<Object>} Response data.
    *  `a_business_member_key` {string[]} List of business keys where a user is already a member.
-   *  `a_user` {Object[]} Information about the user who occupies the specified email.
+   *  `a_user` {Object} Information about the user who occupies the specified email.
    *  `is_added` {boolean} Shows, whether client was registered in the business: `true` if user was adde...
    *  `is_current_member` {boolean} If `true`, user is already a member of current business, `false` - otherwise.
    *  `is_limit` {boolean} If `true`, then the number of requests has exceeded the rate limit. Otherwise...
@@ -8534,16 +8534,16 @@
    * @param {boolean} params.show_unpublished `true` to show schedule, which is not published yet.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `a_age_restrictions` {Object[]} Displays information about age restrictions for this event.
+   *  `a_age_restrictions` {Object} Displays information about age restrictions for this event.
    *  `a_book_available` {Object[]} Retrieves information about an event item.
-   *  `a_business_policy` {Object[]} Business policies connected to clients and bookings.
-   *  `a_class_logo` {Object[]} The logo of event.
+   *  `a_business_policy` {Object} Business policies connected to clients and bookings.
+   *  `a_class_logo` {Object} The logo of event.
    *  `a_class_tab` {string[]} The list of keys from class tab.
    *  `a_event` {Object[]} Information for a large number of events.
    *  `a_installment_template` {Object[]} A list of installment plans. Each element has the following next keys:
    *  `a_schedule` {Object[]} A list of event sessions. Every element has the following next keys:
    *  `a_shop_category` {string[]} IDs of online store category.
-   *  `a_staff_logo` {Object[]} Photos of staff members. Keys are the keys of staff members. The values are t...
+   *  `a_staff_logo` {Object} Photos of staff members. Keys are the keys of staff members. The values are t...
    *  `a_timezone_info` {Object[]} Timezone information for all timezones used in the event schedule.
    *  `a_visits_required` {Object[]} A list of classes and events that clients should attend before this one.
    *  `dt_book_date` {?string} That date that should be used to go to the booking wizard.
@@ -8863,7 +8863,7 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.k_login_promotion Login promotion key.
    * @returns {Promise<Object>} Response data.
-   *  `a_guest_pass` {Object[]} Guest pass information.
+   *  `a_guest_pass` {Object} Guest pass information.
    */
   WlClient.prototype.wlLoginPromotionGuestPassGuestPassGet = function(params)
   {
@@ -8996,7 +8996,7 @@
    * @param {string} params.uid_current The key of the current user.
    * @param {string} params.uid_customer The key of the user who performed the purchase.
    * @returns {Promise<Object>} Response data.
-   *  `a_discount_code` {Object[]} A list of available discount codes with the next structure:
+   *  `a_discount_code` {Object} A list of available discount codes with the next structure:
    *  `is_commission` {boolean} Determines whether the business applied a commission at checkout.
    *  `is_discount_code_mode_select` {boolean} Determines, how staff sees discount codes in Store.
    *  `is_receipt_note` {boolean} Determines whether to display custom receipt notes at checkout.
@@ -9043,8 +9043,8 @@
    * breakdown so the staff member sees exactly what the client will be charged.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_config Configuration information about the item, which can specify prorated amounts.
-   * @param {Object[]} params.a_tax Contains information about edited taxes.
+   * @param {Object} params.a_config Configuration information about the item, which can specify prorated amounts.
+   * @param {Object} params.a_tax Contains information about edited taxes.
    * @param {number} params.i_quantity The quantity of items.
    * @param {number} params.id_sale The ID of the sale category. One of the [RsSaleSid](#/components/schemas/RsSaleSid) constants.
    * @param {string} params.k_business The business key.
@@ -9053,7 +9053,7 @@
    * @param {string} params.m_price The custom price of the sale item.
    * @param {string} params.uid The ID of the user who performed the actions.
    * @returns {Promise<Object>} Response data.
-   *  `a_tax_data` {Object[]} Contains information about calculated taxes.
+   *  `a_tax_data` {Object} Contains information about calculated taxes.
    *  `m_prorate` {string} The prorated amount.
    *  `m_subtotal` {string} The amount of the sale item, excluding taxes.
    *  `m_tax` {string} The calculated amount of tax.
@@ -9073,7 +9073,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of the business.
    * @returns {Promise<Object>} Response data.
-   *  `a_image` {Object[]} Image data for image which will be displayed in attendance web app page.
+   *  `a_image` {Object} Image data for image which will be displayed in attendance web app page.
    *  `hide_profile_images` {boolean} Whether to hide client profile images.
    *  `i_attendance_direct_delay` {number} Number of seconds of inactivity before automatic redirect.
    *  `i_book_open` {number} Number of minutes for the client check-in window after session has started.
@@ -9105,7 +9105,7 @@
    * @param {string} params.k_business The key of the business in which the enrollment is performed.
    * @param {string} params.k_wellness_program "Wellness Program" key.
    * @returns {Promise<Object>} Response data.
-   *  `a_field_list` {Object[]} The partner field list:
+   *  `a_field_list` {Object} The partner field list:
    */
   WlClient.prototype.wlInsuranceEnrollmentFieldEnrollmentFieldListGet = function(params)
   {
@@ -9138,7 +9138,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business ID of a business to show information for.
    * @returns {Promise<Object>} Response data.
-   *  `a_category` {Object[]}
+   *  `a_category` {Object}
    */
   WlClient.prototype.wlRewardActionCategoryListCategoryList = function(params)
   {
@@ -9660,7 +9660,7 @@
    * @param {string} params.uid User to get information for.
    * @returns {Promise<Object>} Response data.
    *  `a_resource_busy` {string[][]} A list of reserved assets.
-   *  `a_resource_type` {Object[]} A list of assets required for the service booking.
+   *  `a_resource_type` {Object} A list of assets required for the service booking.
    *  `can_book_unavailable_assets` {boolean} Can the staff members book reserved assets.
    */
   WlClient.prototype.wlAppointmentBookAssetServiceService = function(params)
@@ -9911,7 +9911,7 @@
    * @param {?string} [params.k_business] Business key.
    * @param {?string} [params.uid] User key.
    * @returns {Promise<Object>} Response data.
-   *  `a_image` {Object[]} Image data:
+   *  `a_image` {Object} Image data:
    */
   WlClient.prototype.wlMemberProgressLogImageImageGet = function(params)
   {
