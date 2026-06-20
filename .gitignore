@@ -5,6 +5,6 @@ npm-debug.log*
 src/
 .tmp-esm-*
 .tmp-cjs-*
+production/
 stable/
 dev/
-production/
