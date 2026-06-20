@@ -17594,6 +17594,8 @@ export interface WlEventBookEventViewElementResponse {
             k_class_period: string;
             /** The key of the location where the session is held. */
             k_location: string;
+            /** Structured off-site location data used by the calendar attachment. */
+            k_resource_location: string;
             /** The location title. */
             s_location: string;
             /** The time when session occurred. */
@@ -17724,6 +17726,8 @@ export interface WlEventBookEventViewElementResponse {
         k_class_period: string;
         /** The key of the location where the session is held. */
         k_location: string;
+        /** Structured off-site location data used by the calendar attachment. */
+        k_resource_location: string;
         /** The location title. */
         s_location: string;
         /** The time when session occurred. */
