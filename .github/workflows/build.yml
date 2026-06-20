@@ -1,10 +1,9 @@
-name: Build SDK
+name: Build JS SDK
 
 on:
   repository_dispatch:
     types: [openapi-updated]
   schedule:
-    # Fallback: runs daily at 08:00 UTC in case the dispatch was missed.
     - cron: '0 8 * * *'
   workflow_dispatch:
   push:
@@ -15,7 +14,7 @@ on:
       - 'package-lock.json'
 
 concurrency:
-  group: build-sdk
+  group: build
   cancel-in-progress: false
 
 permissions:
@@ -28,6 +27,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout OpenAPI spec
+        uses: actions/checkout@v4
+        with:
+          repository: wellnessliving/openapi
+          path: openapi-spec
+
+      - name: Link spec to expected path
+        run: ln -sfn "$GITHUB_WORKSPACE/openapi-spec" /tmp/openapi-spec
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -38,9 +48,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Clone OpenAPI spec repository
-        run: git clone --depth=1 https://github.com/wellnessliving/openapi.git /tmp/openapi-spec
-
       - name: Generate browser SDK (stable + dev + production if available)
         run: node scripts/generate.js
 
@@ -50,52 +57,31 @@ jobs:
       - name: Compile TypeScript to ESM + CJS + d.ts
         run: node scripts/compile.js
 
-      - name: Check for changes
+      - name: Detect changes
         id: changes
         run: |
           STABLE_VER=$(grep -m1 'Spec version:' stable/wl-sdk.js | awk '{print $NF}')
           DEV_VER=$(grep -m1 'Spec version:' dev/wl-sdk.js | awk '{print $NF}')
           echo "stable_ver=${STABLE_VER}" >> $GITHUB_OUTPUT
           echo "dev_ver=${DEV_VER}" >> $GITHUB_OUTPUT
-          echo "method_count=$(grep -m1 'Endpoints:' stable/wl-sdk.js | awk '{print $NF}')" >> $GITHUB_OUTPUT
+
           if [ -f production/wl-sdk.js ]; then
             PROD_VER=$(grep -m1 'Spec version:' production/wl-sdk.js | awk '{print $NF}')
             echo "prod_ver=${PROD_VER}" >> $GITHUB_OUTPUT
             echo "has_production=true" >> $GITHUB_OUTPUT
-            ROOT_VER="$PROD_VER"
-          else
-            echo "prod_ver=" >> $GITHUB_OUTPUT
-            echo "has_production=false" >> $GITHUB_OUTPUT
-            ROOT_VER="$STABLE_VER"
-          fi
-
-          CURRENT_VER=$(node -e "console.log(require('./package.json').version)")
-          if [ "$ROOT_VER" != "$CURRENT_VER" ] || [ ! -f wl-sdk.js ]; then
-            echo "main_changed=true" >> $GITHUB_OUTPUT
-            echo "Changes detected: root ${CURRENT_VER} -> ${ROOT_VER}"
-          else
-            echo "main_changed=false" >> $GITHUB_OUTPUT
-            echo "No changes to main root - SDK is up to date."
-          fi
-
-      - name: Update root SDK files and package.json version
-        if: steps.changes.outputs.main_changed == 'true'
-        run: |
-          HAS_PROD="${{ steps.changes.outputs.has_production }}"
-          PROD_VER="${{ steps.changes.outputs.prod_ver }}"
-          STABLE_VER="${{ steps.changes.outputs.stable_ver }}"
-
-          if [ "$HAS_PROD" = "true" ]; then
             SRC_DIR="production"
             PKG_VER="$PROD_VER"
           else
+            echo "prod_ver=" >> $GITHUB_OUTPUT
+            echo "has_production=false" >> $GITHUB_OUTPUT
             SRC_DIR="stable"
             PKG_VER="$STABLE_VER"
           fi
-          cp "${SRC_DIR}/wl-sdk.js" ./wl-sdk.js
+
+          cp "${SRC_DIR}/wl-sdk.js"     ./wl-sdk.js
           cp "${SRC_DIR}/wl-sdk.esm.js" ./wl-sdk.esm.js
           cp "${SRC_DIR}/wl-sdk.cjs.js" ./wl-sdk.cjs.js
-          cp "${SRC_DIR}/wl-sdk.d.ts" ./wl-sdk.d.ts
+          cp "${SRC_DIR}/wl-sdk.d.ts"   ./wl-sdk.d.ts
 
           node -e "
             const fs = require('fs');
@@ -103,7 +89,9 @@ jobs:
             pkg.version = process.argv[1];
             fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
           " "$PKG_VER"
+
           git add wl-sdk.js wl-sdk.esm.js wl-sdk.cjs.js wl-sdk.d.ts package.json
+          git diff --staged --quiet || echo "main_changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Commit and push main
         if: steps.changes.outputs.main_changed == 'true'
@@ -113,7 +101,6 @@ jobs:
           STABLE_VER="${{ steps.changes.outputs.stable_ver }}"
           DEV_VER="${{ steps.changes.outputs.dev_ver }}"
           PROD_VER="${{ steps.changes.outputs.prod_ver }}"
-          HAS_PROD="${{ steps.changes.outputs.has_production }}"
           if [ -n "$PROD_VER" ]; then
             MSG=$(printf 'chore: regenerate SDK from OpenAPI spec\n\nstable: %s\ndev: %s\nproduction: %s' "$STABLE_VER" "$DEV_VER" "$PROD_VER")
           else
@@ -122,203 +109,156 @@ jobs:
           git commit -m "$MSG"
           git pull --rebase origin main
           git push
-          if [ "$HAS_PROD" = "true" ]; then
-            git tag "v${PROD_VER}"
-            git push origin "v${PROD_VER}"
-          fi
 
-      - name: Push stable branch
-        id: push_stable
+      - name: Update channel branches
+        id: channel_push
         run: |
-          STABLE_VER="${{ steps.changes.outputs.stable_ver }}"
-          WORKSPACE="${{ github.workspace }}"
-          TOKEN="${{ github.token }}"
-          REPO="${{ github.repository }}"
-
-          node -e "
-            const pkg = {
-              name: '@wellnessliving/sdk',
-              version: process.argv[1],
-              description: 'WellnessLiving JavaScript/TypeScript SDK - auto-generated from OpenAPI spec',
-              main: 'wl-sdk.cjs.js',
-              module: 'wl-sdk.esm.js',
-              browser: 'wl-sdk.js',
-              types: 'wl-sdk.d.ts',
-              engines: { node: '>=18.0.0' }
-            };
-            require('fs').writeFileSync('/tmp/pkg-stable.json', JSON.stringify(pkg, null, 2) + '\n');
-          " "$STABLE_VER"
-
-          mkdir -p /tmp/sdk-stable
-          cd /tmp/sdk-stable
-          git init
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git remote add origin "https://x-access-token:${TOKEN}@github.com/${REPO}"
-          if git fetch origin stable --depth=1 2>/dev/null; then
-            git checkout stable
-          else
-            git checkout --orphan stable
-          fi
-          git rm -rf . --quiet 2>/dev/null || true
 
-          cp "${WORKSPACE}/stable/wl-sdk.js" .
-          cp "${WORKSPACE}/stable/wl-sdk.esm.js" .
-          cp "${WORKSPACE}/stable/wl-sdk.cjs.js" .
-          cp "${WORKSPACE}/stable/wl-sdk.d.ts" .
-          cp /tmp/pkg-stable.json ./package.json
+          push_channel() {
+            local CHANNEL=$1 VERSION=$2
+            local WT="${RUNNER_TEMP}/wt-${CHANNEL}"
 
-          COMMITTED=false
-          git add .
-          if ! git diff --staged --quiet; then
-            git commit -m "stable: ${STABLE_VER}"
-            git tag "stable-v${STABLE_VER}"
-            COMMITTED=true
-          fi
-          git push origin HEAD:stable
-          if [ "$COMMITTED" = "true" ]; then
-            git push origin "stable-v${STABLE_VER}" 2>/dev/null || true
-          fi
-          echo "committed=${COMMITTED}" >> $GITHUB_OUTPUT
+            if [ ! -f "${GITHUB_WORKSPACE}/${CHANNEL}/wl-sdk.js" ]; then
+              echo "  ${CHANNEL}: no SDK file yet, skipping."
+              return 0
+            fi
 
-      - name: Push dev branch
-        id: push_dev
-        run: |
-          DEV_VER="${{ steps.changes.outputs.dev_ver }}"
-          WORKSPACE="${{ github.workspace }}"
-          TOKEN="${{ github.token }}"
-          REPO="${{ github.repository }}"
+            node -e "
+              const pkg = {
+                name: '@wellnessliving/sdk',
+                version: process.argv[1],
+                description: 'WellnessLiving JavaScript/TypeScript SDK - auto-generated from OpenAPI spec',
+                main: 'wl-sdk.cjs.js',
+                module: 'wl-sdk.esm.js',
+                browser: 'wl-sdk.js',
+                types: 'wl-sdk.d.ts',
+                engines: { node: '>=18.0.0' }
+              };
+              require('fs').writeFileSync('/tmp/pkg-' + process.argv[2] + '.json', JSON.stringify(pkg, null, 2) + '\n');
+            " "$VERSION" "$CHANNEL"
 
-          node -e "
-            const pkg = {
-              name: '@wellnessliving/sdk',
-              version: process.argv[1],
-              description: 'WellnessLiving JavaScript/TypeScript SDK - auto-generated from OpenAPI spec',
-              main: 'wl-sdk.cjs.js',
-              module: 'wl-sdk.esm.js',
-              browser: 'wl-sdk.js',
-              types: 'wl-sdk.d.ts',
-              engines: { node: '>=18.0.0' }
-            };
-            require('fs').writeFileSync('/tmp/pkg-dev.json', JSON.stringify(pkg, null, 2) + '\n');
-          " "$DEV_VER"
+            echo "  Checking ${CHANNEL}..."
+            git fetch origin "refs/heads/${CHANNEL}:refs/heads/${CHANNEL}" 2>/dev/null || true
 
-          mkdir -p /tmp/sdk-dev
-          cd /tmp/sdk-dev
-          git init
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git remote add origin "https://x-access-token:${TOKEN}@github.com/${REPO}"
-          if git fetch origin dev --depth=1 2>/dev/null; then
-            git checkout dev
-          else
-            git checkout --orphan dev
-          fi
-          git rm -rf . --quiet 2>/dev/null || true
+            if git show-ref --verify --quiet "refs/heads/${CHANNEL}"; then
+              git worktree add "${WT}" "${CHANNEL}"
+            else
+              git worktree add --orphan -b "${CHANNEL}" "${WT}"
+            fi
 
-          cp "${WORKSPACE}/dev/wl-sdk.js" .
-          cp "${WORKSPACE}/dev/wl-sdk.esm.js" .
-          cp "${WORKSPACE}/dev/wl-sdk.cjs.js" .
-          cp "${WORKSPACE}/dev/wl-sdk.d.ts" .
-          cp /tmp/pkg-dev.json ./package.json
+            git -C "${WT}" rm -rf . --ignore-unmatch -q
 
-          COMMITTED=false
-          git add .
-          if ! git diff --staged --quiet; then
-            git commit -m "dev: ${DEV_VER}"
-            git tag "dev-v${DEV_VER}"
-            COMMITTED=true
-          fi
-          git push origin HEAD:dev
-          if [ "$COMMITTED" = "true" ]; then
-            git push origin "dev-v${DEV_VER}" 2>/dev/null || true
-          fi
-          echo "committed=${COMMITTED}" >> $GITHUB_OUTPUT
+            cp "$GITHUB_WORKSPACE/${CHANNEL}/wl-sdk.js"     "${WT}/"
+            cp "$GITHUB_WORKSPACE/${CHANNEL}/wl-sdk.esm.js" "${WT}/"
+            cp "$GITHUB_WORKSPACE/${CHANNEL}/wl-sdk.cjs.js" "${WT}/"
+            cp "$GITHUB_WORKSPACE/${CHANNEL}/wl-sdk.d.ts"   "${WT}/"
+            cp "/tmp/pkg-${CHANNEL}.json"                    "${WT}/package.json"
 
-      - name: Create stable release
-        if: steps.push_stable.outputs.committed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          STABLE_VER="${{ steps.changes.outputs.stable_ver }}"
-          METHOD_COUNT="${{ steps.changes.outputs.method_count }}"
-          HAS_PROD="${{ steps.changes.outputs.has_production }}"
-          WORKSPACE="${{ github.workspace }}"
-          TAG="stable-v${STABLE_VER}"
+            git -C "${WT}" add -A
 
-          if gh release view "$TAG" > /dev/null 2>&1; then
-            echo "Release $TAG already exists - skipping."
-            exit 0
-          fi
+            if git -C "${WT}" diff --staged --quiet; then
+              echo "  ${CHANNEL}: no changes."
+            else
+              git -C "${WT}" commit -m "${CHANNEL}: ${VERSION}"
+              git -C "${WT}" push origin "${CHANNEL}" --force
+              echo "${CHANNEL}_pushed=true" >> "$GITHUB_OUTPUT"
+              echo "  ${CHANNEL}: pushed."
+            fi
 
-          printf '## WellnessLiving SDK - Stable %s\n\n**Channel:** Stable (staging / QA)\n**Spec version:** `%s`\n**Endpoints:** %s\n\n## Install\n\n```bash\nnpm install github:wellnessliving/wl-openapi-js#stable\n```\n\n## CDN\n\n```html\n<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-openapi-js@stable/wl-sdk.js"></script>\n```\n\n---\nAuto-generated from [wellnessliving/openapi](https://github.com/wellnessliving/openapi).\n' \
-            "$TAG" "$STABLE_VER" "$METHOD_COUNT" > /tmp/release-notes-stable.md
+            git worktree remove "${WT}" --force
+          }
 
-          if [ "$HAS_PROD" = "true" ]; then
-            RELEASE_FLAGS=""
-          else
-            RELEASE_FLAGS="--latest"
-          fi
+          push_channel "stable" "${{ steps.changes.outputs.stable_ver }}"
+          push_channel "dev"    "${{ steps.changes.outputs.dev_ver }}"
 
-          gh release create "$TAG" \
-            "${WORKSPACE}/stable/wl-sdk.js" \
-            "${WORKSPACE}/stable/wl-sdk.esm.js" \
-            "${WORKSPACE}/stable/wl-sdk.cjs.js" \
-            "${WORKSPACE}/stable/wl-sdk.d.ts" \
-            $RELEASE_FLAGS \
-            --title "SDK Stable ${STABLE_VER}" \
-            --notes-file /tmp/release-notes-stable.md
+      - name: Package stable archive
+        if: steps.channel_push.outputs.stable_pushed == 'true'
+        run: cd stable && zip ../wl-openapi-js.zip wl-sdk.js wl-sdk.esm.js wl-sdk.cjs.js wl-sdk.d.ts
 
-      - name: Create dev release
-        if: steps.push_dev.outputs.committed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          DEV_VER="${{ steps.changes.outputs.dev_ver }}"
-          METHOD_COUNT="${{ steps.changes.outputs.method_count }}"
-          WORKSPACE="${{ github.workspace }}"
-          TAG="dev-v${DEV_VER}"
+      - name: Release stable
+        if: steps.channel_push.outputs.stable_pushed == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: stable-${{ steps.changes.outputs.stable_ver }}
+          name: stable ${{ steps.changes.outputs.stable_ver }}
+          body: |
+            ## WellnessLiving JS SDK - stable channel
 
-          if gh release view "$TAG" > /dev/null 2>&1; then
-            echo "Release $TAG already exists - skipping."
-            exit 0
-          fi
+            Spec version: `${{ steps.changes.outputs.stable_ver }}`
+            Branch: [`stable`](https://github.com/wellnessliving/wl-openapi-js/tree/stable)
 
-          printf '## WellnessLiving SDK - Dev %s\n\n**Channel:** Dev (trunk / development)\n**Spec version:** `%s`\n**Endpoints:** %s\n\n## Install\n\n```bash\nnpm install github:wellnessliving/wl-openapi-js#dev\n```\n\n## CDN\n\n```html\n<script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-openapi-js@dev/wl-sdk.js"></script>\n```\n\n---\nAuto-generated from [wellnessliving/openapi](https://github.com/wellnessliving/openapi).\n' \
-            "$TAG" "$DEV_VER" "$METHOD_COUNT" > /tmp/release-notes-dev.md
+            ### Install
 
-          gh release create "$TAG" \
-            "${WORKSPACE}/dev/wl-sdk.js" \
-            "${WORKSPACE}/dev/wl-sdk.esm.js" \
-            "${WORKSPACE}/dev/wl-sdk.cjs.js" \
-            "${WORKSPACE}/dev/wl-sdk.d.ts" \
-            --prerelease \
-            --title "SDK Dev ${DEV_VER}" \
-            --notes-file /tmp/release-notes-dev.md
+            ```bash
+            npm install github:wellnessliving/wl-openapi-js#stable
+            ```
 
-      - name: Create production release
+            ### CDN
+
+            ```html
+            <script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-openapi-js@stable/wl-sdk.js"></script>
+            ```
+          prerelease: true
+          files: wl-openapi-js.zip
+          fail_on_unmatched_files: false
+          make_latest: false
+
+      - name: Package dev archive
+        if: steps.channel_push.outputs.dev_pushed == 'true'
+        run: cd dev && zip ../wl-openapi-js.zip wl-sdk.js wl-sdk.esm.js wl-sdk.cjs.js wl-sdk.d.ts
+
+      - name: Release dev
+        if: steps.channel_push.outputs.dev_pushed == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: dev-${{ steps.changes.outputs.dev_ver }}
+          name: dev ${{ steps.changes.outputs.dev_ver }}
+          body: |
+            ## WellnessLiving JS SDK - dev channel
+
+            Spec version: `${{ steps.changes.outputs.dev_ver }}`
+            Branch: [`dev`](https://github.com/wellnessliving/wl-openapi-js/tree/dev)
+
+            > **Pre-release.** Built from the dev OpenAPI spec - may contain breaking changes.
+
+            ### Install
+
+            ```bash
+            npm install github:wellnessliving/wl-openapi-js#dev
+            ```
+
+            ### CDN
+
+            ```html
+            <script src="https://cdn.jsdelivr.net/gh/wellnessliving/wl-openapi-js@dev/wl-sdk.js"></script>
+            ```
+          files: wl-openapi-js.zip
+          fail_on_unmatched_files: false
+          make_latest: false
+
+      - name: Package production archive
         if: steps.changes.outputs.main_changed == 'true' && steps.changes.outputs.has_production == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          PROD_VER="${{ steps.changes.outputs.prod_ver }}"
-          METHOD_COUNT="${{ steps.changes.outputs.method_count }}"
-          WORKSPACE="${{ github.workspace }}"
-          TAG="v${PROD_VER}"
+        run: cd production && zip ../wl-openapi-js.zip wl-sdk.js wl-sdk.esm.js wl-sdk.cjs.js wl-sdk.d.ts
 
-          if gh release view "$TAG" > /dev/null 2>&1; then
-            echo "Release $TAG already exists - skipping."
-            exit 0
-          fi
+      - name: Release production
+        if: steps.changes.outputs.main_changed == 'true' && steps.changes.outputs.has_production == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: production-${{ steps.changes.outputs.prod_ver }}
+          name: production ${{ steps.changes.outputs.prod_ver }}
+          body: |
+            ## WellnessLiving JS SDK - production channel
 
-          printf '## WellnessLiving SDK %s\n\n**Channel:** Production\n**Spec version:** `%s`\n**Endpoints:** %s\n\n## Install\n\n```bash\nnpm install github:wellnessliving/wl-openapi-js\n```\n\n---\nAuto-generated from [wellnessliving/openapi](https://github.com/wellnessliving/openapi).\n' \
-            "$TAG" "$PROD_VER" "$METHOD_COUNT" > /tmp/release-notes-prod.md
+            Spec version: `${{ steps.changes.outputs.prod_ver }}`
+            Branch: [`main`](https://github.com/wellnessliving/wl-openapi-js/tree/main)
 
-          gh release create "$TAG" \
-            "${WORKSPACE}/production/wl-sdk.js" \
-            "${WORKSPACE}/production/wl-sdk.esm.js" \
-            "${WORKSPACE}/production/wl-sdk.cjs.js" \
-            "${WORKSPACE}/production/wl-sdk.d.ts" \
-            --latest \
-            --title "SDK ${TAG}" \
-            --notes-file /tmp/release-notes-prod.md
+            ### Install
+
+            ```bash
+            npm install github:wellnessliving/wl-openapi-js
+            ```
+          files: wl-openapi-js.zip
+          fail_on_unmatched_files: false
+          make_latest: true
