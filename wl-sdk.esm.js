@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260622084057
+// OpenAPI spec version: 1.1.20260622104501
 // Build date: 2026-06-22
 // Endpoints: 456
 export class WlApiError extends Error {
@@ -586,7 +586,7 @@ export class WlScheduleScheduleListStaffAppNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets schedule of business [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json) for day [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json). */
+    /** Gets schedule of business `k_business` for day `dt_date`. */
     scheduleList(params) {
         return this._client._request('/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json', params, 'GET');
     }
@@ -640,7 +640,7 @@ export class WlLocationFlagNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Checks if user [FlagApi](/Wl/Location/Flag/Flag.json) is flagged in location [FlagApi](/Wl/Location/Flag/Flag.json) or each of users [FlagApi](/Wl/Location/Flag/Flag.json) is flagged in location [FlagApi](/Wl/Location/Flag/Flag.json). */
+    /** Checks if user `uid` is flagged in location `k_location` or each of users `a_uid` is flagged in location `k_location`. */
     flag(params) {
         return this._client._request('/Wl/Location/Flag/Flag.json', params, 'GET');
     }
@@ -970,7 +970,7 @@ export class WlEventNamespace {
     eventListPut(params) {
         return this._client._request('/Wl/Event/EventList.json', params, 'PUT');
     }
-    /** Cancels book of event [EventCancelWholeApi](/Wl/Event/EventCancelWhole.json). */
+    /** Cancels book of event `k_class`. */
     eventCancelWhole(params) {
         return this._client._request('/Wl/Event/EventCancelWhole.json', params, 'POST');
     }
@@ -1451,7 +1451,7 @@ export class WlLoginPromotionNamespace {
     promotionPayPauseDelete(params) {
         return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'DELETE');
     }
-    /** Returns promotion payment pause data: all hold periods when [PromotionPayPauseApi](/Wl/Login/Promotion/PromotionPayPause.json) is `true`,  the specified hold period when [PromotionPayPauseApi](/Wl/Login/Promotion/PromotionPayPause.json) is provided, or the currently  active hold period otherwise. */
+    /** Returns promotion payment pause data: all hold periods when `is_list` is `true`,  the specified hold period when `k_promotion_pay_pause` is provided, or the currently  active hold period otherwise. */
     promotionPayPauseGet(params) {
         return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'GET');
     }
@@ -2853,7 +2853,7 @@ export class WlRewardActionCategoryListNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Retrieves all reward action categories for business specified in [CategoryListApi](/Wl/Reward/Action/CategoryList/CategoryList.json). */
+    /** Retrieves all reward action categories for business specified in `k_business`. */
     categoryList(params) {
         return this._client._request('/Wl/Reward/Action/CategoryList/CategoryList.json', params, 'GET');
     }
@@ -2915,7 +2915,7 @@ export class WlRewardBoardBoardListNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Retrieves all reward boards for business specified in [ListApi](/Wl/Reward/Board/BoardList/List.json). */
+    /** Retrieves all reward boards for business specified in `k_business`. */
     list(params) {
         return this._client._request('/Wl/Reward/Board/BoardList/List.json', params, 'GET');
     }
@@ -3373,7 +3373,7 @@ export class WlFamilyRelationNamespace {
     relationGet(params) {
         return this._client._request('/Wl/Family/Relation/Relation.json', params, 'GET');
     }
-    /** Adds to user [RelationApi](/Wl/Family/Relation/Relation.json) relative [RelationApi](/Wl/Family/Relation/Relation.json). */
+    /** Adds to user `uid` relative `a_new`. */
     relationPost(params) {
         return this._client._request('/Wl/Family/Relation/Relation.json', params, 'POST');
     }
