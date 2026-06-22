@@ -19349,6 +19349,134 @@ export interface WlLoginPromotionGuestPassApplyApplyParams {
     k_business: string;
 }
 export type WlLoginPromotionGuestPassApplyApplyResponse = Record<string, unknown>;
+export interface WlMailPatternAutomatedMarketingCustomTemplatePatternGetParams {
+    /** ID of the notification. One of [RsMailSid](#/components/schemas/RsMailSid) constants. `0` for emp... */
+    id_mail: number;
+    /** Whether to get a list of custom template data. `true` - to get a list, `false` - otherwise. */
+    is_custom_list: boolean;
+    /** Mail pattern key. */
+    k_mail_pattern: string;
+    /** SID of the mail form. String representation of one from [RsMailFormSid](#/components/schemas/RsMa... */
+    sid_mail_form: string;
+    /** Business key. */
+    k_business?: string | null;
+}
+export interface WlMailPatternAutomatedMarketingCustomTemplatePatternGetResponse {
+    /** Business data. */
+    a_business_data: {
+        /** Business email address to `Reply TO`. `null` for system business. */
+        text_business_reply_mail: string | null;
+        /** Business name to `Reply TO`. `null` for system business. */
+        text_business_reply_name: string | null;
+    };
+    /** Help data for variables. */
+    a_help_data: {
+        /** An array with help data for global variables: */
+        a_help_global: {
+            /** A variable description. */
+            text_description: string;
+            /** Field name. */
+            text_field: string;
+            /** A variable name. */
+            text_parameter: string;
+        };
+        /** An array with help data for template-specific variables: */
+        a_help: {
+            /** A variable description. */
+            text_description: string;
+            /** Field name. */
+            text_field: string;
+            /** A variable name. */
+            text_parameter: string;
+        };
+    } | null;
+    /** Mail pattern data to load. */
+    a_pattern_load: {
+        /** Is email enabled. */
+        is_mail: boolean;
+        /** Is push notification enabled. */
+        is_push: boolean;
+        /** Is SMS enabled. */
+        is_sms: boolean;
+        /** Mail types. */
+        id_mail: number;
+        /** Business key. */
+        k_business: string;
+        /** Mail pattern key. */
+        k_mail_pattern?: string;
+        /** Data of the last template save in human-readable format. */
+        text_date_edit: string;
+        /** HTML content of the email. */
+        text_html: string;
+        /** JSON content of the email for Unlayer editor. */
+        text_json: string;
+        /** &gt;Preview text of the email. */
+        text_preview: string;
+        /** Content of the push notification. */
+        text_push: string;
+        /** Content of the SMS. */
+        text_sms: string;
+        /** Template description. */
+        text_template_description: string;
+        /** Template title. */
+        text_template_title: string;
+        /** Text content of the email. */
+        text_text: string;
+        /** Time in seconds of the last template save. */
+        tl_last_save: number;
+    };
+    /** Default mail pattern data to load. */
+    a_pattern_load_default: {
+        /** Is email enabled. */
+        is_mail: boolean;
+        /** Is push notification enabled. */
+        is_push: boolean;
+        /** Is SMS enabled. */
+        is_sms: boolean;
+        /** Mail types. */
+        id_mail: number;
+        /** Business key. */
+        k_business: string;
+        /** Mail pattern key. */
+        k_mail_pattern?: string;
+        /** Data of the last template save in human-readable format. */
+        text_date_edit: string;
+        /** HTML content of the email. */
+        text_html: string;
+        /** JSON content of the email for Unlayer editor. */
+        text_json: string;
+        /** &gt;Preview text of the email. */
+        text_preview: string;
+        /** Content of the push notification. */
+        text_push: string;
+        /** Content of the SMS. */
+        text_sms: string;
+        /** Template description. */
+        text_template_description: string;
+        /** Template title. */
+        text_template_title: string;
+        /** Text content of the email. */
+        text_text: string;
+        /** Time in seconds of the last template save. */
+        tl_last_save: number;
+    };
+    /** List of mail patterns data to load. */
+    json_pattern_list_load: string;
+    /** Business sender phone formatted. */
+    text_phone_formatted: string;
+}
+export interface WlMailPatternAutomatedMarketingCustomTemplatePatternPostParams {
+    /** ID of the notification. One of [RsMailSid](#/components/schemas/RsMailSid) constants. `0` for emp... */
+    id_mail: number;
+    /** Mail pattern key. */
+    k_mail_pattern: string;
+    /** Business key. */
+    k_business?: string | null;
+}
+export interface WlMailPatternAutomatedMarketingCustomTemplatePatternPostResponse {
+    /** Mail pattern key. */
+    k_mail_pattern: string;
+}
 export interface WlMemberProgressFieldEditFieldGetParams {
     /** Business key. */
     k_business: string;
@@ -20818,8 +20946,27 @@ export declare class WlFitbuilderNamespace {
     /** Notifies messengers with new information. */
     message(params?: WlFitbuilderMessageParams): Promise<WlFitbuilderMessageResponse>;
 }
+export declare class WlMailPatternAutomatedMarketingCustomTemplateNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets custom pattern data. */
+    patternGet(params?: WlMailPatternAutomatedMarketingCustomTemplatePatternGetParams): Promise<WlMailPatternAutomatedMarketingCustomTemplatePatternGetResponse>;
+    /** Saves custom pattern. */
+    patternPost(params?: WlMailPatternAutomatedMarketingCustomTemplatePatternPostParams): Promise<WlMailPatternAutomatedMarketingCustomTemplatePatternPostResponse>;
+}
+export declare class WlMailPatternAutomatedMarketingNamespace {
+    private readonly _client;
+    readonly customTemplate: WlMailPatternAutomatedMarketingCustomTemplateNamespace;
+    constructor(_client: WlClient);
+}
+export declare class WlMailPatternNamespace {
+    private readonly _client;
+    readonly automatedMarketing: WlMailPatternAutomatedMarketingNamespace;
+    constructor(_client: WlClient);
+}
 export declare class WlMailNamespace {
     private readonly _client;
+    readonly pattern: WlMailPatternNamespace;
     constructor(_client: WlClient);
     /** Sends email. */
     sendMail(params?: WlMailSendMailParams): Promise<WlMailSendMailResponse>;

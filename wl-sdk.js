@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260622045928
+ * Spec version: 1.1.20260622053620
  * Build date:   2026-06-22
- * Endpoints:    454
+ * Endpoints:    456
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260622045928';
+  WlClient.SPEC_VERSION = '1.1.20260622053620';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (454 total)
+  // Generated API methods (456 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -9800,6 +9800,52 @@
   WlClient.prototype.wlLoginPromotionGuestPassApplyApply = function(params)
   {
     return this.request('/Wl/Login/Promotion/GuestPass/Apply/Apply.json', params || {}, 'POST');
+  };
+
+  /**
+   * Gets custom pattern data.
+   *
+   * Loads the saved notification template for the given business and mail type together with the
+   *  default template, the reply-to business contact data and the list of variables available for
+   *  substitution. When a list is requested, also loads all custom templates for the mail form.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.id_mail ID of the notification. One of [RsMailSid](#/components/schemas/RsMailSid) constants. `0` for emp...
+   * @param {boolean} params.is_custom_list Whether to get a list of custom template data. `true` - to get a list, `false` - otherwise.
+   * @param {?string} [params.k_business] Business key.
+   * @param {string} params.k_mail_pattern Mail pattern key.
+   * @param {string} params.sid_mail_form SID of the mail form. String representation of one from [RsMailFormSid](#/components/schemas/RsMa...
+   * @returns {Promise<Object>} Response data.
+   *  `a_business_data` {Object} Business data.
+   *  `a_help_data` {?Object} Help data for variables.
+   *  `a_pattern_load` {Object} Mail pattern data to load.
+   *  `a_pattern_load_default` {Object} Default mail pattern data to load.
+   *  `json_pattern_list_load` {string} List of mail patterns data to load.
+   *  `text_phone_formatted` {string} Business sender phone formatted.
+   */
+  WlClient.prototype.wlMailPatternAutomatedMarketingCustomTemplatePatternGet = function(params)
+  {
+    return this.request('/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/Pattern.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves custom pattern.
+   *
+   * Validates and stores the submitted notification template (email, push or SMS) for the given
+   *  business. A system template edited under a business is copied into that business instead of
+   *  modifying the original. The saved mail pattern key is returned in
+   *  [PatternApi](/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/Pattern.json).
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.id_mail ID of the notification. One of [RsMailSid](#/components/schemas/RsMailSid) constants. `0` for emp...
+   * @param {?string} [params.k_business] Business key.
+   * @param {string} params.k_mail_pattern Mail pattern key.
+   * @returns {Promise<Object>} Response data.
+   *  `k_mail_pattern` {string} Mail pattern key.
+   */
+  WlClient.prototype.wlMailPatternAutomatedMarketingCustomTemplatePatternPost = function(params)
+  {
+    return this.request('/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/Pattern.json', params || {}, 'POST');
   };
 
   /**

@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260622045928
+// OpenAPI spec version: 1.1.20260622053620
 // Build date: 2026-06-22
-// Endpoints: 454
+// Endpoints: 456
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -1853,9 +1853,35 @@ export class WlFitbuilderNamespace {
         return this._client._request('/Wl/Fitbuilder/Message.json', params, 'POST');
     }
 }
+export class WlMailPatternAutomatedMarketingCustomTemplateNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets custom pattern data. */
+    patternGet(params) {
+        return this._client._request('/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/Pattern.json', params, 'GET');
+    }
+    /** Saves custom pattern. */
+    patternPost(params) {
+        return this._client._request('/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/Pattern.json', params, 'POST');
+    }
+}
+export class WlMailPatternAutomatedMarketingNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.customTemplate = new WlMailPatternAutomatedMarketingCustomTemplateNamespace(this._client);
+    }
+}
+export class WlMailPatternNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.automatedMarketing = new WlMailPatternAutomatedMarketingNamespace(this._client);
+    }
+}
 export class WlMailNamespace {
     constructor(_client) {
         this._client = _client;
+        this.pattern = new WlMailPatternNamespace(this._client);
     }
     /** Sends email. */
     sendMail(params) {
