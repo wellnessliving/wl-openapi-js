@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260622034824
+ * Spec version: 1.1.20260622042627
  * Build date:   2026-06-22
  * Endpoints:    454
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260622034824';
+  WlClient.SPEC_VERSION = '1.1.20260622042627';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (454 total)
@@ -456,7 +456,7 @@
    *
    * Accepts the CAPTCHA version, the action name, and the user token obtained from the Google reCAPTCHA widget,
    * and stores them in the session so that subsequent API requests requiring CAPTCHA verification can use them.
-   * @deprecated Use {@link Core\Google\Captcha\GoogleCaptchaApi} instead of this.
+   * @deprecated Use {@link \Core\Google\Captcha\GoogleCaptchaApi} instead of this.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
@@ -725,9 +725,9 @@
   /**
    * Creates new location or edits the existing location.
    *
-   * When `k_location` is omitted, creates a new location requiring `k_city`,
-   *  `text_address`, and `text_title`.
-   * When `k_location` is provided, updates only the supplied fields of the existing location.
+   * When [LocationApi](/Wl/Location/Location.json) is omitted, creates a new location requiring [LocationApi](/Wl/Location/Location.json),
+   *  [LocationApi](/Wl/Location/Location.json), and [LocationApi](/Wl/Location/Location.json).
+   * When [LocationApi](/Wl/Location/Location.json) is provided, updates only the supplied fields of the existing location.
    *  Returns the key of the created or updated location.
    *
    * @param {Object} [params] Request body fields.
@@ -829,7 +829,7 @@
   };
 
   /**
-   * Cancels book of event `k_class`.
+   * Cancels book of event [EventCancelWholeApi](/Wl/Event/EventCancelWhole.json).
    *
    * Used when a client wants to drop out of a multi-session event entirely. Cancels all remaining
    * upcoming sessions at once, including any waitlisted spots, without requiring the client to cancel
@@ -975,7 +975,7 @@
   /**
    * Checks access to given report.
    *
-   * Accepts either `id_report` (first-generation reports) or `cid_report` (second-generation reports), but not both,
+   * Accepts either [AccessApi](/Wl/Report/Access.json) (first-generation reports) or [AccessApi](/Wl/Report/Access.json) (second-generation reports), but not both,
    * and returns `has_access` indicating whether the current user may view the report in the given business.
    *
    * @param {Object} [params] Request parameters.
@@ -1264,7 +1264,7 @@
    * Deletes the quiz with the given key.
    *
    * Permanently removes the quiz and all associated elements.
-   * @deprecated Use {@link Wl\Quiz\QuizElement72Api} instead.
+   * @deprecated Use {@link \Wl\Quiz\QuizElement72Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key within which quiz is managed.
@@ -1282,7 +1282,7 @@
    *
    * Loads the quiz configuration, element list, and access log for the specified business and user context,
    * applying franchise and privilege checks before returning the result.
-   * @deprecated Use {@link Wl\Quiz\QuizElement72Api} instead.
+   * @deprecated Use {@link \Wl\Quiz\QuizElement72Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.can_anonymous Checks whether unauthorized user should be permitted to operate with form and make a response.
@@ -1318,7 +1318,7 @@
    *
    * When no quiz key is provided, a new quiz is created; when a key is given, the existing quiz
    * is updated in place. Element list and configuration are saved in a single transaction.
-   * @deprecated Use {@link Wl\Quiz\QuizElement72Api} instead.
+   * @deprecated Use {@link \Wl\Quiz\QuizElement72Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.can_anonymous Checks whether unauthorized user should be permitted to operate with form and make a response.
@@ -1339,7 +1339,7 @@
    *
    * Toggles whether the quiz is available for respondents to fill out. Inactive quizzes are hidden
    * from the booking and profile flows but their existing responses are preserved.
-   * @deprecated Use {@link Wl\Quiz\QuizElement72Api} instead.
+   * @deprecated Use {@link \Wl\Quiz\QuizElement72Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key within which quiz is managed.
@@ -1853,9 +1853,9 @@
    * @param {string} params.dl_work The date working hours are required for.
    * @param {string} params.k_business The business key.
    * @returns {Promise<Object>} Response data.
-   *  `a_location_holiday` {string[]} A list of the location's closed day titles by location keys on the date `dl_w...
-   *  `is_business_holiday` {boolean} `true` if the business has a closed day on the date `dl_work`, `false` if oth...
-   *  `text_business_title` {string} The message used for the business's closed day on the date `dl_work`.
+   *  `a_location_holiday` {string[]} A list of the location's closed day titles by location keys on the date [Holi...
+   *  `is_business_holiday` {boolean} `true` if the business has a closed day on the date [HolidayApi](/Wl/Holiday/...
+   *  `text_business_title` {string} The message used for the business's closed day on the date [HolidayApi](/Wl/H...
    */
   WlClient.prototype.wlHolidayHoliday = function(params)
   {
@@ -1946,7 +1946,7 @@
    * @param {Object} [params] Request parameters.
    * @param {*[]} params.a_config Allows to give custom parameters which can be required for different types of images.
    * @param {boolean} params.is_temporary If `true`, the temporary image will be retrieved. Otherwise, this will be `false`.
-   * @param {string} params.k_id The image ID set in `s_class`.
+   * @param {string} params.k_id The image ID set in [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json).
    * @param {string} params.s_class The name of the class that manages this image.
    * @returns {Promise<Object>} Response data.
    *  `a_text_empty` {?Object} Information about the text for an empty image upload.
@@ -1999,7 +1999,7 @@
    * @param {Object} [params] Request parameters.
    * @param {*[]} params.a_config Allows to give custom parameters which can be required for different types of images.
    * @param {boolean} params.is_temporary If `true`, the temporary image will be retrieved. Otherwise, this will be `false`.
-   * @param {string} params.k_id The image ID set in `s_class`.
+   * @param {string} params.k_id The image ID set in [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json).
    * @param {string} params.s_class The name of the class that manages this image.
    * @returns {Promise<Object>} Response data.
    *  `a_text_empty` {?Object} Information about the text for an empty image upload.
@@ -2032,7 +2032,7 @@
    * permanently saved. Call [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json) to commit the temporary image to the entity.
    *
    * @param {Object} [params] Request parameters.
-   * @param {string} params.k_id The key of the image within `s_class`.
+   * @param {string} params.k_id The key of the image within [ImageUploadTemporaryApi](/Core/Drive/ImageUpload/ImageUploadTemporar...
    * @param {string} params.s_class The name of the class that manages this image.
    * @returns {Promise<Object>} Response data.
    *  `has_crop` {boolean} If `true`, a crop is used. Otherwise, this will be `false` if a crop isn't us...
@@ -2061,7 +2061,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.s_csrf The CSRF code from the client side.
    * @param {string} params.s_key_session The session key.
-   * @param {string} params.url_domain Alias of `url_origin`.
+   * @param {string} params.url_domain Alias of [KeySecretApi](/Core/Request/Api/KeySecret.json).
    * @param {string} params.url_origin Origin for client requests.
    * @returns {Promise<Object>} Response data.
    *  `s_key_secret` {string} The secret key for the request signing.
@@ -2288,7 +2288,7 @@
    * requests and the browser refuse to send the request (situations with long class ID, event ID or staff ID lists).
    * 
    *  - Added generation of a separate 'Quick filter'.
-   * This generation is enabled using the flag `show_quick_filter`.
+   * This generation is enabled using the flag [ClassList68Api](/Wl/Schedule/ClassList/ClassList68.json).
    * ...
    *
    * @param {Object} [params] Request body fields.
@@ -2311,7 +2311,7 @@
    * day of week, time of day, staff member, and virtual or in-person mode. The result includes
    * per-session details such as staff, capacity, booking counts, and virtual locations, as well as
    * a calendar map indicating which dates have at least one scheduled session.
-   * @deprecated Use {@link Wl\Schedule\ClassList\ClassList68Api} instead.
+   * @deprecated Use {@link \Wl\Schedule\ClassList\ClassList68Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_class The list of classes keys to filter.
@@ -2320,7 +2320,7 @@
    * @param {Object[]} params.a_time Class filter by time of day.
    * @param {string} params.dt_date The list start date in UTC and in MySQL format.
    * @param {string} params.dt_end The list end date in UTC and in MySQL format.
-   * @param {boolean} params.is_response_short `true` means to not generate `a_session` result.
+   * @param {boolean} params.is_response_short `true` means to not generate [ClassListApi](/Wl/Schedule/ClassList/ClassList.json) result.
    * @param {boolean} params.is_tab_all If `true`, sessions from every class tab are returned. If `false`, use the
    * @param {?boolean} [params.is_virtual] Class filter by type.
    * @param {string} params.k_business The business key.
@@ -2333,7 +2333,7 @@
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
    *  `a_calendar` {string[]} Keys are dates of the days inside requested date range, when there is at leas...
-   *  `a_session` {Object[]} A list of classes sessions starting with the date `dt_date`
+   *  `a_session` {Object[]} A list of classes sessions starting with the date [ClassListApi](/Wl/Schedule...
    *  `is_timezone_different` {boolean} If `true`, the list of sessions contains sessions from different time zones. ...
    *  `is_virtual_service` {boolean} If `true`, there exists at least one virtual service by a specified
    */
@@ -2597,7 +2597,7 @@
    * Evaluates the session, user profile, payment requirements, asset selection, and subscription state to build
    * an ordered list of steps the client must complete to finish the booking. The first step in the list is marked
    * as current, and additional flags about event type, wait-list availability, and payment options are returned.
-   * @deprecated Use {@link Wl\Book\Process\Process54Api} instead.
+   * @deprecated Use {@link \Wl\Book\Process\Process54Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
@@ -2633,7 +2633,7 @@
    *
    * Delegates to the parent implementation and then appends the quiz (or document) step when the class or event
    * requires it, adds the detail step for Client Web App flows, and re-sorts the path into the correct wizard order.
-   * @deprecated Use {@link Wl\Book\Process\Process59Api} instead.
+   * @deprecated Use {@link \Wl\Book\Process\Process59Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
@@ -2722,8 +2722,8 @@
   };
 
   /**
-   * Checks if user `uid` is flagged in location `k_location` or
-  each of users `a_uid` is flagged in location `k_location`.
+   * Checks if user [FlagApi](/Wl/Location/Flag/Flag.json) is flagged in location [FlagApi](/Wl/Location/Flag/Flag.json) or
+  each of users [FlagApi](/Wl/Location/Flag/Flag.json) is flagged in location [FlagApi](/Wl/Location/Flag/Flag.json).
    *
    * Accepts either a single user key (`uid`) or an array of user keys (`a_uid`) and returns the flag status
    * for each, including whether the flagged user is restricted from booking or purchasing at the location.
@@ -2734,7 +2734,7 @@
    * @param {?string} [params.uid] The user's key.
    * @returns {Promise<Object>} Response data.
    *  `a_flag` {Object} Array with structure:
-   *  `a_restrictions_multiple` {?Object} Array, where keys are UIDs to be checked and values are same as `a_restrictio...
+   *  `a_restrictions_multiple` {?Object} Array, where keys are UIDs to be checked and values are same as [FlagApi](/Wl...
    *  `a_restrictions_single` {?Object} `null` if user is not flagged in the location.
    *  `is_flag` {boolean} `true` if the user is flagged and can make purchases, but cannot make new res...
    */
@@ -2777,7 +2777,7 @@
    *  `f_latitude` {number} The latitude coordinate of the location.
    *  `f_longitude` {number} The longitude coordinate of the location.
    *  `html_description_full` {string} The full description of the location.
-   *  `html_description_preview` {string} A shorter description of the location. A preview of `html_description_full`.
+   *  `html_description_preview` {string} A shorter description of the location. A preview of [ViewApi](/Wl/Location/Vi...
    *  `id_industry` {number} List of different types for landing pages based on business types.
    *  `is_phone` {boolean} `true` if to display phone number on location page. `false` otherwise.
    *  `is_top_choice` {boolean} `true` if WellnessLiving identifies this is a top choice location, `false` ot...
@@ -3080,7 +3080,7 @@
    * In case the attachment key is not specified, it adds a new attachment.
   In case the attachment key is specified, edits the attachment.
    *
-   * When `k_attach` is empty, uploads a new file to the client profile; when set, updates the
+   * When [AttachElementApi](/Wl/Profile/Attach/AttachElement.json) is empty, uploads a new file to the client profile; when set, updates the
    *  attachment metadata, file content, or visibility flag depending on the provided fields.
    *
    * @param {Object} [params] Request parameters.
@@ -3104,7 +3104,7 @@
    * @deprecated Use {@link \Wl\Profile\PurchaseList\PurchaseListElementApi} instead. It provides the same functionality and more.
    *
    * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_business] The business key. Currently used only with `k_session_pass` variable.
+   * @param {?string} [params.k_business] The business key. Currently used only with [PurchaseElementApi](/Wl/Profile/Purchase/PurchaseElem...
    * @param {string} params.k_code The key of the redemption code used to obtain some goods.
    * @param {string} params.k_enrollment_book The key of an entirely booked event.
    * @param {string} params.k_login_product The key of a purchased product.
@@ -3186,7 +3186,7 @@
    * @param {Object} [params] Request parameters.
    * @param {number} params.i_image_height Image Height in pixels. Please specify this value if you need purchase image to be returned in sp...
    * @param {number} params.i_image_width Image Width in pixels. Please specify this value if you need purchase image to be returned in spe...
-   * @param {?string} [params.k_business] The business key. Used with `k_session_pass` variable and
+   * @param {?string} [params.k_business] The business key. Used with [PurchaseListElementApi](/Wl/Profile/PurchaseList/PurchaseListElement...
    * @param {string} params.k_code The ID of the redemption code used to obtain the item. This should be specified only for items ob...
    * @param {string} params.k_enrollment_book The key of an entirely booked event. This must be specified if the purchased item is a whole event
    * @param {string} params.k_login_product The key of a purchased product. This must be specified if the purchased item is a product and par...
@@ -3400,7 +3400,7 @@
    *  `dt_date_gmt` {string} The date of the activity in GMT.
    *  `dt_date_local` {string} The date of the activity in the client's time zone.
    *  `html_message` {string} Description of the action, who and what did.
-   *  `i_credit_score` {number} Total amount of account credits user got for `k_login_activity`.
+   *  `i_credit_score` {number} Total amount of account credits user got for [ElementApi](/Wl/Profile/Activit...
    *  `i_score` {number} The total amount of rewards points the client received for the activity.
    *  `i_spend` {number} The rewards points used to redeem a prize.
    *  `id_icon` {?number} List of available design icons.
@@ -3837,7 +3837,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_business List of business key.
    * @returns {Promise<Object>} Response data.
-   *  `a_business_region` {number[]} List of region IDs for `a_business`.
+   *  `a_business_region` {number[]} List of region IDs for [AmazonRegionApi](/Wl/Business/AmazonRegion/AmazonRegi...
    */
   WlClient.prototype.wlBusinessAmazonRegionAmazonRegion = function(params)
   {
@@ -3955,7 +3955,7 @@
    *
    * Accepts a list of lead source records and applies bulk create or update operations: new entries without a
    * key are inserted, and existing entries are updated with a new sort order or title.
-   * @deprecated Use {@link Wl\Lead\LeadPageApi::post()} instead. Will be removed after WL-89292 done.
+   * @deprecated Use {@link \Wl\Lead\LeadPageApi::post()} instead. Will be removed after WL-89292 done.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
@@ -4035,8 +4035,8 @@
   };
 
   /**
-   * Returns promotion payment pause data: all hold periods when `is_list` is `true`,
-   the specified hold period when `k_promotion_pay_pause` is provided, or the currently
+   * Returns promotion payment pause data: all hold periods when [PromotionPayPauseApi](/Wl/Login/Promotion/PromotionPayPause.json) is `true`,
+   the specified hold period when [PromotionPayPauseApi](/Wl/Login/Promotion/PromotionPayPause.json) is provided, or the currently
    active hold period otherwise.
    *
    * Also returns notification settings (email, push, SMS flags and email pattern key) and the date the last
@@ -4634,7 +4634,7 @@
    *
    * Validates access privileges and removes the specified response records, updating any related search indexes
    * and activity logs.
-   * @deprecated Use {@link Wl\Quiz\Response\Response65Api} instead.
+   * @deprecated Use {@link \Wl\Quiz\Response\Response65Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_quiz_response_key Quiz response key list.
@@ -4654,7 +4654,7 @@
    *
    * Loads the response for the specified quiz and user, resolving answers, formatted dates, and access flags such as
    * amendment availability and PDF generation support.
-   * @deprecated Use {@link Wl\Quiz\Response\Response65Api} instead.
+   * @deprecated Use {@link \Wl\Quiz\Response\Response65Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.can_anonymous Checks whether unauthorized user should be permitted to operate with form and make a response.
@@ -4690,7 +4690,7 @@
    * Validates the submitted answers and persists the response record in a transaction. If
    * [QuizResponseApi](/Core/Quiz/QuizResponse.json) is set, only validation runs and no record is created.
    * Pass [QuizResponseApi](/Core/Quiz/QuizResponse.json) to bypass validation for pre-confirmed responses.
-   * @deprecated Use {@link Wl\Quiz\Response\Response65Api} instead.
+   * @deprecated Use {@link \Wl\Quiz\Response\Response65Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.can_anonymous Checks whether unauthorized user should be permitted to operate with form and make a response.
@@ -4712,7 +4712,7 @@
    * Used to amend an already-submitted response, for example when a business allows clients to
    * edit their quiz answers after submission. Re-links the response to its owner and triggers
    * downstream reindexing so search and reporting stay consistent.
-   * @deprecated Use {@link Wl\Quiz\Response\Response65Api} instead.
+   * @deprecated Use {@link \Wl\Quiz\Response\Response65Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_quiz_response_key Quiz response key list.
@@ -5009,7 +5009,7 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.text_filter The filter phrase used to filter categories by name.
    * @returns {Promise<Object>} Response data.
-   *  `a_video_category` {Object[]} The business video library categories as found in `k_business`.
+   *  `a_video_category` {Object[]} The business video library categories as found in [CategoryListApi](/Wl/Video...
    */
   WlClient.prototype.wlVideoCategoryCategoryListGet = function(params)
   {
@@ -5404,7 +5404,7 @@
    * itemized purchase items, payment methods, pricing summary, and print URLs.
    *
    * @param {Object} [params] Request parameters.
-   * @param {boolean} params.is_url_public Whether `url_print` and `url_print_receipt` require authentication.
+   * @param {boolean} params.is_url_public Whether [PurchaseReceiptApi](/Wl/Purchase/Receipt/PurchaseReceipt.json) and [PurchaseReceiptApi](...
    * @param {?string} [params.k_purchase] The key of the purchase.
    * @returns {Promise<Object>} Response data.
    *  `a_account_rest` {Object} Information about the account balance for a user's account after payment for ...
@@ -5515,8 +5515,8 @@
    *  item is referenced in the email body.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_purchase_item Purchase item ID. Required if `text_action` is 'purchase'.
-   * @param {number} params.id_service Service ID. Required if `text_action` is 'booking'.
+   * @param {number} params.id_purchase_item Purchase item ID. Required if [SendMailApi](/Wl/AiAgent/Link/SendMail.json) is 'purchase'.
+   * @param {number} params.id_service Service ID. Required if [SendMailApi](/Wl/AiAgent/Link/SendMail.json) is 'booking'.
    * @param {string} params.k_business Business key. Required.
    * @param {string} params.k_id Unique identifier for the link.
    * @param {string} params.text_action Action type. Must be 'purchase' or 'booking'.
@@ -5572,9 +5572,9 @@
   /**
    * Retrieves information about staff.
    *
-   * This method can accept or one staff key `k_staff` or staff list
-   * `a_staff_list` but not both (exception would be thrown).
-   * @deprecated Use {@link Wl\Staff\StaffView\StaffView74Api}
+   * This method can accept or one staff key [StaffViewApi](/Wl/Staff/StaffView/StaffView.json) or staff list
+   * [StaffViewApi](/Wl/Staff/StaffView/StaffView.json) but not both (exception would be thrown).
+   * @deprecated Use {@link \Wl\Staff\StaffView\StaffView74Api}
    *
    * @param {Object} [params] Request parameters.
    * @param {?string[]} [params.a_staff_list] A list of staff keys.
@@ -6211,7 +6211,7 @@
    * @param {number} params.id_flow ID of the user behavior flow.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
-   * @param {string} params.uid_delete The key of the related user who `uid` must be removed.
+   * @param {string} params.uid_delete The key of the related user who [RelationApi](/Wl/Family/Relation/Relation.json) must be removed.
    * @returns {Promise<Object>} Response data.
    *  `a_relation` {Object[]} Information about the user's relationships. Every element has the following f...
    */
@@ -6239,8 +6239,8 @@
   };
 
   /**
-   * Adds to user `uid`
-  relative `a_new`.
+   * Adds to user [RelationApi](/Wl/Family/Relation/Relation.json)
+  relative [RelationApi](/Wl/Family/Relation/Relation.json).
    *
    * Creates a bidirectional family relationship between the user identified by `uid` and the user specified in
    * `a_new`, then returns the updated list of relationships for `uid`.
@@ -6572,7 +6572,7 @@
    * @param {string} params.k_location The key of the location to show reviews for. If not specified, business key should be specified.
    * @param {string} params.uid The user's key. WellnessLiving allows staff to check low-rated reviews before posting them. Staff...
    * @returns {Promise<Object>} Response data.
-   *  `a_review` {Object[]} List of reviews. If passed `i_page` then the result will be full, otherwise i...
+   *  `a_review` {Object[]} List of reviews. If passed [ReviewListApi](/Wl/Review/ReviewList/ReviewList.j...
    */
   WlClient.prototype.wlReviewReviewListReviewList = function(params)
   {
@@ -6833,8 +6833,8 @@
   };
 
   /**
-   * Gets schedule of business `k_business` for day
-  `dt_date`.
+   * Gets schedule of business [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json) for day
+  [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json).
    *
    * Returns all classes and appointments scheduled for the given business on the specified date,
    * sorted chronologically. Supports both single-day and date-range modes, and includes full
@@ -6942,7 +6942,7 @@
    * Returns all services available for booking at the given location, optionally filtered by service
    *  category, book now tab, and client. Each service entry includes title, description, image, pricing,
    *  duration, staff availability, and age restriction details. Supports both frontend and backend modes.
-   * @deprecated New version {@link Wl\Appointment\Book\Service\ServiceList52Api} should be used instead.
+   * @deprecated New version {@link \Wl\Appointment\Book\Service\ServiceList52Api} should be used instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_class_tab The class tab key to use to filter services. If empty, this can be found on the standard book tab.
@@ -6989,10 +6989,10 @@
   /**
    * Completes the appointment booking for one or more providers, optionally creating a new client.
    *
-   * Accepts booking details for one or more providers in `a_book_data`,
+   * Accepts booking details for one or more providers in [FinishMultipleApi](/Wl/Appointment/Book/Finish/FinishMultiple.json),
    *  processes payment using the selected Purchase Option, creates appointment records, and sends
    *  booking confirmation notifications. A new client account can be created by supplying user
-   *  details in `a_user` when no UID is provided.
+   *  details in [FinishMultipleApi](/Wl/Appointment/Book/Finish/FinishMultiple.json) when no UID is provided.
    *
    * @param {Object} [params] Request parameters.
    * @param {number[]} params.a_pay The payment type for the appointment. One of the [RsAppointmentPaySid](#/components/schemas/RsApp...
@@ -7019,7 +7019,7 @@
    *
    * Returns notification settings (email, push, SMS) for the appointment creation confirmation
    *  so the client side can display the appropriate notification options before finalizing the booking.
-   * @deprecated Use {@link Wl\Appointment\Book\Finish\Finish47Api} instead.
+   * @deprecated Use {@link \Wl\Appointment\Book\Finish\Finish47Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
@@ -7042,7 +7042,7 @@
    * Delegates to `post()` to handle a single appointment booking, mapping
    *  the legacy single-provider request fields to the multi-provider format. Creates an appointment
    *  record, applies the selected Purchase Option, and sends the booking confirmation notification.
-   * @deprecated Use {@link Wl\Appointment\Book\Finish\Finish47Api} instead.
+   * @deprecated Use {@link \Wl\Appointment\Book\Finish\Finish47Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_book_data All data from the provider model `Wl_Appointment_Book_ProviderModel`:
@@ -7121,10 +7121,10 @@
    * Returns all Purchase Options (memberships, packages, passes) the given client can use to pay for
    *  the specified appointment at the given location, including pricing details and eligibility status.
    *  Also returns options that can be purchased on the spot during booking.
-   * @deprecated Use {@link Wl\Appointment\Book\Purchase\Purchase72Api} instead.
+   * @deprecated Use {@link \Wl\Appointment\Book\Purchase\Purchase72Api} instead.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_service List of selected services without current `k_service`.
+   * @param {Object[]} params.a_service List of selected services without current [PurchaseApi](/Wl/Appointment/Book/Purchase/Purchase.js...
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {string} params.dt_date The date to use to check for expiration of Purchase Options.
    * @param {number} params.i_duration The asset booking duration.
@@ -7137,7 +7137,7 @@
    * @param {?string} [params.k_login_promotion] The Purchase Option ID used to pay for the appointment.
    * @param {string} params.k_resource The resource key.
    * @param {string} params.k_service The service key used to select available Purchase Options.
-   * @param {?string} [params.k_timezone] The timezone key for `dt_date`.
+   * @param {?string} [params.k_timezone] The timezone key for [PurchaseApi](/Wl/Appointment/Book/Purchase/Purchase.json).
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
    *  `a_login_prize` {Object} Data about the login prize which can be used to pay for service.
@@ -7204,7 +7204,7 @@
    * Returns available time slots for the specified service, location, staff member, and date range.
    *  Each slot includes the start time, duration, available capacity, and staff information. Supports
    *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
-   * @deprecated Use {@link Wl\Appointment\Book\Schedule\DayTime73Api}
+   * @deprecated Use {@link \Wl\Appointment\Book\Schedule\DayTime73Api}
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
@@ -7246,7 +7246,7 @@
    * Returns each day in the requested month marked as available or unavailable for booking the given
    *  service at the given location. Availability is determined by the business schedule, holidays,
    *  and staff availability for the selected date range.
-   * @deprecated Use {@link Wl\Appointment\Book\Schedule\Calendar73Api}
+   * @deprecated Use {@link \Wl\Appointment\Book\Schedule\Calendar73Api}
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
@@ -7334,7 +7334,7 @@
    *
    * Returns the list of bookable assets at the given location, optionally filtered by category and book now tab.
    *  When a date and time are provided, only assets available at that time are included and busy asset slots
-   *  are returned in `a_asset_busy`. Supports both frontend and backend modes.
+   *  are returned in [AssetListApi](/Wl/Appointment/Book/Asset/AssetList.json). Supports both frontend and backend modes.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dtl_date The selected date and time of the asset booking. It is used in cases when the business booking po...
@@ -7386,7 +7386,7 @@
    * Returns the full breakdown of amounts owed for the booking, including available Purchase Options,
    *  applicable discount codes, surcharge amounts, and the final total. Intended to be called before
    *  submitting payment so the client side can display a pricing summary to the user.
-   * @deprecated Use {@link Wl\Appointment\Book\Payment\PaymentPostApi} instead.
+   * @deprecated Use {@link \Wl\Appointment\Book\Payment\PaymentPostApi} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_book_data Information detailing an appointment booking:
@@ -7394,8 +7394,8 @@
    * @param {number} params.id_mode The key of source mode. A constant of [ModeSid](#/components/schemas/Wl.Mode.ModeSid).
    * @param {number} params.id_purchase_item The purchase item ID. A constant of [RsPurchaseItemSid](#/components/schemas/RsPurchaseItemSid).
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
-   * @param {?string} [params.k_business] The business key. Currently used only with `k_session_pass` variable.
-   * @param {string} params.k_id The item key. Depends on `id_purchase_item` property.
+   * @param {?string} [params.k_business] The business key. Currently used only with [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json...
+   * @param {string} params.k_id The item key. Depends on [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json) property.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.k_login_promotion The login promotion key.
    * @param {string} params.k_session_pass Session pass key.
@@ -7426,7 +7426,7 @@
    * Accepts payment method and booking data, charges the client for the appointment or the selected
    *  Purchase Option, and records the transaction. Requires the client to be authenticated and the
    *  booking data to include a valid service or asset key.
-   * @deprecated Use {@link Wl\Appointment\Book\Payment\PaymentPostApi} instead.
+   * @deprecated Use {@link \Wl\Appointment\Book\Payment\PaymentPostApi} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_book_data Information detailing an appointment booking:
@@ -7434,7 +7434,7 @@
    * @param {number} params.id_mode The key of source mode. A constant of [ModeSid](#/components/schemas/Wl.Mode.ModeSid).
    * @param {number} params.id_purchase_item The purchase item ID. A constant of [RsPurchaseItemSid](#/components/schemas/RsPurchaseItemSid).
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
-   * @param {string} params.k_id The item key. Depends on `id_purchase_item` property.
+   * @param {string} params.k_id The item key. Depends on [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json) property.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.text_coupon_code Gift card code.
    * @param {string} params.text_discount_code The discount code to be applied to the purchase.
@@ -7664,7 +7664,7 @@
    * Loads all purchase options that can be used to book the specified class period for the given user, including
    * existing login promotions with remaining session counts, new purchasable options, reward prizes, and login prizes.
    * Returns pricing, image, program category, and availability data for each option.
-   * @deprecated Use {@link Wl\Book\Process\Purchase\Purchase56Api} instead.
+   * @deprecated Use {@link \Wl\Book\Process\Purchase\Purchase56Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {Object[]} params.a_login_promotion_group A list of existing purchase options that were selected for previous clients (group).
@@ -7861,7 +7861,7 @@
    * Loads all asset categories and their items available for the given class period or selected sessions,
    * strips shared resources that clients should not choose individually, attaches image data and occupancy
    * information, and returns the result as `a_resource_all`.
-   * @deprecated Use {@link Wl\Book\Process\Resource\Resource54Api} instead.
+   * @deprecated Use {@link \Wl\Book\Process\Resource\Resource54Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_session The selected sessions.
@@ -7886,7 +7886,7 @@
    * Validates and stores the selected assets and session data in the booking process context, then, when no quiz
    * step is needed and payment is not required, attempts to complete the booking immediately. Returns visit keys,
    * activity keys, and a flag indicating whether further wizard steps are needed.
-   * @deprecated Use {@link Wl\Book\Process\Resource\Resource54Api} instead.
+   * @deprecated Use {@link \Wl\Book\Process\Resource\Resource54Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_session The selected sessions.
@@ -8036,7 +8036,7 @@
    * Loads session data, staff, location, contract, capacity, wait-list state, pricing, special instructions, and
    * recurring booking availability for the given class period and date. For events it also returns the list of
    * individually selectable sessions together with their free-session eligibility.
-   * @deprecated Use {@link Wl\Book\Process\Info\Info54Api} instead.
+   * @deprecated Use {@link \Wl\Book\Process\Info\Info54Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
@@ -8081,7 +8081,7 @@
    * Accepts the selected sessions, asset assignments, recurring configuration, and waiver signature, then attempts
    * to book the session immediately when no further payment or resource steps are needed. Returns booking keys,
    * activity keys, and flags indicating whether additional wizard steps are required.
-   * @deprecated Use {@link Wl\Book\Process\Info\Info54Api} instead.
+   * @deprecated Use {@link \Wl\Book\Process\Info\Info54Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
@@ -8180,7 +8180,7 @@
    *
    * Copies the GET session selection into the POST field and delegates to `post()`.
    * Prefer the POST variant when the session list may be large, as the query string has length limitations.
-   * @deprecated Use {@link Wl\Book\Process\Info\post()} instead. GET method fails if user is booking more than 50 sessions due to
+   * @deprecated Use {@link post()} instead. GET method fails if user is booking more than 50 sessions due to
    *
    * @param {Object} [params] Request parameters.
    * @param {Object[]} params.a_session_select A list of sessions of an event that can be booked together.
@@ -8278,9 +8278,9 @@
    * @param {number[]} params.a_day List of days of the week to create visits. Each value is a [ADateWeekSid](#/components/schemas/AD...
    * @param {string[]} params.a_visit_ignore List of visits to be ignored. Each value is a string consisting of a class period key
    * @param {string} params.dt_date Date and time of the class, when recurring booking was called, in UTC timezone.
-   * @param {string} params.dt_from Date to start recurring booking. Not empty only when `id_repeat_end` == [RsRepeatEndSid::DATE](#/...
-   * @param {string} params.dt_to Date to finish recurring booking. Not empty only when `id_repeat_end` == [RsRepeatEndSid::DATE](#...
-   * @param {number} params.i_count Count of the visits to be created. Not empty only when `id_repeat_end` == [RsRepeatEndSid::COUNT]...
+   * @param {string} params.dt_from Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repea...
+   * @param {string} params.dt_to Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repe...
+   * @param {number} params.i_count Count of the visits to be created. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Rep...
    * @param {number} params.i_duration Count of days\weeks\months between recurring bookings.
    * @param {number} params.id_duration Recurring booking interval, one of [ADurationSid](#/components/schemas/ADurationSid) constants.
    * @param {number} params.id_mode WellnessLiving mode, one of [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
@@ -8294,8 +8294,8 @@
    * @param {string} params.uid_actor Key of user, who perform booking.
    * @returns {Promise<Object>} Response data.
    *  `a_visit` {Object[]} List of visits to be created for the given settings:
-   *  `dt_from` {string} Date to start recurring booking. Not empty only when `id_repeat_end` == [RsRe...
-   *  `dt_to` {string} Date to finish recurring booking. Not empty only when `id_repeat_end` == [RsR...
+   *  `dt_from` {string} Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Pro...
+   *  `dt_to` {string} Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Pr...
    *  `i_count` {number} Possible ways to stop repeatable events.
    *  `text_date_from` {string} Start date of repeatable period in human-readable format.
    *  `text_date_to` {string} End date of repeatable period in human-readable format.
@@ -8926,7 +8926,7 @@
    *  `k_session_pass` {string} The key of a session pass that can be used for a single session payment.
    *  `m_account` {string} Account balance.
    *  `m_price` {?string} The price of the session, including any taxes and discounts.
-   *  `m_rest` {?string} The user's account balance if they were charged the `m_price` amount.
+   *  `m_rest` {?string} The user's account balance if they were charged the [AddApi](/Wl/Login/Attend...
    */
   WlClient.prototype.wlLoginAttendanceAddAddGet = function(params)
   {
@@ -9130,7 +9130,7 @@
 
   /**
    * Retrieves all reward action categories for business specified in
-  `k_business`.
+  [CategoryListApi](/Wl/Reward/Action/CategoryList/CategoryList.json).
    *
    * Returns the list of reward action categories including category type ID, database key, and title for the
    * given business.
@@ -9165,7 +9165,7 @@
   };
 
   /**
-   * Retrieves all reward boards for business specified in `k_business`.
+   * Retrieves all reward boards for business specified in [ListApi](/Wl/Reward/Board/BoardList/List.json).
    *
    * Returns the list of reward boards available to the given user in the business, including board key and title,
    * filtered to exclude boards the user is not eligible to view.
@@ -9644,7 +9644,7 @@
    *
    * Returns the asset categories and individual assets linked to the service at the given location.
    *  Each asset includes its availability flag for the requested time slot. The response also includes
-   *  `a_resource_busy` with currently reserved asset slots and a flag indicating
+   *  [ServiceApi](/Wl/Appointment/Book/Asset/Service/Service.json) with currently reserved asset slots and a flag indicating
    *  whether the current user is allowed to book unavailable assets.
    *
    * @param {Object} [params] Request parameters.
@@ -9653,7 +9653,7 @@
    * @param {boolean} params.is_backend If `true`, back-end mode is selected.
    * @param {boolean} params.is_grid_any Whether to show both grid layouts and custom layouts.
    * @param {boolean} params.is_show_unavailable_assets Whether unavailable assets should be included.
-   * @param {?string} [params.k_appointment_ignore] The appointment booking key to ignore when `a_resource_busy` is derived.
+   * @param {?string} [params.k_appointment_ignore] The appointment booking key to ignore when [ServiceApi](/Wl/Appointment/Book/Asset/Service/Servic...
    * @param {string} params.k_location The selected location key.
    * @param {string} params.k_service The selected service's key.
    * @param {string} params.k_timezone Timezone of date and time of service start.
