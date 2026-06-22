@@ -665,9 +665,9 @@ export interface WlScheduleScheduleAvailableDateParams {
     /** Time interval: */
     a_time: {
         /** End time. */
-        tl_end: string;
+        tl_end: number;
         /** Start time. */
-        tl_start: string;
+        tl_start: number;
     };
     /** The date/time to start from in UTC. */
     dtu_start: string;
@@ -7189,7 +7189,7 @@ export interface WlPromotionIndexPromotionIndexResponse {
         /** The description. */
         text_description: string;
         /** The localized promotion program name corresponding to the value of `id_program`. */
-        text_program: number;
+        text_program: string;
         /** The title. */
         text_title: string;
         /** The direct URL to the promotion purchase page. */
@@ -10961,7 +10961,7 @@ export interface WlReceptionApplicationReceptionSchedulePostResponse {
                 /** The count of remaining visits. */
                 i_remain: number;
                 /** The calendar period name. */
-                s_date: boolean;
+                s_date: string;
             };
             /** If `true`, the promotion was renewed in the past. Otherwise, this will be `false`. */
             has_visit_past: boolean;
@@ -11018,7 +11018,7 @@ export interface WlReceptionApplicationReceptionSchedulePostResponse {
         /** The short format of the promotion renewal date. */
         s_renew: string;
         /** Determines whether to show the client's total workouts attended on the confirmation screen. */
-        show_visits: string;
+        show_visits: boolean;
     };
     /** The confirmation template to be shown in the Self Check-In Web App for the selected user. */
     html_confirmation: string;
@@ -15669,6 +15669,8 @@ export interface WlAppointmentBookProductProductResponse {
 export interface WlBookProcessPurchasePurchaseParams {
     /** A list of existing purchase options that were selected for previous clients (group). */
     a_login_promotion_group: Array<{
+        /** Number of paid sessions of the same class|event that were selected for the previous user. */
+        i_session?: number;
         /** Selected purchase option. */
         k_login_promotion: string;
         /** UID of the previous user. */
@@ -15947,6 +15949,8 @@ export interface WlBookProcessPurchasePurchaseElementGroupResponse {
 export interface WlBookProcessPurchasePurchase56Params {
     /** A list of existing purchase options that were selected for previous clients (group). */
     a_login_promotion_group: Array<{
+        /** Number of paid sessions of the same class|event that were selected for the previous user. */
+        i_session?: number;
         /** Selected purchase option. */
         k_login_promotion: string;
         /** UID of the previous user. */
