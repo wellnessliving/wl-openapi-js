@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260623095726
+ * Spec version: 1.1.20260623113211
  * Build date:   2026-06-23
  * Endpoints:    457
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260623095726';
+  WlClient.SPEC_VERSION = '1.1.20260623113211';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (457 total)
@@ -9216,7 +9216,7 @@
    * ...
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_delivery_strategy Type of delivery strategy.
+   * @param {number} params.id_delivery_strategy Type of delivery strategy from {@link WlClient.WlPassportLoginEnterOtpDeliveryStrategyEnum}.
    * @param {boolean} params.is_mail Whether OTP code will be sending to user via email.
    * @param {boolean} params.is_phone Whether OTP code will be sending to user via email.
    * @param {string} params.k_business Business key.
@@ -10110,7 +10110,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (187 total)
+  // Enum constants (188 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -15001,6 +15001,18 @@
     RECENT: 1,
     /** Redirect user to upcoming schedule */
     SCHEDULE: 2,
+  });
+
+  /**
+   * List of different OTP code delivery strategies.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPassportLoginEnterOtpDeliveryStrategyEnum = Object.freeze({
+    /** OTP code is sent to all given communication channels (sms, emails, etc.) */
+    BROADCAST: 1,
+    /** OTP code is sent to the first communication channel that is available, according to the given list of priorities */
+    PRIORITY: 2,
   });
 
   /**

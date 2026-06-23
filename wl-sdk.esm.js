@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260623095726
+// OpenAPI spec version: 1.1.20260623113211
 // Build date: 2026-06-23
 // Endpoints: 457
-// Enums: 174
+// Enums: 175
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (174 total) ---
+// --- Enum types (175 total) ---
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
 (function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
@@ -4240,6 +4240,14 @@ export var WlReceptionRosterDirectSid;
     /** Redirect user to upcoming schedule */
     WlReceptionRosterDirectSid[WlReceptionRosterDirectSid["SCHEDULE"] = 2] = "SCHEDULE";
 })(WlReceptionRosterDirectSid || (WlReceptionRosterDirectSid = {}));
+/** List of different OTP code delivery strategies. */
+export var WlPassportLoginEnterOtpDeliveryStrategyEnum;
+(function (WlPassportLoginEnterOtpDeliveryStrategyEnum) {
+    /** OTP code is sent to all given communication channels (sms, emails, etc.) */
+    WlPassportLoginEnterOtpDeliveryStrategyEnum[WlPassportLoginEnterOtpDeliveryStrategyEnum["BROADCAST"] = 1] = "BROADCAST";
+    /** OTP code is sent to the first communication channel that is available, according to the given list of priorities */
+    WlPassportLoginEnterOtpDeliveryStrategyEnum[WlPassportLoginEnterOtpDeliveryStrategyEnum["PRIORITY"] = 2] = "PRIORITY";
+})(WlPassportLoginEnterOtpDeliveryStrategyEnum || (WlPassportLoginEnterOtpDeliveryStrategyEnum = {}));
 /** Mobile applications categories which will be displayed in select tag. */
 export var WlSkinApplicationResourceApplicationCategorySid;
 (function (WlSkinApplicationResourceApplicationCategorySid) {

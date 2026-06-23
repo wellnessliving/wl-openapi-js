@@ -4079,6 +4079,13 @@ export declare enum WlReceptionRosterDirectSid {
     /** Redirect user to upcoming schedule */
     SCHEDULE = 2
 }
+/** List of different OTP code delivery strategies. */
+export declare enum WlPassportLoginEnterOtpDeliveryStrategyEnum {
+    /** OTP code is sent to all given communication channels (sms, emails, etc.) */
+    BROADCAST = 1,
+    /** OTP code is sent to the first communication channel that is available, according to the given list of priorities */
+    PRIORITY = 2
+}
 /** Mobile applications categories which will be displayed in select tag. */
 export declare enum WlSkinApplicationResourceApplicationCategorySid {
     /** Mobile applications with content related to the sphere of cosmetology and appearance */
@@ -23061,8 +23068,8 @@ export interface WlRewardBoardBoardListListResponse {
     }> | null;
 }
 export interface WlPassportLoginEnterPassportOtpGetParams {
-    /** Type of delivery strategy. */
-    id_delivery_strategy: number;
+    /** Type of delivery strategy from {@link WlPassportLoginEnterOtpDeliveryStrategyEnum}. */
+    id_delivery_strategy: WlPassportLoginEnterOtpDeliveryStrategyEnum;
     /** Whether OTP code will be sending to user via email. */
     is_mail: boolean;
     /** Whether OTP code will be sending to user via email. */
