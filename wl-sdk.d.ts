@@ -23061,16 +23061,25 @@ export interface WlRewardBoardBoardListListResponse {
     }> | null;
 }
 export interface WlPassportLoginEnterPassportOtpGetParams {
+    /** Type of delivery strategy. */
+    id_delivery_strategy: number;
     /** Whether OTP code will be sending to user via email. */
     is_mail: boolean;
     /** Whether OTP code will be sending to user via email. */
     is_phone: boolean;
     /** Business key. */
     k_business: string;
+    /** Priority of delivery. */
+    text_delivery_priority: string;
     /** User key. */
     uid: string;
 }
-export type WlPassportLoginEnterPassportOtpGetResponse = Record<string, unknown>;
+export interface WlPassportLoginEnterPassportOtpGetResponse {
+    /** Delivery channel that was selected based on the given priorities and user data. */
+    text_delivery_selected: string;
+    /** Phone number masked with `*` symbols in case if we have priority sending and sms sending was sele... */
+    text_phone_masked: string;
+}
 export interface WlPassportLoginEnterPassportOtpPostParams {
     /** Business key. */
     k_business: string;
@@ -23078,6 +23087,8 @@ export interface WlPassportLoginEnterPassportOtpPostParams {
     uid: string;
 }
 export interface WlPassportLoginEnterPassportOtpPostResponse {
+    /** Number of attempts left to submit the correct otp code. */
+    i_attempt_left: number;
     /** Redirect url after successful authorization. */
     url_redirect: string;
 }
