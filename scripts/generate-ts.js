@@ -29,27 +29,73 @@ function resolveRef(spec, ref)
   return ref.slice(2).split('/').reduce((o, k) => (o != null ? o[k] : null), spec);
 }
 
-function firstLine(text, maxLen)
-{
-  if (!text) return '';
-  const line = stripYamlLinks(String(text)).split('\n')[0].trim();
-  return (!maxLen || line.length <= maxLen) ? line : line.slice(0, maxLen - 3) + '...';
-}
+/**
+ * Maps OpenAPI schema names to their generated TypeScript enum names.
+ * Populated in buildTs() before any code generation runs.
+ *
+ * @type {Map<string, string>}
+ */
+let _enumTsNames = new Map();
 
 /**
- * Strips OpenAPI YAML markdown links of the form [text](#/components/schemas/...) to plain text.
+ * Converts OpenAPI markdown links to `{@link TsName}` when the target is a generated enum,
+ * or strips them to plain text otherwise.
  *
  * @param {string} text
  * @returns {string}
  */
-function stripYamlLinks(text)
+function convertYamlLinks(text)
 {
-  return String(text || '').replace(/\[([^\]]+)\]\(#\/[^)]+\)/g, '$1');
+  return String(text || '').replace(
+    /\[([^\]]+)\]\(#\/components\/schemas\/([^)]+)\)/g,
+    function(match, linkText, schemaKey)
+    {
+      const tsName = _enumTsNames.get(schemaKey);
+      return tsName ? '{@link ' + tsName + '}' : linkText;
+    }
+  );
+}
+
+/**
+ * Returns the TypeScript enum name for a schema `$ref` string if it points to a generated enum,
+ * or `null` otherwise.
+ *
+ * @param {string} ref
+ * @returns {string|null}
+ */
+function getEnumTsName(ref)
+{
+  if (!ref || !ref.startsWith('#/components/schemas/')) return null;
+  return _enumTsNames.get(ref.replace('#/components/schemas/', '')) || null;
+}
+
+/**
+ * Builds a single-line JSDoc comment for a property.
+ * Appends `@see TsName` when the property references an enum not already mentioned in the description.
+ *
+ * @param {string} desc Already-safe first-line description (may be empty).
+ * @param {string|null} enumTsName TypeScript enum name, or `null` if not applicable.
+ * @returns {string} Complete single-line JSDoc comment, or empty string if nothing to say.
+ */
+function buildPropComment(desc, enumTsName)
+{
+  const mentionsEnum = enumTsName && desc.includes(enumTsName);
+  const seeTag = (enumTsName && !mentionsEnum) ? ' @see ' + enumTsName : '';
+
+  if (!desc && !seeTag) return '';
+  return '/** ' + (desc || '') + seeTag + ' */';
+}
+
+function firstLine(text, maxLen)
+{
+  if (!text) return '';
+  const line = convertYamlLinks(String(text)).split('\n')[0].trim();
+  return (!maxLen || line.length <= maxLen) ? line : line.slice(0, maxLen - 3) + '...';
 }
 
 function safeComment(text)
 {
-  return stripYamlLinks(String(text || '')).replace(/\*\//g, '* /').replace(/\r?\n/g, ' ');
+  return convertYamlLinks(String(text || '')).replace(/\*\//g, '* /').replace(/\r?\n/g, ' ');
 }
 
 /**
@@ -156,7 +202,7 @@ function schemaToTs(spec, schema, depth, indent)
     const refName = schema.$ref.replace('#/components/schemas/', '');
     const refSchema = spec.components && spec.components.schemas && spec.components.schemas[refName];
 
-    if (refSchema && Array.isArray(refSchema.enum))
+    if (refSchema && Array.isArray(refSchema.enum) && parseEnumConstants(refSchema.description || '').length > 0)
     {
       const types = Array.isArray(refSchema.type) ? refSchema.type : [refSchema.type];
       const nullable = types.includes('null');
@@ -200,11 +246,11 @@ function schemaToTs(spec, schema, depth, indent)
       const req = new Set(schema.required || []);
       const entries = Object.entries(schema.properties);
 
-      // Use multi-line format with JSDoc when any property has a description.
+      // Use multi-line format with JSDoc when any property has a description or enum ref.
       const hasDescriptions = entries.some(([, v]) =>
       {
         const r = (v && v.$ref) ? (resolveRef(spec, v.$ref) || v) : v;
-        return r && r.description;
+        return (r && r.description) || (v && v.$ref && getEnumTsName(v.$ref));
       });
 
       if (!hasDescriptions)
@@ -223,12 +269,12 @@ function schemaToTs(spec, schema, depth, indent)
       for (const [k, v] of entries)
       {
         const r = (v && v.$ref) ? (resolveRef(spec, v.$ref) || v) : v;
-        if (r && r.description)
-        {
-          propLines.push(propPad + '/** ' + safeComment(firstLine(r.description, 100)) + ' */');
-        }
+        const enumTsName = (v && v.$ref) ? getEnumTsName(v.$ref) : null;
+        const desc = r && r.description ? safeComment(firstLine(r.description, 100)) : '';
+        const comment = buildPropComment(desc, enumTsName);
+        if (comment) propLines.push(propPad + comment);
         const safeKey = /[^a-zA-Z0-9_$]/.test(k) ? "'" + k.replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'" : k;
-        propLines.push(propPad + safeKey + (req.has(k) ? '' : '?') + ': ' + schemaToTs(spec, r || v, depth + 1, indent + 1) + ';');
+        propLines.push(propPad + safeKey + (req.has(k) ? '' : '?') + ': ' + schemaToTs(spec, v, depth + 1, indent + 1) + ';');
       }
       return '{\n' + propLines.join('\n') + '\n' + pad + '}' + nullSuffix;
     }
@@ -302,10 +348,10 @@ function generateParamsInterface(spec, name, allParams)
 
   for (const p of [...required, ...optional])
   {
-    if (p.description)
-    {
-      lines.push('  /** ' + safeComment(firstLine(p.description, 100)) + ' */');
-    }
+    const enumTsName = (p.schema && p.schema.$ref) ? getEnumTsName(p.schema.$ref) : null;
+    const desc = p.description ? safeComment(firstLine(p.description, 100)) : '';
+    const comment = buildPropComment(desc, enumTsName);
+    if (comment) lines.push('  ' + comment);
     lines.push('  ' + p.name + (p.required ? '' : '?') + ': ' + schemaToTs(spec, p.schema) + ';');
   }
 
@@ -324,15 +370,13 @@ function generateResponseInterface(spec, name, schema)
 
   for (const [propName, propSchema] of Object.entries(schema.properties))
   {
-    let resolved = (propSchema && propSchema.$ref)
-      ? (resolveRef(spec, propSchema.$ref) || propSchema)
-      : propSchema;
-
-    if (resolved && resolved.description)
-    {
-      lines.push('  /** ' + safeComment(firstLine(resolved.description, 100)) + ' */');
-    }
-    lines.push('  ' + propName + ': ' + schemaToTs(spec, resolved) + ';');
+    const originalRef = propSchema && propSchema.$ref;
+    const resolved = originalRef ? (resolveRef(spec, originalRef) || propSchema) : propSchema;
+    const enumTsName = originalRef ? getEnumTsName(originalRef) : null;
+    const desc = resolved && resolved.description ? safeComment(firstLine(resolved.description, 100)) : '';
+    const comment = buildPropComment(desc, enumTsName);
+    if (comment) lines.push('  ' + comment);
+    lines.push('  ' + propName + ': ' + schemaToTs(spec, propSchema) + ';');
   }
 
   lines.push('}');
@@ -563,6 +607,16 @@ function buildTs(spec, version)
 {
   const specVersion = (spec.info && spec.info.version) ? String(spec.info.version) : 'unknown';
   const buildDate = new Date().toISOString().slice(0, 10);
+
+  // Populate the enum names map first so convertYamlLinks and getEnumTsName work during generation.
+  _enumTsNames.clear();
+  for (const [schemaName, schema] of Object.entries((spec.components && spec.components.schemas) || {}))
+  {
+    if (schema && Array.isArray(schema.enum) && parseEnumConstants(schema.description || '').length > 0)
+    {
+      _enumTsNames.set(schemaName, schemaNameToTsName(schemaName));
+    }
+  }
 
   // Collect operations.
   const ops = [];

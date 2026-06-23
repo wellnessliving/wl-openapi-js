@@ -138,19 +138,48 @@ function pathToMethodName(apiPath)
 }
 
 /**
- * Strips OpenAPI YAML markdown links of the form [text](#/components/schemas/...) to plain text.
+ * Maps OpenAPI schema names to their generated JS enum names.
+ * Populated in buildSdk() before any code generation runs.
+ *
+ * @type {Map<string, string>}
+ */
+let _enumJsNames = new Map();
+
+/**
+ * Converts OpenAPI markdown links to `{@link WlClient.JsName}` when the target is a generated
+ * enum, or strips them to plain text otherwise.
  *
  * @param {string} text
  * @returns {string}
  */
-function stripYamlLinks(text)
+function convertYamlLinks(text)
 {
-  return String(text || '').replace(/\[([^\]]+)\]\(#\/[^)]+\)/g, '$1');
+  return String(text || '').replace(
+    /\[([^\]]+)\]\(#\/components\/schemas\/([^)]+)\)/g,
+    function(match, linkText, schemaKey)
+    {
+      const jsName = _enumJsNames.get(schemaKey);
+      return jsName ? '{@link WlClient.' + jsName + '}' : linkText;
+    }
+  );
+}
+
+/**
+ * Returns the JS enum name for a schema `$ref` string if it points to a generated enum,
+ * or `null` otherwise.
+ *
+ * @param {string} ref
+ * @returns {string|null}
+ */
+function getEnumJsName(ref)
+{
+  if (!ref || !ref.startsWith('#/components/schemas/')) return null;
+  return _enumJsNames.get(ref.replace('#/components/schemas/', '')) || null;
 }
 
 /**
  * Makes description text safe for embedding inside a `/ * * /` JSDoc block.
- * Also decodes common HTML entities that appear in spec descriptions.
+ * Also decodes common HTML entities and converts OpenAPI schema links.
  *
  * @param {string} text
  * @returns {string}
@@ -162,7 +191,7 @@ function escDoc(text)
     return '';
   }
 
-  return stripYamlLinks(String(text))
+  return convertYamlLinks(String(text))
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
@@ -281,7 +310,7 @@ function firstLine(text, maxLen)
     return '';
   }
 
-  const line = stripYamlLinks(String(text)).split('\n')[0].trim();
+  const line = convertYamlLinks(String(text)).split('\n')[0].trim();
   if (!maxLen || line.length <= maxLen)
   {
     return line;
@@ -356,6 +385,7 @@ function getResponseProperties(spec, operation)
       name: name,
       type: schemaToJsType(spec, resolved),
       description: resolved.description || '',
+      enumJsName: propSchema.$ref ? getEnumJsName(propSchema.$ref) : null,
     });
   }
 
@@ -420,7 +450,12 @@ function buildJsDoc(spec, operation, pathLevelParams)
     {
       const type = schemaToJsType(spec, p.schema);
       const namePath = p.required ? 'params.' + p.name : '[params.' + p.name + ']';
-      const desc = p.description ? ' ' + escDoc(firstLine(p.description, 100)) : '';
+      let desc = p.description ? ' ' + escDoc(firstLine(p.description, 100)) : '';
+      const enumJsName = (p.schema && p.schema.$ref) ? getEnumJsName(p.schema.$ref) : null;
+      if (enumJsName && !desc.includes(enumJsName))
+      {
+        desc += (desc ? ' ' : ' ') + 'See {@link WlClient.' + enumJsName + '}.';
+      }
       lines.push(' * @param {' + type + '} ' + namePath + desc);
     }
   }
@@ -440,7 +475,11 @@ function buildJsDoc(spec, operation, pathLevelParams)
     lines.push(' * @returns {Promise<Object>} Response data.');
     for (const prop of responseProps)
     {
-      const desc = prop.description ? ' ' + escDoc(firstLine(prop.description, 80)) : '';
+      let desc = prop.description ? ' ' + escDoc(firstLine(prop.description, 80)) : '';
+      if (prop.enumJsName && !desc.includes(prop.enumJsName))
+      {
+        desc += (desc ? ' ' : ' ') + 'See {@link WlClient.' + prop.enumJsName + '}.';
+      }
       lines.push(' *  `' + prop.name + '` {' + prop.type + '}' + desc);
     }
   }
@@ -496,6 +535,16 @@ function buildSdk(spec, version, templateSrc)
 {
   const specVersion = (spec.info && spec.info.version) ? String(spec.info.version) : 'unknown';
   const buildDate = new Date().toISOString().slice(0, 10);
+
+  // Populate the enum names map first so convertYamlLinks and getEnumJsName work during generation.
+  _enumJsNames.clear();
+  for (const [schemaName, schema] of Object.entries((spec.components && spec.components.schemas) || {}))
+  {
+    if (schema && Array.isArray(schema.enum) && parseEnumConstants(schema.description || '').length > 0)
+    {
+      _enumJsNames.set(schemaName, schemaNameToJsName(schemaName));
+    }
+  }
 
   // Collect all operations.
   const ops = [];
