@@ -225,8 +225,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_business List of business keys to search by.
-   * @param {number[]} params.a_experience_type List of experience types to search by. Each value is one of [ClassSessionExperienceTypeEnum](#/co...
-   * @param {number[]} params.a_home_tour List of home tour activity types to search by. Each value is from [RsHomeTourSid](#/components/sc...
+   * @param {number[]} params.a_experience_type List of experience types to search by. Each value is one of {@link WlClient.ThothExplorerSearchCl...
+   * @param {number[]} params.a_home_tour List of home tour activity types to search by. Each value is from {@link WlClient.RsHomeTourSid}.
    * @param {string[]} params.a_location List of location keys to search by.
    * @param {number[]|string[]} params.a_location_rating List of location ratings to search by. Values are integers from 1 to 5, or `null`/`0` for unrated...
    * @param {string[]} params.a_staff_uid List of staff user keys to search by. Each value is a user key (uid) of a staff member.
@@ -262,7 +262,7 @@
    *  `dtu_queue` {string} Date and time when this report was put on generation queue.
    *  `dtu_start` {string} Date and time when generation of this report has started.
    *  `i_cas_change` {number} A CAS (compare-and-swap) number that allows to track changes in the report st...
-   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation.
+   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation. See {@link WlClient.ThothReportCoreGeneratorReportGeneratorStatusSid}.
    *  `s_report` {string} Key of this report.
    *  `text_error` {string} Text of an error message that occurred during generation of the report.
    */
@@ -298,14 +298,14 @@
    * @param {?string} [params.uid_owner] The user ID to retrieve payment information for. Primary key in the PassportLoginSql table.
    * @returns {Promise<Object>} Response data.
    *  `a_card_system` {number[]} A list of supported bank card systems.
-   *  `a_method_staff` {number[]} A list of payment methods enabled for staff members. The ID is one of [RsPayM...
+   *  `a_method_staff` {number[]} A list of payment methods enabled for staff members. The ID is one of {@link ...
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
    *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
    *  `dl_now` {string} Current local date in current location [EnvironmentApi](/Thoth/WlPay/Form/Env...
    *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
    *  `f_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a percent of transaction...
-   *  `id_locale` {?number} A list of locales.
+   *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
    *  `is_save_optional` {boolean} `true` if clients can choose whether their banking and credit card informatio...
    *  `is_save_source` {boolean} Determines whether newly added payment sources should be saved. This will be ...
    *  `is_tip` {boolean} Whether tips are accepted.
@@ -328,14 +328,14 @@
    * @param {?string} [params.uid_owner] The user ID to retrieve payment information for. Primary key in the PassportLoginSql table.
    * @returns {Promise<Object>} Response data.
    *  `a_card_system` {number[]} A list of supported bank card systems.
-   *  `a_method_staff` {number[]} A list of payment methods enabled for staff members. The ID is one of [RsPayM...
+   *  `a_method_staff` {number[]} A list of payment methods enabled for staff members. The ID is one of {@link ...
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
    *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
    *  `dl_now` {string} Current local date in current location [EnvironmentApi](/Thoth/WlPay/Form/Env...
    *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
    *  `f_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a percent of transaction...
-   *  `id_locale` {?number} A list of locales.
+   *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
    *  `is_save_optional` {boolean} `true` if clients can choose whether their banking and credit card informatio...
    *  `is_save_source` {boolean} Determines whether newly added payment sources should be saved. This will be ...
    *  `is_tip` {boolean} Whether tips are accepted.
@@ -353,7 +353,7 @@
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_active Whether only active payment methods should be returned.
    * @param {string} params.k_business The business key.
-   * @param {boolean} params.show_manual Whether payment method [RsPayMethodSid::ACCOUNT_MANUAL](#/components/schemas/RsPayMethodSid) shou...
+   * @param {boolean} params.show_manual Whether payment method {@link WlClient.RsPayMethodSid} should be included in response.
    * @param {string} params.uid The key of a user to show information for.
    * @returns {Promise<Object>} Response data.
    *  `a_pay_method` {Object[]} A list of payment methods:
@@ -370,7 +370,7 @@
    * @param {?string} [params.k_business] Business key.
    * @param {string} params.uid Key of a user to show information for.
    * @returns {Promise<Object>} Response data.
-   *  `id_pay_owner` {number} A list of money owners from which account money can be transferred.
+   *  `id_pay_owner` {number} A list of money owners from which account money can be transferred. See {@link WlClient.RsPayOwnerSid}.
    *  `k_pay_owner` {string} The payment owner key. This is used for financial transactions.
    *  `k_pay_owner_money` {string} Key of the money owner.
    */
@@ -383,7 +383,7 @@
    * Gets user's payment addresses information.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_pay_owner The ID of the payment owner type.
+   * @param {number} params.id_pay_owner The ID of the payment owner type. See {@link WlClient.RsPayOwnerSid}.
    * @param {string} params.k_business Business key, where the payment is performed.
    * @param {string} params.k_id The primary key of a payment owner.
    * @returns {Promise<Object>} Response data.
@@ -441,7 +441,7 @@
    * single country, or omit it to search worldwide.
    *
    * @param {Object} [params] Request parameters.
-   * @param {?number} params.id_locale The locale ID used as a filter. The locale is generally a country.
+   * @param {?number} params.id_locale The locale ID used as a filter. The locale is generally a country. See {@link WlClient.CoreLocaleLocaleSid}.
    * @param {string} params.s_value The city name (or a fragment of the city name) used for the search.
    * @returns {Promise<Object>} Response data.
    *  `a_list` {Object[]} A list of items to show in the combobox list.
@@ -621,13 +621,13 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_class Class keys to filter.
-   * @param {number[]} params.a_day IDs of week days from [ADateWeekSid](#/components/schemas/ADateWeekSid) class.
+   * @param {number[]} params.a_day IDs of week days from {@link WlClient.ADateWeekSid} class.
    * @param {string[]} params.a_event Event keys to filter.
    * @param {string[]} params.a_location Location keys to filter.
    * @param {string[]} params.a_staff Staff member keys to filter.
    * @param {Object} params.a_time Time interval:
    * @param {string} params.dtu_start The date/time to start from in UTC.
-   * @param {number} params.id_class_tab "Book now" tab ID. One of [TabSid](#/components/schemas/Wl.Classes.Tab.TabSid) constants.
+   * @param {number} params.id_class_tab "Book now" tab ID. One of {@link WlClient.WlClassesTabTabSid} constants.
    * @param {boolean} params.is_class `true` to include classes; `false` to exclude.
    * @param {boolean} params.is_event `true` to include events; `false` to exclude.
    * @param {boolean} params.is_virtual `true` to include only virtual classes;
@@ -663,8 +663,8 @@
    *  `dtl_date` {string} The visit date in the location's time zone and in MySQL format.
    *  `i_duration` {number} The service duration (in minutes).
    *  `i_wait_spot` {number} The client's place in a waiting list.
-   *  `id_mode` {number} The source of a visit.
-   *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc.
+   *  `id_mode` {number} The source of a visit. See {@link WlClient.WlModeModeSid}.
+   *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc. See {@link WlClient.WlVisitVisitSid}.
    *  `is_event` {boolean} Determines whether the visit is from an event.
    *  `is_request` {boolean} Whether this visit is requested and requires staff confirmation.
    *  `k_class` {string} The class key.
@@ -710,7 +710,7 @@
    * locations that have a specific directory integration enabled.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_directory The ID of the directory if locations should be filtered by enabling directory integration.
+   * @param {number} params.id_directory The ID of the directory if locations should be filtered by enabling directory integration. See {@link WlClient.RsProjectSid}.
    * @param {string} params.s_business A list of businesses. Business primary keys are serialized with JSON.
    * @param {string} params.s_location A list of locations. Location primary keys are serialized with JSON.
    * @returns {Promise<Object>} Response data.
@@ -784,15 +784,15 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {?string[]} [params.a_class_filter] List of class keys applied by filter.
-   * @param {?number[]} [params.a_day] List of day the week applied by filter [ADateWeekSid](#/components/schemas/ADateWeekSid).
+   * @param {?number[]} [params.a_day] List of day the week applied by filter {@link WlClient.ADateWeekSid}.
    * @param {?string[]} [params.a_enrollment_block_filter] List of enrollment blocks keys applied by filter.
    * @param {?string[]} [params.a_location] List of location keys applied by filter.
    * @param {?string[]} [params.a_staff] List of staff keys applied by filter.
-   * @param {?number[]} [params.a_time] List of time day applied by filter [RsScheduleTimeSid](#/components/schemas/RsScheduleTimeSid).
+   * @param {?number[]} [params.a_time] List of time day applied by filter {@link WlClient.RsScheduleTimeSid}.
    * @param {?string[]} [params.a_virtual] List of IDs to include/exclude virtual events.
    * @param {?string} [params.dl_end] The end date of the range from which a list of events should be retrieved.
    * @param {?string} [params.dl_start] The start date of the range from which a list of events should be retrieved.
-   * @param {number} params.id_flag Defines how the event availability flag filter should be applied.
+   * @param {number} params.id_flag Defines how the event availability flag filter should be applied. See {@link WlClient.AFlagSid}.
    * @param {boolean} params.is_backend Determines whether the endpoint is used for backend mode.
    * @param {boolean} params.is_ignore_requirement `true` to show even event restricted by booking policies; `false` to show available events only.
    * @param {boolean} params.is_tab_all Determines whether you need to retrieve a list of event sessions regardless of the tab specified ...
@@ -859,12 +859,12 @@
    * @returns {Promise<Object>} Response data.
    *  `a_service_list` {number[]} A list of all business services and their availability data.
    *  `a_tip_predefine` {number[]} The list of predefined tips in percentages.
-   *  `id_category` {number} A list of client booking flow types.
-   *  `id_claim_status` {number} Business status for managing claim request behavior.
-   *  `id_currency` {number} A list of currencies.
-   *  `id_locale` {?number} A list of locales.
-   *  `id_rank_type` {?number} Types of the possible ranks in different business.
-   *  `id_region` {number} List of available data center regions.
+   *  `id_category` {number} A list of client booking flow types. See {@link WlClient.RsBusinessCategorySid}.
+   *  `id_claim_status` {number} Business status for managing claim request behavior. See {@link WlClient.WlBusinessClaimBusinessClaimStatusSid}.
+   *  `id_currency` {number} A list of currencies. See {@link WlClient.CoreLocaleCurrencySid}.
+   *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
+   *  `id_rank_type` {?number} Types of the possible ranks in different business. See {@link WlClient.RsRankTypeSid}.
+   *  `id_region` {number} List of available data center regions. See {@link WlClient.CoreAmazonRegionAmazonRegionSid}.
    *  `is_apply_surcharge` {boolean} Determines whether surcharges to client payments are enabled in the business.
    *  `is_franchise` {boolean} `true` if business is a franchisor or franchisee.
    *  `is_location_multiple` {boolean} Determines whether the business has multiple locations (including inactive lo...
@@ -956,10 +956,10 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.i_page The page of results to show, starting at zero. The API will return 256 results per page.
-   * @param {number} params.id_report The report ID.
-   * @param {number} params.id_report_group The report group ID.
-   * @param {?number} [params.id_report_page] The report page ID. One of the [RsReportPageSid](#/components/schemas/RsReportPageSid) constants.
-   * @param {number} params.id_report_view The report view ID. One of the [RsReportChartViewSid](#/components/schemas/RsReportChartViewSid) ...
+   * @param {number} params.id_report The report ID. See {@link WlClient.RsReportSid}.
+   * @param {number} params.id_report_group The report group ID. See {@link WlClient.RsReportGroupSid}.
+   * @param {?number} [params.id_report_page] The report page ID. One of the {@link WlClient.RsReportPageSid} constants.
+   * @param {number} params.id_report_view The report view ID. One of the {@link WlClient.RsReportChartViewSid} constants.
    * @param {string} params.k_business The key of business for which the report must be generated.
    * @param {string} params.s_filter Filter settings in encoded format.
    * @param {string} params.s_sort The field to use for sorting report data.
@@ -980,7 +980,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.cid_report Report CID.
-   * @param {number} params.id_report Report ID.
+   * @param {number} params.id_report Report ID. See {@link WlClient.RsReportSid}.
    * @param {string} params.k_business ID of business for which access must be checked.
    * @returns {Promise<Object>} Response data.
    *  `has_access` {boolean} `true` - access is granted; `false` - access is denied.
@@ -998,14 +998,14 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {number[]} params.a_page The page of results to show for each report in collection, starting at zero (set by default). The...
-   * @param {number} params.id_report_group The report group ID. One of the [RsReportGroupSid](#/components/schemas/RsReportGroupSid) constan...
-   * @param {?number} params.id_report_page The report page ID. One of the [RsReportPageSid](#/components/schemas/RsReportPageSid) constants.
-   * @param {number} params.id_report_view The report view ID. One of the [RsReportChartViewSid](#/components/schemas/RsReportChartViewSid) ...
+   * @param {number} params.id_report_group The report group ID. One of the {@link WlClient.RsReportGroupSid} constants that describes the time
+   * @param {?number} params.id_report_page The report page ID. One of the {@link WlClient.RsReportPageSid} constants.
+   * @param {number} params.id_report_view The report view ID. One of the {@link WlClient.RsReportChartViewSid} constants.
    * @param {string} params.k_business The key of business for which the report collection must be generated.
    * @param {string} params.s_filter Filter settings in encoded format.
    * @param {string} params.s_sort The field to use for sorting report data.
    * @returns {Promise<Object>} Response data.
-   *  `a_data` {*[][]} List of the reports contents. Key is the report id from [RsReportSid](#/compo...
+   *  `a_data` {*[][]} List of the reports contents. Key is the report id from {@link WlClient.RsRep...
    */
   WlClient.prototype.wlReportPageData = function(params)
   {
@@ -1041,7 +1041,7 @@
    * Requires an active Collections subscription and the business privilege or emulation access.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_currency The currency of the payment.
+   * @param {number} params.id_currency The currency of the payment. See {@link WlClient.CoreLocaleCurrencySid}.
    * @param {string} params.k_business The key of the business from which the debt originates.
    * @param {string} params.uid The key of the user with the debt.
    * @returns {Promise<Object>} Response data.
@@ -1081,16 +1081,16 @@
    *  it across requests. Access is validated against announcement editor permissions for the business.
    *
    * @param {Object} [params] Request parameters.
-   * @param {?number} [params.id_order] Order ID for list of announcements.
-   * @param {?number} [params.id_sort_field] Sort field ID for list of announcements.
+   * @param {?number} [params.id_order] Order ID for list of announcements. See {@link WlClient.CoreSidSortOrderSid}.
+   * @param {?number} [params.id_sort_field] Sort field ID for list of announcements. See {@link WlClient.WlAnnouncementSortFieldSid}.
    * @param {boolean} params.is_backend If `true`, the API is being used from backend. Otherwise, this will be `false`.
    * @param {string} params.k_business Business key.
    * @param {?string} [params.k_location] Location key for which need show announcement.
    * @param {string} params.text_search The filter phrase to filter announcements by name.
    * @returns {Promise<Object>} Response data.
    *  `a_list` {Object[]} List of announcements. Each element has the following keys:
-   *  `id_order` {?number} List of possible sort order.
-   *  `id_sort_field` {?number} List of fields by which you can sort.
+   *  `id_order` {?number} List of possible sort order. See {@link WlClient.CoreSidSortOrderSid}.
+   *  `id_sort_field` {?number} List of fields by which you can sort. See {@link WlClient.WlAnnouncementSortFieldSid}.
    */
   WlClient.prototype.wlAnnouncementAnnouncementList = function(params)
   {
@@ -1220,7 +1220,7 @@
    * @returns {Promise<Object>} Response data.
    *  `can_postcard` {boolean} Whether this user can send postcards.
    *  `can_send_message` {boolean} Whether this user can send SMS. If `true` - user can send SMS, otherwise - `f...
-   *  `id_gender` {number} String identifiers for gender.
+   *  `id_gender` {number} String identifiers for gender. See {@link WlClient.AGenderSid}.
    *  `is_photo_empty` {boolean} Whether photo is uploaded.
    *  `k_staff` {string} The user's staff key for the specified business.
    *  `s_first_name` {string} The first name of the user.
@@ -1492,9 +1492,9 @@
    *  `i_current_time` {number} The current time in seconds at which the user is at in the video.
    *  `i_duration` {number} The video duration in seconds.
    *  `i_watch` {number} The number of video views.
-   *  `id_embed_source` {?number} List of embed video sources.
-   *  `id_location_select` {number} A list of two answers for any question: Yes or No.
-   *  `id_source` {number} List of video types.
+   *  `id_embed_source` {?number} List of embed video sources. See {@link WlClient.WlVideoVideoEmbedSourceSid}.
+   *  `id_location_select` {number} A list of two answers for any question: Yes or No. See {@link WlClient.CoreSidYesNoSid}.
+   *  `id_source` {number} List of video types. See {@link WlClient.WlVideoVideoSourceSid}.
    *  `is_calorie` {boolean} If `true`, the calorie count will be displayed on the video.
    *  `is_converted` {boolean} If `true`, the video is converted.
    *  `...` {*}
@@ -1534,7 +1534,7 @@
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
-   *  `id_embed_source` {?number} List of embed video sources.
+   *  `id_embed_source` {?number} List of embed video sources. See {@link WlClient.WlVideoVideoEmbedSourceSid}.
    *  `json_setup` {string} Video.js media player initialization parameters in JSON format.
    */
   WlClient.prototype.wlVideoVideoElementPut = function(params)
@@ -1561,8 +1561,8 @@
    * @param {string[]} params.a_video_category A list of video categories to show videos from.
    * @param {string[]} params.a_video_tag A list of video tags to show videos for.
    * @param {?number} [params.i_page] Page to return.
-   * @param {?number} [params.id_order] Sort order ID. One of [SortOrderSid](#/components/schemas/Core.Sid.SortOrderSid) constants. `null...
-   * @param {?number} [params.id_sort] The sorting type.
+   * @param {?number} [params.id_order] Sort order ID. One of {@link WlClient.CoreSidSortOrderSid} constants. `null` or 0 if order is und...
+   * @param {?number} [params.id_sort] The sorting type. See {@link WlClient.WlVideoCatalogFilterSortFilterSortSid}.
    * @param {boolean} params.is_backend If `true`, the API is being used from backend. Otherwise, this will be `false`.
    * @param {string} params.k_business The business key.
    * @param {string} params.text_search The filter phrase to filter videos by name.
@@ -1570,9 +1570,9 @@
    * @returns {Promise<Object>} Response data.
    *  `a_list` {Object[]} A list of videos.
    *  `a_page` {Object} Pagination data.
-   *  `id_embed_source` {?number} List of embed video sources.
-   *  `id_order` {?number} List of possible sort order.
-   *  `id_sort` {?number} List of video catalog sorting types.
+   *  `id_embed_source` {?number} List of embed video sources. See {@link WlClient.WlVideoVideoEmbedSourceSid}.
+   *  `id_order` {?number} List of possible sort order. See {@link WlClient.CoreSidSortOrderSid}.
+   *  `id_sort` {?number} List of video catalog sorting types. See {@link WlClient.WlVideoCatalogFilterSortFilterSortSid}.
    *  `json_setup` {string} Video.js media player initialization parameters in JSON format.
    */
   WlClient.prototype.wlVideoVideoListGet = function(params)
@@ -1591,7 +1591,7 @@
    * @param {boolean} params.is_backend If `true`, the API is being used from backend. Otherwise, this will be `false`.
    * @param {string} params.k_business The business key.
    * @returns {Promise<Object>} Response data.
-   *  `id_embed_source` {?number} List of embed video sources.
+   *  `id_embed_source` {?number} List of embed video sources. See {@link WlClient.WlVideoVideoEmbedSourceSid}.
    *  `json_setup` {string} Video.js media player initialization parameters in JSON format.
    */
   WlClient.prototype.wlVideoVideoListPut = function(params)
@@ -1654,7 +1654,7 @@
    * by external integrators to clean up a widget that is no longer needed.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_skin Skin type, one of [RsSkinSid](#/components/schemas/RsSkinSid) constants.
+   * @param {number} params.id_skin Skin type, one of {@link WlClient.RsSkinSid} constants.
    * @param {string} params.k_business Key of the business.
    * @param {string} params.s_foreign_id Foreign skin key.
    * @returns {Promise<Object>} Response data.
@@ -1673,7 +1673,7 @@
    * a duplicate triggers an error directing the caller to use PUT instead.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_skin Skin type, one of [RsSkinSid](#/components/schemas/RsSkinSid) constants.
+   * @param {number} params.id_skin Skin type, one of {@link WlClient.RsSkinSid} constants.
    * @param {string} params.k_business Key of the business.
    * @param {string} params.s_foreign_id Foreign skin key.
    * @returns {Promise<Object>} Response data.
@@ -1692,7 +1692,7 @@
    * the caller to use POST instead.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_skin Skin type, one of [RsSkinSid](#/components/schemas/RsSkinSid) constants.
+   * @param {number} params.id_skin Skin type, one of {@link WlClient.RsSkinSid} constants.
    * @param {string} params.k_business Key of the business.
    * @param {string} params.s_foreign_id Foreign skin key.
    * @returns {Promise<Object>} Response data.
@@ -1882,7 +1882,7 @@
    * Allows the user account to be filled with a specified payment, or to perform the reset change manually.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_pay_account_charge The account charge mode.
+   * @param {number} params.id_pay_account_charge The account charge mode. See {@link WlClient.RsPayAccountChargeSid}.
    * @param {boolean} params.is_staff If `true`, the account is filled by a staff member in the backend. Otherwise, this will be `false`.
    * @param {string} params.k_business The ID of the business the user account belongs to.
    * @param {string} params.k_pay_account The ID of the user account to refill.
@@ -1910,7 +1910,7 @@
    *  `dtu_complete` {?string} The date and time if the report has completed generation. Otherwise, this wil...
    *  `dtu_queue` {?string} The date and time if this report has been put in the generation queue. Otherw...
    *  `dtu_start` {?string} The date and time if generation of this report has started. Otherwise, this w...
-   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation.
+   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation. See {@link WlClient.WlReportGeneratorReportGeneratorStatusSid}.
    *  `is_more` {boolean} Determines whether to show more rows in the report.
    *  `is_report_complete` {boolean} Determines whether the report is complete.
    */
@@ -2041,7 +2041,7 @@
    *  `i_rotate` {number} The angle of the image rotation compared to the original.
    *  `i_width` {number} The actual width of the thumbnail image.
    *  `i_width_src` {number} The width of the original image.
-   *  `id_type_src` {number} List of image types.
+   *  `id_type_src` {number} List of image types. See {@link WlClient.CoreDriveDriveTypeSid}.
    *  `is_resize` {boolean} If `true`, the thumbnail is a resized variant of the original image.
    *  `url_thumbnail` {string} The URL to the resized and rotated image in file storage.
    *  `url_view` {string} The URL to the original image in file storage.
@@ -2097,7 +2097,7 @@
    * relevant to a given market, or set `$is_locale_all` to retrieve the full list for multi-country UIs.
    *
    * @param {Object} [params] Request parameters.
-   * @param {?number} params.id_locale The locale ID to find regions for. One of the [LocaleSid](#/components/schemas/Core.Locale.Locale...
+   * @param {?number} params.id_locale The locale ID to find regions for. One of the {@link WlClient.CoreLocaleLocaleSid} constants.
    * @param {boolean} params.is_locale_all Determines whether to get regions for all locales.
    * @returns {Promise<Object>} Response data.
    *  `a_region` {Object[]} A list of regions grouped by their country.
@@ -2144,9 +2144,9 @@
    * for subsequent requests.
    *
    * @param {Object} [params] Request parameters.
-   * @param {string} params.text_token The user token CAPTCHA from [CaptchaVersionSid::V3](#/components/schemas/Core.Google.Captcha.Capt...
+   * @param {string} params.text_token The user token CAPTCHA from {@link WlClient.CoreGoogleCaptchaCaptchaVersionSid} captcha.
    * @returns {Promise<Object>} Response data.
-   *  `id_response` {number} List of responses for Google Captcha token.
+   *  `id_response` {number} List of responses for Google Captcha token. See {@link WlClient.CoreGoogleCaptchaCaptchaResponseSid}.
    */
   WlClient.prototype.coreGoogleCaptchaCaptchaScorePost = function(params)
   {
@@ -2440,9 +2440,9 @@
    *  `i_capacity` {?number} Capacity of the service.
    *  `i_duration` {number} The scheduled duration of the visit.
    *  `i_wait_spot` {number} Estimated place of reservation on the waiting list.
-   *  `id_note` {?number} A list of types of visit note.
-   *  `id_virtual_provider` {?number} List of possible value of virtual integrations.
-   *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc.
+   *  `id_note` {?number} A list of types of visit note. See {@link WlClient.WlVisitNoteSidNoteSid}.
+   *  `id_virtual_provider` {?number} List of possible value of virtual integrations. See {@link WlClient.WlVirtualVirtualProviderSid}.
+   *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc. See {@link WlClient.WlVisitVisitSid}.
    *  `is_checkin` {boolean} If `true`, then this visit is ready to be checked in. If `false`, then this v...
    *  `is_enable_client_cancel` {boolean} This will be `true` if clients can cancel the session. Otherwise, this will b...
    *  `is_event` {boolean} If `true`, then this visit is a part of a larger event. If `false`, then this...
@@ -2529,7 +2529,7 @@
    *  `dt_date_local` {string} Date/time of appointment in location timezone.
    *  `i_duration` {?number} Appointment duration (in minutes).
    *  `i_index` {?number} Index of booked asset.
-   *  `id_appointment_pay` {number} The possible payment types an appointment can have.
+   *  `id_appointment_pay` {number} The possible payment types an appointment can have. See {@link WlClient.RsAppointmentPaySid}.
    *  `k_location` {string} Location key.
    *  `k_login_promotion` {?string} Purchased promotion which provides this appointment.
    *  `k_resource` {?string} Asset key.
@@ -2556,7 +2556,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.i_visit Count of last booked services to return. Default value is 5.
-   * @param {number} params.id_service Type of service to return. One of [ServiceSid](#/components/schemas/Wl.Service.ServiceSid) consta...
+   * @param {number} params.id_service Type of service to return. One of {@link WlClient.WlServiceServiceSid} constants.
    * @param {string} params.k_business The key of the business.
    * @param {string} params.uid The key of the user.
    * @returns {Promise<Object>} Response data.
@@ -2576,7 +2576,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -2601,7 +2601,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -2610,7 +2610,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_family_relation_login_allow` {?number[]} Relationships who clients are allowed to book for.
    *  `a_path` {Object[]} All the steps to be performed to make a booking. Every element has the next k...
-   *  `id_pay_require` {number} List of possible modes to require amount while booking a class.
+   *  `id_pay_require` {number} List of possible modes to require amount while booking a class. See {@link WlClient.WlClassesRequirePaySid}.
    *  `is_age_require` {boolean} `true` if this class has age restriction and requires user to specify age. `f...
    *  `is_card_authorize` {boolean} Determines if the client must authorize the credit card.
    *  `is_event` {boolean} If `true`, the session being booked is an event. Otherwise, this will be `fal...
@@ -2637,7 +2637,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -2646,7 +2646,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_family_relation_login_allow` {?number[]} Relationships who clients are allowed to book for.
    *  `a_path` {Object[]} All the steps to be performed to make a booking. Every element has the next k...
-   *  `id_pay_require` {number} List of possible modes to require amount while booking a class.
+   *  `id_pay_require` {number} List of possible modes to require amount while booking a class. See {@link WlClient.WlClassesRequirePaySid}.
    *  `is_age_require` {boolean} `true` if this class has age restriction and requires user to specify age. `f...
    *  `is_card_authorize` {boolean} Determines if the client must authorize the credit card.
    *  `is_event` {boolean} If `true`, the session being booked is an event. Otherwise, this will be `fal...
@@ -2672,7 +2672,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -2681,7 +2681,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_family_relation_login_allow` {?number[]} Relationships who clients are allowed to book for.
    *  `a_path` {Object[]} All the steps to be performed to make a booking. Every element has the next k...
-   *  `id_pay_require` {number} List of possible modes to require amount while booking a class.
+   *  `id_pay_require` {number} List of possible modes to require amount while booking a class. See {@link WlClient.WlClassesRequirePaySid}.
    *  `is_age_require` {boolean} `true` if this class has age restriction and requires user to specify age. `f...
    *  `is_card_authorize` {boolean} Determines if the client must authorize the credit card.
    *  `is_event` {boolean} If `true`, the session being booked is an event. Otherwise, this will be `fal...
@@ -2778,7 +2778,7 @@
    *  `f_longitude` {number} The longitude coordinate of the location.
    *  `html_description_full` {string} The full description of the location.
    *  `html_description_preview` {string} A shorter description of the location. A preview of `html_description_full`.
-   *  `id_industry` {number} List of different types for landing pages based on business types.
+   *  `id_industry` {number} List of different types for landing pages based on business types. See {@link WlClient.RsHomeTourSid}.
    *  `is_phone` {boolean} `true` if to display phone number on location page. `false` otherwise.
    *  `is_top_choice` {boolean} `true` if WellnessLiving identifies this is a top choice location, `false` ot...
    *  `k_business` {string} The key of the business this location belongs to.
@@ -2818,7 +2818,7 @@
    *  correct fields, validation rules, and inheritance options for the business.
    *
    * @param {Object} [params] Request parameters.
-   * @param {?number} [params.id_register_source] Registration source ID.
+   * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.uid The key of the user to edit.
@@ -2849,8 +2849,8 @@
    *  inheritance. Returns the identifier of the newly created account.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} [params.id_mode] ID of source mode. One of [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
-   * @param {?number} [params.id_register_source] Registration source ID.
+   * @param {number} [params.id_mode] ID of source mode. One of {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {?boolean} [params.is_address_inherit] Whether the address be inherited.
    * @param {boolean} params.is_short Indicates whether to display the full profile edit form or the short version.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
@@ -2881,7 +2881,7 @@
    *  inheritance changes, triggers relevant notifications, and re-indexes the user for search.
    *
    * @param {Object} [params] Request parameters.
-   * @param {?number} [params.id_register_source] Registration source ID.
+   * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {?boolean} [params.is_address_inherit] Whether the address be inherited.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
@@ -2919,7 +2919,7 @@
    *  correct fields, validation rules, and inheritance options for the business.
    *
    * @param {Object} [params] Request parameters.
-   * @param {?number} [params.id_register_source] Registration source ID.
+   * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.text_token The security token.
@@ -2951,8 +2951,8 @@
    *  inheritance. Returns the identifier of the newly created account.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} [params.id_mode] ID of source mode. One of [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
-   * @param {?number} [params.id_register_source] Registration source ID.
+   * @param {number} [params.id_mode] ID of source mode. One of {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {?boolean} [params.is_address_inherit] Whether the address be inherited.
    * @param {boolean} params.is_short Indicates whether to display the full profile edit form or the short version.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
@@ -2983,7 +2983,7 @@
    *  inheritance changes, triggers relevant notifications, and re-indexes the user for search.
    *
    * @param {Object} [params] Request parameters.
-   * @param {?number} [params.id_register_source] Registration source ID.
+   * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {?boolean} [params.is_address_inherit] Whether the address be inherited.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
@@ -3403,8 +3403,8 @@
    *  `i_credit_score` {number} Total amount of account credits user got for `k_login_activity`.
    *  `i_score` {number} The total amount of rewards points the client received for the activity.
    *  `i_spend` {number} The rewards points used to redeem a prize.
-   *  `id_icon` {?number} List of available design icons.
-   *  `id_type` {number} Manages identifiers of user activity.
+   *  `id_icon` {?number} List of available design icons. See {@link WlClient.WlDesignIconSid}.
+   *  `id_type` {number} Manages identifiers of user activity. See {@link WlClient.RsLoginActivityTypeSid}.
    *  `k_id` {string} Object ID, for example, class period ID for books and visits.
    *  `s_message` {string} The description of the activity. This should include the nature of the activi...
    *  `url_link` {string} Link to share activity with social networks.
@@ -3444,7 +3444,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_start The start date of the contract.
    * @param {number} params.f_manual_discount The percentage discount for the item.
-   * @param {number} params.id_purchase_item The type of purchase item. This is one of the [RsPurchaseItemSid](#/components/schemas/RsPurchase...
+   * @param {number} params.id_purchase_item The type of purchase item. This is one of the {@link WlClient.RsPurchaseItemSid} constants.
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.k_id The key of the purchase item in the database.
    * @param {string} params.k_location The key of the selected location.
@@ -3508,7 +3508,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {?string[]} [params.a_class_tab] List of tabs keys.
-   * @param {number} [params.id_class_tab] ID of book now tab. One of [TabSid](#/components/schemas/Wl.Classes.Tab.TabSid) constants.
+   * @param {number} [params.id_class_tab] ID of book now tab. One of {@link WlClient.WlClassesTabTabSid} constants.
    * @param {boolean} params.is_enrollment_block_all Whether all events should be returned from same enrollment block.
    * @param {boolean} params.is_enrollment_block_empty Whether to include events without sessions.
    * @param {boolean} params.is_event_include Whether to include events in the result.
@@ -3606,7 +3606,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.text_code The unique code that a business can provide other businesses to tell them about system.
    * @returns {Promise<Object>} Response data.
-   *  `id_business_tour` {number} List of different types for landing pages based on business types.
+   *  `id_business_tour` {number} List of different types for landing pages based on business types. See {@link WlClient.RsHomeTourSid}.
    *  `k_business` {string} The business key.
    *  `text_name_first` {string} The first name of the business representative.
    *  `text_name_last` {string} The last name of the business representative.
@@ -3742,7 +3742,7 @@
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Business key.
    * @returns {Promise<Object>} Response data.
-   *  `id_locale` {?number} A list of locales.
+   *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
    *  `text_phone` {?string} Business phone number(in locale format).
    *  `text_phone_mask` {string} Business phone number mask.
    */
@@ -3989,7 +3989,7 @@
    * @param {Object} [params] Request parameters.
    * @param {number} params.i_image_height Image height in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {number} params.i_image_width Image width in pixels. Please specify this value if you need image to be returned in specific size.
-   * @param {number} params.id_program_type The program type ID, which will be one of the [RsProgramTypeSid](#/components/schemas/RsProgramTy...
+   * @param {number} params.id_program_type The program type ID, which will be one of the {@link WlClient.RsProgramTypeSid} constants.
    * @param {string} params.k_location The location key.
    * @returns {Promise<Object>} Response data.
    *  `a_promotion` {Object[]} A list of introductory promotion offers available at the location.
@@ -4317,8 +4317,8 @@
    *  `dtu_wait_promote` {string} Date and time in UTC when the visit is promoted from wait list to active list.
    *  `has_note` {boolean} Whether notes added to visit.
    *  `i_duration` {number} Duration of the session in minutes.
-   *  `id_note` {?number} A list of types of visit note.
-   *  `id_service` {number} Identifiers for services types.
+   *  `id_note` {?number} A list of types of visit note. See {@link WlClient.WlVisitNoteSidNoteSid}.
+   *  `id_service` {number} Identifiers for services types. See {@link WlClient.RsServiceSid}.
    *  `is_start_virtual_service` {boolean} Whether this service be carried out in Zoom.
    *  `k_class` {string} Class identifier. Not empty if service is class or event reservation.
    *  `k_location` {string} Location identifier.
@@ -4387,8 +4387,8 @@
    *  `dtu_wait_promote` {string} Date and time in UTC when the visit is promoted from wait list to active list.
    *  `has_note` {boolean} Whether notes added to visit.
    *  `i_duration` {number} Duration of the session in minutes.
-   *  `id_note` {?number} A list of types of visit note.
-   *  `id_service` {number} Identifiers for services types.
+   *  `id_note` {?number} A list of types of visit note. See {@link WlClient.WlVisitNoteSidNoteSid}.
+   *  `id_service` {number} Identifiers for services types. See {@link WlClient.RsServiceSid}.
    *  `is_start_virtual_service` {boolean} Whether this service be carried out in Zoom.
    *  `k_class` {string} Class identifier. Not empty if service is class or event reservation.
    *  `k_location` {string} Location identifier.
@@ -4518,7 +4518,7 @@
    * @param {string} params.dtu_start Minimal date and time of purchase in UTC. Empty string means no filter by minimal date.
    * @param {number} params.i_page Number of the page to get.
    * @param {number} params.i_page_size Page size.
-   * @param {number} params.id_pay_method ID of the payment method. One of the [RsPayMethodSid](#/components/schemas/RsPayMethodSid) consta...
+   * @param {number} params.id_pay_method ID of the payment method. One of the {@link WlClient.RsPayMethodSid} constants. Zero means no fil...
    * @param {string} params.k_business Business key.
    * @param {string} params.k_location Location key. Empty string means no filter by location.
    * @param {string} params.k_shop_product_option Product option key. Empty string means no filter by product option.
@@ -4541,7 +4541,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_quiz_response_key Quiz response key list.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {?string} [params.k_quiz_response] Quiz response key.
@@ -4571,8 +4571,8 @@
    *  `a_service_info` {Object} Information about service if response connected to visit.
    *  `can_amend` {boolean} Whether response can be amended by current user.
    *  `dtu_response` {string} Date when response was submitted.
-   *  `id_source` {number} List of sources where quiz response can be generated.
-   *  `id_status` {number} List of response statuses.
+   *  `id_source` {number} List of sources where quiz response can be generated. See {@link WlClient.WlQuizResponseSourceSid}.
+   *  `id_status` {number} List of response statuses. See {@link WlClient.CoreQuizResponseResponseStatusSid}.
    *  `show_numbering` {boolean} Whether to show numbering of the form elements that supports numbering.
    *  `text_add_date` {string} Date when response added.
    *  `text_amend_date` {string} Date when response amended.
@@ -4638,7 +4638,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_quiz_response_key Quiz response key list.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {?string} [params.k_quiz_response] Quiz response key.
@@ -4668,8 +4668,8 @@
    *  `a_service_info` {Object} Information about service if response connected to visit.
    *  `can_amend` {boolean} Whether response can be amended by current user.
    *  `dtu_response` {string} Date when response was submitted.
-   *  `id_source` {number} List of sources where quiz response can be generated.
-   *  `id_status` {number} List of response statuses.
+   *  `id_source` {number} List of sources where quiz response can be generated. See {@link WlClient.WlQuizResponseSourceSid}.
+   *  `id_status` {number} List of response statuses. See {@link WlClient.CoreQuizResponseResponseStatusSid}.
    *  `show_numbering` {boolean} Whether to show numbering of the form elements that supports numbering.
    *  `text_add_date` {string} Date when response added.
    *  `text_amend_date` {string} Date when response amended.
@@ -4742,7 +4742,7 @@
    * @param {number} params.i_image_width The image width in pixels. Specify this value if you need the image to be returned in a specific ...
    * @param {number} params.i_promotion_image_height The promotion image height in pixels. Specify this value if you need the image to be returned in ...
    * @param {number} params.i_promotion_image_width The promotion image width in pixels. Specify this value if you need the image to be returned in a...
-   * @param {number} params.id_sale The ID of item category.
+   * @param {number} params.id_sale The ID of item category. See {@link WlClient.RsSaleSid}.
    * @param {boolean} params.is_backend Determines whether the API is called in the backend mode.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_id The item key.
@@ -4765,9 +4765,9 @@
    *  `f_tax` {?string} The tax amount.
    *  `html_description` {?string} The sale item description.
    *  `html_special` {?string} Special instructions for the sale item.
-   *  `id_purchase_item` {number} A list of purchase types.
-   *  `id_purchase_option_view` {number} A list of Purchase Option view types.
-   *  `id_sale` {number} List of sale categories on the store page.
+   *  `id_purchase_item` {number} A list of purchase types. See {@link WlClient.RsPurchaseItemSid}.
+   *  `id_purchase_option_view` {number} A list of Purchase Option view types. See {@link WlClient.WlCatalogPurchaseOptionViewSid}.
+   *  `id_sale` {number} List of sale categories on the store page. See {@link WlClient.RsSaleSid}.
    *  `is_contract` {boolean} If `true`, the item requires a contract. Otherwise, this will be `false`.
    *  `k_id` {string} The item key.
    *  `k_shop_product_option` {?string} The product option key.
@@ -4834,7 +4834,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_commission The staff commission earned for this purchase. If this isn't empty, it has the next fields:
-   * @param {number} params.id_mode The WellnessLiving mode type (required). One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSi...
+   * @param {number} params.id_mode The WellnessLiving mode type (required). One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_guest Determines if the payment owner is an anonymous user (optional).
    * @param {boolean} params.is_staff Specify this if operations are performed by the staff member (optional).
    * @param {string} params.k_business The business key (required).
@@ -5377,8 +5377,8 @@
    *  `i_book_open` {number} Number of minutes for the client check-in window after session has started.
    *  `i_confirm_delay` {number} Delay in seconds on Check-in Confirmation Screen before redirect to Login scr...
    *  `i_schedule_delay` {number} Delay in seconds on Schedule Screen before redirect to Login screen.
-   *  `id_failed_sound` {number} List of sounds used for check ins.
-   *  `id_success_sound` {number} List of sounds used for check ins.
+   *  `id_failed_sound` {number} List of sounds used for check ins. See {@link WlClient.WlReceptionDesignCheckInSoundSid}.
+   *  `id_success_sound` {number} List of sounds used for check ins. See {@link WlClient.WlReceptionDesignCheckInSoundSid}.
    *  `is_attend_free` {boolean} `true` - allow client to check-in unpaid;
    *  `is_auto_check_in` {boolean} If only one service available with the look ahead window the client will:
    *  `is_book_open` {boolean} `true` - allow clients to check-in to sessions in progress;
@@ -5515,8 +5515,8 @@
    *  item is referenced in the email body.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_purchase_item Purchase item ID. Required if `text_action` is 'purchase'.
-   * @param {number} params.id_service Service ID. Required if `text_action` is 'booking'.
+   * @param {number} params.id_purchase_item Purchase item ID. Required if `text_action` is 'purchase'. See {@link WlClient.RsPurchaseItemSid}.
+   * @param {number} params.id_service Service ID. Required if `text_action` is 'booking'. See {@link WlClient.RsServiceSid}.
    * @param {string} params.k_business Business key. Required.
    * @param {string} params.k_id Unique identifier for the link.
    * @param {string} params.text_action Action type. Must be 'purchase' or 'booking'.
@@ -5660,7 +5660,7 @@
    * @param {string} params.uid User to retrieve information about.
    * @returns {Promise<Object>} Response data.
    *  `i_score` {number} Points amount that will be added to user account after successful accomplishm...
-   *  `id_reward_score` {?number} Types of reward actions.
+   *  `id_reward_score` {?number} Types of reward actions. See {@link WlClient.RsRewardScoreSid}.
    *  `is_request` {boolean} `true` if user has requested points for action accomplishment, `false` otherw...
    *  `s_description` {string} User friendly reward action description.
    */
@@ -5693,7 +5693,7 @@
    * configured for each action.
    *
    * @param {Object} [params] Request parameters.
-   * @param {?number} params.id_reward_score ID of type of reward action. One of [RsRewardScoreSid](#/components/schemas/RsRewardScoreSid) con...
+   * @param {?number} params.id_reward_score ID of type of reward action. One of {@link WlClient.RsRewardScoreSid} constants.
    * @param {string} params.k_business Key of a business to show information for.
    * @returns {Promise<Object>} Response data.
    *  `a_reward_action` {Object[]} Information about reward actions. Every element has next keys:
@@ -5862,7 +5862,7 @@
    * mail template settings and channel availability for the given business. Requires the `rs.profile` privilege.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_notification ID of the notification. See [RsMailSid](#/components/schemas/RsMailSid).
+   * @param {number} params.id_notification ID of the notification. See {@link WlClient.RsMailSid}.
    * @param {string} params.k_business Key of the business where information about notification should be retrieved.
    * @returns {Promise<Object>} Response data.
    *  `a_info` {*[]} Information about mail.
@@ -6048,7 +6048,7 @@
    *  `dt_add` {string} The date the user was added, given in UTC time.
    *  `dt_birth` {string} The user's birthday. This will be `null` if the birthday isn't set yet.
    *  `has_discount` {?boolean} Whether client's login type has a discount.
-   *  `id_gender` {number} String identifiers for gender.
+   *  `id_gender` {number} String identifiers for gender. See {@link WlClient.AGenderSid}.
    *  `is_calendar_google` {boolean} This will be `true` if the user has Google Calendar linked to their account; ...
    *  `is_calendar_microsoft` {boolean} This will be `true` if the user has Microsoft Calendar linked to their accoun...
    *  `is_customer_new` {boolean} This will be `true` if the user has never made purchases or reservations in t...
@@ -6122,7 +6122,7 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.uid User key of the referrer whose statistics are being requested.
    * @returns {Promise<Object>} Response data.
-   *  `i_point` {?number} Types of reward actions.
+   *  `i_point` {?number} Types of reward actions. See {@link WlClient.RsRewardScoreSid}.
    *  `i_referral` {number} Number of invited referrals.
    *  `url_referral` {string} Shareable invite link for the referrer.
    */
@@ -6211,7 +6211,7 @@
    *   main information about assets.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_category Type of the resource.
+   * @param {number} params.id_category Type of the resource. See {@link WlClient.WlResourceResourceCategoryEnum}.
    * @param {boolean} params.is_franchise Whether to return franchisee-created resources (if business is franchisor).
    * @param {string} params.k_business Business key.
    * @returns {Promise<Object>} Response data.
@@ -6229,7 +6229,7 @@
    * within the given business, then returns the updated list of relationships for `uid`.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_flow ID of the user behavior flow.
+   * @param {number} params.id_flow ID of the user behavior flow. See {@link WlClient.WlUserTrackingFlowSid}.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
    * @param {string} params.uid_delete The key of the related user who `uid` must be removed.
@@ -6248,7 +6248,7 @@
    * relationship type, reverse relationship type, name, and photo information for each related user.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_flow ID of the user behavior flow.
+   * @param {number} params.id_flow ID of the user behavior flow. See {@link WlClient.WlUserTrackingFlowSid}.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
    * @returns {Promise<Object>} Response data.
@@ -6267,7 +6267,7 @@
    * `a_new`, then returns the updated list of relationships for `uid`.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_flow ID of the user behavior flow.
+   * @param {number} params.id_flow ID of the user behavior flow. See {@link WlClient.WlUserTrackingFlowSid}.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
    * @returns {Promise<Object>} Response data.
@@ -6301,7 +6301,7 @@
    * within the given business, then returns the updated list of relationships for `uid`.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_flow ID of the user behavior flow.
+   * @param {number} params.id_flow ID of the user behavior flow. See {@link WlClient.WlUserTrackingFlowSid}.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
    * @param {string} params.uid_delete The key of the related user who [RelationApi](/Wl/Family/Relation/Relation.json) must be removed.
@@ -6320,7 +6320,7 @@
    * relationship type, reverse relationship type, name, and photo information for each related user.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_flow ID of the user behavior flow.
+   * @param {number} params.id_flow ID of the user behavior flow. See {@link WlClient.WlUserTrackingFlowSid}.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
    * @returns {Promise<Object>} Response data.
@@ -6339,7 +6339,7 @@
    * `a_new`, then returns the updated list of relationships for `uid`.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_flow ID of the user behavior flow.
+   * @param {number} params.id_flow ID of the user behavior flow. See {@link WlClient.WlUserTrackingFlowSid}.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
    * @returns {Promise<Object>} Response data.
@@ -6359,13 +6359,13 @@
    * Professional subscription for the business if one is not already active.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_mode The mode of the request.
-   * @param {number} params.id_status The new status of the enrollment. If `0`, the current status is returned.
+   * @param {number} params.id_mode The mode of the request. See {@link WlClient.WlIntegrationAutymateAutymateAccessModeSid}.
+   * @param {number} params.id_status The new status of the enrollment. If `0`, the current status is returned. See {@link WlClient.WlIntegrationAutymateAutymateStatusSid}.
    * @param {string} params.k_business The key of the business.
    * @param {string} params.s_guid The randomly generated 32 character string used to authenticate Autymate requests for the business.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `id_status` {number} List of statuses of an Autymate enrollment notification.
+   *  `id_status` {number} List of statuses of an Autymate enrollment notification. See {@link WlClient.WlIntegrationAutymateAutymateStatusSid}.
    */
   WlClient.prototype.wlIntegrationAutymateAutymateActivate = function(params)
   {
@@ -6393,7 +6393,7 @@
    *  `dtu_complete` {?string} The date and time when this report has completed generation.
    *  `dtu_queue` {?string} The date and time when this report was put in the generation queue.
    *  `dtu_start` {?string} The date and time when generation of this report was started.
-   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation.
+   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation. See {@link WlClient.WlReportGeneratorReportGeneratorStatusSid}.
    *  `is_more` {boolean} If `true` then there are more report rows to get. Otherwise, `false` if all r...
    *  `is_report_complete` {boolean} Determines whether this report is complete. If this report is accessed on the...
    */
@@ -6427,7 +6427,7 @@
    * franchisee location by joining against the Curves franchisee integration table.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_business_franchise_location Determines which locations should be returned.
+   * @param {number} params.id_business_franchise_location Determines which locations should be returned. See {@link WlClient.WlBusinessFranchiseLocationBusinessFranchiseLocationSid}.
    * @param {boolean} params.is_include_churn Determines whether to include churned/removed locations.
    * @param {boolean} params.is_include_non_api Determines whether to include locations marked to not be displayed on franchisor website.
    * @param {string} params.k_business The business key.
@@ -6588,7 +6588,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {?number} [params.i_page] If not specified, this request will return all review keys. If specified, this request will retur...
-   * @param {?number} [params.id_order] The order in which the review should be arranged. One of the [ReviewOrderSid](#/components/schema...
+   * @param {?number} [params.id_order] The order in which the review should be arranged. One of the {@link WlClient.WlReviewReviewListRe... See {@link WlClient.WlReviewReviewListReviewOrderSid}.
    * @param {string} params.k_business Business key. If not specified, location key needs to be specified.
    * @param {string} params.k_location The key of the location to show reviews for. If not specified, business key should be specified.
    * @param {string} params.uid The user's key. WellnessLiving allows staff to check low-rated reviews before posting them. Staff...
@@ -6762,7 +6762,7 @@
    * @param {?string} [params.s_login] User login.
    * @param {string} params.s_type The session type to store the notepad in.
    * @returns {Promise<Object>} Response data.
-   *  `id_region` {number} List of available data center regions.
+   *  `id_region` {number} List of available data center regions. See {@link WlClient.CoreAmazonRegionAmazonRegionSid}.
    *  `s_hash` {string} The hash type.
    *  `s_notepad` {string} The notepad value, which is used to hash the user's password.
    */
@@ -7016,7 +7016,7 @@
    *  details in `a_user` when no UID is provided.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number[]} params.a_pay The payment type for the appointment. One of the [RsAppointmentPaySid](#/components/schemas/RsApp...
+   * @param {number[]} params.a_pay The payment type for the appointment. One of the {@link WlClient.RsAppointmentPaySid} constants.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {Object} params.a_user Data to create new users.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
@@ -7069,7 +7069,7 @@
    * @param {Object} params.a_book_data All data from the provider model `Wl_Appointment_Book_ProviderModel`:
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {Object} params.a_user Data to create new user.
-   * @param {number} params.id_pay The payment type ID for the appointment. One of the [RsAppointmentPaySid](#/components/schemas/Rs...
+   * @param {number} params.id_pay The payment type ID for the appointment. One of the {@link WlClient.RsAppointmentPaySid} constants.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_appointment The appointment key.
    * @param {string} params.k_business The business key.
@@ -7118,7 +7118,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {Object} params.a_user Data to create new user.
-   * @param {number} params.id_pay The payment type ID for the appointment. One of the [RsAppointmentPaySid](#/components/schemas/Rs...
+   * @param {number} params.id_pay The payment type ID for the appointment. One of the {@link WlClient.RsAppointmentPaySid} constants.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_appointment The appointment key.
    * @param {string} params.k_business The business key.
@@ -7151,7 +7151,7 @@
    * @param {number} params.i_duration The asset booking duration.
    * @param {?number} [params.i_height] Image height in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {?number} [params.i_width] Image width in pixels. Please specify this value if you need image to be returned in specific size.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` - get all Purchase Options suitable for appointment.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_location Location to show available appointment booking schedule.
@@ -7192,7 +7192,7 @@
    * @param {number} params.i_duration The asset booking duration.
    * @param {?number} [params.i_height] Image height in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {?number} [params.i_width] Image width in pixels. Please specify this value if you need image to be returned in specific size.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` - get all Purchase Options suitable for appointment.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {?string} [params.k_appointment] Appointment key.
@@ -7232,7 +7232,7 @@
    * @param {string} params.dt_date The date to show the available appointment booking schedule.
    * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
    * @param {number} params.i_index An index of the selected asset. `0` for booking of service or if asset is not on layout.
-   * @param {number} params.id_gender_staff The ID of the staff member's gender.
+   * @param {number} params.id_gender_staff The ID of the staff member's gender. See {@link WlClient.AGenderSid}.
    * @param {boolean} params.is_back_to_back Determines whether multiple appointments are booked in back-to-back mode.
    * @param {boolean} params.is_staff `true` if the request is made by staff member; in this case booking policy restrictions are ignored.
    * @param {boolean} params.is_tab_all `true` - search in all tabs.
@@ -7274,7 +7274,7 @@
    * @param {string} params.dt_date The date to show the available appointment booking schedule.
    * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
    * @param {number} params.i_index An index of the selected asset. `0` for booking of service or if asset is not on layout.
-   * @param {number} params.id_gender_staff The ID of the staff member's gender.
+   * @param {number} params.id_gender_staff The ID of the staff member's gender. See {@link WlClient.AGenderSid}.
    * @param {boolean} params.is_back_to_back Determines whether multiple appointments are booked in back-to-back mode.
    * @param {boolean} params.is_month_view If calendar should be displayed in month view mode.
    * @param {boolean} params.is_staff `true` if the request is made by staff member; in this case booking policy restrictions are ignored.
@@ -7300,8 +7300,8 @@
    *  `dt_date` {string} The date to show the available appointment booking schedule.
    *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
    *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
-   *  `i_week_end` {number} A class for the days of the week.
-   *  `i_week_start` {number} A class for the days of the week.
+   *  `i_week_end` {number} A class for the days of the week. See {@link WlClient.ADateWeekSid}.
+   *  `i_week_start` {number} A class for the days of the week. See {@link WlClient.ADateWeekSid}.
    *  `is_waitlist` {boolean} Whether list of available times contains slots with only waitlist booking ava...
    *  `k_location` {string} Location to show available appointment booking schedule.
    */
@@ -7323,7 +7323,7 @@
    * @param {string} params.dt_date Start date to search next available date in MySQL format. If empty, the search will start from th...
    * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
    * @param {number} params.i_index An index of the selected asset. `0` for booking of service or if asset is not on layout.
-   * @param {number} params.id_gender_staff The ID of the staff member's gender.
+   * @param {number} params.id_gender_staff The ID of the staff member's gender. See {@link WlClient.AGenderSid}.
    * @param {boolean} params.is_back_to_back Determines whether multiple appointments are booked in back-to-back mode.
    * @param {boolean} params.is_staff `true` if the request is made by staff member; in this case booking policy restrictions are ignored.
    * @param {boolean} params.is_tab_all `true` - search in all tabs.
@@ -7361,7 +7361,7 @@
    * @param {string} params.dtl_date The selected date and time of the asset booking. It is used in cases when the business booking po...
    * @param {number} params.i_image_height Image height in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {number} params.i_image_width Image width in pixels. Please specify this value if you need image to be returned in specific size.
-   * @param {number} params.id_mode Mode type, one of [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode Mode type, one of {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend This is `true` if asset categories are loaded for back-end mode. Otherwise, this will be `false` ...
    * @param {boolean} params.is_tab_all `true` - search in all tabs.
    * @param {string} params.k_appointment Key of the appointment, if we reschedule existing appointment.
@@ -7412,8 +7412,8 @@
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_book_data Information detailing an appointment booking:
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {number} params.id_mode The key of source mode. A constant of [ModeSid](#/components/schemas/Wl.Mode.ModeSid).
-   * @param {number} params.id_purchase_item The purchase item ID. A constant of [RsPurchaseItemSid](#/components/schemas/RsPurchaseItemSid).
+   * @param {number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
+   * @param {number} params.id_purchase_item The purchase item ID. A constant of {@link WlClient.RsPurchaseItemSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {?string} [params.k_business] The business key. Currently used only with `k_session_pass` variable.
    * @param {string} params.k_id The item key. Depends on `id_purchase_item` property.
@@ -7452,8 +7452,8 @@
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_book_data Information detailing an appointment booking:
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {number} params.id_mode The key of source mode. A constant of [ModeSid](#/components/schemas/Wl.Mode.ModeSid).
-   * @param {number} params.id_purchase_item The purchase item ID. A constant of [RsPurchaseItemSid](#/components/schemas/RsPurchaseItemSid).
+   * @param {number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
+   * @param {number} params.id_purchase_item The purchase item ID. A constant of {@link WlClient.RsPurchaseItemSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_id The item key. Depends on `id_purchase_item` property.
    * @param {string} params.k_location Location to show available appointment booking schedule.
@@ -7462,7 +7462,7 @@
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
    *  `a_purchase_item` {?string[]} The purchase item keys from the database.
-   *  `id_pay` {number} The possible payment types an appointment can have.
+   *  `id_pay` {number} The possible payment types an appointment can have. See {@link WlClient.RsAppointmentPaySid}.
    *  `k_login_activity_purchase` {string} The key of activity of the purchase made.
    *  `k_login_prize` {string} Login prize key. In case when appointment paid by reward prize, there is the ...
    */
@@ -7482,7 +7482,7 @@
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_book_data The booking process information:
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {number} params.id_mode The ID of the source mode. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The ID of the source mode. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.text_coupon_code The gift card code.
@@ -7514,7 +7514,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {number} params.id_mode The ID of the source mode. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The ID of the source mode. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.text_coupon_code The gift card code.
@@ -7522,7 +7522,7 @@
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
    *  `a_login_prize` {string[]} The list of redeemed prizes.
-   *  `a_pay` {number[]} The payment type for the appointment. One of the [RsAppointmentPaySid](#/comp...
+   *  `a_pay` {number[]} The payment type for the appointment. One of the {@link WlClient.RsAppointmen...
    *  `a_purchase_item` {?string[][]} The keys of purchased items.
    *  `k_login_activity_purchase` {string} Key of the activity for the purchase made. This will be empty if no purchase ...
    */
@@ -7540,8 +7540,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {number} params.id_mode The key of source mode. A constant of [ModeSid](#/components/schemas/Wl.Mode.ModeSid).
-   * @param {number} params.id_purchase_item The purchase item ID. A constant of [RsPurchaseItemSid](#/components/schemas/RsPurchaseItemSid).
+   * @param {number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
+   * @param {number} params.id_purchase_item The purchase item ID. A constant of {@link WlClient.RsPurchaseItemSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {?string} [params.k_business] The business key. Currently used only with [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json...
    * @param {string} params.k_id The item key. Depends on [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json) property.
@@ -7578,8 +7578,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {number} params.id_mode The key of source mode. A constant of [ModeSid](#/components/schemas/Wl.Mode.ModeSid).
-   * @param {number} params.id_purchase_item The purchase item ID. A constant of [RsPurchaseItemSid](#/components/schemas/RsPurchaseItemSid).
+   * @param {number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
+   * @param {number} params.id_purchase_item The purchase item ID. A constant of {@link WlClient.RsPurchaseItemSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_id The item key. Depends on [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json) property.
    * @param {string} params.k_location Location to show available appointment booking schedule.
@@ -7588,7 +7588,7 @@
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
    *  `a_purchase_item` {?string[]} The purchase item keys from the database.
-   *  `id_pay` {number} The possible payment types an appointment can have.
+   *  `id_pay` {number} The possible payment types an appointment can have. See {@link WlClient.RsAppointmentPaySid}.
    *  `k_login_activity_purchase` {string} The key of activity of the purchase made.
    *  `k_login_prize` {string} Login prize key. In case when appointment paid by reward prize, there is the ...
    */
@@ -7624,7 +7624,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date The date/time of the appointment selected by user, in the location's time zone.
    * @param {?number} [params.i_duration_custom] Custom appointment duration in minutes.
-   * @param {number} params.id_role User role by whom this api called.
+   * @param {number} params.id_role User role by whom this api called. See {@link WlClient.WlLoginLoginRoleSid}.
    * @param {boolean} params.is_unavailable `true` - returns service categories that have no staff members available to conduct them.
    * @param {string} params.k_appointment_ignore Key of appointment which must be ignored when searches available staff.
    * @param {string} params.k_location The key of the location.
@@ -7694,7 +7694,7 @@
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
    * @param {number} params.i_image_height The image height in pixels. Specify this value if you need image to be returned in specific size.
    * @param {number} params.i_image_width The image width in pixels. Specify this value if you need image to be returned in specific size.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_card_authorize Determines if the client must authorize the credit card.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
@@ -7758,7 +7758,7 @@
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
    * @param {number} params.i_image_height The image height in pixels. Specify this value if you need image to be returned in specific size.
    * @param {number} params.i_image_width The image width in pixels. Specify this value if you need image to be returned in specific size.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_card_authorize Determines if the client must authorize the credit card.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
@@ -7791,8 +7791,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.dtu_date] Date/time of session is booking.
-   * @param {number} params.i_session The number of sessions which are booked simultaneously.
-   * @param {number} params.id_purchase_item The ID of the purchase item type. One of [RsPurchaseItemSid](#/components/schemas/RsPurchaseItemS...
+   * @param {number} params.i_session The number of sessions which are booked simultaneously. See {@link WlClient.RsPurchaseItemSid}.
+   * @param {number} params.id_purchase_item The ID of the purchase item type. One of {@link WlClient.RsPurchaseItemSid}.
    * @param {string} params.k_class_period The key of the session to check for booking availability.
    * @param {string} params.k_id The key of the purchase item in the database.
    * @param {string} params.k_location The key of the location in which the purchase is made.
@@ -7887,7 +7887,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_session The selected sessions.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -7912,7 +7912,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_session The selected sessions.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -7937,7 +7937,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_session The selected sessions.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.json_session Selected sessions.
@@ -7961,7 +7961,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_session The selected sessions.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.json_session Selected sessions.
@@ -7987,7 +7987,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -8014,7 +8014,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -8041,7 +8041,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -8063,7 +8063,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -8071,7 +8071,7 @@
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
    * @returns {Promise<Object>} Response data.
-   *  `a_day_available` {?number[]} Week days available for recurring booking. Constants of [ADateWeekSid](#/comp...
+   *  `a_day_available` {?number[]} Week days available for recurring booking. Constants of {@link WlClient.ADate...
    *  `a_session_all` {Object[]} A list of all class sessions that can be booked together. Every element has t...
    *  `a_session_free` {Object[]} List of sessions that can be paid without new purchases.
    *  `a_staff` {Object[]} The staff member conducting the session. Every element has the next structure:
@@ -8108,7 +8108,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -8135,7 +8135,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -8143,7 +8143,7 @@
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
    * @returns {Promise<Object>} Response data.
-   *  `a_day_available` {?number[]} Week days available for recurring booking. Constants of [ADateWeekSid](#/comp...
+   *  `a_day_available` {?number[]} Week days available for recurring booking. Constants of {@link WlClient.ADate...
    *  `a_session_all` {Object[]} A list of all class sessions that can be booked together. Every element has t...
    *  `a_session_free` {Object[]} List of sessions that can be paid without new purchases.
    *  `a_staff` {Object[]} The staff member conducting the session. Every element has the next structure:
@@ -8179,7 +8179,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -8251,7 +8251,7 @@
    * @param {Object} [params] Request parameters.
    * @param {Object[]} params.a_purchase_item The list of purchase items. Each element has the format `[id_purchase_item]::[k_id]`, where:
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -8274,7 +8274,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -8298,16 +8298,16 @@
    * together with the computed date range and visit count.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number[]} params.a_day List of days of the week to create visits. Each value is a [ADateWeekSid](#/components/schemas/AD...
+   * @param {number[]} params.a_day List of days of the week to create visits. Each value is a {@link WlClient.ADateWeekSid} constant.
    * @param {string[]} params.a_visit_ignore List of visits to be ignored. Each value is a string consisting of a class period key
    * @param {string} params.dt_date Date and time of the class, when recurring booking was called, in UTC timezone.
-   * @param {string} params.dt_from Date to start recurring booking. Not empty only when `id_repeat_end` == [RsRepeatEndSid::DATE](#/...
-   * @param {string} params.dt_to Date to finish recurring booking. Not empty only when `id_repeat_end` == [RsRepeatEndSid::DATE](#...
-   * @param {number} params.i_count Count of the visits to be created. Not empty only when `id_repeat_end` == [RsRepeatEndSid::COUNT]...
+   * @param {string} params.dt_from Date to start recurring booking. Not empty only when `id_repeat_end` == {@link WlClient.RsRepeatE...
+   * @param {string} params.dt_to Date to finish recurring booking. Not empty only when `id_repeat_end` == {@link WlClient.RsRepeat...
+   * @param {number} params.i_count Count of the visits to be created. Not empty only when `id_repeat_end` == {@link WlClient.RsRepea... See {@link WlClient.RsRepeatEndSid}.
    * @param {number} params.i_duration Count of days\weeks\months between recurring bookings.
-   * @param {number} params.id_duration Recurring booking interval, one of [ADurationSid](#/components/schemas/ADurationSid) constants.
-   * @param {number} params.id_mode WellnessLiving mode, one of [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
-   * @param {number} params.id_repeat_end Type of repeating, one of [RsRepeatEndSid](#/components/schemas/RsRepeatEndSid) constants.
+   * @param {number} params.id_duration Recurring booking interval, one of {@link WlClient.ADurationSid} constants.
+   * @param {number} params.id_mode WellnessLiving mode, one of {@link WlClient.WlModeModeSid} constants.
+   * @param {number} params.id_repeat_end Type of repeating, one of {@link WlClient.RsRepeatEndSid} constants.
    * @param {boolean} params.is_cancel `true` when cancelling booking, `false` otherwise.
    * @param {boolean} params.is_new_user `true` if current user is not created yet, `false` otherwise.
    * @param {string} params.k_business Business key.
@@ -8317,9 +8317,9 @@
    * @param {string} params.uid_actor Key of user, who perform booking.
    * @returns {Promise<Object>} Response data.
    *  `a_visit` {Object[]} List of visits to be created for the given settings:
-   *  `dt_from` {string} Date to start recurring booking. Not empty only when `id_repeat_end` == [RsRe...
-   *  `dt_to` {string} Date to finish recurring booking. Not empty only when `id_repeat_end` == [RsR...
-   *  `i_count` {number} Possible ways to stop repeatable events.
+   *  `dt_from` {string} Date to start recurring booking. Not empty only when `id_repeat_end` == {@lin...
+   *  `dt_to` {string} Date to finish recurring booking. Not empty only when `id_repeat_end` == {@li...
+   *  `i_count` {number} Possible ways to stop repeatable events. See {@link WlClient.RsRepeatEndSid}.
    *  `text_date_from` {string} Start date of repeatable period in human-readable format.
    *  `text_date_to` {string} End date of repeatable period in human-readable format.
    */
@@ -8336,16 +8336,16 @@
    * together with the computed date range and visit count.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number[]} params.a_day List of days of the week to create visits. Each value is a [ADateWeekSid](#/components/schemas/AD...
+   * @param {number[]} params.a_day List of days of the week to create visits. Each value is a {@link WlClient.ADateWeekSid} constant.
    * @param {string[]} params.a_visit_ignore List of visits to be ignored. Each value is a string consisting of a class period key
    * @param {string} params.dt_date Date and time of the class, when recurring booking was called, in UTC timezone.
    * @param {string} params.dt_from Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repea...
    * @param {string} params.dt_to Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repe...
-   * @param {number} params.i_count Count of the visits to be created. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Rep...
+   * @param {number} params.i_count Count of the visits to be created. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Rep... See {@link WlClient.RsRepeatEndSid}.
    * @param {number} params.i_duration Count of days\weeks\months between recurring bookings.
-   * @param {number} params.id_duration Recurring booking interval, one of [ADurationSid](#/components/schemas/ADurationSid) constants.
-   * @param {number} params.id_mode WellnessLiving mode, one of [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
-   * @param {number} params.id_repeat_end Type of repeating, one of [RsRepeatEndSid](#/components/schemas/RsRepeatEndSid) constants.
+   * @param {number} params.id_duration Recurring booking interval, one of {@link WlClient.ADurationSid} constants.
+   * @param {number} params.id_mode WellnessLiving mode, one of {@link WlClient.WlModeModeSid} constants.
+   * @param {number} params.id_repeat_end Type of repeating, one of {@link WlClient.RsRepeatEndSid} constants.
    * @param {boolean} params.is_cancel `true` when cancelling booking, `false` otherwise.
    * @param {boolean} params.is_include_parallel `true` to also include sessions running in parallel at the same time and location
    * @param {boolean} params.is_new_user `true` if current user is not created yet, `false` otherwise.
@@ -8358,7 +8358,7 @@
    *  `a_visit` {Object[]} List of visits to be created for the given settings:
    *  `dt_from` {string} Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Pro...
    *  `dt_to` {string} Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Pr...
-   *  `i_count` {number} Possible ways to stop repeatable events.
+   *  `i_count` {number} Possible ways to stop repeatable events. See {@link WlClient.RsRepeatEndSid}.
    *  `text_date_from` {string} Start date of repeatable period in human-readable format.
    *  `text_date_to` {string} End date of repeatable period in human-readable format.
    */
@@ -8375,7 +8375,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dl_birthday Guest's birthday in MySQL format. Empty if service not restricted by age.
-   * @param {number} params.id_service Type of the service to book.
+   * @param {number} params.id_service Type of the service to book. See {@link WlClient.WlServiceServiceSid}.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_id Key of service to book.
    * @param {string} params.k_location Location key.
@@ -8398,7 +8398,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dl_birthday Guest's birthday in MySQL format. Empty if service not restricted by age.
-   * @param {number} params.id_service Type of the service to book.
+   * @param {number} params.id_service Type of the service to book. See {@link WlClient.WlServiceServiceSid}.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_id Key of service to book.
    * @param {string} params.text_first_name Guest's first name.
@@ -8592,7 +8592,7 @@
    * show which events still have open spots.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_status Defines how the event availability flag filter should be applied.
+   * @param {number} params.id_status Defines how the event availability flag filter should be applied. See {@link WlClient.AFlagSid}.
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.k_class_tab The key of the category tab.
    * @param {string} params.uid The user's key.
@@ -8616,9 +8616,9 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_end The end date, returned in MySQL format and the local time.
    * @param {string} params.dt_start The start date, returned in MySQL format and the local time.
-   * @param {number} params.id_class_modify_action The class modify step type. One of the [RsClassModifyActionSid](#/components/schemas/RsClassModif...
-   * @param {number} params.id_class_modify_mode The modify mode type. One of the [RsClassModifyModeSid](#/components/schemas/RsClassModifyModeSid...
-   * @param {number} params.id_step The class modify action type. One of the [RsClassModifyModeSid](#/components/schemas/RsClassModif...
+   * @param {number} params.id_class_modify_action The class modify step type. One of the {@link WlClient.RsClassModifyActionSid} constants.
+   * @param {number} params.id_class_modify_mode The modify mode type. One of the {@link WlClient.RsClassModifyModeSid} constants.
+   * @param {number} params.id_step The class modify action type. One of the {@link WlClient.RsClassModifyModeSid} constants.
    * @param {?boolean} [params.is_back] The step direction.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_class_period The class period key.
@@ -8641,16 +8641,16 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_end The end date, returned in MySQL format and the local time.
    * @param {string} params.dt_start The start date, returned in MySQL format and the local time.
-   * @param {number} params.id_class_modify_action The class modify step type. One of the [RsClassModifyActionSid](#/components/schemas/RsClassModif...
-   * @param {number} params.id_class_modify_mode The modify mode type. One of the [RsClassModifyModeSid](#/components/schemas/RsClassModifyModeSid...
-   * @param {number} params.id_mode The mode type. One of the [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
-   * @param {number} params.id_step The class modify action type. One of the [RsClassModifyModeSid](#/components/schemas/RsClassModif...
+   * @param {number} params.id_class_modify_action The class modify step type. One of the {@link WlClient.RsClassModifyActionSid} constants.
+   * @param {number} params.id_class_modify_mode The modify mode type. One of the {@link WlClient.RsClassModifyModeSid} constants.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {number} params.id_step The class modify action type. One of the {@link WlClient.RsClassModifyModeSid} constants.
    * @param {?boolean} [params.is_back] The step direction.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_class_period The class period key.
    * @param {string} params.s_id The unique hash string.
    * @returns {Promise<Object>} Response data.
-   *  `id_step` {number} The list of possible modify mode for class modify wizard.
+   *  `id_step` {number} The list of possible modify mode for class modify wizard. See {@link WlClient.RsClassModifyModeSid}.
    *  `is_back` {?boolean} The step direction.
    *  `k_class` {?string} The class ID.
    *  `s_id` {string} The unique hash string.
@@ -8671,7 +8671,7 @@
    * @param {number} params.cid_subscription CID of the subscription information of which is requested.
    * @param {string} params.k_business Business key for which subscription information is requested.
    * @returns {Promise<Object>} Response data.
-   *  `id_locale` {?number} A list of locales.
+   *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
    *  `id_plan` {number|number|number|number} Currently active plan ID for requested subscription.
    *  `is_active` {boolean} Whether subscription is active.
    */
@@ -8707,7 +8707,7 @@
    * specific franchise region or to exclude churned locations. Results are cached for 3 minutes.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_business_franchise_location Determines which locations should be returned.
+   * @param {number} params.id_business_franchise_location Determines which locations should be returned. See {@link WlClient.WlBusinessFranchiseLocationBusinessFranchiseLocationSid}.
    * @param {boolean} params.is_include_churn Determines whether to include churned/removed locations.
    * @param {boolean} params.is_include_non_api Determines whether to include locations marked to not be displayed on franchisor website.
    * @param {string} params.k_business The business key.
@@ -8821,8 +8821,8 @@
    *  `dl_convert_min` {string} The first date on what conversion can be scheduled.
    *  `dl_hold_end` {string} Local date, when hold ends, if PO is on hold right now.
    *  `dl_hold_start` {string} Local date, when hold starts, if PO is on hold right now.
-   *  `id_convert` {number} List of options to convert promotion.
-   *  `id_convert_when` {?number} Different types of conversion behavior: when and how it should be converted.
+   *  `id_convert` {number} List of options to convert promotion. See {@link WlClient.WlPromotionConvertPromotionConvertSid}.
+   *  `id_convert_when` {?number} Different types of conversion behavior: when and how it should be converted. See {@link WlClient.WlLoginPromotionConvertConvertWhenSid}.
    *  `is_edit` {boolean} Determines whether the conversion request is new or editing an existing conve...
    *  `is_renew` {boolean} `true` if PO is going to be renewed and not converted.
    *  `s_date_convert` {string} The existing conversion date, returned as a string for the datepicker.
@@ -8846,8 +8846,8 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dl_convert The conversion date, in the local time zone.
-   * @param {number} params.id_convert The conversion ID. One of the [PromotionConvertSid](#/components/schemas/Wl.Promotion.Convert.Pro...
-   * @param {?number} [params.id_convert_when] When conversion should be done. One of the [ConvertWhenSid](#/components/schemas/Wl.Login.Promoti...
+   * @param {number} params.id_convert The conversion ID. One of the {@link WlClient.WlPromotionConvertPromotionConvertSid} constants.
+   * @param {?number} [params.id_convert_when] When conversion should be done. One of the {@link WlClient.WlLoginPromotionConvertConvertWhenSid}...
    * @param {string} params.k_business The business key.
    * @param {string} params.k_login_promotion The login promotion key.
    * @param {string} params.k_promotion_to The promotion key the given promotion will be converted to.
@@ -8970,7 +8970,7 @@
    * @param {string} params.k_class_period The class period key.
    * @param {string} params.uid_client The client user key.
    * @returns {Promise<Object>} Response data.
-   *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc.
+   *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc. See {@link WlClient.WlVisitVisitSid}.
    *  `is_paid` {boolean} If `true`, the visit was automatically paid for in any available way during t...
    *  `k_visit` {string} The key of the booked visit. This will be set on success.
    *  `url_store` {string} The URL link to the store to allow for the payment of the visit.
@@ -9069,7 +9069,7 @@
    * @param {Object} params.a_config Configuration information about the item, which can specify prorated amounts.
    * @param {Object} params.a_tax Contains information about edited taxes.
    * @param {number} params.i_quantity The quantity of items.
-   * @param {number} params.id_sale The ID of the sale category. One of the [RsSaleSid](#/components/schemas/RsSaleSid) constants.
+   * @param {number} params.id_sale The ID of the sale category. One of the {@link WlClient.RsSaleSid} constants.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_id The key of the sale item.
    * @param {string} params.k_shop_product_option The product option key.
@@ -9102,8 +9102,8 @@
    *  `i_book_open` {number} Number of minutes for the client check-in window after session has started.
    *  `i_book_quick_app` {number} Units of time for the look ahead window for attendance app.
    *  `i_confirm_delay` {number} Delay in seconds on attendance web app confirmation screen before redirect to...
-   *  `id_attendance_direct` {number} List of places to redirect user from attendance list after inactivity.
-   *  `id_book_quick_app` {number} A class for managing time intervals.
+   *  `id_attendance_direct` {number} List of places to redirect user from attendance list after inactivity. See {@link WlClient.WlReceptionRosterDirectSid}.
+   *  `id_book_quick_app` {number} A class for managing time intervals. See {@link WlClient.ADurationSid}.
    *  `is_attend_free` {boolean} `true` if clients are allowed to check-in unpaid, `false` otherwise.
    *  `is_book_open` {boolean} Whether to allow sign-ins to classes in progress.
    *  `is_book_optional` {boolean} `true` if clients are allowed to check-in without booking prior,
@@ -9349,8 +9349,8 @@
    * @param {string} params.s_search_group Unique string identifying the name of the search group.
    * @param {string} params.uid User key.
    * @returns {Promise<Object>} Response data.
-   *  `id_conversion_type` {?number} Lead conversion type.
-   *  `id_member_group_shape` {number} Shapes of client group icons.
+   *  `id_conversion_type` {?number} Lead conversion type. See {@link WlClient.WlLeadConversionLeadConversionTypeSid}.
+   *  `id_member_group_shape` {number} Shapes of client group icons. See {@link WlClient.WlMemberGroupShapeSid}.
    *  `is_brivo_active` {boolean} Whether Facility Access enabled for group.
    *  `is_brivo_invitation_active` {boolean} Whether Brivo invitation feature enabled for the group.
    *  `is_icon` {boolean} `true` to enable group icon. `false` to disable.
@@ -9515,7 +9515,7 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.k_field Field key.
    * @returns {Promise<Object>} Response data.
-   *  `id_field` {number} List of progress log fields.
+   *  `id_field` {number} List of progress log fields. See {@link WlClient.WlMemberProgressFieldProgressFieldSid}.
    *  `is_active` {?boolean} Whether field is active and should be displayed on page.
    *  `is_public` {?boolean} Whether this field is public. If this field is set to `false`, this field is ...
    *  `is_require` {?boolean} Whether field value is required for clients.
@@ -9563,8 +9563,8 @@
    *  `f_value` {string} Value of the percentage or fixed discount.
    *  `i_duration` {number} Count of calendar periods from `id_duration` before expiration.
    *  `i_limit` {number} Maximum count of usage. Zero means unlimited usage.
-   *  `id_duration` {number} A class for managing time intervals.
-   *  `id_duration_type` {number} Class to process string identifiers for duration types
+   *  `id_duration` {number} A class for managing time intervals. See {@link WlClient.ADurationSid}.
+   *  `id_duration_type` {number} Class to process string identifiers for duration types See {@link WlClient.RsDurationTypeSid}.
    *  `is_active` {boolean} `true` means discount code is active.
    *  `is_auto_renew` {boolean} `true` means membership will auto-renew at discounted rate.
    *  `is_coupon` {boolean} `true` means discount code can reduce price of the gift cards.
@@ -9672,7 +9672,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_start The appointment booking date selected by the user.
-   * @param {number} params.id_mode Mode type, one of [ModeSid](#/components/schemas/Wl.Mode.ModeSid) constants.
+   * @param {number} params.id_mode Mode type, one of {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend If `true`, back-end mode is selected.
    * @param {boolean} params.is_grid_any Whether to show both grid layouts and custom layouts.
    * @param {boolean} params.is_show_unavailable_assets Whether unavailable assets should be included.
@@ -9833,11 +9833,11 @@
    *  substitution. When a list is requested, also loads all custom templates for the mail form.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_mail ID of the notification. One of [RsMailSid](#/components/schemas/RsMailSid) constants. `0` for emp...
+   * @param {number} params.id_mail ID of the notification. One of {@link WlClient.RsMailSid} constants. `0` for empty template.
    * @param {boolean} params.is_custom_list Whether to get a list of custom template data. `true` - to get a list, `false` - otherwise.
    * @param {?string} [params.k_business] Business key.
    * @param {string} params.k_mail_pattern Mail pattern key.
-   * @param {string} params.sid_mail_form SID of the mail form. String representation of one from [RsMailFormSid](#/components/schemas/RsMa...
+   * @param {string} params.sid_mail_form SID of the mail form. String representation of one from RsMailFormSid class constants.
    * @returns {Promise<Object>} Response data.
    *  `a_business_data` {Object} Business data.
    *  `a_help_data` {?Object} Help data for variables.
@@ -9860,7 +9860,7 @@
    *  `k_mail_pattern`.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_mail ID of the notification. One of [RsMailSid](#/components/schemas/RsMailSid) constants. `0` for emp...
+   * @param {number} params.id_mail ID of the notification. One of {@link WlClient.RsMailSid} constants. `0` for empty template.
    * @param {?string} [params.k_business] Business key.
    * @param {string} params.k_mail_pattern Mail pattern key.
    * @returns {Promise<Object>} Response data.
@@ -9881,11 +9881,11 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.k_field Field key.
    * @returns {Promise<Object>} Response data.
-   *  `a_measurement` {number[]} A list of field measurement. See [MeasurementSid](#/components/schemas/Wl.Mem...
-   *  `a_type` {number[]} A list of field type. See [TypeSid](#/components/schemas/Wl.Member.Progress.F...
-   *  `id_field` {number} List of progress log fields.
-   *  `id_measurement_unit` {number} Possible measurement units of the progress fields values.
-   *  `id_type` {number} Possible types of the progress fields values.
+   *  `a_measurement` {number[]} A list of field measurement. See {@link WlClient.WlMemberProgressFieldMeasure...
+   *  `a_type` {number[]} A list of field type. See {@link WlClient.WlMemberProgressFieldTypeSid}.
+   *  `id_field` {number} List of progress log fields. See {@link WlClient.WlMemberProgressFieldProgressFieldSid}.
+   *  `id_measurement_unit` {number} Possible measurement units of the progress fields values. See {@link WlClient.WlMemberProgressFieldMeasurementSid}.
+   *  `id_type` {number} Possible types of the progress fields values. See {@link WlClient.WlMemberProgressFieldTypeSid}.
    *  `is_active` {boolean} Whether field is active and should be displayed on page.
    *  `is_public` {boolean} Whether this field is public. If this field is set to `false`, this field is ...
    *  `is_require` {boolean} Whether field value is required for clients.
@@ -10098,6 +10098,5092 @@
   {
     return this.request('/Wl/Shop/Product/Option/Inventory/Count/InventoryCount.json', params || {}, 'POST');
   };
+
+  // ---------------------------------------------------------------------------
+  // Enum constants (187 total)
+  // ---------------------------------------------------------------------------
+
+  /**
+   * Experience types for class sessions to differentiate virtual and in-person sessions.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = Object.freeze({
+    /** In-person session at a physical location */
+    IN_PERSON: 1,
+    /** Virtual session conducted through a virtual provider */
+    VIRTUAL: 2,
+  });
+
+  /**
+   * List of different types for landing pages based on business types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsHomeTourSid = Object.freeze({
+    /** Barbershops */
+    BARBERSHOP: 26,
+    /** Boot camps */
+    BOOTCAMP: 24,
+    /** Boxing studios */
+    BOXING: 25,
+    /** Special industry free landing page with only contact us form */
+    BUSINESS_MANAGEMENT: 21,
+    /** Health clubs */
+    CLUB: 10,
+    /** Affiliate Gym */
+    CROSSFIT: 9,
+    /** Dance studios */
+    DANCE: 11,
+    /** Dental studios */
+    DENTAL: 14,
+    /** Fitness gyms */
+    FITNESS: 6,
+    /** Functional fitness also known as functional training or functional movement */
+    FUNCTIONAL_FITNESS: 29,
+    /** Fitness gyms */
+    GYM: 22,
+    /** Health clubs */
+    HEALTH_CLUB: 23,
+    /** Health and beauty salons at one place */
+    INTEGRATIVE_HEALTH_CENTER: 30,
+    /** Martial arts */
+    MARTIAL_ART: 8,
+    /** Massage salons */
+    MASSAGE: 4,
+    /** Massage salons */
+    MEDICAL_SPA: 28,
+    /** Alternative medical offices */
+    MEDICINE_ALTERNATIVE: 15,
+    /** Hospitals and private doctors */
+    MEDICINE_TRADITIONAL: 13,
+    /** Music schools */
+    MUSIC: 19,
+    /** Personal trainings */
+    PERSONAL_TRAINING: 5,
+    /** Pilates */
+    PILATES: 7,
+    /** Play cafes */
+    PLAY_CAFE: 32,
+    /** Pole dancing studios */
+    POLE_DANCING: 18,
+    /** Salons */
+    SALON: 3,
+    /** Spa salons */
+    SPA: 2,
+    /** Spinning */
+    SPINNING: 17,
+    /** Swim schools */
+    SWIM_SCHOOL: 33,
+    /** Tattoo salons */
+    TATTOO: 31,
+    /** Tours and events */
+    TOUR: 12,
+    /** Wellness Centers */
+    WELLNESS_CENTER: 20,
+    /** Yoga */
+    YOGA: 1,
+    /** Zumba */
+    ZUMBA: 27,
+  });
+
+  /**
+   * Lists statuses of reports from point of view of its generation.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothReportCoreGeneratorReportGeneratorStatusSid = Object.freeze({
+    /** Report is in an inconsistent state */
+    ABORTED: 6,
+    /** Current operation is being aborted now */
+    ABORTING: 5,
+    /** This report is being deleted now */
+    DELETING: 4,
+    /** This report is being generated now */
+    GENERATING: 2,
+    /** Generation of this report is queued */
+    QUEUED: 1,
+    /** Generation of this report is now completed */
+    READY: 3,
+  });
+
+  /**
+   * A list of currencies.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreLocaleCurrencySid = Object.freeze({
+    /** United Arab Emirates dirham */
+    AED: 11,
+    /** Australian dollar */
+    AUD: 6,
+    /** Bermudian Dollar */
+    BMD: 18,
+    /** Bahamian dollar */
+    BSD: 19,
+    /** Canadian dollar */
+    CAD: 4,
+    /** Egypt Pound */
+    EGP: 8,
+    /** Euro */
+    EUR: 13,
+    /** British pound */
+    GBP: 3,
+    /** Kuwaiti dinar */
+    KWD: 14,
+    /** Cayman Islands dollar */
+    KYD: 5,
+    /** Mauritian Rupee */
+    MUR: 16,
+    /** New Zealand Dollar */
+    NZD: 10,
+    /** Philippines Pesco */
+    PHP: 12,
+    /** Saudi Riyal */
+    SAR: 15,
+    /** Singapore dollar */
+    SGD: 20,
+    /** Unknown code */
+    UNKNOWN: 2,
+    /** US dollars */
+    USD: 1,
+    /** West African CFA franc */
+    XOF: 17,
+    /** South African rand */
+    ZAR: 7,
+  });
+
+  /**
+   * A class for a list of card systems.
+   *
+   * @enum {number}
+   */
+  WlClient.ACardSystemSid = Object.freeze({
+    /** American Express */
+    AMERICAN_EXPRESS: 1,
+    /** Bank of Montreal (BMO) */
+    BMO: 2,
+    /** Canadian Imperial Bank of Commerce (CIBC) */
+    CIBC: 3,
+    /** Diners Club International */
+    DINNER_CLUB: 4,
+    /** Discover */
+    DISCOVER: 5,
+    /** HSBC Bank Canada */
+    HSBC_CANADA: 6,
+    /** Japan Credit Bureau (JCB) */
+    JCB: 7,
+    /** Mastercard */
+    MASTERCARD: 8,
+    /** Royal Bank of Canada */
+    ROYAL_BANK: 9,
+    /** Scotiabank */
+    SCOTIBANK: 10,
+    /** TD Canada Trust */
+    TD_CANADA: 11,
+    /** The card system can't be determined */
+    UNDEFINED: 13,
+    /** Union Pay */
+    UNION_PAY: 14,
+    /** Visa */
+    VISA: 12,
+  });
+
+  /**
+   * A list of payment methods.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPayMethodSid = Object.freeze({
+    /** Payment with personal user account (rs.pay.account) */
+    ACCOUNT: 7,
+    /** ACH system (USA-specific direct banking transactions) */
+    ACH: 9,
+    /** Payment with cash */
+    CASH: 4,
+    /** Payment with a cheque */
+    CHEQUE: 5,
+    /** Payment with a coupon */
+    COUPON: 8,
+    /** Direct Entry system (australian-specific direct banking transactions) */
+    DIRECT_ENTRY: 10,
+    /** Online payment. Card not present */
+    ECOMMERCE: 2,
+    /** Payment with an external terminal */
+    EXTERNAL: 6,
+    /** Special method to be used for migration process */
+    IMPORT_ACCRUAL: 11,
+    /** Payment method at a Points of sale */
+    POS: 1,
+  });
+
+  /**
+   * A list of payment gateways or processors.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothPayProcessorPayProcessorSid = Object.freeze({
+    /** Payment gateway for `cybersource.com` */
+    CYBER_SOURCE: 11,
+    /** Payment gateway for Direct Connect */
+    DIRECT_CONNECT: 9,
+    /** Payment gateway for Lucy */
+    LUCY: 2,
+    /** Payment gateway for Netbanx */
+    NETBANX: 1,
+    /** Payment gateway for NMI */
+    NMI: 6,
+    /** Payment gateway for Nuvei */
+    NUVEI: 12,
+    /** Payment gateway for http://www.paychoice.com.au/ Paychoice */
+    PAYCHOICE: 7,
+    /** Payment gateway for `stripe.com` */
+    STRIPE_COM: 10,
+  });
+
+  /**
+   * A list of locales.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreLocaleLocaleSid = Object.freeze({
+    /** Australia */
+    AUSTRALIA: 4,
+    /** Bahamas */
+    BAHAMAS: 20,
+    /** Bermuda */
+    BERMUDA: 19,
+    /** Canada */
+    CANADA: 2,
+    /** Cayman Islands */
+    CAYMAN: 5,
+    /** Cyprus */
+    CYPRUS: 13,
+    /** Egypt */
+    EGYPT: 8,
+    /** Republic of Ireland */
+    IRELAND: 18,
+    /** Kuwait */
+    KUWAIT: 14,
+    /** Republic of Mauritius */
+    MAURITIUS: 16,
+    /** A special locale that can be used for testing or a business situated in an unknown region */
+    NEVERLAND: 9,
+    /** New Zealand */
+    NEW_ZEALAND: 10,
+    /** Philippines */
+    PHILIPPINES: 12,
+    /** Saudi Arabia */
+    SAUDI_ARABIA: 15,
+    /** Senegal */
+    SENEGAL: 17,
+    /** Singapore */
+    SINGAPORE: 21,
+    /** South Africa */
+    SOUTH_AFRICA: 6,
+    /** United Arab Emirates */
+    UAE: 11,
+    /** United Kingdom */
+    UK: 3,
+    /** United States of America */
+    USA: 1,
+  });
+
+  /**
+   * A list of money owners from which account money can be transferred.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPayOwnerSid = Object.freeze({
+    /** Anonymous user (Walk-In) */
+    ANONYMOUS: 3,
+    /** Business */
+    BUSINESS: 2,
+    /** System user */
+    USER: 1,
+  });
+
+  /**
+   * List of Google reCaptcha versions.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreGoogleCaptchaCaptchaVersionSid = Object.freeze({
+    /** Version 2 (invisible) */
+    V2: 1,
+    /** Version 3 */
+    V3: 2,
+  });
+
+  /**
+   * Class to work with gender string identifiers.
+   *
+   * @enum {number}
+   */
+  WlClient.WlGenderGenderSid = Object.freeze({
+    /** Female gender */
+    FEMALE: 2,
+    /** Male gender */
+    MALE: 1,
+    /** Gender is undefined in cases where the user preferred not to identify their gender */
+    UNDEFINED: 3,
+  });
+
+  /**
+   * A list of task statuses.
+   *
+   * @enum {number}
+   */
+  WlClient.WlTaskTaskStatusSid = Object.freeze({
+    /** Task is not started */
+    BACKLOG: 1,
+    /** Task completed */
+    COMPLETE: 3,
+    /** Task in progress */
+    PROGRESS: 2,
+  });
+
+  /**
+   * Paragon ticket status.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = Object.freeze({
+    /** Ticket was canceled */
+    CANCELLED: 1,
+    /** Ticket was completed */
+    COMPLETE: 2,
+    /** Ticket in error state */
+    ERROR: 3,
+    /** Ticket is processed */
+    INPROCESS: 4,
+    /** Ticket is opened */
+    OPEN: 6,
+    /** Ticket was reversed */
+    REVERSED: 7,
+  });
+
+  /**
+   * A list of reports.
+   *
+   * @enum {number}
+   */
+  WlClient.RsReportSid = Object.freeze({
+    /** Report with list of canceled appointments */
+    APPOINTMENT_CANCEL: 163,
+    /** Report with list of requested appointments */
+    APPOINTMENT_REQUEST: 54,
+    /** Report with list of requested appointments */
+    APPOINTMENT_REQUEST_SHORT: 55,
+    /** Booking metric */
+    BOOK_METRIC_CHART: 204,
+    /** Report about revenue for application */
+    BUSINESS_ACCOUNT_APPLICATION: 117,
+    /** Report with the list of 'Annual Application Fees' transactions */
+    BUSINESS_ACCOUNT_APPLICATION_ANNUAL: 135,
+    /** Report about first paid application subscription */
+    BUSINESS_ACCOUNT_APPLICATION_NEW: 221,
+    /** Report with the list of customers lost during the period */
+    BUSINESS_ACCOUNT_CHURN: 81,
+    /** Gift card usages */
+    BUSINESS_ACCOUNT_COUPON: 237,
+    /** The number of WellnessLiving customers */
+    BUSINESS_ACCOUNT_CUSTOMER: 84,
+    /** The number of WellnessLiving customers during the selected period */
+    BUSINESS_ACCOUNT_CUSTOMER_BEGIN: 85,
+    /** The list of all locations from WellnessLiving customers during the selected period including */
+    BUSINESS_ACCOUNT_CUSTOMER_LOCATION: 244,
+    /** Report with the list of customers that has failed payments */
+    BUSINESS_ACCOUNT_DEBT: 105,
+    /** Report with list of changes to business account settings */
+    BUSINESS_ACCOUNT_LOG: 248,
+    /** Report with list of changes to business account settings */
+    BUSINESS_ACCOUNT_LOG_ALL: 267,
+    /** Report with the list of all payments from businesses to Wellnessliving Inc */
+    BUSINESS_ACCOUNT_REVENUE: 227,
+    /** Report with the list of all subscription payments */
+    BUSINESS_ACCOUNT_REVENUE_SUBSCRIPTION: 222,
+    /** Report with taxes of all payments from businesses */
+    BUSINESS_ACCOUNT_REVENUE_TAX: 236,
+    /** Report with list of previous payments for business account */
+    BUSINESS_ACCOUNT_SCHEDULE_PREVIOUS: 251,
+    /** Report with list of future payments for business account */
+    BUSINESS_ACCOUNT_SCHEDULE_UPCOMING: 252,
+    /** Skipped customers (who skipped business subscription payment) */
+    BUSINESS_ACCOUNT_SKIP: 98,
+    /** Report with business subscription information */
+    BUSINESS_ACCOUNT_SUBSCRIPTION: 254,
+    /** Report with business subscription information for churned businesses */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_CHURN: 256,
+    /** Report with the list of 'Annual merchant processing fees' and 'Annual PCI fees' transactions */
+    BUSINESS_ACCOUNT_TRANSACTION_ANNUAL: 100,
+    /** Report with the list of bonus transactions */
+    BUSINESS_ACCOUNT_TRANSACTION_BONUS: 88,
+    /** Report with the list of 'Direct Connect Bonuses' transactions */
+    BUSINESS_ACCOUNT_TRANSACTION_BONUS_DIRECT: 114,
+    /** Report with the list of failed transactions */
+    BUSINESS_ACCOUNT_TRANSACTION_FAIL: 87,
+    /** Report with the list of 'Optimal Merchant' transactions */
+    BUSINESS_ACCOUNT_TRANSACTION_MERCHANT_REVENUE: 95,
+    /** Report with the list of 'NMI' transactions */
+    BUSINESS_ACCOUNT_TRANSACTION_NMI: 89,
+    /** Report with the list of all businesses */
+    BUSINESS_ALL: 107,
+    /** Achieve clients metric */
+    BUSINESS_APPLICATION_METRIC_CHART: 208,
+    /** Report with the list of 'MP Approval Fee' transactions */
+    BUSINESS_CHARGE_APPROVAL: 90,
+    /** Report with the list of 'Credit Card Import Fees' transactions */
+    BUSINESS_CHARGE_CCIMPORT: 91,
+    /** Report with the list of 'Early Termination' transactions */
+    BUSINESS_CHARGE_EARLY: 104,
+    /** Report with the list of 'Hardware' transactions */
+    BUSINESS_CHARGE_HARDWARE: 92,
+    /** Report with the list of 'OTHER' transactions */
+    BUSINESS_CHARGE_OTHER: 96,
+    /** Report with the list of 'Set Up Fees' transactions */
+    BUSINESS_CHARGE_SETUP: 93,
+    /** Report with list of customers' churn status history */
+    BUSINESS_CUSTOMER_STATUS_HISTORY: 226,
+    /** Report with list of customers' statuses */
+    BUSINESS_CUSTOMER_STATUS_LOCATION: 225,
+    /** List of franchisee business hours */
+    BUSINESS_FRANCHISE_HOURS: 247,
+    /** List of franchisee locations */
+    BUSINESS_FRANCHISE_LOCATION: 141,
+    /** List of franchise region */
+    BUSINESS_FRANCHISE_REGION_LIST: 142,
+    /** Saba files report */
+    BUSINESS_FRANCHISE_REPORT_CURVES_SABA: 219,
+    /** Report with list of customer leads */
+    BUSINESS_LEAD: 125,
+    /** The number of unique merchant accounts that have processed more than $100 from the beginning */
+    BUSINESS_MERCHANT_PROCESS: 82,
+    /** The number of unique merchant accounts that processed greater than $100 for the first time during the selected period */
+    BUSINESS_MERCHANT_PROCESS_BEGIN: 83,
+    /** Report with list of business having active Sms subscription */
+    BUSINESS_MESSAGE: 260,
+    /** WellnessLiving Key Metrics */
+    BUSINESS_METRIC: 94,
+    /** Report with amount that should be paid to partners for their referrals */
+    BUSINESS_PARTNER_PAY: 126,
+    /** Report with list of all referrals of the given business */
+    BUSINESS_PARTNER_REFERRAL_DETAIL: 128,
+    /** Report with list of all businesses which gave us at least one new customer */
+    BUSINESS_PARTNER_REFERRAL_SUMMARY: 129,
+    /** Report which allows to view list of classes that starts or ends within specific date range */
+    CLASSES_SCHEDULE: 127,
+    /** Class capacity utilization metric */
+    CLASSES_UTILIZATION_CHART: 205,
+    /** History of a contacts with clients */
+    CONTACT_MEMBER_HISTORY: 110,
+    /** History of a contacts for one certain client */
+    CONTACT_MEMBER_HISTORY_USER: 152,
+    /** Event capacity utilization metric */
+    EVENT_UTILIZATION_CHART: 215,
+    /** List of all relatives in the business */
+    FAMILY_ALL: 134,
+    /** Franchise membership transfer history report */
+    FRANCHISE_TRANSFER_MEMBERSHIP_HISTORY_LIST: 159,
+    /** Franchise membership requested transfers report */
+    FRANCHISE_TRANSFER_MEMBERSHIP_REQUESTED_LIST: 160,
+    /** Report to view list of locations with gympass integration status */
+    GYMPASS_LOCATION: 266,
+    /** List of all link that import could not process correctly even after max count of attempts */
+    IMPORT_MIGRATION_COMPANY_URL_FAIL: 121,
+    /** A list of imported visits */
+    IMPORT_MIGRATION_COMPANY_VISIT_LIST: 220,
+    /** "Wellness Program" report on user profile */
+    INSURANCE_PROFILE_PROGRAM: 181,
+    /** Detail wellness program report on user profile */
+    INSURANCE_PROFILE_PROGRAM_DETAIL: 184,
+    /** List of clients, which got reimbursement */
+    INSURANCE_REIMBURSEMENT_DETAIL: 183,
+    /** List of clients, which got reimbursement */
+    INSURANCE_REIMBURSEMENT_FRANCHISE_DETAIL: 217,
+    /** Total amounts of reimbursement by partner */
+    INSURANCE_REIMBURSEMENT_FRANCHISE_SUMMARY: 218,
+    /** List of partner, which support reimbursement export and import */
+    INSURANCE_REIMBURSEMENT_REBATE_FILE: 233,
+    /** Total amounts of reimbursement by partner */
+    INSURANCE_REIMBURSEMENT_SUMMARY: 182,
+    /** Isaac control report */
+    ISAAC_CONTROL: 241,
+    /** Franchise leads from lead capture forms. Chart representation */
+    LEAD_FRANCHISE_REPORT_CHART: 173,
+    /** Franchise leads from lead capture forms. Table representation */
+    LEAD_FRANCHISE_REPORT_LIST: 167,
+    /** Franchise leads from lead capture forms. Year-by-year chart representation */
+    LEAD_FRANCHISE_REPORT_YOY: 176,
+    /** Leads from lead capture forms */
+    LEAD_LIST: 42,
+    /** New leads metric */
+    LEAD_NEWEST_METRIC_CHART: 200,
+    /** New leads YOY metric */
+    LEAD_NEWEST_METRIC_YOY: 203,
+    /** Leads from lead capture forms */
+    LEAD_REPORT_CHART: 166,
+    /** List of market locations */
+    LOCATION_MARKET: 35,
+    /** Log report of staff activity */
+    LOG: 136,
+    /** List of clients with information about account state */
+    LOGIN_ACCOUNT: 43,
+    /** List of clients with upcoming birthdays within a specified date range */
+    LOGIN_BIRTHDAY: 75,
+    /** For the past 4 years, shows the number of clients whose */
+    LOGIN_CLIENT_NEWEST_METRIC_CHART: 199,
+    /** List of all Gift Cards purchased */
+    LOGIN_COUPON: 76,
+    /** Detail franchise client report table */
+    LOGIN_FRANCHISE_DETAIL_LIST: 156,
+    /** Franchise client status report table */
+    LOGIN_FRANCHISE_STATUS_LIST: 162,
+    /** Login list */
+    LOGIN_LIST: 22,
+    /** Login list all */
+    LOGIN_LIST_ALL: 33,
+    /** Report with conversions of Login Types */
+    LOGIN_MEMBER_TYPE_HISTORY: 122,
+    /** Report "Client Data" */
+    LOGIN_PROFILE: 72,
+    /** Report about client's ranks */
+    LOGIN_RANK: 40,
+    /** List of clients that are at churn risk according to isaac prediction */
+    LOGIN_RISK: 261,
+    /** Report with client's attendance history */
+    LOGIN_VISIT: 52,
+    /** Count of sent mail and sms per business */
+    MAIL_BUSINESS_LIST: 46,
+    /** Mail campaign details list report */
+    MAIL_CAMPAIGN_DETAIL: 37,
+    /** Mail campaign history list report */
+    MAIL_CAMPAIGN_LIST: 36,
+    /** Mail history list report */
+    MAIL_HISTORY_LIST: 38,
+    /** Member progress body fat report in chart view */
+    MEMBER_PROGRESS_LOG_BODY_FAT: 149,
+    /** Member progress report collection for charts */
+    MEMBER_PROGRESS_LOG_CHART: 146,
+    /** Report with list of progress log per client */
+    MEMBER_PROGRESS_LOG_CLIENT: 150,
+    /** Member progress main report in table view */
+    MEMBER_PROGRESS_LOG_LIST: 147,
+    /** Member progress report collection for table */
+    MEMBER_PROGRESS_LOG_TABLE: 145,
+    /** Member progress weight report in chart view */
+    MEMBER_PROGRESS_LOG_WEIGHT: 148,
+    /** List of clients' credit cards with expiration date */
+    PAY_BANK_CARD_EXPIRE: 44,
+    /** Total Sum Processed by all Businesses */
+    PAY_METHOD_BUSINESS: 235,
+    /** Total Sum Processed from all Businesses to wellnessliving */
+    PAY_METHOD_SYSTEM: 78,
+    /** Processing per Business with Login Date */
+    PAY_METHOD_SYSTEM_LOGIN: 242,
+    /** A report to track history of refunds */
+    PAY_REFUND: 45,
+    /** A list of payment transactions that are in the NMI batches */
+    PAY_TRANSACTION_BATCH: 77,
+    /** List of Cash Outs */
+    PAY_TRANSACTION_CASH: 113,
+    /** If the report is opened in backend it shows a list of transactions for the current business */
+    PAY_TRANSACTION_LIST: 34,
+    /** If the report is opened in backend it shows a list of transactions for the current business */
+    PAY_TRANSACTION_SUM: 119,
+    /** Revenue Report for WellnessLiving Accounting */
+    PAY_TRANSACTION_SYSTEM_ALL: 79,
+    /** If the report is opened in backend it shows a list of system transactions for the current business */
+    PAY_TRANSACTION_SYSTEM_LIST: 62,
+    /** Revenue Report for WellnessLiving Accounting */
+    PAY_TRANSACTION_SYSTEM_REFUND: 106,
+    /** Sum of all transactions from businesses to system merchants */
+    PAY_TRANSACTION_SYSTEM_SUMMARY: 143,
+    /** If the report is opened in backend it shows a list of transactions for the one given user in the current business */
+    PAY_TRANSACTION_USER: 120,
+    /** This report is available for user in client app */
+    PAY_TRANSACTION_USER_CLIENT: 253,
+    /** Postcard history list report */
+    POSTCARD_HISTORY: 103,
+    /** Attendance history report in frontend */
+    PROFILE_ATTENDANCE_SCHEDULE_FRONTEND_HISTORY: 180,
+    /** Upcoming schedule report in frontend */
+    PROFILE_ATTENDANCE_SCHEDULE_FRONTEND_UPCOMING: 179,
+    /** Attendance history report */
+    PROFILE_ATTENDANCE_SCHEDULE_HISTORY: 178,
+    /** Attendance history report for given login promotion */
+    PROFILE_ATTENDANCE_SCHEDULE_LOGIN_PROMOTION_HISTORY: 262,
+    /** Upcoming schedule report for given login promotion */
+    PROFILE_ATTENDANCE_SCHEDULE_LOGIN_PROMOTION_UPCOMING: 263,
+    /** Upcoming schedule report */
+    PROFILE_ATTENDANCE_SCHEDULE_UPCOMING: 177,
+    /** Contract list report in client profile */
+    PROFILE_CONTRACT_LIST: 255,
+    /** Report to view list of responses for specific user in client profile */
+    PROFILE_FORM_RESPONSE: 265,
+    /** Gift Card report in client profile */
+    PROFILE_PURCHASE_REPORT_COUPON: 193,
+    /** Session Pass report in client profile */
+    PROFILE_PURCHASE_REPORT_EVENT: 192,
+    /** Groupon report in client profile */
+    PROFILE_PURCHASE_REPORT_GROUPON: 213,
+    /** Membership report in client profile */
+    PROFILE_PURCHASE_REPORT_MEMBERSHIP: 188,
+    /** Package report in client profile */
+    PROFILE_PURCHASE_REPORT_PACKAGE: 189,
+    /** Duration Pass report in client profile */
+    PROFILE_PURCHASE_REPORT_SESSION_DURATION: 190,
+    /** Session Pass report in client profile */
+    PROFILE_PURCHASE_REPORT_SESSION_PASS: 191,
+    /** Single Session report in client profile */
+    PROFILE_PURCHASE_REPORT_SESSION_SINGLE: 194,
+    /** Intro offers metric */
+    PROMOTION_INTRODUCTORY_METRIC_CHART: 206,
+    /** Shows list of memberships with negative balances */
+    PROMOTION_MEMBERSHIP_NEGATIVE: 130,
+    /** Shows list of pricing options from that were imported mindbody and converted into memberships */
+    PROMOTION_PASS_MEMBERSHIP: 108,
+    /** A list of payment transactions including scheduled transaction (recurrent payments for memberships and renewals of */
+    PURCHASE_AUTO_LIST: 60,
+    /** Report with list of sales per client */
+    PURCHASE_CLIENT_SUMMARY: 115,
+    /** Summary franchise memberships report (chart view) */
+    PURCHASE_FRANCHISE_MEMBERSHIP_CHART: 175,
+    /** Summary franchise memberships report */
+    PURCHASE_FRANCHISE_MEMBERSHIP_DETAIL: 257,
+    /** Summary franchise memberships report */
+    PURCHASE_FRANCHISE_MEMBERSHIP_LIST: 174,
+    /** Purchases that have been bought divided by payment methods */
+    PURCHASE_ITEM_ACCRUAL_CASH: 123,
+    /** Purchases that have been bought divided by time */
+    PURCHASE_ITEM_ACCRUAL_CASH_CHART: 171,
+    /** Special quick purchases report for migration */
+    PURCHASE_ITEM_ACCRUAL_MIGRATION: 132,
+    /** Summaries of the sales divided by days, months or years */
+    PURCHASE_ITEM_ACCRUAL_SUMMARY: 133,
+    /** Purchase item count */
+    PURCHASE_ITEM_COUNT: 27,
+    /** Purchase item count product */
+    PURCHASE_ITEM_COUNT_PRODUCT: 50,
+    /** Purchase item count revenue */
+    PURCHASE_ITEM_COUNT_REVENUE: 51,
+    /** Purchase item list */
+    PURCHASE_ITEM_LIST: 26,
+    /** All sales report */
+    PURCHASE_ITEM_LIST_PRODUCT: 48,
+    /** Sales With Revenue Categories report */
+    PURCHASE_ITEM_LIST_REVENUE: 49,
+    /** List of sale for the one user */
+    PURCHASE_ITEM_LIST_USER: 118,
+    /** List of memberships in chart format */
+    PURCHASE_MEMBERSHIP_CHART: 165,
+    /** List of memberships */
+    PURCHASE_MEMBERSHIP_LIST: 71,
+    /** Lost members metric */
+    PURCHASE_MEMBERSHIP_METRIC_CHART: 198,
+    /** Recurring revenue metric */
+    PURCHASE_MEMBERSHIP_RECURRING_METRIC_CHART: 202,
+    /** All sales metric */
+    PURCHASE_METRIC_CHART: 195,
+    /** All sales YOY metric */
+    PURCHASE_METRIC_YOY: 201,
+    /** Report with list of sales grouped by purchase options. Products and drop-ins are not included */
+    PURCHASE_OPTION_SUMMARY: 109,
+    /** Purchase tag count */
+    PURCHASE_TAG_COUNT: 30,
+    /** Purchase tag list */
+    PURCHASE_TAG_LIST: 31,
+    /** Report taxes of business in list format */
+    PURCHASE_TAX_COUNT: 29,
+    /** Report taxes of business in chart format */
+    PURCHASE_TAX_LIST: 28,
+    /** List of sales with non zero tips */
+    PURCHASE_TIP: 99,
+    /** Tips summary by staff */
+    PURCHASE_TIP_SUM: 101,
+    /** Report to view list of responses for specific quiz */
+    QUIZ_RESPONSE: 264,
+    /** Report with list of generated reports */
+    REPORT_BACKGROUND_GENERATE: 246,
+    /** Report with list of customers reviews. Available only in business backend and contains reviews on this business */
+    REVIEW_LIST: 47,
+    /** Report with list of customers reviews. Available out of the backend and contains reviews on all businesses */
+    REVIEW_ROOT: 53,
+    /** Report client's reward points */
+    REWARD_BOARD: 56,
+    /** Schedule prospect count */
+    SCHEDULE_PROSPECT_COUNT: 9,
+    /** Daily Tracker */
+    SCHEDULE_PROSPECT_LIST: 10,
+    /** Report about daily booking activity special for dashboard */
+    SCHEDULE_PROSPECT_LIST_TODAY: 39,
+    /** Schedule wait list */
+    SCHEDULE_WAIT_LIST: 11,
+    /** Products, Purchase Options and Packages with Barcode */
+    SHOP_BARCODE: 102,
+    /** Inventory On Hand */
+    SHOP_PRODUCT: 80,
+    /** Physical Inventory Count */
+    SHOP_PRODUCT_OPTION_INVENTORY_COUNT: 243,
+    /** SMS history report */
+    SMS_HISTORY: 116,
+    /** Social sharing details */
+    SOCIAL_SHARE_DETAILS_LIST: 212,
+    /** All social sharing */
+    SOCIAL_SHARE_METRIC_CHART: 197,
+    /** Social sharing summary by user */
+    SOCIAL_SHARE_SUMMARY_LIST: 214,
+    /** Chart version of {@link WlClient.RsReportSid} report */
+    STAFF_PAY_COUNT: 24,
+    /** Report that contains detail information about staff payments for each option */
+    STAFF_PAY_DETAIL: 25,
+    /** Report that contains general information about payments for each staff */
+    STAFF_PAY_LIST: 23,
+    /** Staff retention report collection */
+    STAFF_RETENTION: 137,
+    /** Staff Member New Clients Retention report */
+    STAFF_RETENTION_CLIENT_NEW: 138,
+    /** Staff Member Repeat Clients Retention report */
+    STAFF_RETENTION_CLIENT_REPEAT: 139,
+    /** Staff Member Client Retention Summary report */
+    STAFF_RETENTION_CLIENT_SUMMARY: 140,
+    /** Report that contains detailed information about staff clock-in and clock-out, total load, hourly pay rates, average */
+    STAFF_TIME_DETAIL: 111,
+    /** Report that contains summary information about staff clock-in and clock-out, total load, hourly pay rates, average */
+    STAFF_TIME_SUMMARY: 112,
+    /** Staff task manager */
+    TASK_MANAGER: 86,
+    /** Report that contains regional taxes */
+    TAX_REGION: 234,
+    /** Report with potential client duplicates */
+    USER_DUPLICATE: 185,
+    /** Report with all businesses, which has videos and count of videos and total size of the videos */
+    VIDEO_BUSINESS_ALL: 239,
+    /** Report with all businesses, which has videos and count of videos and total size of the videos */
+    VIDEO_BUSINESS_UPLOAD: 240,
+    /** Report with all business videos and basic information about these videos */
+    VIDEO_DETAIL: 238,
+    /** Report with all business videos and detail information about these videos */
+    VIDEO_SUMMARY: 250,
+    /** Report with all views of videos and information about a viewers */
+    VIDEO_VIEW_DETAIL: 249,
+    /** Report with list of canceled appointments */
+    VIRTUAL_ZOOM_USER_HISTORY: 245,
+    /** Controls visit appointment report in chart format */
+    VISIT_APPOINTMENT_COUNT: 70,
+    /** Appointment details analysis report */
+    VISIT_APPOINTMENT_DETAIL: 66,
+    /** Appointment details analysis report */
+    VISIT_APPOINTMENT_LIST: 65,
+    /** List of visits in attended state */
+    VISIT_ATTEND_LIST: 64,
+    /** List of visits in attended state */
+    VISIT_ATTEND_LIST_LEGACY: 268,
+    /** Visit book count */
+    VISIT_BOOK_COUNT: 4,
+    /** Visit book list */
+    VISIT_BOOK_LIST: 6,
+    /** Visit class average count */
+    VISIT_CLASS_AVERAGE_COUNT: 20,
+    /** Visit class average list */
+    VISIT_CLASS_AVERAGE_LIST: 18,
+    /** Visit class buy */
+    VISIT_CLASS_BUY: 32,
+    /** Controls list report for attendance. With information about usage purchase option */
+    VISIT_CLASS_BUY_DETAIL: 61,
+    /** Controls visit class report in chart format */
+    VISIT_CLASS_COUNT: 16,
+    /** Class analysis report */
+    VISIT_CLASS_DETAIL: 59,
+    /** Simplified variation of report {@link WlClient.RsReportSid} */
+    VISIT_CLASS_LIST: 14,
+    /** Report with list of duplicated visits */
+    VISIT_DUPLICATE: 131,
+    /** Controls visit event report in chart format */
+    VISIT_EVENT_COUNT: 69,
+    /** Event details analysis report */
+    VISIT_EVENT_DETAIL: 68,
+    /** Event analysis report */
+    VISIT_EVENT_LIST: 67,
+    /** Old first visits report */
+    VISIT_FIRST_COUNT: 3,
+    /** Old first visits report */
+    VISIT_FIRST_LIST: 2,
+    /** Filterable first visit list report, allowing to see first visits to certain criteria (locations/events/etc.) */
+    VISIT_FIRST_SCOPED_COUNT: 224,
+    /** Filterable first visit list report, allowing to see first visits to certain criteria (locations/events/etc.) */
+    VISIT_FIRST_SCOPED_LIST: 223,
+    /** Detail franchise cross-location visits table for franchisee */
+    VISIT_FRANCHISE_LOCATION_CROSS_DETAIL_FRANCHISEE: 186,
+    /** Detail franchise cross-location visits table */
+    VISIT_FRANCHISE_LOCATION_CROSS_DETAIL_LIST: 157,
+    /** Summary franchise cross-location visits chart */
+    VISIT_FRANCHISE_LOCATION_CROSS_SUMMARY_CHART: 164,
+    /** Summary franchise cross-location visits table for franchisee */
+    VISIT_FRANCHISE_LOCATION_CROSS_SUMMARY_FRANCHISEE: 187,
+    /** Summary franchise cross-location visits table */
+    VISIT_FRANCHISE_LOCATION_CROSS_SUMMARY_LIST: 158,
+    /** Expired passes report in chart format */
+    VISIT_LAST_COUNT: 8,
+    /** Expired passes report in list format */
+    VISIT_LAST_LIST: 7,
+    /** Detail cross-location visits table. For regular businesses */
+    VISIT_LOCATION_CROSS_DETAIL_LIST: 168,
+    /** Summary cross-location visits chart. For regular businesses */
+    VISIT_LOCATION_CROSS_SUMMARY_CHART: 170,
+    /** Summary cross-location visits table. For regular businesses */
+    VISIT_LOCATION_CROSS_SUMMARY_LIST: 169,
+    /** Visit login list */
+    VISIT_LOGIN_LIST: 12,
+    /** Visits Remaining */
+    VISIT_REMAIN_LIST: 63,
+    /** Visits Remaining */
+    VISIT_REMAIN_LIST_TEMP: 144,
+    /** Detailed revenue by service */
+    VISIT_REVENUE_DETAIL: 58,
+    /** Service revenue analysis */
+    VISIT_REVENUE_LIST: 57,
+    /** Risky clients */
+    VISIT_RISK: 41,
+    /** Event capacity utilization metric */
+    VISIT_RISK_ISAAC: 216,
+    /** Visit staff average count */
+    VISIT_STAFF_AVERAGE_COUNT: 19,
+    /** Visit staff average list */
+    VISIT_STAFF_AVERAGE_LIST: 17,
+    /** Visit staff count */
+    VISIT_STAFF_COUNT: 15,
+    /** Visit staff list */
+    VISIT_STAFF_LIST: 13,
+    /** Detail list of unpaid visits */
+    VISIT_UNPAID_DETAIL: 74,
+    /** List of unpaid visits */
+    VISIT_UNPAID_LIST: 73,
+    /** Monthly coaching sessions YOY report for Curves business */
+    VISIT_WORKOUT_APPOINTMENT_LIST: 210,
+    /** Monthly coaching sessions YOY report for Curves business */
+    VISIT_WORKOUT_APPOINTMENT_YOY: 211,
+    /** Workout list report for Curves business */
+    VISIT_WORKOUT_GYM_LIST: 209,
+    /** Workout YOY report for Curves business */
+    VISIT_WORKOUT_GYM_YOY: 207,
+    /** Report with list of businesses connected to FitLIVE */
+    ZOOM_SYSTEM_BUSINESS: 258,
+    /** Report with list of businesses connected to FitLIVE */
+    ZOOM_SYSTEM_COUNT: 259,
+  });
+
+  /**
+   * Statuses of domain verification.
+   *
+   * @enum {number}
+   */
+  WlClient.WlMailDomainDomainVerifyStatusSid = Object.freeze({
+    /** Domain is not verified */
+    FAIL: 2,
+    /** Domain verification is pending */
+    PENDING: 1,
+    /** Domain is verified */
+    SUCCESS: 3,
+  });
+
+  /**
+   * Statuses of mail verification. Based on statuses that returns Amazon SES API.
+   *
+   * @enum {number}
+   */
+  WlClient.WlMailVerifyMailVerifyStatusSid = Object.freeze({
+    /** Email is not verified */
+    FAIL: 4,
+    /** Verification request is not running */
+    NONE: 1,
+    /** Email is verified */
+    VERIFY: 3,
+    /** Verification in progress */
+    WAIT_FOR_VERIFY: 2,
+  });
+
+  /**
+   * An enum of credit card types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPayBankCardCardTypeEnum = Object.freeze({
+    /** Credit Card */
+    CREDIT: 1,
+    /** Debit Card */
+    DEBIT: 2,
+  });
+
+  /**
+   * CS Response code class.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothPayProcessorNuveiCodeCSResponseSid = Object.freeze({
+    /** Service has been successfully provided */
+    APPROVED: 1,
+    /** Transaction cannot be cancelled */
+    CANNOT_CANCEL: 2,
+    /** Service is declined */
+    DECLINED: 3,
+    /** Device is busy */
+    DEVICE_BUSY: 4,
+    /** Duplicate transmission */
+    DUPLICATE_TRANSMISSION: 5,
+    /** Invalid identification data for the sender */
+    INITIATING_PARTY: 6,
+    /** Invalid envelope of the message */
+    INVALID_MESSAGE: 7,
+    /** Type of message the recipient receives is unknown or unsupported */
+    MESSAGE_TYPE: 8,
+    /** NO Ticket/Emtpy */
+    NO_TICKET: 9,
+    /** Invalid message: At least one of the data element or data structure is not present, */
+    PARSING_ERROR: 10,
+    /** Version of the protocol couldn't be supported by the recipient */
+    PROTOCOL_VERSION: 11,
+    /** Invalid identification data for the receiver */
+    RECIPIENT_PARTY: 12,
+    /** Ticket is locked */
+    TICKET_LOCKED: 13,
+    /** Timeout error */
+    TIMEOUT_ERROR: 14,
+    /** Transaction has been cancelled */
+    TRANSACTION_CANCELLED: 16,
+    /** There is an unfinish transactions */
+    TRANSACTION_IN_PROCESS: 15,
+    /** Transaction has been cancelled */
+    TRANSACTION_NOT_FOUND: 17,
+    /** Transaction with unadjusted tip */
+    UN_ADJUSTED_TIP: 20,
+    /** Not possible to process the message, for instance the security module is unavailable, */
+    UNABLE_TO_PROCESS: 18,
+    /** No relationship between register and terminal */
+    UNMAPPED: 19,
+  });
+
+  /**
+   * Possible states of the visit: book, attended, cancelled, etc.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVisitVisitSid = Object.freeze({
+    /** Client has attended the session */
+    ATTEND: 3,
+    /** Active reservation means that user is going to attend the session */
+    BOOK: 1,
+    /** Client has cancelled the reservation in time and without penalty */
+    CANCEL: 6,
+    /** Client has cancelled his reservation too late */
+    PENALTY: 4,
+    /** This state means that visit is registered, but it is unknown is it {@link WlClient.WlVisitVisitSid} */
+    PENDING: 7,
+    /** Visit was removed */
+    REMOVE: 8,
+    /** Client has missed the session without cancellation */
+    TRUANCY: 5,
+    /** Reservation in a wait list means that user is going to attend the session if someone will cancel his reservation */
+    WAIT: 2,
+  });
+
+  /**
+   * List of all custom imports that are supported by system.
+   *
+   * @enum {number}
+   */
+  WlClient.WlImportCustomCustomSid = Object.freeze({
+    /** Creates recurring appointments with no end date */
+    APPOINTMENT_RECURRING: 8,
+    /** Custom import which allows to import client account balance */
+    CLIENT_ACCOUNT_BALANCE: 10,
+    /** Custom import which allows to import client note */
+    CLIENT_NOTE: 5,
+    /** Custom import which allows to import client purchase refund */
+    CLIENT_PURCHASE_REFUND: 11,
+    /** Custom import which allows to import client relationship */
+    CLIENT_RELATIONSHIP: 12,
+    /** Custom import which allows to import contact block information */
+    CLIENTS: 20,
+    /** Custom import which allows to import contact log information */
+    CONTACT: 1,
+    /** Custom import which allows to import curves staff-manager custom fields */
+    CURVE_EXT_MANAGER: 15,
+    /** Custom import which allows to import curves franchisee custom fields */
+    CURVE_EXT_ORGANIZATION: 13,
+    /** Custom import which allows to import curves staff-owner custom fields */
+    CURVE_EXT_OWNER: 14,
+    /** Custom import which allows to import curves franchisee */
+    CURVE_FRANCHISE: 7,
+    /** Custom import which allows to import curves client historical visits */
+    CURVE_HISTORICAL_VISIT: 16,
+    /** Custom import which allows to import curves members */
+    CURVE_MEMBER: 4,
+    /** Custom import which allows to start import for the list of franchisees */
+    CURVE_START: 9,
+    /** Creates sold gift cards for clients */
+    LOGIN_COUPON: 17,
+    /** Custom import which allows to import purchase members */
+    PURCHASE_MEMBER: 6,
+    /** Allows to remove list of purchases from specific file */
+    PURCHASE_REMOVE: 18,
+    /** Custom import which allows to import forms */
+    QUIZ: 19,
+    /** Custom import which allows to import refund dates to update transactions */
+    REFUND: 2,
+    /** Custom import which allows to import client reward balance */
+    REWARD: 3,
+  });
+
+  /**
+   * A class for the days of the week.
+   *
+   * @enum {number}
+   */
+  WlClient.ADateWeekSid = Object.freeze({
+    /** Friday */
+    FRIDAY: 5,
+    /** Monday */
+    MONDAY: 1,
+    /** Saturday */
+    SATURDAY: 6,
+    /** Sunday */
+    SUNDAY: 7,
+    /** Thursday */
+    THURSDAY: 4,
+    /** Tuesday */
+    TUESDAY: 2,
+    /** Wednesday */
+    WEDNESDAY: 3,
+  });
+
+  /**
+   * List of class tab objects.
+   *
+   * @enum {number}
+   */
+  WlClient.WlClassesTabTabSid = Object.freeze({
+    /** Enrolments */
+    ENROLLMENT: 2,
+    /** Bookable Assets */
+    RESOURCE: 4,
+    /** Appointments */
+    SERVICE: 3,
+    /** Classes */
+    TRAINING: 1,
+  });
+
+  /**
+   * The source of a visit.
+   *
+   * @enum {number}
+   */
+  WlClient.WlModeModeSid = Object.freeze({
+    /** Action made via Api Endpoint. Default for leads created via API, unless overridden */
+    API: 28,
+    /** Registered through `Azure` */
+    AZURE: 21,
+    /** Visit has been created by `CENTRED` */
+    CENTRED: 23,
+    /** Visit has been created by `ClassPass` */
+    CLASSPASS_BOOKING: 8,
+    /** Debt paid via collections */
+    COLLECTIONS: 22,
+    /** Debt paid via collections */
+    COLLECTIONS_FUTURE: 26,
+    /** Action from Concerto */
+    CONCERTO: 27,
+    /** Action made via email */
+    EMAIL: 18,
+    /** Indicating that the source is Facebook */
+    FACEBOOK: 20,
+    /** Action from Go High Level */
+    GO_HIGH_LEVEL: 30,
+    /** Indicating that the source is Google */
+    GOOGLE: 19,
+    /** Visit has been created by Google Booking Service */
+    GOOGLE_BOOKING: 7,
+    /** Visit has been created by `GymPass` */
+    GYMPASS_BOOKING: 14,
+    /** Visit was created during import */
+    IMPORT: 5,
+    /** Action made via microsite */
+    MICROSITE: 12,
+    /** Indicating that the source is Microsoft */
+    MICROSOFT: 24,
+    /** Client booked session on My Presence Site */
+    MY_PRESENCE_SITE: 13,
+    /** Action made via SMS */
+    SMS: 17,
+    /** Staff booked session from spa backend */
+    SPA_BACKEND: 4,
+    /** Client booked session from spa frontend */
+    SPA_FRONTEND: 3,
+    /** Created by system */
+    SYSTEM: 10,
+    /** Means that we did not define mode */
+    UNDEFINED: 6,
+    /** Client booked session from Attendance Web App */
+    WEB_APP_ATTENDANCE: 16,
+    /** Client checked-in for the session through Check-In Web App */
+    WEB_APP_CHECK_IN: 15,
+    /** Staff booked session for client from website backend */
+    WEB_BACKEND: 2,
+    /** Client booked session from website frontend */
+    WEB_FRONTEND: 1,
+    /** Action made via widget (purchase, book etc) */
+    WIDGET: 11,
+    /** Action from Zapier */
+    ZAPIER: 25,
+  });
+
+  /**
+   * List of different directories, which can use wellnessliving as a source of data.
+   *
+   * @enum {number}
+   */
+  WlClient.RsProjectSid = Object.freeze({
+    /** WellnessLiving Explorer */
+    WELLNESSLIVING: 4,
+  });
+
+  /**
+   * List of intents of the user in the business.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLoginMemberIntentsMemberIntentsSid = Object.freeze({
+    /** Customer asks about payment methods, financing, invoices, payment issues, or billing to insurance */
+    BILLING_INQUIRY: 1,
+    /** Customer clearly expresses intent to schedule a new class, appointment, event, or asset */
+    BOOKING: 2,
+    /** Customer explicitly asks to cancel an existing booking with no intent to reschedule */
+    BOOKING_CANCELLATION: 3,
+    /** Customer explicitly asks to change the date, time, or provider for an existing booking */
+    BOOKING_RESCHEDULE: 4,
+    /** Customer requests operational or logistical details about the business (address, hours, contacts) */
+    BUSINESS_INFORMATION: 5,
+    /** Customer asks whether a specific instructor, staff member, or service is available */
+    CHECK_AVAILABILITY: 6,
+    /** Customer asks general wellness or fitness questions not tied to appointments, pricing, or availability */
+    GENERAL_INQUIRY: 7,
+    /** Customer wants to leave a voicemail, voice note, or message for staff */
+    LEAVE_MESSAGE: 8,
+    /** Customer requests cost or pricing details for services */
+    PRICING_INQUIRY: 9,
+    /** Customer asks about packages, session passes, or membership options */
+    PURCHASE_OPTIONS_INQUIRY: 10,
+    /** Customer mentions they were referred by someone */
+    REFERRAL: 11,
+    /** Customer expresses interest in a service without asking about pricing or availability specifically */
+    SERVICE_INQUIRY: 12,
+    /** Customer requests to speak with a staff member, receive a callback, or staff follow-up is needed */
+    STAFF_ASSISTANCE_REQUEST: 13,
+    /** Customer insists on immediate live transfer to a staff member */
+    TRANSFER_CALL_TO_STAFF: 14,
+    /** Customer asks about their already scheduled or upcoming appointments */
+    VIEW_BOOKINGS: 15,
+    /** Customer asks about their purchased memberships, session passes, or packages */
+    VIEW_CLIENT_PO_DETAILS: 16,
+  });
+
+  /**
+   * List of member vaccination statuses.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLoginMemberVaccinationStatusVaccinationStatusSid = Object.freeze({
+    /** Fully Vaccinated */
+    FULL: 3,
+    /** Unvaccinated */
+    NONE: 1,
+    /** Partially Vaccinated */
+    PARTIAL: 2,
+    /** Unknown */
+    UNKNOWN: 4,
+  });
+
+  /**
+   * List of image types.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreDriveDriveTypeSid = Object.freeze({
+    /** Bmp image */
+    BMP: 4,
+    /** Gif image */
+    GIF: 1,
+    /** Jpeg image */
+    JPEG: 2,
+    /** Png image */
+    PNG: 3,
+  });
+
+  /**
+   * Day time periods.
+   *
+   * @enum {number}
+   */
+  WlClient.RsScheduleTimeSid = Object.freeze({
+    /** Afternoon */
+    AFTERNOON: 2,
+    /** Evening */
+    EVENING: 3,
+    /** Morning */
+    MORNING: 1,
+  });
+
+  /**
+   * A class for filter states for flagged fields.
+   *
+   * @enum {number}
+   */
+  WlClient.AFlagSid = Object.freeze({
+    /** All records */
+    ALL: 1,
+    /** Records with the flag turned off */
+    OFF: 2,
+    /** Records with the flag turned on */
+    ON: 3,
+  });
+
+  /**
+   * A list of services.
+   *
+   * @enum {number}
+   */
+  WlClient.WlServiceServiceSid = Object.freeze({
+    /** Appointment */
+    APPOINTMENT: 1,
+    /** Belts */
+    BELT: 6,
+    /** Bookable asset */
+    BOOKABLE_ASSET: 4,
+    /** Class */
+    CLASSES: 2,
+    /** Event */
+    EVENT: 3,
+    /** Gym visits */
+    GYM: 5,
+  });
+
+  /**
+   * A list of client booking flow types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsBusinessCategorySid = Object.freeze({
+    /** Musician schools */
+    EDUCATION: 6,
+    /** Traditional medicine */
+    HEALTH: 3,
+    /** Spa saloons */
+    RECREATION: 2,
+    /** Yoga and Fitness studios and gyms */
+    SPORT: 1,
+  });
+
+  /**
+   * Business status for managing claim request behavior.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessClaimBusinessClaimStatusSid = Object.freeze({
+    /** Business HAD a contract with WL, but decided not to continue it, i.e. it is a churned business, or a business */
+    CHURN: 4,
+    /** Business has a contract with WL, be it a trial (with all fields updated and actual), or a subscription */
+    CUSTOMER: 3,
+    /** Business is not a WL client and never was, i.e. it is a true prospect business */
+    PROSPECT: 1,
+    /** Business claiming process started, the contact information was verified, the trial has started, but company */
+    UNVERIFY: 2,
+  });
+
+  /**
+   * Types of the possible ranks in different business.
+   *
+   * @enum {number}
+   */
+  WlClient.RsRankTypeSid = Object.freeze({
+    /** Belts for Martial Arts */
+    BELT: 1,
+  });
+
+  /**
+   * List of available data center regions.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreAmazonRegionAmazonRegionSid = Object.freeze({
+    /** Sydney, Australia */
+    AP_SOUTHEAST_2: 2,
+    /** North Virginia, USA */
+    US_EAST_1: 1,
+  });
+
+  /**
+   * Describes reports grouping dates ranges.
+   *
+   * @enum {number}
+   */
+  WlClient.RsReportGroupSid = Object.freeze({
+    /** Step 1 day */
+    DAY: 1,
+    /** Step 1 hour */
+    HOUR: 5,
+    /** Step 1 month */
+    MONTH: 3,
+    /** Step 1 week */
+    WEEK: 2,
+    /** Step 1 year */
+    YEAR: 4,
+  });
+
+  /**
+   * Set of pages for dashboard.
+   *
+   * @enum {number}
+   */
+  WlClient.RsReportPageSid = Object.freeze({
+    /** List of requested appointments */
+    APPOINTMENT_REQUEST: 4,
+    /** Collection with following reports: */
+    BUSINESS_CUSTOMER_STATUS: 12,
+    /** Collection with list of searches and "All clients" report */
+    LOGIN_CLIENT_ALL: 7,
+    /** Collection with list of progress log charts */
+    MEMBER_PROGRESS_LOG_CHART: 8,
+    /** Collection with list of progress log table */
+    MEMBER_PROGRESS_LOG_TABLE: 9,
+    /** Collection with {@link WlClient.RsReportSid} */
+    PROFILE_ATTENDANCE_SCHEDULE: 10,
+    /** Collection with following reports: */
+    PROFILE_PURCHASE: 11,
+    /** Leaderboard to display in backend */
+    REWARD_BOARD: 5,
+    /** Current schedule */
+    SCHEDULE_PROSPECT: 3,
+    /** Set of staff retention list reports */
+    STAFF_RETENTION: 6,
+    /** Set of attendance reports */
+    VISIT: 2,
+  });
+
+  /**
+   * Describes charts types (bar, line, area) and chart modes.
+   *
+   * @enum {number}
+   */
+  WlClient.RsReportChartViewSid = Object.freeze({
+    /** Area chart */
+    AREA: 2,
+    /** Column chart */
+    COLUMN: 1,
+    /** Donut chart */
+    DONUT: 5,
+    /** Line chart */
+    LINE: 3,
+    /** Year-by-year comparisons in the column chart */
+    YEAR_COLUMN: 4,
+  });
+
+  /**
+   * List of announcement statuses.
+   *
+   * @enum {number}
+   */
+  WlClient.WlAnnouncementAnnouncementStatusEnum = Object.freeze({
+    /** Announcement does not have publish/unpublish dates */
+    DRAFT: 1,
+    /** Announcement currently is published */
+    PUBLISH: 2,
+    /** Announcement scheduled for publishing */
+    SCHEDULE: 3,
+    /** Announcement previously will be published, but now not published */
+    UNPUBLISH: 4,
+  });
+
+  /**
+   * List of possible sort order.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreSidSortOrderSid = Object.freeze({
+    /** Ascending order */
+    ASC: 2,
+    /** Descending order */
+    DESC: 1,
+  });
+
+  /**
+   * List of fields by which you can sort.
+   *
+   * @enum {number}
+   */
+  WlClient.WlAnnouncementSortFieldSid = Object.freeze({
+    /** Created by field */
+    CREATED_BY: 1,
+    /** Created date field */
+    CREATED_DATE: 2,
+    /** Description field */
+    DESCRIPTION: 3,
+    /** Image field */
+    IMAGE: 4,
+    /** Location field */
+    LOCATION: 5,
+    /** Publish date field */
+    PUBLISH_DATE: 6,
+    /** Status field */
+    STATUS: 7,
+    /** Title field */
+    TITLE: 8,
+    /** Unpublish date field */
+    UNPUBLISH_DATE: 9,
+  });
+
+  /**
+   * List of general fields in user's profile.
+   *
+   * @enum {number}
+   */
+  WlClient.RsFieldGeneralSid = Object.freeze({
+    /** Set of fields to choose address */
+    ADDRESS: 9,
+    /** Set of fields to choose birthday date */
+    BIRTHDAY: 7,
+    /** Gender field */
+    GENDER: 8,
+    /** Image */
+    IMAGE: 13,
+    /** Home location */
+    LOCATION: 10,
+    /** Block with login information (email and password) */
+    LOGIN: 3,
+    /** Member ID */
+    MEMBER: 11,
+    /** First name */
+    NAME_FIRST: 2,
+    /** Last name */
+    NAME_LAST: 1,
+    /** Cell phone number */
+    PHONE_CELL: 4,
+    /** Home phone number */
+    PHONE_HOME: 5,
+    /** Work phone number + ext */
+    PHONE_WORK: 6,
+    /** Referred by */
+    REFERRER: 12,
+    /** Client status (client/member types). System default client/member types see SystemSid */
+    STATUS: 14,
+    /** Timezone field */
+    TIMEZONE: 15,
+    /** Vaccination status. See {@link WlClient.WlLoginMemberVaccinationStatusVaccinationStatusSid} */
+    VACCINATION_STATUS: 16,
+  });
+
+  /**
+   * Possible types of the custom fields: text, checkbox, radio buttons, etc.
+   *
+   * @enum {number}
+   */
+  WlClient.RsFieldTypeSid = Object.freeze({
+    /** Checkbox field. The `s_value` for this type of field can be 1 if checkbox is checked and 0 otherwise */
+    CHECKBOX: 2,
+    /** General field. Has its own format */
+    GENERAL: 5,
+    /** Radio buttons */
+    RADIO: 4,
+    /** Drop-down menu */
+    SELECT: 3,
+    /** One line text field */
+    TEXT: 1,
+  });
+
+  /**
+   * Program types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsProgramSid = Object.freeze({
+    /** Special Membership that does not allow client to visit anything but fill client's account after purchase */
+    ACCOUNT_MEMBERSHIP: 21,
+    /** Special Time-Based pass that does not allow client to visit anything but fill client's account after purchase */
+    ACCOUNT_PASS: 20,
+    /** Class Guest pass */
+    CLASS_GUEST: 25,
+    /** Class Pass */
+    CLASS_LIMIT: 1,
+    /** Class Membership */
+    CLASS_MEMBERSHIP: 5,
+    /** Class Time-Based pass */
+    CLASS_PASS: 6,
+    /** WellnessLiving Promotion */
+    CLASS_PROSPECT: 4,
+    /** Daily Deal Integration: not for sale, only redemption codes */
+    DEAL: 7,
+    /** Enrollment */
+    ENROLLMENT: 14,
+    /** "Wellness Program" membership */
+    INSURANCE_MEMBERSHIP: 22,
+    /** Package */
+    PACKAGE: 3,
+    /** Resource Duration Pass */
+    RESOURCE_DURATION: 19,
+    /** Resource Limit Pass */
+    RESOURCE_LIMIT: 15,
+    /** Resource Membership */
+    RESOURCE_MEMBERSHIP: 16,
+    /** Resource Time-Based pass */
+    RESOURCE_PASS: 17,
+    /** Appointment Duration Pass */
+    SERVICE_DURATION: 18,
+    /** Appointment session pass */
+    SERVICE_LIMIT: 11,
+    /** Appointment membership */
+    SERVICE_MEMBERSHIP: 12,
+    /** Appointment Time-Based pass */
+    SERVICE_PASS: 13,
+    /** Video Membership */
+    VIDEO_MEMBERSHIP: 23,
+    /** Gym Guest pass */
+    VISIT_GUEST: 24,
+    /** Gym Pass */
+    VISIT_LIMIT: 8,
+    /** Gym Membership */
+    VISIT_MEMBERSHIP: 9,
+    /** Gym Time-Based pass */
+    VISIT_PASS: 10,
+  });
+
+  /**
+   * Program types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsProgramTypeSid = Object.freeze({
+    /** Duration Pass */
+    DURATION: 7,
+    /** Guest passes */
+    GUEST: 8,
+    /** Class pass */
+    LIMIT: 1,
+    /** This promotion is a membership */
+    MEMBERSHIP: 3,
+    /** Type for programs that are not presented in {@link WlClient.RsProgramSid} */
+    OTHER: 6,
+    /** Packages and Daily deals */
+    PACKAGE: 4,
+    /** Unlimited pass. Day/week/month pass */
+    PASS: 2,
+    /** Special WellnessLiving promote passes that allow to visit specific classes to get acquainted with the business */
+    PROSPECT: 5,
+  });
+
+  /**
+   * A class for managing time intervals.
+   *
+   * @enum {number}
+   */
+  WlClient.ADurationSid = Object.freeze({
+    /** Days */
+    DAY: 4,
+    /** Hours */
+    HOUR: 3,
+    /** Minutes */
+    MINUTE: 2,
+    /** Months */
+    MONTH: 5,
+    /** Seconds */
+    SECOND: 1,
+    /** Weeks (7 days) */
+    WEEK: 7,
+    /** Two weeks (14 days) */
+    WEEK2: 9,
+    /** Foursome of weeks (28 days) */
+    WEEK4: 8,
+    /** Years */
+    YEAR: 6,
+  });
+
+  /**
+   * Class to process string identifiers for duration types
+   *
+   * @enum {number}
+   */
+  WlClient.RsDurationTypeSid = Object.freeze({
+    /** Specific date. Example, 2013-12-24 */
+    DATE: 2,
+    /** No ending date */
+    ETERNAL: 3,
+    /** Examples: 12 days, 2 months, 2 hours etc */
+    PERIOD: 1,
+  });
+
+  /**
+   * Purchase restrictions.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionPurchaseRestrictionSid = Object.freeze({
+    /** Purchase option available for all clients */
+    ALL: 1,
+    /** Purchase option introductory offer, available for new clients only */
+    INTRODUCTORY: 2,
+    /** Purchase option available for clients with special login type or member group */
+    TYPE: 3,
+  });
+
+  /**
+   * String identifiers for gender.
+   *
+   * @enum {number}
+   */
+  WlClient.AGenderSid = Object.freeze({
+    /** Female gender */
+    FEMALE: 2,
+    /** Male gender */
+    MALE: 1,
+    /** Gender is undefined in cases where the user preferred not to identify their gender */
+    UNDEFINED: 3,
+  });
+
+  /**
+   * The status of form actions.
+   *
+   * @enum {number}
+   */
+  WlClient.WlQuizActivityActivitySid = Object.freeze({
+    /** Form was added to the profile */
+    ADD: 1,
+    /** Form was saved as a draft */
+    DRAFT: 2,
+    /** Form was edited */
+    EDIT: 3,
+    /** Form was exported to CSV file */
+    EXPORT_CSV: 4,
+    /** Form was exported to PDF file */
+    EXPORT_PDF: 5,
+    /** Form was printed */
+    PRINTING: 6,
+    /** Form was submitted */
+    SUBMIT: 7,
+    /** Form was viewed */
+    VIEW: 8,
+  });
+
+  /**
+   * List of quiz frequency types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlQuizQuizFrequencySid = Object.freeze({
+    /** Client will be asked to complete the quiz every time they book a service or purchase item */
+    EVERY: 1,
+    /** Client will be asked to complete the quiz the first time they book a service or purchase item */
+    FIRST: 2,
+    /** Client will be asked to complete the quiz only one time when they book a service or purchase item */
+    ONCE: 3,
+  });
+
+  /**
+   * A list of purchase types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPurchaseItemSid = Object.freeze({
+    /** Personal user's account refill */
+    ACCOUNT: 7,
+    /** Business account payment */
+    ACCOUNT_BUSINESS: 11,
+    /** Single appointment reservation */
+    APPOINTMENT: 8,
+    /** Single appointment reservation with deposit */
+    APPOINTMENT_DEPOSIT: 18,
+    /** Tips for the appointment */
+    APPOINTMENT_TIP: 22,
+    /** Expense that comes along with the payment business. It contains information about additional services which are */
+    BUSINESS_EXPENSE: 16,
+    /** A skipped purchase for the business account */
+    BUSINESS_SKIP: 17,
+    /** Business subscription payment */
+    BUSINESS_SUBSCRIPTION: 23,
+    /** Single classes */
+    CLASS_PERIOD: 2,
+    /** Collectors payments */
+    COLLECTOR_DEBT: 24,
+    /** Arbitrary money withdrawal with comment */
+    COMMENT: 13,
+    /** Gift Cards */
+    COUPON: 10,
+    /** Events and enrollments. Client can not book only one class, he needs to book the whole enrollment */
+    ENROLLMENT: 4,
+    /** Enrollment reservation with a deposit */
+    ENROLLMENT_DEPOSIT: 19,
+    /** Enrollment reservation with a discount */
+    ENROLLMENT_DISCOUNT: 21,
+    /** Payment by an installment plan */
+    INSTALLMENT: 14,
+    /** Recurrent payments */
+    MEMBERSHIP: 3,
+    /** Products */
+    PRODUCT: 9,
+    /** Promotions */
+    PROMOTION: 1,
+    /** Early cancellation fee for a memberships */
+    PROMOTION_CANCEL_FEE: 25,
+    /** A purchase to renew a promotion */
+    PROMOTION_RENEW: 12,
+    /** A purchase to book an asset */
+    RESOURCE: 15,
+    /** A purchase to book a deposit asset */
+    RESOURCE_DEPOSIT: 20,
+    /** Purchase item for appointments */
+    SERVICE: 6,
+    /** Tuition purchase item */
+    TUITION: 26,
+  });
+
+  /**
+   * List of embed video sources.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVideoVideoEmbedSourceSid = Object.freeze({
+    /** Les Mills */
+    LES_MILLS: 4,
+    /** Vimeo */
+    VIMEO: 2,
+    /** Wistia */
+    WISTIA: 3,
+    /** YouTube */
+    YOUTUBE: 1,
+  });
+
+  /**
+   * A list of two answers for any question: Yes or No.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreSidYesNoSid = Object.freeze({
+    /** The answer is "no" */
+    NO: 2,
+    /** The answer is "yes" */
+    YES: 1,
+  });
+
+  /**
+   * List of video types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVideoVideoSourceSid = Object.freeze({
+    /** Embedded video */
+    EMBED: 2,
+    /** Uploaded video */
+    UPLOAD: 1,
+  });
+
+  /**
+   * List of video catalog sorting types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVideoCatalogFilterSortFilterSortSid = Object.freeze({
+    /** Sort alphabetically */
+    ALPHABET: 1,
+    /** Sort by custom */
+    CUSTOM: 4,
+    /** Sort by most recently added */
+    RECENT: 2,
+    /** Sorted by number of views */
+    VIEW: 3,
+  });
+
+  /**
+   * String identifiers for rs.privilege.role.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPrivilegeRoleSid = Object.freeze({
+    /** Staff role business owner */
+    BUSINESS_OWNER: 1,
+    /** Staff role front desk */
+    FRONT_DESK: 4,
+    /** Staff role instructor */
+    INSTRUCTOR: 3,
+    /** Staff role location owner */
+    LOCATION_OWNER: 2,
+  });
+
+  /**
+   * A list of skin types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsSkinSid = Object.freeze({
+    /** Ai Agent web-chat */
+    AI_AGENT: 19,
+    /** Application skin */
+    APPLICATION: 13,
+    /** Appointment booking wizard */
+    APPOINTMENT: 7,
+    /** Online store widget */
+    CATALOG_FOREIGN: 21,
+    /** Event enrollment wizard widget */
+    ENROLLMENT: 8,
+    /** Fitbuilder widget */
+    FITBUILDER: 17,
+    /** Skin for lead tracking form */
+    LEAD: 9,
+    /** Skin for lead tracking form from microservice */
+    LEAD_FOREIGN: 20,
+    /** Mobile schedule version */
+    MOBILE_SCHEDULE: 10,
+    /** Asset booking wizard */
+    RESOURCE: 16,
+    /** Review list widget */
+    REVIEW_LIST: 4,
+    /** General schedule design appearance */
+    SCHEDULE_DESIGN: 15,
+    /** Foreign schedule widget on react language */
+    SCHEDULE_FOREIGN: 18,
+    /** Schedule list widget */
+    SCHEDULE_LIST: 1,
+    /** Standard version of schedule */
+    SCHEDULE_STANDARD: 14,
+    /** Staff widget */
+    STAFF: 12,
+    /** Online store widget */
+    STORE: 11,
+  });
+
+  /**
+   * Review status identifiers.
+   *
+   * @enum {number}
+   */
+  WlClient.RsReviewStatusSid = Object.freeze({
+    /** Admin */
+    ADMIN: 1,
+    /** Hidden */
+    HIDDEN: 4,
+    /** Publish */
+    PUBLISH: 3,
+  });
+
+  /**
+   * List of page transaction type.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPayAccountChargeSid = Object.freeze({
+    /** Account charging using payment form */
+    AUTO: 1,
+    /** Manual account charge by admin */
+    CREDIT: 3,
+    /** Manual account withdrawal by admin */
+    DEBIT: 2,
+  });
+
+  /**
+   * Lists statuses of reports from point of view of its generation.
+   *
+   * @enum {number}
+   */
+  WlClient.WlReportGeneratorReportGeneratorStatusSid = Object.freeze({
+    /** Report is in an inconsistent state */
+    ABORTED: 6,
+    /** Current operation is being aborted now */
+    ABORTING: 5,
+    /** This report is being deleted now */
+    DELETING: 4,
+    /** This report is being generated now */
+    GENERATING: 2,
+    /** Generation of this report is queued */
+    QUEUED: 1,
+    /** Generation of this report is now completed */
+    READY: 3,
+  });
+
+  /**
+   * List of responses for Google Captcha token.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreGoogleCaptchaCaptchaResponseSid = Object.freeze({
+    /** Token can be verified due to error from Google Captcha */
+    ERROR: 5,
+    /** Token is invalid or expired */
+    INVALID: 1,
+    /** Token is valid, but v2 captcha require */
+    REQUIRE_V2: 2,
+    /** Token is valid */
+    VALID: 3,
+    /** Token is valid but score is risky */
+    VALID_BLOCK: 4,
+  });
+
+  /**
+   * List of resource categories.
+   *
+   * @enum {number}
+   */
+  WlClient.WlResourceResourceCategoryEnum = Object.freeze({
+    /** Asset resource category */
+    ASSET: 1,
+    /** Off-site location resource category */
+    LOCATION: 2,
+  });
+
+  /**
+   * Reasons why the client can't book this class.
+   *
+   * @enum {number}
+   */
+  WlClient.WlScheduleClassViewDenyReasonSid = Object.freeze({
+    /** User is trying to book on behalf of another client, but does not have permission to do so */
+    ACCESS_DENIED: 1,
+    /** Manual restriction to book business, location or a certain class */
+    ACCESS_LIMITED: 2,
+    /** The business can not take one more client because of business subscription limitations */
+    ACCOUNT_LIMIT: 3,
+    /** Class is not available for certain age */
+    AGE_RESTRICTION: 4,
+    /** Liability Release needs to be agreed */
+    AGREE_NX: 5,
+    /** Client has unpaid fees */
+    BALANCE_NEGATIVE: 22,
+    /** It's too early to book a class */
+    BOOK_EARLY: 7,
+    /** It's too late to book a class */
+    BOOK_LATE: 8,
+    /** User's visit overlaps with another visit */
+    BOOK_OVERLAP: 25,
+    /** User's pricing options do not allow booking another visit within a certain period because of pricing option limitations */
+    BOOK_RESTRICT: 9,
+    /** Client is already booked for this session */
+    BOOKED_ALREADY: 6,
+    /** Business is inactive */
+    BUSINESS_INACTIVE: 10,
+    /** Class is canceled */
+    CLASS_CANCELED: 11,
+    /** Class is full */
+    CLASS_FULL: 14,
+    /** Class does not exist anymore */
+    CLASS_NOT_AVAILABLE_ANYMORE: 15,
+    /** Client is flagged at location */
+    CLIENT_FLAGGED: 12,
+    /** Credit card is required for booking services */
+    CREDIT_CARD_REQUIRE: 13,
+    /** Business is closed */
+    HOLIDAY: 16,
+    /** Login is required */
+    LOGIN_REQUIRED: 17,
+    /** Online booking is disabled for the class */
+    NOT_BOOKABLE: 18,
+    /** Online booking is disabled for this type of client */
+    NOT_BOOKABLE_BY_TYPE: 24,
+    /** Required personal details missing */
+    USER_INFO_MISSING: 19,
+    /** Visit to another class is required first */
+    VISIT_BEFORE: 20,
+    /** The wait list is full */
+    WAIT_LIST_LIMIT_MAX: 21,
+    /** Client has unsigned waiver */
+    WAIVER_NX: 23,
+  });
+
+  /**
+   * A list of types of visit note.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVisitNoteSidNoteSid = Object.freeze({
+    /** The usual quick accompanying note for the customer visit */
+    QUICK: 2,
+    /** Accompanying medical note for the customer visit */
+    SOAP: 1,
+  });
+
+  /**
+   * List of possible value of virtual integrations.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVirtualVirtualProviderSid = Object.freeze({
+    /** Virtual integration non implemented */
+    NON_INTEGRATED: 2,
+    /** Virtual Zoom service integration */
+    ZOOM: 1,
+  });
+
+  /**
+   * The possible payment types an appointment can have.
+   *
+   * @enum {number}
+   */
+  WlClient.RsAppointmentPaySid = Object.freeze({
+    /** A deposit was paid */
+    DEPOSIT: 2,
+    /** Appointment is free and does not require payment */
+    FREE: 4,
+    /** The full price was paid */
+    FULL: 3,
+    /** Nothing was paid */
+    NONE: 1,
+  });
+
+  /**
+   * Possible ways to stop repeatable events.
+   *
+   * @enum {number}
+   */
+  WlClient.RsRepeatEndSid = Object.freeze({
+    /** Stop after a certain number of repeats */
+    COUNT: 2,
+    /** Stop after a certain date. Including this date */
+    DATE: 3,
+    /** Eternal appointments. Such appointments are scheduled for one year */
+    ETERNAL: 1,
+  });
+
+  /**
+   * Relation type between two relatives.
+   *
+   * @enum {number}
+   */
+  WlClient.RsFamilyRelationSid = Object.freeze({
+    /** Care participant */
+    CARE_PARTICIPANT: 12,
+    /** Care recipient */
+    CARE_RECEIVER: 9,
+    /** Care provider */
+    CAREGIVER: 8,
+    /** Case load */
+    CASE_LOAD: 16,
+    /** Case Manager */
+    CASE_MANAGER: 15,
+    /** Child of the parent */
+    CHILD: 5,
+    /** Dependent */
+    DEPENDENT: 10,
+    /** Friend */
+    FRIEND: 2,
+    /** Guardian */
+    GUARDIAN: 7,
+    /** Not specified custom relationship */
+    OTHER: 6,
+    /** Parent of the child */
+    PARENT: 3,
+    /** Sibling. A brother or sister */
+    SIBLING: 4,
+    /** Spouse. A husband or wife */
+    SPOUSE: 1,
+    /** Student */
+    STUDENT: 14,
+    /** Teacher */
+    TEACHER: 13,
+    /** Therapist */
+    THERAPIST: 11,
+  });
+
+  /**
+   * Class/Event booking process sid class.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBookProcessProcessSpaSid = Object.freeze({
+    /** Step "Class details" */
+    DETAIL: 10,
+    /** Step "Documents" */
+    DOCUMENT: 8,
+    /** Step "Frequency" */
+    FREQUENCY: 9,
+    /** Information about the class */
+    INFO: 2,
+    /** Installment selection */
+    INSTALLMENT: 4,
+    /** Sign in, Sign up, fill in all necessary account data */
+    PASSPORT: 1,
+    /** Card data and the booking confirmation */
+    PAYMENT: 5,
+    /** Quizzes attached to the class */
+    QUIZ: 7,
+    /** Booking for */
+    RELATION: 12,
+    /** Selection of assets */
+    RESOURCE: 6,
+    /** Session selection step for a session event */
+    SESSION: 11,
+    /** A list of possible Purchase Options to be bought */
+    STORE: 3,
+  });
+
+  /**
+   * List of possible modes to require amount while booking a class.
+   *
+   * @enum {number}
+   */
+  WlClient.WlClassesRequirePaySid = Object.freeze({
+    /** Clients can pay online or pay when they visit */
+    ADVANCE: 3,
+    /** Client should leave a deposit before booking an event */
+    DEPOSIT: 4,
+    /** Client must purchase online */
+    ONLINE: 1,
+    /** Clients can only pay when they visit. Online payment is not available */
+    VISIT: 2,
+  });
+
+  /**
+   * List of ages, which are suitable for visiting this location.
+   *
+   * @enum {number}
+   */
+  WlClient.RsAgeSid = Object.freeze({
+    /** An Adaptive / Inclusive Programs */
+    ADAPTIVE: 5,
+    /** An adult */
+    ADULT: 2,
+    /** A kid */
+    KID: 1,
+    /** Natal */
+    NATAL: 4,
+    /** Senior */
+    SENIOR: 3,
+  });
+
+  /**
+   * Type of facilities available at a location.
+   *
+   * @enum {number}
+   */
+  WlClient.RsFacilitySid = Object.freeze({
+    /** The location has accessible parking */
+    ACCESSIBLE_PARKING: 18,
+    /** The location allows app check-in */
+    APP_CHECK_IN: 22,
+    /** The location has aquatic wheelchair access */
+    AQUATIC_WHEELCHAIR_ACCESS: 24,
+    /** This location has Asian owned */
+    ASIAN_OWNED: 23,
+    /** This location has barre equipment */
+    BARRE_EQUIPMENT: 25,
+    /** This location has basketball courts */
+    BASKETBALL_COURTS: 8,
+    /** This location has bike racks */
+    BIKE_RACKS: 26,
+    /** This location is black owned */
+    BLACK_OWNED: 27,
+    /** This location has boxing rings or heavy bags */
+    BOXING_RINGS_HEAVY_BAGS: 28,
+    /** This location has cardio machines */
+    CARDIO_MACHINES: 29,
+    /** This location has change rooms */
+    CHANGE_ROOM: 1,
+    /** This location has childcare services */
+    CHILDCARE: 14,
+    /** This location has classrooms */
+    CLASSROOMS: 30,
+    /** This location has climbing bouldering wall */
+    CLIMBING_BOULDERING_WALL: 31,
+    /** This location has climbing walls */
+    CLIMBING_WALLS: 32,
+    /** This location is close to public transit */
+    CLOSE_PUBLIC_TRANSIT: 33,
+    /** This location has cold plunge */
+    COLD_PLUNGE: 34,
+    /** This location has couples treatment rooms */
+    COUPLES_TREATMENT_ROOMS: 35,
+    /** This location has cryotherapy */
+    CRYOTHERAPY: 36,
+    /** This location has diaper changing stations */
+    DIAPER_CHANGING_STATIONS: 37,
+    /** This location is disability owned */
+    DISABILITY_OWNED: 38,
+    /** This location has eco-friendly practices */
+    ECO_FRIENDLY_PRACTICES: 39,
+    /** This location has elevator ramps */
+    ELEVATOR_RAMPS: 40,
+    /** This location has equestrian facilities */
+    EQUESTRIAN_FACILITIES: 41,
+    /** This location has equipment rentals */
+    EQUIPMENT_RENTALS: 19,
+    /** This location is ESA friendly */
+    ESA_FRIENDLY: 42,
+    /** This location has EV charging stations */
+    EV_CHARGING_STATIONS: 43,
+    /** This location is family friendly */
+    FAMILY_FRIENDLY: 44,
+    /** This location is family owned */
+    FAMILY_OWNED: 45,
+    /** This location has family restroom */
+    FAMILY_RESTROOM: 46,
+    /** This location has food drink */
+    FOOD_DRINK: 20,
+    /** This location has free weights area */
+    FREE_WEIGHTS_AREA: 47,
+    /** This location has gender neutral restroom */
+    GENDER_NEUTRAL_RESTROOM: 48,
+    /** This location has group fitness studio */
+    GROUP_FITNESS_STUDIO: 49,
+    /** This location has hair styling stations */
+    HAIR_STYLING_STATIONS: 50,
+    /** This location has hot tub */
+    HOT_TUB: 51,
+    /** This location has hydrotherapy */
+    HYDROTHERAPY: 52,
+    /** This location has ice skating rinks */
+    ICE_SKATING_RINKS: 53,
+    /** This location is indigenous owned */
+    INDIGENOUS_OWNED: 54,
+    /** This location has indoor turf field */
+    INDOOR_TURF_FIELD: 55,
+    /** This location has a juice bar */
+    JUICE_BAR: 15,
+    /** This location has lactation room */
+    LACTATION_ROOM: 56,
+    /** This location has laser treatments */
+    LASER_TREATMENTS: 58,
+    /** This location is Latinx owned */
+    LATINX_OWNED: 57,
+    /** This location is LEED certified building */
+    LEED_CERTIFIED_BUILDING: 59,
+    /** This location is LGBTQ friendly */
+    LGBTQ_FRIENDLY: 60,
+    /** This location is LGBTQ owned */
+    LGBTQ_OWNED: 61,
+    /** This location has lockers available for clients */
+    LOCKERS: 2,
+    /** This location has manicure/pedicure stations */
+    MANICURE_PEDICURE_STATIONS: 62,
+    /** This location has massage tables/chairs */
+    MASSAGE_TABLES_CHAIRS: 63,
+    /** This location has meditation/quiet room */
+    MEDITATION_QUIET_ROOM: 64,
+    /** This location has music practice rooms */
+    MUSIC_PRACTICE_ROOMS: 65,
+    /** This location is neurodiverse friendly */
+    NEURODIVERSE_FRIENDLY: 66,
+    /** This location has ninja/parkour structures */
+    NINJA_PARKOUR_STRUCTURES: 67,
+    /** This location has site parking for clients */
+    ON_SITE_PARKING: 16,
+    /** This location has outdoor sports field */
+    OUTDOOR_SPORTS_FIELD: 68,
+    /** This location has outdoor training space */
+    OUTDOOR_TRAINING_SPACE: 69,
+    /** This location has parking nearby for clients */
+    PARKING_NEARBY: 17,
+    /** This location is pet friendly */
+    PET_FRIENDLY: 70,
+    /** This location has pickleball courts */
+    PICKLEBALL_COURTS: 72,
+    /** This location has pilates reformers */
+    PILATES_REFORMERS: 71,
+    /** This location has pole/aerial equipment */
+    POLE_AERIAL_EQUIPMENT: 73,
+    /** This location has pool lift */
+    POOL_LIFT: 74,
+    /** This location has private treatment rooms */
+    PRIVATE_TREATMENT_ROOMS: 75,
+    /** This location has a pro-shop */
+    PRO_SHOP: 12,
+    /** This location has racquetball courts */
+    RACQUETBALL_COURTS: 7,
+    /** This location has rehab equipment */
+    REHAB_EQUIPMENT: 76,
+    /** This location has running track */
+    RUNNING_TRACK: 77,
+    /** This location is safe space certified */
+    SAFE_SPACE_CERTIFIED: 78,
+    /** This location has saunas */
+    SAUNA: 10,
+    /** This location is senior friendly */
+    SENIOR_FRIENDLY: 79,
+    /** This location has showers */
+    SHOWERS: 4,
+    /** This location has smart fitness equipment */
+    SMART_FITNESS_EQUIPMENT: 80,
+    /** This location has a spa */
+    SPA: 9,
+    /** This location has spin bikes */
+    SPIN_BIKES: 81,
+    /** This location has squash courts */
+    SQUASH_COURTS: 6,
+    /** This location has steam room */
+    STEAM_ROOM: 82,
+    /** This location has strength machines */
+    STRENGTH_MACHINES: 83,
+    /** This location has a swimming pool */
+    SWIMMING_POOL: 11,
+    /** This location has tanning beds */
+    TANNING_BEDS: 84,
+    /** This location has tattoo equipment */
+    TATTOO_EQUIPMENT: 85,
+    /** This location provides towel service */
+    TOWEL_SERVICE: 5,
+    /** This location is trauma informed */
+    TRAUMA_INFORMED: 86,
+    /** This location has turf/functional training */
+    TURF_FUNCTIONAL_TRAINING: 87,
+    /** This location is veteran owned */
+    VETERAN_OWNED: 89,
+    /** This location offers virtual/hybrid classes */
+    VIRTUAL_HYBRID_CLASSES: 88,
+    /** This location has washrooms for clients */
+    WASHROOMS: 3,
+    /** This location has wheelchair accessible entrance */
+    WHEELCHAIR_ACCESSIBLE_ENTRANCE: 90,
+    /** This location has wheelchair accessible restroom */
+    WHEELCHAIR_ACCESSIBLE_RESTROOM: 91,
+    /** This location has a woman's only area */
+    WOMAN_ONLY_AREA: 13,
+    /** This location is women owned */
+    WOMEN_OWNED: 92,
+    /** This location has zero depth entry pool */
+    ZERO_DEPTH_ENTRY_POOL: 93,
+  });
+
+  /**
+   * List of sources from where the user registers.
+   *
+   * @enum {number}
+   */
+  WlClient.WlProfileRegisterSourceSid = Object.freeze({
+    /** Source when a user registers during purchase or booking */
+    BOOKING_AND_PURCHASE: 1,
+    /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
+    SELF: 2,
+    /** This is a service value, which means to not choose any specific source */
+    UNSET_VALUE: 3,
+  });
+
+  /**
+   * List of file extensions.
+   *
+   * @enum {number}
+   */
+  WlClient.WlProfileAttachAttachPreviewSid = Object.freeze({
+    /** Image file */
+    IMAGE: 1,
+    /** Pdf file */
+    PDF: 2,
+  });
+
+  /**
+   * Promotion or package date start rule.
+   *
+   * @enum {number}
+   */
+  WlClient.RsActivationSid = Object.freeze({
+    /** Number of a day of the month or of the week */
+    DAY: 7,
+    /** Custom date */
+    FIXED: 3,
+    /** The first day of month */
+    MONTH_FIRST: 4,
+    /** The 15th day of the month */
+    MONTH_HALF: 6,
+    /** The last day of the month */
+    MONTH_LAST: 5,
+    /** Date of the sale */
+    SALE: 1,
+    /** Date of the first visit */
+    VISIT: 2,
+  });
+
+  /**
+   * String identifiers for tax type.
+   *
+   * @enum {number}
+   */
+  WlClient.RsCommissionTypeSid = Object.freeze({
+    /** Fixed type */
+    FLAT: 1,
+    /** Percent type */
+    PERCENT: 2,
+  });
+
+  /**
+   * List of sale categories on the store page.
+   *
+   * @enum {number}
+   */
+  WlClient.RsSaleSid = Object.freeze({
+    /** Single appointment reservation */
+    APPOINTMENT: 8,
+    /** Single appointment deposit reservation */
+    APPOINTMENT_DEPOSIT: 11,
+    /** Tips for the appointment */
+    APPOINTMENT_TIP: 12,
+    /** Single class visit */
+    CLASS_PERIOD: 6,
+    /** Gift card */
+    COUPON: 7,
+    /** Enrollments. Classes where flag event is `true` */
+    ENROLLMENT: 3,
+    /** Promotions with program {@link WlClient.RsProgramSid} */
+    PACKAGE: 5,
+    /** Products: water, t-shirts, etc */
+    PRODUCT: 4,
+    /** Promotions with program category {@link WlClient.RsProgramCategorySid} and {@link WlClient.RsProgramCategorySid} */
+    PROMOTION_CLASS: 1,
+    /** Promotions with program category {@link WlClient.RsProgramCategorySid} */
+    PROMOTION_RESOURCE: 9,
+    /** Promotions with program category {@link WlClient.RsProgramCategorySid} and {@link WlClient.RsProgramCategorySid} */
+    PROMOTION_SERVICE: 2,
+    /** Promotions with program category {@link WlClient.RsProgramCategorySid} */
+    PROMOTION_VIDEO: 13,
+    /** Products: water, t-shirts, etc. That is available for quick buy */
+    QUICK_BUY: 10,
+    /** Tuition */
+    TUITION: 14,
+  });
+
+  /**
+   * Sources of system notes.
+   *
+   * @enum {number}
+   */
+  WlClient.RsProfileNoteSid = Object.freeze({
+    /** A list of clients with not redeemed invitations */
+    DOORACCESS_BRIVO_INVITATION_BRIVOINVITATIONPROFILE: 5,
+    /** A list of accounts with invalid progress log */
+    MEMBER_PROGRESS_LOG_PROFILE: 3,
+    /** A list of accounts with not verified progress log */
+    MEMBER_PROGRESS_LOG_VERIFICATION: 4,
+    /** A list of accounts with negative balance */
+    PAY_ACCOUNT: 1,
+    /** A list of accounts with unsigned waivers */
+    PROFILE_PAGE_OVERVIEW_ALERT_AGREE: 8,
+    /** A list of accounts with upcoming birthdays */
+    PROFILE_PAGE_OVERVIEW_ALERT_BIRTHDAY: 6,
+    /** A list of accounts with unsigned contracts */
+    PROFILE_PAGE_OVERVIEW_ALERT_CONTRACT: 9,
+    /** A list of accounts with expired or soon expiring credit cards */
+    PROFILE_PAGE_OVERVIEW_ALERT_CREDITCARD: 7,
+    /** A list of accounts with a milestone visit */
+    PROFILE_PAGE_OVERVIEW_ALERT_MILESTONEVISIT: 12,
+    /** A list of accounts with uncompleted quizzes */
+    PROFILE_PAGE_OVERVIEW_ALERT_QUIZ: 10,
+    /** A list of accounts at risk of churn */
+    PROFILE_PAGE_OVERVIEW_ALERT_RISK: 11,
+    /** A list of due membership payments */
+    PROMOTION_PAY: 2,
+  });
+
+  /**
+   * Class for access type to login note.
+   *
+   * @enum {number}
+   */
+  WlClient.RsLoginNoteAccessSid = Object.freeze({
+    /** Login note can view all staff and client */
+    CLIENT: 1,
+    /** Login note can view only staff which create this note */
+    ME: 2,
+    /** Login note can view only all staff */
+    STAFF: 3,
+  });
+
+  /**
+   * List of modes to change user's "flag" status within a location
+   *
+   * @enum {number}
+   */
+  WlClient.RsLoginNoteFlagSid = Object.freeze({
+    /** Add flag record */
+    ADD: 1,
+    /** Remove flag record */
+    REMOVE: 2,
+  });
+
+  /**
+   * Different sources of flags, which are not set manually by the staff member. Such flags have own logic.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLocationFlagFlagSourceEnum = Object.freeze({
+    /** Flag is set because user is sent to collections. This means user has debt and cannot make new purchases */
+    COLLECTIONS: 1,
+  });
+
+  /**
+   * List of available design icons.
+   *
+   * @enum {number}
+   */
+  WlClient.WlDesignIconSid = Object.freeze({
+    /** Signs that session or pass is an appointment connected */
+    APPOINTMENT: 4,
+    /** Signs that session or pass is an asset connected */
+    ASSET: 7,
+    /** Signs that session or pass is a class or event connected */
+    CLASSES: 5,
+    /** Cycle icon. Used, for example, to show transferred status of the promotion */
+    CYCLE: 3,
+    /** Early cancel activity list icon */
+    EARLY_CANCELED: 8,
+    /** Signs that session or pass is a gym visit connected */
+    GYM_VISIT: 6,
+    /** Late cancel activity list icon */
+    LATE_CANCELED: 9,
+    /** Piece of paper with the curved end for different text notes */
+    NOTE: 2,
+    /** No show at visit activity list icon */
+    NO_SHOW: 10,
+    /** Paper with medical symbolic for medical notes */
+    SOAP: 1,
+    /** Clock activity list icon in SPA application */
+    SPA_CLOCK: 11,
+  });
+
+  /**
+   * Manages identifiers of user activity.
+   *
+   * @enum {number}
+   */
+  WlClient.RsLoginActivityTypeSid = Object.freeze({
+    /** Client books an appointment */
+    APPOINTMENT_BOOK: 27,
+    /** Client booked an appointment and shared on Facebook */
+    APPOINTMENT_BOOK_FACEBOOK: 47,
+    /** Client booked an appointment and shared on Twitter */
+    APPOINTMENT_BOOK_TWITTER: 48,
+    /** Client cancels an appointment */
+    APPOINTMENT_CANCEL: 28,
+    /** Client attends an appointment */
+    APPOINTMENT_VISIT: 23,
+    /** Client books an appointment to wait list */
+    APPOINTMENT_WAIT: 52,
+    /** Client booked an asset and shared on Facebook */
+    ASSET_BOOK_FACEBOOK: 49,
+    /** Client booked an asset and shared on Twitter */
+    ASSET_BOOK_TWITTER: 50,
+    /** Client's birthday */
+    BIRTHDAY: 1,
+    /** Client booked a class */
+    CLASS_BOOK: 2,
+    /** Client booked a class and shared on Facebook */
+    CLASS_BOOK_FACEBOOK: 43,
+    /** Client booked a class and shared on Twitter */
+    CLASS_BOOK_TWITTER: 44,
+    /** Client cancelled a class */
+    CLASS_CANCEL: 3,
+    /** Client attends a class */
+    CLASS_VISIT: 15,
+    /** Client booked a class */
+    CLASS_WAIT: 54,
+    /** Gift card transferred */
+    COUPON_TRANSFER: 51,
+    /** Staff approved a custom reward for a client */
+    CUSTOM_REWARD: 31,
+    /** Client booked an enrollment */
+    ENROLLMENT_BOOK: 17,
+    /** Client booked an enrollment and shared on Facebook */
+    ENROLLMENT_BOOK_FACEBOOK: 45,
+    /** Client booked an enrollment and shared on Twitter */
+    ENROLLMENT_BOOK_TWITTER: 46,
+    /** Client cancels an enrollment */
+    ENROLLMENT_CANCEL: 18,
+    /** Client attends an enrollment */
+    ENROLLMENT_VISIT: 16,
+    /** Client booked an enrollment */
+    ENROLLMENT_WAIT: 53,
+    /** Client connected his Facebook account */
+    FACEBOOK_CONNECT: 12,
+    /** Client disconnected his Facebook account */
+    FACEBOOK_DISCONNECT: 19,
+    /** Client added a class to favorites */
+    FAVORITE_ADD_CLASS: 4,
+    /** Client added a location to favorites */
+    FAVORITE_ADD_LOCATION: 5,
+    /** Client added a staff member to favorites */
+    FAVORITE_ADD_STAFF: 6,
+    /** Client removed a class from favorites */
+    FAVORITE_REMOVE_CLASS: 7,
+    /** Client removed a location from favorites */
+    FAVORITE_REMOVE_LOCATION: 8,
+    /** Client removed a staff member from favorites */
+    FAVORITE_REMOVE_STAFF: 9,
+    /** Client added a friend */
+    FRIEND_ADD: 10,
+    /** Client made a gym visit */
+    GYM_VISIT: 32,
+    /** Client sent an invite */
+    INVITE_SEND: 14,
+    /** The user shared location item into Facebook */
+    LOCATION_SHARE_FACEBOOK: 39,
+    /** The user shared location item into Twitter */
+    LOCATION_SHARE_TWITTER: 40,
+    /** The user spend money */
+    PAY: 22,
+    /** Client has bought prize */
+    PRIZE: 24,
+    /** Promotion transferred */
+    PROMOTION_TRANSFER: 34,
+    /** Customer bought the product */
+    PURCHASE_PRODUCT: 30,
+    /** Customer bought the promotion */
+    PURCHASE_PROMOTION: 29,
+    /** The user shared purchase item into Facebook */
+    PURCHASE_SHARE_FACEBOOK: 25,
+    /** The user shared purchase item into Twitter */
+    PURCHASE_SHARE_TWITTER: 26,
+    /** Referral made a purchase */
+    REFER_PURCHASE: 38,
+    /** A referrer is set for the user */
+    REFER_REGISTER: 37,
+    /** The user has logged in */
+    REGISTRATION: 21,
+    /** Client wrote a review */
+    REVIEW: 11,
+    /** The user shared purchase item into Facebook */
+    REVIEW_SHARE_FACEBOOK: 41,
+    /** The user shared purchase item into Twitter */
+    REVIEW_SHARE_TWITTER: 42,
+    /** Reward points were changed manually */
+    REWARD_MANUAL: 55,
+    /** All-time earned reward points have been reset */
+    REWARD_RESET: 36,
+    /** Current available reward points have been reset */
+    REWARD_RESET_AVAILABLE: 56,
+    /** Client attended several visits */
+    SUMMARY_VISIT: 35,
+    /** Client connected his Twitter account */
+    TWITTER_CONNECT: 13,
+    /** Client disconnected his Twitter account */
+    TWITTER_DISCONNECT: 20,
+  });
+
+  /**
+   * A list of bookable types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlServiceBookableSid = Object.freeze({
+    /** All users can book */
+    ALL: 1,
+    /** Only special client groups can book */
+    CUSTOM: 3,
+    /** Nobody can book */
+    NONE: 2,
+  });
+
+  /**
+   * List of layouts for client's header.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPageFrontendHeaderLayoutSid = Object.freeze({
+    /** Logo is under the main menu */
+    BOTTOM: 4,
+    /** Logo is in the left corner */
+    LEFT: 1,
+    /** Logo is in the right corner */
+    RIGHT: 2,
+    /** Logo is above the main menu */
+    TOP: 3,
+  });
+
+  /**
+   * A position of logo.
+   *
+   * @enum {number}
+   */
+  WlClient.RsBusinessDesignLogoPositionSid = Object.freeze({
+    /** Logo located in the center */
+    CENTER: 2,
+    /** Logo located on the left side */
+    LEFT: 1,
+    /** Logo located on the right side */
+    RIGHT: 3,
+  });
+
+  /**
+   * A style of logo.
+   *
+   * @enum {number}
+   */
+  WlClient.RsBusinessDesignLogoStyleSid = Object.freeze({
+    /** Logo is invisible */
+    HIDE: 1,
+    /** Logo is a rectangle */
+    RECTANGLE: 4,
+    /** Logo is a round */
+    ROUND: 3,
+    /** Logo is a square */
+    SQUARE: 2,
+  });
+
+  /**
+   * Defines if client has "Late cancel" or "No shows" sessions.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessPolicyBlameSid = Object.freeze({
+    /** If client has "Late cancel" and "No shows" sessions */
+    BOTH: 1,
+    /** If client has "Late cancel" sessions */
+    LATE_CANCEL: 2,
+    /** If client has "No shows" sessions */
+    NO_SHOWS: 3,
+  });
+
+  /**
+   * Client's charge if he has "Late cancel" or "No shows" sessions.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessPolicyChargeSid = Object.freeze({
+    /** The client should be to pay a penalty */
+    CHARGE: 1,
+    /** Mark account as has "Late cancel" and "No shows" sessions */
+    FLAG_ACCOUNT: 2,
+  });
+
+  /**
+   * Attendance Restriction cycle type.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionEditLimitCycleSid = Object.freeze({
+    /** Attendance Restriction is applied at the start of the calendar cycle */
+    CALENDAR: 1,
+    /** Attendance Restriction is applied at the start of the payment cycle */
+    PAYMENT: 2,
+  });
+
+  /**
+   * Program type categories.
+   *
+   * @enum {number}
+   */
+  WlClient.RsProgramCategorySid = Object.freeze({
+    /** Purchase options to fill user's account: */
+    ACCOUNT: 7,
+    /** Purchase options to pay for classes, events and enrollments: */
+    CLASSES: 1,
+    /** Special "Wellness Program" purchase option */
+    INSURANCE: 8,
+    /** Packages and daily deals */
+    OTHER: 5,
+    /** Resource category */
+    RESOURCE: 6,
+    /** Purchase options to pay for appointments: */
+    SERVICE: 3,
+    /** Purchase options to pay for videos:<ui> */
+    VIDEO: 9,
+    /** Purchase options to pay for gym visits: */
+    VISIT: 2,
+  });
+
+  /**
+   * List of progress log fields.
+   *
+   * @enum {number}
+   */
+  WlClient.WlMemberProgressFieldProgressFieldSid = Object.freeze({
+    /** Abdomen field */
+    ABDOMEN: 6,
+    /** Arms field */
+    ARMS: 3,
+    /** Blood pressure field */
+    BLOOD_PRESSURE: 2,
+    /** Body fat field */
+    BODY_FAT: 11,
+    /** Bust field */
+    BUST: 4,
+    /** Height of the client */
+    HEIGHT: 9,
+    /** Client hips size */
+    HIPS: 7,
+    /** Long term goals */
+    LONG_TERM_GOALS: 14,
+    /** Pre workout heart rate */
+    PRE_WORKOUT_HEART_RATE: 1,
+    /** Progress picture */
+    PROGRESS_PICTURE: 12,
+    /** Short term goals */
+    SHORT_TERM_GOALS: 13,
+    /** THIGHS */
+    THIGHS: 8,
+    /** Waist */
+    WAIST: 5,
+    /** Client weight */
+    WEIGHT: 10,
+  });
+
+  /**
+   * Possible measurement units of the progress fields values.
+   *
+   * @enum {number}
+   */
+  WlClient.WlMemberProgressFieldMeasurementSid = Object.freeze({
+    /** Value in beats per minutes */
+    BEATS_PER_MINUTE: 7,
+    /** Value in centimeters */
+    CENTIMETRES: 1,
+    /** Value in feet */
+    FEET: 3,
+    /** Value in feet and inches */
+    FEET_AND_INCHES: 11,
+    /** Value in grams */
+    GRAMS: 9,
+    /** Value in inches */
+    INCHES: 4,
+    /** Value in kilograms */
+    KILOGRAMS: 5,
+    /** Value in metres */
+    METRES: 2,
+    /** Value in metres and centimetres */
+    METRES_AND_CENTIMETRES: 12,
+    /** Value in mmHG */
+    MMHG: 8,
+    /** Value in percentages */
+    PERCENTAGES: 10,
+    /** Value in pounds */
+    POUNDS: 6,
+  });
+
+  /**
+   * Possible types of the progress fields values.
+   *
+   * @enum {number}
+   */
+  WlClient.WlMemberProgressFieldTypeSid = Object.freeze({
+    /** Value is decimal */
+    DECIMAL: 2,
+    /** Value is image */
+    IMAGE: 5,
+    /** Value is percentage */
+    PERCENTAGE: 3,
+    /** Value is string */
+    STRING: 4,
+    /** Value is whole number */
+    WHOLE_NUMBER: 1,
+  });
+
+  /**
+   * List of response statuses.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreQuizResponseResponseStatusSid = Object.freeze({
+    /** Response is active */
+    ACTIVE: 1,
+    /** Response is active and has amendments */
+    ACTIVE_AMEND: 5,
+    /** Response in draft mode */
+    DRAFT: 2,
+    /** Response in inactive */
+    INACTIVE: 3,
+    /** Response in inactive and in draft mode */
+    INACTIVE_DRAFT: 4,
+  });
+
+  /**
+   * List of sensor types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlProfileSensorSensorTypesSid = Object.freeze({
+    /** Heart rate sensor */
+    HEART_RATE: 1,
+  });
+
+  /**
+   * List foreign sites that can pay for visits.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVisitPassProspectSid = Object.freeze({
+    /** Class Pass */
+    CLASSPASS: 1,
+    /** Gym Pass */
+    GYMPASS: 2,
+  });
+
+  /**
+   * Identifiers for services types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsServiceSid = Object.freeze({
+    /** Appointments */
+    APPOINTMENT: 1,
+    /** Classes */
+    CLASSES: 2,
+    /** Enrolments */
+    ENROLLMENT: 3,
+    /** Resources */
+    RESOURCE: 5,
+    /** Visits */
+    VISIT: 4,
+  });
+
+  /**
+   * A list of client type IDs.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLoginTypeClientTypeSid = Object.freeze({
+    /** Record contains type of member */
+    MEMBER: 3,
+    /** Record is SystemSid::PROSPECT */
+    NOTHING: 1,
+    /** Record contains type of client */
+    PASSHOLDER: 2,
+  });
+
+  /**
+   * List of sources where quiz response can be generated.
+   *
+   * @enum {number}
+   */
+  WlClient.WlQuizResponseSourceSid = Object.freeze({
+    /** Quiz response received during booking process */
+    BOOKING: 2,
+    /** Quiz response was imported */
+    IMPORT: 6,
+    /** Quiz response received by kiosk mode link */
+    KIOSK: 7,
+    /** Quiz response received by direct link */
+    LINK: 1,
+    /** Quiz response received by direct link */
+    MANUAL: 5,
+    /** Quiz response received during purchase process */
+    PURCHASE: 4,
+    /** Quiz response received during registration process */
+    REGISTRATION: 3,
+  });
+
+  /**
+   * List of quick purchase item types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlCatalogQuickPurchaseTypeSid = Object.freeze({
+    /** Classes */
+    CLASSES: 224,
+    /** Resource */
+    RESOURCE: 681,
+    /** Service */
+    SERVICE: 690,
+  });
+
+  /**
+   * Coupon date start rule.
+   *
+   * @enum {number}
+   */
+  WlClient.WlCouponEditActivationSid = Object.freeze({
+    /** Number of a day of the month or of the week */
+    DAY: 7,
+    /** Custom date */
+    FIXED: 3,
+    /** Date of the sale */
+    SALE: 1,
+  });
+
+  /**
+   * Class to process string identifiers for duration types
+   *
+   * @enum {number}
+   */
+  WlClient.WlCouponEditDurationTypeSid = Object.freeze({
+    /** Specific date. Example, 2013-12-24 */
+    DATE: 2,
+    /** No ending date */
+    ETERNAL: 3,
+    /** Examples: 12 days, 2 months, 2 hours etc */
+    PERIOD: 1,
+  });
+
+  /**
+   * Types of taxes.
+   *
+   * @enum {number}
+   */
+  WlClient.RsTaxSid = Object.freeze({
+    /** Tax is accounted based on percents */
+    PERCENT: 2,
+  });
+
+  /**
+   * A list of Purchase Option view types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlCatalogPurchaseOptionViewSid = Object.freeze({
+    /** A single appointment reservation */
+    APPOINTMENT: 1,
+    /** A single class reservation */
+    CLASS_PERIOD: 2,
+    /** A gift card */
+    COUPON: 3,
+    /** Enrollments. Classes where flag event is `true` */
+    ENROLLMENT: 4,
+    /** Promotions with programs: */
+    MEMBERSHIP: 8,
+    /** Promotions with program {@link WlClient.RsProgramSid} */
+    PACKAGE: 5,
+    /** Products (such as water, t-shirts, etc.) */
+    PRODUCT: 6,
+    /** Session passes */
+    PROMOTION: 7,
+    /** Products available for quick buy */
+    QUICK_BUY: 9,
+  });
+
+  /**
+   * List of Setup -> Store configuration -> Categories and Layout sort options.
+   *
+   * @enum {number}
+   */
+  WlClient.WlShopCategoryShopCategorySortSid = Object.freeze({
+    /** Custom sort */
+    CUSTOM: 2,
+    /** Sort by date */
+    DATE: 3,
+    /** Sort by price */
+    PRICE: 4,
+    /** Sort by name/title */
+    NAME: 1,
+  });
+
+  /**
+   * List sources of the view video.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVideoWatchWatchSourceSid = Object.freeze({
+    /** Video watched from application */
+    APP: 1,
+    /** Video watched from direct URL */
+    DIRECT_URL: 2,
+    /** Video watched from frontend */
+    FRONTEND: 3,
+    /** Source of watched is undefined */
+    UNDEFINED: 4,
+  });
+
+  /**
+   * Define colors of notice messages.
+   *
+   * @enum {number}
+   */
+  WlClient.WlReceptionApplicationMemberInfoColorSid = Object.freeze({
+    /** Default for neutral, informative messages. Displayed in blue */
+    BLUE: 1,
+    /** Positive messages. Displayed in green */
+    GREEN: 2,
+    /** Mild negative messages to warn the user. Displayed in orange */
+    ORANGE: 3,
+    /** Negative messages with strong importance or urgency. Displayed in red */
+    RED: 4,
+  });
+
+  /**
+   * Define types of icons for notice messages.
+   *
+   * @enum {number}
+   */
+  WlClient.WlReceptionApplicationMemberInfoIconSid = Object.freeze({
+    /** Icon of an award ribbon. For celebration of an occasion (e.g. a client's first visit) */
+    AWARD: 1,
+    /** Icon of a birthday cake. For birthday messages */
+    CAKE: 2,
+    /** Icon of a signed contract */
+    CONTRACT: 3,
+    /** Icon of a document with a slash. For the unsigned waiver message */
+    DOCUMENT_SLASH: 4,
+    /** Icon of dollar sign. For messages relating to personal balance and amounts due */
+    DOLLAR: 5,
+    /** Icon of a dumbbell. For messages relating to visits */
+    DUMBBELL: 6,
+    /** Icon of a form */
+    FORM: 7,
+    /** Icon of an "i". Used for general informative messages */
+    INFO: 8,
+    /** Icon of an "x". For messages communicating some important or urgent issue for the user */
+    PROBLEM: 9,
+    /** Icon of an exclamation mark. For messages communicating a mild issue or cautioning the user */
+    WARNING: 10,
+  });
+
+  /**
+   * List of sounds used for check ins.
+   *
+   * @enum {number}
+   */
+  WlClient.WlReceptionDesignCheckInSoundSid = Object.freeze({
+    /** Error sound 1 to be played when self check in fails */
+    ERROR_SOUND_1: 1,
+    /** Error sound 2 to be played when self check in fails */
+    ERROR_SOUND_2: 2,
+    /** Error sound 3 to be played when self check in fails */
+    ERROR_SOUND_3: 3,
+    /** Success sound 1 to be played when self check in succeeds */
+    SUCCESS_SOUND_1: 4,
+    /** Success sound 2 to be played when self check in succeeds */
+    SUCCESS_SOUND_2: 5,
+    /** Success sound 3 to be played when self check in succeeds */
+    SUCCESS_SOUND_3: 6,
+  });
+
+  /**
+   * A list of supported social networks.
+   *
+   * @enum {number}
+   */
+  WlClient.ASocialSid = Object.freeze({
+    /** Facebook social network */
+    FACEBOOK: 1,
+    /** Google Plus social network */
+    GOOGLE: 2,
+    /** Twitter social network */
+    TWITTER: 3,
+  });
+
+  /**
+   * Wellnessliving-wide privileges.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPrivilegePrivilegeSid = Object.freeze({
+    /** Allows user to view, create or edit knowledge base entries, or conversational flows used by the AI Agent */
+    AI_AGENT_KNOWLEDGE_BASE: 225,
+    /** Allows user to view reporting and analytics data related to AI Agent performance or usage */
+    AI_AGENT_REPORTS: 226,
+    /** Allows user to modify configuration or conversational flows used by the AI Agents */
+    AI_AGENT_SETTINGS: 227,
+    /** Allows user to create, update, or cancel AI Agent subscription plans */
+    AI_AGENT_SUBSCRIPTIONS: 228,
+    /** View banner alert message on dashboard */
+    ALERT_MESSAGE: 142,
+    /** Book appointments for clients with negative account balances */
+    APPOINTMENT_BOOK_NEGATIVE: 209,
+    /** Unpaid appointment booking */
+    APPOINTMENT_BOOK_UNPAID: 167,
+    /** Book appointments for clients with an unsigned waiver */
+    APPOINTMENT_BOOK_UNSIGNED: 203,
+    /** Edit appointment at my location */
+    APPOINTMENT_EDIT: 50,
+    /** Change/View all appointment */
+    APPOINTMENT_FOREIGN: 49,
+    /** Edit appointment schedule */
+    APPOINTMENT_PERIOD: 51,
+    /** View appointment */
+    APPOINTMENT_VIEW: 52,
+    /** Ability to book clients outside their current paid period */
+    BOOK_OUTSIDE_PAID_PERIOD: 141,
+    /** Ability to book clients over capacity during or after the services have been scheduled */
+    BOOK_OVER_CAPACITY: 154,
+    /** Ability to book assets which are booked for another service or set as unavailable */
+    BOOK_UNAVAILABLE_ASSETS: 138,
+    /** Ability to schedule staff members who are booked for another service or set as unavailable */
+    BOOK_UNAVAILABLE_STAFF: 137,
+    /** Ability to book clients into recurring services even if they do not have an applicable Purchase Option to cover all visits */
+    BOOK_UNPAID_RECURRING_APPOINTMENT: 231,
+    /** Ability to book clients into recurring services even if they do not have an applicable Purchase Option to cover all visits */
+    BOOK_UNPAID_RECURRING_CLASS: 232,
+    /** Unpaid asset recurring booking */
+    BOOK_UNPAID_RECURRING_RESOURCE: 233,
+    /** Manage business */
+    BUSINESS_EDIT: 1,
+    /** Change business email settings */
+    BUSINESS_EMAIL: 117,
+    /** Change business policies */
+    BUSINESS_POLICY: 120,
+    /** Change available services in business */
+    BUSINESS_SERVICE: 118,
+    /** Change services privileges apply */
+    BUSINESS_SERVICE_APPLY: 145,
+    /** Change services privileges apply (third button requires second privilege) */
+    BUSINESS_SERVICE_APPLY_CUSTOM: 165,
+    /** Change Design Settings */
+    BUSINESS_SKIN: 19,
+    /** Change business SMS settings */
+    BUSINESS_SMS: 169,
+    /** Change business URLs */
+    BUSINESS_URL: 119,
+    /** Change business online waiver */
+    BUSINESS_WAIVER: 121,
+    /** Perform Cash Out */
+    CASH_OUT: 82,
+    /** Edit deposits while perform Cash Out */
+    CASH_OUT_DEPOSIT: 83,
+    /** Perform editing of Cash Out */
+    CASH_OUT_EDIT: 84,
+    /** Manage clients' Credit Cards */
+    CC_MANAGE: 35,
+    /** Manage clients' Credit Cards manually */
+    CC_MANAGE_MANUAL: 208,
+    /** Edit class schedule */
+    CLASS_ATTENDANCE: 48,
+    /** Book classes for clients with negative account balances */
+    CLASS_BOOK_NEGATIVE: 210,
+    /** Add clients to the attendance list of a service, even if they do not have an applicable purchase option */
+    CLASS_BOOK_UNPAID: 79,
+    /** Book classes for clients with an unsigned waiver */
+    CLASS_BOOK_UNSIGNED: 201,
+    /** Edit classes at my location */
+    CLASS_EDIT: 3,
+    /** Allows overriding certain class fields (capacity, price, etc.) when schedule is added */
+    CLASS_EDIT_SESSIONS: 238,
+    /** Change/View all classes */
+    CLASS_FOREIGN: 17,
+    /** Lock search bar on class attendance list */
+    CLASS_LOCK_SEARCH: 152,
+    /** Edit class schedule */
+    CLASS_PERIOD: 5,
+    /** Add and view client's contact logs */
+    CONTACT_LOG_MANAGE: 135,
+    /** Add, remove, and edit gift cards */
+    COUPON: 31,
+    /** Delete shared dashboard */
+    DASHBOARD_DELETE: 131,
+    /** Edit shared dashboard */
+    DASHBOARD_EDIT: 130,
+    /** Share dashboard */
+    DASHBOARD_SHARE: 129,
+    /** Add, remove and edit discount codes */
+    DISCOUNT_CODE: 76,
+    /** Configure Constant Contact settings */
+    EML_CONSTANT_CONTACT: 123,
+    /** Configure MailChimp settings */
+    EML_MAILCHIMP: 122,
+    /** Edit class schedule */
+    ENROLLMENT_ATTENDANCE: 55,
+    /** Book events for clients with negative account balances */
+    ENROLLMENT_BOOK_NEGATIVE: 211,
+    /** Add clients to the attendance list of a service, even if they do not have an applicable purchase option */
+    ENROLLMENT_BOOK_UNPAID: 80,
+    /** Book events for clients with an unsigned waiver */
+    ENROLLMENT_BOOK_UNSIGNED: 202,
+    /** Edit classes at my location */
+    ENROLLMENT_EDIT: 54,
+    /** Allows overriding certain event fields (capacity, price, etc.) when schedule is added */
+    ENROLLMENT_EDIT_SESSIONS: 239,
+    /** Change/View all classes */
+    ENROLLMENT_FOREIGN: 53,
+    /** Lock search bar on enrollment attendance list */
+    ENROLLMENT_LOCK_SEARCH: 153,
+    /** Manage Enterprise Cloud Fees */
+    ENTERPRISE_CLOUD_FEES: 207,
+    /** Allows to manage leaderboard in the `FitBuilder` addon */
+    FITBUILDER_LEADERBOARD: 190,
+    /** Allows to subscribe to `FitBuilder` subscription addon */
+    FITBUILDER_SUBSCRIPTION: 189,
+    /** Allows to assign workouts from the `FitBuilder` addon to different services */
+    FITBUILDER_WORKOUT_ASSIGN: 188,
+    /** Allows to add, edit and remove workouts in the `FitBuilder` addon */
+    FITBUILDER_WORKOUT_MANAGE: 187,
+    /** Allow Staff members to view/complete forms for clients from any location */
+    FORM_ALL: 177,
+    /** Amend apply to privilege */
+    FORM_AMEND_ACCESS: 198,
+    /** Allow staff members to make modifications to completed forms on the client profile */
+    FORM_AMEND_COMPLETED: 194,
+    /** Allow staff members to make modifications to completed forms on the client profile for all clients */
+    FORM_AMEND_COMPLETED_ALL: 195,
+    /** Allow staff members to make modifications to completed forms on the client profile for clients at staff location */
+    FORM_AMEND_COMPLETED_LOCATION: 196,
+    /** Allow staff members to make modifications to completed forms on the client profile for self clients */
+    FORM_AMEND_COMPLETED_MY_CLIENTS: 197,
+    /** Allow staff members to fill in forms for clients */
+    FORM_COMPLETE: 178,
+    /** Allow staff members to add, edit and delete forms */
+    FORM_MANAGE: 160,
+    /** Allow Staff members to view/complete forms for clients that belong to them through service offerings */
+    FORM_MY_CLIENTS: 175,
+    /** Allow Staff members to view/complete forms for clients that belong to the location that they are selected to work at */
+    FORM_MY_LOCATION: 176,
+    /** Allow staff members to delete forms from the client’s profil */
+    FORM_RESPONSE_DELETE: 199,
+    /** Allow staff members to view form responses */
+    FORM_VIEW_RESPONSE: 161,
+    /** Add holidays */
+    HOLIDAY: 7,
+    /** Allows to import clients from a CSV file */
+    IMPORT_CLIENT: 215,
+    /** Set up and modify Autymate integration */
+    INTEGRATION_AUTYMATE: 163,
+    /** Set up and modify Brivo integration */
+    INTEGRATION_BRIVO: 179,
+    /** Enroll into and manage the WellnessLiving Achieve App. These settings are located under Setup > Achieve Client App */
+    INTERFACE_ACHIEVE_APP: 87,
+    /** Modify the look and functionality business’s widgets. These settings are located within Setup > Widget */
+    INTERFACE_WIDGET_EDIT: 39,
+    /** View the look and functionality business’s widgets. These settings are located within Setup > Widget */
+    INTERFACE_WIDGET_VIEW: 110,
+    /** Permission to Receive or Adjust quantity from the Inventory On Hand Report */
+    INVENTORY_UPDATE: 157,
+    /** Manage my locations except General information */
+    LOCATION_EDIT: 9,
+    /** Manage tab Location -> General */
+    LOCATION_EDIT_GENERAL: 126,
+    /** Manage all locations */
+    LOCATION_FOREIGN: 8,
+    /** Manage franchise locations */
+    LOCATION_FRANCHISE: 109,
+    /** Logs view */
+    LOG_VIEW: 101,
+    /** Add client notes and warnings */
+    LOGIN_NOTE: 11,
+    /** Flag clients */
+    LOGIN_NOTE_RESTRICT: 12,
+    /** View service add-ons */
+    LOGIN_PRODUCT_VIEW: 206,
+    /** Access to send mails and sms to clients */
+    MAIL_SEND: 75,
+    /** Manage announcements */
+    MANAGE_ANNOUNCEMENT: 200,
+    /** Only the staff roles with this permission provided are able to edit/add/delete the business billing information */
+    MANAGE_BILLING_INFORMATION: 134,
+    /** View, manage, and analyze CAASI-led conversations */
+    MANAGE_CAASI_CONVERSATION: 229,
+    /** Manage hardware readers */
+    MANAGE_READERS: 181,
+    /** Enable, disable, and edit daily deals */
+    MARKETING_DD: 43,
+    /** Settings pertaining to all automated marketing to clients */
+    MARKETING_EMAIL: 42,
+    /** Allows to subscribe to email marketing subscription plans and manage existing subscriptions */
+    MARKETING_SUBSCRIPTION: 237,
+    /** Enabling this permission for a role will enable making and receiving calls in Message Center */
+    MESSAGES_CALLS: 173,
+    /** Enabling this permission for a role will enable the role to use the ‘Assign to’ field and assign a conversation to a staff mem */
+    MESSAGES_CONVERSATIONS: 174,
+    /** Enabling this permission for a role will grant access to the inbox tab including viewing and sending messages in the Message Center */
+    MESSAGES_MANAGE: 170,
+    /** Enabling this permission for a role will grant access to the Settings tab including modifying phone number(s) for the business */
+    MESSAGES_SETTINGS: 171,
+    /** Enabling this permission for a role will grant access and changes to the Subscription Plans tab */
+    MESSAGES_SUBSCRIPTION: 172,
+    /** Receive new appointment booking / request notification */
+    NOTIFICATION_APPOINTMENT_BOOK: 60,
+    /** Receive Appointment Booked (AI Agent) notification */
+    NOTIFICATION_APPOINTMENT_BOOKED_AI: 218,
+    /** Receive appointment cancellation notification */
+    NOTIFICATION_APPOINTMENT_CANCEL: 61,
+    /** Receive appointment change notification */
+    NOTIFICATION_APPOINTMENT_CHANGE: 59,
+    /** Receive Appointment Requested (AI Agent) notification */
+    NOTIFICATION_APPOINTMENT_REQUEST_AI: 220,
+    /** Receive Billing Related Query notification */
+    NOTIFICATION_BILLING_RELATED_QUERY: 224,
+    /** Receive Cancellation Requested (AI Agent) notification */
+    NOTIFICATION_CANCELLATION_REQUEST_AI: 222,
+    /** Receive class attendance list */
+    NOTIFICATION_CLASS_ATTENDANCE: 56,
+    /** Receive client class booking notification */
+    NOTIFICATION_CLASS_BOOK: 57,
+    /** Receive Class Booking Requested (AI Agent) notification */
+    NOTIFICATION_CLASS_BOOK_AI: 221,
+    /** Receive Class Booked (AI Agent) notification */
+    NOTIFICATION_CLASS_BOOKED_AI: 219,
+    /** Receive client class cancellation notification */
+    NOTIFICATION_CLASS_CANCEL: 58,
+    /** Receive event attendance list */
+    NOTIFICATION_EVENT_ATTENDANCE: 62,
+    /** Receive client event booking notification */
+    NOTIFICATION_EVENT_BOOK: 63,
+    /** Receive client event cancellation notification */
+    NOTIFICATION_EVENT_CANCEL: 64,
+    /** Permissions apply to all appointment schedules */
+    NOTIFICATION_FOREIGN: 65,
+    /** Receive new lead capture widget notification */
+    NOTIFICATION_LEAD_CAPTURE: 159,
+    /** Receive Lead Capture (AI Agent) notification */
+    NOTIFICATION_LEAD_CAPTURE_AI: 217,
+    /** Staff with this role will receive the membership cancel mails */
+    NOTIFICATION_MEMBERSHIP_CANCEL: 214,
+    /** Receive Membership or Purchase Options Query notification */
+    NOTIFICATION_MEMBERSHIP_QUERY: 223,
+    /** Staff with this role will receive emails about reward prizes */
+    NOTIFICATION_PRIZE_REDEMPTION: 90,
+    /** Staff with this role will receive the inventory mails */
+    NOTIFICATION_PRODUCT_INVENTORY: 77,
+    /** Receive new quiz notification form staff */
+    NOTIFICATION_QUIZ: 162,
+    /** Staff with this role will receive customer review notifications */
+    NOTIFICATION_REVIEW: 66,
+    /** Staff with this role will receive the sale receipts mails */
+    NOTIFICATION_SALE_STAFF: 136,
+    /** Receive Staff Callback Request notification */
+    NOTIFICATION_STAFF_CALLBACK_REQUEST: 216,
+    /** Override late cancel and no show fees */
+    OVERRIDE_FEE: 164,
+    /** Manage partner program */
+    PARTNER_PROGRAM_MANAGE: 94,
+    /** Access to Payment Processing */
+    PAYMENT_PROCESSING: 166,
+    /** Permission to perform Physical Inventory Count */
+    PHYSICAL_INVENTORY_COUNT: 156,
+    /** Staff member with this role will be able to send postcards */
+    POSTCARD_SEND: 88,
+    /** Delete shared power searches */
+    POWER_SEARCH_DELETE: 106,
+    /** Edit shared power searches */
+    POWER_SEARCH_EDIT: 105,
+    /** Share power searches with other staff members */
+    POWER_SEARCH_SHARE: 107,
+    /** Ability to request subscription plan for custom website */
+    PRESENCE: 149,
+    /** Edit products but not product name and description */
+    PRODUCT_DESCRIPTION_EDIT: 113,
+    /** Add, remove, and edit products in the online store */
+    PRODUCT_MANAGE: 34,
+    /** Manage all clients */
+    PROFILE_ALL: 24,
+    /** This permission allows users to delete client profiles */
+    PROFILE_DELETE: 230,
+    /** This permission allows users to view client details throughout the interface */
+    PROFILE_DETAIL: 67,
+    /** Manage profile client groups (only create, delete and rename a group) */
+    PROFILE_GROUP_MANAGE: 69,
+    /** Manage client group members (only members, not a group itself) */
+    PROFILE_GROUP_MEMBER_MANAGE: 191,
+    /** Merge client profiles */
+    PROFILE_MERGE: 213,
+    /** Manage clients from my location */
+    PROFILE_MY_LOCATION: 86,
+    /** View client’s upcoming and past schedul */
+    PROFILE_SCHEDULE: 205,
+    /** Manage profile client type */
+    PROFILE_TYPE_EDIT: 68,
+    /** Manage all clients */
+    PROFILE_VIEW: 13,
+    /** Manage progress log */
+    PROGRESS_LOG_MANAGE: 102,
+    /** Edit progress log in profile */
+    PROGRESS_LOG_PROFILE: 104,
+    /** Add, remove, and edit purchase options and packages for services */
+    PROMOTION_MANAGE: 25,
+    /** Allows to edit only base information about purchase option */
+    PROMOTION_MANAGE_BASE: 127,
+    /** Access to edit client purchases (passes and memberships) */
+    PURCHASE_EDIT: 93,
+    /** Access to view client purchases (passes and memberships) */
+    PURCHASE_VIEW: 92,
+    /** Allow to see alerts */
+    RECEIVE_ALERT: 193,
+    /** Access to view reports for all staff */
+    REPORT_ALL: 71,
+    /** Reports attendance */
+    REPORT_ATTENDANCE: 27,
+    /** Reports client */
+    REPORT_CLIENT: 26,
+    /** Reports with cash closeout information */
+    REPORT_CLOSEOUT: 85,
+    /** Export and print button in reports */
+    REPORT_EXPORT_PRINT: 186,
+    /** Reports with franchise information */
+    REPORT_FRANCHISE: 108,
+    /** Wellness Programs reports */
+    REPORT_INSURANCE: 115,
+    /** Ability to generate, export and import insurance reimbursement files */
+    REPORT_INSURANCE_FILE: 155,
+    /** Reports emails */
+    REPORT_MAIL: 30,
+    /** Reports sales */
+    REPORT_SALE: 29,
+    /** Ability to view purchase report for specific user */
+    REPORT_SALE_USER: 125,
+    /** Reports staff */
+    REPORT_STAFF: 28,
+    /** Manage assets */
+    RESOURCE: 37,
+    /** Book assets for clients with negative account balances */
+    RESOURCE_BOOK_NEGATIVE: 212,
+    /** Unpaid asset booking */
+    RESOURCE_BOOK_UNPAID: 168,
+    /** Book assets for clients with an unsigned waiver */
+    RESOURCE_BOOK_UNSIGNED: 204,
+    /** Mark client reviews as inappropriate and respond to customer comments */
+    REVIEW_FLAG: 18,
+    /** Create contests on the leaderboard */
+    REWARD_LEADERBOARD: 44,
+    /** Rules related to point accumulation */
+    REWARD_POINT_MANAGE: 46,
+    /** Clear the total accumulated points for all clients */
+    REWARD_POINT_RESET: 45,
+    /** Define prizes and the number of points that are required to redeem */
+    REWARD_PRIZE: 47,
+    /** Enable SABA single sign on and create SABA accounts */
+    SABA: 116,
+    /** View canceled classes from the schedule */
+    SCHEDULE_CANCELED_CLASS: 139,
+    /** View canceled classes from the schedule */
+    SCHEDULE_CANCELED_ENROLLMENT: 140,
+    /** Scheduling and editing future sessions of the appointments */
+    SCHEDULE_FUTURE_APPOINTMENT: 95,
+    /** Scheduling sessions of the assets */
+    SCHEDULE_FUTURE_ASSETS: 128,
+    /** Scheduling and editing future sessions of the classes */
+    SCHEDULE_FUTURE_CLASS: 96,
+    /** Scheduling and editing future sessions of the events */
+    SCHEDULE_FUTURE_EVENT: 99,
+    /** Scheduling and editing past sessions of the appointments */
+    SCHEDULE_PAST_APPOINTMENT: 97,
+    /** Scheduling and editing past sessions of the classes */
+    SCHEDULE_PAST_CLASS: 98,
+    /** Scheduling and editing past sessions of the events */
+    SCHEDULE_PAST_EVENT: 100,
+    /** View a summary of projected and earned service revenue generated from scheduled and completed sessions */
+    SCHEDULE_SUMMARY_REVENUE_SERVICE: 234,
+    /** View a summary of projected pay from upcoming sessions and earned pay from completed sessions, based on the staff’s schedul */
+    SCHEDULE_SUMMARY_REVENUE_STAFF: 235,
+    /** Allows sign service agreement */
+    SERVICE_AGREEMENT_SIGN: 133,
+    /** View, modify and delete shop categories */
+    SHOP_CATEGORY: 78,
+    /** Modify the clock-in and clock-out times for staff members */
+    STAFF_CLOCK: 32,
+    /** Add, remove, and edit staff profiles */
+    STAFF_EDIT: 14,
+    /** Edit own staff profile */
+    STAFF_EDIT_OWN: 150,
+    /** Modify pay rates for products and Purchase Options */
+    STAFF_MODIFY_RATES_PRODUCT: 184,
+    /** Modify pay rates for services */
+    STAFF_MODIFY_RATES_SERVICE: 183,
+    /** Modify the clock-in and clock-out times for your own staff profile */
+    STAFF_MY_CLOCK: 192,
+    /** Add, remove, and edit staff pay rates */
+    STAFF_PAY_ALL: 20,
+    /** Change staff role on the staff edit page */
+    STAFF_ROLE_CHANGE: 72,
+    /** Edit staff role on the staff role page */
+    STAFF_ROLE_EDIT: 124,
+    /** Create/Edit/Remove staff working hours */
+    STAFF_WORKING_HOURS: 144,
+    /** Allow staff to override staff commission at the point of sale */
+    STORE_COMMISSION_OVERRIDE: 185,
+    /** Temporarily modify the price of products and services at the point of sale */
+    STORE_PRICE: 41,
+    /** Access to the point of sale store to facilitate the sale of products and services */
+    STORE_SELL: 40,
+    /** Access to view and edit store settings */
+    STORE_SETTINGS_EDIT: 143,
+    /** Add, remove, and edit supplier profiles */
+    SUPPLIER_MANAGE: 114,
+    /** Access to add tasks */
+    TASK_ADD: 111,
+    /** Access to view all tasks for all members */
+    TASK_ALL: 70,
+    /** Access to edit tasks */
+    TASK_EDIT: 112,
+    /** Access to transaction details */
+    TRANSACTION_DETAIL: 81,
+    /** Access to edit transaction */
+    TRANSACTION_EDIT: 89,
+    /** Access to refund transaction */
+    TRANSACTION_REFUND: 91,
+    /** Access to enroll clients in tuition plans via the enrollment wizard */
+    TUITION_ENROLL: 242,
+    /** Add, remove, and edit tuition plans, their settings, and assigned instances */
+    TUITION_MANAGE: 243,
+    /** Cancel a client's tuition plan from the Clients tab, stopping all future installments and optionally revoking remaining session access */
+    TUITION_PAYMENT_CANCEL: 244,
+    /** Access to view the tuition plan list and plan details */
+    TUITION_VIEW: 241,
+    /** Access to view and change list of video categories */
+    VIDEO_CATEGORY: 146,
+    /** Access to view and change videos in the business video library */
+    VIDEO_SETUP: 147,
+    /** View the Balance History & Statements tab and generate or email account statements on */
+    VIEW_BALANCE_HISTORY_STATEMENTS: 240,
+    /** Set up and modify FitLIVE integration */
+    VIRTUAL_SETUP: 158,
+    /** Access to edit, delete visit notes */
+    VISIT_NOTE_EDIT: 74,
+    /** Access to view visit notes */
+    VISIT_NOTE_VIEW: 73,
+    /** Access to WellnessLiving Academy */
+    WELLNESSLIVING_ACADEMY: 151,
+    /** Allow access to manage integration with Zapier */
+    ZAPIER: 180,
+  });
+
+  /**
+   * List of default categories of the rewards.
+   *
+   * @enum {number}
+   */
+  WlClient.RsRewardActionCategorySid = Object.freeze({
+    /** Booking and visiting rewards */
+    ATTENDANCE: 1,
+    /** Rewards for spending money */
+    PURCHASE: 2,
+    /** Rewards for referrals */
+    REFER: 7,
+    /** Rewards for reviewing a business */
+    REVIEW: 3,
+    /** Social networks rewards */
+    SOCIAL: 4,
+    /** Rewards for significant user events */
+    USER: 5,
+  });
+
+  /**
+   * Types of reward actions.
+   *
+   * @enum {number}
+   */
+  WlClient.RsRewardScoreSid = Object.freeze({
+    /** Customer Birthday earns X points */
+    BIRTHDAY: 16,
+    /** Book a class online */
+    BOOK: 14,
+    /** Book a class and share on Facebook */
+    BOOK_FACEBOOK: 2,
+    /** Book a class and share on Twitter */
+    BOOK_TWITTER: 3,
+    /** Custom action */
+    CUSTOM: 26,
+    /** Connect profile to Facebook */
+    LOGIN_FACEBOOK: 7,
+    /** Each Dollar spent earns customers X points */
+    PAY: 15,
+    /** The reward for the purchase of some product */
+    PURCHASE_PRODUCT: 28,
+    /** The reward for the purchase of some promotion */
+    PURCHASE_PROMOTION: 27,
+    /** Share to facebook purchased item */
+    PURCHASE_SHARE_FACEBOOK: 22,
+    /** Share to twitter purchased item */
+    PURCHASE_SHARE_TWITTER: 23,
+    /** Referral purchase */
+    REFER_PURCHASE: 30,
+    /** Referral registration */
+    REFER_REGISTER: 31,
+    /** User registration */
+    REGISTRATION: 20,
+    /** Record to reset all-time earned user points. This points will be always negative */
+    RESET: 25,
+    /** Record to reset current available user points. This points will be always negative */
+    RESET_AVAILABLE: 32,
+    /** Write a review on microsite */
+    REVIEW: 11,
+    /** Write a review on microsite and share on Facebook */
+    REVIEW_FACEBOOK: 9,
+    /** Write a review on microsite and share on Twitter */
+    REVIEW_TWITTER: 10,
+    /** Visit classes on the same location */
+    VISIT: 12,
+    /** Attending a specific appointment earns customers X points */
+    VISIT_APPOINTMENT: 29,
+    /** Attending a specific class earns customers X points */
+    VISIT_CLASS: 18,
+    /** Attending a specific Workshop/Enrollment/Event earns customers X points */
+    VISIT_ENROLLMENT: 19,
+  });
+
+  /**
+   * Mail types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsMailSid = Object.freeze({
+    /** Sent by CASSI phone agent, when client requests a booking url */
+    AI_LINK_BOOK: 206,
+    /** Sent by CASSI phone agent, when client requests a purchase url */
+    AI_LINK_PURCHASE: 207,
+    /** Appointment approved by staff */
+    APPOINTMENT_APPROVE_STAFF: 71,
+    /** Sent when the AI Agent successfully books an appointment */
+    APPOINTMENT_BOOKED_AI: 198,
+    /** Appointment Cancelled by Client - Early */
+    APPOINTMENT_CANCEL_EARLY_USER: 33,
+    /** Appointment Cancelled by Client - Late */
+    APPOINTMENT_CANCEL_LATE_USER: 35,
+    /** Appointment Cancelled Notification - Staff */
+    APPOINTMENT_CANCEL_STAFF: 32,
+    /** Sends to the client when appointment has been cancelled by staff */
+    APPOINTMENT_CANCEL_STAFF_USER: 80,
+    /** Sends to the clients when appointment information has been changed */
+    APPOINTMENT_CHANGE_GENERAL_CLIENT: 114,
+    /** Sends to the staff members when appointment information has been changed */
+    APPOINTMENT_CHANGE_GENERAL_STAFF: 113,
+    /** Appointment Change Notification - Staff */
+    APPOINTMENT_CHANGE_STAFF: 36,
+    /** Appointment Change Notification - Client */
+    APPOINTMENT_CHANGE_USER: 37,
+    /** New Appointment Notification - Staff */
+    APPOINTMENT_CREATE_STAFF: 31,
+    /** Appointment Confirmation */
+    APPOINTMENT_CREATE_USER: 30,
+    /** Multiple Appointment Confirmation (Client) */
+    APPOINTMENT_CREATE_USER_MULTIPLE: 211,
+    /** Notification to a customer about an appointment that has been canceled because not paid */
+    APPOINTMENT_PAY_CANCEL: 189,
+    /** Notification to a customer about mandatory payment for an appointment */
+    APPOINTMENT_PAY_PAY: 188,
+    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
+    APPOINTMENT_REPEAT_CANCEL_CLIENT: 103,
+    /** Sends one email to staff when several sessions of one or several appointments or single session of recurring */
+    APPOINTMENT_REPEAT_CANCEL_STAFF: 105,
+    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
+    APPOINTMENT_REPEAT_CANCEL_USER: 131,
+    /** Sent to staff when the AI Agent receives an appointment request */
+    APPOINTMENT_REQUEST_AI: 200,
+    /** Requested appointment has been denied */
+    APPOINTMENT_REQUEST_DENY: 88,
+    /** Appointment has been requested */
+    APPOINTMENT_REQUEST_STAFF: 89,
+    /** Appointment has been requested */
+    APPOINTMENT_REQUEST_USER: 90,
+    /** Appointment Wait List Cancellation */
+    APPOINTMENT_WAIT_REMOVE: 195,
+    /** Sent to staff when the AI Agent logs a billing or payment query */
+    BILLING_RELATED_QUERY: 204,
+    /** Class Booking Confirmation */
+    BOOK_ADD_CLASS: 1,
+    /** Class Booking Notification - Staff */
+    BOOK_ADD_STAFF: 47,
+    /** Sent if a client cancels a booking (used in automations) */
+    BOOK_CANCEL: 210,
+    /** Class Booking (Reservation) Cancelled by Staff */
+    BOOK_CANCEL_ADMIN_CLASS: 23,
+    /** Enrollment Booking Cancelled by Staff */
+    BOOK_CANCEL_ADMIN_ENROLLMENT: 57,
+    /** Enrollment Session Cancellation Notification */
+    BOOK_CANCEL_ENROLLMENT_SESSION: 128,
+    /** Class Cancelled by Client - Early */
+    BOOK_CANCEL_FREE_CLASS: 3,
+    /** Enrollment Cancelled by Client - Early */
+    BOOK_CANCEL_FREE_ENROLLMENT: 58,
+    /** Class Cancelled By Client - Late */
+    BOOK_CANCEL_PENALTY_CLASS: 4,
+    /** Enrollment Cancelled By Client - Late */
+    BOOK_CANCEL_PENALTY_ENROLLMENT: 59,
+    /** Class Booking Cancellation Notification - Staff */
+    BOOK_CANCEL_STAFF: 48,
+    /** Enrollment Booking Confirmation */
+    BOOK_ENROLLMENT: 69,
+    /** Enrollment Booking Cancellation Notification - Staff */
+    BOOK_ENROLLMENT_CANCEL_STAFF: 92,
+    /** Enrollment Booking Notification - Staff */
+    BOOK_ENROLLMENT_STAFF: 91,
+    /** Thanks for your interest */
+    BOOK_FIRST: 73,
+    /** Appointment Wait List Promotion (Client Confirmation Required) */
+    BOOK_PROMOTE_CONFIRM_APPOINTMENT: 169,
+    /** Waitlist Promotion (Client Confirmation Required) */
+    BOOK_PROMOTE_CONFIRM_CLASS: 53,
+    /** Waitlist Promotion (Client Confirmation Required) */
+    BOOK_PROMOTE_CONFIRM_ENROLLMENT: 60,
+    /** Appointment Wait List Promotion (Confirmation not Required) */
+    BOOK_PROMOTE_DIRECT_APPOINTMENT: 168,
+    /** Waitlist Promotion (Client Confirmation Not Required) */
+    BOOK_PROMOTE_DIRECT_CLASS: 8,
+    /** Waitlist Promotion (Client Confirmation Not Required) */
+    BOOK_PROMOTE_DIRECT_ENROLLMENT: 61,
+    /** Class Reminder */
+    BOOK_REMIND_CLASS: 25,
+    /** Enrollment Reminder */
+    BOOK_REMIND_ENROLLMENT: 62,
+    /** Appointment Reminder - Staff */
+    BOOK_REMIND_SERVICE_STAFF: 27,
+    /** Appointment Reminder */
+    BOOK_REMIND_SERVICE_USER: 26,
+    /** Class Booking Confirmation */
+    BOOK_REPEAT_ADD: 101,
+    /** Class Booking Cancelled */
+    BOOK_REPEAT_CANCEL: 102,
+    /** Recurrent Class Reservation Wait List */
+    BOOK_REPEAT_WAIT: 166,
+    /** Class Review Request */
+    BOOK_VISIT: 39,
+    /** Appointment Reservation Wait List */
+    BOOK_WAIT_APPOINTMENT: 165,
+    /** Class Reservation Wait List */
+    BOOK_WAIT_CLASS: 2,
+    /** Enrollment Reservation Wait List */
+    BOOK_WAIT_ENROLLMENT: 63,
+    /** Sent when a business account or location is churned */
+    BUSINESS_ACCOUNT_CHURN: 154,
+    /** Sent to business owner if payment for account failed */
+    BUSINESS_ACCOUNT_PAY_FAIL: 82,
+    /** Sent to business owners as notification in one day before payment for account */
+    BUSINESS_ACCOUNT_PAY_NOTIFY: 83,
+    /** Sent to business owner on successful payment for account */
+    BUSINESS_ACCOUNT_PAY_OK: 81,
+    /** Sent when the monthly postcard limit is exceeded */
+    BUSINESS_ACCOUNT_POSTCARD_LIMIT: 155,
+    /** Sent when subscription price has been overridden and is less than the configured notification threshold */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT: 158,
+    /** Sent when subscription price has been overridden twice or more */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE: 151,
+    /** Sent when a subscription payment is marked as paid */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT: 156,
+    /** Sent when subscription skip payment setting has been changed */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP: 134,
+    /** Sent when a new subscription has been added, and the business is paying for fewer locations than they have */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING: 152,
+    /** Sent when a user signs up for the virtual service */
+    BUSINESS_ACCOUNT_VIRTUAL_SIGNUP: 157,
+    /** Sent when a business adds more licenses to their `FitLIVE` subscription */
+    BUSINESS_ACCOUNT_VIRTUAL_UPGRADE: 175,
+    /** Sends to client after the first-level onboarding, providing them with login information */
+    BUSINESS_CREATE: 192,
+    /** Email sales@wellnessliving.com when user changes Message Center plan */
+    BUSINESS_MESSAGE_SUBSCRIBE: 164,
+    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to all businesses accounts */
+    BUSINESS_PARTNER_BANNER: 179,
+    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to business account */
+    BUSINESS_PARTNER_BANNER_CUSTOMER: 180,
+    /** Email to the admins that business staff member wants to take a part in the partner program */
+    BUSINESS_PARTNER_ENROLL: 119,
+    /** Email to the staff members of the partner business when a new lead comes in through his partnership */
+    BUSINESS_PARTNER_REFERRAL_MAIL_NEW: 143,
+    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to partner business */
+    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER: 145,
+    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to referral business */
+    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL: 148,
+    /** Email to the staff members of the partner business when a referral reaches a certain period of paid subscription */
+    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER: 146,
+    /** Email to the staff members of the referred business when they reaches a certain period of paid subscription */
+    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL: 147,
+    /** Email to the staff members of the partner business when a referral has been subscribed */
+    BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE: 144,
+    /** Business registered its business phone number */
+    BUSINESS_PHONE: 139,
+    /** Sent when send/receive SMS in Two-Way SMS chat */
+    BUSINESS_SMS_CHAT: 141,
+    /** Sent to staff when the AI Agent captures a cancellation request */
+    CANCELLATION_REQUEST_AI: 202,
+    /** Sent to staff when CAASI receives a request for booking */
+    CLASS_BOOK_AI: 201,
+    /** Alerts staff that the AI Agent has completed a class booking for a client */
+    CLASS_BOOKED_AI: 199,
+    /** Class Type Modified Has Changed */
+    CLASS_EDIT_CLASS: 24,
+    /** Enrollment Type Modified Has Changed */
+    CLASS_EDIT_ENROLLMENT: 64,
+    /** Class cancelled by staff */
+    CLASS_PERIOD_CANCEL_CLASS: 16,
+    /** Enrollment cancelled by staff */
+    CLASS_PERIOD_CANCEL_ENROLLMENT: 66,
+    /** Class Schedule Details Changed Modified */
+    CLASS_PERIOD_CHANGE_CLASS: 17,
+    /** Enrollment Schedule Details Changed Modified */
+    CLASS_PERIOD_CHANGE_ENROLLMENT: 65,
+    /** Class Cancellation Notification - Staff */
+    CLASSES_CANCEL_STAFF: 135,
+    /** Class Schedule Details Changed */
+    CLASSES_PERIOD_CHANGE_CLASSES_STAFF: 100,
+    /** Email to the business members with information about newly added class schedule */
+    CLASSES_PROMOTE: 109,
+    /** A reminder for the staff about an upcoming recurrent class */
+    CLASSES_STAFF_RECURRENT: 124,
+    /** A notification to the staff about a cancellation of a recurrent class */
+    CLASSES_STAFF_RECURRENT_CANCEL: 125,
+    /** Staff member that conducts the class is changed (a new staff member is added, or an existing staff member is substituted) */
+    CLASSES_STAFF_SUBSTITUTION: 110,
+    /** Send to the staff a remind about an upcoming class session */
+    CLASSES_STAFF_SUBSTITUTION_REMIND: 117,
+    /** Sent to the client after a video uploaded to an attendance list is published */
+    CLASSES_VIDEO_PUBLISH: 161,
+    /** Send a copy of contract */
+    CONTRACT_COPY: 98,
+    /** Sent after purchase of coupon */
+    COUPON_PURCHASE: 84,
+    /** Enrollment Session(s) Booking Confirmation */
+    EVENT_BOOK_SESSION_CLIENT: 129,
+    /** Enrollment Session(s) Booking Notification - Staff */
+    EVENT_BOOK_SESSION_STAFF: 130,
+    /** Email to the business members with information about newly added event schedule */
+    EVENT_PROMOTE: 160,
+    /** Sent to the client after a video uploaded to an attendance list is published */
+    EVENT_VIDEO_PUBLISH: 162,
+    /** Staff sent feedback with some comment */
+    FEEDBACK_DIALOG: 133,
+    /** New Comment on Logged Result */
+    FITBUILDER_MAIL_COMMENT: 182,
+    /** New Likes on Comment */
+    FITBUILDER_MAIL_LIKE: 183,
+    /** Thumbs up on Logged Result */
+    FITBUILDER_MAIL_THUMB: 184,
+    /** Workout of the day */
+    FITBUILDER_MAIL_WORKOUT: 185,
+    /** Guest Pass invitation expired */
+    GUEST_PASS_EXPIRED: 218,
+    /** Guest Pass invitation sent */
+    GUEST_PASS_INVITATION: 217,
+    /** Guest Pass invitation reminder */
+    GUEST_PASS_REMINDER: 219,
+    /** For staff members to send emails to support using the help popup */
+    HELP_POPUP_EMAIL: 150,
+    /** Sent when a business enrolls in Autymate */
+    INTEGRATION_AUTYMATE_ENROLLMENT: 176,
+    /** Sent when a business subscribes to collections */
+    INTEGRATION_COLLECTION_ALDOUS: 178,
+    /** Email, which is sent when a customer has connected a paid Zoom account */
+    INTEGRATION_ZOOM_CONFIRMATION: 138,
+    /** Request a demo from landing page */
+    LANDING_CONTACT: 97,
+    /** Sent to staff member informing them that a new client has entered their information into the Lead Capture Widget */
+    LEAD_ADDED_STAFF: 163,
+    /** Sent to the client after they fill out a Lead Capture Form on the website of a business */
+    LEAD_CAPTURE: 87,
+    /** Sent to staff when CAASI captures a new lead from a conversation, */
+    LEAD_CAPTURE_AI: 197,
+    /** Sent to client on annual anniversary of the Member Since date */
+    LOGIN_ANNIVERSARY: 96,
+    /** Attendance List */
+    LOGIN_ATTENDANCE: 42,
+    /** Sent when user long time did not visit location, and it not has active promotion */
+    LOGIN_BACK: 79,
+    /** Email to send on the day, when client has birthday */
+    LOGIN_BIRTHDAY: 49,
+    /** Clients Payment Card expires this month */
+    LOGIN_CARD_EXPIRE: 51,
+    /** Email address confirmation */
+    LOGIN_MAIL_CONFIRM: 123,
+    /** Custom Client Email #1 */
+    LOGIN_MESSAGE: 22,
+    /** Client no show */
+    LOGIN_PENALTY_APPOINTMENT: 72,
+    /** Client no show */
+    LOGIN_PENALTY_CLASS: 15,
+    /** Client no show */
+    LOGIN_PENALTY_ENROLLMENT: 67,
+    /** Billed to Account. Sent to the client when any purchase was billed to their account balance */
+    LOGIN_PURCHASE_ACCOUNT: 159,
+    /** Sent to a client when they haven't visited in a set number of days, */
+    LOGIN_RETENTION: 50,
+    /** Sent to the client when a new account statement becomes available */
+    LOGIN_STATEMENT_NEW: 213,
+    /** Sent to all new users after they create an account for the first time */
+    LOGIN_WELCOME: 9,
+    /** Client added to a member group */
+    MEMBER_GROUP_USER_ADD: 214,
+    /** Client removed from a member group */
+    MEMBER_GROUP_USER_REMOVE: 215,
+    /** Sent to staff when the AI Agent logs a membership or purchase query */
+    MEMBERSHIP_QUERY: 203,
+    /** Sent OTP code by sms or email to validate phone number or email address */
+    NOTIFICATION_OTP: 191,
+    /** Sent OTP code by sms and email for the user sign in */
+    PASSPORT_LOGIN_ENTER: 187,
+    /** Notification about email address is changed due to merge */
+    PASSPORT_LOGIN_MERGE: 205,
+    /** E-mail with a list of user's payment account transactions for last `62` days */
+    PAY_ACCOUNT_INVOICE: 85,
+    /** Automatic payment success */
+    PAY_AUTOMATIC_SUCCESS: 116,
+    /** Transaction failed */
+    PAY_TRANSACTION_FAIL: 181,
+    /** Request a custom website subscription */
+    PRESENCE_ACTIVATE: 137,
+    /** Sent after purchase of product */
+    PRODUCT_PURCHASE: 127,
+    /** Email to inform user that they email is changed */
+    PROFILE_MAIL_CHANGE: 93,
+    /** Email to confirm new email address after it was changed */
+    PROFILE_MAIL_CONFIRM: 86,
+    /** Mail to inform the user that their password has been changed */
+    PROFILE_PASSWORD_CHANGE: 111,
+    /** Mail containing reset password link to allow the user to change their password */
+    PROFILE_PASSWORD_RESET: 142,
+    /** Few Pass Visits Remaining */
+    PROMOTION_LOW: 43,
+    /** Sent when membership is canceled */
+    PROMOTION_MEMBERSHIP_CANCEL: 153,
+    /** Sent to staff when membership is canceled */
+    PROMOTION_MEMBERSHIP_CANCEL_STAFF: 193,
+    /** Sent when membership expires */
+    PROMOTION_MEMBERSHIP_EXPIRE: 77,
+    /** Membership Payment - Billed to Account */
+    PROMOTION_MEMBERSHIP_PAY_ACCOUNT: 106,
+    /** Automatic Payment Failed */
+    PROMOTION_MEMBERSHIP_PAY_FAIL: 55,
+    /** Membership Payment Confirmation */
+    PROMOTION_MEMBERSHIP_PAY_OK: 56,
+    /** Sent to the customer after their membership is renewed */
+    PROMOTION_MEMBERSHIP_REACTIVATE: 75,
+    /** Sent before certain count of days before membership renews */
+    PROMOTION_MEMBERSHIP_RENEW: 78,
+    /** Sent after purchase of promotion */
+    PROMOTION_PURCHASE: 76,
+    /** Receipt sent after purchase of promotion */
+    PROMOTION_RECEIPT: 136,
+    /** Sent after a client attended a visit using a purchase option (used in automations) */
+    PROMOTION_USED: 212,
+    /** Sent to the customer when a promotion is paused */
+    PURCHASE_HOLD: 194,
+    /** Sends to the clients when purchase option hold expiring soon */
+    PURCHASE_HOLD_EXPIRING: 186,
+    /** Purchase Receipt */
+    PURCHASE_PAYMENT: 52,
+    /** Purchase Receipt */
+    PURCHASE_PAYMENT_ACCOUNT: 107,
+    /** Purchase Receipt */
+    PURCHASE_PAYMENT_POS: 115,
+    /** Sent to Business Owner when the re-order level has been reached for some product */
+    PURCHASE_PRODUCT_INVENTORY: 95,
+    /** Thanks for purchasing an introductory offer */
+    PURCHASE_PROMOTION_INTRODUCTORY: 74,
+    /** Send refund receipt */
+    PURCHASE_REFUND: 108,
+    /** Quiz form submission - Client */
+    QUIZ_FORM_SUBMITTION: 172,
+    /** Email to wellnessliving team when user changes Quiz Subscription plan */
+    QUIZ_INDEX: 174,
+    /** Quiz submitted - Staff */
+    QUIZ_NOTIFICATION: 171,
+    /** Quiz submitted - Staff */
+    QUIZ_NOTIFICATION_REMIND: 173,
+    /** Email to wellnessliving team when businesses perform actions which is exporting data */
+    REPORT_EXPORT: 177,
+    /** New Customer Review - Staff */
+    REVIEW_ADD: 38,
+    /** Owner Replied to Review */
+    REVIEW_REPLY: 45,
+    /** Client left a review */
+    REVIEW_USER_LEFT: 216,
+    /** Event redeems a reward (points or prizes) for client */
+    REWARD_PRIZE_CLIENT: 120,
+    /** Event redeems a reward (points or prizes) for staff */
+    REWARD_PRIZE_STAFF: 121,
+    /** Sale Has Been Made */
+    SALE_STAFF: 126,
+    /** Sent after booking a service (used in automations) */
+    SERVICE_BOOK: 208,
+    /** Event when finished push certification for ios devices */
+    SKIN_APPLICATION_CONNECT: 122,
+    /** Notifies staff when CAASI captures a client request for a staff connect, */
+    STAFF_CALLBACK_REQUEST: 196,
+    /** Sends when task assigned to staff */
+    TASK_ASSIGN: 104,
+    /** Send a copy of waiver */
+    TERM_COPY: 99,
+    /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
+    USER_CAMPAIGN: 112,
+    /** Request a video subscription */
+    VIDEO_SUBSCRIPTION_UPGRADE: 140,
+    /** Sent after visit the service */
+    VISIT_CAMPAIGN: 94,
+    /** Sent if a client does not show up to a service reserved by (used in automations) */
+    VISIT_NOSHOW: 209,
+    /** Visit receipt */
+    VISIT_RECEIPT_RECEIPT: 190,
+    /** Email, which is sent when a Zoom license is lack */
+    ZOOM_LICENSE_LACK: 149,
+  });
+
+  /**
+   * Types of the shapes.
+   *
+   * @enum {number}
+   */
+  WlClient.WlResourceLayoutShapeLayoutShapeSid = Object.freeze({
+    /** Circles */
+    CIRCLE: 2,
+    /** Pies */
+    PIE: 3,
+    /** Rectangles and squares */
+    RECTANGLE: 1,
+  });
+
+  /**
+   * Predefined icons for assets.
+   *
+   * @enum {number}
+   */
+  WlClient.WlResourceImageImageIconSid = Object.freeze({
+    /** Training bench */
+    BENCH: 1,
+    /** Exercise bike */
+    BIKE_1: 2,
+    /** Exercise bike */
+    BIKE_2: 3,
+    /** Exercise bike */
+    BIKE_3: 4,
+    /** Exercise bike */
+    BIKE_4: 5,
+    /** Exercise bike */
+    BIKE_5: 6,
+    /** Exercise bike */
+    BIKE_6: 7,
+    /** Boot */
+    BOOT: 8,
+    /** Door */
+    DOOR: 9,
+    /** Fan */
+    FAN_1: 10,
+    /** Fan */
+    FAN_2: 11,
+    /** Man */
+    MAN: 12,
+    /** Mat */
+    MAT: 13,
+    /** Mirror */
+    MIRROR: 14,
+    /** Orbitrack */
+    ORBITRACK_1: 15,
+    /** Orbitrack */
+    ORBITRACK_2: 16,
+    /** Orbitrack */
+    ORBITRACK_3: 17,
+    /** Orbitrack */
+    ORBITRACK_4: 18,
+    /** Orbitrack */
+    ORBITRACK_5: 19,
+    /** Orbitrack */
+    ORBITRACK_6: 20,
+    /** Boxing punch */
+    PUNCH_1: 21,
+    /** Boxing punch */
+    PUNCH_2: 22,
+    /** Rectangle */
+    RECTANGLE: 23,
+    /** Loudspeaker */
+    SPEAKER: 24,
+    /** Treadmill */
+    TREADMILL_1: 25,
+    /** Treadmill */
+    TREADMILL_2: 26,
+    /** TV */
+    TV: 27,
+    /** Twines */
+    TWINE: 28,
+    /** Weight */
+    WEIGHT: 29,
+  });
+
+  /**
+   * Different user flows that can be tracked.
+   *
+   * @enum {number}
+   */
+  WlClient.WlUserTrackingFlowSid = Object.freeze({
+    /** Appointment booking flow */
+    BOOK_APPOINTMENT: 1,
+    /** Class booking flow */
+    BOOK_CLASS: 2,
+    /** Event booking flow */
+    BOOK_EVENT: 3,
+  });
+
+  /**
+   * List of statuses of an Autymate enrollment notification.
+   *
+   * @enum {number}
+   */
+  WlClient.WlIntegrationAutymateAutymateStatusSid = Object.freeze({
+    /** Autymation enrollment is active */
+    ACTIVE: 1,
+    /** Autymation enrollment is no longer active */
+    INACTIVE: 2,
+  });
+
+  /**
+   * List of modes used to access Autymate.
+   *
+   * @enum {number}
+   */
+  WlClient.WlIntegrationAutymateAutymateAccessModeSid = Object.freeze({
+    /** Access Autymate to create an initial enrollment */
+    ENROLL: 1,
+    /** Access Autymate to view the dashboard */
+    VIEW: 2,
+  });
+
+  /**
+   * Types of the location.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessFranchiseLocationBusinessFranchiseLocationSid = Object.freeze({
+    /** All locations */
+    ALL: 1,
+    /** Locations without the region */
+    REGION_NO: 2,
+    /** Location with the region */
+    REGION_YES: 3,
+  });
+
+  /**
+   * List of possible types of Gift Cards.
+   *
+   * @enum {number}
+   */
+  WlClient.WlCouponTypeSid = Object.freeze({
+    /** Amount Gift Card */
+    AMOUNT: 2,
+    /** Product Gift Card */
+    COMPONENT: 1,
+    /** Quick Gift Card */
+    QUICK: 3,
+  });
+
+  /**
+   * List of possible order for gets review.
+   *
+   * @enum {number}
+   */
+  WlClient.WlReviewReviewListReviewOrderSid = Object.freeze({
+    /** Ascending sort review by date */
+    LATEST: 1,
+    /** Ascending sort review by date */
+    NEGATIVE: 3,
+    /** Descending sort review by date */
+    OLDEST: 4,
+    /** Descending sort review by date */
+    POSITIVE: 2,
+  });
+
+  /**
+   * A list of types object for share post to social network.
+   *
+   * @enum {number}
+   */
+  WlClient.WlSocialShareShareObjectSid = Object.freeze({
+    /** Book */
+    BOOK: 4,
+    /** Location */
+    LOCATION: 3,
+    /** Purchase */
+    PURCHASE: 1,
+    /** Review */
+    REVIEW: 2,
+  });
+
+  /**
+   * Payment actors (staff member, user or business owner).
+   *
+   * @enum {number}
+   */
+  WlClient.RsPayActorSid = Object.freeze({
+    /** Business owner */
+    BUSINESS: 3,
+    /** Staff member */
+    STAFF: 1,
+    /** User */
+    USER: 2,
+  });
+
+  /**
+   * Appointment display option.
+   *
+   * @enum {number}
+   */
+  WlClient.WlScheduleDesignOptionSid = Object.freeze({
+    /** Appointment name in header */
+    APPOINTMENT_NAME: 1,
+    /** Client name in header */
+    CLIENT_NAME: 3,
+    /** Staff name in header */
+    STAFF_NAME: 2,
+  });
+
+  /**
+   * A list of client booking flow types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlServiceServiceBookFlowSid = Object.freeze({
+    /** Client selects the date and time and then the staff member */
+    DATE_STAFF_ORDER: 2,
+    /** Client selects their preferred booking order should be staff member / calendar */
+    PREFER_ORDER: 3,
+    /** Client selects the staff member and then the date and time */
+    STAFF_DATE_ORDER: 1,
+  });
+
+  /**
+   * A list of client booking flow types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsServiceRequireSid = Object.freeze({
+    /** Some part of the price is required. Type of the deposit can be flat or percentage */
+    ADVANCE: 4,
+    /** Full payment is required */
+    FULL: 2,
+    /** Nothing is required */
+    NOTHING: 1,
+    /** Clients can book, but online purchase is not available */
+    OFFLINE: 6,
+    /** Credit card authorisation without payment is required */
+    ZERO: 5,
+  });
+
+  /**
+   * List of possible ways to solve a conflict.
+   *
+   * @enum {number}
+   */
+  WlClient.RsAppointmentEditConflictSid = Object.freeze({
+    /** Create an event with other staff, date or time */
+    EDIT: 3,
+    /** Ignore this conflict and create event as it is */
+    IGNORE: 1,
+    /** Do not create conflicted event */
+    SKIP: 2,
+  });
+
+  /**
+   * A list of service price types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsServicePriceSid = Object.freeze({
+    /** Fixed price */
+    FIXED: 1,
+    /** No need to pay */
+    FREE: 2,
+    /** Hide price */
+    HIDE: 4,
+    /** Various price */
+    VARIES: 3,
+  });
+
+  /**
+   * List of user roles in a system.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLoginLoginRoleSid = Object.freeze({
+    /** Admin role */
+    ADMIN: 1,
+    /** Client role */
+    CLIENT: 2,
+    /** Guest role. User that is not logged in */
+    GUEST: 3,
+    /** Staff member role */
+    STAFF: 4,
+  });
+
+  /**
+   * List of checks that are performed before session book.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBookProcessProcessCheckSid = Object.freeze({
+    /** Check that a client has a credit card */
+    CARD: 1,
+    /** Check a client has no unsigned waiver */
+    WAIVER: 2,
+  });
+
+  /**
+   * The list of possible actions for class modify wizard.
+   *
+   * @enum {number}
+   */
+  WlClient.RsClassModifyActionSid = Object.freeze({
+    /** Cancel class schedule */
+    CANCEL: 2,
+    /** Change class schedule */
+    EDIT: 1,
+    /** Restore cancelled schedule */
+    RESTORE: 3,
+  });
+
+  /**
+   * The list of possible modify mode for class modify wizard.
+   *
+   * @enum {number}
+   */
+  WlClient.RsClassModifyModeSid = Object.freeze({
+    /** Edit class schedule */
+    FULL: 1,
+    /** Edit instructor in class schedule */
+    INSTRUCTOR: 2,
+    /** Asset working hours */
+    RESOURCE_PERIOD: 4,
+    /** Staff working hours */
+    STAFF_PERIOD: 3,
+  });
+
+  /**
+   * List of possible plans for AiAgentSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = Object.freeze({
+    /** Chat Agent */
+    CHAT_AGENT: 4,
+    /** Dental Phone Agent */
+    DENTAL_PHONE_AGENT: 5,
+    /** None */
+    FREE: 1,
+    /** Professional */
+    PROFESSIONAL: 2,
+    /** Assistant */
+    STANDARD: 3,
+  });
+
+  /**
+   * List of possible plans for AchieveSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = Object.freeze({
+    /** Basic */
+    FREE: 1,
+    /** Premium */
+    PREMIUM: 2,
+    /** White Label (Legacy) */
+    WHITE: 3,
+    /** White Label */
+    WHITE0125: 7,
+    /** White Label (Business Max) */
+    WHITE_MAX: 4,
+    /** White Label (Legacy) */
+    WHITE_PLUS: 6,
+    /** White Label (Business Pro) */
+    WHITE_PRO: 5,
+  });
+
+  /**
+   * List of possible plans for BaseSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = Object.freeze({
+    /** Advanced */
+    ADVANCED: 4,
+    /** Basic */
+    BASIC: 3,
+    /** Business(Legacy) */
+    BUSINESS: 7,
+    /** Business */
+    BUSINESS_2405: 11,
+    /** Business(Legacy) */
+    BUSINESS_LIGHT: 8,
+    /** Business Max */
+    BUSINESS_MAX: 9,
+    /** Business Pro */
+    BUSINESS_PRO: 10,
+    /** Enterprise */
+    ENTERPRISE: 6,
+    /** None */
+    FREE: 1,
+    /** Business Partner */
+    PARTNER: 2,
+    /** Platform Access */
+    PLATFORM_ACCESS: 15,
+    /** Professional */
+    PROFESSIONAL: 5,
+    /** Starter */
+    STARTER: 12,
+    /** Starter */
+    STARTER_2502: 13,
+    /** Trial */
+    TRIAL: 14,
+  });
+
+  /**
+   * List of possible plans for SmsSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionSmsSmsSubscriptionSid = Object.freeze({
+    /** 1000 Messages */
+    CENTER_1000: 5,
+    /** 10000 Messages */
+    CENTER_10000: 8,
+    /** 2500 Messages */
+    CENTER_2500: 6,
+    /** 25000 Messages */
+    CENTER_25000: 9,
+    /** 500 Messages */
+    CENTER_500: 4,
+    /** 5000 Messages */
+    CENTER_5000: 7,
+    /** Message Center Custom */
+    CENTER_CUSTOM: 10,
+    /** Enterprise */
+    ENTERPRISE: 11,
+    /** None */
+    FREE: 1,
+    /** Message Center Professional */
+    PREMIUM: 3,
+  });
+
+  /**
+   * List of possible plans for FitliveSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = Object.freeze({
+    /** Advanced */
+    ADVANCED: 5,
+    /** Basic */
+    BASIC: 4,
+    /** None */
+    FREE: 1,
+    /** Professional */
+    LICENCED: 2,
+    /** Suspended */
+    SUSPENDED: 3,
+  });
+
+  /**
+   * List of possible plans for ZoomSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = Object.freeze({
+    /** Basic */
+    BASIC: 2,
+    /** None */
+    FREE: 1,
+    /** Professional */
+    PROFESSIONAL: 3,
+  });
+
+  /**
+   * List of possible plans for FinanceSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid = Object.freeze({
+    /** None */
+    FREE: 1,
+    /** Professional */
+    PROFESSIONAL: 2,
+  });
+
+  /**
+   * List of possible plans for FitbuilderSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = Object.freeze({
+    /** None */
+    FREE: 1,
+    /** Professional */
+    PROFESSIONAL: 2,
+  });
+
+  /**
+   * List of possible plans for FitvidSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = Object.freeze({
+    /** Basic */
+    BASIC: 2,
+    /** Enterprise */
+    ENTERPRISE: 3,
+    /** None */
+    FREE: 1,
+    /** Premium */
+    PREMIUM: 4,
+  });
+
+  /**
+   * List of possible plans for FitzoneSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = Object.freeze({
+    /** None */
+    FREE: 1,
+    /** Professional */
+    PROFESSIONAL: 2,
+  });
+
+  /**
+   * List of possible plans for MarketingSuiteSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = Object.freeze({
+    /** Pro */
+    BASIC: 2,
+    /** Standard (Business) */
+    BASIC_BUSINESS: 4,
+    /** Standard (Legacy) */
+    BASIC_OLD: 3,
+    /** Base */
+    FREE: 1,
+    /** Ultimate */
+    PRO: 5,
+  });
+
+  /**
+   * List of possible plans for PostcardSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid = Object.freeze({
+    /** Basic */
+    BASIC: 3,
+    /** None */
+    FREE: 1,
+    /** Professional */
+    PROFESSIONAL: 2,
+  });
+
+  /**
+   * List of possible plans for QuizSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = Object.freeze({
+    /** Business */
+    BUSINESS: 3,
+    /** None */
+    FREE: 1,
+    /** Professional */
+    PROFESSIONAL: 2,
+    /** Starter */
+    STARTER: 4,
+  });
+
+  /**
+   * List of possible plans for ReviewSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = Object.freeze({
+    /** None */
+    FREE: 1,
+    /** Professional */
+    PROFESSIONAL: 2,
+  });
+
+  /**
+   * List of possible plans for RewardSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = Object.freeze({
+    /** None */
+    FREE: 1,
+    /** Professional */
+    PROFESSIONAL: 2,
+  });
+
+  /**
+   * List of possible plans for WebsiteSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = Object.freeze({
+    /** Basic */
+    BASIC: 2,
+    /** Basic */
+    BASIC_LARGE: 6,
+    /** Enterprise */
+    ENTERPRISE: 4,
+    /** None */
+    FREE: 1,
+    /** Premium */
+    PREMIUM: 3,
+    /** Premium (Business Max) */
+    PREMIUM_MAX: 7,
+    /** Professional */
+    PROFESSIONAL: 5,
+  });
+
+  /**
+   * List of possible plans for AssetSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = Object.freeze({
+    /** None */
+    FREE: 1,
+    /** Professional */
+    PROFESSIONAL: 2,
+  });
+
+  /**
+   * List of possible plans for DoorSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = Object.freeze({
+    /** Brivo */
+    BASE: 2,
+    /** None */
+    FREE: 1,
+    /** Passport */
+    PASSPORT: 3,
+  });
+
+  /**
+   * List of possible plans for ApiSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionApiApiSubscriptionSid = Object.freeze({
+    /** None */
+    FREE: 1,
+    /** Premium */
+    PREMIUM: 2,
+  });
+
+  /**
+   * List of possible plans for ZapierSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = Object.freeze({
+    /** None */
+    FREE: 1,
+    /** Professional */
+    PROFESSIONAL: 2,
+  });
+
+  /**
+   * List of possible plans for CollectionsSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = Object.freeze({
+    /** None */
+    FREE: 1,
+    /** Integration Requested */
+    INTEGRATION_REQUESTED: 3,
+    /** Professional */
+    PROFESSIONAL: 2,
+  });
+
+  /**
+   * List of possible plans for GoHighLevelSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = Object.freeze({
+    /** Standard */
+    BASIC: 2,
+    /** Free */
+    FREE: 1,
+  });
+
+  /**
+   * List of possible plans for EmailSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = Object.freeze({
+    /** None */
+    FREE: 1,
+    /** Standard */
+    STANDARD: 2,
+  });
+
+  /**
+   * List of possible plans for ConstantContactSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = Object.freeze({
+    /** None */
+    FREE: 1,
+    /** Standard */
+    STANDARD: 2,
+  });
+
+  /**
+   * List of possible plans for MailchimpSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = Object.freeze({
+    /** None */
+    FREE: 1,
+    /** Standard */
+    STANDARD: 2,
+  });
+
+  /**
+   * List of possible plans for BusinessCoachSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = Object.freeze({
+    /** Business Success Coaching */
+    BUSINESS_SUCCESS_COACHING: 2,
+    /** No subscription */
+    FREE: 1,
+  });
+
+  /**
+   * List of options to convert promotion.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionConvertPromotionConvertSid = Object.freeze({
+    /** Promotion conversion downgraded */
+    DOWNGRADE: 1,
+    /** Type of the promotion conversion */
+    EQUAL_VALUE: 2,
+    /** Promotion conversion upgraded */
+    UPGRADE: 3,
+  });
+
+  /**
+   * Different types of conversion behavior: when and how it should be converted.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLoginPromotionConvertConvertWhenSid = Object.freeze({
+    /** Purchase Option converts one day after the scheduled expiration date and the client is charged for the new purchase option */
+    EXPIRATION_PAID: 1,
+    /** Purchase Option converts now and the client is not charged for the new Purchase Option */
+    NOW_FREE: 2,
+    /** Purchase Option converts now and the client is changed for the new Purchase Option */
+    NOW_PAID: 3,
+    /** Purchase Option converts on the specified date and the client is charged for the new Purchase Option */
+    SCHEDULE_PAID: 4,
+  });
+
+  /**
+   * Guest Pass reset type.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionGuestPassGuestPassResetTypeSid = Object.freeze({
+    /** Limits reset on promotion billing day */
+    BILLING: 1,
+    /** Limits reset on promotion renewal day */
+    RENEWAL: 2,
+  });
+
+  /**
+   * List of options to add client to attendance list.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLoginAttendanceAddOptionSid = Object.freeze({
+    /** Add client to attendance list and charge his account */
+    DEBIT: 2,
+    /** Add client to attendance list and pay now */
+    PAY: 3,
+    /** Add client to attendance list without payment */
+    UNPAID: 1,
+  });
+
+  /**
+   * Purchase restrictions.
+   *
+   * @enum {number}
+   */
+  WlClient.WlShopProductPurchaseRestrictionSid = Object.freeze({
+    /** Purchase option available for all clients */
+    ALL: 1,
+    /** Purchase option introductory offer, available for new clients only */
+    INTRODUCTORY: 2,
+    /** Purchase option available for clients with special login type or member group */
+    TYPE: 3,
+  });
+
+  /**
+   * List of places to redirect user from attendance list after inactivity.
+   *
+   * @enum {number}
+   */
+  WlClient.WlReceptionRosterDirectSid = Object.freeze({
+    /** Redirect user to recently viewed class */
+    RECENT: 1,
+    /** Redirect user to upcoming schedule */
+    SCHEDULE: 2,
+  });
+
+  /**
+   * Mobile applications categories which will be displayed in select tag.
+   *
+   * @enum {number}
+   */
+  WlClient.WlSkinApplicationResourceApplicationCategorySid = Object.freeze({
+    /** Mobile applications with content related to the sphere of cosmetology and appearance */
+    BEAUTY: 1,
+    /** Mobile applications with content related to the sphere of Business and finance */
+    BUSINESS: 2,
+    /** Mobile applications with content related to the sphere education */
+    EDUCATION: 3,
+    /** Mobile applications with content related to the sphere entertainment */
+    ENTERTAINMENT: 4,
+    /** Mobile applications with content related with various events */
+    EVENTS: 5,
+    /** Mobile applications with content related to the sphere health, sport and fitness */
+    HEALTH_AND_FITNESS: 6,
+    /** Mobile applications with content related to the life style */
+    LIFESTYLE: 7,
+    /** Mobile applications with content related to the sphere health, and medical services */
+    MEDICAL: 8,
+    /** Mobile applications with content related with various social events */
+    SOCIAL: 9,
+    /** Mobile applications with content related with various sports events */
+    SPORTS: 10,
+    /** Mobile applications with content for performing certain tasks */
+    TOOLS: 11,
+    /** Mobile applications with content related to the sphere of travel and geography */
+    TRAVEL_AND_LOCAL: 12,
+  });
+
+  /**
+   * Enum for application update types used in Google Play and Apple Store releases.
+   *
+   * @enum {number}
+   */
+  WlClient.WlSkinApplicationUpgradeAppUpdateTypeEnum = Object.freeze({
+    /** Patch update (1) - for small bug fixes or improvements */
+    PATCH: 1,
+    /** Minor update (2) - for backward-compatible feature additions */
+    MINOR: 2,
+    /** Major update (3) - for incompatible API changes or major new features */
+    MAJOR: 3,
+  });
+
+  /**
+   * Lead conversion type.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLeadConversionLeadConversionTypeSid = Object.freeze({
+    /** Consider leads as 'Lost' or no longer interested */
+    LOST: 1,
+    /** Consider leads as successfully 'Won' */
+    WON: 2,
+  });
+
+  /**
+   * Shapes of client group icons.
+   *
+   * @enum {number}
+   */
+  WlClient.WlMemberGroupShapeSid = Object.freeze({
+    /** Circle */
+    CIRCLE: 1,
+    /** Hexagon */
+    HEXAGON: 2,
+    /** Oval */
+    OVAL: 3,
+    /** Pentagon */
+    PENTAGON: 4,
+    /** Rectangle */
+    RECTANGLE: 5,
+    /** Square */
+    SQUARE: 6,
+    /** Star */
+    STAR: 7,
+  });
+
+  /**
+   * Search operation constants.
+   *
+   * @enum {number}
+   */
+  WlClient.WlSearchSearchOperationSid = Object.freeze({
+    /** Contains */
+    CONTAIN: 1,
+    /** Custom */
+    CUSTOM: 27,
+    /** On */
+    DATE: 2,
+    /** After */
+    DATE_AFTER: 3,
+    /** Before */
+    DATE_BEFORE: 4,
+    /** In specific range */
+    DATE_RANGE: 5,
+    /** Ends with */
+    END_WITH: 6,
+    /** = */
+    EQUAL: 13,
+    /** > */
+    GREATER_THAN: 17,
+    /** >= */
+    GREATER_THAN_OR_EQUAL: 18,
+    /** In the last */
+    IN_LAST: 23,
+    /** In a specific range */
+    IN_SPECIFIC_RANGE: 24,
+    /** Is */
+    IS: 7,
+    /** Is checked */
+    IS_CHECKED: 30,
+    /** Is empty */
+    IS_EMPTY: 11,
+    /** Isn`t */
+    IS_NOT: 8,
+    /** Is unchecked */
+    IS_UNCHECKED: 31,
+    /** Last month */
+    LAST_MONTH: 29,
+    /** Last week */
+    LAST_WEEK: 28,
+    /** < */
+    LESS_THAN: 15,
+    /** <= */
+    LESS_THAN_OR_EQUAL: 16,
+    /** No */
+    NO: 19,
+    /** Doesn`t contain */
+    NOT_CONTAIN: 9,
+    /** Is not empty */
+    NOT_EMPTY: 12,
+    /** =/= */
+    NOT_EQUAL: 14,
+    /** Starts with */
+    START_WITH: 10,
+    /** This month */
+    THIS_MONTH: 26,
+    /** This week */
+    THIS_WEEK: 25,
+    /** Today */
+    TODAY: 21,
+    /** Yes */
+    YES: 20,
+    /** Yesterday */
+    YESTERDAY: 22,
+  });
+
+  /**
+   * A list of share options.
+   *
+   * @enum {number}
+   */
+  WlClient.WlShareShareSid = Object.freeze({
+    /** Item is available for all staffs in a business */
+    EVERYONE: 2,
+    /** Item is available for current user */
+    ONLY_ME: 1,
+    /** Item is available for selected staff roles */
+    SELECTED_STAFF_ROLE: 3,
+  });
+
+  /**
+   * Lifecycle state of a guest pass invitation.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLoginPromotionGuestPassInviteInviteStatusEnum = Object.freeze({
+    /** Guest attended the visit booked with the guest pass */
+    ATTEND: 9,
+    /** Guest booked the visit booked with the guest pass */
+    BOOK: 8,
+    /** Guest cancelled the visit early (without penalty). Pass is returned to the host's */
+    EARLY_CANCELLED: 10,
+    /** Guest attended the visit booked with the guest pass */
+    CHECKED_IN: 3,
+    /** Guest accepted the invitation but did not attend within the pass expiration */
+    GUEST_PASS_EXPIRED: 6,
+    /** Guest claimed the invitation but the linked visit (if any) has not been */
+    INVITE_ACCEPTED: 2,
+    /** Invitation expired before the guest claimed it. Pass returns to the host's */
+    INVITE_EXPIRED: 7,
+    /** Invitation has been sent but the guest has not claimed it yet. Pass is held */
+    INVITE_SENT: 1,
+    /** Guest cancelled the visit too late and was penalised. Pass is consumed and */
+    LATE_CANCELLED: 5,
+    /** Guest accepted the invitation but did not show up for the visit. Pass is */
+    NO_SHOW: 4,
+  });
 
   return WlClient;
 });
