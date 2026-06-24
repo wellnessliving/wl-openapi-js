@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260624111606
+ * Spec version: 1.1.20260624175244
  * Build date:   2026-06-24
  * Endpoints:    457
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260624111606';
+  WlClient.SPEC_VERSION = '1.1.20260624175244';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (457 total)
@@ -2293,7 +2293,7 @@
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
-   *  `a_calendar` {string[]} Keys are dates of the days inside requested date range, when there is at leas...
+   *  `a_calendar` {*[][]} Keys are dates of the days inside requested date range, when there is at leas...
    *  `a_quick` {Object} Information about classes/events for quick filter.
    *  `a_session` {Object[]} A list of classes sessions starting with the date [ClassListApi](/Wl/Schedule...
    *  `is_timezone_different` {boolean} If `true`, the list of sessions contains sessions from different time zones. ...
@@ -2332,7 +2332,7 @@
    * @param {boolean} params.show_event If `true`, events are also returned. If `false`, only classes are returned.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `a_calendar` {string[]} Keys are dates of the days inside requested date range, when there is at leas...
+   *  `a_calendar` {*[][]} Keys are dates of the days inside requested date range, when there is at leas...
    *  `a_session` {Object[]} A list of classes sessions starting with the date `dt_date`
    *  `is_timezone_different` {boolean} If `true`, the list of sessions contains sessions from different time zones. ...
    *  `is_virtual_service` {boolean} If `true`, there exists at least one virtual service by a specified

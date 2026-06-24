@@ -7842,7 +7842,7 @@ export type SocialGooglePlusLoginResponse = Record<string, unknown>;
 export type WlScheduleClassListClassList68Params = Record<string, unknown>;
 export interface WlScheduleClassListClassList68Response {
     /** Keys are dates of the days inside requested date range, when there is at least one class in the b... */
-    a_calendar: Array<string>;
+    a_calendar: Array<Array<unknown>>;
     /** Information about classes/events for quick filter. */
     a_quick: {
         /** Type of class ("class" || "event") */
@@ -7959,7 +7959,7 @@ export interface WlScheduleClassListClassListParams {
 }
 export interface WlScheduleClassListClassListResponse {
     /** Keys are dates of the days inside requested date range, when there is at least one class in the b... */
-    a_calendar: Array<string>;
+    a_calendar: Array<Array<unknown>>;
     /** A list of classes sessions starting with the date `dt_date` */
     a_session: Array<{
         /** Keys of class tab. */
