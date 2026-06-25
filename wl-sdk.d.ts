@@ -21606,7 +21606,7 @@ export interface WlBookProcessStoreStoreGroupResponse {
         i_session: number;
         /** Login promotion key. */
         k_login_promotion: string | null;
-        /** Host login promotion key that grants the guest pass. Primary key in the RsLoginPromotionSql table. */
+        /** Host login promotion key that grants the guest pass. */
         k_login_promotion_guest_pass: string | null;
         /** Session pass key. */
         k_session_pass: string | null;
