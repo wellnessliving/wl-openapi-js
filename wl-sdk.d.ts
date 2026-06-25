@@ -217,7 +217,7 @@ export declare enum ThothPayProcessorPayProcessorSid {
     NMI = 6,
     /** Payment gateway for Nuvei */
     NUVEI = 12,
-    /** Payment gateway for http://www.paychoice.com.au/ Paychoice */
+    /** Payment gateway for Paychoice */
     PAYCHOICE = 7,
     /** Payment gateway for `stripe.com` */
     STRIPE_COM = 10
@@ -298,6 +298,503 @@ export declare enum WlTaskTaskStatusSid {
     COMPLETE = 3,
     /** Task in progress */
     PROGRESS = 2
+}
+/** An exception that is thrown in a case of a payment error. */
+export declare enum RsPayException {
+    /** Invalid ABA number chosen */
+    ABAN_EMPTY = 58,
+    /** Invalid ABA number chosen */
+    ABAN_INVALID = 57,
+    /** User Authentication Failed */
+    ACCESS_AUTHENTICATE = 160,
+    /** Authentication token is not valid */
+    ACCESS_TOKEN_INVALID = 181,
+    /** Account payment entry method is empty */
+    ACCOUNT_ENTRY_EMPTY = 63,
+    /** Account holder type is empty */
+    ACCOUNT_HOLDER_EMPTY = 64,
+    /** Account name is empty */
+    ACCOUNT_NAME_EMPTY = 59,
+    /** Account name is too long */
+    ACCOUNT_NAME_LONG = 60,
+    /** Account number is empty */
+    ACCOUNT_NUMBER_EMPTY = 61,
+    /** Account number invalid */
+    ACCOUNT_NUMBER_INVALID = 67,
+    /** Account number is too long */
+    ACCOUNT_NUMBER_LONG = 62,
+    /** Account number is too short */
+    ACCOUNT_NUMBER_SHORT = 66,
+    /** Account owner is empty */
+    ACCOUNT_OWNER_EMPTY = 69,
+    /** Account name is too long */
+    ACCOUNT_OWNER_LONG = 70,
+    /** Account owner name does not equal billing name */
+    ACCOUNT_OWNER_DOES_NOT_MATCH = 182,
+    /** Account type is empty */
+    ACCOUNT_TYPE_EMPTY = 65,
+    /** ACH: Account Closed */
+    ACH_E02 = 198,
+    /** ACH: No Account / Unable to Locate Account */
+    ACH_E03 = 199,
+    /** ACH: Invalid Account Number */
+    ACH_E04 = 200,
+    /** ACH: Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    ACH_E05 = 201,
+    /** ACH: Authorization Revoked by Customer */
+    ACH_E07 = 202,
+    /** ACH: Payment Stopped */
+    ACH_E08 = 203,
+    /** ACH: Customer Advises Originator Not Known / Not Authorized */
+    ACH_E10 = 204,
+    /** ACH: Customer Advises Entry Not in Accordance with Authorization */
+    ACH_E11 = 205,
+    /** ACH: RDFI Not Qualified to Participate */
+    ACH_E13 = 206,
+    /** ACH: Representative Payee Deceased or Unable to Continue */
+    ACH_E14 = 207,
+    /** ACH: Beneficiary or Account Holder Deceased */
+    ACH_E15 = 208,
+    /** ACH: Account Frozen */
+    ACH_E16 = 209,
+    /** ACH: Invalid Account Number under Questionable Circumstances */
+    ACH_E17 = 210,
+    /** ACH: Non-Transaction Account */
+    ACH_E20 = 211,
+    /** ACH: Corporate Customer Advises Not Authorized */
+    ACH_E29 = 212,
+    /** ACH: Invalid Image */
+    ACH_E92 = 213,
+    /** ACH: Non-Negotiable */
+    ACH_E93 = 214,
+    /** ACH: Breach of Warranty */
+    ACH_E95 = 215,
+    /** ACH: Counterfeit / Forgery */
+    ACH_E96 = 216,
+    /** ACH: Refer to Maker */
+    ACH_E97 = 217,
+    /** Insufficient funds */
+    ACH_R01 = 124,
+    /** Bank account closed */
+    ACH_R02 = 125,
+    /** No bank account/unable to locate account */
+    ACH_R03 = 126,
+    /** Invalid bank account number */
+    ACH_R04 = 127,
+    /** Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    ACH_R05 = 128,
+    /** Returned per ODFI request */
+    ACH_R06 = 129,
+    /** Authorization revoked by customer */
+    ACH_R07 = 130,
+    /** Payment stopped */
+    ACH_R08 = 131,
+    /** Uncollected funds */
+    ACH_R09 = 132,
+    /** Customer advises not authorized */
+    ACH_R10 = 133,
+    /** Check truncation entry return */
+    ACH_R11 = 134,
+    /** Branch sold to another RDFI */
+    ACH_R12 = 135,
+    /** RDFI not qualified to participate */
+    ACH_R13 = 136,
+    /** Representative payee deceased or unable to continue in that capacity */
+    ACH_R14 = 137,
+    /** Beneficiary or bank account holder */
+    ACH_R15 = 138,
+    /** Bank account frozen */
+    ACH_R16 = 139,
+    /** File record edit criteria */
+    ACH_R17 = 140,
+    /** Improper effective entry date */
+    ACH_R18 = 141,
+    /** Amount field error */
+    ACH_R19 = 142,
+    /** Non-payment bank account */
+    ACH_R20 = 143,
+    /** Invalid company ID number */
+    ACH_R21 = 144,
+    /** Invalid individual ID number */
+    ACH_R22 = 145,
+    /** Credit entry refused by receiver */
+    ACH_R23 = 146,
+    /** Duplicate entry */
+    ACH_R24 = 147,
+    /** Addenda error */
+    ACH_R25 = 148,
+    /** Mandatory field error */
+    ACH_R26 = 149,
+    /** Trace number error */
+    ACH_R27 = 150,
+    /** Transit routing number check digit error */
+    ACH_R28 = 151,
+    /** Corporate customer advises not authorized */
+    ACH_R29 = 152,
+    /** RDFI not participant in check truncation program */
+    ACH_R30 = 153,
+    /** Permissible return entry (CCD and CTX only) */
+    ACH_R31 = 154,
+    /** RDFI non-settlement */
+    ACH_R32 = 155,
+    /** Return of XCK entry */
+    ACH_R33 = 156,
+    /** Limited participation RDFI */
+    ACH_R34 = 157,
+    /** Return of improper debit entry */
+    ACH_R35 = 158,
+    /** ACH: Return of Improper Credit Entry */
+    ACH_R36 = 218,
+    /** ACH: Source Document Presented for Payment */
+    ACH_R37 = 219,
+    /** ACH: Stop Payment on Source Document */
+    ACH_R38 = 220,
+    /** ACH: Improper Source Document */
+    ACH_R39 = 221,
+    /** ACH: Return of ENR Entry by Federal Government Agency */
+    ACH_R40 = 222,
+    /** ACH: Invalid Transaction Code */
+    ACH_R41 = 223,
+    /** ACH: Routing Number / Check Digit Error */
+    ACH_R42 = 224,
+    /** ACH: Invalid DFI Account Number */
+    ACH_R43 = 225,
+    /** ACH: Invalid Individual ID Number / Identification */
+    ACH_R44 = 226,
+    /** ACH: Invalid Individual Name / Company Name */
+    ACH_R45 = 227,
+    /** ACH: Invalid Representative Payee Indicator */
+    ACH_R46 = 228,
+    /** ACH: Duplicate Enrollment */
+    ACH_R47 = 229,
+    /** ACH: State Law Affecting RCK Acceptance */
+    ACH_R50 = 230,
+    /** ACH: Item is Ineligible, Notice Not Provided, etc */
+    ACH_R51 = 231,
+    /** ACH: Stop Payment on Item (Adjustment Entries) */
+    ACH_R52 = 232,
+    /** ACH: Item and ACH Entry Presented for Payment */
+    ACH_R53 = 233,
+    /** ACH: Misrouted Return */
+    ACH_R61 = 234,
+    /** ACH: Incorrect Trace Number */
+    ACH_R62 = 235,
+    /** ACH: Incorrect Dollar Amount */
+    ACH_R63 = 236,
+    /** ACH: Incorrect Individual Identification */
+    ACH_R64 = 237,
+    /** ACH: Incorrect Transaction Code */
+    ACH_R65 = 238,
+    /** ACH: Incorrect Company Identification */
+    ACH_R66 = 239,
+    /** ACH: Duplicate Return */
+    ACH_R67 = 240,
+    /** ACH: Untimely Return */
+    ACH_R68 = 241,
+    /** ACH: Multiple Errors */
+    ACH_R69 = 242,
+    /** ACH: Permissible Return Entry Not Accepted */
+    ACH_R70 = 243,
+    /** ACH: Misrouted Dishonored Return */
+    ACH_R71 = 244,
+    /** ACH: Untimely Dishonored Return */
+    ACH_R72 = 245,
+    /** ACH: Timely Original Return */
+    ACH_R73 = 246,
+    /** ACH: Corrected Return */
+    ACH_R74 = 247,
+    /** ACH: Return Not a Duplicate */
+    ACH_R75 = 248,
+    /** ACH: No Errors Found */
+    ACH_R76 = 249,
+    /** ACH: IAT Entry Coding Error */
+    ACH_R80 = 250,
+    /** ACH: Non-Participant in IAT Program */
+    ACH_R81 = 251,
+    /** ACH: Invalid Foreign Receiving DFI Identification */
+    ACH_R82 = 252,
+    /** ACH: Foreign Receiving DFI Unable to Settle */
+    ACH_R83 = 253,
+    /** ACH: Entry Not Processed by Gateway */
+    ACH_R84 = 254,
+    /** ACH: Incorrectly Coded Outbound International Payment */
+    ACH_R85 = 255,
+    /** ACH check type or account type is invalid */
+    ACH_ACCOUNT_TYPE = 185,
+    /** ACH payment method is not supported by processor */
+    ACH_SUPPORT = 105,
+    /** ACH error: uncollected */
+    ACH_UNCOLLECTED = 123,
+    /** Invalid payment address chosen */
+    ADDRESS_INVALID = 39,
+    /** Chosen payment address does not exist */
+    ADDRESS_NX = 40,
+    /** Disagreement with the Payment Agreement */
+    AGREEMENT_DISAGREE = 176,
+    /** Sum of amounts for all individual payment sources does not equal the total expected amount */
+    AMOUNT_CONSOLIDATE = 35,
+    /** Total package price can't be divided equally between package items without loosing cents */
+    AMOUNT_CONSOLIDATE_PACKAGE = 191,
+    /** Amount was unexpectedly changed during the purchase process */
+    AMOUNT_CHANGE = 179,
+    /** Amount is invalid */
+    AMOUNT_INVALID = 34,
+    /** Total price of cart greater than `1000000000.00` */
+    AMOUNT_TOTAL = 75,
+    /** Amount equals zero */
+    AMOUNT_ZERO = 32,
+    /** AVS verification failed. Postal code or address are invalid */
+    AVS = 14,
+    /** Invalid bank account ID */
+    BANK_ACCOUNT_INVALID = 79,
+    /** Bank account ID does not exist */
+    BANK_ACCOUNT_NX = 80,
+    /** Bank state branch is empty */
+    BSB_EMPTY = 77,
+    /** Bank state branch is invalid */
+    BSB_INVALID = 78,
+    /** This business is a lost customer */
+    BUSINESS_CHURN = 173,
+    /** Client must call issuer for further information */
+    CALL = 17,
+    /** Card data is valid, but you can not pay with it (e.g. hold placed on card) */
+    CARD_DECLINE = 5,
+    /** Invalid payment card chosen */
+    CARD_INVALID = 42,
+    /** Card over limit */
+    CARD_LIMIT = 73,
+    /** Payment card nickname is empty */
+    CARD_NAME_EMPTY = 46,
+    /** Payment card nickname is too long */
+    CARD_NAME_LONG = 47,
+    /** The customer’s bank has declined the transaction as the credit card number has failed a security check, or the */
+    CARD_NOT_HONOR = 71,
+    /** Insufficient funds available */
+    CARD_NSF = 72,
+    /** Chosen payment card does not exist */
+    CARD_NX = 43,
+    /** User has chosen payment card but he had no such rights */
+    CARD_SELECT = 44,
+    /** No such card issuer */
+    CARD_ISSUER_INVALID = 184,
+    /** Card unsupported */
+    CARD_UNSUPPORTED = 190,
+    /** Element which should be paid with this payment has been canceled and payment should be blocked */
+    CANCELED = 177,
+    /** Comment for payment method too long */
+    COMMENT_LONG = 99,
+    /** Can't connect to payment gateway */
+    CONNECT = 8,
+    /** Unsupported country */
+    COUNTRY_UNSUPPORTED = 164,
+    /** Gift card belongs to a foreign business */
+    COUPON_BUSINESS = 55,
+    /** Invalid payment card chosen */
+    COUPON_CURRENCY = 54,
+    /** Coupon is inactive */
+    COUPON_INACTIVE = 97,
+    /** Coupon code is invalid (invalid length, or invalid characters encountered) */
+    COUPON_INVALID = 51,
+    /** Invalid payment card chosen */
+    COUPON_NX = 52,
+    /** Coupon is redeemed already */
+    COUPON_REDEEM = 53,
+    /** Card credentials (number, csc, month, year) change ability is disabled. E.g. payment processor may not support */
+    CREDENTIAL_SUPPORT = 76,
+    /** Invalid card security code (CSC) */
+    CSC_EMPTY = 21,
+    /** Invalid card security code (CSC) */
+    CSC_INVALID = 2,
+    /** Card is expired */
+    DATE_EXPIRE = 24,
+    /** Card is inactive */
+    DATE_INACTIVE = 163,
+    /** Invalid Expiration Date */
+    DATE_INVALID = 183,
+    /** Month is invalid */
+    DATE_MONTH = 22,
+    /** Multiple usage of this payment method is not allowed */
+    DATE_YEAR = 23,
+    /** Duplicate transaction. Transaction data that is selected for comparison is payment gateway-specific */
+    DUPLICATE = 1,
+    /** Error, caused by one of the following cases: */
+    FRAUD = 168,
+    /** Terminal that should be used for payment is not found */
+    HARDWARE_NOT_FOUND = 196,
+    /** Informational field is not filled in */
+    INFO_EMPTY = 9,
+    /** Informational field is too long */
+    INFO_LONG = 41,
+    /** Minimum payment amount is less then `1` */
+    INSTALLMENT_AMOUNT_MIN = 93,
+    /** Installment plan: Number of payment is invalid */
+    INSTALLMENT_COUNT_FORMAT = 85,
+    /** Installment plan: Number of payment is too large */
+    INSTALLMENT_COUNT_MAX = 87,
+    /** Installment plan: Number of payment is too small (less then 2) */
+    INSTALLMENT_COUNT_MIN = 86,
+    /** Installment date is not specified */
+    INSTALLMENT_DATE_EMPTY = 81,
+    /** Installment date format is invalid */
+    INSTALLMENT_DATE_FORMAT = 82,
+    /** Installment date is too deep in the future */
+    INSTALLMENT_DATE_FUTURE = 84,
+    /** Installment date is in the past (minimum is today) */
+    INSTALLMENT_DATE_PAST = 83,
+    /** Installment plan: Duration of a period is not allowed */
+    INSTALLMENT_DURATION_DISABLE = 91,
+    /** Installment plan: Maximum total duration of installment plan is 100 years */
+    INSTALLMENT_DURATION_MAX = 92,
+    /** Installment plan: Duration of a period does not exist */
+    INSTALLMENT_DURATION_NX = 90,
+    /** Installment plan: Number of periods between two consecutive payments is invalid */
+    INSTALLMENT_PERIOD_FORMAT = 88,
+    /** Installment plan: Number of periods between two consecutive payments is too large */
+    INSTALLMENT_PERIOD_MAX = 89,
+    /** Template of installment plans: template is not selected */
+    INSTALLMENT_TEMPLATE_EMPTY = 95,
+    /** Template of installment plans: ID of the template does not exist */
+    INSTALLMENT_TEMPLATE_NX = 94,
+    /** Internal errors that occurred in the browser (for example, some form data arrived to servers such that user should */
+    INTERNAL_BROWSER = 33,
+    /** Security throttling error */
+    INTERNAL_HIT = 192,
+    /** Internal merchant error */
+    INTERNAL_MERCHANT = 186,
+    /** Some strange service error (e.g. invalid merchant data passed, data format) */
+    INTERNAL_SERVER = 6,
+    /** Payer email is required for payment, but empty */
+    MAIL_EMPTY = 175,
+    /** The associated merchant account has been closed */
+    MERCHANT_ACCOUNT_CLOSED = 189,
+    /** Invalid merchant data */
+    MERCHANT_INVALID = 7,
+    /** Transaction was rejected by gateway */
+    MERCHANT_REJECT = 74,
+    /** Merchant has invalid settings and does not return customer vault */
+    MERCHANT_SETTINGS_VAULT = 166,
+    /** User has no access to the specified payment method */
+    METHOD_ACCESS = 18,
+    /** This method does not support authorization request */
+    METHOD_AUTHORIZE = 96,
+    /** This payment method can not be used with this business */
+    METHOD_BUSINESS = 19,
+    /** Multiple usage of this payment method is not allowed */
+    METHOD_MULTIPLE = 20,
+    /** Cardholder name is not typed in */
+    NAME_EMPTY = 25,
+    /** Customer name is invalid (contains invalid characters) */
+    NAME_INVALID = 106,
+    /** Cardholder name is too long */
+    NAME_LONG = 26,
+    /** Validation Rejection */
+    NMI_PAYSAFE_900 = 159,
+    /** Not sufficient funds (debits only) */
+    NMI_PAYSAFE_901 = 110,
+    /** Payment stopped/recalled */
+    NMI_PAYSAFE_903 = 111,
+    /** Post dated/stale dated */
+    NMI_PAYSAFE_904 = 112,
+    /** Account closed */
+    NMI_PAYSAFE_905 = 113,
+    /** Account transferred */
+    NMI_PAYSAFE_906 = 114,
+    /** No chequing privileges */
+    NMI_PAYSAFE_907 = 115,
+    /** Funds not cleared */
+    NMI_PAYSAFE_908 = 116,
+    /** Payor/payee deceased */
+    NMI_PAYSAFE_910 = 117,
+    /** Account frozen */
+    NMI_PAYSAFE_911 = 118,
+    /** Invalid/incorrect account number */
+    NMI_PAYSAFE_912 = 119,
+    /** Incorrect payor/payee name */
+    NMI_PAYSAFE_914 = 120,
+    /** Refused by payor/payee */
+    NMI_PAYSAFE_915 = 121,
+    /** No Return Agreement */
+    NMI_PAYSAFE_998 = 122,
+    /** Card number is not typed in */
+    NUMBER_EMPTY = 27,
+    /** Card number is invalid */
+    NUMBER_INVALID = 30,
+    /** Card number is too long */
+    NUMBER_LONG = 28,
+    /** Card number is too long */
+    NUMBER_SHORT = 29,
+    /** Some parameters client has provided are invalid */
+    PARAMETER = 4,
+    /** Payment form is in passive mode */
+    PASSIVE = 165,
+    /** Error during authentication of the payer */
+    PAYER_AUTHENTICATION = 167,
+    /** There is other process currently running to update payment. Failed to wait until it ends */
+    PAYMENT_UPDATE_LOCK = 174,
+    /** Phone number is not specified on user account */
+    PHONE_EMPTY = 107,
+    /** Phone number is invalid */
+    PHONE_INVALID = 178,
+    /** Phone number is too long */
+    PHONE_LONG = 108,
+    /** Transaction error returned by processor */
+    PROCESSOR_ERROR = 98,
+    /** Internal error at processor side has occurred */
+    PROCESSOR_INTERNAL = 109,
+    /** Refund operation is applied too early */
+    REFUND_EARLY = 50,
+    /** Amount about to refund is larger then the current rest of the transaction */
+    REFUND_REST = 49,
+    /** Transaction can not be refunded because it is in an invalid status */
+    REFUND_STATUS = 48,
+    /** Invalid region chosen */
+    REGION_INVALID = 37,
+    /** Chosen region does not exist */
+    REGION_NX = 38,
+    /** Can not repeat purchase transaction. Reference data is expired and invalid now */
+    REPEAT_INVALID = 15,
+    /** Error during request to service. In case we have not even got response */
+    REQUEST = 12,
+    /** Too many requests */
+    REQUEST_THROTTLE = 172,
+    /** Temporary service error. Repeat request */
+    RETRY = 3,
+    /** Payment is blocked due security reasons (because payment amount is too large) */
+    SECURITY_LARGE = 103,
+    /** Only for test, when there is an error in the test that we cannot influence, for example: “server is not available */
+    SKIP_IN_TESTS = 188,
+    /** Stripe data is empty */
+    STRIPE_EMPTY = 31,
+    /** Invalid data on magnetic stripe. Maybe some part does not exist */
+    STRIPE_INVALID = 16,
+    /** This recurrent payment token belongs to a different account of this merchant */
+    TOKEN_ACCOUNT = 161,
+    /** Payment token belongs to a different merchant processor */
+    TOKEN_PROCESSOR = 162,
+    /** Transaction does not exist. E.g. we want to make refund using nonexistent reference number */
+    TRANSACTION_NX = 13,
+    /** Transaction is in unexpected status. For example, authorization process started but takes long time. While waiting */
+    UNEXPECTED_TRANSACTION_STATUS = 187,
+    /** If the user who pays through the account is a debtor */
+    USER_DEBTOR = 194,
+    /** If access denied to an anonymous user */
+    USER_GUEST = 56,
+    /** Error specific for payment processors that stores payer entity */
+    USER_NOT_FOUND = 197,
+    /** Some unpredicted error happened during void on processor side */
+    VOID_ERROR = 193,
+    /** Operation Void is not possible, it's too late to do it */
+    VOID_LATE = 180,
+    /** Void operation can be done only for a total transaction amount and cannot be partial */
+    VOID_PARTIAL = 100,
+    /** Void operation is restricted by rules of the system */
+    VOID_RESTRICT = 102,
+    /** Void operation is not supported by the merchant processor */
+    VOID_SUPPORT = 101,
+    /** Timeout waiting for settlement */
+    WAIT_TIMEOUT = 104,
+    /** Incorrect payment card type specified */
+    TENDER_TYPE_INVALID = 195
 }
 /** Paragon ticket status. */
 export declare enum ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid {
@@ -4293,7 +4790,7 @@ export interface ThothExplorerSearchClassSessionClassSessionSearchResponse {
 export type ThothReportCoreGeneratorQueryParams = Record<string, unknown>;
 export interface ThothReportCoreGeneratorQueryResponse {
     /** A list of dynamic fields in this report. */
-    a_dynamic: Array<Array<unknown>> | Array<{
+    a_dynamic: Array<{
         a_cell: Array<Record<string, unknown>>;
         a_customization_element: Array<Array<unknown>>;
         a_type: Array<unknown>;
@@ -4306,7 +4803,7 @@ export interface ThothReportCoreGeneratorQueryResponse {
         is_show: boolean;
         is_store: boolean;
         s_cast?: string | null;
-        s_class?: string | Record<string, unknown> | null;
+        s_class?: Record<string, unknown> | null;
         s_class_css: string;
         s_format?: string | null;
         s_name: string;
@@ -4352,19 +4849,34 @@ export interface ThothWlPayAccountAccountResponse {
     a_account: {
         /** A list of currencies. @see CoreLocaleCurrencySid */
         id_currency: CoreLocaleCurrencySid;
-        /** Key of account currency. Primary key in RsCurrencySql table. */
+        /** Key of account currency. */
         k_currency: string;
-        /** ID of payment account. Primary key in RsPayAccountSql table. `null` if this is a user account bas... */
+        /** ID of payment account.  `null` if this is a user account based on system payment method. */
         k_pay_account: string | null;
-        /** ID of custom payment method. `null` if this is a user account based on system payment method. Pri... */
+        /** ID of custom payment method. `null` if this is a user account based on system payment method. */
         k_pay_method: string | null;
         /** Account balance. */
         m_rest: string;
         /** Name of a custom payment method. `null` if this is a user account based on system payment method. */
         s_method: string | null;
     };
-    /** A list of accounts that is not created for this user yet. */
-    a_account_nx: Array<Array<unknown>>;
+    /** A list of accounts that have not been created for this user yet. */
+    a_account_nx: Array<{
+        /** `true` if the account is allowed to have a negative balance, `false` otherwise. */
+        can_negative: boolean;
+        /** A list of currencies. @see CoreLocaleCurrencySid */
+        id_currency: CoreLocaleCurrencySid;
+        /** Currency key. */
+        k_currency: string;
+        /** Payment account key. `null` for accounts not yet created. */
+        k_pay_account: string | null;
+        /** Custom payment method key. `null` for accounts based on the system payment method. */
+        k_pay_method: string | null;
+        /** Account balance. Always `'0.00'` for accounts not yet created. */
+        m_rest: string;
+        /** Name of the custom payment method. `null` for accounts based on the system payment method. */
+        s_method: string | null;
+    }>;
     /** Determines whether the user is a debtor. If `true` - the owner of this account is a debtor. */
     is_debtor: boolean;
 }
@@ -4375,13 +4887,13 @@ export interface ThothWlPayFormEnvironmentUserParams {
     k_currency: string;
     /** The key of the location to retrieve payment information for. */
     k_location: string;
-    /** The user ID to retrieve payment information for. Primary key in the PassportLoginSql table. */
+    /** The user ID to retrieve payment information for. */
     uid_owner?: string | null;
 }
 export interface ThothWlPayFormEnvironmentUserResponse {
     /** A list of supported bank card systems. */
     a_card_system: Array<ACardSystemSid>;
-    /** A list of payment methods enabled for staff members. The ID is one of {@link RsPayMethodSid} cons... */
+    /** A list of payment methods enabled for staff members. */
     a_method_staff: Array<RsPayMethodSid>;
     /** A list of all payment methods that can be used within this business. */
     a_method_support: Array<{
@@ -4410,7 +4922,7 @@ export interface ThothWlPayFormEnvironmentUserResponse {
         is_enabled_3ds: boolean | null;
         /** `true` if the merchant is in a test mode, `false` otherwise. */
         is_test: boolean | null;
-        /** Key of the business merchant. Primary key in RsBusinessMerchantSql. */
+        /** Key of the business merchant. */
         k_business_merchant: string;
     }> | null;
     /** Current local date in current location [EnvironmentApi](/Thoth/WlPay/Form/Environment.json) */
@@ -4439,13 +4951,13 @@ export interface ThothWlPayFormEnvironmentParams {
     k_currency: string;
     /** The key of the location to retrieve payment information for. */
     k_location: string;
-    /** The user ID to retrieve payment information for. Primary key in the PassportLoginSql table. */
+    /** The user ID to retrieve payment information for. */
     uid_owner?: string | null;
 }
 export interface ThothWlPayFormEnvironmentResponse {
     /** A list of supported bank card systems. */
     a_card_system: Array<ACardSystemSid>;
-    /** A list of payment methods enabled for staff members. The ID is one of {@link RsPayMethodSid} cons... */
+    /** A list of payment methods enabled for staff members. */
     a_method_staff: Array<RsPayMethodSid>;
     /** A list of all payment methods that can be used within this business. */
     a_method_support: Array<{
@@ -4474,7 +4986,7 @@ export interface ThothWlPayFormEnvironmentResponse {
         is_enabled_3ds: boolean | null;
         /** `true` if the merchant is in a test mode, `false` otherwise. */
         is_test: boolean | null;
-        /** Key of the business merchant. Primary key in RsBusinessMerchantSql. */
+        /** Key of the business merchant. */
         k_business_merchant: string;
     }> | null;
     /** Current local date in current location [EnvironmentApi](/Thoth/WlPay/Form/Environment.json) */
@@ -4511,7 +5023,7 @@ export interface ThothWlPayMethodListResponse {
     a_pay_method: Array<{
         /** A list of payment methods. @see RsPayMethodSid */
         id_pay_method: RsPayMethodSid;
-        /** Payment method key. Primary key int the MethodSql table. */
+        /** Payment method key. */
         k_pay_method: string | null;
         /** The payment method name. */
         s_title: string;
@@ -4526,6 +5038,8 @@ export interface ThothWlPayOwnerOwnerParams {
 export interface ThothWlPayOwnerOwnerResponse {
     /** A list of money owners from which account money can be transferred. @see RsPayOwnerSid */
     id_pay_owner: RsPayOwnerSid;
+    /** Is client pay only for self. If parent pays for child this flag will be `false` for both. */
+    is_pay_self_only: boolean;
     /** The payment owner key. This is used for financial transactions. */
     k_pay_owner: string;
     /** Key of the money owner. */
@@ -4541,7 +5055,38 @@ export interface ThothWlPayAddressAddressParams {
 }
 export interface ThothWlPayAddressAddressResponse {
     /** The payee's address information. */
-    a_pay_address: Array<unknown>;
+    a_pay_address: Array<{
+        /** `true` if this address is currently selected, `false` otherwise. */
+        is_selected: boolean;
+        /** Country geo key. `null` if the country cannot be determined. */
+        k_country: string | null;
+        /** Payment address key. Primary key in the `rs_pay_address` table. */
+        k_pay_address: string;
+        /** Region geo key. */
+        k_region: string;
+        /** City name. */
+        s_city: string;
+        /** Country name. `null` if the country cannot be determined. */
+        s_country: string | null;
+        /** Country abbreviation code, or an empty string if unavailable. */
+        s_country_code: string;
+        /** Full name of the address owner. */
+        s_name: string;
+        /** Phone number. */
+        s_phone: string;
+        /** Postal code. */
+        s_postal: string;
+        /** Region name. */
+        s_region: string | null;
+        /** Region abbreviation code. `null` if the region cannot be determined. */
+        s_region_code: string | null;
+        /** First line of the street address. */
+        s_street1: string;
+        /** Second line of the street address. */
+        s_street2: string;
+        /** Email address of the owner. `null` if the owner is a business. */
+        text_mail: string | null;
+    }> | null;
 }
 export interface ThothWlPayAddressProfileParams {
     /** The business key number used internally by WellnessLiving. */
@@ -4635,8 +5180,8 @@ export interface CoreWebSocketSubscribeResponse {
     } | {
         /** A class for a list of card systems. @see ACardSystemSid */
         id_card_system: ACardSystemSid;
-        /** Transaction exception ID. */
-        id_pay_exception: number | null;
+        /** An exception that is thrown in a case of a payment error. @see RsPayException */
+        id_pay_exception: RsPayException | null;
         /** Paragon ticket status. @see ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid */
         id_ticket_status: ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid | null;
         /** Amount of tips entered by customer on terminal. */
@@ -4729,8 +5274,8 @@ export interface CoreWebSocketSubscribeResponse {
         id_card_system: ACardSystemSid;
         /** An enum of credit card types. @see WlPayBankCardCardTypeEnum */
         id_card_type: WlPayBankCardCardTypeEnum | null;
-        /** Transaction exception ID. */
-        id_pay_exception: number | null;
+        /** An exception that is thrown in a case of a payment error. @see RsPayException */
+        id_pay_exception: RsPayException | null;
         /** CS Response code class. @see ThothPayProcessorNuveiCodeCSResponseSid */
         id_payment_status: ThothPayProcessorNuveiCodeCSResponseSid | null;
         /** Tip amount entered by the customer at the terminal. */
@@ -7503,7 +8048,10 @@ export interface ThothWlPayAccountChargeChargeParams {
     /** The ID of the user whose account is being refilled. */
     uid: string;
 }
-export type ThothWlPayAccountChargeChargeResponse = Record<string, unknown>;
+export interface ThothWlPayAccountChargeChargeResponse {
+    /** The ID of the purchase that was created during payment. */
+    k_purchase: string;
+}
 export interface ThothWlPayTransactionReportTransactionAllPaymentParams {
     /** The end date in local time to retrieve transactions for. */
     dl_date_end: string;
@@ -7520,7 +8068,57 @@ export interface ThothWlPayTransactionReportTransactionAllPaymentResponse {
     /** A list of fields in the report. */
     a_field: Array<string>;
     /** The report data. */
-    a_row: Array<unknown>;
+    a_row: Array<{
+        /** List of pay transactions associated with this row. Each element: */
+        a_pay_transaction: {
+            /** A list of payment methods. @see RsPayMethodSid */
+            id_pay_method: RsPayMethodSid;
+            /** Pay transaction key. */
+            k_pay_transaction: string;
+            /** Amount paid. */
+            m_amount: string;
+            /** Surcharge amount from store settings. */
+            m_surcharge: string;
+            /** Batch number for this transaction. */
+            s_batch_number: string;
+        };
+        /** Start date and time of the purchase in UTC. */
+        dtu_purchase_start: string;
+        /** Purchase key. */
+        k_purchase: string;
+        /** Net sales amount. */
+        m_net_sale: string;
+        /** Total tax amount. */
+        m_total_tax: string;
+        /** First name of the client. */
+        'o_client.text_first': string;
+        /** Last name of the client. */
+        'o_client.text_last': string;
+        /** Full name of the client. */
+        'o_client.text_name': string;
+        /** Location key. */
+        'o_location.k_location': string;
+        /** Batch number of the first transaction in the row. */
+        s_batch_number: string;
+        /** Street address of the location. */
+        text_location_address: string;
+        /** Name of the location's city. */
+        text_location_city: string;
+        /** Name of the location's country. */
+        text_location_country: string;
+        /** Postal code of the location. */
+        text_location_postal: string;
+        /** Name of the location's region. */
+        text_location_region: string;
+        /** Name of the payment method used. */
+        text_payment_method: string;
+        /** Name of the base payment method. If a custom method was used, this is the method it is based on. */
+        text_payment_method_base: string;
+        /** Comma-separated list of tax names applied to the purchase. */
+        text_tax_title: string;
+        /** Comma-separated list of tax values. Percentage-based taxes have `%` appended; */
+        text_tax_value: string;
+    }>;
     /** The warning list of the report. */
     a_warning: Array<string>;
     /** The date and time if the report has completed generation. Otherwise, this will be `null`. */
@@ -7567,7 +8165,26 @@ export interface ThothWlPayBankCardListResponse {
         text_number: string;
     };
     /** List of bank cards. */
-    a_list: Array<unknown>;
+    a_list: Array<{
+        /** The month when the payment card expires, represented by a number (1=January and 12=December). */
+        i_month: number;
+        /** The last two digits of the year when the payment card expires. */
+        i_year: number;
+        /** A class for a list of card systems. @see ACardSystemSid */
+        id_card_system: ACardSystemSid;
+        /** If `true`, then this card is the user default card. */
+        is_default: boolean;
+        /** The payment address ID. This refers to a physical address associated with a payment card. */
+        k_pay_address: string;
+        /** The payment method ID. Each payment card for each user will have its own ID. */
+        k_pay_bank: string;
+        /** The payment card descriptor. This is typically the company name and the last 4 digits of the card */
+        text_name_card: string;
+        /** The name of the card owner as it appears on the card. */
+        text_name_holder: string;
+        /** A portion of the payment card number, used to identify the card. */
+        text_number: string;
+    }>;
     /** Whether new card can be added. */
     can_add: boolean;
 }
@@ -24074,7 +24691,7 @@ export declare class ThothReportCoreNamespace {
 export declare class ThothWlPayAccountChargeNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Allows the user account to be filled with a specified payment, or to perform the reset change manually. */
+    /** Refills the user account balance by the specified payment amount or adjusts it manually. */
     charge(params?: ThothWlPayAccountChargeChargeParams): Promise<ThothWlPayAccountChargeChargeResponse>;
 }
 export declare class ThothWlPayAccountNamespace {
@@ -24116,7 +24733,7 @@ export declare class ThothWlPayAddressNamespace {
 export declare class ThothWlPayTransactionReportNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Gets the daily transaction data. */
+    /** Returns All Transactions Report data for the specified date range. */
     transactionAllPayment(params?: ThothWlPayTransactionReportTransactionAllPaymentParams): Promise<ThothWlPayTransactionReportTransactionAllPaymentResponse>;
 }
 export declare class ThothWlPayTransactionNamespace {

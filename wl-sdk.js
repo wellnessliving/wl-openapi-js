@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260625050009
+ * Spec version: 1.1.20260625073106
  * Build date:   2026-06-25
  * Endpoints:    457
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260625050009';
+  WlClient.SPEC_VERSION = '1.1.20260625073106';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (457 total)
@@ -253,7 +253,7 @@
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
-   *  `a_dynamic` {*[][]|Object[]} A list of dynamic fields in this report.
+   *  `a_dynamic` {Object[]} A list of dynamic fields in this report.
    *  `a_field` {string[]} A list of fields in this report.
    *  `a_row` {string[][]} Report data.
    *  `a_stale` {number[]} A list of stale rows.
@@ -274,13 +274,17 @@
   /**
    * Retrieves information about accounts of given user in given business.
    *
+   * Returns the list of existing accounts and accounts not yet created for the user within the specified business,
+   * including balance, currency, and payment method details.
+   * When [AccountApi](/Thoth/WlPay/Account/Account.json) is `true`, resolves the money owner and includes the debtor status.
+   *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_owner If `true`, information for the account's owner is returned. Clients can be configured to pay for ...
    * @param {string} params.k_business The key of the business to show information for.
    * @param {string} params.uid The key of the user to show information for.
    * @returns {Promise<Object>} Response data.
    *  `a_account` {Object} A list of the user's accounts.
-   *  `a_account_nx` {*[][]} A list of accounts that is not created for this user yet.
+   *  `a_account_nx` {Object[]} A list of accounts that have not been created for this user yet.
    *  `is_debtor` {boolean} Determines whether the user is a debtor. If `true` - the owner of this accoun...
    */
   WlClient.prototype.thothWlPayAccountAccount = function(params)
@@ -291,14 +295,19 @@
   /**
    * Returns information about payment environment.
    *
+   * Called before rendering a payment form to determine which payment methods and card types are available
+   * for a given business and location, what surcharges apply, and how the form should behave (tip prompt,
+   * optional card save). This endpoint is deprecated; use [EnvironmentUserApi](/Thoth/WlPay/Form/EnvironmentUser.json)
+   *  for new integrations.
+   *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business to retrieve payment information for.
    * @param {string} params.k_currency The key of the currency to retrieve payment information for.
    * @param {string} params.k_location The key of the location to retrieve payment information for.
-   * @param {?string} [params.uid_owner] The user ID to retrieve payment information for. Primary key in the PassportLoginSql table.
+   * @param {?string} [params.uid_owner] The user ID to retrieve payment information for.
    * @returns {Promise<Object>} Response data.
    *  `a_card_system` {number[]} A list of supported bank card systems.
-   *  `a_method_staff` {number[]} A list of payment methods enabled for staff members. The ID is one of {@link ...
+   *  `a_method_staff` {number[]} A list of payment methods enabled for staff members.
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
    *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
@@ -319,16 +328,21 @@
 
   /**
    * Returns information about payment environment.
+   *
+   * Called before rendering a payment form to determine which payment methods and card types are available
+   * for a given business and location, what surcharges apply, and how the form should behave (tip prompt,
+   * optional card save). This endpoint is deprecated; use [EnvironmentUserApi](/Thoth/WlPay/Form/EnvironmentUser.json)
+   *  for new integrations.
    * @deprecated Use {@link \Thoth\WlPay\Form\EnvironmentUserApi} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of the business to retrieve payment information for.
    * @param {string} params.k_currency The key of the currency to retrieve payment information for.
    * @param {string} params.k_location The key of the location to retrieve payment information for.
-   * @param {?string} [params.uid_owner] The user ID to retrieve payment information for. Primary key in the PassportLoginSql table.
+   * @param {?string} [params.uid_owner] The user ID to retrieve payment information for.
    * @returns {Promise<Object>} Response data.
    *  `a_card_system` {number[]} A list of supported bank card systems.
-   *  `a_method_staff` {number[]} A list of payment methods enabled for staff members. The ID is one of {@link ...
+   *  `a_method_staff` {number[]} A list of payment methods enabled for staff members.
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
    *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
@@ -350,6 +364,10 @@
   /**
    * Returns list of active payment methods data.
    *
+   * Returns the system-level payment methods enabled for the business combined with any custom payment methods
+   * configured for the business and accessible to the given user based on their role. When `$is_active` is
+   * `false`, inactive custom methods are included as well.
+   *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_active Whether only active payment methods should be returned.
    * @param {string} params.k_business The business key.
@@ -366,11 +384,16 @@
   /**
    * Returns information about payment owner.
    *
+   * Must be called before initiating any payment on behalf of a user, to determine the correct payment
+   * owner keys to pass to the payment form. Also indicates whether a family-account relationship exists
+   * (for example, a parent paying for a child), which affects how the payment form is pre-populated.
+   *
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Business key.
    * @param {string} params.uid Key of a user to show information for.
    * @returns {Promise<Object>} Response data.
    *  `id_pay_owner` {number} A list of money owners from which account money can be transferred. See {@link WlClient.RsPayOwnerSid}.
+   *  `is_pay_self_only` {boolean} Is client pay only for self. If parent pays for child this flag will be `fals...
    *  `k_pay_owner` {string} The payment owner key. This is used for financial transactions.
    *  `k_pay_owner_money` {string} Key of the money owner.
    */
@@ -382,12 +405,16 @@
   /**
    * Gets user's payment addresses information.
    *
+   * Returns the list of saved payment addresses for the specified owner type and key, including address fields,
+   * country and region details, and the currently selected address. Returns `null` if the current user cannot
+   * edit bank accounts for the owner.
+   *
    * @param {Object} [params] Request parameters.
    * @param {number} params.id_pay_owner The ID of the payment owner type. See {@link WlClient.RsPayOwnerSid}.
    * @param {string} params.k_business Business key, where the payment is performed.
    * @param {string} params.k_id The primary key of a payment owner.
    * @returns {Promise<Object>} Response data.
-   *  `a_pay_address` {*[]} The payee's address information.
+   *  `a_pay_address` {?Object[]} The payee's address information.
    */
   WlClient.prototype.thothWlPayAddressAddress = function(params)
   {
@@ -396,6 +423,9 @@
 
   /**
    * Returns default payment address data that is retrieved from user profile.
+   *
+   * Loads the user's profile for the given business and returns address fields (name, phone, street, city,
+   * postal code, country, region) to pre-populate a payment address form.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key number used internally by WellnessLiving.
@@ -1879,7 +1909,11 @@
   };
 
   /**
-   * Allows the user account to be filled with a specified payment, or to perform the reset change manually.
+   * Refills the user account balance by the specified payment amount or adjusts it manually.
+   *
+   * Accepts the payment amount, account key or user-and-business identifiers, charge mode, and payment form
+   * data. Processes the payment through the configured payment environment and returns the purchase key
+   * when a new purchase is created (for the automatic charge mode).
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.id_pay_account_charge The account charge mode. See {@link WlClient.RsPayAccountChargeSid}.
@@ -1888,6 +1922,7 @@
    * @param {string} params.k_pay_account The ID of the user account to refill.
    * @param {string} params.uid The ID of the user whose account is being refilled.
    * @returns {Promise<Object>} Response data.
+   *  `k_purchase` {string} The ID of the purchase that was created during payment.
    */
   WlClient.prototype.thothWlPayAccountChargeCharge = function(params)
   {
@@ -1895,7 +1930,12 @@
   };
 
   /**
-   * Gets the daily transaction data.
+   * Returns All Transactions Report data for the specified date range.
+   *
+   * Provides access to the All Transactions Report used for revenue reconciliation and export. The report
+   * is generated asynchronously and cached; check `$id_report_status` to determine whether generation is
+   * still in progress. Set `$is_refresh` to request regeneration and use `$i_page` to paginate through
+   * up to `LIMIT` rows per request.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dl_date_end The end date in local time to retrieve transactions for.
@@ -1905,7 +1945,7 @@
    * @param {string} params.k_business The key of the business for which report should be generated.
    * @returns {Promise<Object>} Response data.
    *  `a_field` {string[]} A list of fields in the report.
-   *  `a_row` {*[]} The report data.
+   *  `a_row` {Object[]} The report data.
    *  `a_warning` {string[]} The warning list of the report.
    *  `dtu_complete` {?string} The date and time if the report has completed generation. Otherwise, this wil...
    *  `dtu_queue` {?string} The date and time if this report has been put in the generation queue. Otherw...
@@ -1922,13 +1962,16 @@
   /**
    * Retrieves information about user's bank cards.
    *
+   * Returns the list of saved payment cards for the specified user and business, including card number fragment,
+   * expiry date, card system, holder name, and default status. Also returns whether new cards can be added.
+   *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business ID of current business.
    * @param {string} params.k_location Location to show information for.
    * @param {string} params.uid ID of a user to show information for.
    * @returns {Promise<Object>} Response data.
    *  `a_bank_card` {Object} A list of bank cards.
-   *  `a_list` {*[]} List of bank cards.
+   *  `a_list` {Object[]} List of bank cards.
    *  `can_add` {boolean} Whether new card can be added.
    */
   WlClient.prototype.thothWlPayBankCardList = function(params)
@@ -6652,6 +6695,9 @@
   /**
    * Deletes saved card.
    *
+   * Removes the payment card identified by `$k_pay_bank` from the specified business, permanently deleting
+   * the stored card record.
+   *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key number used internally by WellnessLiving.
    * @param {string} params.k_pay_bank Pay bank key to delete.
@@ -6664,6 +6710,9 @@
 
   /**
    * Gets code of bank card widget.
+   *
+   * Returns an HTML snippet containing the card entry form rendered by the server-side widget for the given
+   * payment owner. This method is deprecated; prefer building the card widget on the client side.
    * @deprecated Make card widget in client side using `RsPayBankCardEditWidget` class.
    *
    * @param {Object} [params] Request parameters.
@@ -6680,6 +6729,9 @@
 
   /**
    * Saves new bank card.
+   *
+   * Validates the payment owner and business, then saves the new card details provided in `$a_card_detail`
+   * and optionally sets the card as the default recurring payment source.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key number used internally by WellnessLiving.
@@ -10110,7 +10162,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (188 total)
+  // Enum constants (189 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -10345,7 +10397,7 @@
     NMI: 6,
     /** Payment gateway for Nuvei */
     NUVEI: 12,
-    /** Payment gateway for http://www.paychoice.com.au/ Paychoice */
+    /** Payment gateway for Paychoice */
     PAYCHOICE: 7,
     /** Payment gateway for `stripe.com` */
     STRIPE_COM: 10,
@@ -10451,6 +10503,508 @@
     COMPLETE: 3,
     /** Task in progress */
     PROGRESS: 2,
+  });
+
+  /**
+   * An exception that is thrown in a case of a payment error.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPayException = Object.freeze({
+    /** Invalid ABA number chosen */
+    ABAN_EMPTY: 58,
+    /** Invalid ABA number chosen */
+    ABAN_INVALID: 57,
+    /** User Authentication Failed */
+    ACCESS_AUTHENTICATE: 160,
+    /** Authentication token is not valid */
+    ACCESS_TOKEN_INVALID: 181,
+    /** Account payment entry method is empty */
+    ACCOUNT_ENTRY_EMPTY: 63,
+    /** Account holder type is empty */
+    ACCOUNT_HOLDER_EMPTY: 64,
+    /** Account name is empty */
+    ACCOUNT_NAME_EMPTY: 59,
+    /** Account name is too long */
+    ACCOUNT_NAME_LONG: 60,
+    /** Account number is empty */
+    ACCOUNT_NUMBER_EMPTY: 61,
+    /** Account number invalid */
+    ACCOUNT_NUMBER_INVALID: 67,
+    /** Account number is too long */
+    ACCOUNT_NUMBER_LONG: 62,
+    /** Account number is too short */
+    ACCOUNT_NUMBER_SHORT: 66,
+    /** Account owner is empty */
+    ACCOUNT_OWNER_EMPTY: 69,
+    /** Account name is too long */
+    ACCOUNT_OWNER_LONG: 70,
+    /** Account owner name does not equal billing name */
+    ACCOUNT_OWNER_DOES_NOT_MATCH: 182,
+    /** Account type is empty */
+    ACCOUNT_TYPE_EMPTY: 65,
+    /** ACH: Account Closed */
+    ACH_E02: 198,
+    /** ACH: No Account / Unable to Locate Account */
+    ACH_E03: 199,
+    /** ACH: Invalid Account Number */
+    ACH_E04: 200,
+    /** ACH: Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    ACH_E05: 201,
+    /** ACH: Authorization Revoked by Customer */
+    ACH_E07: 202,
+    /** ACH: Payment Stopped */
+    ACH_E08: 203,
+    /** ACH: Customer Advises Originator Not Known / Not Authorized */
+    ACH_E10: 204,
+    /** ACH: Customer Advises Entry Not in Accordance with Authorization */
+    ACH_E11: 205,
+    /** ACH: RDFI Not Qualified to Participate */
+    ACH_E13: 206,
+    /** ACH: Representative Payee Deceased or Unable to Continue */
+    ACH_E14: 207,
+    /** ACH: Beneficiary or Account Holder Deceased */
+    ACH_E15: 208,
+    /** ACH: Account Frozen */
+    ACH_E16: 209,
+    /** ACH: Invalid Account Number under Questionable Circumstances */
+    ACH_E17: 210,
+    /** ACH: Non-Transaction Account */
+    ACH_E20: 211,
+    /** ACH: Corporate Customer Advises Not Authorized */
+    ACH_E29: 212,
+    /** ACH: Invalid Image */
+    ACH_E92: 213,
+    /** ACH: Non-Negotiable */
+    ACH_E93: 214,
+    /** ACH: Breach of Warranty */
+    ACH_E95: 215,
+    /** ACH: Counterfeit / Forgery */
+    ACH_E96: 216,
+    /** ACH: Refer to Maker */
+    ACH_E97: 217,
+    /** Insufficient funds */
+    ACH_R01: 124,
+    /** Bank account closed */
+    ACH_R02: 125,
+    /** No bank account/unable to locate account */
+    ACH_R03: 126,
+    /** Invalid bank account number */
+    ACH_R04: 127,
+    /** Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    ACH_R05: 128,
+    /** Returned per ODFI request */
+    ACH_R06: 129,
+    /** Authorization revoked by customer */
+    ACH_R07: 130,
+    /** Payment stopped */
+    ACH_R08: 131,
+    /** Uncollected funds */
+    ACH_R09: 132,
+    /** Customer advises not authorized */
+    ACH_R10: 133,
+    /** Check truncation entry return */
+    ACH_R11: 134,
+    /** Branch sold to another RDFI */
+    ACH_R12: 135,
+    /** RDFI not qualified to participate */
+    ACH_R13: 136,
+    /** Representative payee deceased or unable to continue in that capacity */
+    ACH_R14: 137,
+    /** Beneficiary or bank account holder */
+    ACH_R15: 138,
+    /** Bank account frozen */
+    ACH_R16: 139,
+    /** File record edit criteria */
+    ACH_R17: 140,
+    /** Improper effective entry date */
+    ACH_R18: 141,
+    /** Amount field error */
+    ACH_R19: 142,
+    /** Non-payment bank account */
+    ACH_R20: 143,
+    /** Invalid company ID number */
+    ACH_R21: 144,
+    /** Invalid individual ID number */
+    ACH_R22: 145,
+    /** Credit entry refused by receiver */
+    ACH_R23: 146,
+    /** Duplicate entry */
+    ACH_R24: 147,
+    /** Addenda error */
+    ACH_R25: 148,
+    /** Mandatory field error */
+    ACH_R26: 149,
+    /** Trace number error */
+    ACH_R27: 150,
+    /** Transit routing number check digit error */
+    ACH_R28: 151,
+    /** Corporate customer advises not authorized */
+    ACH_R29: 152,
+    /** RDFI not participant in check truncation program */
+    ACH_R30: 153,
+    /** Permissible return entry (CCD and CTX only) */
+    ACH_R31: 154,
+    /** RDFI non-settlement */
+    ACH_R32: 155,
+    /** Return of XCK entry */
+    ACH_R33: 156,
+    /** Limited participation RDFI */
+    ACH_R34: 157,
+    /** Return of improper debit entry */
+    ACH_R35: 158,
+    /** ACH: Return of Improper Credit Entry */
+    ACH_R36: 218,
+    /** ACH: Source Document Presented for Payment */
+    ACH_R37: 219,
+    /** ACH: Stop Payment on Source Document */
+    ACH_R38: 220,
+    /** ACH: Improper Source Document */
+    ACH_R39: 221,
+    /** ACH: Return of ENR Entry by Federal Government Agency */
+    ACH_R40: 222,
+    /** ACH: Invalid Transaction Code */
+    ACH_R41: 223,
+    /** ACH: Routing Number / Check Digit Error */
+    ACH_R42: 224,
+    /** ACH: Invalid DFI Account Number */
+    ACH_R43: 225,
+    /** ACH: Invalid Individual ID Number / Identification */
+    ACH_R44: 226,
+    /** ACH: Invalid Individual Name / Company Name */
+    ACH_R45: 227,
+    /** ACH: Invalid Representative Payee Indicator */
+    ACH_R46: 228,
+    /** ACH: Duplicate Enrollment */
+    ACH_R47: 229,
+    /** ACH: State Law Affecting RCK Acceptance */
+    ACH_R50: 230,
+    /** ACH: Item is Ineligible, Notice Not Provided, etc */
+    ACH_R51: 231,
+    /** ACH: Stop Payment on Item (Adjustment Entries) */
+    ACH_R52: 232,
+    /** ACH: Item and ACH Entry Presented for Payment */
+    ACH_R53: 233,
+    /** ACH: Misrouted Return */
+    ACH_R61: 234,
+    /** ACH: Incorrect Trace Number */
+    ACH_R62: 235,
+    /** ACH: Incorrect Dollar Amount */
+    ACH_R63: 236,
+    /** ACH: Incorrect Individual Identification */
+    ACH_R64: 237,
+    /** ACH: Incorrect Transaction Code */
+    ACH_R65: 238,
+    /** ACH: Incorrect Company Identification */
+    ACH_R66: 239,
+    /** ACH: Duplicate Return */
+    ACH_R67: 240,
+    /** ACH: Untimely Return */
+    ACH_R68: 241,
+    /** ACH: Multiple Errors */
+    ACH_R69: 242,
+    /** ACH: Permissible Return Entry Not Accepted */
+    ACH_R70: 243,
+    /** ACH: Misrouted Dishonored Return */
+    ACH_R71: 244,
+    /** ACH: Untimely Dishonored Return */
+    ACH_R72: 245,
+    /** ACH: Timely Original Return */
+    ACH_R73: 246,
+    /** ACH: Corrected Return */
+    ACH_R74: 247,
+    /** ACH: Return Not a Duplicate */
+    ACH_R75: 248,
+    /** ACH: No Errors Found */
+    ACH_R76: 249,
+    /** ACH: IAT Entry Coding Error */
+    ACH_R80: 250,
+    /** ACH: Non-Participant in IAT Program */
+    ACH_R81: 251,
+    /** ACH: Invalid Foreign Receiving DFI Identification */
+    ACH_R82: 252,
+    /** ACH: Foreign Receiving DFI Unable to Settle */
+    ACH_R83: 253,
+    /** ACH: Entry Not Processed by Gateway */
+    ACH_R84: 254,
+    /** ACH: Incorrectly Coded Outbound International Payment */
+    ACH_R85: 255,
+    /** ACH check type or account type is invalid */
+    ACH_ACCOUNT_TYPE: 185,
+    /** ACH payment method is not supported by processor */
+    ACH_SUPPORT: 105,
+    /** ACH error: uncollected */
+    ACH_UNCOLLECTED: 123,
+    /** Invalid payment address chosen */
+    ADDRESS_INVALID: 39,
+    /** Chosen payment address does not exist */
+    ADDRESS_NX: 40,
+    /** Disagreement with the Payment Agreement */
+    AGREEMENT_DISAGREE: 176,
+    /** Sum of amounts for all individual payment sources does not equal the total expected amount */
+    AMOUNT_CONSOLIDATE: 35,
+    /** Total package price can't be divided equally between package items without loosing cents */
+    AMOUNT_CONSOLIDATE_PACKAGE: 191,
+    /** Amount was unexpectedly changed during the purchase process */
+    AMOUNT_CHANGE: 179,
+    /** Amount is invalid */
+    AMOUNT_INVALID: 34,
+    /** Total price of cart greater than `1000000000.00` */
+    AMOUNT_TOTAL: 75,
+    /** Amount equals zero */
+    AMOUNT_ZERO: 32,
+    /** AVS verification failed. Postal code or address are invalid */
+    AVS: 14,
+    /** Invalid bank account ID */
+    BANK_ACCOUNT_INVALID: 79,
+    /** Bank account ID does not exist */
+    BANK_ACCOUNT_NX: 80,
+    /** Bank state branch is empty */
+    BSB_EMPTY: 77,
+    /** Bank state branch is invalid */
+    BSB_INVALID: 78,
+    /** This business is a lost customer */
+    BUSINESS_CHURN: 173,
+    /** Client must call issuer for further information */
+    CALL: 17,
+    /** Card data is valid, but you can not pay with it (e.g. hold placed on card) */
+    CARD_DECLINE: 5,
+    /** Invalid payment card chosen */
+    CARD_INVALID: 42,
+    /** Card over limit */
+    CARD_LIMIT: 73,
+    /** Payment card nickname is empty */
+    CARD_NAME_EMPTY: 46,
+    /** Payment card nickname is too long */
+    CARD_NAME_LONG: 47,
+    /** The customer’s bank has declined the transaction as the credit card number has failed a security check, or the */
+    CARD_NOT_HONOR: 71,
+    /** Insufficient funds available */
+    CARD_NSF: 72,
+    /** Chosen payment card does not exist */
+    CARD_NX: 43,
+    /** User has chosen payment card but he had no such rights */
+    CARD_SELECT: 44,
+    /** No such card issuer */
+    CARD_ISSUER_INVALID: 184,
+    /** Card unsupported */
+    CARD_UNSUPPORTED: 190,
+    /** Element which should be paid with this payment has been canceled and payment should be blocked */
+    CANCELED: 177,
+    /** Comment for payment method too long */
+    COMMENT_LONG: 99,
+    /** Can't connect to payment gateway */
+    CONNECT: 8,
+    /** Unsupported country */
+    COUNTRY_UNSUPPORTED: 164,
+    /** Gift card belongs to a foreign business */
+    COUPON_BUSINESS: 55,
+    /** Invalid payment card chosen */
+    COUPON_CURRENCY: 54,
+    /** Coupon is inactive */
+    COUPON_INACTIVE: 97,
+    /** Coupon code is invalid (invalid length, or invalid characters encountered) */
+    COUPON_INVALID: 51,
+    /** Invalid payment card chosen */
+    COUPON_NX: 52,
+    /** Coupon is redeemed already */
+    COUPON_REDEEM: 53,
+    /** Card credentials (number, csc, month, year) change ability is disabled. E.g. payment processor may not support */
+    CREDENTIAL_SUPPORT: 76,
+    /** Invalid card security code (CSC) */
+    CSC_EMPTY: 21,
+    /** Invalid card security code (CSC) */
+    CSC_INVALID: 2,
+    /** Card is expired */
+    DATE_EXPIRE: 24,
+    /** Card is inactive */
+    DATE_INACTIVE: 163,
+    /** Invalid Expiration Date */
+    DATE_INVALID: 183,
+    /** Month is invalid */
+    DATE_MONTH: 22,
+    /** Multiple usage of this payment method is not allowed */
+    DATE_YEAR: 23,
+    /** Duplicate transaction. Transaction data that is selected for comparison is payment gateway-specific */
+    DUPLICATE: 1,
+    /** Error, caused by one of the following cases: */
+    FRAUD: 168,
+    /** Terminal that should be used for payment is not found */
+    HARDWARE_NOT_FOUND: 196,
+    /** Informational field is not filled in */
+    INFO_EMPTY: 9,
+    /** Informational field is too long */
+    INFO_LONG: 41,
+    /** Minimum payment amount is less then `1` */
+    INSTALLMENT_AMOUNT_MIN: 93,
+    /** Installment plan: Number of payment is invalid */
+    INSTALLMENT_COUNT_FORMAT: 85,
+    /** Installment plan: Number of payment is too large */
+    INSTALLMENT_COUNT_MAX: 87,
+    /** Installment plan: Number of payment is too small (less then 2) */
+    INSTALLMENT_COUNT_MIN: 86,
+    /** Installment date is not specified */
+    INSTALLMENT_DATE_EMPTY: 81,
+    /** Installment date format is invalid */
+    INSTALLMENT_DATE_FORMAT: 82,
+    /** Installment date is too deep in the future */
+    INSTALLMENT_DATE_FUTURE: 84,
+    /** Installment date is in the past (minimum is today) */
+    INSTALLMENT_DATE_PAST: 83,
+    /** Installment plan: Duration of a period is not allowed */
+    INSTALLMENT_DURATION_DISABLE: 91,
+    /** Installment plan: Maximum total duration of installment plan is 100 years */
+    INSTALLMENT_DURATION_MAX: 92,
+    /** Installment plan: Duration of a period does not exist */
+    INSTALLMENT_DURATION_NX: 90,
+    /** Installment plan: Number of periods between two consecutive payments is invalid */
+    INSTALLMENT_PERIOD_FORMAT: 88,
+    /** Installment plan: Number of periods between two consecutive payments is too large */
+    INSTALLMENT_PERIOD_MAX: 89,
+    /** Template of installment plans: template is not selected */
+    INSTALLMENT_TEMPLATE_EMPTY: 95,
+    /** Template of installment plans: ID of the template does not exist */
+    INSTALLMENT_TEMPLATE_NX: 94,
+    /** Internal errors that occurred in the browser (for example, some form data arrived to servers such that user should */
+    INTERNAL_BROWSER: 33,
+    /** Security throttling error */
+    INTERNAL_HIT: 192,
+    /** Internal merchant error */
+    INTERNAL_MERCHANT: 186,
+    /** Some strange service error (e.g. invalid merchant data passed, data format) */
+    INTERNAL_SERVER: 6,
+    /** Payer email is required for payment, but empty */
+    MAIL_EMPTY: 175,
+    /** The associated merchant account has been closed */
+    MERCHANT_ACCOUNT_CLOSED: 189,
+    /** Invalid merchant data */
+    MERCHANT_INVALID: 7,
+    /** Transaction was rejected by gateway */
+    MERCHANT_REJECT: 74,
+    /** Merchant has invalid settings and does not return customer vault */
+    MERCHANT_SETTINGS_VAULT: 166,
+    /** User has no access to the specified payment method */
+    METHOD_ACCESS: 18,
+    /** This method does not support authorization request */
+    METHOD_AUTHORIZE: 96,
+    /** This payment method can not be used with this business */
+    METHOD_BUSINESS: 19,
+    /** Multiple usage of this payment method is not allowed */
+    METHOD_MULTIPLE: 20,
+    /** Cardholder name is not typed in */
+    NAME_EMPTY: 25,
+    /** Customer name is invalid (contains invalid characters) */
+    NAME_INVALID: 106,
+    /** Cardholder name is too long */
+    NAME_LONG: 26,
+    /** Validation Rejection */
+    NMI_PAYSAFE_900: 159,
+    /** Not sufficient funds (debits only) */
+    NMI_PAYSAFE_901: 110,
+    /** Payment stopped/recalled */
+    NMI_PAYSAFE_903: 111,
+    /** Post dated/stale dated */
+    NMI_PAYSAFE_904: 112,
+    /** Account closed */
+    NMI_PAYSAFE_905: 113,
+    /** Account transferred */
+    NMI_PAYSAFE_906: 114,
+    /** No chequing privileges */
+    NMI_PAYSAFE_907: 115,
+    /** Funds not cleared */
+    NMI_PAYSAFE_908: 116,
+    /** Payor/payee deceased */
+    NMI_PAYSAFE_910: 117,
+    /** Account frozen */
+    NMI_PAYSAFE_911: 118,
+    /** Invalid/incorrect account number */
+    NMI_PAYSAFE_912: 119,
+    /** Incorrect payor/payee name */
+    NMI_PAYSAFE_914: 120,
+    /** Refused by payor/payee */
+    NMI_PAYSAFE_915: 121,
+    /** No Return Agreement */
+    NMI_PAYSAFE_998: 122,
+    /** Card number is not typed in */
+    NUMBER_EMPTY: 27,
+    /** Card number is invalid */
+    NUMBER_INVALID: 30,
+    /** Card number is too long */
+    NUMBER_LONG: 28,
+    /** Card number is too long */
+    NUMBER_SHORT: 29,
+    /** Some parameters client has provided are invalid */
+    PARAMETER: 4,
+    /** Payment form is in passive mode */
+    PASSIVE: 165,
+    /** Error during authentication of the payer */
+    PAYER_AUTHENTICATION: 167,
+    /** There is other process currently running to update payment. Failed to wait until it ends */
+    PAYMENT_UPDATE_LOCK: 174,
+    /** Phone number is not specified on user account */
+    PHONE_EMPTY: 107,
+    /** Phone number is invalid */
+    PHONE_INVALID: 178,
+    /** Phone number is too long */
+    PHONE_LONG: 108,
+    /** Transaction error returned by processor */
+    PROCESSOR_ERROR: 98,
+    /** Internal error at processor side has occurred */
+    PROCESSOR_INTERNAL: 109,
+    /** Refund operation is applied too early */
+    REFUND_EARLY: 50,
+    /** Amount about to refund is larger then the current rest of the transaction */
+    REFUND_REST: 49,
+    /** Transaction can not be refunded because it is in an invalid status */
+    REFUND_STATUS: 48,
+    /** Invalid region chosen */
+    REGION_INVALID: 37,
+    /** Chosen region does not exist */
+    REGION_NX: 38,
+    /** Can not repeat purchase transaction. Reference data is expired and invalid now */
+    REPEAT_INVALID: 15,
+    /** Error during request to service. In case we have not even got response */
+    REQUEST: 12,
+    /** Too many requests */
+    REQUEST_THROTTLE: 172,
+    /** Temporary service error. Repeat request */
+    RETRY: 3,
+    /** Payment is blocked due security reasons (because payment amount is too large) */
+    SECURITY_LARGE: 103,
+    /** Only for test, when there is an error in the test that we cannot influence, for example: “server is not available */
+    SKIP_IN_TESTS: 188,
+    /** Stripe data is empty */
+    STRIPE_EMPTY: 31,
+    /** Invalid data on magnetic stripe. Maybe some part does not exist */
+    STRIPE_INVALID: 16,
+    /** This recurrent payment token belongs to a different account of this merchant */
+    TOKEN_ACCOUNT: 161,
+    /** Payment token belongs to a different merchant processor */
+    TOKEN_PROCESSOR: 162,
+    /** Transaction does not exist. E.g. we want to make refund using nonexistent reference number */
+    TRANSACTION_NX: 13,
+    /** Transaction is in unexpected status. For example, authorization process started but takes long time. While waiting */
+    UNEXPECTED_TRANSACTION_STATUS: 187,
+    /** If the user who pays through the account is a debtor */
+    USER_DEBTOR: 194,
+    /** If access denied to an anonymous user */
+    USER_GUEST: 56,
+    /** Error specific for payment processors that stores payer entity */
+    USER_NOT_FOUND: 197,
+    /** Some unpredicted error happened during void on processor side */
+    VOID_ERROR: 193,
+    /** Operation Void is not possible, it's too late to do it */
+    VOID_LATE: 180,
+    /** Void operation can be done only for a total transaction amount and cannot be partial */
+    VOID_PARTIAL: 100,
+    /** Void operation is restricted by rules of the system */
+    VOID_RESTRICT: 102,
+    /** Void operation is not supported by the merchant processor */
+    VOID_SUPPORT: 101,
+    /** Timeout waiting for settlement */
+    WAIT_TIMEOUT: 104,
+    /** Incorrect payment card type specified */
+    TENDER_TYPE_INVALID: 195,
   });
 
   /**

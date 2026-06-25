@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260625050009
+// OpenAPI spec version: 1.1.20260625073106
 // Build date: 2026-06-25
 // Endpoints: 457
-// Enums: 175
+// Enums: 176
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (175 total) ---
+// --- Enum types (176 total) ---
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
 (function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
@@ -219,7 +219,7 @@ export var ThothPayProcessorPayProcessorSid;
     ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["NMI"] = 6] = "NMI";
     /** Payment gateway for Nuvei */
     ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["NUVEI"] = 12] = "NUVEI";
-    /** Payment gateway for http://www.paychoice.com.au/ Paychoice */
+    /** Payment gateway for Paychoice */
     ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["PAYCHOICE"] = 7] = "PAYCHOICE";
     /** Payment gateway for `stripe.com` */
     ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["STRIPE_COM"] = 10] = "STRIPE_COM";
@@ -306,6 +306,504 @@ export var WlTaskTaskStatusSid;
     /** Task in progress */
     WlTaskTaskStatusSid[WlTaskTaskStatusSid["PROGRESS"] = 2] = "PROGRESS";
 })(WlTaskTaskStatusSid || (WlTaskTaskStatusSid = {}));
+/** An exception that is thrown in a case of a payment error. */
+export var RsPayException;
+(function (RsPayException) {
+    /** Invalid ABA number chosen */
+    RsPayException[RsPayException["ABAN_EMPTY"] = 58] = "ABAN_EMPTY";
+    /** Invalid ABA number chosen */
+    RsPayException[RsPayException["ABAN_INVALID"] = 57] = "ABAN_INVALID";
+    /** User Authentication Failed */
+    RsPayException[RsPayException["ACCESS_AUTHENTICATE"] = 160] = "ACCESS_AUTHENTICATE";
+    /** Authentication token is not valid */
+    RsPayException[RsPayException["ACCESS_TOKEN_INVALID"] = 181] = "ACCESS_TOKEN_INVALID";
+    /** Account payment entry method is empty */
+    RsPayException[RsPayException["ACCOUNT_ENTRY_EMPTY"] = 63] = "ACCOUNT_ENTRY_EMPTY";
+    /** Account holder type is empty */
+    RsPayException[RsPayException["ACCOUNT_HOLDER_EMPTY"] = 64] = "ACCOUNT_HOLDER_EMPTY";
+    /** Account name is empty */
+    RsPayException[RsPayException["ACCOUNT_NAME_EMPTY"] = 59] = "ACCOUNT_NAME_EMPTY";
+    /** Account name is too long */
+    RsPayException[RsPayException["ACCOUNT_NAME_LONG"] = 60] = "ACCOUNT_NAME_LONG";
+    /** Account number is empty */
+    RsPayException[RsPayException["ACCOUNT_NUMBER_EMPTY"] = 61] = "ACCOUNT_NUMBER_EMPTY";
+    /** Account number invalid */
+    RsPayException[RsPayException["ACCOUNT_NUMBER_INVALID"] = 67] = "ACCOUNT_NUMBER_INVALID";
+    /** Account number is too long */
+    RsPayException[RsPayException["ACCOUNT_NUMBER_LONG"] = 62] = "ACCOUNT_NUMBER_LONG";
+    /** Account number is too short */
+    RsPayException[RsPayException["ACCOUNT_NUMBER_SHORT"] = 66] = "ACCOUNT_NUMBER_SHORT";
+    /** Account owner is empty */
+    RsPayException[RsPayException["ACCOUNT_OWNER_EMPTY"] = 69] = "ACCOUNT_OWNER_EMPTY";
+    /** Account name is too long */
+    RsPayException[RsPayException["ACCOUNT_OWNER_LONG"] = 70] = "ACCOUNT_OWNER_LONG";
+    /** Account owner name does not equal billing name */
+    RsPayException[RsPayException["ACCOUNT_OWNER_DOES_NOT_MATCH"] = 182] = "ACCOUNT_OWNER_DOES_NOT_MATCH";
+    /** Account type is empty */
+    RsPayException[RsPayException["ACCOUNT_TYPE_EMPTY"] = 65] = "ACCOUNT_TYPE_EMPTY";
+    /** ACH: Account Closed */
+    RsPayException[RsPayException["ACH_E02"] = 198] = "ACH_E02";
+    /** ACH: No Account / Unable to Locate Account */
+    RsPayException[RsPayException["ACH_E03"] = 199] = "ACH_E03";
+    /** ACH: Invalid Account Number */
+    RsPayException[RsPayException["ACH_E04"] = 200] = "ACH_E04";
+    /** ACH: Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    RsPayException[RsPayException["ACH_E05"] = 201] = "ACH_E05";
+    /** ACH: Authorization Revoked by Customer */
+    RsPayException[RsPayException["ACH_E07"] = 202] = "ACH_E07";
+    /** ACH: Payment Stopped */
+    RsPayException[RsPayException["ACH_E08"] = 203] = "ACH_E08";
+    /** ACH: Customer Advises Originator Not Known / Not Authorized */
+    RsPayException[RsPayException["ACH_E10"] = 204] = "ACH_E10";
+    /** ACH: Customer Advises Entry Not in Accordance with Authorization */
+    RsPayException[RsPayException["ACH_E11"] = 205] = "ACH_E11";
+    /** ACH: RDFI Not Qualified to Participate */
+    RsPayException[RsPayException["ACH_E13"] = 206] = "ACH_E13";
+    /** ACH: Representative Payee Deceased or Unable to Continue */
+    RsPayException[RsPayException["ACH_E14"] = 207] = "ACH_E14";
+    /** ACH: Beneficiary or Account Holder Deceased */
+    RsPayException[RsPayException["ACH_E15"] = 208] = "ACH_E15";
+    /** ACH: Account Frozen */
+    RsPayException[RsPayException["ACH_E16"] = 209] = "ACH_E16";
+    /** ACH: Invalid Account Number under Questionable Circumstances */
+    RsPayException[RsPayException["ACH_E17"] = 210] = "ACH_E17";
+    /** ACH: Non-Transaction Account */
+    RsPayException[RsPayException["ACH_E20"] = 211] = "ACH_E20";
+    /** ACH: Corporate Customer Advises Not Authorized */
+    RsPayException[RsPayException["ACH_E29"] = 212] = "ACH_E29";
+    /** ACH: Invalid Image */
+    RsPayException[RsPayException["ACH_E92"] = 213] = "ACH_E92";
+    /** ACH: Non-Negotiable */
+    RsPayException[RsPayException["ACH_E93"] = 214] = "ACH_E93";
+    /** ACH: Breach of Warranty */
+    RsPayException[RsPayException["ACH_E95"] = 215] = "ACH_E95";
+    /** ACH: Counterfeit / Forgery */
+    RsPayException[RsPayException["ACH_E96"] = 216] = "ACH_E96";
+    /** ACH: Refer to Maker */
+    RsPayException[RsPayException["ACH_E97"] = 217] = "ACH_E97";
+    /** Insufficient funds */
+    RsPayException[RsPayException["ACH_R01"] = 124] = "ACH_R01";
+    /** Bank account closed */
+    RsPayException[RsPayException["ACH_R02"] = 125] = "ACH_R02";
+    /** No bank account/unable to locate account */
+    RsPayException[RsPayException["ACH_R03"] = 126] = "ACH_R03";
+    /** Invalid bank account number */
+    RsPayException[RsPayException["ACH_R04"] = 127] = "ACH_R04";
+    /** Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    RsPayException[RsPayException["ACH_R05"] = 128] = "ACH_R05";
+    /** Returned per ODFI request */
+    RsPayException[RsPayException["ACH_R06"] = 129] = "ACH_R06";
+    /** Authorization revoked by customer */
+    RsPayException[RsPayException["ACH_R07"] = 130] = "ACH_R07";
+    /** Payment stopped */
+    RsPayException[RsPayException["ACH_R08"] = 131] = "ACH_R08";
+    /** Uncollected funds */
+    RsPayException[RsPayException["ACH_R09"] = 132] = "ACH_R09";
+    /** Customer advises not authorized */
+    RsPayException[RsPayException["ACH_R10"] = 133] = "ACH_R10";
+    /** Check truncation entry return */
+    RsPayException[RsPayException["ACH_R11"] = 134] = "ACH_R11";
+    /** Branch sold to another RDFI */
+    RsPayException[RsPayException["ACH_R12"] = 135] = "ACH_R12";
+    /** RDFI not qualified to participate */
+    RsPayException[RsPayException["ACH_R13"] = 136] = "ACH_R13";
+    /** Representative payee deceased or unable to continue in that capacity */
+    RsPayException[RsPayException["ACH_R14"] = 137] = "ACH_R14";
+    /** Beneficiary or bank account holder */
+    RsPayException[RsPayException["ACH_R15"] = 138] = "ACH_R15";
+    /** Bank account frozen */
+    RsPayException[RsPayException["ACH_R16"] = 139] = "ACH_R16";
+    /** File record edit criteria */
+    RsPayException[RsPayException["ACH_R17"] = 140] = "ACH_R17";
+    /** Improper effective entry date */
+    RsPayException[RsPayException["ACH_R18"] = 141] = "ACH_R18";
+    /** Amount field error */
+    RsPayException[RsPayException["ACH_R19"] = 142] = "ACH_R19";
+    /** Non-payment bank account */
+    RsPayException[RsPayException["ACH_R20"] = 143] = "ACH_R20";
+    /** Invalid company ID number */
+    RsPayException[RsPayException["ACH_R21"] = 144] = "ACH_R21";
+    /** Invalid individual ID number */
+    RsPayException[RsPayException["ACH_R22"] = 145] = "ACH_R22";
+    /** Credit entry refused by receiver */
+    RsPayException[RsPayException["ACH_R23"] = 146] = "ACH_R23";
+    /** Duplicate entry */
+    RsPayException[RsPayException["ACH_R24"] = 147] = "ACH_R24";
+    /** Addenda error */
+    RsPayException[RsPayException["ACH_R25"] = 148] = "ACH_R25";
+    /** Mandatory field error */
+    RsPayException[RsPayException["ACH_R26"] = 149] = "ACH_R26";
+    /** Trace number error */
+    RsPayException[RsPayException["ACH_R27"] = 150] = "ACH_R27";
+    /** Transit routing number check digit error */
+    RsPayException[RsPayException["ACH_R28"] = 151] = "ACH_R28";
+    /** Corporate customer advises not authorized */
+    RsPayException[RsPayException["ACH_R29"] = 152] = "ACH_R29";
+    /** RDFI not participant in check truncation program */
+    RsPayException[RsPayException["ACH_R30"] = 153] = "ACH_R30";
+    /** Permissible return entry (CCD and CTX only) */
+    RsPayException[RsPayException["ACH_R31"] = 154] = "ACH_R31";
+    /** RDFI non-settlement */
+    RsPayException[RsPayException["ACH_R32"] = 155] = "ACH_R32";
+    /** Return of XCK entry */
+    RsPayException[RsPayException["ACH_R33"] = 156] = "ACH_R33";
+    /** Limited participation RDFI */
+    RsPayException[RsPayException["ACH_R34"] = 157] = "ACH_R34";
+    /** Return of improper debit entry */
+    RsPayException[RsPayException["ACH_R35"] = 158] = "ACH_R35";
+    /** ACH: Return of Improper Credit Entry */
+    RsPayException[RsPayException["ACH_R36"] = 218] = "ACH_R36";
+    /** ACH: Source Document Presented for Payment */
+    RsPayException[RsPayException["ACH_R37"] = 219] = "ACH_R37";
+    /** ACH: Stop Payment on Source Document */
+    RsPayException[RsPayException["ACH_R38"] = 220] = "ACH_R38";
+    /** ACH: Improper Source Document */
+    RsPayException[RsPayException["ACH_R39"] = 221] = "ACH_R39";
+    /** ACH: Return of ENR Entry by Federal Government Agency */
+    RsPayException[RsPayException["ACH_R40"] = 222] = "ACH_R40";
+    /** ACH: Invalid Transaction Code */
+    RsPayException[RsPayException["ACH_R41"] = 223] = "ACH_R41";
+    /** ACH: Routing Number / Check Digit Error */
+    RsPayException[RsPayException["ACH_R42"] = 224] = "ACH_R42";
+    /** ACH: Invalid DFI Account Number */
+    RsPayException[RsPayException["ACH_R43"] = 225] = "ACH_R43";
+    /** ACH: Invalid Individual ID Number / Identification */
+    RsPayException[RsPayException["ACH_R44"] = 226] = "ACH_R44";
+    /** ACH: Invalid Individual Name / Company Name */
+    RsPayException[RsPayException["ACH_R45"] = 227] = "ACH_R45";
+    /** ACH: Invalid Representative Payee Indicator */
+    RsPayException[RsPayException["ACH_R46"] = 228] = "ACH_R46";
+    /** ACH: Duplicate Enrollment */
+    RsPayException[RsPayException["ACH_R47"] = 229] = "ACH_R47";
+    /** ACH: State Law Affecting RCK Acceptance */
+    RsPayException[RsPayException["ACH_R50"] = 230] = "ACH_R50";
+    /** ACH: Item is Ineligible, Notice Not Provided, etc */
+    RsPayException[RsPayException["ACH_R51"] = 231] = "ACH_R51";
+    /** ACH: Stop Payment on Item (Adjustment Entries) */
+    RsPayException[RsPayException["ACH_R52"] = 232] = "ACH_R52";
+    /** ACH: Item and ACH Entry Presented for Payment */
+    RsPayException[RsPayException["ACH_R53"] = 233] = "ACH_R53";
+    /** ACH: Misrouted Return */
+    RsPayException[RsPayException["ACH_R61"] = 234] = "ACH_R61";
+    /** ACH: Incorrect Trace Number */
+    RsPayException[RsPayException["ACH_R62"] = 235] = "ACH_R62";
+    /** ACH: Incorrect Dollar Amount */
+    RsPayException[RsPayException["ACH_R63"] = 236] = "ACH_R63";
+    /** ACH: Incorrect Individual Identification */
+    RsPayException[RsPayException["ACH_R64"] = 237] = "ACH_R64";
+    /** ACH: Incorrect Transaction Code */
+    RsPayException[RsPayException["ACH_R65"] = 238] = "ACH_R65";
+    /** ACH: Incorrect Company Identification */
+    RsPayException[RsPayException["ACH_R66"] = 239] = "ACH_R66";
+    /** ACH: Duplicate Return */
+    RsPayException[RsPayException["ACH_R67"] = 240] = "ACH_R67";
+    /** ACH: Untimely Return */
+    RsPayException[RsPayException["ACH_R68"] = 241] = "ACH_R68";
+    /** ACH: Multiple Errors */
+    RsPayException[RsPayException["ACH_R69"] = 242] = "ACH_R69";
+    /** ACH: Permissible Return Entry Not Accepted */
+    RsPayException[RsPayException["ACH_R70"] = 243] = "ACH_R70";
+    /** ACH: Misrouted Dishonored Return */
+    RsPayException[RsPayException["ACH_R71"] = 244] = "ACH_R71";
+    /** ACH: Untimely Dishonored Return */
+    RsPayException[RsPayException["ACH_R72"] = 245] = "ACH_R72";
+    /** ACH: Timely Original Return */
+    RsPayException[RsPayException["ACH_R73"] = 246] = "ACH_R73";
+    /** ACH: Corrected Return */
+    RsPayException[RsPayException["ACH_R74"] = 247] = "ACH_R74";
+    /** ACH: Return Not a Duplicate */
+    RsPayException[RsPayException["ACH_R75"] = 248] = "ACH_R75";
+    /** ACH: No Errors Found */
+    RsPayException[RsPayException["ACH_R76"] = 249] = "ACH_R76";
+    /** ACH: IAT Entry Coding Error */
+    RsPayException[RsPayException["ACH_R80"] = 250] = "ACH_R80";
+    /** ACH: Non-Participant in IAT Program */
+    RsPayException[RsPayException["ACH_R81"] = 251] = "ACH_R81";
+    /** ACH: Invalid Foreign Receiving DFI Identification */
+    RsPayException[RsPayException["ACH_R82"] = 252] = "ACH_R82";
+    /** ACH: Foreign Receiving DFI Unable to Settle */
+    RsPayException[RsPayException["ACH_R83"] = 253] = "ACH_R83";
+    /** ACH: Entry Not Processed by Gateway */
+    RsPayException[RsPayException["ACH_R84"] = 254] = "ACH_R84";
+    /** ACH: Incorrectly Coded Outbound International Payment */
+    RsPayException[RsPayException["ACH_R85"] = 255] = "ACH_R85";
+    /** ACH check type or account type is invalid */
+    RsPayException[RsPayException["ACH_ACCOUNT_TYPE"] = 185] = "ACH_ACCOUNT_TYPE";
+    /** ACH payment method is not supported by processor */
+    RsPayException[RsPayException["ACH_SUPPORT"] = 105] = "ACH_SUPPORT";
+    /** ACH error: uncollected */
+    RsPayException[RsPayException["ACH_UNCOLLECTED"] = 123] = "ACH_UNCOLLECTED";
+    /** Invalid payment address chosen */
+    RsPayException[RsPayException["ADDRESS_INVALID"] = 39] = "ADDRESS_INVALID";
+    /** Chosen payment address does not exist */
+    RsPayException[RsPayException["ADDRESS_NX"] = 40] = "ADDRESS_NX";
+    /** Disagreement with the Payment Agreement */
+    RsPayException[RsPayException["AGREEMENT_DISAGREE"] = 176] = "AGREEMENT_DISAGREE";
+    /** Sum of amounts for all individual payment sources does not equal the total expected amount */
+    RsPayException[RsPayException["AMOUNT_CONSOLIDATE"] = 35] = "AMOUNT_CONSOLIDATE";
+    /** Total package price can't be divided equally between package items without loosing cents */
+    RsPayException[RsPayException["AMOUNT_CONSOLIDATE_PACKAGE"] = 191] = "AMOUNT_CONSOLIDATE_PACKAGE";
+    /** Amount was unexpectedly changed during the purchase process */
+    RsPayException[RsPayException["AMOUNT_CHANGE"] = 179] = "AMOUNT_CHANGE";
+    /** Amount is invalid */
+    RsPayException[RsPayException["AMOUNT_INVALID"] = 34] = "AMOUNT_INVALID";
+    /** Total price of cart greater than `1000000000.00` */
+    RsPayException[RsPayException["AMOUNT_TOTAL"] = 75] = "AMOUNT_TOTAL";
+    /** Amount equals zero */
+    RsPayException[RsPayException["AMOUNT_ZERO"] = 32] = "AMOUNT_ZERO";
+    /** AVS verification failed. Postal code or address are invalid */
+    RsPayException[RsPayException["AVS"] = 14] = "AVS";
+    /** Invalid bank account ID */
+    RsPayException[RsPayException["BANK_ACCOUNT_INVALID"] = 79] = "BANK_ACCOUNT_INVALID";
+    /** Bank account ID does not exist */
+    RsPayException[RsPayException["BANK_ACCOUNT_NX"] = 80] = "BANK_ACCOUNT_NX";
+    /** Bank state branch is empty */
+    RsPayException[RsPayException["BSB_EMPTY"] = 77] = "BSB_EMPTY";
+    /** Bank state branch is invalid */
+    RsPayException[RsPayException["BSB_INVALID"] = 78] = "BSB_INVALID";
+    /** This business is a lost customer */
+    RsPayException[RsPayException["BUSINESS_CHURN"] = 173] = "BUSINESS_CHURN";
+    /** Client must call issuer for further information */
+    RsPayException[RsPayException["CALL"] = 17] = "CALL";
+    /** Card data is valid, but you can not pay with it (e.g. hold placed on card) */
+    RsPayException[RsPayException["CARD_DECLINE"] = 5] = "CARD_DECLINE";
+    /** Invalid payment card chosen */
+    RsPayException[RsPayException["CARD_INVALID"] = 42] = "CARD_INVALID";
+    /** Card over limit */
+    RsPayException[RsPayException["CARD_LIMIT"] = 73] = "CARD_LIMIT";
+    /** Payment card nickname is empty */
+    RsPayException[RsPayException["CARD_NAME_EMPTY"] = 46] = "CARD_NAME_EMPTY";
+    /** Payment card nickname is too long */
+    RsPayException[RsPayException["CARD_NAME_LONG"] = 47] = "CARD_NAME_LONG";
+    /** The customer’s bank has declined the transaction as the credit card number has failed a security check, or the */
+    RsPayException[RsPayException["CARD_NOT_HONOR"] = 71] = "CARD_NOT_HONOR";
+    /** Insufficient funds available */
+    RsPayException[RsPayException["CARD_NSF"] = 72] = "CARD_NSF";
+    /** Chosen payment card does not exist */
+    RsPayException[RsPayException["CARD_NX"] = 43] = "CARD_NX";
+    /** User has chosen payment card but he had no such rights */
+    RsPayException[RsPayException["CARD_SELECT"] = 44] = "CARD_SELECT";
+    /** No such card issuer */
+    RsPayException[RsPayException["CARD_ISSUER_INVALID"] = 184] = "CARD_ISSUER_INVALID";
+    /** Card unsupported */
+    RsPayException[RsPayException["CARD_UNSUPPORTED"] = 190] = "CARD_UNSUPPORTED";
+    /** Element which should be paid with this payment has been canceled and payment should be blocked */
+    RsPayException[RsPayException["CANCELED"] = 177] = "CANCELED";
+    /** Comment for payment method too long */
+    RsPayException[RsPayException["COMMENT_LONG"] = 99] = "COMMENT_LONG";
+    /** Can't connect to payment gateway */
+    RsPayException[RsPayException["CONNECT"] = 8] = "CONNECT";
+    /** Unsupported country */
+    RsPayException[RsPayException["COUNTRY_UNSUPPORTED"] = 164] = "COUNTRY_UNSUPPORTED";
+    /** Gift card belongs to a foreign business */
+    RsPayException[RsPayException["COUPON_BUSINESS"] = 55] = "COUPON_BUSINESS";
+    /** Invalid payment card chosen */
+    RsPayException[RsPayException["COUPON_CURRENCY"] = 54] = "COUPON_CURRENCY";
+    /** Coupon is inactive */
+    RsPayException[RsPayException["COUPON_INACTIVE"] = 97] = "COUPON_INACTIVE";
+    /** Coupon code is invalid (invalid length, or invalid characters encountered) */
+    RsPayException[RsPayException["COUPON_INVALID"] = 51] = "COUPON_INVALID";
+    /** Invalid payment card chosen */
+    RsPayException[RsPayException["COUPON_NX"] = 52] = "COUPON_NX";
+    /** Coupon is redeemed already */
+    RsPayException[RsPayException["COUPON_REDEEM"] = 53] = "COUPON_REDEEM";
+    /** Card credentials (number, csc, month, year) change ability is disabled. E.g. payment processor may not support */
+    RsPayException[RsPayException["CREDENTIAL_SUPPORT"] = 76] = "CREDENTIAL_SUPPORT";
+    /** Invalid card security code (CSC) */
+    RsPayException[RsPayException["CSC_EMPTY"] = 21] = "CSC_EMPTY";
+    /** Invalid card security code (CSC) */
+    RsPayException[RsPayException["CSC_INVALID"] = 2] = "CSC_INVALID";
+    /** Card is expired */
+    RsPayException[RsPayException["DATE_EXPIRE"] = 24] = "DATE_EXPIRE";
+    /** Card is inactive */
+    RsPayException[RsPayException["DATE_INACTIVE"] = 163] = "DATE_INACTIVE";
+    /** Invalid Expiration Date */
+    RsPayException[RsPayException["DATE_INVALID"] = 183] = "DATE_INVALID";
+    /** Month is invalid */
+    RsPayException[RsPayException["DATE_MONTH"] = 22] = "DATE_MONTH";
+    /** Multiple usage of this payment method is not allowed */
+    RsPayException[RsPayException["DATE_YEAR"] = 23] = "DATE_YEAR";
+    /** Duplicate transaction. Transaction data that is selected for comparison is payment gateway-specific */
+    RsPayException[RsPayException["DUPLICATE"] = 1] = "DUPLICATE";
+    /** Error, caused by one of the following cases: */
+    RsPayException[RsPayException["FRAUD"] = 168] = "FRAUD";
+    /** Terminal that should be used for payment is not found */
+    RsPayException[RsPayException["HARDWARE_NOT_FOUND"] = 196] = "HARDWARE_NOT_FOUND";
+    /** Informational field is not filled in */
+    RsPayException[RsPayException["INFO_EMPTY"] = 9] = "INFO_EMPTY";
+    /** Informational field is too long */
+    RsPayException[RsPayException["INFO_LONG"] = 41] = "INFO_LONG";
+    /** Minimum payment amount is less then `1` */
+    RsPayException[RsPayException["INSTALLMENT_AMOUNT_MIN"] = 93] = "INSTALLMENT_AMOUNT_MIN";
+    /** Installment plan: Number of payment is invalid */
+    RsPayException[RsPayException["INSTALLMENT_COUNT_FORMAT"] = 85] = "INSTALLMENT_COUNT_FORMAT";
+    /** Installment plan: Number of payment is too large */
+    RsPayException[RsPayException["INSTALLMENT_COUNT_MAX"] = 87] = "INSTALLMENT_COUNT_MAX";
+    /** Installment plan: Number of payment is too small (less then 2) */
+    RsPayException[RsPayException["INSTALLMENT_COUNT_MIN"] = 86] = "INSTALLMENT_COUNT_MIN";
+    /** Installment date is not specified */
+    RsPayException[RsPayException["INSTALLMENT_DATE_EMPTY"] = 81] = "INSTALLMENT_DATE_EMPTY";
+    /** Installment date format is invalid */
+    RsPayException[RsPayException["INSTALLMENT_DATE_FORMAT"] = 82] = "INSTALLMENT_DATE_FORMAT";
+    /** Installment date is too deep in the future */
+    RsPayException[RsPayException["INSTALLMENT_DATE_FUTURE"] = 84] = "INSTALLMENT_DATE_FUTURE";
+    /** Installment date is in the past (minimum is today) */
+    RsPayException[RsPayException["INSTALLMENT_DATE_PAST"] = 83] = "INSTALLMENT_DATE_PAST";
+    /** Installment plan: Duration of a period is not allowed */
+    RsPayException[RsPayException["INSTALLMENT_DURATION_DISABLE"] = 91] = "INSTALLMENT_DURATION_DISABLE";
+    /** Installment plan: Maximum total duration of installment plan is 100 years */
+    RsPayException[RsPayException["INSTALLMENT_DURATION_MAX"] = 92] = "INSTALLMENT_DURATION_MAX";
+    /** Installment plan: Duration of a period does not exist */
+    RsPayException[RsPayException["INSTALLMENT_DURATION_NX"] = 90] = "INSTALLMENT_DURATION_NX";
+    /** Installment plan: Number of periods between two consecutive payments is invalid */
+    RsPayException[RsPayException["INSTALLMENT_PERIOD_FORMAT"] = 88] = "INSTALLMENT_PERIOD_FORMAT";
+    /** Installment plan: Number of periods between two consecutive payments is too large */
+    RsPayException[RsPayException["INSTALLMENT_PERIOD_MAX"] = 89] = "INSTALLMENT_PERIOD_MAX";
+    /** Template of installment plans: template is not selected */
+    RsPayException[RsPayException["INSTALLMENT_TEMPLATE_EMPTY"] = 95] = "INSTALLMENT_TEMPLATE_EMPTY";
+    /** Template of installment plans: ID of the template does not exist */
+    RsPayException[RsPayException["INSTALLMENT_TEMPLATE_NX"] = 94] = "INSTALLMENT_TEMPLATE_NX";
+    /** Internal errors that occurred in the browser (for example, some form data arrived to servers such that user should */
+    RsPayException[RsPayException["INTERNAL_BROWSER"] = 33] = "INTERNAL_BROWSER";
+    /** Security throttling error */
+    RsPayException[RsPayException["INTERNAL_HIT"] = 192] = "INTERNAL_HIT";
+    /** Internal merchant error */
+    RsPayException[RsPayException["INTERNAL_MERCHANT"] = 186] = "INTERNAL_MERCHANT";
+    /** Some strange service error (e.g. invalid merchant data passed, data format) */
+    RsPayException[RsPayException["INTERNAL_SERVER"] = 6] = "INTERNAL_SERVER";
+    /** Payer email is required for payment, but empty */
+    RsPayException[RsPayException["MAIL_EMPTY"] = 175] = "MAIL_EMPTY";
+    /** The associated merchant account has been closed */
+    RsPayException[RsPayException["MERCHANT_ACCOUNT_CLOSED"] = 189] = "MERCHANT_ACCOUNT_CLOSED";
+    /** Invalid merchant data */
+    RsPayException[RsPayException["MERCHANT_INVALID"] = 7] = "MERCHANT_INVALID";
+    /** Transaction was rejected by gateway */
+    RsPayException[RsPayException["MERCHANT_REJECT"] = 74] = "MERCHANT_REJECT";
+    /** Merchant has invalid settings and does not return customer vault */
+    RsPayException[RsPayException["MERCHANT_SETTINGS_VAULT"] = 166] = "MERCHANT_SETTINGS_VAULT";
+    /** User has no access to the specified payment method */
+    RsPayException[RsPayException["METHOD_ACCESS"] = 18] = "METHOD_ACCESS";
+    /** This method does not support authorization request */
+    RsPayException[RsPayException["METHOD_AUTHORIZE"] = 96] = "METHOD_AUTHORIZE";
+    /** This payment method can not be used with this business */
+    RsPayException[RsPayException["METHOD_BUSINESS"] = 19] = "METHOD_BUSINESS";
+    /** Multiple usage of this payment method is not allowed */
+    RsPayException[RsPayException["METHOD_MULTIPLE"] = 20] = "METHOD_MULTIPLE";
+    /** Cardholder name is not typed in */
+    RsPayException[RsPayException["NAME_EMPTY"] = 25] = "NAME_EMPTY";
+    /** Customer name is invalid (contains invalid characters) */
+    RsPayException[RsPayException["NAME_INVALID"] = 106] = "NAME_INVALID";
+    /** Cardholder name is too long */
+    RsPayException[RsPayException["NAME_LONG"] = 26] = "NAME_LONG";
+    /** Validation Rejection */
+    RsPayException[RsPayException["NMI_PAYSAFE_900"] = 159] = "NMI_PAYSAFE_900";
+    /** Not sufficient funds (debits only) */
+    RsPayException[RsPayException["NMI_PAYSAFE_901"] = 110] = "NMI_PAYSAFE_901";
+    /** Payment stopped/recalled */
+    RsPayException[RsPayException["NMI_PAYSAFE_903"] = 111] = "NMI_PAYSAFE_903";
+    /** Post dated/stale dated */
+    RsPayException[RsPayException["NMI_PAYSAFE_904"] = 112] = "NMI_PAYSAFE_904";
+    /** Account closed */
+    RsPayException[RsPayException["NMI_PAYSAFE_905"] = 113] = "NMI_PAYSAFE_905";
+    /** Account transferred */
+    RsPayException[RsPayException["NMI_PAYSAFE_906"] = 114] = "NMI_PAYSAFE_906";
+    /** No chequing privileges */
+    RsPayException[RsPayException["NMI_PAYSAFE_907"] = 115] = "NMI_PAYSAFE_907";
+    /** Funds not cleared */
+    RsPayException[RsPayException["NMI_PAYSAFE_908"] = 116] = "NMI_PAYSAFE_908";
+    /** Payor/payee deceased */
+    RsPayException[RsPayException["NMI_PAYSAFE_910"] = 117] = "NMI_PAYSAFE_910";
+    /** Account frozen */
+    RsPayException[RsPayException["NMI_PAYSAFE_911"] = 118] = "NMI_PAYSAFE_911";
+    /** Invalid/incorrect account number */
+    RsPayException[RsPayException["NMI_PAYSAFE_912"] = 119] = "NMI_PAYSAFE_912";
+    /** Incorrect payor/payee name */
+    RsPayException[RsPayException["NMI_PAYSAFE_914"] = 120] = "NMI_PAYSAFE_914";
+    /** Refused by payor/payee */
+    RsPayException[RsPayException["NMI_PAYSAFE_915"] = 121] = "NMI_PAYSAFE_915";
+    /** No Return Agreement */
+    RsPayException[RsPayException["NMI_PAYSAFE_998"] = 122] = "NMI_PAYSAFE_998";
+    /** Card number is not typed in */
+    RsPayException[RsPayException["NUMBER_EMPTY"] = 27] = "NUMBER_EMPTY";
+    /** Card number is invalid */
+    RsPayException[RsPayException["NUMBER_INVALID"] = 30] = "NUMBER_INVALID";
+    /** Card number is too long */
+    RsPayException[RsPayException["NUMBER_LONG"] = 28] = "NUMBER_LONG";
+    /** Card number is too long */
+    RsPayException[RsPayException["NUMBER_SHORT"] = 29] = "NUMBER_SHORT";
+    /** Some parameters client has provided are invalid */
+    RsPayException[RsPayException["PARAMETER"] = 4] = "PARAMETER";
+    /** Payment form is in passive mode */
+    RsPayException[RsPayException["PASSIVE"] = 165] = "PASSIVE";
+    /** Error during authentication of the payer */
+    RsPayException[RsPayException["PAYER_AUTHENTICATION"] = 167] = "PAYER_AUTHENTICATION";
+    /** There is other process currently running to update payment. Failed to wait until it ends */
+    RsPayException[RsPayException["PAYMENT_UPDATE_LOCK"] = 174] = "PAYMENT_UPDATE_LOCK";
+    /** Phone number is not specified on user account */
+    RsPayException[RsPayException["PHONE_EMPTY"] = 107] = "PHONE_EMPTY";
+    /** Phone number is invalid */
+    RsPayException[RsPayException["PHONE_INVALID"] = 178] = "PHONE_INVALID";
+    /** Phone number is too long */
+    RsPayException[RsPayException["PHONE_LONG"] = 108] = "PHONE_LONG";
+    /** Transaction error returned by processor */
+    RsPayException[RsPayException["PROCESSOR_ERROR"] = 98] = "PROCESSOR_ERROR";
+    /** Internal error at processor side has occurred */
+    RsPayException[RsPayException["PROCESSOR_INTERNAL"] = 109] = "PROCESSOR_INTERNAL";
+    /** Refund operation is applied too early */
+    RsPayException[RsPayException["REFUND_EARLY"] = 50] = "REFUND_EARLY";
+    /** Amount about to refund is larger then the current rest of the transaction */
+    RsPayException[RsPayException["REFUND_REST"] = 49] = "REFUND_REST";
+    /** Transaction can not be refunded because it is in an invalid status */
+    RsPayException[RsPayException["REFUND_STATUS"] = 48] = "REFUND_STATUS";
+    /** Invalid region chosen */
+    RsPayException[RsPayException["REGION_INVALID"] = 37] = "REGION_INVALID";
+    /** Chosen region does not exist */
+    RsPayException[RsPayException["REGION_NX"] = 38] = "REGION_NX";
+    /** Can not repeat purchase transaction. Reference data is expired and invalid now */
+    RsPayException[RsPayException["REPEAT_INVALID"] = 15] = "REPEAT_INVALID";
+    /** Error during request to service. In case we have not even got response */
+    RsPayException[RsPayException["REQUEST"] = 12] = "REQUEST";
+    /** Too many requests */
+    RsPayException[RsPayException["REQUEST_THROTTLE"] = 172] = "REQUEST_THROTTLE";
+    /** Temporary service error. Repeat request */
+    RsPayException[RsPayException["RETRY"] = 3] = "RETRY";
+    /** Payment is blocked due security reasons (because payment amount is too large) */
+    RsPayException[RsPayException["SECURITY_LARGE"] = 103] = "SECURITY_LARGE";
+    /** Only for test, when there is an error in the test that we cannot influence, for example: “server is not available */
+    RsPayException[RsPayException["SKIP_IN_TESTS"] = 188] = "SKIP_IN_TESTS";
+    /** Stripe data is empty */
+    RsPayException[RsPayException["STRIPE_EMPTY"] = 31] = "STRIPE_EMPTY";
+    /** Invalid data on magnetic stripe. Maybe some part does not exist */
+    RsPayException[RsPayException["STRIPE_INVALID"] = 16] = "STRIPE_INVALID";
+    /** This recurrent payment token belongs to a different account of this merchant */
+    RsPayException[RsPayException["TOKEN_ACCOUNT"] = 161] = "TOKEN_ACCOUNT";
+    /** Payment token belongs to a different merchant processor */
+    RsPayException[RsPayException["TOKEN_PROCESSOR"] = 162] = "TOKEN_PROCESSOR";
+    /** Transaction does not exist. E.g. we want to make refund using nonexistent reference number */
+    RsPayException[RsPayException["TRANSACTION_NX"] = 13] = "TRANSACTION_NX";
+    /** Transaction is in unexpected status. For example, authorization process started but takes long time. While waiting */
+    RsPayException[RsPayException["UNEXPECTED_TRANSACTION_STATUS"] = 187] = "UNEXPECTED_TRANSACTION_STATUS";
+    /** If the user who pays through the account is a debtor */
+    RsPayException[RsPayException["USER_DEBTOR"] = 194] = "USER_DEBTOR";
+    /** If access denied to an anonymous user */
+    RsPayException[RsPayException["USER_GUEST"] = 56] = "USER_GUEST";
+    /** Error specific for payment processors that stores payer entity */
+    RsPayException[RsPayException["USER_NOT_FOUND"] = 197] = "USER_NOT_FOUND";
+    /** Some unpredicted error happened during void on processor side */
+    RsPayException[RsPayException["VOID_ERROR"] = 193] = "VOID_ERROR";
+    /** Operation Void is not possible, it's too late to do it */
+    RsPayException[RsPayException["VOID_LATE"] = 180] = "VOID_LATE";
+    /** Void operation can be done only for a total transaction amount and cannot be partial */
+    RsPayException[RsPayException["VOID_PARTIAL"] = 100] = "VOID_PARTIAL";
+    /** Void operation is restricted by rules of the system */
+    RsPayException[RsPayException["VOID_RESTRICT"] = 102] = "VOID_RESTRICT";
+    /** Void operation is not supported by the merchant processor */
+    RsPayException[RsPayException["VOID_SUPPORT"] = 101] = "VOID_SUPPORT";
+    /** Timeout waiting for settlement */
+    RsPayException[RsPayException["WAIT_TIMEOUT"] = 104] = "WAIT_TIMEOUT";
+    /** Incorrect payment card type specified */
+    RsPayException[RsPayException["TENDER_TYPE_INVALID"] = 195] = "TENDER_TYPE_INVALID";
+})(RsPayException || (RsPayException = {}));
 /** Paragon ticket status. */
 export var ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid;
 (function (ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid) {
@@ -4449,7 +4947,7 @@ export class ThothWlPayAccountChargeNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Allows the user account to be filled with a specified payment, or to perform the reset change manually. */
+    /** Refills the user account balance by the specified payment amount or adjusts it manually. */
     charge(params) {
         return this._client._request('/Thoth/WlPay/Account/Charge/Charge.json', params, 'POST');
     }
@@ -4513,7 +5011,7 @@ export class ThothWlPayTransactionReportNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets the daily transaction data. */
+    /** Returns All Transactions Report data for the specified date range. */
     transactionAllPayment(params) {
         return this._client._request('/Thoth/WlPay/Transaction/Report/TransactionAllPayment.json', params, 'GET');
     }
