@@ -1120,7 +1120,7 @@ export declare enum RsPayException {
     RETRY = 3,
     /** Payment is blocked due security reasons (because payment amount is too large) */
     SECURITY_LARGE = 103,
-    /** Only for test, when there is an error in the test that we cannot influence, for example: “server is not available */
+    /** Only for test, when there is an error in the test that we cannot influence, for example: “server is not available” */
     SKIP_IN_TESTS = 188,
     /** Stripe data is empty */
     STRIPE_EMPTY = 31,
@@ -1932,89 +1932,6 @@ export declare enum WlPromotionPurchaseRestrictionSid {
     /** Purchase option available for clients with special login type or member group */
     TYPE = 3
 }
-/** The status of form actions. */
-export declare enum WlQuizActivityActivitySid {
-    /** Form was added to the profile */
-    ADD = 1,
-    /** Form was saved as a draft */
-    DRAFT = 2,
-    /** Form was edited */
-    EDIT = 3,
-    /** Form was exported to CSV file */
-    EXPORT_CSV = 4,
-    /** Form was exported to PDF file */
-    EXPORT_PDF = 5,
-    /** Form was printed */
-    PRINTING = 6,
-    /** Form was submitted */
-    SUBMIT = 7,
-    /** Form was viewed */
-    VIEW = 8
-}
-/** List of quiz frequency types. */
-export declare enum WlQuizQuizFrequencySid {
-    /** Client will be asked to complete the quiz every time they book a service or purchase item */
-    EVERY = 1,
-    /** Client will be asked to complete the quiz the first time they book a service or purchase item */
-    FIRST = 2,
-    /** Client will be asked to complete the quiz only one time when they book a service or purchase item */
-    ONCE = 3
-}
-/** A list of purchase types. */
-export declare enum RsPurchaseItemSid {
-    /** Personal user's account refill */
-    ACCOUNT = 7,
-    /** Business account payment */
-    ACCOUNT_BUSINESS = 11,
-    /** Single appointment reservation */
-    APPOINTMENT = 8,
-    /** Single appointment reservation with deposit */
-    APPOINTMENT_DEPOSIT = 18,
-    /** Tips for the appointment */
-    APPOINTMENT_TIP = 22,
-    /** Expense that comes along with the payment business. It contains information about additional services which are */
-    BUSINESS_EXPENSE = 16,
-    /** A skipped purchase for the business account */
-    BUSINESS_SKIP = 17,
-    /** Business subscription payment */
-    BUSINESS_SUBSCRIPTION = 23,
-    /** Single classes */
-    CLASS_PERIOD = 2,
-    /** Collectors payments */
-    COLLECTOR_DEBT = 24,
-    /** Arbitrary money withdrawal with comment */
-    COMMENT = 13,
-    /** Gift Cards */
-    COUPON = 10,
-    /** Events and enrollments. Client can not book only one class, he needs to book the whole enrollment */
-    ENROLLMENT = 4,
-    /** Enrollment reservation with a deposit */
-    ENROLLMENT_DEPOSIT = 19,
-    /** Enrollment reservation with a discount */
-    ENROLLMENT_DISCOUNT = 21,
-    /** Payment by an installment plan */
-    INSTALLMENT = 14,
-    /** Recurrent payments */
-    MEMBERSHIP = 3,
-    /** Products */
-    PRODUCT = 9,
-    /** Promotions */
-    PROMOTION = 1,
-    /** Early cancellation fee for a memberships */
-    PROMOTION_CANCEL_FEE = 25,
-    /** A purchase to renew a promotion */
-    PROMOTION_RENEW = 12,
-    /** A purchase to book an asset */
-    RESOURCE = 15,
-    /** A purchase to book a deposit asset */
-    RESOURCE_DEPOSIT = 20,
-    /** Purchase item for appointments */
-    SERVICE = 6,
-    /** Tuition purchase item */
-    TUITION = 26,
-    /** Tuition fee purchase item */
-    TUITION_FEE = 27
-}
 /** A list of skin types. */
 export declare enum RsSkinSid {
     /** Ai Agent web-chat */
@@ -2817,6 +2734,61 @@ export declare enum WlVirtualVirtualProviderSid {
     /** Virtual Zoom service integration */
     ZOOM = 1
 }
+/** A list of purchase types. */
+export declare enum RsPurchaseItemSid {
+    /** Personal user's account refill */
+    ACCOUNT = 7,
+    /** Business account payment */
+    ACCOUNT_BUSINESS = 11,
+    /** Single appointment reservation */
+    APPOINTMENT = 8,
+    /** Single appointment reservation with deposit */
+    APPOINTMENT_DEPOSIT = 18,
+    /** Tips for the appointment */
+    APPOINTMENT_TIP = 22,
+    /** Expense that comes along with the payment business. It contains information about additional services which are */
+    BUSINESS_EXPENSE = 16,
+    /** A skipped purchase for the business account */
+    BUSINESS_SKIP = 17,
+    /** Business subscription payment */
+    BUSINESS_SUBSCRIPTION = 23,
+    /** Single classes */
+    CLASS_PERIOD = 2,
+    /** Collectors payments */
+    COLLECTOR_DEBT = 24,
+    /** Arbitrary money withdrawal with comment */
+    COMMENT = 13,
+    /** Gift Cards */
+    COUPON = 10,
+    /** Events and enrollments. Client can not book only one class, he needs to book the whole enrollment */
+    ENROLLMENT = 4,
+    /** Enrollment reservation with a deposit */
+    ENROLLMENT_DEPOSIT = 19,
+    /** Enrollment reservation with a discount */
+    ENROLLMENT_DISCOUNT = 21,
+    /** Payment by an installment plan */
+    INSTALLMENT = 14,
+    /** Recurrent payments */
+    MEMBERSHIP = 3,
+    /** Products */
+    PRODUCT = 9,
+    /** Promotions */
+    PROMOTION = 1,
+    /** Early cancellation fee for a memberships */
+    PROMOTION_CANCEL_FEE = 25,
+    /** A purchase to renew a promotion */
+    PROMOTION_RENEW = 12,
+    /** A purchase to book an asset */
+    RESOURCE = 15,
+    /** A purchase to book a deposit asset */
+    RESOURCE_DEPOSIT = 20,
+    /** Purchase item for appointments */
+    SERVICE = 6,
+    /** Tuition purchase item */
+    TUITION = 26,
+    /** Tuition fee purchase item */
+    TUITION_FEE = 27
+}
 /** Possible ways to stop repeatable events. */
 export declare enum RsRepeatEndSid {
     /** Stop after a certain number of repeats */
@@ -3284,7 +3256,7 @@ export declare enum WlPrivilegePrivilegeSid {
     FORM_MY_CLIENTS = 175,
     /** Allow Staff members to view/complete forms for clients that belong to the location that they are selected to work at */
     FORM_MY_LOCATION = 176,
-    /** Allow staff members to delete forms from the client’s profil */
+    /** Allow staff members to delete forms from the client’s profile */
     FORM_RESPONSE_DELETE = 199,
     /** Allow staff members to view form responses */
     FORM_VIEW_RESPONSE = 161,
@@ -3296,17 +3268,17 @@ export declare enum WlPrivilegePrivilegeSid {
     INTEGRATION_AUTYMATE = 163,
     /** Set up and modify Brivo integration */
     INTEGRATION_BRIVO = 179,
-    /** Enroll into and manage the WellnessLiving Achieve App. These settings are located under Setup &gt; Achieve Client App */
+    /** Enroll into and manage the WellnessLiving Achieve App. These settings are located under Setup > Achieve Client App */
     INTERFACE_ACHIEVE_APP = 87,
-    /** Modify the look and functionality business’s widgets. These settings are located within Setup &gt; Widget */
+    /** Modify the look and functionality business’s widgets. These settings are located within Setup > Widgets */
     INTERFACE_WIDGET_EDIT = 39,
-    /** View the look and functionality business’s widgets. These settings are located within Setup &gt; Widget */
+    /** View the look and functionality business’s widgets. These settings are located within Setup > Widgets */
     INTERFACE_WIDGET_VIEW = 110,
     /** Permission to Receive or Adjust quantity from the Inventory On Hand Report */
     INVENTORY_UPDATE = 157,
     /** Manage my locations except General information */
     LOCATION_EDIT = 9,
-    /** Manage tab Location -&gt; General */
+    /** Manage tab Location -> General */
     LOCATION_EDIT_GENERAL = 126,
     /** Manage all locations */
     LOCATION_FOREIGN = 8,
@@ -3338,7 +3310,7 @@ export declare enum WlPrivilegePrivilegeSid {
     MARKETING_SUBSCRIPTION = 237,
     /** Enabling this permission for a role will enable making and receiving calls in Message Center */
     MESSAGES_CALLS = 173,
-    /** Enabling this permission for a role will enable the role to use the ‘Assign to’ field and assign a conversation to a staff mem */
+    /** Enabling this permission for a role will enable the role to use the ‘Assign to’ field and assign a conversation to a staff member */
     MESSAGES_CONVERSATIONS = 174,
     /** Enabling this permission for a role will grant access to the inbox tab including viewing and sending messages in the Message Center */
     MESSAGES_MANAGE = 170,
@@ -3434,7 +3406,7 @@ export declare enum WlPrivilegePrivilegeSid {
     PROFILE_MERGE = 213,
     /** Manage clients from my location */
     PROFILE_MY_LOCATION = 86,
-    /** View client’s upcoming and past schedul */
+    /** View client’s upcoming and past schedule */
     PROFILE_SCHEDULE = 205,
     /** Manage profile client type */
     PROFILE_TYPE_EDIT = 68,
@@ -3518,7 +3490,7 @@ export declare enum WlPrivilegePrivilegeSid {
     SCHEDULE_PAST_EVENT = 100,
     /** View a summary of projected and earned service revenue generated from scheduled and completed sessions */
     SCHEDULE_SUMMARY_REVENUE_SERVICE = 234,
-    /** View a summary of projected pay from upcoming sessions and earned pay from completed sessions, based on the staff’s schedul */
+    /** View a summary of projected pay from upcoming sessions and earned pay from completed sessions, based on the staff’s schedule */
     SCHEDULE_SUMMARY_REVENUE_STAFF = 235,
     /** Allows sign service agreement */
     SERVICE_AGREEMENT_SIGN = 133,
@@ -3936,7 +3908,7 @@ export declare enum WlCatalogPurchaseOptionViewSid {
     /** Products available for quick buy */
     QUICK_BUY = 9
 }
-/** List of Setup -&gt; Store configuration -&gt; Categories and Layout sort options. */
+/** List of Setup -> Store configuration -> Categories and Layout sort options. */
 export declare enum WlShopCategoryShopCategorySortSid {
     /** Custom sort */
     CUSTOM = 2,
@@ -3972,32 +3944,6 @@ export declare enum RsProgramCategorySid {
     VIDEO = 9,
     /** Purchase options to pay for gym visits: */
     VISIT = 2
-}
-/** List of sources where quiz response can be generated. */
-export declare enum WlQuizResponseSourceSid {
-    /** Quiz response received during booking process */
-    BOOKING = 2,
-    /** Quiz response was imported */
-    IMPORT = 6,
-    /** Quiz response received by kiosk mode link */
-    KIOSK = 7,
-    /** Quiz response received by direct link */
-    LINK = 1,
-    /** Quiz response received by direct link */
-    MANUAL = 5,
-    /** Quiz response received during purchase process */
-    PURCHASE = 4,
-    /** Quiz response received during registration process */
-    REGISTRATION = 3
-}
-/** List of quick purchase item types. */
-export declare enum WlCatalogQuickPurchaseTypeSid {
-    /** Classes */
-    CLASSES = 224,
-    /** Resource */
-    RESOURCE = 681,
-    /** Service */
-    SERVICE = 690
 }
 /** List of default categories of the rewards. */
 export declare enum RsRewardActionCategorySid {
@@ -4192,9 +4138,9 @@ export declare enum WlSearchSearchOperationSid {
     END_WITH = 6,
     /** = */
     EQUAL = 13,
-    /** &gt; */
+    /** > */
     GREATER_THAN = 17,
-    /** &gt;= */
+    /** >= */
     GREATER_THAN_OR_EQUAL = 18,
     /** In the last */
     IN_LAST = 23,
@@ -4214,9 +4160,9 @@ export declare enum WlSearchSearchOperationSid {
     LAST_MONTH = 29,
     /** Last week */
     LAST_WEEK = 28,
-    /** &lt; */
+    /** < */
     LESS_THAN = 15,
-    /** &lt;= */
+    /** <= */
     LESS_THAN_OR_EQUAL = 16,
     /** No */
     NO = 19,
@@ -4247,284 +4193,6 @@ export declare enum WlShareShareSid {
     ONLY_ME = 1,
     /** Item is available for selected staff roles */
     SELECTED_STAFF_ROLE = 3
-}
-/** List of possible plans for BaseSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionBaseBaseSubscriptionSid {
-    /** Advanced */
-    ADVANCED = 4,
-    /** Basic */
-    BASIC = 3,
-    /** Business(Legacy) */
-    BUSINESS = 7,
-    /** Business */
-    BUSINESS_2405 = 11,
-    /** Business(Legacy) */
-    BUSINESS_LIGHT = 8,
-    /** Business Max */
-    BUSINESS_MAX = 9,
-    /** Business Pro */
-    BUSINESS_PRO = 10,
-    /** Enterprise */
-    ENTERPRISE = 6,
-    /** None */
-    FREE = 1,
-    /** Business Partner */
-    PARTNER = 2,
-    /** Platform Access */
-    PLATFORM_ACCESS = 15,
-    /** Professional */
-    PROFESSIONAL = 5,
-    /** Starter */
-    STARTER = 12,
-    /** Starter */
-    STARTER_2502 = 13,
-    /** Trial */
-    TRIAL = 14
-}
-/** List of possible plans for SmsSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionSmsSmsSubscriptionSid {
-    /** 1000 Messages */
-    CENTER_1000 = 5,
-    /** 10000 Messages */
-    CENTER_10000 = 8,
-    /** 2500 Messages */
-    CENTER_2500 = 6,
-    /** 25000 Messages */
-    CENTER_25000 = 9,
-    /** 500 Messages */
-    CENTER_500 = 4,
-    /** 5000 Messages */
-    CENTER_5000 = 7,
-    /** Message Center Custom */
-    CENTER_CUSTOM = 10,
-    /** Enterprise */
-    ENTERPRISE = 11,
-    /** None */
-    FREE = 1,
-    /** Message Center Professional */
-    PREMIUM = 3
-}
-/** List of possible plans for AchieveSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid {
-    /** Basic */
-    FREE = 1,
-    /** Premium */
-    PREMIUM = 2,
-    /** White Label (Legacy) */
-    WHITE = 3,
-    /** White Label */
-    WHITE0125 = 7,
-    /** White Label (Business Max) */
-    WHITE_MAX = 4,
-    /** White Label (Legacy) */
-    WHITE_PLUS = 6,
-    /** White Label (Business Pro) */
-    WHITE_PRO = 5
-}
-/** List of possible plans for MarketingSuiteSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid {
-    /** Pro */
-    BASIC = 2,
-    /** Standard (Business) */
-    BASIC_BUSINESS = 4,
-    /** Standard (Legacy) */
-    BASIC_OLD = 3,
-    /** Base */
-    FREE = 1,
-    /** Ultimate */
-    PRO = 5
-}
-/** List of possible plans for CollectionsSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid {
-    /** None */
-    FREE = 1,
-    /** Integration Requested */
-    INTEGRATION_REQUESTED = 3,
-    /** Professional */
-    PROFESSIONAL = 2
-}
-/** List of possible plans for ZapierSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionZapierZapierSubscriptionSid {
-    /** None */
-    FREE = 1,
-    /** Professional */
-    PROFESSIONAL = 2
-}
-/** List of possible plans for FitliveSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid {
-    /** Advanced */
-    ADVANCED = 5,
-    /** Basic */
-    BASIC = 4,
-    /** None */
-    FREE = 1,
-    /** Professional */
-    LICENCED = 2,
-    /** Suspended */
-    SUSPENDED = 3
-}
-/** List of possible plans for AiAgentSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid {
-    /** Chat Agent */
-    CHAT_AGENT = 4,
-    /** Dental Phone Agent */
-    DENTAL_PHONE_AGENT = 5,
-    /** None */
-    FREE = 1,
-    /** Professional */
-    PROFESSIONAL = 2,
-    /** Assistant */
-    STANDARD = 3
-}
-/** List of possible plans for DoorSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionDoorDoorSubscriptionSid {
-    /** Brivo */
-    BASE = 2,
-    /** None */
-    FREE = 1,
-    /** Passport */
-    PASSPORT = 3
-}
-/** List of possible plans for FitbuilderSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid {
-    /** None */
-    FREE = 1,
-    /** Professional */
-    PROFESSIONAL = 2
-}
-/** List of possible plans for QuizSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionQuizQuizSubscriptionSid {
-    /** Business */
-    BUSINESS = 3,
-    /** None */
-    FREE = 1,
-    /** Professional */
-    PROFESSIONAL = 2,
-    /** Starter */
-    STARTER = 4
-}
-/** List of possible plans for ZoomSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionZoomZoomSubscriptionSid {
-    /** Basic */
-    BASIC = 2,
-    /** None */
-    FREE = 1,
-    /** Professional */
-    PROFESSIONAL = 3
-}
-/** List of possible plans for FinanceSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid {
-    /** None */
-    FREE = 1,
-    /** Professional */
-    PROFESSIONAL = 2
-}
-/** List of possible plans for FitvidSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid {
-    /** Basic */
-    BASIC = 2,
-    /** Enterprise */
-    ENTERPRISE = 3,
-    /** None */
-    FREE = 1,
-    /** Premium */
-    PREMIUM = 4
-}
-/** List of possible plans for FitzoneSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid {
-    /** None */
-    FREE = 1,
-    /** Professional */
-    PROFESSIONAL = 2
-}
-/** List of possible plans for PostcardSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid {
-    /** Basic */
-    BASIC = 3,
-    /** None */
-    FREE = 1,
-    /** Professional */
-    PROFESSIONAL = 2
-}
-/** List of possible plans for ReviewSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionReviewReviewSubscriptionSid {
-    /** None */
-    FREE = 1,
-    /** Professional */
-    PROFESSIONAL = 2
-}
-/** List of possible plans for RewardSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionRewardRewardSubscriptionSid {
-    /** None */
-    FREE = 1,
-    /** Professional */
-    PROFESSIONAL = 2
-}
-/** List of possible plans for WebsiteSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid {
-    /** Basic */
-    BASIC = 2,
-    /** Basic */
-    BASIC_LARGE = 6,
-    /** Enterprise */
-    ENTERPRISE = 4,
-    /** None */
-    FREE = 1,
-    /** Premium */
-    PREMIUM = 3,
-    /** Premium (Business Max) */
-    PREMIUM_MAX = 7,
-    /** Professional */
-    PROFESSIONAL = 5
-}
-/** List of possible plans for AssetSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionAssetAssetSubscriptionSid {
-    /** None */
-    FREE = 1,
-    /** Professional */
-    PROFESSIONAL = 2
-}
-/** List of possible plans for ApiSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionApiApiSubscriptionSid {
-    /** None */
-    FREE = 1,
-    /** Premium */
-    PREMIUM = 2
-}
-/** List of possible plans for GoHighLevelSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid {
-    /** Standard */
-    BASIC = 2,
-    /** Free */
-    FREE = 1
-}
-/** List of possible plans for EmailSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionEmailEmailSubscriptionSid {
-    /** None */
-    FREE = 1,
-    /** Standard */
-    STANDARD = 2
-}
-/** List of possible plans for ConstantContactSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid {
-    /** None */
-    FREE = 1,
-    /** Standard */
-    STANDARD = 2
-}
-/** List of possible plans for MailchimpSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid {
-    /** None */
-    FREE = 1,
-    /** Standard */
-    STANDARD = 2
-}
-/** List of possible plans for BusinessCoachSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid {
-    /** Business Success Coaching */
-    BUSINESS_SUCCESS_COACHING = 2,
-    /** No subscription */
-    FREE = 1
 }
 /** List of options to add client to attendance list. */
 export declare enum WlLoginAttendanceAddOptionSid {
@@ -4604,6 +4272,23 @@ export declare enum RsClassModifyModeSid {
     RESOURCE_PERIOD = 4,
     /** Staff working hours */
     STAFF_PERIOD = 3
+}
+/** List of sources where quiz response can be generated. */
+export declare enum WlQuizResponseSourceSid {
+    /** Quiz response received during booking process */
+    BOOKING = 2,
+    /** Quiz response was imported */
+    IMPORT = 6,
+    /** Quiz response received by kiosk mode link */
+    KIOSK = 7,
+    /** Quiz response received by direct link */
+    LINK = 1,
+    /** Quiz response received by direct link */
+    MANUAL = 5,
+    /** Quiz response received during purchase process */
+    PURCHASE = 4,
+    /** Quiz response received during registration process */
+    REGISTRATION = 3
 }
 /** A list of client booking flow types. */
 export declare enum WlServiceServiceBookFlowSid {
@@ -5414,6 +5099,8 @@ export interface WlLoginLoginPostResponse {
         s_last_name: string;
         /** Client`s mail. */
         text_mail_client: string;
+        /** Staff`s mail. */
+        text_mail_staff: string;
         /** Staff's first name. */
         text_name_first_staff: string;
         /** Full client name. User login is returned in a case neither first name, nor last name specified. */
@@ -6554,970 +6241,6 @@ export interface WlPromotionPromotionPostParams {
     k_promotion: string;
 }
 export type WlPromotionPromotionPostResponse = Record<string, unknown>;
-export interface WlQuizQuizElementDeleteParams {
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz login key. */
-    k_quiz_login: string;
-}
-export type WlQuizQuizElementDeleteResponse = Record<string, unknown>;
-export interface WlQuizQuizElementGetParams {
-    /** Checks whether unauthorized user should be permitted to operate with form and make a response. */
-    can_anonymous: boolean;
-    /** `true` for request quiz from form builder page, `false` otherwise. */
-    is_builder: boolean;
-    /** Whether quiz response received by kiosk or direct mode link. */
-    is_simple: boolean;
-    /** List of purchase items for which this form is loaded in JSON format. */
-    json_purchase_item: RsPurchaseItemSid;
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz login key. */
-    k_quiz_login: string;
-    /** UID of the client for which quiz requested. */
-    uid_client: string;
-}
-export interface WlQuizQuizElementGetResponse {
-    /** Access log data. */
-    a_access_log: Array<{
-        /** Date and time of the quiz changes. */
-        dtu_activity: string;
-        /** User's key. */
-        uid_actor: string;
-        /** The status of form actions. @see WlQuizActivityActivitySid */
-        id_activity: WlQuizActivityActivitySid;
-        /** Title of the activity */
-        text_activity: string;
-        /** Date and time of the quiz changes in appropriate format string for further render. */
-        text_date: string;
-        /** Full name of the user who made an activity. */
-        text_actor: string;
-        /** Url for view information about the user who made activity (admin, staff, client). */
-        url_actor: string;
-    }>;
-    /** List of quiz elements. */
-    a_element: Array<{
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Answer array for selected question options. */
-        a_answer: Array<number>;
-        /** Array for a dropdown question's options. */
-        a_list: Array<string>;
-        /** Additional string for detail description of the question. */
-        html_description: string;
-        /** Main html of the input question. */
-        html_question: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Answer can have multiple options selected. */
-        is_multiple: boolean;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Additional string for detail description of the question. */
-        text_description: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Main text of the input question. */
-        text_question: string;
-        /** Additional XML for detail description of the question. */
-        xml_description: string;
-        /** Main XML of the input question. */
-        xml_question: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Additional HTML for detail description of the question. */
-        html_heading: string;
-        /** Main HTML of the input question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Additional string for detail description of the question. */
-        text_heading: string;
-        /** Main text of the input question. */
-        text_subheading: string;
-        /** Additional XML for detail description of the question. */
-        xml_heading: string;
-        /** Main XML of the input question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Whether this element has a duplicate. */
-        has_duplicate: boolean;
-        /** HTML of the image caption. */
-        html_caption: string;
-        /** Main HTML of the image heading. */
-        html_heading: string;
-        /** Additional HTML for detail description of the image (optional). */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Image source key for duplicate. */
-        k_id_source: string;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Command for image save prepare. */
-        s_command: string;
-        /** Image caption. */
-        text_caption: string;
-        /** Main XML of the input question. */
-        xml_heading: string;
-        /** Additional XML for detail description of the question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Markup images files. */
-        a_markup_image: Array<unknown>;
-        /** Can user upload custom image. */
-        can_upload: boolean;
-        /** Main HTML of the input question. */
-        html_heading: string;
-        /** Additional HTML for detail description of the question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** ` true ` if custom markup image is to be deleted `false` otherwise. */
-        is_delete_custom_markup_image: boolean;
-        is_require: boolean;
-        /** Fake id used for image upload. */
-        k_id: string;
-        /** Image ID of the temporary uploaded custom markup image to be copied as permanent drive link. */
-        k_id_custom_markup_image: string;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Link of the source default markup image to copy to the element. */
-        s_link_default_markup_image: string;
-        /** Post-Markup image binary text. */
-        s_markup_image: string;
-        /** Main text of the input question. */
-        text_heading: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Additional string for detail description of the question. */
-        text_subheading: string;
-        /** Custom default image path. */
-        url_custom_default_image: string;
-        /** Main XML of the input question. */
-        xml_heading: string;
-        /** Additional XML for detail description of the question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Additional html for detail description of the question. */
-        html_heading: string;
-        /** Footer text of signature pad. */
-        html_signature_footer: string;
-        /** Header text of signature pad. */
-        html_signature_header: string;
-        /** Main html of the input question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Signature binary text. */
-        s_signature: string;
-        /** Additional string for detail description of the question. */
-        text_heading: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Main text of the input question. */
-        text_subheading: string;
-        /** Additional XML for detail description of the question. */
-        xml_heading: string;
-        /** Main XML of the input question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Additional HTML for detail description of the question. */
-        html_description: string;
-        /** Main HTML of the input question. */
-        html_question: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Answer text for a question. */
-        text_answer: string;
-        /** Additional string for detail description of the question. */
-        text_description: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Main text of the input question. */
-        text_question: string;
-        /** Additional XML for detail description of the question. */
-        xml_description: string;
-        /** Main XML of the input question. */
-        xml_question: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Sub-question html. */
-        html_description: string;
-        /** Question html. */
-        html_question: string;
-        /** Selected rate. */
-        i_rate: number;
-        /** Rate scale. */
-        i_scale: number;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Sub-question text. */
-        text_description: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Question text. */
-        text_question: string;
-        /** Sub-question XML. */
-        xml_description: string;
-        /** Question XML. */
-        xml_question: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Markup images files. */
-        a_markup_image: Array<unknown>;
-        /** Whether this element has a duplicate. */
-        has_duplicate: boolean;
-        /** Main HTML of the input question. */
-        html_heading: string;
-        /** Additional HTML for detail description of the question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Left response image key. */
-        k_id_image_left: string;
-        /** Right response image key. */
-        k_id_image_right: string;
-        /** Left image source key for duplicate. */
-        k_id_source_left: string;
-        /** Right image source key for duplicate. */
-        k_id_source_right: string;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Command for left image save prepare. */
-        s_command_left: string;
-        /** Command for right image save prepare. */
-        s_command_right: string;
-        /** Post-Markup image binary text. */
-        s_markup_image: string;
-        /** Title for left image. */
-        text_left_image: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Title for right image. */
-        text_right_image: string;
-        /** Main XML of the input question. */
-        xml_heading: string;
-        /** Additional XML for detail description of the question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Main content HTML. */
-        html_content: string;
-        /** Heading HTML. */
-        html_heading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Main content text. */
-        text_content: string;
-        /** Heading text. */
-        text_heading: string;
-        /** Main content XML. */
-        xml_content: string;
-        /** Heading XML. */
-        xml_heading: string;
-    }>;
-    /** Quiz settings. */
-    a_setting: {
-        /** List of additional email addresses which should receive email notification after quiz is submitted. */
-        a_notify_additional: Array<string>;
-        /** List of services grouped by service ID. */
-        a_service: Array<Array<string>>;
-        /** Whether completed forms should be hidden for client in frontend. */
-        hide_frontend: boolean;
-        /** Number of periods email reminders should be sent for incomplete forms after. Type of a period is ... */
-        i_notify_automated: number | string;
-        /** List of quiz frequency types. @see WlQuizQuizFrequencySid */
-        id_book_request_type: WlQuizQuizFrequencySid;
-        /** A class for managing time intervals. @see ADurationSid */
-        id_notify_automated: ADurationSid;
-        /** List of quiz frequency types. @see WlQuizQuizFrequencySid */
-        id_purchase_request_type: WlQuizQuizFrequencySid;
-        /** Whether form support amending responses. */
-        is_amend_support: boolean;
-        /** Whether quiz is required during/after book service selected in `a_service` list. */
-        is_book: boolean;
-        /** Whether quiz is required during booking process. */
-        is_book_before: boolean;
-        /** Whether form can be required for clients. */
-        is_internal: boolean;
-        /** Whether email notification should be sent to specific email addresses after quiz is submitted. */
-        is_notify_additional: boolean;
-        /** Whether email reminders should be sent for incomplete forms. */
-        is_notify_automated: boolean;
-        /** Whether email notification should be sent to client after quiz submitted. */
-        is_notify_client: boolean;
-        /** Whether email notification should be sent to staff members after quiz is submitted. */
-        is_notify_staff: boolean;
-        /** Whether form can be edited by franchisee. */
-        is_prevent_franchisee: boolean;
-        /** Whether form can be viewed by staff member only after confirmation. */
-        is_private: boolean;
-        /** Whether quiz is required during/after purchase service selected in `a_service` list. */
-        is_purchase: boolean;
-        /** Whether all services for purchase should be added in `a_service`. */
-        is_purchase_all: boolean;
-        /** Whether quiz is required during purchase process. */
-        is_purchase_before: boolean;
-        /** Whether quiz is required after registration process. */
-        is_register_after: boolean;
-        /** Whether quiz is required during registration process. */
-        is_register_before: boolean;
-        /** Whether client should be redirected to sign-in page before completing the form. */
-        is_require_user: boolean;
-        /** Whether all services for booking should be added in `a_service`. */
-        is_service_all: boolean;
-    };
-    /** Whether user has privileges to amend form. */
-    can_amend: boolean;
-    /** Number of responses for specific quiz. */
-    i_responses: number;
-    /** Quiz active status. */
-    is_active: boolean;
-    /** `true` if quiz is imported, `false` otherwise. */
-    is_imported: boolean;
-    /** Whether form can be edited by franchisee. */
-    is_prevent_franchisee: boolean;
-    /** Business type key. Used only for forms in the system business. */
-    k_business_type: string | null;
-    /** Whether to show numbering of the form elements that supports numbering. */
-    show_numbering: boolean;
-    /** Quiz form title. */
-    text_title: string;
-    /** Direct URL to quiz. */
-    url_quiz: string;
-    /** Kiosk direct URL to quiz. */
-    url_quiz_kiosk: string;
-}
-export interface WlQuizQuizElementPostParams {
-    /** Checks whether unauthorized user should be permitted to operate with form and make a response. */
-    can_anonymous: boolean;
-    /** Whether quiz response received by kiosk or direct mode link. */
-    is_simple: boolean;
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz login key. */
-    k_quiz_login: string;
-}
-export interface WlQuizQuizElementPostResponse {
-    /** Quiz key. */
-    k_quiz: string;
-}
-export interface WlQuizQuizElementPutParams {
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz login key. */
-    k_quiz_login: string;
-}
-export interface WlQuizQuizElementPutResponse {
-    /** Quiz settings. */
-    a_setting: {
-        /** List of additional email addresses which should receive email notification after quiz is submitted. */
-        a_notify_additional: Array<string>;
-        /** List of services grouped by service ID. */
-        a_service: Array<Array<string>>;
-        /** Whether completed forms should be hidden for client in frontend. */
-        hide_frontend: boolean;
-        /** Number of periods email reminders should be sent for incomplete forms after. Type of a period is ... */
-        i_notify_automated: number | string;
-        /** List of quiz frequency types. @see WlQuizQuizFrequencySid */
-        id_book_request_type: WlQuizQuizFrequencySid;
-        /** A class for managing time intervals. @see ADurationSid */
-        id_notify_automated: ADurationSid;
-        /** List of quiz frequency types. @see WlQuizQuizFrequencySid */
-        id_purchase_request_type: WlQuizQuizFrequencySid;
-        /** Whether form support amending responses. */
-        is_amend_support: boolean;
-        /** Whether quiz is required during/after book service selected in `a_service` list. */
-        is_book: boolean;
-        /** Whether quiz is required during booking process. */
-        is_book_before: boolean;
-        /** Whether form can be required for clients. */
-        is_internal: boolean;
-        /** Whether email notification should be sent to specific email addresses after quiz is submitted. */
-        is_notify_additional: boolean;
-        /** Whether email reminders should be sent for incomplete forms. */
-        is_notify_automated: boolean;
-        /** Whether email notification should be sent to client after quiz submitted. */
-        is_notify_client: boolean;
-        /** Whether email notification should be sent to staff members after quiz is submitted. */
-        is_notify_staff: boolean;
-        /** Whether form can be edited by franchisee. */
-        is_prevent_franchisee: boolean;
-        /** Whether form can be viewed by staff member only after confirmation. */
-        is_private: boolean;
-        /** Whether quiz is required during/after purchase service selected in `a_service` list. */
-        is_purchase: boolean;
-        /** Whether all services for purchase should be added in `a_service`. */
-        is_purchase_all: boolean;
-        /** Whether quiz is required during purchase process. */
-        is_purchase_before: boolean;
-        /** Whether quiz is required after registration process. */
-        is_register_after: boolean;
-        /** Whether quiz is required during registration process. */
-        is_register_before: boolean;
-        /** Whether client should be redirected to sign-in page before completing the form. */
-        is_require_user: boolean;
-        /** Whether all services for booking should be added in `a_service`. */
-        is_service_all: boolean;
-    };
-    /** Direct URL to quiz. */
-    url_quiz: string;
-    /** Kiosk direct URL to quiz. */
-    url_quiz_kiosk: string;
-}
-export interface WlQuizQuizElement72DeleteParams {
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz login key. */
-    k_quiz_login: string;
-}
-export type WlQuizQuizElement72DeleteResponse = Record<string, unknown>;
-export interface WlQuizQuizElement72GetParams {
-    /** Checks whether unauthorized user should be permitted to operate with form and make a response. */
-    can_anonymous: boolean;
-    /** `true` for request quiz from form builder page, `false` otherwise. */
-    is_builder: boolean;
-    /** Whether quiz response received by kiosk or direct mode link. */
-    is_simple: boolean;
-    /** List of purchase items for which this form is loaded in JSON format. */
-    json_purchase_item: RsPurchaseItemSid;
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz login key. */
-    k_quiz_login: string;
-    /** UID of the client for which quiz requested. */
-    uid_client: string;
-}
-export interface WlQuizQuizElement72GetResponse {
-    /** Access log data. */
-    a_access_log: Array<{
-        /** Date and time of the quiz changes. */
-        dtu_activity: string;
-        /** User's key. */
-        uid_actor: string;
-        /** The status of form actions. @see WlQuizActivityActivitySid */
-        id_activity: WlQuizActivityActivitySid;
-        /** Title of the activity */
-        text_activity: string;
-        /** Date and time of the quiz changes in appropriate format string for further render. */
-        text_date: string;
-        /** Full name of the user who made an activity. */
-        text_actor: string;
-        /** Url for view information about the user who made activity (admin, staff, client). */
-        url_actor: string;
-    }>;
-    /** List of quiz elements. */
-    a_element: Array<{
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Answer array for selected question options. */
-        a_answer: Array<number>;
-        /** Array for a dropdown question's options. */
-        a_list: Array<string>;
-        /** Additional string for detail description of the question. */
-        html_description: string;
-        /** Main html of the input question. */
-        html_question: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Answer can have multiple options selected. */
-        is_multiple: boolean;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Additional string for detail description of the question. */
-        text_description: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Main text of the input question. */
-        text_question: string;
-        /** Additional XML for detail description of the question. */
-        xml_description: string;
-        /** Main XML of the input question. */
-        xml_question: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Additional HTML for detail description of the question. */
-        html_heading: string;
-        /** Main HTML of the input question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Additional string for detail description of the question. */
-        text_heading: string;
-        /** Main text of the input question. */
-        text_subheading: string;
-        /** Additional XML for detail description of the question. */
-        xml_heading: string;
-        /** Main XML of the input question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Whether this element has a duplicate. */
-        has_duplicate: boolean;
-        /** HTML of the image caption. */
-        html_caption: string;
-        /** Main HTML of the image heading. */
-        html_heading: string;
-        /** Additional HTML for detail description of the image (optional). */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Image source key for duplicate. */
-        k_id_source: string;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Command for image save prepare. */
-        s_command: string;
-        /** Image caption. */
-        text_caption: string;
-        /** Main XML of the input question. */
-        xml_heading: string;
-        /** Additional XML for detail description of the question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Markup images files. */
-        a_markup_image: Array<unknown>;
-        /** Can user upload custom image. */
-        can_upload: boolean;
-        /** Main HTML of the input question. */
-        html_heading: string;
-        /** Additional HTML for detail description of the question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** ` true ` if custom markup image is to be deleted `false` otherwise. */
-        is_delete_custom_markup_image: boolean;
-        is_require: boolean;
-        /** Fake id used for image upload. */
-        k_id: string;
-        /** Image ID of the temporary uploaded custom markup image to be copied as permanent drive link. */
-        k_id_custom_markup_image: string;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Link of the source default markup image to copy to the element. */
-        s_link_default_markup_image: string;
-        /** Post-Markup image binary text. */
-        s_markup_image: string;
-        /** Main text of the input question. */
-        text_heading: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Additional string for detail description of the question. */
-        text_subheading: string;
-        /** Custom default image path. */
-        url_custom_default_image: string;
-        /** Main XML of the input question. */
-        xml_heading: string;
-        /** Additional XML for detail description of the question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Additional html for detail description of the question. */
-        html_heading: string;
-        /** Footer text of signature pad. */
-        html_signature_footer: string;
-        /** Header text of signature pad. */
-        html_signature_header: string;
-        /** Main html of the input question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Signature binary text. */
-        s_signature: string;
-        /** Additional string for detail description of the question. */
-        text_heading: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Main text of the input question. */
-        text_subheading: string;
-        /** Additional XML for detail description of the question. */
-        xml_heading: string;
-        /** Main XML of the input question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Additional HTML for detail description of the question. */
-        html_description: string;
-        /** Main HTML of the input question. */
-        html_question: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Answer text for a question. */
-        text_answer: string;
-        /** Additional string for detail description of the question. */
-        text_description: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Main text of the input question. */
-        text_question: string;
-        /** Additional XML for detail description of the question. */
-        xml_description: string;
-        /** Main XML of the input question. */
-        xml_question: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Sub-question html. */
-        html_description: string;
-        /** Question html. */
-        html_question: string;
-        /** Selected rate. */
-        i_rate: number;
-        /** Rate scale. */
-        i_scale: number;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Sub-question text. */
-        text_description: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Question text. */
-        text_question: string;
-        /** Sub-question XML. */
-        xml_description: string;
-        /** Question XML. */
-        xml_question: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Markup images files. */
-        a_markup_image: Array<unknown>;
-        /** Whether this element has a duplicate. */
-        has_duplicate: boolean;
-        /** Main HTML of the input question. */
-        html_heading: string;
-        /** Additional HTML for detail description of the question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Left response image key. */
-        k_id_image_left: string;
-        /** Right response image key. */
-        k_id_image_right: string;
-        /** Left image source key for duplicate. */
-        k_id_source_left: string;
-        /** Right image source key for duplicate. */
-        k_id_source_right: string;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Command for left image save prepare. */
-        s_command_left: string;
-        /** Command for right image save prepare. */
-        s_command_right: string;
-        /** Post-Markup image binary text. */
-        s_markup_image: string;
-        /** Title for left image. */
-        text_left_image: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Title for right image. */
-        text_right_image: string;
-        /** Main XML of the input question. */
-        xml_heading: string;
-        /** Additional XML for detail description of the question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Main content HTML. */
-        html_content: string;
-        /** Heading HTML. */
-        html_heading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Main content text. */
-        text_content: string;
-        /** Heading text. */
-        text_heading: string;
-        /** Main content XML. */
-        xml_content: string;
-        /** Heading XML. */
-        xml_heading: string;
-    }>;
-    /** Quiz settings. */
-    a_setting: {
-        /** List of additional email addresses which should receive email notification after quiz is submitted. */
-        a_notify_additional: Array<string>;
-        /** List of services grouped by service ID. */
-        a_service: Array<Array<string>>;
-        /** Whether completed forms should be hidden for client in frontend. */
-        hide_frontend: boolean;
-        /** Number of periods email reminders should be sent for incomplete forms after. Type of a period is ... */
-        i_notify_automated: number | string;
-        /** List of quiz frequency types. @see WlQuizQuizFrequencySid */
-        id_book_request_type: WlQuizQuizFrequencySid;
-        /** A class for managing time intervals. @see ADurationSid */
-        id_notify_automated: ADurationSid;
-        /** List of quiz frequency types. @see WlQuizQuizFrequencySid */
-        id_purchase_request_type: WlQuizQuizFrequencySid;
-        /** Whether form support amending responses. */
-        is_amend_support: boolean;
-        /** Whether quiz is required during/after book service selected in `a_service` list. */
-        is_book: boolean;
-        /** Whether quiz is required during booking process. */
-        is_book_before: boolean;
-        /** Whether form can be required for clients. */
-        is_internal: boolean;
-        /** Whether email notification should be sent to specific email addresses after quiz is submitted. */
-        is_notify_additional: boolean;
-        /** Whether email reminders should be sent for incomplete forms. */
-        is_notify_automated: boolean;
-        /** Whether email notification should be sent to client after quiz submitted. */
-        is_notify_client: boolean;
-        /** Whether email notification should be sent to staff members after quiz is submitted. */
-        is_notify_staff: boolean;
-        /** Whether form can be edited by franchisee. */
-        is_prevent_franchisee: boolean;
-        /** Whether form can be viewed by staff member only after confirmation. */
-        is_private: boolean;
-        /** Whether quiz is required during/after purchase service selected in `a_service` list. */
-        is_purchase: boolean;
-        /** Whether all services for purchase should be added in `a_service`. */
-        is_purchase_all: boolean;
-        /** Whether quiz is required during purchase process. */
-        is_purchase_before: boolean;
-        /** Whether quiz is required after registration process. */
-        is_register_after: boolean;
-        /** Whether quiz is required during registration process. */
-        is_register_before: boolean;
-        /** Whether client should be redirected to sign-in page before completing the form. */
-        is_require_user: boolean;
-        /** Whether all services for booking should be added in `a_service`. */
-        is_service_all: boolean;
-    };
-    /** Whether user has privileges to amend form. */
-    can_amend: boolean;
-    /** Number of responses for specific quiz. */
-    i_responses: number;
-    /** Quiz active status. */
-    is_active: boolean;
-    /** `true` if quiz is imported, `false` otherwise. */
-    is_imported: boolean;
-    /** Whether form can be edited by franchisee. */
-    is_prevent_franchisee: boolean;
-    /** Business type key. Used only for forms in the system business. */
-    k_business_type: string | null;
-    /** Whether to show numbering of the form elements that supports numbering. */
-    show_numbering: boolean;
-    /** Quiz form title. */
-    text_title: string;
-    /** Direct URL to quiz. */
-    url_quiz: string;
-    /** Kiosk direct URL to quiz. */
-    url_quiz_kiosk: string;
-}
-export interface WlQuizQuizElement72PostParams {
-    /** Checks whether unauthorized user should be permitted to operate with form and make a response. */
-    can_anonymous: boolean;
-    /** Whether quiz response received by kiosk or direct mode link. */
-    is_simple: boolean;
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz login key. */
-    k_quiz_login: string;
-}
-export interface WlQuizQuizElement72PostResponse {
-    /** Quiz key. */
-    k_quiz: string;
-}
-export interface WlQuizQuizElement72PutParams {
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz login key. */
-    k_quiz_login: string;
-}
-export interface WlQuizQuizElement72PutResponse {
-    /** Quiz settings. */
-    a_setting: {
-        /** List of additional email addresses which should receive email notification after quiz is submitted. */
-        a_notify_additional: Array<string>;
-        /** List of services grouped by service ID. */
-        a_service: Array<Array<string>>;
-        /** Whether completed forms should be hidden for client in frontend. */
-        hide_frontend: boolean;
-        /** Number of periods email reminders should be sent for incomplete forms after. Type of a period is ... */
-        i_notify_automated: number | string;
-        /** List of quiz frequency types. @see WlQuizQuizFrequencySid */
-        id_book_request_type: WlQuizQuizFrequencySid;
-        /** A class for managing time intervals. @see ADurationSid */
-        id_notify_automated: ADurationSid;
-        /** List of quiz frequency types. @see WlQuizQuizFrequencySid */
-        id_purchase_request_type: WlQuizQuizFrequencySid;
-        /** Whether form support amending responses. */
-        is_amend_support: boolean;
-        /** Whether quiz is required during/after book service selected in `a_service` list. */
-        is_book: boolean;
-        /** Whether quiz is required during booking process. */
-        is_book_before: boolean;
-        /** Whether form can be required for clients. */
-        is_internal: boolean;
-        /** Whether email notification should be sent to specific email addresses after quiz is submitted. */
-        is_notify_additional: boolean;
-        /** Whether email reminders should be sent for incomplete forms. */
-        is_notify_automated: boolean;
-        /** Whether email notification should be sent to client after quiz submitted. */
-        is_notify_client: boolean;
-        /** Whether email notification should be sent to staff members after quiz is submitted. */
-        is_notify_staff: boolean;
-        /** Whether form can be edited by franchisee. */
-        is_prevent_franchisee: boolean;
-        /** Whether form can be viewed by staff member only after confirmation. */
-        is_private: boolean;
-        /** Whether quiz is required during/after purchase service selected in `a_service` list. */
-        is_purchase: boolean;
-        /** Whether all services for purchase should be added in `a_service`. */
-        is_purchase_all: boolean;
-        /** Whether quiz is required during purchase process. */
-        is_purchase_before: boolean;
-        /** Whether quiz is required after registration process. */
-        is_register_after: boolean;
-        /** Whether quiz is required during registration process. */
-        is_register_before: boolean;
-        /** Whether client should be redirected to sign-in page before completing the form. */
-        is_require_user: boolean;
-        /** Whether all services for booking should be added in `a_service`. */
-        is_service_all: boolean;
-    };
-    /** Direct URL to quiz. */
-    url_quiz: string;
-    /** Kiosk direct URL to quiz. */
-    url_quiz_kiosk: string;
-}
 export interface WlFitbuilderMessageParams {
     /** Messenger channel key. */
     k_channel: string;
@@ -7608,6 +6331,8 @@ export interface WlTaxTaxListParams {
 export interface WlTaxTaxListResponse {
     /** A list of taxes. */
     a_list: Array<{
+        /** The locations where the tax is applicable.</i> */
+        a_location: Array<string>;
         /** The amount of the tax. */
         f_value: number;
         /** The tax key. */
@@ -7689,9 +6414,9 @@ export interface ThothExplorerSearchClassSessionClassSessionSearchParams {
     f_longitude?: number | null;
     /** Search radius in kilometers. Required. */
     f_radius?: number | null;
-    /** Maximum price to search by (inclusive). Decimal string in dollars (e.g. `&quot;100.00&quot;`). */
+    /** Maximum price to search by (inclusive). Decimal string in dollars (e.g. `"100.00"`). */
     m_price_max?: string | null;
-    /** Minimum price to search by (inclusive). Decimal string in dollars (e.g. `&quot;0.00&quot;`). */
+    /** Minimum price to search by (inclusive). Decimal string in dollars (e.g. `"0.00"`). */
     m_price_min?: string | null;
 }
 export interface ThothExplorerSearchClassSessionClassSessionSearchResponse {
@@ -8393,8 +7118,22 @@ export interface WlMemberInfoInfoResponse {
         };
         /** Amount the client owns to the business. */
         html_credit: string;
-        /** User`s login notes.&lt;/dd&gt; */
+        /** User`s login notes. */
         html_note: string;
+        /** Count of unpaid visits if client has at least one. */
+        i_visit_credit: number;
+        /** If the user has a positive balance on his account. */
+        is_account_positive: boolean;
+        /** If a user has a birthday today. */
+        is_birthday: boolean;
+        /** `true` if client has some contracts that he should agree. */
+        is_contract: boolean;
+        /** `true` if the user makes payments for a family member, `false` otherwise. */
+        is_family_payer: boolean;
+        /** `true` if this is a first visit of the client. */
+        is_first: boolean;
+        /** `true` if the client has uncompleted one or more forms. */
+        is_form: boolean;
         /** `true` if for user exists not completed tasks. */
         is_task_active: boolean;
         /** `true` if for user exists urgent tasks. */
@@ -8469,8 +7208,22 @@ export interface WlMemberInfoInfoResponse {
             };
             /** Amount the client owns to the business. */
             html_credit: string;
-            /** User`s login notes.&lt;/dd&gt; */
+            /** User`s login notes. */
             html_note: string;
+            /** Count of unpaid visits if client has at least one. */
+            i_visit_credit: number;
+            /** If the user has a positive balance on his account. */
+            is_account_positive: boolean;
+            /** If a user has a birthday today. */
+            is_birthday: boolean;
+            /** `true` if client has some contracts that he should agree. */
+            is_contract: boolean;
+            /** `true` if the user makes payments for a family member, `false` otherwise. */
+            is_family_payer: boolean;
+            /** `true` if this is a first visit of the client. */
+            is_first: boolean;
+            /** `true` if the client has uncompleted one or more forms. */
+            is_form: boolean;
             /** `true` if for user exists not completed tasks. */
             is_task_active: boolean;
             /** `true` if for user exists urgent tasks. */
@@ -8606,7 +7359,7 @@ export interface WlBusinessConfigBusinessConfigResponse {
         /** List of not allowed decline reasons to payment reattempt. Each element is one of PayExceptionSid ... */
         a_payment_reattempt_not_decline_reason: Array<number>;
         /** Keys are list of IDs from {@link WlServiceServiceSid}, and values are flags whether wait list is ... */
-        a_wait_service: number;
+        a_wait_service: Array<unknown>;
         /** Minimum hours|days|months before class should be booked. */
         i_book_before: number;
         /** Maximum hours|days|months after class can be booked. */
@@ -9012,8 +7765,22 @@ export interface WlLoginAttendanceAttendanceListResponse {
             a_note: Record<string, unknown>;
             /** Amount the client owns to the business. */
             html_credit: string;
-            /** User`s login notes.&lt;/dd&gt; */
+            /** User`s login notes. */
             html_note: string;
+            /** Count of unpaid visits if client has at least one. */
+            i_visit_credit: number;
+            /** If the user has a positive balance on his account. */
+            is_account_positive: boolean;
+            /** If a user has a birthday today. */
+            is_birthday: boolean;
+            /** `true` if client has some contracts that he should agree. */
+            is_contract: boolean;
+            /** `true` if the user makes payments for a family member, `false` otherwise. */
+            is_family_payer: boolean;
+            /** `true` if this is a first visit of the client. */
+            is_first: boolean;
+            /** `true` if the client has uncompleted one or more forms. */
+            is_form: boolean;
             /** `true` if for user exists not completed tasks. */
             is_task_active: boolean;
             /** `true` if for user exists urgent tasks. */
@@ -9258,8 +8025,22 @@ export interface WlLoginAttendanceAttendanceListResponse {
             a_note: Record<string, unknown>;
             /** Amount the client owns to the business. */
             html_credit: string;
-            /** User`s login notes.&lt;/dd&gt; */
+            /** User`s login notes. */
             html_note: string;
+            /** Count of unpaid visits if client has at least one. */
+            i_visit_credit: number;
+            /** If the user has a positive balance on his account. */
+            is_account_positive: boolean;
+            /** If a user has a birthday today. */
+            is_birthday: boolean;
+            /** `true` if client has some contracts that he should agree. */
+            is_contract: boolean;
+            /** `true` if the user makes payments for a family member, `false` otherwise. */
+            is_family_payer: boolean;
+            /** `true` if this is a first visit of the client. */
+            is_first: boolean;
+            /** `true` if the client has uncompleted one or more forms. */
+            is_form: boolean;
             /** `true` if for user exists not completed tasks. */
             is_task_active: boolean;
             /** `true` if for user exists urgent tasks. */
@@ -9504,8 +8285,22 @@ export interface WlLoginAttendanceAttendanceListResponse {
             a_note: Record<string, unknown>;
             /** Amount the client owns to the business. */
             html_credit: string;
-            /** User`s login notes.&lt;/dd&gt; */
+            /** User`s login notes. */
             html_note: string;
+            /** Count of unpaid visits if client has at least one. */
+            i_visit_credit: number;
+            /** If the user has a positive balance on his account. */
+            is_account_positive: boolean;
+            /** If a user has a birthday today. */
+            is_birthday: boolean;
+            /** `true` if client has some contracts that he should agree. */
+            is_contract: boolean;
+            /** `true` if the user makes payments for a family member, `false` otherwise. */
+            is_family_payer: boolean;
+            /** `true` if this is a first visit of the client. */
+            is_first: boolean;
+            /** `true` if the client has uncompleted one or more forms. */
+            is_form: boolean;
             /** `true` if for user exists not completed tasks. */
             is_task_active: boolean;
             /** `true` if for user exists urgent tasks. */
@@ -9891,8 +8686,22 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
             a_note: Record<string, unknown>;
             /** Amount the client owns to the business. */
             html_credit: string;
-            /** User`s login notes.&lt;/dd&gt; */
+            /** User`s login notes. */
             html_note: string;
+            /** Count of unpaid visits if client has at least one. */
+            i_visit_credit: number;
+            /** If the user has a positive balance on his account. */
+            is_account_positive: boolean;
+            /** If a user has a birthday today. */
+            is_birthday: boolean;
+            /** `true` if client has some contracts that he should agree. */
+            is_contract: boolean;
+            /** `true` if the user makes payments for a family member, `false` otherwise. */
+            is_family_payer: boolean;
+            /** `true` if this is a first visit of the client. */
+            is_first: boolean;
+            /** `true` if the client has uncompleted one or more forms. */
+            is_form: boolean;
             /** `true` if for user exists not completed tasks. */
             is_task_active: boolean;
             /** `true` if for user exists urgent tasks. */
@@ -10137,8 +8946,22 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
             a_note: Record<string, unknown>;
             /** Amount the client owns to the business. */
             html_credit: string;
-            /** User`s login notes.&lt;/dd&gt; */
+            /** User`s login notes. */
             html_note: string;
+            /** Count of unpaid visits if client has at least one. */
+            i_visit_credit: number;
+            /** If the user has a positive balance on his account. */
+            is_account_positive: boolean;
+            /** If a user has a birthday today. */
+            is_birthday: boolean;
+            /** `true` if client has some contracts that he should agree. */
+            is_contract: boolean;
+            /** `true` if the user makes payments for a family member, `false` otherwise. */
+            is_family_payer: boolean;
+            /** `true` if this is a first visit of the client. */
+            is_first: boolean;
+            /** `true` if the client has uncompleted one or more forms. */
+            is_form: boolean;
             /** `true` if for user exists not completed tasks. */
             is_task_active: boolean;
             /** `true` if for user exists urgent tasks. */
@@ -10383,8 +9206,22 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
             a_note: Record<string, unknown>;
             /** Amount the client owns to the business. */
             html_credit: string;
-            /** User`s login notes.&lt;/dd&gt; */
+            /** User`s login notes. */
             html_note: string;
+            /** Count of unpaid visits if client has at least one. */
+            i_visit_credit: number;
+            /** If the user has a positive balance on his account. */
+            is_account_positive: boolean;
+            /** If a user has a birthday today. */
+            is_birthday: boolean;
+            /** `true` if client has some contracts that he should agree. */
+            is_contract: boolean;
+            /** `true` if the user makes payments for a family member, `false` otherwise. */
+            is_family_payer: boolean;
+            /** `true` if this is a first visit of the client. */
+            is_first: boolean;
+            /** `true` if the client has uncompleted one or more forms. */
+            is_form: boolean;
             /** `true` if for user exists not completed tasks. */
             is_task_active: boolean;
             /** `true` if for user exists urgent tasks. */
@@ -11301,8 +10138,22 @@ export interface WlReceptionApplicationMemberInfoResponse {
         };
         /** Amount the client owns to the business. */
         html_credit: string;
-        /** User`s login notes.&lt;/dd&gt; */
+        /** User`s login notes. */
         html_note: string;
+        /** Count of unpaid visits if client has at least one. */
+        i_visit_credit: number;
+        /** If the user has a positive balance on his account. */
+        is_account_positive: boolean;
+        /** If a user has a birthday today. */
+        is_birthday: boolean;
+        /** `true` if client has some contracts that he should agree. */
+        is_contract: boolean;
+        /** `true` if the user makes payments for a family member, `false` otherwise. */
+        is_family_payer: boolean;
+        /** `true` if this is a first visit of the client. */
+        is_first: boolean;
+        /** `true` if the client has uncompleted one or more forms. */
+        is_form: boolean;
         /** `true` if for user exists not completed tasks. */
         is_task_active: boolean;
         /** `true` if for user exists urgent tasks. */
@@ -11390,8 +10241,22 @@ export interface WlReceptionApplicationMemberInfoResponse {
             };
             /** Amount the client owns to the business. */
             html_credit: string;
-            /** User`s login notes.&lt;/dd&gt; */
+            /** User`s login notes. */
             html_note: string;
+            /** Count of unpaid visits if client has at least one. */
+            i_visit_credit: number;
+            /** If the user has a positive balance on his account. */
+            is_account_positive: boolean;
+            /** If a user has a birthday today. */
+            is_birthday: boolean;
+            /** `true` if client has some contracts that he should agree. */
+            is_contract: boolean;
+            /** `true` if the user makes payments for a family member, `false` otherwise. */
+            is_family_payer: boolean;
+            /** `true` if this is a first visit of the client. */
+            is_first: boolean;
+            /** `true` if the client has uncompleted one or more forms. */
+            is_form: boolean;
             /** `true` if for user exists not completed tasks. */
             is_task_active: boolean;
             /** `true` if for user exists urgent tasks. */
@@ -15948,7 +14813,7 @@ export interface WlCatalogCatalogListCatalogProductParams {
         i_last: number;
         /** List of possible sort order. @see CoreSidSortOrderSid */
         id_order: CoreSidSortOrderSid | null;
-        /** List of Setup -&gt; Store configuration -&gt; Categories and Layout sort options. @see WlShopCategoryShopCategorySortSid */
+        /** List of Setup -> Store configuration -> Categories and Layout sort options. @see WlShopCategoryShopCategorySortSid */
         id_sort: WlShopCategoryShopCategorySortSid;
         /** The business key. */
         k_business: string;
@@ -15975,7 +14840,7 @@ export interface WlCatalogCatalogListCatalogProductResponse {
         a_order: Array<number>;
         /** List of possible sort order. @see CoreSidSortOrderSid */
         id_order: CoreSidSortOrderSid | null;
-        /** List of Setup -&gt; Store configuration -&gt; Categories and Layout sort options. @see WlShopCategoryShopCategorySortSid */
+        /** List of Setup -> Store configuration -> Categories and Layout sort options. @see WlShopCategoryShopCategorySortSid */
         id_sort: WlShopCategoryShopCategorySortSid;
     }>;
     /** The list of products. Each element has the following keys: */
@@ -16243,792 +15108,6 @@ export interface WlPromotionIndexPromotionIndexResponse {
         url_buy: string;
     }>;
 }
-export interface WlQuizResponseResponse65DeleteParams {
-    /** Quiz response key list. */
-    a_quiz_response_key: Array<string>;
-    /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz response key. */
-    k_quiz_response?: string | null;
-}
-export type WlQuizResponseResponse65DeleteResponse = Record<string, unknown>;
-export interface WlQuizResponseResponse65GetParams {
-    /** Checks whether unauthorized user should be permitted to operate with form and make a response. */
-    can_anonymous: boolean;
-    /** `true` for load answers for response, `false` otherwise. */
-    is_answer: boolean;
-    is_backend: boolean;
-    /** Whether quiz response received by kiosk or direct mode link. */
-    is_simple: boolean;
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz response key. */
-    k_quiz_response?: string | null;
-}
-export interface WlQuizResponseResponse65GetResponse {
-    /** Access log data. */
-    a_access_log: Array<{
-        /** Date and time of the quiz changes. */
-        dtu_activity: string;
-        /** User's key. */
-        uid_actor: string;
-        /** The status of form actions. @see WlQuizActivityActivitySid */
-        id_activity: WlQuizActivityActivitySid;
-        /** Title of the activity */
-        text_activity: string;
-        /** Date and time of the quiz changes in appropriate format string for further render. */
-        text_date: string;
-        /** Full name of the user who made an activity. */
-        text_actor: string;
-        /** Url for view information about the user who made activity (admin, staff, client). */
-        url_actor: string;
-    }>;
-    /** List of quiz questions with responses. */
-    a_element: Array<{
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Answer array for selected question options. */
-        a_answer: Array<number>;
-        /** Array for a dropdown question's options. */
-        a_list: Array<string>;
-        /** Additional string for detail description of the question. */
-        html_description: string;
-        /** Main html of the input question. */
-        html_question: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Answer can have multiple options selected. */
-        is_multiple: boolean;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Additional string for detail description of the question. */
-        text_description: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Main text of the input question. */
-        text_question: string;
-        /** Additional XML for detail description of the question. */
-        xml_description: string;
-        /** Main XML of the input question. */
-        xml_question: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Additional HTML for detail description of the question. */
-        html_heading: string;
-        /** Main HTML of the input question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Additional string for detail description of the question. */
-        text_heading: string;
-        /** Main text of the input question. */
-        text_subheading: string;
-        /** Additional XML for detail description of the question. */
-        xml_heading: string;
-        /** Main XML of the input question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Whether this element has a duplicate. */
-        has_duplicate: boolean;
-        /** HTML of the image caption. */
-        html_caption: string;
-        /** Main HTML of the image heading. */
-        html_heading: string;
-        /** Additional HTML for detail description of the image (optional). */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Image source key for duplicate. */
-        k_id_source: string;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Command for image save prepare. */
-        s_command: string;
-        /** Image caption. */
-        text_caption: string;
-        /** Main XML of the input question. */
-        xml_heading: string;
-        /** Additional XML for detail description of the question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Markup images files. */
-        a_markup_image: Array<unknown>;
-        /** Can user upload custom image. */
-        can_upload: boolean;
-        /** Main HTML of the input question. */
-        html_heading: string;
-        /** Additional HTML for detail description of the question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** ` true ` if custom markup image is to be deleted `false` otherwise. */
-        is_delete_custom_markup_image: boolean;
-        is_require: boolean;
-        /** Fake id used for image upload. */
-        k_id: string;
-        /** Image ID of the temporary uploaded custom markup image to be copied as permanent drive link. */
-        k_id_custom_markup_image: string;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Link of the source default markup image to copy to the element. */
-        s_link_default_markup_image: string;
-        /** Post-Markup image binary text. */
-        s_markup_image: string;
-        /** Main text of the input question. */
-        text_heading: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Additional string for detail description of the question. */
-        text_subheading: string;
-        /** Custom default image path. */
-        url_custom_default_image: string;
-        /** Main XML of the input question. */
-        xml_heading: string;
-        /** Additional XML for detail description of the question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Additional html for detail description of the question. */
-        html_heading: string;
-        /** Footer text of signature pad. */
-        html_signature_footer: string;
-        /** Header text of signature pad. */
-        html_signature_header: string;
-        /** Main html of the input question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Signature binary text. */
-        s_signature: string;
-        /** Additional string for detail description of the question. */
-        text_heading: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Main text of the input question. */
-        text_subheading: string;
-        /** Additional XML for detail description of the question. */
-        xml_heading: string;
-        /** Main XML of the input question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Additional HTML for detail description of the question. */
-        html_description: string;
-        /** Main HTML of the input question. */
-        html_question: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Answer text for a question. */
-        text_answer: string;
-        /** Additional string for detail description of the question. */
-        text_description: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Main text of the input question. */
-        text_question: string;
-        /** Additional XML for detail description of the question. */
-        xml_description: string;
-        /** Main XML of the input question. */
-        xml_question: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Sub-question html. */
-        html_description: string;
-        /** Question html. */
-        html_question: string;
-        /** Selected rate. */
-        i_rate: number;
-        /** Rate scale. */
-        i_scale: number;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Sub-question text. */
-        text_description: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Question text. */
-        text_question: string;
-        /** Sub-question XML. */
-        xml_description: string;
-        /** Question XML. */
-        xml_question: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Markup images files. */
-        a_markup_image: Array<unknown>;
-        /** Whether this element has a duplicate. */
-        has_duplicate: boolean;
-        /** Main HTML of the input question. */
-        html_heading: string;
-        /** Additional HTML for detail description of the question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Left response image key. */
-        k_id_image_left: string;
-        /** Right response image key. */
-        k_id_image_right: string;
-        /** Left image source key for duplicate. */
-        k_id_source_left: string;
-        /** Right image source key for duplicate. */
-        k_id_source_right: string;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Command for left image save prepare. */
-        s_command_left: string;
-        /** Command for right image save prepare. */
-        s_command_right: string;
-        /** Post-Markup image binary text. */
-        s_markup_image: string;
-        /** Title for left image. */
-        text_left_image: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Title for right image. */
-        text_right_image: string;
-        /** Main XML of the input question. */
-        xml_heading: string;
-        /** Additional XML for detail description of the question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Main content HTML. */
-        html_content: string;
-        /** Heading HTML. */
-        html_heading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Main content text. */
-        text_content: string;
-        /** Heading text. */
-        text_heading: string;
-        /** Main content XML. */
-        xml_content: string;
-        /** Heading XML. */
-        xml_heading: string;
-    }>;
-    /** Information about service if response connected to visit. */
-    a_service_info: {
-        /** Formatted visit date and time in the location's time zone. */
-        text_date: string;
-        /** Location title. */
-        text_location: string;
-        /** Service title. */
-        text_service: string;
-        /** Comma-separated list of full names of staff members conducting the visit. */
-        text_staff_member: string;
-    };
-    /** Whether response can be amended by current user. */
-    can_amend: boolean;
-    /** Date when response was submitted. */
-    dtu_response: string;
-    /** List of sources where quiz response can be generated. @see WlQuizResponseSourceSid */
-    id_source: WlQuizResponseSourceSid;
-    /** List of response statuses. @see CoreQuizResponseResponseStatusSid */
-    id_status: CoreQuizResponseResponseStatusSid;
-    /** Whether to show numbering of the form elements that supports numbering. */
-    show_numbering: boolean;
-    /** Date when response added. */
-    text_add_date: string;
-    /** Date when response amended. */
-    text_amend_date: string;
-    /** Name of the user who amend the response. */
-    text_amend_user: string;
-    /** Date when response completed. */
-    text_complete_date: string;
-    /** Name of the user who complete the response. */
-    text_complete_user: string;
-    /** Name of the user who owned the response. */
-    text_response_by: string;
-    /** Title of the filled form. */
-    text_title: string | null;
-}
-export interface WlQuizResponseResponse65PostParams {
-    /** Checks whether unauthorized user should be permitted to operate with form and make a response. */
-    can_anonymous: boolean;
-    is_backend: boolean;
-    /** Whether quiz response received by kiosk or direct mode link. */
-    is_simple: boolean;
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz response key. */
-    k_quiz_response?: string | null;
-}
-export interface WlQuizResponseResponse65PostResponse {
-    /** Quiz response key. */
-    k_quiz_response: string | null;
-}
-export interface WlQuizResponseResponse65PutParams {
-    /** Quiz response key list. */
-    a_quiz_response_key: Array<string>;
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz response key. */
-    k_quiz_response?: string | null;
-    /** User's key for the response association. */
-    uid_link?: string | null;
-}
-export type WlQuizResponseResponse65PutResponse = Record<string, unknown>;
-export interface WlQuizResponseResponseDeleteParams {
-    /** Quiz response key list. */
-    a_quiz_response_key: Array<string>;
-    /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz response key. */
-    k_quiz_response?: string | null;
-}
-export type WlQuizResponseResponseDeleteResponse = Record<string, unknown>;
-export interface WlQuizResponseResponseGetParams {
-    /** Checks whether unauthorized user should be permitted to operate with form and make a response. */
-    can_anonymous: boolean;
-    /** `true` for load answers for response, `false` otherwise. */
-    is_answer: boolean;
-    /** Whether quiz response received by kiosk or direct mode link. */
-    is_simple: boolean;
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz response key. */
-    k_quiz_response?: string | null;
-}
-export interface WlQuizResponseResponseGetResponse {
-    /** Access log data. */
-    a_access_log: Array<{
-        /** Date and time of the quiz changes. */
-        dtu_activity: string;
-        /** User's key. */
-        uid_actor: string;
-        /** The status of form actions. @see WlQuizActivityActivitySid */
-        id_activity: WlQuizActivityActivitySid;
-        /** Title of the activity */
-        text_activity: string;
-        /** Date and time of the quiz changes in appropriate format string for further render. */
-        text_date: string;
-        /** Full name of the user who made an activity. */
-        text_actor: string;
-        /** Url for view information about the user who made activity (admin, staff, client). */
-        url_actor: string;
-    }>;
-    /** List of quiz questions with responses. */
-    a_element: Array<{
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Answer array for selected question options. */
-        a_answer: Array<number>;
-        /** Array for a dropdown question's options. */
-        a_list: Array<string>;
-        /** Additional string for detail description of the question. */
-        html_description: string;
-        /** Main html of the input question. */
-        html_question: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Answer can have multiple options selected. */
-        is_multiple: boolean;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Additional string for detail description of the question. */
-        text_description: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Main text of the input question. */
-        text_question: string;
-        /** Additional XML for detail description of the question. */
-        xml_description: string;
-        /** Main XML of the input question. */
-        xml_question: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Additional HTML for detail description of the question. */
-        html_heading: string;
-        /** Main HTML of the input question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Additional string for detail description of the question. */
-        text_heading: string;
-        /** Main text of the input question. */
-        text_subheading: string;
-        /** Additional XML for detail description of the question. */
-        xml_heading: string;
-        /** Main XML of the input question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Whether this element has a duplicate. */
-        has_duplicate: boolean;
-        /** HTML of the image caption. */
-        html_caption: string;
-        /** Main HTML of the image heading. */
-        html_heading: string;
-        /** Additional HTML for detail description of the image (optional). */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Image source key for duplicate. */
-        k_id_source: string;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Command for image save prepare. */
-        s_command: string;
-        /** Image caption. */
-        text_caption: string;
-        /** Main XML of the input question. */
-        xml_heading: string;
-        /** Additional XML for detail description of the question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Markup images files. */
-        a_markup_image: Array<unknown>;
-        /** Can user upload custom image. */
-        can_upload: boolean;
-        /** Main HTML of the input question. */
-        html_heading: string;
-        /** Additional HTML for detail description of the question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** ` true ` if custom markup image is to be deleted `false` otherwise. */
-        is_delete_custom_markup_image: boolean;
-        is_require: boolean;
-        /** Fake id used for image upload. */
-        k_id: string;
-        /** Image ID of the temporary uploaded custom markup image to be copied as permanent drive link. */
-        k_id_custom_markup_image: string;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Link of the source default markup image to copy to the element. */
-        s_link_default_markup_image: string;
-        /** Post-Markup image binary text. */
-        s_markup_image: string;
-        /** Main text of the input question. */
-        text_heading: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Additional string for detail description of the question. */
-        text_subheading: string;
-        /** Custom default image path. */
-        url_custom_default_image: string;
-        /** Main XML of the input question. */
-        xml_heading: string;
-        /** Additional XML for detail description of the question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Additional html for detail description of the question. */
-        html_heading: string;
-        /** Footer text of signature pad. */
-        html_signature_footer: string;
-        /** Header text of signature pad. */
-        html_signature_header: string;
-        /** Main html of the input question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Signature binary text. */
-        s_signature: string;
-        /** Additional string for detail description of the question. */
-        text_heading: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Main text of the input question. */
-        text_subheading: string;
-        /** Additional XML for detail description of the question. */
-        xml_heading: string;
-        /** Main XML of the input question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Additional HTML for detail description of the question. */
-        html_description: string;
-        /** Main HTML of the input question. */
-        html_question: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Answer text for a question. */
-        text_answer: string;
-        /** Additional string for detail description of the question. */
-        text_description: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Main text of the input question. */
-        text_question: string;
-        /** Additional XML for detail description of the question. */
-        xml_description: string;
-        /** Main XML of the input question. */
-        xml_question: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Sub-question html. */
-        html_description: string;
-        /** Question html. */
-        html_question: string;
-        /** Selected rate. */
-        i_rate: number;
-        /** Rate scale. */
-        i_scale: number;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Sub-question text. */
-        text_description: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Question text. */
-        text_question: string;
-        /** Sub-question XML. */
-        xml_description: string;
-        /** Question XML. */
-        xml_question: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Markup images files. */
-        a_markup_image: Array<unknown>;
-        /** Whether this element has a duplicate. */
-        has_duplicate: boolean;
-        /** Main HTML of the input question. */
-        html_heading: string;
-        /** Additional HTML for detail description of the question. */
-        html_subheading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        is_require: boolean;
-        /** Left response image key. */
-        k_id_image_left: string;
-        /** Right response image key. */
-        k_id_image_right: string;
-        /** Left image source key for duplicate. */
-        k_id_source_left: string;
-        /** Right image source key for duplicate. */
-        k_id_source_right: string;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Command for left image save prepare. */
-        s_command_left: string;
-        /** Command for right image save prepare. */
-        s_command_right: string;
-        /** Post-Markup image binary text. */
-        s_markup_image: string;
-        /** Title for left image. */
-        text_left_image: string;
-        /** Additional note for response. */
-        text_note: string | null;
-        /** Title for right image. */
-        text_right_image: string;
-        /** Main XML of the input question. */
-        xml_heading: string;
-        /** Additional XML for detail description of the question. */
-        xml_subheading: string;
-    } | {
-        /** List of amendments. */
-        a_amendment: Record<string, unknown>;
-        /** Main content HTML. */
-        html_content: string;
-        /** Heading HTML. */
-        html_heading: string;
-        /** Element ID. One of ElementSid constants. */
-        id_element: number;
-        /** Whether element is required or not. */
-        is_require: boolean;
-        /** Quiz element key. */
-        k_quiz_element?: string | null;
-        /** Old quiz element key. */
-        k_quiz_element_old: string | null;
-        /** Main content text. */
-        text_content: string;
-        /** Heading text. */
-        text_heading: string;
-        /** Main content XML. */
-        xml_content: string;
-        /** Heading XML. */
-        xml_heading: string;
-    }>;
-    /** Information about service if response connected to visit. */
-    a_service_info: {
-        /** Formatted visit date and time in the location's time zone. */
-        text_date: string;
-        /** Location title. */
-        text_location: string;
-        /** Service title. */
-        text_service: string;
-        /** Comma-separated list of full names of staff members conducting the visit. */
-        text_staff_member: string;
-    };
-    /** Whether response can be amended by current user. */
-    can_amend: boolean;
-    /** Date when response was submitted. */
-    dtu_response: string;
-    /** List of sources where quiz response can be generated. @see WlQuizResponseSourceSid */
-    id_source: WlQuizResponseSourceSid;
-    /** List of response statuses. @see CoreQuizResponseResponseStatusSid */
-    id_status: CoreQuizResponseResponseStatusSid;
-    /** Whether to show numbering of the form elements that supports numbering. */
-    show_numbering: boolean;
-    /** Date when response added. */
-    text_add_date: string;
-    /** Date when response amended. */
-    text_amend_date: string;
-    /** Name of the user who amend the response. */
-    text_amend_user: string;
-    /** Date when response completed. */
-    text_complete_date: string;
-    /** Name of the user who complete the response. */
-    text_complete_user: string;
-    /** Name of the user who owned the response. */
-    text_response_by: string;
-    /** Title of the filled form. */
-    text_title: string | null;
-}
-export interface WlQuizResponseResponsePostParams {
-    /** Checks whether unauthorized user should be permitted to operate with form and make a response. */
-    can_anonymous: boolean;
-    /** Whether quiz response received by kiosk or direct mode link. */
-    is_simple: boolean;
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz response key. */
-    k_quiz_response?: string | null;
-}
-export interface WlQuizResponseResponsePostResponse {
-    /** Quiz response key. */
-    k_quiz_response: string | null;
-}
-export interface WlQuizResponseResponsePutParams {
-    /** Quiz response key list. */
-    a_quiz_response_key: Array<string>;
-    /** Business key within which quiz is managed. */
-    k_business: string;
-    /** Quiz key. */
-    k_quiz: string;
-    /** Quiz response key. */
-    k_quiz_response?: string | null;
-    /** User's key for the response association. */
-    uid_link?: string | null;
-}
-export type WlQuizResponseResponsePutResponse = Record<string, unknown>;
 export interface WlRewardScoreScoreGetParams {
     /** List of login activity keys for which points should be added or returned. */
     a_login_activity: Array<string>;
@@ -18317,20 +16396,6 @@ export interface WlMemberProgressLogVerifyParams {
     uid: string;
 }
 export type WlMemberProgressLogVerifyResponse = Record<string, unknown>;
-export interface WlBusinessAccountSubscriptionSubscriptionInfoParams {
-    /** CID of the subscription information of which is requested. */
-    cid_subscription: number;
-    /** Business key for which subscription information is requested. */
-    k_business: string;
-}
-export interface WlBusinessAccountSubscriptionSubscriptionInfoResponse {
-    /** A list of locales. @see CoreLocaleLocaleSid */
-    id_locale: CoreLocaleLocaleSid;
-    /** Currently active plan ID for requested subscription. */
-    id_plan: WlBusinessAccountSubscriptionBaseBaseSubscriptionSid | WlBusinessAccountSubscriptionSmsSmsSubscriptionSid | WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid | WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid | WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid | WlBusinessAccountSubscriptionZapierZapierSubscriptionSid | WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid | WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid | WlBusinessAccountSubscriptionDoorDoorSubscriptionSid | WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid | WlBusinessAccountSubscriptionQuizQuizSubscriptionSid | WlBusinessAccountSubscriptionZoomZoomSubscriptionSid | WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid | WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid | WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid | WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid | WlBusinessAccountSubscriptionReviewReviewSubscriptionSid | WlBusinessAccountSubscriptionRewardRewardSubscriptionSid | WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid | WlBusinessAccountSubscriptionAssetAssetSubscriptionSid | WlBusinessAccountSubscriptionApiApiSubscriptionSid | WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid | WlBusinessAccountSubscriptionEmailEmailSubscriptionSid | WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid | WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid | WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid;
-    /** Whether subscription is active. */
-    is_active: boolean;
-}
 export interface WlBusinessAuthorizeSupportResponseResponseParams {
     /** Determines whether the user will be granted access or if access will be revoked. */
     is_grant: boolean;
@@ -20089,6 +18154,8 @@ export interface WlBookProcessStoreStoreGroupResponse {
         i_session: number;
         /** Login promotion key. */
         k_login_promotion: string | null;
+        /** Host login promotion key that grants the guest pass. Primary key in the RsLoginPromotionSql table. */
+        k_login_promotion_guest_pass: string | null;
         /** Session pass key. */
         k_session_pass: string | null;
         /** The unique identifier of the purchase item. */
@@ -20852,7 +18919,7 @@ export interface WlEventBookEventViewElementResponse {
         /** List of not allowed decline reasons to payment reattempt. Each element is one of PayExceptionSid ... */
         a_payment_reattempt_not_decline_reason: Array<number>;
         /** Keys are list of IDs from {@link WlServiceServiceSid}, and values are flags whether wait list is ... */
-        a_wait_service: number;
+        a_wait_service: Array<unknown>;
         /** Minimum hours|days|months before class should be booked. */
         i_book_before: number;
         /** Maximum hours|days|months after class can be booked. */
@@ -24344,7 +22411,7 @@ export interface WlMailPatternAutomatedMarketingCustomTemplatePatternGetResponse
         text_html: string;
         /** JSON content of the email for Unlayer editor. */
         text_json: string;
-        /** &gt;Preview text of the email. */
+        /** >Preview text of the email. */
         text_preview: string;
         /** Content of the push notification. */
         text_push: string;
@@ -24379,7 +22446,7 @@ export interface WlMailPatternAutomatedMarketingCustomTemplatePatternGetResponse
         text_html: string;
         /** JSON content of the email for Unlayer editor. */
         text_json: string;
-        /** &gt;Preview text of the email. */
+        /** >Preview text of the email. */
         text_preview: string;
         /** Content of the push notification. */
         text_push: string;
@@ -24952,8 +23019,6 @@ export declare class WlBusinessAccountSubscriptionNamespace {
     private readonly _client;
     readonly achieve: WlBusinessAccountSubscriptionAchieveNamespace;
     constructor(_client: WlClient);
-    /** Gets information about subscription. */
-    subscriptionInfo(params?: WlBusinessAccountSubscriptionSubscriptionInfoParams): Promise<WlBusinessAccountSubscriptionSubscriptionInfoResponse>;
 }
 export declare class WlBusinessAccountNamespace {
     private readonly _client;
@@ -25761,55 +23826,6 @@ export declare class WlPromotionNamespace {
     promotionGet(params?: WlPromotionPromotionGetParams): Promise<WlPromotionPromotionGetResponse>;
     /** Saves promotion data. */
     promotionPost(params?: WlPromotionPromotionPostParams): Promise<WlPromotionPromotionPostResponse>;
-}
-export declare class WlQuizResponseNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Deletes the specified quiz response or list of responses for the given business. */
-    response65Delete(params?: WlQuizResponseResponse65DeleteParams): Promise<WlQuizResponseResponse65DeleteResponse>;
-    /** Returns quiz response data including element answers, dates, and access information. */
-    response65Get(params?: WlQuizResponseResponse65GetParams): Promise<WlQuizResponseResponse65GetResponse>;
-    /** Saves a quiz response with the given element answers. */
-    response65Post(params?: WlQuizResponseResponse65PostParams): Promise<WlQuizResponseResponse65PostResponse>;
-    /** Validates, updates and reindex response information for associated user. */
-    response65Put(params?: WlQuizResponseResponse65PutParams): Promise<WlQuizResponseResponse65PutResponse>;
-    /** Deletes the specified quiz response or list of responses for the given business. */
-    /** @deprecated */
-    responseDelete(params?: WlQuizResponseResponseDeleteParams): Promise<WlQuizResponseResponseDeleteResponse>;
-    /** Returns quiz response data including element answers, dates, and access information. */
-    /** @deprecated */
-    responseGet(params?: WlQuizResponseResponseGetParams): Promise<WlQuizResponseResponseGetResponse>;
-    /** Saves a quiz response with the given element answers. */
-    /** @deprecated */
-    responsePost(params?: WlQuizResponseResponsePostParams): Promise<WlQuizResponseResponsePostResponse>;
-    /** Validates, updates and reindex response information for associated user. */
-    /** @deprecated */
-    responsePut(params?: WlQuizResponseResponsePutParams): Promise<WlQuizResponseResponsePutResponse>;
-}
-export declare class WlQuizNamespace {
-    private readonly _client;
-    readonly response: WlQuizResponseNamespace;
-    constructor(_client: WlClient);
-    /** Deletes the quiz with the given key. */
-    /** @deprecated */
-    quizElementDelete(params?: WlQuizQuizElementDeleteParams): Promise<WlQuizQuizElementDeleteResponse>;
-    /** Returns quiz element data including settings, elements, and access information for the given quiz. */
-    /** @deprecated */
-    quizElementGet(params?: WlQuizQuizElementGetParams): Promise<WlQuizQuizElementGetResponse>;
-    /** Creates or updates a quiz with the given elements and settings. */
-    /** @deprecated */
-    quizElementPost(params?: WlQuizQuizElementPostParams): Promise<WlQuizQuizElementPostResponse>;
-    /** Updates the active status of the given quiz. */
-    /** @deprecated */
-    quizElementPut(params?: WlQuizQuizElementPutParams): Promise<WlQuizQuizElementPutResponse>;
-    /** Deletes the quiz with the given key. */
-    quizElement72Delete(params?: WlQuizQuizElement72DeleteParams): Promise<WlQuizQuizElement72DeleteResponse>;
-    /** Returns quiz element data including settings, elements, and access information for the given quiz. */
-    quizElement72Get(params?: WlQuizQuizElement72GetParams): Promise<WlQuizQuizElement72GetResponse>;
-    /** Creates or updates a quiz with the given elements and settings. */
-    quizElement72Post(params?: WlQuizQuizElement72PostParams): Promise<WlQuizQuizElement72PostResponse>;
-    /** Updates the active status of the given quiz. */
-    quizElement72Put(params?: WlQuizQuizElement72PutParams): Promise<WlQuizQuizElement72PutResponse>;
 }
 export declare class WlFitbuilderNamespace {
     private readonly _client;
@@ -26904,7 +24920,6 @@ export declare class WlNamespace {
     readonly collector: WlCollectorNamespace;
     readonly holiday: WlHolidayNamespace;
     readonly promotion: WlPromotionNamespace;
-    readonly quiz: WlQuizNamespace;
     readonly fitbuilder: WlFitbuilderNamespace;
     readonly tag: WlTagNamespace;
     readonly skin: WlSkinNamespace;
