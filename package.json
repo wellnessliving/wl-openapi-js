@@ -1,6 +1,6 @@
 {
   "name": "@wellnessliving/sdk",
-  "version": "1.1.20260626193908",
+  "version": "1.1.20260626195448",
   "description": "WellnessLiving JavaScript/TypeScript SDK - auto-generated from OpenAPI spec",
   "main": "wl-sdk.cjs.js",
   "module": "wl-sdk.esm.js",
