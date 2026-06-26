@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260626152708
+ * Spec version: 1.1.20260626163137
  * Build date:   2026-06-26
- * Endpoints:    463
+ * Endpoints:    460
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260626152708';
+  WlClient.SPEC_VERSION = '1.1.20260626163137';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (463 total)
+  // Generated API methods (460 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -6671,64 +6671,6 @@
   };
 
   /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {boolean} params.is_backend Whether this is a backend context.
-   * @param {string} params.k_business Current frontend business key. Primary key in the RsBusinessSql table.
-   * @returns {Promise<Object>} Response data.
-   *  `a_business` {Object[]} List of businesses for switching. One element contains:
-   *  `a_location` {Object[]} List of locations for switching. One element contains:
-   *  `a_user` {Object[]} List of related profiles. One element contains:
-   *  `is_backend` {boolean} Whether this is a backend context.
-   *  `is_general` {boolean} Flag indicating general mode without a selected business.
-   *  `is_staff` {boolean} Flag indicating that the current user has staff access.
-   *  `k_business` {string} Current frontend business key. Primary key in the RsBusinessSql table.
-   *  `show_select` {boolean} Show business/location switching selects.
-   *  `uid` {string} Current user ID.
-   *  `url_logout` {string} Logout link.
-   *  `url_profile` {string} Link to the profile page.
-   *  `url_schedule` {string} Link to schedule (backend access).
-   *  `url_staff` {string} Link to staff profile in backend popup.
-   */
-  WlClient.prototype.thothLayoutBeUserProfilePopupUserPopup = function(params)
-  {
-    return this.request('/Thoth/LayoutBe/UserProfile/Popup/UserPopup.json', params || {}, 'GET');
-  };
-
-  /**
-   * Gets 'Send campaign' methods.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_mail_page The ID of the mail page, one of the {@link WlClient.RsMailPageSid} constants.
-   * @param {string} params.k_business Business key. Primary key in RsBusinessSql table.
-   * @returns {Promise<Object>} Response data.
-   *  `a_campaign_list` {Object[]} List of the 'Send campaign' methods.
-   */
-  WlClient.prototype.thothMarketingCampaignsReportCampaignListSendCampaign = function(params)
-  {
-    return this.request('/Thoth/MarketingCampaigns/Report/CampaignList/SendCampaign.json', params || {}, 'GET');
-  };
-
-  /**
-   * Gets mail campaign tracking data. Used for 'Mail campaign detail'  report.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.dtl_send Send date.
-   * @param {number} params.id_mail_campaign_status Mail campaign status ID. One of {@link WlClient.WlMailCampaignMailCampaignStatusSid} constants.
-   * @param {number} params.id_mail_status Mail history filter. One of {@link WlClient.RsMailHistorySid} constants.
-   * @param {boolean} params.is_mail_pattern_live_specific Whether a mail pattern live specific.
-   * @param {?string} [params.k_business] Business key specific purchase item belongs to.
-   * @param {string} params.k_mail_pattern_live Mail pattern live key.
-   * @param {string} params.text_mail_campaign Mail campaign title.
-   * @returns {Promise<Object>} Response data.
-   *  `a_row_list` {Object} Row list:
-   */
-  WlClient.prototype.thothMarketingCampaignsReportCampaignDetailClickTracking = function(params)
-  {
-    return this.request('/Thoth/MarketingCampaigns/Report/CampaignDetail/ClickTracking.json', params || {}, 'GET');
-  };
-
-  /**
    * Refills the user account balance by the specified payment amount or adjusts it manually.
    *
    * Accepts the payment amount, account key or user-and-business identifiers, charge mode, and payment form
@@ -10270,7 +10212,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (192 total)
+  // Enum constants (189 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -15015,60 +14957,6 @@
     PURCHASE: 1,
     /** Review */
     REVIEW: 2,
-  });
-
-  /**
-   * Manages mail pages.
-   *
-   * @enum {number}
-   */
-  WlClient.RsMailPageSid = Object.freeze({
-    /** Page with business mails */
-    ADMIN_BUSINESS: 4,
-    /** Page with automated mails */
-    AUTOMATED_MARKETING: 3,
-    /** Page with notifications from business message chat */
-    BUSINESS_SMS_CHAT: 5,
-    /** Page with client notification mails */
-    CLIENT_NOTIFICATION: 1,
-    /** Page with staff notification mails */
-    STAFF_NOTIFICATION: 2,
-  });
-
-  /**
-   * Possible statuses of the mail campaigns.
-   *
-   * @enum {number}
-   */
-  WlClient.WlMailCampaignMailCampaignStatusSid = Object.freeze({
-    /** Email campaign is sent but has no successfully delivered emails */
-    BOUNCED: 4,
-    /** Email campaign is sent but all emails are not delivered due to mail server errors */
-    FAIL: 3,
-    /** Email campaign will be sent in the future */
-    FUTURE: 2,
-    /** Email campaign is sent */
-    PAST: 1,
-  });
-
-  /**
-   * Class to manage statuses of history sent emails.
-   *
-   * @enum {number}
-   */
-  WlClient.RsMailHistorySid = Object.freeze({
-    /** Set this email history status when it was blacklisted by Amazon or went to spam */
-    BOUNCED: 3,
-    /** Set this email history status when message was failed to send */
-    FAIL: 5,
-    /** Set this email history status when message was scheduled on the future */
-    FUTURE: 6,
-    /** Set this email history status when user opened the letter in his mailbox */
-    OPEN: 2,
-    /** Set this email history status when message created and not sent */
-    SCHEDULE: 4,
-    /** Set this email history status when message sent to user mailbox */
-    SEND: 1,
   });
 
   /**

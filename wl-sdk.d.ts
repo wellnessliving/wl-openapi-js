@@ -4143,45 +4143,6 @@ export declare enum WlSocialShareShareObjectSid {
     /** Review */
     REVIEW = 2
 }
-/** Manages mail pages. */
-export declare enum RsMailPageSid {
-    /** Page with business mails */
-    ADMIN_BUSINESS = 4,
-    /** Page with automated mails */
-    AUTOMATED_MARKETING = 3,
-    /** Page with notifications from business message chat */
-    BUSINESS_SMS_CHAT = 5,
-    /** Page with client notification mails */
-    CLIENT_NOTIFICATION = 1,
-    /** Page with staff notification mails */
-    STAFF_NOTIFICATION = 2
-}
-/** Possible statuses of the mail campaigns. */
-export declare enum WlMailCampaignMailCampaignStatusSid {
-    /** Email campaign is sent but has no successfully delivered emails */
-    BOUNCED = 4,
-    /** Email campaign is sent but all emails are not delivered due to mail server errors */
-    FAIL = 3,
-    /** Email campaign will be sent in the future */
-    FUTURE = 2,
-    /** Email campaign is sent */
-    PAST = 1
-}
-/** Class to manage statuses of history sent emails. */
-export declare enum RsMailHistorySid {
-    /** Set this email history status when it was blacklisted by Amazon or went to spam */
-    BOUNCED = 3,
-    /** Set this email history status when message was failed to send */
-    FAIL = 5,
-    /** Set this email history status when message was scheduled on the future */
-    FUTURE = 6,
-    /** Set this email history status when user opened the letter in his mailbox */
-    OPEN = 2,
-    /** Set this email history status when message created and not sent */
-    SCHEDULE = 4,
-    /** Set this email history status when message sent to user mailbox */
-    SEND = 1
-}
 /** List of page transaction type. */
 export declare enum RsPayAccountChargeSid {
     /** Account charging using payment form */
@@ -18170,110 +18131,6 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
         uid_payer: string;
     }>;
 }
-export interface ThothLayoutBeUserProfilePopupUserPopupParams {
-    /** Whether this is a backend context. */
-    is_backend: boolean;
-    /** Current frontend business key. Primary key in the RsBusinessSql table. */
-    k_business: string;
-}
-export interface ThothLayoutBeUserProfilePopupUserPopupResponse {
-    /** List of businesses for switching. One element contains: */
-    a_business: Array<{
-        /** Business key. Primary key from the RsBusinessSql table. */
-        k_business: string;
-        /** Business title. */
-        text_title: string;
-    }>;
-    /** List of locations for switching. One element contains: */
-    a_location: Array<{
-        /** Location business key. Primary key from the RsBusinessSql table. */
-        k_business: string;
-        /** Location title. */
-        text_title: string;
-    }>;
-    /** List of related profiles. One element contains: */
-    a_user: Array<{
-        /** Name of the related profile. */
-        s_name: string;
-        /** Login link for this profile. */
-        url_login: string;
-    }>;
-    /** Whether this is a backend context. */
-    is_backend: boolean;
-    /** Flag indicating general mode without a selected business. */
-    is_general: boolean;
-    /** Flag indicating that the current user has staff access. */
-    is_staff: boolean;
-    /** Current frontend business key. Primary key in the RsBusinessSql table. */
-    k_business: string;
-    /** Show business/location switching selects. */
-    show_select: boolean;
-    /** Current user ID. */
-    uid: string;
-    /** Logout link. */
-    url_logout: string;
-    /** Link to the profile page. */
-    url_profile: string;
-    /** Link to schedule (backend access). */
-    url_schedule: string;
-    /** Link to staff profile in backend popup. */
-    url_staff: string;
-}
-export interface ThothMarketingCampaignsReportCampaignListSendCampaignParams {
-    /** The ID of the mail page, one of the {@link RsMailPageSid} constants. */
-    id_mail_page: RsMailPageSid;
-    /** Business key. Primary key in RsBusinessSql table. */
-    k_business: string;
-}
-export interface ThothMarketingCampaignsReportCampaignListSendCampaignResponse {
-    /** List of the 'Send campaign' methods. */
-    a_campaign_list: Array<{
-        /** Send campaign methods. Each element has the next structure: */
-        a_campaign_method: {
-            /** A method classes. */
-            s_class: string;
-            /** Click method. */
-            s_onclick: string;
-            /** Title of a method. */
-            s_title: string;
-            /** URL link. */
-            s_url: string;
-        };
-    }>;
-}
-export interface ThothMarketingCampaignsReportCampaignDetailClickTrackingParams {
-    /** Send date. */
-    dtl_send: string;
-    /** Mail campaign status ID. One of {@link WlMailCampaignMailCampaignStatusSid} constants. */
-    id_mail_campaign_status: WlMailCampaignMailCampaignStatusSid;
-    /** Mail history filter. One of {@link RsMailHistorySid} constants. */
-    id_mail_status: RsMailHistorySid;
-    /** Whether a mail pattern live specific. */
-    is_mail_pattern_live_specific: boolean;
-    /** Mail pattern live key. */
-    k_mail_pattern_live: string;
-    /** Mail campaign title. */
-    text_mail_campaign: string;
-    /** Business key specific purchase item belongs to. */
-    k_business?: string | null;
-}
-export interface ThothMarketingCampaignsReportCampaignDetailClickTrackingResponse {
-    /** Row list: */
-    a_row_list: {
-        /** UIDs of clients who made clicks. Used to filter by unique clicks. */
-        a_uid: Array<unknown>;
-        /** Unique clicks per email link. */
-        i_click_unique: number;
-        /** Total clicks per email link. */
-        i_click_total: number;
-        /** Click rate. */
-        i_click_rate: number;
-        /** Clicked in an email link. */
-        url_full: string;
-        /** link to Marketing detail report filtered by unique clicks. */
-        url_click_unique: string;
-    };
-}
 export interface ThothWlPayAccountChargeChargeParams {
     /** The account charge mode. @see RsPayAccountChargeSid */
     id_pay_account_charge: RsPayAccountChargeSid;
@@ -27457,51 +27314,11 @@ export declare class ThothWlPayNamespace {
     readonly transaction: ThothWlPayTransactionNamespace;
     constructor(_client: WlClient);
 }
-export declare class ThothLayoutBeUserProfilePopupNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    userPopup(params?: ThothLayoutBeUserProfilePopupUserPopupParams): Promise<ThothLayoutBeUserProfilePopupUserPopupResponse>;
-}
-export declare class ThothLayoutBeUserProfileNamespace {
-    private readonly _client;
-    readonly popup: ThothLayoutBeUserProfilePopupNamespace;
-    constructor(_client: WlClient);
-}
-export declare class ThothLayoutBeNamespace {
-    private readonly _client;
-    readonly userProfile: ThothLayoutBeUserProfileNamespace;
-    constructor(_client: WlClient);
-}
-export declare class ThothMarketingCampaignsReportCampaignListNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets 'Send campaign' methods. */
-    sendCampaign(params?: ThothMarketingCampaignsReportCampaignListSendCampaignParams): Promise<ThothMarketingCampaignsReportCampaignListSendCampaignResponse>;
-}
-export declare class ThothMarketingCampaignsReportCampaignDetailNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets mail campaign tracking data. Used for 'Mail campaign detail'  report. */
-    clickTracking(params?: ThothMarketingCampaignsReportCampaignDetailClickTrackingParams): Promise<ThothMarketingCampaignsReportCampaignDetailClickTrackingResponse>;
-}
-export declare class ThothMarketingCampaignsReportNamespace {
-    private readonly _client;
-    readonly campaignList: ThothMarketingCampaignsReportCampaignListNamespace;
-    readonly campaignDetail: ThothMarketingCampaignsReportCampaignDetailNamespace;
-    constructor(_client: WlClient);
-}
-export declare class ThothMarketingCampaignsNamespace {
-    private readonly _client;
-    readonly report: ThothMarketingCampaignsReportNamespace;
-    constructor(_client: WlClient);
-}
 export declare class ThothNamespace {
     private readonly _client;
     readonly explorerSearch: ThothExplorerSearchNamespace;
     readonly reportCore: ThothReportCoreNamespace;
     readonly wlPay: ThothWlPayNamespace;
-    readonly layoutBe: ThothLayoutBeNamespace;
-    readonly marketingCampaigns: ThothMarketingCampaignsNamespace;
     constructor(_client: WlClient);
 }
 /** WellnessLiving API client. */

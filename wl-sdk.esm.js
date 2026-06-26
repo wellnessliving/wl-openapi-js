@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260626152708
+// OpenAPI spec version: 1.1.20260626163137
 // Build date: 2026-06-26
-// Endpoints: 463
-// Enums: 179
+// Endpoints: 460
+// Enums: 176
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (179 total) ---
+// --- Enum types (176 total) ---
 /** A list of locales. */
 export var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -4262,48 +4262,6 @@ export var WlSocialShareShareObjectSid;
     /** Review */
     WlSocialShareShareObjectSid[WlSocialShareShareObjectSid["REVIEW"] = 2] = "REVIEW";
 })(WlSocialShareShareObjectSid || (WlSocialShareShareObjectSid = {}));
-/** Manages mail pages. */
-export var RsMailPageSid;
-(function (RsMailPageSid) {
-    /** Page with business mails */
-    RsMailPageSid[RsMailPageSid["ADMIN_BUSINESS"] = 4] = "ADMIN_BUSINESS";
-    /** Page with automated mails */
-    RsMailPageSid[RsMailPageSid["AUTOMATED_MARKETING"] = 3] = "AUTOMATED_MARKETING";
-    /** Page with notifications from business message chat */
-    RsMailPageSid[RsMailPageSid["BUSINESS_SMS_CHAT"] = 5] = "BUSINESS_SMS_CHAT";
-    /** Page with client notification mails */
-    RsMailPageSid[RsMailPageSid["CLIENT_NOTIFICATION"] = 1] = "CLIENT_NOTIFICATION";
-    /** Page with staff notification mails */
-    RsMailPageSid[RsMailPageSid["STAFF_NOTIFICATION"] = 2] = "STAFF_NOTIFICATION";
-})(RsMailPageSid || (RsMailPageSid = {}));
-/** Possible statuses of the mail campaigns. */
-export var WlMailCampaignMailCampaignStatusSid;
-(function (WlMailCampaignMailCampaignStatusSid) {
-    /** Email campaign is sent but has no successfully delivered emails */
-    WlMailCampaignMailCampaignStatusSid[WlMailCampaignMailCampaignStatusSid["BOUNCED"] = 4] = "BOUNCED";
-    /** Email campaign is sent but all emails are not delivered due to mail server errors */
-    WlMailCampaignMailCampaignStatusSid[WlMailCampaignMailCampaignStatusSid["FAIL"] = 3] = "FAIL";
-    /** Email campaign will be sent in the future */
-    WlMailCampaignMailCampaignStatusSid[WlMailCampaignMailCampaignStatusSid["FUTURE"] = 2] = "FUTURE";
-    /** Email campaign is sent */
-    WlMailCampaignMailCampaignStatusSid[WlMailCampaignMailCampaignStatusSid["PAST"] = 1] = "PAST";
-})(WlMailCampaignMailCampaignStatusSid || (WlMailCampaignMailCampaignStatusSid = {}));
-/** Class to manage statuses of history sent emails. */
-export var RsMailHistorySid;
-(function (RsMailHistorySid) {
-    /** Set this email history status when it was blacklisted by Amazon or went to spam */
-    RsMailHistorySid[RsMailHistorySid["BOUNCED"] = 3] = "BOUNCED";
-    /** Set this email history status when message was failed to send */
-    RsMailHistorySid[RsMailHistorySid["FAIL"] = 5] = "FAIL";
-    /** Set this email history status when message was scheduled on the future */
-    RsMailHistorySid[RsMailHistorySid["FUTURE"] = 6] = "FUTURE";
-    /** Set this email history status when user opened the letter in his mailbox */
-    RsMailHistorySid[RsMailHistorySid["OPEN"] = 2] = "OPEN";
-    /** Set this email history status when message created and not sent */
-    RsMailHistorySid[RsMailHistorySid["SCHEDULE"] = 4] = "SCHEDULE";
-    /** Set this email history status when message sent to user mailbox */
-    RsMailHistorySid[RsMailHistorySid["SEND"] = 1] = "SEND";
-})(RsMailHistorySid || (RsMailHistorySid = {}));
 /** List of page transaction type. */
 export var RsPayAccountChargeSid;
 (function (RsPayAccountChargeSid) {
@@ -8566,65 +8524,12 @@ export class ThothWlPayNamespace {
         this.transaction = new ThothWlPayTransactionNamespace(this._client);
     }
 }
-export class ThothLayoutBeUserProfilePopupNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    userPopup(params) {
-        return this._client._request('/Thoth/LayoutBe/UserProfile/Popup/UserPopup.json', params, 'GET');
-    }
-}
-export class ThothLayoutBeUserProfileNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.popup = new ThothLayoutBeUserProfilePopupNamespace(this._client);
-    }
-}
-export class ThothLayoutBeNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.userProfile = new ThothLayoutBeUserProfileNamespace(this._client);
-    }
-}
-export class ThothMarketingCampaignsReportCampaignListNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets 'Send campaign' methods. */
-    sendCampaign(params) {
-        return this._client._request('/Thoth/MarketingCampaigns/Report/CampaignList/SendCampaign.json', params, 'GET');
-    }
-}
-export class ThothMarketingCampaignsReportCampaignDetailNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets mail campaign tracking data. Used for 'Mail campaign detail'  report. */
-    clickTracking(params) {
-        return this._client._request('/Thoth/MarketingCampaigns/Report/CampaignDetail/ClickTracking.json', params, 'GET');
-    }
-}
-export class ThothMarketingCampaignsReportNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.campaignList = new ThothMarketingCampaignsReportCampaignListNamespace(this._client);
-        this.campaignDetail = new ThothMarketingCampaignsReportCampaignDetailNamespace(this._client);
-    }
-}
-export class ThothMarketingCampaignsNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.report = new ThothMarketingCampaignsReportNamespace(this._client);
-    }
-}
 export class ThothNamespace {
     constructor(_client) {
         this._client = _client;
         this.explorerSearch = new ThothExplorerSearchNamespace(this._client);
         this.reportCore = new ThothReportCoreNamespace(this._client);
         this.wlPay = new ThothWlPayNamespace(this._client);
-        this.layoutBe = new ThothLayoutBeNamespace(this._client);
-        this.marketingCampaigns = new ThothMarketingCampaignsNamespace(this._client);
     }
 }
 // --- Client ---
