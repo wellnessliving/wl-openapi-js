@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260626104005
+ * Spec version: 1.1.20260626110905
  * Build date:   2026-06-26
- * Endpoints:    814
+ * Endpoints:    742
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260626104005';
+  WlClient.SPEC_VERSION = '1.1.20260626110905';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (814 total)
+  // Generated API methods (742 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -11369,88 +11369,6 @@
   };
 
   /**
-   * Removes a secondary notification recipient from the secondary notification list.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key withing which the secondary contact is managed.
-   * @param {?string} [params.s_secret] Secret string to validate access for non-registered user.
-   * @param {?string} [params.text_mail_secondary] Email address of the external secondary contact to delete.
-   * @param {string} params.uid Key of the client whose activity notifications the secondary contacts receive.
-   * @param {?string} [params.uid_secondary] Key of the registered secondary contact to delete.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlLoginMailSecondaryMailSecondary = function(params)
-  {
-    return this.request('/Wl/Login/Mail/Secondary/MailSecondary.json', params || {}, 'DELETE');
-  };
-
-  /**
-   * Searches for secondary recipients within the business by the specified query.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key within which the search should be performed.
-   * @param {string} params.text_search Search query.
-   * @param {string} params.uid_behalf Key of the user on behalf of whom the search is performed.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlLoginMailSecondaryMailSecondarySearch = function(params)
-  {
-    return this.request('/Wl/Login/Mail/Secondary/MailSecondarySearch.json', params || {}, 'GET');
-  };
-
-  /**
-   * Prepares notification pattern data of cancelled promotion.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_business] The key of the business to which the promotion belongs. Primary key in RsBusinessSql table.
-   * @param {?string} [params.k_login_promotion] Key of login promotion to update options for.
-   * @param {?string} [params.uid] Key of the user performing the request. Primary key in PassportLoginSql table.
-   * @returns {Promise<Object>} Response data.
-   *  `dl_now` {string} Date now (local).
-   *  `has_upcoming_visits` {boolean} `true` if there are active upcoming visits paid with the membership we are go...
-   *  `id_cancel_policy` {number} Cancel policy for cancel memberships. See {@link WlClient.WlPromotionCancelPolicySid}.
-   *  `is_inform_mail` {?boolean} Mail confirmation enabled. `true` when mail confirmation enabled, `false` oth...
-   *  `is_inform_push` {?boolean} Push confirmation enabled. `true` when push confirmation enabled, `false` oth...
-   *  `is_inform_sms` {?boolean} SMS confirmation enabled. `true` when sms confirmation enabled, `false` other...
-   *  `m_terminate_fee` {?string} Cancellation fee amount.
-   *  `sid_mail` {string} SID of notification form. String representation of one from {@link WlClient.R...
-   *  `sid_option_type` {string} Option type. String representation of one from {@link WlClient.RsProgramTypeS...
-   */
-  WlClient.prototype.wlLoginPromotionCancelNotificationPattern = function(params)
-  {
-    return this.request('/Wl/Login/Promotion/Cancel/NotificationPattern.json', params || {}, 'GET');
-  };
-
-  /**
-   * Gets customization form HTML content.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Primary key of business in RsBusinessSql table.
-   * @param {?string} [params.sid_mail_form] SID of notification form. String representation of one from {@link WlClient.RsMailFormSid} class ...
-   * @param {string} params.uid_actor UID user's key of the actor. Primary key in the PassportLoginSql table.
-   * @returns {Promise<Object>} Response data.
-   *  `html_form` {string} HTML form content.
-   */
-  WlClient.prototype.wlLoginPromotionCancelMailPatternLiveGet = function(params)
-  {
-    return this.request('/Wl/Login/Promotion/Cancel/MailPatternLive.json', params || {}, 'GET');
-  };
-
-  /**
-   * Creates live template.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Primary key of business in RsBusinessSql table.
-   * @param {string} params.uid_actor UID user's key of the actor. Primary key in the PassportLoginSql table.
-   * @returns {Promise<Object>} Response data.
-   *  `k_mail_pattern_live` {string} Key of the mail pattern. Primary key from RsMailPatternLiveSql table.
-   */
-  WlClient.prototype.wlLoginPromotionCancelMailPatternLivePost = function(params)
-  {
-    return this.request('/Wl/Login/Promotion/Cancel/MailPatternLive.json', params || {}, 'POST');
-  };
-
-  /**
    * Removes conversion and reset the after expiration setting to previous state.
    *
    * Validates access, removes the scheduled conversion record for the given purchased promotion, restores the
@@ -11520,45 +11438,6 @@
   };
 
   /**
-   * Changes login promotion automatic payment method.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_login_promotion Login promotion key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlLoginPromotionPayMethodAutopayMethod = function(params)
-  {
-    return this.request('/Wl/Login/Promotion/PayMethod/AutopayMethod.json', params || {}, 'PUT');
-  };
-
-  /**
-   * This method is called to process POST query.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.id_period ID of the calendar period attendance restriction is applied to.
-   * @param {string} params.k_login_promotion ID of the purchased promotion.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlLoginPromotionRollupAdjust = function(params)
-  {
-    return this.request('/Wl/Login/Promotion/Rollup/Adjust.json', params || {}, 'POST');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key. Primary key in RsBusinessSql table.
-   * @param {string} params.k_login_promotion Purchased promotion key. Primary key in RsLoginPromotionSql table.
-   * @returns {Promise<Object>} Response data.
-   *  `a_share_family` {Object} List of family members with whom the purchased promotion can be shared. Each ...
-   */
-  WlClient.prototype.wlLoginPromotionShareLoginPromotionShare = function(params)
-  {
-    return this.request('/Wl/Login/Promotion/Share/LoginPromotionShare.json', params || {}, 'GET');
-  };
-
-  /**
    * Retrieves guest passes for a specific client.
    *
    * Returns all guest passes assigned to the given user, optionally filtered by class and location.
@@ -11609,19 +11488,6 @@
   };
 
   /**
-   * Sets the vaccination status for a user.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key, primary key in the RsBusinessSql table.
-   * @param {string} params.uid User key, primary key in the PassportLoginSql table.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlLoginMemberVaccinationStatusVaccinationStatus = function(params)
-  {
-    return this.request('/Wl/Login/Member/VaccinationStatus/VaccinationStatus.json', params || {}, 'POST');
-  };
-
-  /**
    * Returns the member's barcode and its expiry time for the specified business and user.
    *
    * If the business uses dynamic barcodes, generates or refreshes a time-limited barcode and returns its value,
@@ -11640,44 +11506,6 @@
   WlClient.prototype.wlLoginMemberDynamicIdDynamicId = function(params)
   {
     return this.request('/Wl/Login/Member/DynamicId/DynamicId.json', params || {}, 'GET');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_business] Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_field` {number[]} Field settings of attendance list.
-   */
-  WlClient.prototype.wlLoginAttendanceDesignCustomizeGet = function(params)
-  {
-    return this.request('/Wl/Login/Attendance/Design/Customize.json', params || {}, 'GET');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_business] Business key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlLoginAttendanceDesignCustomizePost = function(params)
-  {
-    return this.request('/Wl/Login/Attendance/Design/Customize.json', params || {}, 'POST');
-  };
-
-  /**
-   * This method is called to process GET query.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.dtu_date Date.
-   * @param {string} params.k_business Visit key.
-   * @param {string} params.k_visit Visit key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_row` {*[]} Service image.
-   */
-  WlClient.prototype.wlLoginAttendanceRowRow = function(params)
-  {
-    return this.request('/Wl/Login/Attendance/Row/Row.json', params || {}, 'GET');
   };
 
   /**
@@ -11748,88 +11576,6 @@
   WlClient.prototype.wlLoginSearchStaffAppList = function(params)
   {
     return this.request('/Wl/Login/Search/StaffApp/List.json', params || {}, 'GET');
-  };
-
-  /**
-   * Gives filter settings.
-   *
-   * @param {Object} [params] Request parameters.
-   * @returns {Promise<Object>} Response data.
-   *  `a_search_filter` {*[]} User's search settings.
-   *  `is_login_search` {boolean} Indicate if redirection to client's profile page was made using the login sea...
-   *  `is_reception` {boolean} State of auto check-in service.
-   */
-  WlClient.prototype.wlLoginSearchFilterLoginSearchFilter = function(params)
-  {
-    return this.request('/Wl/Login/Search/Filter/LoginSearchFilter.json', params || {}, 'GET');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business primary key in RsBusinessSql table.
-   * @param {string} params.uid Client user key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_note` {*[][]} Alert items for display in the check-in result modal.
-   *  `a_session` {Object[]} List of today's sessions available for check-in.
-   *  `i_attend_quick_close_success` {number} Number of seconds before the session popup auto-closes when all sessions are ...
-   *  `is_attend_quick_close_success` {boolean} Whether the session popup should auto-close when all sessions are already att...
-   *  `is_navigate` {boolean} `true` if the business is configured to navigate to the client profile after ...
-   *  `text_user_name` {string} Client full name.
-   *  `url_user_photo` {string} Client photo URL for display in the session popup.
-   *  `url_user_profile` {string} Client profile URL. Used for navigation when `is_navigate` is `true`,
-   */
-  WlClient.prototype.wlLoginSearchQuickCheckInQuickCheckIn = function(params)
-  {
-    return this.request('/Wl/Login/Search/QuickCheckIn/QuickCheckIn.json', params || {}, 'GET');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {Object} params.a_schedule Schedule item information. Has structure:
-   * @param {Object} params.a_time Time when class or service occurs:
-   * @param {string} params.dt_date Date when class or service occurs.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_access` {Object} Schedule access information. Has structure:
-   *  `is_traveller` {boolean} Whether user is traveller in current business.
-   */
-  WlClient.prototype.wlLoginPermissionAccessAccess = function(params)
-  {
-    return this.request('/Wl/Login/Permission/Access/Access.json', params || {}, 'GET');
-  };
-
-  /**
-   * Checks whether users are related.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_business] Key of business. Primary key in RsBusinessSql table.
-   * @param {?string} [params.uid_from] User ID to transfer purchased coupon from. Primary key in PassportLoginSql table.
-   * @param {?string} [params.uid_to] User ID to transfer purchased coupon to. Primary key in PassportLoginSql table.
-   * @returns {Promise<Object>} Response data.
-   *  `a_relation` {Object} Information about relation between users:
-   */
-  WlClient.prototype.wlLoginCouponTransferCouponTransferGet = function(params)
-  {
-    return this.request('/Wl/Login/Coupon/Transfer/CouponTransfer.json', params || {}, 'GET');
-  };
-
-  /**
-   * Transfers purchased coupon to another user.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} [params.id_mode] Key of source mode. One of {@link WlClient.WlModeModeSid} constants.
-   * @param {?string} [params.k_business] Key of business. Primary key in RsBusinessSql table.
-   * @param {?string} [params.k_login_coupon] Key of login coupon to be transferred. Primary key in RsLoginCouponSql table.
-   * @param {?string} [params.uid_from] User ID to transfer purchased coupon from. Primary key in PassportLoginSql table.
-   * @param {?string} [params.uid_to] User ID to transfer purchased coupon to. Primary key in PassportLoginSql table.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlLoginCouponTransferCouponTransferPost = function(params)
-  {
-    return this.request('/Wl/Login/Coupon/Transfer/CouponTransfer.json', params || {}, 'POST');
   };
 
   /**
@@ -12052,131 +11798,6 @@
   };
 
   /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_mail_form ID of the form campaign. See {@link WlClient.RsMailFormSid}.
-   * @param {string} params.k_business Key of the business to remove scheduled campaign from.
-   * @param {string} params.k_mail_pattern_live Key of the mail pattern to remove scheduled campaign from.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMailPatternLiveMailPatternLive = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/Live/MailPatternLive.json', params || {}, 'DELETE');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_mail_form ID of the form campaign. See {@link WlClient.RsMailFormSid}.
-   * @param {string} params.k_business Key of the business to remove scheduled campaign from.
-   * @param {string} params.k_mail_pattern_live Key of the mail pattern to remove scheduled campaign from.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMailPatternLiveMailPatternLiveRecipient = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/Live/MailPatternLiveRecipient.json', params || {}, 'DELETE');
-  };
-
-  /**
-   * Sends test email or SMS.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMailPatternAutomatedMarketingSendTest = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/AutomatedMarketing/SendTest.json', params || {}, 'POST');
-  };
-
-  /**
-   * Duplicates the mail pattern.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key within which duplicate operation is performed. Primary key in the RsBusinessSql table.
-   * @param {string} params.k_mail_pattern Key of the mail pattern to duplicate. Primary key in RsMailPatternSql table.
-   * @param {string} params.k_pattern_mail_duplicate Key of the duplicated mail pattern. Primary key in RsMailPatternSql table.
-   * @returns {Promise<Object>} Response data.
-   *  `k_pattern_mail_duplicate` {string} Key of the duplicated mail pattern. Primary key in RsMailPatternSql table.
-   */
-  WlClient.prototype.wlMailPatternEditMailPatternDuplicate = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/Edit/MailPatternDuplicate.json', params || {}, 'POST');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMailPatternEditMailPatternState = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/Edit/MailPatternState.json', params || {}, 'POST');
-  };
-
-  /**
-   * Checks if some clients can be affected after the change of mail pattern.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string[]} params.a_login_type List of client and member types. Each element is primary key in the Sql table.
-   * @param {string[]} params.a_member_group List of member groups. Each element is primary key in the Sql table.
-   * @param {?boolean} [params.has_max_review_request] Whether or not to stop sending review requests after `i_max_review_request` is reached.
-   * @param {?number} [params.i_after] The amount for the new delay before sending mail.
-   * @param {?number} [params.i_delay] Count of the duration unit after change.
-   * @param {?number} [params.i_max_review_request] Maximum number of review requests that can be sent.
-   * @param {number} [params.id_duration_delay] Type of the duration unit after change. One of constants {@link WlClient.ADurationSid}.
-   * @param {?boolean} [params.is_after_every] If `true` then mail for all visits will be rescheduled.
-   * @param {?boolean} [params.is_churn_risk] Whether emails should be sent to members in churn risk group (Only for automated marketing).
-   * @param {?boolean} [params.is_disable_review_request_after_review] Whether mail will be sent after the client has made a review.
-   * @param {?boolean} [params.is_prevent] Whether need to prevent sending email without fulfilling a certain condition.
-   * @param {?string} [params.k_location_retention] Key of retention location. Primary key in RsLocationSql table.
-   * @param {?string} [params.k_mail_pattern] Key of the mail pattern. Primary key in RsMailPatternSql table.
-   * @param {?string} [params.s_object] Object identifier.
-   * @returns {Promise<Object>} Response data.
-   *  `i_affected_clients` {number} The number of affected clients.
-   *  `is_affected_client` {boolean} Whether some clients will be affected after the change of mail pattern.
-   *  `url_report` {string} URL for client report.
-   */
-  WlClient.prototype.wlMailPatternEditMailPatternEdit = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/Edit/MailPatternEdit.json', params || {}, 'GET');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_disturb` {Object} The start and end time for all the do not disturb periods for each mail page.
-   */
-  WlClient.prototype.wlMailPatternDisturbDisturbGet = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/Disturb/Disturb.json', params || {}, 'GET');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMailPatternDisturbDisturbPost = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/Disturb/Disturb.json', params || {}, 'POST');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_reason` {*[]} List of reasons.
-   */
-  WlClient.prototype.wlMailHistoryReportMailReason = function(params)
-  {
-    return this.request('/Wl/Mail/History/Report/MailReason.json', params || {}, 'GET');
-  };
-
-  /**
    * Returns configuration for the Attendance Kiosk.
    *
    * Returns kiosk display settings including custom image, logo, direction mode, background color,
@@ -12221,84 +11842,6 @@
   WlClient.prototype.wlReceptionRosterSearchSearch = function(params)
   {
     return this.request('/Wl/Reception/Roster/Search/Search.json', params || {}, 'GET');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_reimbursement_refuse] Reimbursement refuse key. Primary key in ReimbursementRefuseSql table,
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlInsuranceReimbursementRefuseReimbursementRefuseEditDelete = function(params)
-  {
-    return this.request('/Wl/Insurance/Reimbursement/Refuse/ReimbursementRefuseEdit.json', params || {}, 'DELETE');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_reimbursement_refuse] Reimbursement refuse key. Primary key in ReimbursementRefuseSql table,
-   * @returns {Promise<Object>} Response data.
-   *  `k_insurance_provider` {?string} Insurance provider key. Primary key in PartnerSql table,
-   *  `text_code` {string} Code of the reason, which should be unique per partner.
-   *  `text_description_provider` {string} Description of the refuse from provider.
-   *  `text_display` {string} Description of the refuse, which should be shown in reimbursement reports. Th...
-   */
-  WlClient.prototype.wlInsuranceReimbursementRefuseReimbursementRefuseEditGet = function(params)
-  {
-    return this.request('/Wl/Insurance/Reimbursement/Refuse/ReimbursementRefuseEdit.json', params || {}, 'GET');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_reimbursement_refuse] Reimbursement refuse key. Primary key in ReimbursementRefuseSql table,
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlInsuranceReimbursementRefuseReimbursementRefuseEditPost = function(params)
-  {
-    return this.request('/Wl/Insurance/Reimbursement/Refuse/ReimbursementRefuseEdit.json', params || {}, 'POST');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_refuse_message Status of the refuse message. One of {@link WlClient.WlInsuranceReimbursementRefuseFilterFilterRe... See {@link WlClient.WlInsuranceReimbursementRefuseFilterFilterRefuseMessageSelectSid}.
-   * @param {?string} [params.k_insurance_provider] Insurance provider key. Primary key in PartnerSql table, `null` if field is not set.
-   * @param {string} params.text_code Code of the reason, which should be unique per partner.
-   * @returns {Promise<Object>} Response data.
-   *  `a_list` {Object} A list refuse translate message:
-   */
-  WlClient.prototype.wlInsuranceReimbursementRefuseReimbursementRefuseList = function(params)
-  {
-    return this.request('/Wl/Insurance/Reimbursement/Refuse/ReimbursementRefuseList.json', params || {}, 'GET');
-  };
-
-  /**
-   * Generates reimbursement export files for providers and uploads them into S3.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_partner Partner key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlInsuranceReimbursementExportAccumulation = function(params)
-  {
-    return this.request('/Wl/Insurance/Reimbursement/Export/Accumulation.json', params || {}, 'POST');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.i_year Year, when reimbursement import was started.
-   * @param {number} params.id_month Month, when reimbursement import was started. See {@link WlClient.ADateMonthSid}.
-   * @param {string} params.k_business Business key, where reimbursement import was started.
-   * @param {string} params.k_partner Insurance partner key, where reimbursement import was started.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlInsuranceReimbursementImportFileImportSos = function(params)
-  {
-    return this.request('/Wl/Insurance/Reimbursement/Import/FileImportSos.json', params || {}, 'DELETE');
   };
 
   /**
@@ -13002,35 +12545,6 @@
   };
 
   /**
-   * Performs an immediate update of the member group.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMemberGroupUserUserUpdatePost = function(params)
-  {
-    return this.request('/Wl/Member/Group/User/UserUpdate.json', params || {}, 'POST');
-  };
-
-  /**
-   * Enables automatic member group update.
-   *
-   * When enabled, an instant update is performed and
-   *  an update task UserUpdateTask is scheduled for the next day.
-   * 
-   * If disabled, the automatic update task is removed.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business The business key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMemberGroupUserUserUpdatePut = function(params)
-  {
-    return this.request('/Wl/Member/Group/User/UserUpdate.json', params || {}, 'PUT');
-  };
-
-  /**
    * Deletes the user from the group.
    *
    * Removes the specified user from the given member group within the business after verifying access rights
@@ -13126,21 +12640,6 @@
   WlClient.prototype.wlMemberGroupGroupListListPut = function(params)
   {
     return this.request('/Wl/Member/Group/GroupList/List.json', params || {}, 'PUT');
-  };
-
-  /**
-   * Returns member groups list in the business.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {boolean} params.is_churn_risk Whether include "Isaac Churn Risk" group.
-   * @param {string} params.k_business Business key.
-   * @param {boolean} params.show_member_group_user Whether to show the quantity of users which belong to a member group. `true` - to show, `false` -...
-   * @returns {Promise<Object>} Response data.
-   *  `a_member_group` {Object[]} Member groups list:
-   */
-  WlClient.prototype.wlMemberGroupSelectList = function(params)
-  {
-    return this.request('/Wl/Member/Group/Select/List.json', params || {}, 'GET');
   };
 
   /**
@@ -13438,126 +12937,6 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `dtl_date` {string} Next billing date.
-   */
-  WlClient.prototype.wlIntegrationFacilityAccessBrivoUpgrade = function(params)
-  {
-    return this.request('/Wl/Integration/FacilityAccess/Brivo/Upgrade.json', params || {}, 'POST');
-  };
-
-  /**
-   * Returns Facility Access configuration set up by business.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business to get information for.
-   * @returns {Promise<Object>} Response data.
-   *  `is_brivo_enabled` {boolean} Represents if Brivo integration is enabled, and business has configured Facil...
-   *  `is_brivo_invitation_enabled` {boolean} Represents if Brivo feature of users invitation is enabled. Depends on `is_br...
-   */
-  WlClient.prototype.wlIntegrationFacilityAccessBrivoConfiguration = function(params)
-  {
-    return this.request('/Wl/Integration/FacilityAccess/Brivo/Configuration.json', params || {}, 'GET');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @returns {Promise<Object>} Response data.
-   *  `a_list` {?*[][]} A list of curves partner.
-   */
-  WlClient.prototype.wlIntegrationCurvesPartnerPartnerList = function(params)
-  {
-    return this.request('/Wl/Integration/Curves/Partner/PartnerList.json', params || {}, 'GET');
-  };
-
-  /**
-   * Deletes a partner.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_partner] If a partner is edited, its key is stored here.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlIntegrationCurvesPartnerPartnerEditDelete = function(params)
-  {
-    return this.request('/Wl/Integration/Curves/Partner/PartnerEdit.json', params || {}, 'DELETE');
-  };
-
-  /**
-   * Returns information about a partner.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_partner] If a partner is edited, its key is stored here.
-   * @returns {Promise<Object>} Response data.
-   *  `id_channel_type` {number} Curves channel type. See {@link WlClient.WlIntegrationCurvesChannelTypeSid}.
-   *  `id_curves_country` {number} List of curves country. See {@link WlClient.WlIntegrationCurvesCurvesCountrySid}.
-   *  `id_deal_type` {number} Curves deal type. See {@link WlClient.WlIntegrationCurvesDealTypeSid}.
-   *  `id_reimbursement_type` {number} Types of the reimbursements. See {@link WlClient.WlInsuranceReimbursementReimbursementTypeSid}.
-   *  `is_active` {boolean} Determines whether the program is active.
-   *  `is_reimbursement_information_required` {boolean} Determines whether the ACH account is required.
-   *  `s_partner` {string} Partner key in Curves. Need for update wellness program.
-   *  `text_partner` {string} Name of the curves partner.
-   */
-  WlClient.prototype.wlIntegrationCurvesPartnerPartnerEditGet = function(params)
-  {
-    return this.request('/Wl/Integration/Curves/Partner/PartnerEdit.json', params || {}, 'GET');
-  };
-
-  /**
-   * Saves a partner.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_partner] If a partner is edited, its key is stored here.
-   * @returns {Promise<Object>} Response data.
-   *  `k_partner` {?string} If a partner is edited, its key is stored here.
-   */
-  WlClient.prototype.wlIntegrationCurvesPartnerPartnerEditPost = function(params)
-  {
-    return this.request('/Wl/Integration/Curves/Partner/PartnerEdit.json', params || {}, 'POST');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string[]} params.a_location Location key.
-   * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlIntegrationGoHighLevelLocationLocationDelete = function(params)
-  {
-    return this.request('/Wl/Integration/GoHighLevel/Location/Location.json', params || {}, 'DELETE');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string[]} params.a_location Location key.
-   * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `text_account` {string} Go High Level account name.
-   *  `text_token` {string} Go High Level location token.
-   */
-  WlClient.prototype.wlIntegrationGoHighLevelLocationLocationPost = function(params)
-  {
-    return this.request('/Wl/Integration/GoHighLevel/Location/Location.json', params || {}, 'POST');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_plan Subscription plan that should be activated.
-   * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlIntegrationGoHighLevelSubscriptionSubscription = function(params)
-  {
-    return this.request('/Wl/Integration/GoHighLevel/Subscription/Subscription.json', params || {}, 'PUT');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
    * @param {?string} [params.k_coupon] Coupon key.
    * @returns {Promise<Object>} Response data.
    *  `a_franchise_region` {Object[]} List of franchise regions.
@@ -13659,297 +13038,6 @@
   WlClient.prototype.wlSearchTemplateMenuMenuPost = function(params)
   {
     return this.request('/Wl/Search/Template/Menu/Menu.json', params || {}, 'POST');
-  };
-
-  /**
-   * Get campaign performance data of the business.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.dl_end] End date.
-   * @param {?string} [params.dl_start] Start date.
-   * @param {?string} [params.k_business] Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_total` {*[]} Result totals.
-   */
-  WlClient.prototype.wlMarketingOverviewCampaignPerformanceCampaignPerformance = function(params)
-  {
-    return this.request('/Wl/Marketing/Overview/CampaignPerformance/CampaignPerformance.json', params || {}, 'GET');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business The business key within which request is made.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMarketingOverviewWelcomeWelcomeDelete = function(params)
-  {
-    return this.request('/Wl/Marketing/Overview/Welcome/Welcome.json', params || {}, 'DELETE');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business The business key within which request is made.
-   * @returns {Promise<Object>} Response data.
-   *  `show_welcome` {boolean} Determines whether welcome screen should be shown.
-   */
-  WlClient.prototype.wlMarketingOverviewWelcomeWelcomeGet = function(params)
-  {
-    return this.request('/Wl/Marketing/Overview/Welcome/Welcome.json', params || {}, 'GET');
-  };
-
-  /**
-   * Gets pre-built automation template data.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_business] Primary key of business in RsBusinessSql table.
-   * @returns {Promise<Object>} Response data.
-   *  `a_prebuilt_filter` {Object[]} A list of available pre-built automation template types and the count of temp...
-   *  `a_prebuilt_list` {Object[]} A list of available pre-built automation flows.
-   *  `a_trigger_filter` {Object[]} A list of available trigger types and the count of triggers in each type.
-   *  `a_trigger_list` {Object[]} A list of available triggers.
-   */
-  WlClient.prototype.wlMarketingAutomationCreateFlowTriggerList = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/CreateFlow/TriggerList.json', params || {}, 'GET');
-  };
-
-  /**
-   * Returns the list of recipients for the given automation within the specified date range.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.dl_end End date filter.
-   * @param {string} params.dl_start Start date filter.
-   * @param {string} params.k_automation Automation key.
-   * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_recipient_list` {Object[]} Recipients data. Has the next structure:
-   */
-  WlClient.prototype.wlMarketingAutomationRecipientAutomationRecipientGet = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Recipient/AutomationRecipient.json', params || {}, 'GET');
-  };
-
-  /**
-   * Manually adds selected clients to the automation as recipients.
-   *
-   * Clients who are already in progress are skipped and counted separately.
-   * Only new clients are scheduled for execution.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_automation Automation key.
-   * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `i_recipient_add` {number} Number of recipients successfully added to the automation.
-   *  `i_recipient_progress` {number} Number of recipients that are already in progress and were not added again.
-   */
-  WlClient.prototype.wlMarketingAutomationRecipientAutomationRecipientPost = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Recipient/AutomationRecipient.json', params || {}, 'POST');
-  };
-
-  /**
-   * Returns the current status of a recipient in an automation flow.
-   *
-   * When a single user is specified, returns the status of their most recent enrollment in the automation.
-   * 
-   * When a member group is specified, returns a map of recipient UIDs to their statuses for all
-   *  users in that group who have a record in the automation.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_automation Automation key.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.k_member_group] Member group key to filter recipients by.
-   * @param {?string} [params.uid] Recipient user key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_group_status` {?number[]} Statuses of the member group recipients in the automation flow.
-   *  `id_status` {number} List of recipient statuses. See {@link WlClient.WlMarketingAutomationRecipientRecipientStatusSid}.
-   */
-  WlClient.prototype.wlMarketingAutomationRecipientAutomationRecipientStatusGet = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Recipient/AutomationRecipientStatus.json', params || {}, 'GET');
-  };
-
-  /**
-   * Excludes a recipient from an automation flow.
-   *
-   * Marks the given user as excluded so they will no longer receive further steps of the automation.
-   * If the user is not currently in the flow the call has no effect.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_automation Automation key.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.uid] Recipient user key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMarketingAutomationRecipientAutomationRecipientStatusPost = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Recipient/AutomationRecipientStatus.json', params || {}, 'POST');
-  };
-
-  /**
-   * Gets automation data.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?number} [params.id_status] A status of automation. One of the {@link WlClient.WlMarketingAutomationAutomationStatusSid} cons...
-   * @param {?string} [params.k_business] Business key.
-   * @param {?string} [params.k_folder] Folder key.
-   * @param {string} params.text_search The filter phrase to filter automations by name.
-   * @returns {Promise<Object>} Response data.
-   *  `a_automation_list` {*[]} List of automations.
-   *  `a_page` {*[]} Pagination data.
-   *  `i_automation_active` {number} Number of active automations.
-   *  `i_automation_draft` {number} Number of draft automations.
-   *  `i_automation_total` {number} Total number of automations.
-   */
-  WlClient.prototype.wlMarketingAutomationListAutomationList = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/List/AutomationList.json', params || {}, 'GET');
-  };
-
-  /**
-   * Retrieve list of folders where the automation can be moved.
-  The list does not contain the folder where the automation is currently located.
-  Also retrieves the title of the automation and the title of the folder where it is currently located.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_automation Automation key.
-   * @param {?string} [params.k_business] Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_folder` {Object[]} List of folders where automation can be moved.
-   *  `k_folder_origin` {?string} Folder key where the automation is currently located.
-   *  `text_automation` {string} Title of the automation.
-   *  `text_folder_origin` {string} Title of the folder in which the automation is located.
-   */
-  WlClient.prototype.wlMarketingAutomationFolderFolderMapGet = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Folder/FolderMap.json', params || {}, 'GET');
-  };
-
-  /**
-   * Move the automation to another folder.
-  If the folder key is empty, the automation will be moved to the default folder.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_automation Automation key.
-   * @param {?string} [params.k_business] Business key.
-   * @param {?string} [params.k_folder_move] Folder key where the automation should be moved.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMarketingAutomationFolderFolderMapPost = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Folder/FolderMap.json', params || {}, 'POST');
-  };
-
-  /**
-   * Delete a folder.
-  Automations in the folder will be moved to another folder or to the default folder.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_business] Business key where the folder is managed.
-   * @param {string} params.k_folder Folder key.
-   * @param {string} params.k_folder_move Key of the folder where to move automations after deleting the current folder.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMarketingAutomationFolderAutomationFolderDelete = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Folder/AutomationFolder.json', params || {}, 'DELETE');
-  };
-
-  /**
-   * Get list of folders in the business.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_business] Business key where the folder is managed.
-   * @param {string} params.k_folder Folder key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_folder` {Object[]} List of custom folders in the business.
-   *  `i_automation` {number} Count of automations in the folder.
-   */
-  WlClient.prototype.wlMarketingAutomationFolderAutomationFolderGet = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Folder/AutomationFolder.json', params || {}, 'GET');
-  };
-
-  /**
-   * Create or edit a folder.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_business] Business key where the folder is managed.
-   * @param {string} params.k_folder Folder key.
-   * @returns {Promise<Object>} Response data.
-   *  `k_folder` {string} Folder key.
-   */
-  WlClient.prototype.wlMarketingAutomationFolderAutomationFolderPost = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Folder/AutomationFolder.json', params || {}, 'POST');
-  };
-
-  /**
-   * Change the order of folders.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMarketingAutomationFolderFolderSort = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Folder/FolderSort.json', params || {}, 'POST');
-  };
-
-  /**
-   * Get the business types connected to the pre-built automation.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_automation] Automation key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_business_type` {*[]} List of business types.
-   *  `is_business_type_all` {boolean} Whether the prebuilt automation is connected to all business types.
-   */
-  WlClient.prototype.wlMarketingAutomationPrebuiltPrebuiltDuplicateGet = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Prebuilt/PrebuiltDuplicate.json', params || {}, 'GET');
-  };
-
-  /**
-   * Duplicate the pre-built automation.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_automation] Automation key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMarketingAutomationPrebuiltPrebuiltDuplicatePost = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Prebuilt/PrebuiltDuplicate.json', params || {}, 'POST');
-  };
-
-  /**
-   * Gets automation data.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {boolean} params.is_original Whether to get original automation data without Isaac template generation.
-   * @param {?string} [params.json_action] Call to action data in JSON format.
-   * @param {string} params.k_automation Automation key.
-   * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_automation` {*[]} Automation data. Result of Automation::get().
-   *  `has_error` {boolean} Whether there is an error.
-   */
-  WlClient.prototype.wlMarketingAutomationPrebuiltAutomationPrebuilt = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/Prebuilt/AutomationPrebuilt.json', params || {}, 'GET');
-  };
-
-  /**
-   * Build the ISAAC request payload from automation data without sending the request.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   *  `a_request_payload` {*[]} Request payload prepared for the ISAAC marketing generation API.
-   */
-  WlClient.prototype.wlMarketingAutomationAiGenerationAskIsaacAutomationContent = function(params)
-  {
-    return this.request('/Wl/Marketing/Automation/AiGeneration/AskIsaacAutomationContent.json', params || {}, 'POST');
   };
 
   /**
@@ -14750,38 +13838,6 @@
   };
 
   /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.dtu_class_period] Date with time in UTC of class period `k_class_period`.
-   * @param {?string} [params.k_appointment] Key of the virtual appointment. Primary key in RsAppointmentSql table.
-   * @param {?string} [params.k_business] Key of the business, where session is going on.
-   * @param {?string} [params.k_class_period] Key of the virtual class period. Primary key in RsClassPeriodSql table.
-   * @returns {Promise<Object>} Response data.
-   *  `dtl_service` {string} Local date with time of start virtual service.
-   *  `dtu_service` {string} Date with time in UTC of start virtual service.
-   *  `is_fitlive` {string} `true` if business use FitLIVE, `false` otherwise.
-   *  `text_service` {string} Name of the virtual service.
-   *  `url_virtual_redirect` {string} The redirect to zoom meeting.
-   */
-  WlClient.prototype.wlLoginAttendanceStaffAppVirtualJoin = function(params)
-  {
-    return this.request('/Wl/Login/Attendance/StaffApp/Virtual/Join.json', params || {}, 'GET');
-  };
-
-  /**
-   * Returns list of countries and regions.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_geo` {Object[]} List of countries and nested regions.
-   */
-  WlClient.prototype.wlLoginSearchSearchDataRegionRegionSearchData = function(params)
-  {
-    return this.request('/Wl/Login/Search/SearchData/Region/RegionSearchData.json', params || {}, 'GET');
-  };
-
-  /**
    * Gets custom pattern data.
    *
    * Loads the saved notification template for the given business and mail type together with the
@@ -14793,7 +13849,7 @@
    * @param {boolean} params.is_custom_list Whether to get a list of custom template data. `true` - to get a list, `false` - otherwise.
    * @param {?string} [params.k_business] Business key.
    * @param {string} params.k_mail_pattern Mail pattern key.
-   * @param {string} params.sid_mail_form SID of the mail form. String representation of one from {@link WlClient.RsMailFormSid} class cons...
+   * @param {string} params.sid_mail_form SID of the mail form. String representation of one from RsMailFormSid class constants.
    * @returns {Promise<Object>} Response data.
    *  `a_business_data` {Object} Business data.
    *  `a_help_data` {?Object} Help data for variables.
@@ -14825,102 +13881,6 @@
   WlClient.prototype.wlMailPatternAutomatedMarketingCustomTemplatePatternPost = function(params)
   {
     return this.request('/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/Pattern.json', params || {}, 'POST');
-  };
-
-  /**
-   * Gets value of the option that determines whether template autosave is enabled.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Response data.
-   *  `is_autosave` {boolean} Determines whether template autosave is enabled. `true` if autosave is enable...
-   */
-  WlClient.prototype.wlMailPatternAutomatedMarketingCustomTemplateTemplateAutosaveGet = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/TemplateAutosave.json', params || {}, 'GET');
-  };
-
-  /**
-   * Sets value of the option that determines whether template autosave is enabled.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.uid User key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMailPatternAutomatedMarketingCustomTemplateTemplateAutosavePost = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/TemplateAutosave.json', params || {}, 'POST');
-  };
-
-  /**
-   * Retrieves particular information about campaign.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_mail_pattern_live Mail pattern live key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_mail_pattern_live` {Object} The mail pattern live data of the original sent campaign.
-   */
-  WlClient.prototype.wlMailPatternAutomatedMarketingCampaignResendCampaignResendGet = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/AutomatedMarketing/CampaignResend/CampaignResend.json', params || {}, 'GET');
-  };
-
-  /**
-   * Performs resending of mail campaign.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_mail_pattern_live Mail pattern live key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlMailPatternAutomatedMarketingCampaignResendCampaignResendPost = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/AutomatedMarketing/CampaignResend/CampaignResend.json', params || {}, 'POST');
-  };
-
-  /**
-   * Gets campaign data.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {boolean} params.is_check_access Whether to run access check only.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_mail_pattern_live Mail pattern live key.
-   * @returns {Promise<Object>} Response data.
-   *  `json_campaign_load` {string} A campaign data to load.
-   */
-  WlClient.prototype.wlMailPatternAutomatedMarketingSendCampaignSendCampaignGet = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/AutomatedMarketing/SendCampaign/SendCampaign.json', params || {}, 'GET');
-  };
-
-  /**
-   * Saves 'Send campaign'.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `k_mail_pattern_live` {string} Mail pattern live key.
-   */
-  WlClient.prototype.wlMailPatternAutomatedMarketingSendCampaignSendCampaignPost = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/AutomatedMarketing/SendCampaign/SendCampaign.json', params || {}, 'POST');
-  };
-
-  /**
-   * Gets quantity of recipients.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_mail_form ID of the mail form. One of {@link WlClient.RsMailFormSid} constants.
-   * @param {string} params.k_business Primary key of business in RsBusinessSql table.
-   * @returns {Promise<Object>} Response data.
-   *  `a_uid` {string[]} UID's of recipients.
-   */
-  WlClient.prototype.wlMailPatternAutomatedMarketingSendCampaignSendCampaignRecipient = function(params)
-  {
-    return this.request('/Wl/Mail/Pattern/AutomatedMarketing/SendCampaign/SendCampaignRecipient.json', params || {}, 'GET');
   };
 
   /**
@@ -15554,7 +14514,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (242 total)
+  // Enum constants (228 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -21440,32 +20400,6 @@
   });
 
   /**
-   * Cancel policy for cancel memberships.
-   *
-   * @enum {number}
-   */
-  WlClient.WlPromotionCancelPolicySid = Object.freeze({
-    /** Clients can use remaining visits after membership cancellation */
-    USE_CLIENT: 1,
-    /** Clients cannot use remaining visits after membership cancellation */
-    USE_NONE: 2,
-    /** Staff member can choose whether a client can use remaining visits after membership cancellation */
-    USE_STAFF: 3,
-  });
-
-  /**
-   * A list of types of mail copies.
-   *
-   * @enum {number}
-   */
-  WlClient.RsMailCopySid = Object.freeze({
-    /** Blind carbon copy */
-    BCC: 2,
-    /** Carbon copy */
-    CC: 1,
-  });
-
-  /**
    * List of options to convert promotion.
    *
    * @enum {number}
@@ -21508,56 +20442,6 @@
   });
 
   /**
-   * List of fields that can be used on attendance list.
-   *
-   * @enum {number}
-   */
-  WlClient.WlLoginAttendanceDesignFieldListSid = Object.freeze({
-    /** Client's age */
-    AGE: 1,
-    /** Attendance at rank */
-    ATTENDANCE_AT_RANK: 20,
-    /** Title of client's current belt */
-    BELT: 16,
-    /** Select of belt categories, which connected to client */
-    BELT_CATEGORY: 15,
-    /** User who booked visit */
-    BOOKED_BY: 12,
-    /** Class conditions for belt promotion */
-    CONDITION_FOR_PROMOTION: 21,
-    /** Client's email address */
-    EMAIL: 2,
-    /** Client's age */
-    GENDER: 3,
-    /** Client's Name */
-    LOGIN: 10,
-    /** Client's member identifier */
-    MEMBER_NUMBER: 4,
-    /** Type of payment that applied to visit */
-    ORDER_NUMBER: 5,
-    /** Type of payment that applied to visit */
-    PAY_WITH: 6,
-    /** Client's phone number */
-    PHONE: 7,
-    /** Client's picture */
-    PICTURE: 8,
-    /** Assigned forms */
-    QUIZ: 18,
-    /** Whether client ready for rank promotion */
-    READY_FOR_PROMOTION: 17,
-    /** Visit status */
-    STATUS: 13,
-    /** Time at rank */
-    TIME_AT_RANK: 19,
-    /** Assets */
-    VISIT_ASSET: 11,
-    /** Count of remaining visits in client promotion */
-    VISIT_REMAIN: 9,
-    /** When the user was added to the wait list */
-    WAIT_FROM: 14,
-  });
-
-  /**
    * List of options to add client to attendance list.
    *
    * @enum {number}
@@ -21586,24 +20470,6 @@
   });
 
   /**
-   * List of mail form modes.
-   *
-   * @enum {number}
-   */
-  WlClient.RsMailFormSid = Object.freeze({
-    /** Form with all mail models. Means that you can manage mail, sms, postcard on the one form */
-    ALL: 1,
-    /** Form with mail model. Only mail form will be shown */
-    MAIL: 2,
-    /** Form with postcard model. Only postcard form will be shown */
-    POSTCARD: 4,
-    /** Form with push notification model */
-    PUSH: 5,
-    /** Form with sms  model. Only sms form will be shown */
-    SMS: 3,
-  });
-
-  /**
    * List of places to redirect user from attendance list after inactivity.
    *
    * @enum {number}
@@ -21613,52 +20479,6 @@
     RECENT: 1,
     /** Redirect user to upcoming schedule */
     SCHEDULE: 2,
-  });
-
-  /**
-   * A list status of refuse message.
-   *
-   * @enum {number}
-   */
-  WlClient.WlInsuranceReimbursementRefuseFilterFilterRefuseMessageSelectSid = Object.freeze({
-    /** All records */
-    ALL: 3,
-    /** Show only records which have not refuse message */
-    WITHOUT_MESSAGE: 1,
-    /** Show only records which have refuse message */
-    WITH_MESSAGE: 2,
-  });
-
-  /**
-   * Enumerates months.
-   *
-   * @enum {number}
-   */
-  WlClient.ADateMonthSid = Object.freeze({
-    /** April */
-    APRIL: 4,
-    /** August */
-    AUGUST: 8,
-    /** December */
-    DECEMBER: 12,
-    /** February */
-    FEBRUARY: 2,
-    /** January */
-    JANUARY: 1,
-    /** July */
-    JULY: 7,
-    /** June */
-    JUNE: 6,
-    /** March */
-    MARCH: 3,
-    /** May */
-    MAY: 5,
-    /** November */
-    NOVEMBER: 11,
-    /** October */
-    OCTOBER: 10,
-    /** September */
-    SEPTEMBER: 9,
   });
 
   /**
@@ -21959,180 +20779,6 @@
     GROUP: 2,
     /** Sent to clients of certain types */
     TYPE: 3,
-  });
-
-  /**
-   * Curves channel type.
-   *
-   * @enum {number}
-   */
-  WlClient.WlIntegrationCurvesChannelTypeSid = Object.freeze({
-    /** Alternative */
-    ALTERNATIVE: 1,
-    /** Employer */
-    EMPLOYER: 2,
-    /** HCP */
-    HCP: 3,
-    /** Health Plan */
-    HEALTH_PLAN: 4,
-    /** Wellness Company */
-    WELLNESS_PROGRAM: 5,
-  });
-
-  /**
-   * List of curves country.
-   *
-   * @enum {number}
-   */
-  WlClient.WlIntegrationCurvesCurvesCountrySid = Object.freeze({
-    /** Australia */
-    AUSTRALIA: 2,
-    /** Canada */
-    CANADA: 3,
-    /** Cayman Island */
-    CAYMAN: 6,
-    /** Egypt */
-    EGYPT: 4,
-    /** New Zealand */
-    NEW_ZEALAND: 7,
-    /** Philippines */
-    PHILIPPINES: 8,
-    /** South Africa */
-    SOUTH_AFRICA: 10,
-    /** United Arab Emirates */
-    UAE: 1,
-    /** United Kingdom */
-    UK: 5,
-    /** United States of America */
-    USA: 9,
-  });
-
-  /**
-   * Curves deal type.
-   *
-   * @enum {number}
-   */
-  WlClient.WlIntegrationCurvesDealTypeSid = Object.freeze({
-    /** All */
-    ALL: 1,
-    /** Discount */
-    DISCOUNT: 2,
-    /** Embed */
-    EMBED: 3,
-    /** Promote */
-    PROMOTE: 4,
-    /** Subsidize */
-    SUBSIDIZE: 5,
-  });
-
-  /**
-   * Types of the reimbursements.
-   *
-   * @enum {number}
-   */
-  WlClient.WlInsuranceReimbursementReimbursementTypeSid = Object.freeze({
-    /** Club Reimbursements */
-    CLUB: 1,
-    /** Member Reimbursements */
-    MEMBER: 2,
-  });
-
-  /**
-   * List of triggers for automations.
-   *
-   * @enum {number}
-   */
-  WlClient.WlMarketingAutomationTriggerSid = Object.freeze({
-    /** Triggers when a checkout is abandoned */
-    ABANDONED_CHECKOUT: 16,
-    /** Triggers after new class schedule is added */
-    CLASSES_PROMOTE: 1,
-    /** Triggers when a client has a birthday */
-    CLIENT_BIRTHDAY: 19,
-    /** Triggers after a client canceled booking */
-    CLIENT_CANCEL_BOOK: 14,
-    /** Triggers when a client is added to a group */
-    CLIENT_GROUP_ADDED: 17,
-    /** Triggers when a client is removed from a group */
-    CLIENT_GROUP_REMOVED: 18,
-    /** Triggers when a client posts a review */
-    CLIENT_LEFT_REVIEW: 20,
-    /** Triggers after a client did not show up to a service reserved by */
-    CLIENT_NO_SHOW: 13,
-    /** Triggers when a client is referred */
-    CLIENT_REFERRED: 21,
-    /** Triggers after new event schedule is added */
-    EVENT_PROMOTE: 2,
-    /** Triggers when a form is submitted */
-    FORM_SUBMITTED: 22,
-    /** Triggers after a client fill out a Lead Capture Form on the website of a business */
-    LEAD_CAPTURE: 3,
-    /** Triggers when a client long time did not visit location */
-    LOGIN_BACK: 4,
-    /** Triggers when a new client is added */
-    NEW_CLIENT_ADDED: 23,
-    /** Triggers after a client purchases a product */
-    PRODUCT_PURCHASE: 6,
-    /** Triggers when membership expires */
-    PROMOTION_EXPIRE: 8,
-    /** Triggers when a client only has a few visits remaining on their pass */
-    PROMOTION_LOW: 7,
-    /** Triggers after a client purchases a promotion */
-    PROMOTION_PURCHASE: 10,
-    /** Triggers before certain count of days before membership renews */
-    PROMOTION_RENEW: 9,
-    /** Triggers when a client attends a visit using a purchase option */
-    PROMOTION_USED: 15,
-    /** Triggers after a service booking */
-    SERVICE_BOOK: 12,
-    /** Triggers after visit the service */
-    VISIT_CAMPAIGN: 11,
-  });
-
-  /**
-   * Types of triggers.
-   *
-   * @enum {number}
-   */
-  WlClient.WlMarketingAutomationCreateFlowTriggerTypeSid = Object.freeze({
-    /** Client activity triggers */
-    CLIENT_ACTIVITY: 1,
-    /** Profile change triggers */
-    PROFILE_CHANGE: 2,
-    /** Purchase status triggers */
-    PURCHASE_STATUS: 3,
-    /** Service update triggers */
-    SERVICE_UPDATE: 4,
-  });
-
-  /**
-   * List of recipient statuses.
-   *
-   * @enum {number}
-   */
-  WlClient.WlMarketingAutomationRecipientRecipientStatusSid = Object.freeze({
-    /** 'Exit' status */
-    CRITERIA_EXIT: 3,
-    /** 'Excluded' status */
-    EXCLUDED: 1,
-    /** 'Finished' status */
-    FINISHED: 2,
-    /** 'In Progress' status */
-    IN_PROGRESS: 4,
-  });
-
-  /**
-   * Automation status identifiers.
-   *
-   * @enum {number}
-   */
-  WlClient.WlMarketingAutomationAutomationStatusSid = Object.freeze({
-    /** The automation is active */
-    ACTIVE: 1,
-    /** The automation is a draft */
-    DRAFT: 3,
-    /** The automation is inactive */
-    INACTIVE: 2,
   });
 
   /**

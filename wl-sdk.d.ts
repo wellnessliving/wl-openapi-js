@@ -4941,22 +4941,6 @@ export declare enum WlReportDashboardPanelPanelModeSid {
     /** Share mode */
     SHARE = 3
 }
-/** Cancel policy for cancel memberships. */
-export declare enum WlPromotionCancelPolicySid {
-    /** Clients can use remaining visits after membership cancellation */
-    USE_CLIENT = 1,
-    /** Clients cannot use remaining visits after membership cancellation */
-    USE_NONE = 2,
-    /** Staff member can choose whether a client can use remaining visits after membership cancellation */
-    USE_STAFF = 3
-}
-/** A list of types of mail copies. */
-export declare enum RsMailCopySid {
-    /** Blind carbon copy */
-    BCC = 2,
-    /** Carbon copy */
-    CC = 1
-}
 /** List of options to convert promotion. */
 export declare enum WlPromotionConvertPromotionConvertSid {
     /** Promotion conversion downgraded */
@@ -4984,51 +4968,6 @@ export declare enum WlPromotionGuestPassGuestPassResetTypeSid {
     /** Limits reset on promotion renewal day */
     RENEWAL = 2
 }
-/** List of fields that can be used on attendance list. */
-export declare enum WlLoginAttendanceDesignFieldListSid {
-    /** Client's age */
-    AGE = 1,
-    /** Attendance at rank */
-    ATTENDANCE_AT_RANK = 20,
-    /** Title of client's current belt */
-    BELT = 16,
-    /** Select of belt categories, which connected to client */
-    BELT_CATEGORY = 15,
-    /** User who booked visit */
-    BOOKED_BY = 12,
-    /** Class conditions for belt promotion */
-    CONDITION_FOR_PROMOTION = 21,
-    /** Client's email address */
-    EMAIL = 2,
-    /** Client's age */
-    GENDER = 3,
-    /** Client's Name */
-    LOGIN = 10,
-    /** Client's member identifier */
-    MEMBER_NUMBER = 4,
-    /** Type of payment that applied to visit */
-    ORDER_NUMBER = 5,
-    /** Type of payment that applied to visit */
-    PAY_WITH = 6,
-    /** Client's phone number */
-    PHONE = 7,
-    /** Client's picture */
-    PICTURE = 8,
-    /** Assigned forms */
-    QUIZ = 18,
-    /** Whether client ready for rank promotion */
-    READY_FOR_PROMOTION = 17,
-    /** Visit status */
-    STATUS = 13,
-    /** Time at rank */
-    TIME_AT_RANK = 19,
-    /** Assets */
-    VISIT_ASSET = 11,
-    /** Count of remaining visits in client promotion */
-    VISIT_REMAIN = 9,
-    /** When the user was added to the wait list */
-    WAIT_FROM = 14
-}
 /** List of options to add client to attendance list. */
 export declare enum WlLoginAttendanceAddOptionSid {
     /** Add client to attendance list and charge his account */
@@ -5047,61 +4986,12 @@ export declare enum WlShopProductPurchaseRestrictionSid {
     /** Purchase option available for clients with special login type or member group */
     TYPE = 3
 }
-/** List of mail form modes. */
-export declare enum RsMailFormSid {
-    /** Form with all mail models. Means that you can manage mail, sms, postcard on the one form */
-    ALL = 1,
-    /** Form with mail model. Only mail form will be shown */
-    MAIL = 2,
-    /** Form with postcard model. Only postcard form will be shown */
-    POSTCARD = 4,
-    /** Form with push notification model */
-    PUSH = 5,
-    /** Form with sms  model. Only sms form will be shown */
-    SMS = 3
-}
 /** List of places to redirect user from attendance list after inactivity. */
 export declare enum WlReceptionRosterDirectSid {
     /** Redirect user to recently viewed class */
     RECENT = 1,
     /** Redirect user to upcoming schedule */
     SCHEDULE = 2
-}
-/** A list status of refuse message. */
-export declare enum WlInsuranceReimbursementRefuseFilterFilterRefuseMessageSelectSid {
-    /** All records */
-    ALL = 3,
-    /** Show only records which have not refuse message */
-    WITHOUT_MESSAGE = 1,
-    /** Show only records which have refuse message */
-    WITH_MESSAGE = 2
-}
-/** Enumerates months. */
-export declare enum ADateMonthSid {
-    /** April */
-    APRIL = 4,
-    /** August */
-    AUGUST = 8,
-    /** December */
-    DECEMBER = 12,
-    /** February */
-    FEBRUARY = 2,
-    /** January */
-    JANUARY = 1,
-    /** July */
-    JULY = 7,
-    /** June */
-    JUNE = 6,
-    /** March */
-    MARCH = 3,
-    /** May */
-    MAY = 5,
-    /** November */
-    NOVEMBER = 11,
-    /** October */
-    OCTOBER = 10,
-    /** September */
-    SEPTEMBER = 9
 }
 /** List of available features in the system that can be shown in owner's header. */
 export declare enum WlPageBackendFeatureFeatureSid {
@@ -5352,140 +5242,6 @@ export declare enum WlPostcardCampaignCampaignClientSid {
     GROUP = 2,
     /** Sent to clients of certain types */
     TYPE = 3
-}
-/** Curves channel type. */
-export declare enum WlIntegrationCurvesChannelTypeSid {
-    /** Alternative */
-    ALTERNATIVE = 1,
-    /** Employer */
-    EMPLOYER = 2,
-    /** HCP */
-    HCP = 3,
-    /** Health Plan */
-    HEALTH_PLAN = 4,
-    /** Wellness Company */
-    WELLNESS_PROGRAM = 5
-}
-/** List of curves country. */
-export declare enum WlIntegrationCurvesCurvesCountrySid {
-    /** Australia */
-    AUSTRALIA = 2,
-    /** Canada */
-    CANADA = 3,
-    /** Cayman Island */
-    CAYMAN = 6,
-    /** Egypt */
-    EGYPT = 4,
-    /** New Zealand */
-    NEW_ZEALAND = 7,
-    /** Philippines */
-    PHILIPPINES = 8,
-    /** South Africa */
-    SOUTH_AFRICA = 10,
-    /** United Arab Emirates */
-    UAE = 1,
-    /** United Kingdom */
-    UK = 5,
-    /** United States of America */
-    USA = 9
-}
-/** Curves deal type. */
-export declare enum WlIntegrationCurvesDealTypeSid {
-    /** All */
-    ALL = 1,
-    /** Discount */
-    DISCOUNT = 2,
-    /** Embed */
-    EMBED = 3,
-    /** Promote */
-    PROMOTE = 4,
-    /** Subsidize */
-    SUBSIDIZE = 5
-}
-/** Types of the reimbursements. */
-export declare enum WlInsuranceReimbursementReimbursementTypeSid {
-    /** Club Reimbursements */
-    CLUB = 1,
-    /** Member Reimbursements */
-    MEMBER = 2
-}
-/** List of triggers for automations. */
-export declare enum WlMarketingAutomationTriggerSid {
-    /** Triggers when a checkout is abandoned */
-    ABANDONED_CHECKOUT = 16,
-    /** Triggers after new class schedule is added */
-    CLASSES_PROMOTE = 1,
-    /** Triggers when a client has a birthday */
-    CLIENT_BIRTHDAY = 19,
-    /** Triggers after a client canceled booking */
-    CLIENT_CANCEL_BOOK = 14,
-    /** Triggers when a client is added to a group */
-    CLIENT_GROUP_ADDED = 17,
-    /** Triggers when a client is removed from a group */
-    CLIENT_GROUP_REMOVED = 18,
-    /** Triggers when a client posts a review */
-    CLIENT_LEFT_REVIEW = 20,
-    /** Triggers after a client did not show up to a service reserved by */
-    CLIENT_NO_SHOW = 13,
-    /** Triggers when a client is referred */
-    CLIENT_REFERRED = 21,
-    /** Triggers after new event schedule is added */
-    EVENT_PROMOTE = 2,
-    /** Triggers when a form is submitted */
-    FORM_SUBMITTED = 22,
-    /** Triggers after a client fill out a Lead Capture Form on the website of a business */
-    LEAD_CAPTURE = 3,
-    /** Triggers when a client long time did not visit location */
-    LOGIN_BACK = 4,
-    /** Triggers when a new client is added */
-    NEW_CLIENT_ADDED = 23,
-    /** Triggers after a client purchases a product */
-    PRODUCT_PURCHASE = 6,
-    /** Triggers when membership expires */
-    PROMOTION_EXPIRE = 8,
-    /** Triggers when a client only has a few visits remaining on their pass */
-    PROMOTION_LOW = 7,
-    /** Triggers after a client purchases a promotion */
-    PROMOTION_PURCHASE = 10,
-    /** Triggers before certain count of days before membership renews */
-    PROMOTION_RENEW = 9,
-    /** Triggers when a client attends a visit using a purchase option */
-    PROMOTION_USED = 15,
-    /** Triggers after a service booking */
-    SERVICE_BOOK = 12,
-    /** Triggers after visit the service */
-    VISIT_CAMPAIGN = 11
-}
-/** Types of triggers. */
-export declare enum WlMarketingAutomationCreateFlowTriggerTypeSid {
-    /** Client activity triggers */
-    CLIENT_ACTIVITY = 1,
-    /** Profile change triggers */
-    PROFILE_CHANGE = 2,
-    /** Purchase status triggers */
-    PURCHASE_STATUS = 3,
-    /** Service update triggers */
-    SERVICE_UPDATE = 4
-}
-/** List of recipient statuses. */
-export declare enum WlMarketingAutomationRecipientRecipientStatusSid {
-    /** 'Exit' status */
-    CRITERIA_EXIT = 3,
-    /** 'Excluded' status */
-    EXCLUDED = 1,
-    /** 'Finished' status */
-    FINISHED = 2,
-    /** 'In Progress' status */
-    IN_PROGRESS = 4
-}
-/** Automation status identifiers. */
-export declare enum WlMarketingAutomationAutomationStatusSid {
-    /** The automation is active */
-    ACTIVE = 1,
-    /** The automation is a draft */
-    DRAFT = 3,
-    /** The automation is inactive */
-    INACTIVE = 2
 }
 /** A class with statuses of dialog. */
 export declare enum WlBusinessSmsChatDialogDialogStatusSid {
@@ -26708,78 +26464,6 @@ export interface WlPromotionMembershipReportMembershipConversionFilterViewRespon
     /** Filter view html */
     html_view: string;
 }
-export interface WlLoginMailSecondaryMailSecondaryParams {
-    /** Business key withing which the secondary contact is managed. */
-    k_business: string;
-    /** Key of the client whose activity notifications the secondary contacts receive. */
-    uid: string;
-    /** Secret string to validate access for non-registered user. */
-    s_secret?: string | null;
-    /** Email address of the external secondary contact to delete. */
-    text_mail_secondary?: string | null;
-    /** Key of the registered secondary contact to delete. */
-    uid_secondary?: string | null;
-}
-export type WlLoginMailSecondaryMailSecondaryResponse = Record<string, unknown>;
-export interface WlLoginMailSecondaryMailSecondarySearchParams {
-    /** Business key within which the search should be performed. */
-    k_business: string;
-    /** Search query. */
-    text_search: string;
-    /** Key of the user on behalf of whom the search is performed. */
-    uid_behalf: string;
-}
-export type WlLoginMailSecondaryMailSecondarySearchResponse = Record<string, unknown>;
-export interface WlLoginPromotionCancelNotificationPatternParams {
-    /** The key of the business to which the promotion belongs. Primary key in RsBusinessSql table. */
-    k_business?: string | null;
-    /** Key of login promotion to update options for. */
-    k_login_promotion?: string | null;
-    /** Key of the user performing the request. Primary key in PassportLoginSql table. */
-    uid?: string | null;
-}
-export interface WlLoginPromotionCancelNotificationPatternResponse {
-    /** Date now (local). */
-    dl_now: string;
-    /** `true` if there are active upcoming visits paid with the membership we are going to cancel. */
-    has_upcoming_visits: boolean;
-    /** Cancel policy for cancel memberships. @see WlPromotionCancelPolicySid */
-    id_cancel_policy: WlPromotionCancelPolicySid;
-    /** Mail confirmation enabled. `true` when mail confirmation enabled, `false` otherwise. */
-    is_inform_mail: boolean | null;
-    /** Push confirmation enabled. `true` when push confirmation enabled, `false` otherwise. */
-    is_inform_push: boolean | null;
-    /** SMS confirmation enabled. `true` when sms confirmation enabled, `false` otherwise. */
-    is_inform_sms: boolean | null;
-    /** Cancellation fee amount. */
-    m_terminate_fee: string | null;
-    /** SID of notification form. String representation of one from {@link RsMailSid} class constants. */
-    sid_mail: string;
-    /** Option type. String representation of one from {@link RsProgramTypeSid} class constants. */
-    sid_option_type: string;
-}
-export interface WlLoginPromotionCancelMailPatternLiveGetParams {
-    /** Primary key of business in RsBusinessSql table. */
-    k_business: string;
-    /** UID user's key of the actor. Primary key in the PassportLoginSql table. */
-    uid_actor: string;
-    /** SID of notification form. String representation of one from {@link RsMailFormSid} class constants. */
-    sid_mail_form?: string | null;
-}
-export interface WlLoginPromotionCancelMailPatternLiveGetResponse {
-    /** HTML form content. */
-    html_form: string;
-}
-export interface WlLoginPromotionCancelMailPatternLivePostParams {
-    /** Primary key of business in RsBusinessSql table. */
-    k_business: string;
-    /** UID user's key of the actor. Primary key in the PassportLoginSql table. */
-    uid_actor: string;
-}
-export interface WlLoginPromotionCancelMailPatternLivePostResponse {
-    /** Key of the mail pattern. Primary key from RsMailPatternLiveSql table. */
-    k_mail_pattern_live: string;
-}
 export interface WlLoginPromotionConvertConvertDeleteParams {
     /** The business key. */
     k_business: string;
@@ -26851,37 +26535,6 @@ export interface WlLoginPromotionConvertConvertPostParams {
     text_note?: string | null;
 }
 export type WlLoginPromotionConvertConvertPostResponse = Record<string, unknown>;
-export interface WlLoginPromotionPayMethodAutopayMethodParams {
-    /** Business key. */
-    k_business: string;
-    /** Login promotion key. */
-    k_login_promotion: string;
-}
-export type WlLoginPromotionPayMethodAutopayMethodResponse = Record<string, unknown>;
-export interface WlLoginPromotionRollupAdjustParams {
-    /** ID of the calendar period attendance restriction is applied to. */
-    id_period: string;
-    /** ID of the purchased promotion. */
-    k_login_promotion: string;
-}
-export type WlLoginPromotionRollupAdjustResponse = Record<string, unknown>;
-export interface WlLoginPromotionShareLoginPromotionShareParams {
-    /** Business key. Primary key in RsBusinessSql table. */
-    k_business: string;
-    /** Purchased promotion key. Primary key in RsLoginPromotionSql table. */
-    k_login_promotion: string;
-}
-export interface WlLoginPromotionShareLoginPromotionShareResponse {
-    /** List of family members with whom the purchased promotion can be shared. Each element has next str... */
-    a_share_family: {
-        /** Whether the login promotion was shared with user. */
-        is_share: boolean;
-        /** User name. */
-        text_name: string;
-        /** User key. Primary key in PassportLoginSql table. */
-        uid: string;
-    };
-}
 export interface WlLoginPromotionGuestPassGuestPassListParams {
     /** Business key. */
     k_business: string;
@@ -27077,13 +26730,6 @@ export interface WlLoginPromotionGuestPassGuestPassPutParams {
     k_login_promotion: string;
 }
 export type WlLoginPromotionGuestPassGuestPassPutResponse = Record<string, unknown>;
-export interface WlLoginMemberVaccinationStatusVaccinationStatusParams {
-    /** Business key, primary key in the RsBusinessSql table. */
-    k_business: string;
-    /** User key, primary key in the PassportLoginSql table. */
-    uid: string;
-}
-export type WlLoginMemberVaccinationStatusVaccinationStatusResponse = Record<string, unknown>;
 export interface WlLoginMemberDynamicIdDynamicIdParams {
     /** `true` if a new dynamic ID should be generated. */
     is_refresh: boolean;
@@ -27099,31 +26745,6 @@ export interface WlLoginMemberDynamicIdDynamicIdResponse {
     text_barcode: string;
     /** URL of the barcode image. */
     url_barcode: string;
-}
-export interface WlLoginAttendanceDesignCustomizeGetParams {
-    /** Business key. */
-    k_business?: string | null;
-}
-export interface WlLoginAttendanceDesignCustomizeGetResponse {
-    /** Field settings of attendance list. */
-    a_field: Array<WlLoginAttendanceDesignFieldListSid>;
-}
-export interface WlLoginAttendanceDesignCustomizePostParams {
-    /** Business key. */
-    k_business?: string | null;
-}
-export type WlLoginAttendanceDesignCustomizePostResponse = Record<string, unknown>;
-export interface WlLoginAttendanceRowRowParams {
-    /** Date. */
-    dtu_date: string;
-    /** Visit key. */
-    k_business: string;
-    /** Visit key. */
-    k_visit: string;
-}
-export interface WlLoginAttendanceRowRowResponse {
-    /** Service image. */
-    a_row: Array<unknown>;
 }
 export interface WlLoginAttendanceAddAddGetParams {
     /** The start date and time of the class in GMT and MySQL format. */
@@ -27212,163 +26833,6 @@ export interface WlLoginSearchStaffAppListResponse {
     /** If `true`, then this user can add other users via the Add Client page. */
     can_add: boolean;
 }
-export type WlLoginSearchFilterLoginSearchFilterParams = Record<string, unknown>;
-export interface WlLoginSearchFilterLoginSearchFilterResponse {
-    /** User's search settings. */
-    a_search_filter: Array<unknown>;
-    /** Indicate if redirection to client's profile page was made using the login search panel. */
-    is_login_search: boolean;
-    /** State of auto check-in service. */
-    is_reception: boolean;
-}
-export interface WlLoginSearchQuickCheckInQuickCheckInParams {
-    /** Business primary key in RsBusinessSql table. */
-    k_business: string;
-    /** Client user key. */
-    uid: string;
-}
-export interface WlLoginSearchQuickCheckInQuickCheckInResponse {
-    /** Alert items for display in the check-in result modal. */
-    a_note: Array<Array<unknown>>;
-    /** List of today's sessions available for check-in. */
-    a_session: Array<{
-        /** Session datetime in UTC. */
-        dtu_date: string;
-        /** Number of booked spots. `0` for gym visits and appointments. */
-        i_book: number;
-        /** Total session capacity. `0` means unlimited (gym visits, appointments). */
-        i_capacity: number;
-        /** Sources of system notes. @see RsProfileNoteSid */
-        id_profile_note: RsProfileNoteSid;
-        /** A list of services. @see WlServiceServiceSid */
-        id_service: WlServiceServiceSid;
-        /** `true` if the client already has access (membership or pass). `false` otherwise. */
-        is_access: boolean;
-        /** `true` if the client has already attended this session today. `false` otherwise. */
-        is_attend: boolean;
-        /** `true` if the client is already in the booking list. `false` otherwise. */
-        is_book: boolean;
-        /** Appointment prrimary key. `'0'` if not an appointment. */
-        k_appointment: string;
-        /** Class primary key. `0` for gym visits and appointments. */
-        k_class: string | null;
-        /** Class session prrimary key. `0` if not a class. */
-        k_class_period: string;
-        /** Location primary key. */
-        k_location: string;
-        /** `true` if the client can check in without payment. `false` if payment is required. */
-        show_free: boolean;
-        /** Human-readable denial reason when the client cannot check in. Empty string when check-in is avail... */
-        text_deny: string;
-        /** Location name for display. */
-        text_location: string;
-        /** Service name for display. */
-        text_service: string;
-        /** Room name for display. Empty if no room is assigned to the session. */
-        text_room: string;
-        /** Staff name(s) for display. Empty for gym visits. */
-        text_staff: string;
-        /** Session time formatted for display. Empty for gym visits. */
-        text_time: string;
-        /** Link to the attendance page for this session. Empty if not applicable. */
-        url_attendance: string;
-        /** URL for the paid booking flow. Non-empty only for class sessions requiring payment. */
-        url_book_process: string;
-        /** Class thumbnail image URL for the session preview. Empty for gym visits. */
-        url_image: string;
-    }>;
-    /** Number of seconds before the session popup auto-closes when all sessions are already attended. */
-    i_attend_quick_close_success: number;
-    /** Whether the session popup should auto-close when all sessions are already attended. */
-    is_attend_quick_close_success: boolean;
-    /** `true` if the business is configured to navigate to the client profile after a QUICK AUTO Check-I... */
-    is_navigate: boolean;
-    /** Client full name. */
-    text_user_name: string;
-    /** Client photo URL for display in the session popup. */
-    url_user_photo: string;
-    /** Client profile URL. Used for navigation when `is_navigate` is `true`, */
-    url_user_profile: string;
-}
-export interface WlLoginPermissionAccessAccessParams {
-    /** Schedule item information. Has structure: */
-    a_schedule: {
-        /** Location key, where class or service occurs. */
-        k_location: string;
-        /** Class key. */
-        k_class: string;
-        /** Login promotion key if need to check access for specific promotion. */
-        k_login_promotion: string;
-        /** Resource key. */
-        k_resource: string;
-        /** Service key. */
-        k_service: string;
-    };
-    /** Time when class or service occurs: */
-    a_time: {
-        /** Number of hours. */
-        i_hour: number;
-        /** Number of minutes. */
-        i_minute: number;
-        /** Whether time in AM or PM. */
-        is_am: boolean;
-    };
-    /** Date when class or service occurs. */
-    dt_date: string;
-    /** Business key. */
-    k_business: string;
-    /** User key. */
-    uid: string;
-}
-export interface WlLoginPermissionAccessAccessResponse {
-    /** Schedule access information. Has structure: */
-    a_access: {
-        /** Location key, where class or service occurs. */
-        k_location: string;
-        /** Class key. */
-        k_class: string;
-        /** Login promotion key if need to check access for specific promotion. */
-        k_login_promotion: string;
-        /** Resource key. */
-        k_resource: string;
-        /** Service key. */
-        k_service: string;
-        /** Login permission error code. */
-        s_deny: string;
-    };
-    /** Whether user is traveller in current business. */
-    is_traveller: boolean;
-}
-export interface WlLoginCouponTransferCouponTransferGetParams {
-    /** Key of business. Primary key in RsBusinessSql table. */
-    k_business?: string | null;
-    /** User ID to transfer purchased coupon from. Primary key in PassportLoginSql table. */
-    uid_from?: string | null;
-    /** User ID to transfer purchased coupon to. Primary key in PassportLoginSql table. */
-    uid_to?: string | null;
-}
-export interface WlLoginCouponTransferCouponTransferGetResponse {
-    /** Information about relation between users: */
-    a_relation: {
-        /** Name of relation type. */
-        html_relation: string;
-        /** User name with whom purchased event owner has relation. */
-        html_user_name: string;
-    };
-}
-export interface WlLoginCouponTransferCouponTransferPostParams {
-    /** Key of source mode. One of {@link WlModeModeSid} constants. */
-    id_mode?: WlModeModeSid;
-    /** Key of business. Primary key in RsBusinessSql table. */
-    k_business?: string | null;
-    /** Key of login coupon to be transferred. Primary key in RsLoginCouponSql table. */
-    k_login_coupon?: string | null;
-    /** User ID to transfer purchased coupon from. Primary key in PassportLoginSql table. */
-    uid_from?: string | null;
-    /** User ID to transfer purchased coupon to. Primary key in PassportLoginSql table. */
-    uid_to?: string | null;
-}
-export type WlLoginCouponTransferCouponTransferPostResponse = Record<string, unknown>;
 export interface WlQuizElementImageMarkupImageMarkupConfigGetParams {
     /** Key of business. */
     k_business: string;
@@ -27801,104 +27265,6 @@ export interface WlCatalogCouponPaymentPaymentResponse {
     /** ID of purchase that was created during payment. */
     k_purchase: string | null;
 }
-export interface WlMailPatternLiveMailPatternLiveParams {
-    /** ID of the form campaign. @see RsMailFormSid */
-    id_mail_form: RsMailFormSid;
-    /** Key of the business to remove scheduled campaign from. */
-    k_business: string;
-    /** Key of the mail pattern to remove scheduled campaign from. */
-    k_mail_pattern_live: string;
-}
-export type WlMailPatternLiveMailPatternLiveResponse = Record<string, unknown>;
-export interface WlMailPatternLiveMailPatternLiveRecipientParams {
-    /** ID of the form campaign. @see RsMailFormSid */
-    id_mail_form: RsMailFormSid;
-    /** Key of the business to remove scheduled campaign from. */
-    k_business: string;
-    /** Key of the mail pattern to remove scheduled campaign from. */
-    k_mail_pattern_live: string;
-}
-export type WlMailPatternLiveMailPatternLiveRecipientResponse = Record<string, unknown>;
-export type WlMailPatternAutomatedMarketingSendTestParams = Record<string, unknown>;
-export type WlMailPatternAutomatedMarketingSendTestResponse = Record<string, unknown>;
-export interface WlMailPatternEditMailPatternDuplicateParams {
-    /** Business key within which duplicate operation is performed. Primary key in the RsBusinessSql table. */
-    k_business: string;
-    /** Key of the mail pattern to duplicate. Primary key in RsMailPatternSql table. */
-    k_mail_pattern: string;
-    /** Key of the duplicated mail pattern. Primary key in RsMailPatternSql table. */
-    k_pattern_mail_duplicate: string;
-}
-export interface WlMailPatternEditMailPatternDuplicateResponse {
-    /** Key of the duplicated mail pattern. Primary key in RsMailPatternSql table. */
-    k_pattern_mail_duplicate: string;
-}
-export type WlMailPatternEditMailPatternStateParams = Record<string, unknown>;
-export type WlMailPatternEditMailPatternStateResponse = Record<string, unknown>;
-export interface WlMailPatternEditMailPatternEditParams {
-    /** List of client and member types. Each element is primary key in the Sql table. */
-    a_login_type: Array<string>;
-    /** List of member groups. Each element is primary key in the Sql table. */
-    a_member_group: Array<string>;
-    /** Whether or not to stop sending review requests after `i_max_review_request` is reached. */
-    has_max_review_request?: boolean | null;
-    /** The amount for the new delay before sending mail. */
-    i_after?: number | null;
-    /** Count of the duration unit after change. */
-    i_delay?: number | null;
-    /** Maximum number of review requests that can be sent. */
-    i_max_review_request?: number | null;
-    /** Type of the duration unit after change. One of constants {@link ADurationSid}. */
-    id_duration_delay?: ADurationSid;
-    /** If `true` then mail for all visits will be rescheduled. */
-    is_after_every?: boolean | null;
-    /** Whether emails should be sent to members in churn risk group (Only for automated marketing). */
-    is_churn_risk?: boolean | null;
-    /** Whether mail will be sent after the client has made a review. */
-    is_disable_review_request_after_review?: boolean | null;
-    /** Whether need to prevent sending email without fulfilling a certain condition. */
-    is_prevent?: boolean | null;
-    /** Key of retention location. Primary key in RsLocationSql table. */
-    k_location_retention?: string | null;
-    /** Key of the mail pattern. Primary key in RsMailPatternSql table. */
-    k_mail_pattern?: string | null;
-    /** Object identifier. */
-    s_object?: string | null;
-}
-export interface WlMailPatternEditMailPatternEditResponse {
-    /** The number of affected clients. */
-    i_affected_clients: number;
-    /** Whether some clients will be affected after the change of mail pattern. */
-    is_affected_client: boolean;
-    /** URL for client report. */
-    url_report: string;
-}
-export interface WlMailPatternDisturbDisturbGetParams {
-    /** Business key. */
-    k_business: string;
-}
-export interface WlMailPatternDisturbDisturbGetResponse {
-    /** The start and end time for all the do not disturb periods for each mail page. */
-    a_disturb: {
-        /** The end time of the do not disturb period, in seconds since midnight. */
-        i_end: number;
-        /** The start time of the do not disturb period, in seconds since midnight. */
-        i_start: number;
-    };
-}
-export interface WlMailPatternDisturbDisturbPostParams {
-    /** Business key. */
-    k_business: string;
-}
-export type WlMailPatternDisturbDisturbPostResponse = Record<string, unknown>;
-export interface WlMailHistoryReportMailReasonParams {
-    /** Business key. */
-    k_business: string;
-}
-export interface WlMailHistoryReportMailReasonResponse {
-    /** List of reasons. */
-    a_reason: Array<unknown>;
-}
 export interface WlReceptionRosterDesignReceptionRosterDesignParams {
     /** Key of the business. */
     k_business: string;
@@ -27977,71 +27343,6 @@ export interface WlReceptionRosterSearchSearchResponse {
     /** Number of the request. Is required to ignore old requests, when new request was already done. */
     i_request: number;
 }
-export interface WlInsuranceReimbursementRefuseReimbursementRefuseEditDeleteParams {
-    /** Reimbursement refuse key. Primary key in ReimbursementRefuseSql table, */
-    k_reimbursement_refuse?: string | null;
-}
-export type WlInsuranceReimbursementRefuseReimbursementRefuseEditDeleteResponse = Record<string, unknown>;
-export interface WlInsuranceReimbursementRefuseReimbursementRefuseEditGetParams {
-    /** Reimbursement refuse key. Primary key in ReimbursementRefuseSql table, */
-    k_reimbursement_refuse?: string | null;
-}
-export interface WlInsuranceReimbursementRefuseReimbursementRefuseEditGetResponse {
-    /** Insurance provider key. Primary key in PartnerSql table, */
-    k_insurance_provider: string | null;
-    /** Code of the reason, which should be unique per partner. */
-    text_code: string;
-    /** Description of the refuse from provider. */
-    text_description_provider: string;
-    /** Description of the refuse, which should be shown in reimbursement reports. This field is filled b... */
-    text_display: string;
-}
-export interface WlInsuranceReimbursementRefuseReimbursementRefuseEditPostParams {
-    /** Reimbursement refuse key. Primary key in ReimbursementRefuseSql table, */
-    k_reimbursement_refuse?: string | null;
-}
-export type WlInsuranceReimbursementRefuseReimbursementRefuseEditPostResponse = Record<string, unknown>;
-export interface WlInsuranceReimbursementRefuseReimbursementRefuseListParams {
-    /** Status of the refuse message. One of {@link WlInsuranceReimbursementRefuseFilterFilterRefuseMessa... @see WlInsuranceReimbursementRefuseFilterFilterRefuseMessageSelectSid */
-    id_refuse_message: WlInsuranceReimbursementRefuseFilterFilterRefuseMessageSelectSid;
-    /** Code of the reason, which should be unique per partner. */
-    text_code: string;
-    /** Insurance provider key. Primary key in PartnerSql table, `null` if field is not set. */
-    k_insurance_provider?: string | null;
-}
-export interface WlInsuranceReimbursementRefuseReimbursementRefuseListResponse {
-    /** A list refuse translate message: */
-    a_list: {
-        /** Insurance reimbursement refuse key. Primary key from ReimbursementRefuseSql table. */
-        k_reimbursement_refuse: string;
-        /** Code of the reason, which should be unique per partner. */
-        text_code: string;
-        /** Description of the refuse from provider. */
-        text_description_provider: string;
-        /** Description of the refuse, which should be shown in reimbursement reports. This field is filled b... */
-        text_display: string;
-        /** Insurance provider name. */
-        text_insurance_provider: string;
-    };
-}
-export interface WlInsuranceReimbursementExportAccumulationParams {
-    /** Business key. */
-    k_business: string;
-    /** Partner key. */
-    k_partner: string;
-}
-export type WlInsuranceReimbursementExportAccumulationResponse = Record<string, unknown>;
-export interface WlInsuranceReimbursementImportFileImportSosParams {
-    /** Year, when reimbursement import was started. */
-    i_year: number;
-    /** Month, when reimbursement import was started. @see ADateMonthSid */
-    id_month: ADateMonthSid;
-    /** Business key, where reimbursement import was started. */
-    k_business: string;
-    /** Insurance partner key, where reimbursement import was started. */
-    k_partner: string;
-}
-export type WlInsuranceReimbursementImportFileImportSosResponse = Record<string, unknown>;
 export interface WlInsuranceEnrollmentFieldEnrollmentFieldListGetParams {
     /** The key of the business in which the enrollment is performed. */
     k_business: string;
@@ -28673,16 +27974,6 @@ export interface WlMemberGroupEditEditPutResponse {
     /** Additional warning message if there were some minor issues with request. */
     text_warning: string | null;
 }
-export interface WlMemberGroupUserUserUpdatePostParams {
-    /** The business key. */
-    k_business: string;
-}
-export type WlMemberGroupUserUserUpdatePostResponse = Record<string, unknown>;
-export interface WlMemberGroupUserUserUpdatePutParams {
-    /** The business key. */
-    k_business: string;
-}
-export type WlMemberGroupUserUserUpdatePutResponse = Record<string, unknown>;
 export interface WlMemberGroupUserUserGroupDeleteParams {
     /** UID of a user. */
     uid_user: string;
@@ -28738,27 +28029,6 @@ export interface WlMemberGroupGroupListListPutParams {
     k_business: string;
 }
 export type WlMemberGroupGroupListListPutResponse = Record<string, unknown>;
-export interface WlMemberGroupSelectListParams {
-    /** Whether include "Isaac Churn Risk" group. */
-    is_churn_risk: boolean;
-    /** Business key. */
-    k_business: string;
-    /** Whether to show the quantity of users which belong to a member group. `true` - to show, `false` -... */
-    show_member_group_user: boolean;
-}
-export interface WlMemberGroupSelectListResponse {
-    /** Member groups list: */
-    a_member_group: Array<{
-        /** Quantity of users in a group. */
-        i_user: number;
-        /** Whether a member group is selected. `true` if selected, `false` - otherwise. */
-        is_selected: boolean;
-        /** The key of the member group. Primary key in Sql. */
-        k_member_group: string;
-        /** The name of the member group. */
-        text_title: string;
-    }>;
-}
 export interface WlMemberProgressFieldStateParams {
     /** Business key. */
     k_business: string;
@@ -29004,90 +28274,6 @@ export interface WlResourceScheduleAddAddResponse {
     /** Resource period key. */
     a_resource_period: Array<string>;
 }
-export interface WlIntegrationFacilityAccessBrivoUpgradeParams {
-    /** Business key. */
-    k_business: string;
-}
-export interface WlIntegrationFacilityAccessBrivoUpgradeResponse {
-    /** Next billing date. */
-    dtl_date: string;
-}
-export interface WlIntegrationFacilityAccessBrivoConfigurationParams {
-    /** Business to get information for. */
-    k_business: string;
-}
-export interface WlIntegrationFacilityAccessBrivoConfigurationResponse {
-    /** Represents if Brivo integration is enabled, and business has configured Facility Access. */
-    is_brivo_enabled: boolean;
-    /** Represents if Brivo feature of users invitation is enabled. Depends on `is_brivo_enabled` too. */
-    is_brivo_invitation_enabled: boolean;
-}
-export type WlIntegrationCurvesPartnerPartnerListParams = Record<string, unknown>;
-export interface WlIntegrationCurvesPartnerPartnerListResponse {
-    /** A list of curves partner. */
-    a_list: Array<Array<unknown>> | null;
-}
-export interface WlIntegrationCurvesPartnerPartnerEditDeleteParams {
-    /** If a partner is edited, its key is stored here. */
-    k_partner?: string | null;
-}
-export type WlIntegrationCurvesPartnerPartnerEditDeleteResponse = Record<string, unknown>;
-export interface WlIntegrationCurvesPartnerPartnerEditGetParams {
-    /** If a partner is edited, its key is stored here. */
-    k_partner?: string | null;
-}
-export interface WlIntegrationCurvesPartnerPartnerEditGetResponse {
-    /** Curves channel type. @see WlIntegrationCurvesChannelTypeSid */
-    id_channel_type: WlIntegrationCurvesChannelTypeSid;
-    /** List of curves country. @see WlIntegrationCurvesCurvesCountrySid */
-    id_curves_country: WlIntegrationCurvesCurvesCountrySid;
-    /** Curves deal type. @see WlIntegrationCurvesDealTypeSid */
-    id_deal_type: WlIntegrationCurvesDealTypeSid;
-    /** Types of the reimbursements. @see WlInsuranceReimbursementReimbursementTypeSid */
-    id_reimbursement_type: WlInsuranceReimbursementReimbursementTypeSid;
-    /** Determines whether the program is active. */
-    is_active: boolean;
-    /** Determines whether the ACH account is required. */
-    is_reimbursement_information_required: boolean;
-    /** Partner key in Curves. Need for update wellness program. */
-    s_partner: string;
-    /** Name of the curves partner. */
-    text_partner: string;
-}
-export interface WlIntegrationCurvesPartnerPartnerEditPostParams {
-    /** If a partner is edited, its key is stored here. */
-    k_partner?: string | null;
-}
-export interface WlIntegrationCurvesPartnerPartnerEditPostResponse {
-    /** If a partner is edited, its key is stored here. */
-    k_partner: string | null;
-}
-export interface WlIntegrationGoHighLevelLocationLocationDeleteParams {
-    /** Location key. */
-    a_location: Array<string>;
-    /** Business key. */
-    k_business: string;
-}
-export type WlIntegrationGoHighLevelLocationLocationDeleteResponse = Record<string, unknown>;
-export interface WlIntegrationGoHighLevelLocationLocationPostParams {
-    /** Location key. */
-    a_location: Array<string>;
-    /** Business key. */
-    k_business: string;
-}
-export interface WlIntegrationGoHighLevelLocationLocationPostResponse {
-    /** Go High Level account name. */
-    text_account: string;
-    /** Go High Level location token. */
-    text_token: string;
-}
-export interface WlIntegrationGoHighLevelSubscriptionSubscriptionParams {
-    /** Subscription plan that should be activated. */
-    id_plan: number;
-    /** Business key. */
-    k_business: string;
-}
-export type WlIntegrationGoHighLevelSubscriptionSubscriptionResponse = Record<string, unknown>;
 export interface WlCouponEditRegionRegionListParams {
     /** Business key. */
     k_business: string;
@@ -29202,307 +28388,6 @@ export interface WlSearchTemplateMenuMenuPostParams {
     uid: string;
 }
 export type WlSearchTemplateMenuMenuPostResponse = Record<string, unknown>;
-export interface WlMarketingOverviewCampaignPerformanceCampaignPerformanceParams {
-    /** End date. */
-    dl_end?: string | null;
-    /** Start date. */
-    dl_start?: string | null;
-    /** Business key. */
-    k_business?: string | null;
-}
-export interface WlMarketingOverviewCampaignPerformanceCampaignPerformanceResponse {
-    /** Result totals. */
-    a_total: Array<unknown>;
-}
-export interface WlMarketingOverviewWelcomeWelcomeDeleteParams {
-    /** The business key within which request is made. */
-    k_business: string;
-}
-export type WlMarketingOverviewWelcomeWelcomeDeleteResponse = Record<string, unknown>;
-export interface WlMarketingOverviewWelcomeWelcomeGetParams {
-    /** The business key within which request is made. */
-    k_business: string;
-}
-export interface WlMarketingOverviewWelcomeWelcomeGetResponse {
-    /** Determines whether welcome screen should be shown. */
-    show_welcome: boolean;
-}
-export interface WlMarketingAutomationCreateFlowTriggerListParams {
-    /** Primary key of business in RsBusinessSql table. */
-    k_business?: string | null;
-}
-export interface WlMarketingAutomationCreateFlowTriggerListResponse {
-    /** A list of available pre-built automation template types and the count of templates in each type. */
-    a_prebuilt_filter: Array<{
-        /** Count of pre-built automation templates in this folder. */
-        i_count: number;
-        /** Folder key of the pre-built automation. Primary key in AutomationFolderSql table. */
-        k_folder: string;
-        /** Title of the pre-built automation template type. */
-        text_folder: string;
-    }>;
-    /** A list of available pre-built automation flows. */
-    a_prebuilt_list: Array<{
-        /** List of steps in the pre-built automation flow. */
-        a_step: Array<Array<unknown>>;
-        /** Mail types. @see RsMailSid */
-        id_mail: RsMailSid;
-        /** Pre-built automation key. Primary key in AutomationSql table. */
-        k_automation: string;
-        /** Folder key of the pre-built automation. Primary key in AutomationFolderSql table. */
-        k_folder: string;
-        /** List of triggers for automations. @see WlMarketingAutomationTriggerSid */
-        id_trigger: WlMarketingAutomationTriggerSid;
-        /** Whether the pre-built automation flow has 'New' label. */
-        is_new: boolean;
-        /** Description of the pre-built automation flow. */
-        text_description: string;
-        /** Title of the folder of the pre-built automation flow. */
-        text_folder: string;
-        /** Title of the pre-built automation flow. */
-        text_title: string;
-        /** URL of the image preview of the pre-built automation flow. */
-        url_image: string;
-    }>;
-    /** A list of available trigger types and the count of triggers in each type. */
-    a_trigger_filter: Array<{
-        /** Types of triggers. @see WlMarketingAutomationCreateFlowTriggerTypeSid */
-        id_trigger: WlMarketingAutomationCreateFlowTriggerTypeSid;
-        /** Count of triggers in this type. */
-        i_count: number;
-        /** Title of the trigger type. */
-        text_trigger_type: string;
-    }>;
-    /** A list of available triggers. */
-    a_trigger_list: Array<{
-        /** Mail types. @see RsMailSid */
-        id_mail: RsMailSid;
-        /** List of triggers for automations. @see WlMarketingAutomationTriggerSid */
-        id_trigger: WlMarketingAutomationTriggerSid;
-        /** Types of triggers. @see WlMarketingAutomationCreateFlowTriggerTypeSid */
-        id_trigger_type: WlMarketingAutomationCreateFlowTriggerTypeSid;
-        /** Whether the trigger has 'Coming soon' label TriggerAbstract::IS_COMING_SOON. */
-        is_coming_soon: boolean;
-        /** Description of the trigger for the list of all triggers. */
-        text_description_list: string;
-        /** Description of the trigger for the setup trigger view. */
-        text_description_setup: string;
-        /** CSS class of the icon representing the trigger. */
-        text_icon: string;
-        /** Title of the trigger. */
-        text_title: string;
-    }>;
-}
-export interface WlMarketingAutomationRecipientAutomationRecipientGetParams {
-    /** End date filter. */
-    dl_end: string;
-    /** Start date filter. */
-    dl_start: string;
-    /** Automation key. */
-    k_automation: string;
-    /** Business key. */
-    k_business: string;
-}
-export interface WlMarketingAutomationRecipientAutomationRecipientGetResponse {
-    /** Recipients data. Has the next structure: */
-    a_recipient_list: Array<{
-        /** HTML representation of the recipient for client side. */
-        html_client: string;
-        /** Lead-stage sort position. Used by JS to sort by the Lead Stage column. */
-        i_lead_sort: number;
-        /** Status sort position. Used by JS to sort by the Status column. */
-        i_status_sort: number;
-        /** Current-step sort position. Used by JS to sort by the Current Step column. */
-        i_step_sort: number;
-        /** List of recipient statuses. @see WlMarketingAutomationRecipientRecipientStatusSid */
-        id_status: WlMarketingAutomationRecipientRecipientStatusSid;
-        /** Whether the recipient was added manually. `true` if added manually, `false` otherwise. */
-        is_manual: boolean;
-        /** Start date in UTC MySQL datetime format. Used by JS to sort by the Start date column. */
-        s_start_sort: string;
-        /** Recipient status badge class. */
-        text_badge_class: string;
-        /** Client's current lead stage display text. Empty string if the client has no lead record. */
-        text_lead_stage: string;
-        /** CSS badge class for the lead stage badge. Empty string if the client has no lead record. */
-        text_lead_stage_class: string;
-        /** Local date and time when the recipient was added to the automation. */
-        text_start: string;
-        /** Current step display text. Shows 'Step N: Content' for in-progress and excluded recipients, */
-        text_step: string;
-        /** Tooltip text for the step column. Contains the message body for SMS and push notification steps. */
-        text_step_tooltip: string;
-        /** Recipient status title. */
-        text_status: string;
-        /** CSS class of the recipient status. */
-        text_status_class: string;
-        /** User ID. Primary key in PassportLoginSql table. */
-        uid: string;
-    }>;
-}
-export interface WlMarketingAutomationRecipientAutomationRecipientPostParams {
-    /** Automation key. */
-    k_automation: string;
-    /** Business key. */
-    k_business: string;
-}
-export interface WlMarketingAutomationRecipientAutomationRecipientPostResponse {
-    /** Number of recipients successfully added to the automation. */
-    i_recipient_add: number;
-    /** Number of recipients that are already in progress and were not added again. */
-    i_recipient_progress: number;
-}
-export interface WlMarketingAutomationRecipientAutomationRecipientStatusGetParams {
-    /** Automation key. */
-    k_automation: string;
-    /** Business key. */
-    k_business: string;
-    /** Member group key to filter recipients by. */
-    k_member_group?: string | null;
-    /** Recipient user key. */
-    uid?: string | null;
-}
-export interface WlMarketingAutomationRecipientAutomationRecipientStatusGetResponse {
-    /** Statuses of the member group recipients in the automation flow. */
-    a_group_status: Array<WlMarketingAutomationRecipientRecipientStatusSid> | null;
-    /** List of recipient statuses. @see WlMarketingAutomationRecipientRecipientStatusSid */
-    id_status: WlMarketingAutomationRecipientRecipientStatusSid;
-}
-export interface WlMarketingAutomationRecipientAutomationRecipientStatusPostParams {
-    /** Automation key. */
-    k_automation: string;
-    /** Business key. */
-    k_business: string;
-    /** Recipient user key. */
-    uid?: string | null;
-}
-export type WlMarketingAutomationRecipientAutomationRecipientStatusPostResponse = Record<string, unknown>;
-export interface WlMarketingAutomationListAutomationListParams {
-    /** The filter phrase to filter automations by name. */
-    text_search: string;
-    /** A status of automation. One of the {@link WlMarketingAutomationAutomationStatusSid} constants. */
-    id_status?: WlMarketingAutomationAutomationStatusSid | null;
-    /** Business key. */
-    k_business?: string | null;
-    /** Folder key. */
-    k_folder?: string | null;
-}
-export interface WlMarketingAutomationListAutomationListResponse {
-    /** List of automations. */
-    a_automation_list: Array<unknown>;
-    /** Pagination data. */
-    a_page: Array<unknown>;
-    /** Number of active automations. */
-    i_automation_active: number;
-    /** Number of draft automations. */
-    i_automation_draft: number;
-    /** Total number of automations. */
-    i_automation_total: number;
-}
-export interface WlMarketingAutomationFolderFolderMapGetParams {
-    /** Automation key. */
-    k_automation: string;
-    /** Business key. */
-    k_business?: string | null;
-}
-export interface WlMarketingAutomationFolderFolderMapGetResponse {
-    /** List of folders where automation can be moved. */
-    a_folder: Array<{
-        /** Folder key. Primary key in AutomationFolderSql table. Empty string for the default folder. */
-        k_folder: string;
-        /** Folder title. */
-        text_title: string;
-    }>;
-    /** Folder key where the automation is currently located. */
-    k_folder_origin: string | null;
-    /** Title of the automation. */
-    text_automation: string;
-    /** Title of the folder in which the automation is located. */
-    text_folder_origin: string;
-}
-export interface WlMarketingAutomationFolderFolderMapPostParams {
-    /** Automation key. */
-    k_automation: string;
-    /** Business key. */
-    k_business?: string | null;
-    /** Folder key where the automation should be moved. */
-    k_folder_move?: string | null;
-}
-export type WlMarketingAutomationFolderFolderMapPostResponse = Record<string, unknown>;
-export interface WlMarketingAutomationFolderAutomationFolderDeleteParams {
-    /** Folder key. */
-    k_folder: string;
-    /** Key of the folder where to move automations after deleting the current folder. */
-    k_folder_move: string;
-    /** Business key where the folder is managed. */
-    k_business?: string | null;
-}
-export type WlMarketingAutomationFolderAutomationFolderDeleteResponse = Record<string, unknown>;
-export interface WlMarketingAutomationFolderAutomationFolderGetParams {
-    /** Folder key. */
-    k_folder: string;
-    /** Business key where the folder is managed. */
-    k_business?: string | null;
-}
-export interface WlMarketingAutomationFolderAutomationFolderGetResponse {
-    /** List of custom folders in the business. */
-    a_folder: Array<{
-        /** Folder key. Primary key in AutomationFolderSql table. */
-        k_folder: string;
-        /** Folder title. */
-        text_title: string;
-    }>;
-    /** Count of automations in the folder. */
-    i_automation: number;
-}
-export interface WlMarketingAutomationFolderAutomationFolderPostParams {
-    /** Folder key. */
-    k_folder: string;
-    /** Business key where the folder is managed. */
-    k_business?: string | null;
-}
-export interface WlMarketingAutomationFolderAutomationFolderPostResponse {
-    /** Folder key. */
-    k_folder: string;
-}
-export type WlMarketingAutomationFolderFolderSortParams = Record<string, unknown>;
-export type WlMarketingAutomationFolderFolderSortResponse = Record<string, unknown>;
-export interface WlMarketingAutomationPrebuiltPrebuiltDuplicateGetParams {
-    /** Automation key. */
-    k_automation?: string | null;
-}
-export interface WlMarketingAutomationPrebuiltPrebuiltDuplicateGetResponse {
-    /** List of business types. */
-    a_business_type: Array<unknown>;
-    /** Whether the prebuilt automation is connected to all business types. */
-    is_business_type_all: boolean;
-}
-export interface WlMarketingAutomationPrebuiltPrebuiltDuplicatePostParams {
-    /** Automation key. */
-    k_automation?: string | null;
-}
-export type WlMarketingAutomationPrebuiltPrebuiltDuplicatePostResponse = Record<string, unknown>;
-export interface WlMarketingAutomationPrebuiltAutomationPrebuiltParams {
-    /** Whether to get original automation data without Isaac template generation. */
-    is_original: boolean;
-    /** Automation key. */
-    k_automation: string;
-    /** Business key. */
-    k_business: string;
-    /** Call to action data in JSON format. */
-    json_action?: string | null;
-}
-export interface WlMarketingAutomationPrebuiltAutomationPrebuiltResponse {
-    /** Automation data. Result of Automation::get(). */
-    a_automation: Array<unknown>;
-    /** Whether there is an error. */
-    has_error: boolean;
-}
-export type WlMarketingAutomationAiGenerationAskIsaacAutomationContentParams = Record<string, unknown>;
-export interface WlMarketingAutomationAiGenerationAskIsaacAutomationContentResponse {
-    /** Request payload prepared for the ISAAC marketing generation API. */
-    a_request_payload: Array<unknown>;
-}
 export type WlHelpPopupEmailEmailFormParams = Record<string, unknown>;
 export interface WlHelpPopupEmailEmailFormResponse {
     /** The reply to address for the email. This will be the email of the staff member. */
@@ -30317,48 +29202,6 @@ export interface WlLoginPromotionGuestPassApplyApplyParams {
     k_business: string;
 }
 export type WlLoginPromotionGuestPassApplyApplyResponse = Record<string, unknown>;
-export interface WlLoginAttendanceStaffAppVirtualJoinParams {
-    /** Date with time in UTC of class period `k_class_period`. */
-    dtu_class_period?: string | null;
-    /** Key of the virtual appointment. Primary key in RsAppointmentSql table. */
-    k_appointment?: string | null;
-    /** Key of the business, where session is going on. */
-    k_business?: string | null;
-    /** Key of the virtual class period. Primary key in RsClassPeriodSql table. */
-    k_class_period?: string | null;
-}
-export interface WlLoginAttendanceStaffAppVirtualJoinResponse {
-    /** Local date with time of start virtual service. */
-    dtl_service: string;
-    /** Date with time in UTC of start virtual service. */
-    dtu_service: string;
-    /** `true` if business use FitLIVE, `false` otherwise. */
-    is_fitlive: string;
-    /** Name of the virtual service. */
-    text_service: string;
-    /** The redirect to zoom meeting. */
-    url_virtual_redirect: string;
-}
-export interface WlLoginSearchSearchDataRegionRegionSearchDataParams {
-    /** Business key. */
-    k_business: string;
-}
-export interface WlLoginSearchSearchDataRegionRegionSearchDataResponse {
-    /** List of countries and nested regions. */
-    a_geo: Array<{
-        /** List of regions within the country. */
-        a_region: {
-            /** Region key. */
-            k_geo: string;
-            /** Region name. */
-            text_title: string;
-        };
-        /** Country key. */
-        k_geo: string;
-        /** Country name. */
-        text_title: string;
-    }>;
-}
 export interface WlMailPatternAutomatedMarketingCustomTemplatePatternGetParams {
     /** ID of the notification. One of {@link RsMailSid} constants. `0` for empty template. */
     id_mail: RsMailSid;
@@ -30366,7 +29209,7 @@ export interface WlMailPatternAutomatedMarketingCustomTemplatePatternGetParams {
     is_custom_list: boolean;
     /** Mail pattern key. */
     k_mail_pattern: string;
-    /** SID of the mail form. String representation of one from {@link RsMailFormSid} class constants. */
+    /** SID of the mail form. String representation of one from RsMailFormSid class constants. */
     sid_mail_form: string;
     /** Business key. */
     k_business?: string | null;
@@ -30486,79 +29329,6 @@ export interface WlMailPatternAutomatedMarketingCustomTemplatePatternPostParams 
 export interface WlMailPatternAutomatedMarketingCustomTemplatePatternPostResponse {
     /** Mail pattern key. */
     k_mail_pattern: string;
-}
-export interface WlMailPatternAutomatedMarketingCustomTemplateTemplateAutosaveGetParams {
-    /** Business key. */
-    k_business: string;
-    /** User key. */
-    uid: string;
-}
-export interface WlMailPatternAutomatedMarketingCustomTemplateTemplateAutosaveGetResponse {
-    /** Determines whether template autosave is enabled. `true` if autosave is enabled, `false` - otherwise. */
-    is_autosave: boolean;
-}
-export interface WlMailPatternAutomatedMarketingCustomTemplateTemplateAutosavePostParams {
-    /** Business key. */
-    k_business: string;
-    /** User key. */
-    uid: string;
-}
-export type WlMailPatternAutomatedMarketingCustomTemplateTemplateAutosavePostResponse = Record<string, unknown>;
-export interface WlMailPatternAutomatedMarketingCampaignResendCampaignResendGetParams {
-    /** Business key. */
-    k_business: string;
-    /** Mail pattern live key. */
-    k_mail_pattern_live: string;
-}
-export interface WlMailPatternAutomatedMarketingCampaignResendCampaignResendGetResponse {
-    /** The mail pattern live data of the original sent campaign. */
-    a_mail_pattern_live: {
-        /** Date of sending the campaign. */
-        dtu_send: string;
-        /** Body text of the campaign. */
-        text_campaign: string;
-        /** Subject of the campaign. */
-        text_subject: string;
-        /** Preview of the mail body as rendered in the mail client (may be empty). */
-        text_preview: string;
-    };
-}
-export interface WlMailPatternAutomatedMarketingCampaignResendCampaignResendPostParams {
-    /** Business key. */
-    k_business: string;
-    /** Mail pattern live key. */
-    k_mail_pattern_live: string;
-}
-export type WlMailPatternAutomatedMarketingCampaignResendCampaignResendPostResponse = Record<string, unknown>;
-export interface WlMailPatternAutomatedMarketingSendCampaignSendCampaignGetParams {
-    /** Whether to run access check only. */
-    is_check_access: boolean;
-    /** Business key. */
-    k_business: string;
-    /** Mail pattern live key. */
-    k_mail_pattern_live: string;
-}
-export interface WlMailPatternAutomatedMarketingSendCampaignSendCampaignGetResponse {
-    /** A campaign data to load. */
-    json_campaign_load: string;
-}
-export interface WlMailPatternAutomatedMarketingSendCampaignSendCampaignPostParams {
-    /** Business key. */
-    k_business: string;
-}
-export interface WlMailPatternAutomatedMarketingSendCampaignSendCampaignPostResponse {
-    /** Mail pattern live key. */
-    k_mail_pattern_live: string;
-}
-export interface WlMailPatternAutomatedMarketingSendCampaignSendCampaignRecipientParams {
-    /** ID of the mail form. One of {@link RsMailFormSid} constants. */
-    id_mail_form: RsMailFormSid;
-    /** Primary key of business in RsBusinessSql table. */
-    k_business: string;
-}
-export interface WlMailPatternAutomatedMarketingSendCampaignSendCampaignRecipientResponse {
-    /** UID's of recipients. */
-    a_uid: Array<string>;
 }
 export interface WlPageBackendHeaderImportPopupImportPopupGetParams {
     /** Business key from RsBusinessSql. */
@@ -33070,30 +31840,11 @@ export declare class WlPromotionNamespace {
     /** Saves promotion data. */
     promotionPost(params?: WlPromotionPromotionPostParams): Promise<WlPromotionPromotionPostResponse>;
 }
-export declare class WlLoginMailSecondaryNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Removes a secondary notification recipient from the secondary notification list. */
-    mailSecondary(params?: WlLoginMailSecondaryMailSecondaryParams): Promise<WlLoginMailSecondaryMailSecondaryResponse>;
-    /** Searches for secondary recipients within the business by the specified query. */
-    mailSecondarySearch(params?: WlLoginMailSecondaryMailSecondarySearchParams): Promise<WlLoginMailSecondaryMailSecondarySearchResponse>;
-}
 export declare class WlLoginMailNamespace {
     private readonly _client;
-    readonly secondary: WlLoginMailSecondaryNamespace;
     constructor(_client: WlClient);
     /** Checks if specified user exists in specified business. */
     mailUse(params?: WlLoginMailMailUseParams): Promise<WlLoginMailMailUseResponse>;
-}
-export declare class WlLoginPromotionCancelNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Prepares notification pattern data of cancelled promotion. */
-    notificationPattern(params?: WlLoginPromotionCancelNotificationPatternParams): Promise<WlLoginPromotionCancelNotificationPatternResponse>;
-    /** Gets customization form HTML content. */
-    mailPatternLiveGet(params?: WlLoginPromotionCancelMailPatternLiveGetParams): Promise<WlLoginPromotionCancelMailPatternLiveGetResponse>;
-    /** Creates live template. */
-    mailPatternLivePost(params?: WlLoginPromotionCancelMailPatternLivePostParams): Promise<WlLoginPromotionCancelMailPatternLivePostResponse>;
 }
 export declare class WlLoginPromotionConvertNamespace {
     private readonly _client;
@@ -33104,23 +31855,6 @@ export declare class WlLoginPromotionConvertNamespace {
     convertGet(params?: WlLoginPromotionConvertConvertGetParams): Promise<WlLoginPromotionConvertConvertGetResponse>;
     /** Creates or updates conversion form data for the login promotion. Performs all necessary checks and apply changes. */
     convertPost(params?: WlLoginPromotionConvertConvertPostParams): Promise<WlLoginPromotionConvertConvertPostResponse>;
-}
-export declare class WlLoginPromotionPayMethodNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Changes login promotion automatic payment method. */
-    autopayMethod(params?: WlLoginPromotionPayMethodAutopayMethodParams): Promise<WlLoginPromotionPayMethodAutopayMethodResponse>;
-}
-export declare class WlLoginPromotionRollupNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** This method is called to process POST query. */
-    adjust(params?: WlLoginPromotionRollupAdjustParams): Promise<WlLoginPromotionRollupAdjustResponse>;
-}
-export declare class WlLoginPromotionShareNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    loginPromotionShare(params?: WlLoginPromotionShareLoginPromotionShareParams): Promise<WlLoginPromotionShareLoginPromotionShareResponse>;
 }
 export declare class WlLoginPromotionGuestPassClaimNamespace {
     private readonly _client;
@@ -33161,11 +31895,7 @@ export declare class WlLoginPromotionGuestPassNamespace {
 }
 export declare class WlLoginPromotionNamespace {
     private readonly _client;
-    readonly cancel: WlLoginPromotionCancelNamespace;
     readonly convert: WlLoginPromotionConvertNamespace;
-    readonly payMethod: WlLoginPromotionPayMethodNamespace;
-    readonly rollup: WlLoginPromotionRollupNamespace;
-    readonly share: WlLoginPromotionShareNamespace;
     readonly guestPass: WlLoginPromotionGuestPassNamespace;
     constructor(_client: WlClient);
     /** Deletes specified promotion payment pause. */
@@ -33177,12 +31907,6 @@ export declare class WlLoginPromotionNamespace {
     /** Updates a promotion payment pause period. */
     promotionPayPausePut(params?: WlLoginPromotionPromotionPayPausePutParams): Promise<WlLoginPromotionPromotionPayPausePutResponse>;
 }
-export declare class WlLoginMemberVaccinationStatusNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Sets the vaccination status for a user. */
-    vaccinationStatus(params?: WlLoginMemberVaccinationStatusVaccinationStatusParams): Promise<WlLoginMemberVaccinationStatusVaccinationStatusResponse>;
-}
 export declare class WlLoginMemberDynamicIdNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -33191,7 +31915,6 @@ export declare class WlLoginMemberDynamicIdNamespace {
 }
 export declare class WlLoginMemberNamespace {
     private readonly _client;
-    readonly vaccinationStatus: WlLoginMemberVaccinationStatusNamespace;
     readonly dynamicId: WlLoginMemberDynamicIdNamespace;
     constructor(_client: WlClient);
     /** Checks whether anything prevents the user from using the business and returns any blocking conditions found. */
@@ -33216,18 +31939,6 @@ export declare class WlLoginAddNamespace {
     /** Checks required profile fields and, if complete, registers the existing user in the specified business. */
     mailUseOk(params?: WlLoginAddMailUseOkParams): Promise<WlLoginAddMailUseOkResponse>;
 }
-export declare class WlLoginAttendanceDesignNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    customizeGet(params?: WlLoginAttendanceDesignCustomizeGetParams): Promise<WlLoginAttendanceDesignCustomizeGetResponse>;
-    customizePost(params?: WlLoginAttendanceDesignCustomizePostParams): Promise<WlLoginAttendanceDesignCustomizePostResponse>;
-}
-export declare class WlLoginAttendanceRowNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** This method is called to process GET query. */
-    row(params?: WlLoginAttendanceRowRowParams): Promise<WlLoginAttendanceRowRowResponse>;
-}
 export declare class WlLoginAttendanceAddNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -33236,22 +31947,9 @@ export declare class WlLoginAttendanceAddNamespace {
     /** Adds client to attendance list. */
     addPost(params?: WlLoginAttendanceAddAddPostParams): Promise<WlLoginAttendanceAddAddPostResponse>;
 }
-export declare class WlLoginAttendanceStaffAppVirtualNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    join(params?: WlLoginAttendanceStaffAppVirtualJoinParams): Promise<WlLoginAttendanceStaffAppVirtualJoinResponse>;
-}
-export declare class WlLoginAttendanceStaffAppNamespace {
-    private readonly _client;
-    readonly virtual: WlLoginAttendanceStaffAppVirtualNamespace;
-    constructor(_client: WlClient);
-}
 export declare class WlLoginAttendanceNamespace {
     private readonly _client;
-    readonly design: WlLoginAttendanceDesignNamespace;
-    readonly row: WlLoginAttendanceRowNamespace;
     readonly add: WlLoginAttendanceAddNamespace;
-    readonly staffApp: WlLoginAttendanceStaffAppNamespace;
     constructor(_client: WlClient);
     /** Returns the attendance list for a class period or appointment session. */
     attendanceList(params?: WlLoginAttendanceAttendanceListParams): Promise<WlLoginAttendanceAttendanceListResponse>;
@@ -33268,34 +31966,9 @@ export declare class WlLoginSearchStaffAppNamespace {
     /** Performs access checks and returns a list of users, depending on the search query. */
     list(params?: WlLoginSearchStaffAppListParams): Promise<WlLoginSearchStaffAppListResponse>;
 }
-export declare class WlLoginSearchFilterNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gives filter settings. */
-    loginSearchFilter(params?: WlLoginSearchFilterLoginSearchFilterParams): Promise<WlLoginSearchFilterLoginSearchFilterResponse>;
-}
-export declare class WlLoginSearchQuickCheckInNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    quickCheckIn(params?: WlLoginSearchQuickCheckInQuickCheckInParams): Promise<WlLoginSearchQuickCheckInQuickCheckInResponse>;
-}
-export declare class WlLoginSearchSearchDataRegionNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns list of countries and regions. */
-    regionSearchData(params?: WlLoginSearchSearchDataRegionRegionSearchDataParams): Promise<WlLoginSearchSearchDataRegionRegionSearchDataResponse>;
-}
-export declare class WlLoginSearchSearchDataNamespace {
-    private readonly _client;
-    readonly region: WlLoginSearchSearchDataRegionNamespace;
-    constructor(_client: WlClient);
-}
 export declare class WlLoginSearchNamespace {
     private readonly _client;
     readonly staffApp: WlLoginSearchStaffAppNamespace;
-    readonly filter: WlLoginSearchFilterNamespace;
-    readonly quickCheckIn: WlLoginSearchQuickCheckInNamespace;
-    readonly searchData: WlLoginSearchSearchDataNamespace;
     constructor(_client: WlClient);
     /** Finds a user by their email or phone within the specified business. */
     concerto(params?: WlLoginSearchConcertoParams): Promise<WlLoginSearchConcertoResponse>;
@@ -33306,14 +31979,8 @@ export declare class WlLoginTypeNamespace {
     /** Gets a login types list of a business. */
     loginType(params?: WlLoginTypeLoginTypeParams): Promise<WlLoginTypeLoginTypeResponse>;
 }
-export declare class WlLoginPermissionAccessNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    access(params?: WlLoginPermissionAccessAccessParams): Promise<WlLoginPermissionAccessAccessResponse>;
-}
 export declare class WlLoginPermissionNamespace {
     private readonly _client;
-    readonly access: WlLoginPermissionAccessNamespace;
     constructor(_client: WlClient);
     /** Saves the auto-renew setting for a purchased promotion. */
     permission(params?: WlLoginPermissionPermissionParams): Promise<WlLoginPermissionPermissionResponse>;
@@ -33326,17 +31993,8 @@ export declare class WlLoginAgreeNamespace {
     /** Saves the user's agreement to the online waiver. */
     agreePost(params?: WlLoginAgreeAgreePostParams): Promise<WlLoginAgreeAgreePostResponse>;
 }
-export declare class WlLoginCouponTransferNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Checks whether users are related. */
-    couponTransferGet(params?: WlLoginCouponTransferCouponTransferGetParams): Promise<WlLoginCouponTransferCouponTransferGetResponse>;
-    /** Transfers purchased coupon to another user. */
-    couponTransferPost(params?: WlLoginCouponTransferCouponTransferPostParams): Promise<WlLoginCouponTransferCouponTransferPostResponse>;
-}
 export declare class WlLoginCouponNamespace {
     private readonly _client;
-    readonly transfer: WlLoginCouponTransferNamespace;
     constructor(_client: WlClient);
     /** Retrieves the key and balance of a gift card by its code for the specified business. */
     coupon(params?: WlLoginCouponCouponParams): Promise<WlLoginCouponCouponResponse>;
@@ -33503,12 +32161,6 @@ export declare class WlFitbuilderNamespace {
     /** Notifies messengers with new information. */
     message(params?: WlFitbuilderMessageParams): Promise<WlFitbuilderMessageResponse>;
 }
-export declare class WlMailPatternLiveNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    mailPatternLive(params?: WlMailPatternLiveMailPatternLiveParams): Promise<WlMailPatternLiveMailPatternLiveResponse>;
-    mailPatternLiveRecipient(params?: WlMailPatternLiveMailPatternLiveRecipientParams): Promise<WlMailPatternLiveMailPatternLiveRecipientResponse>;
-}
 export declare class WlMailPatternAutomatedMarketingCustomTemplateNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -33516,75 +32168,20 @@ export declare class WlMailPatternAutomatedMarketingCustomTemplateNamespace {
     patternGet(params?: WlMailPatternAutomatedMarketingCustomTemplatePatternGetParams): Promise<WlMailPatternAutomatedMarketingCustomTemplatePatternGetResponse>;
     /** Saves custom pattern. */
     patternPost(params?: WlMailPatternAutomatedMarketingCustomTemplatePatternPostParams): Promise<WlMailPatternAutomatedMarketingCustomTemplatePatternPostResponse>;
-    /** Gets value of the option that determines whether template autosave is enabled. */
-    templateAutosaveGet(params?: WlMailPatternAutomatedMarketingCustomTemplateTemplateAutosaveGetParams): Promise<WlMailPatternAutomatedMarketingCustomTemplateTemplateAutosaveGetResponse>;
-    /** Sets value of the option that determines whether template autosave is enabled. */
-    templateAutosavePost(params?: WlMailPatternAutomatedMarketingCustomTemplateTemplateAutosavePostParams): Promise<WlMailPatternAutomatedMarketingCustomTemplateTemplateAutosavePostResponse>;
-}
-export declare class WlMailPatternAutomatedMarketingCampaignResendNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Retrieves particular information about campaign. */
-    campaignResendGet(params?: WlMailPatternAutomatedMarketingCampaignResendCampaignResendGetParams): Promise<WlMailPatternAutomatedMarketingCampaignResendCampaignResendGetResponse>;
-    /** Performs resending of mail campaign. */
-    campaignResendPost(params?: WlMailPatternAutomatedMarketingCampaignResendCampaignResendPostParams): Promise<WlMailPatternAutomatedMarketingCampaignResendCampaignResendPostResponse>;
-}
-export declare class WlMailPatternAutomatedMarketingSendCampaignNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets campaign data. */
-    sendCampaignGet(params?: WlMailPatternAutomatedMarketingSendCampaignSendCampaignGetParams): Promise<WlMailPatternAutomatedMarketingSendCampaignSendCampaignGetResponse>;
-    /** Saves 'Send campaign'. */
-    sendCampaignPost(params?: WlMailPatternAutomatedMarketingSendCampaignSendCampaignPostParams): Promise<WlMailPatternAutomatedMarketingSendCampaignSendCampaignPostResponse>;
-    /** Gets quantity of recipients. */
-    sendCampaignRecipient(params?: WlMailPatternAutomatedMarketingSendCampaignSendCampaignRecipientParams): Promise<WlMailPatternAutomatedMarketingSendCampaignSendCampaignRecipientResponse>;
 }
 export declare class WlMailPatternAutomatedMarketingNamespace {
     private readonly _client;
     readonly customTemplate: WlMailPatternAutomatedMarketingCustomTemplateNamespace;
-    readonly campaignResend: WlMailPatternAutomatedMarketingCampaignResendNamespace;
-    readonly sendCampaign: WlMailPatternAutomatedMarketingSendCampaignNamespace;
     constructor(_client: WlClient);
-    /** Sends test email or SMS. */
-    sendTest(params?: WlMailPatternAutomatedMarketingSendTestParams): Promise<WlMailPatternAutomatedMarketingSendTestResponse>;
-}
-export declare class WlMailPatternEditNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Duplicates the mail pattern. */
-    mailPatternDuplicate(params?: WlMailPatternEditMailPatternDuplicateParams): Promise<WlMailPatternEditMailPatternDuplicateResponse>;
-    mailPatternState(params?: WlMailPatternEditMailPatternStateParams): Promise<WlMailPatternEditMailPatternStateResponse>;
-    /** Checks if some clients can be affected after the change of mail pattern. */
-    mailPatternEdit(params?: WlMailPatternEditMailPatternEditParams): Promise<WlMailPatternEditMailPatternEditResponse>;
-}
-export declare class WlMailPatternDisturbNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    disturbGet(params?: WlMailPatternDisturbDisturbGetParams): Promise<WlMailPatternDisturbDisturbGetResponse>;
-    disturbPost(params?: WlMailPatternDisturbDisturbPostParams): Promise<WlMailPatternDisturbDisturbPostResponse>;
 }
 export declare class WlMailPatternNamespace {
     private readonly _client;
-    readonly live: WlMailPatternLiveNamespace;
     readonly automatedMarketing: WlMailPatternAutomatedMarketingNamespace;
-    readonly edit: WlMailPatternEditNamespace;
-    readonly disturb: WlMailPatternDisturbNamespace;
-    constructor(_client: WlClient);
-}
-export declare class WlMailHistoryReportNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    mailReason(params?: WlMailHistoryReportMailReasonParams): Promise<WlMailHistoryReportMailReasonResponse>;
-}
-export declare class WlMailHistoryNamespace {
-    private readonly _client;
-    readonly report: WlMailHistoryReportNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlMailNamespace {
     private readonly _client;
     readonly pattern: WlMailPatternNamespace;
-    readonly history: WlMailHistoryNamespace;
     constructor(_client: WlClient);
     /** Sends email. */
     sendMail(params?: WlMailSendMailParams): Promise<WlMailSendMailResponse>;
@@ -34358,32 +32955,6 @@ export declare class WlInsuranceCatalogNamespace {
     /** Returns a list of active insurance programs for the specified promotion. */
     programList(params?: WlInsuranceCatalogProgramListParams): Promise<WlInsuranceCatalogProgramListResponse>;
 }
-export declare class WlInsuranceReimbursementRefuseNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    reimbursementRefuseEditDelete(params?: WlInsuranceReimbursementRefuseReimbursementRefuseEditDeleteParams): Promise<WlInsuranceReimbursementRefuseReimbursementRefuseEditDeleteResponse>;
-    reimbursementRefuseEditGet(params?: WlInsuranceReimbursementRefuseReimbursementRefuseEditGetParams): Promise<WlInsuranceReimbursementRefuseReimbursementRefuseEditGetResponse>;
-    reimbursementRefuseEditPost(params?: WlInsuranceReimbursementRefuseReimbursementRefuseEditPostParams): Promise<WlInsuranceReimbursementRefuseReimbursementRefuseEditPostResponse>;
-    reimbursementRefuseList(params?: WlInsuranceReimbursementRefuseReimbursementRefuseListParams): Promise<WlInsuranceReimbursementRefuseReimbursementRefuseListResponse>;
-}
-export declare class WlInsuranceReimbursementExportNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Generates reimbursement export files for providers and uploads them into S3. */
-    accumulation(params?: WlInsuranceReimbursementExportAccumulationParams): Promise<WlInsuranceReimbursementExportAccumulationResponse>;
-}
-export declare class WlInsuranceReimbursementImportNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    fileImportSos(params?: WlInsuranceReimbursementImportFileImportSosParams): Promise<WlInsuranceReimbursementImportFileImportSosResponse>;
-}
-export declare class WlInsuranceReimbursementNamespace {
-    private readonly _client;
-    readonly refuse: WlInsuranceReimbursementRefuseNamespace;
-    readonly export: WlInsuranceReimbursementExportNamespace;
-    readonly import: WlInsuranceReimbursementImportNamespace;
-    constructor(_client: WlClient);
-}
 export declare class WlInsuranceEnrollmentFieldNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -34400,7 +32971,6 @@ export declare class WlInsuranceEnrollmentNamespace {
 export declare class WlInsuranceNamespace {
     private readonly _client;
     readonly catalog: WlInsuranceCatalogNamespace;
-    readonly reimbursement: WlInsuranceReimbursementNamespace;
     readonly enrollment: WlInsuranceEnrollmentNamespace;
     constructor(_client: WlClient);
 }
@@ -34584,10 +33154,6 @@ export declare class WlMemberGroupEditNamespace {
 export declare class WlMemberGroupUserNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Performs an immediate update of the member group. */
-    userUpdatePost(params?: WlMemberGroupUserUserUpdatePostParams): Promise<WlMemberGroupUserUserUpdatePostResponse>;
-    /** Enables automatic member group update. */
-    userUpdatePut(params?: WlMemberGroupUserUserUpdatePutParams): Promise<WlMemberGroupUserUserUpdatePutResponse>;
     /** Deletes the user from the group. */
     userGroupDelete(params?: WlMemberGroupUserUserGroupDeleteParams): Promise<WlMemberGroupUserUserGroupDeleteResponse>;
     /** Gets information about all groups to which the specified user belongs. */
@@ -34605,18 +33171,11 @@ export declare class WlMemberGroupGroupListNamespace {
     /** Updates the order of groups in a list. */
     listPut(params?: WlMemberGroupGroupListListPutParams): Promise<WlMemberGroupGroupListListPutResponse>;
 }
-export declare class WlMemberGroupSelectNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns member groups list in the business. */
-    list(params?: WlMemberGroupSelectListParams): Promise<WlMemberGroupSelectListResponse>;
-}
 export declare class WlMemberGroupNamespace {
     private readonly _client;
     readonly edit: WlMemberGroupEditNamespace;
     readonly user: WlMemberGroupUserNamespace;
     readonly groupList: WlMemberGroupGroupListNamespace;
-    readonly select: WlMemberGroupSelectNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlMemberProgressFieldEditNamespace {
@@ -34902,20 +33461,8 @@ export declare class WlIntegrationSamlNamespace {
     /** Gets status of the user in business for given list of identifiers. */
     samlUserDeactivation(params?: WlIntegrationSamlSamlUserDeactivationParams): Promise<WlIntegrationSamlSamlUserDeactivationResponse>;
 }
-export declare class WlIntegrationCurvesPartnerNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    partnerList(params?: WlIntegrationCurvesPartnerPartnerListParams): Promise<WlIntegrationCurvesPartnerPartnerListResponse>;
-    /** Deletes a partner. */
-    partnerEditDelete(params?: WlIntegrationCurvesPartnerPartnerEditDeleteParams): Promise<WlIntegrationCurvesPartnerPartnerEditDeleteResponse>;
-    /** Returns information about a partner. */
-    partnerEditGet(params?: WlIntegrationCurvesPartnerPartnerEditGetParams): Promise<WlIntegrationCurvesPartnerPartnerEditGetResponse>;
-    /** Saves a partner. */
-    partnerEditPost(params?: WlIntegrationCurvesPartnerPartnerEditPostParams): Promise<WlIntegrationCurvesPartnerPartnerEditPostResponse>;
-}
 export declare class WlIntegrationCurvesNamespace {
     private readonly _client;
-    readonly partner: WlIntegrationCurvesPartnerNamespace;
     constructor(_client: WlClient);
     /** Returns country, region, state, city and location lists of the franchisor. This method returns all the information from the parent `get()` and the Curves territory ID. */
     curvesFranchiseLocation(params?: WlIntegrationCurvesCurvesFranchiseLocationParams): Promise<WlIntegrationCurvesCurvesFranchiseLocationResponse>;
@@ -34926,43 +33473,12 @@ export declare class WlIntegrationDragonFlyNamespace {
     /** Checks if the user can physically access the location. */
     access(params?: WlIntegrationDragonFlyAccessParams): Promise<WlIntegrationDragonFlyAccessResponse>;
 }
-export declare class WlIntegrationFacilityAccessBrivoNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    upgrade(params?: WlIntegrationFacilityAccessBrivoUpgradeParams): Promise<WlIntegrationFacilityAccessBrivoUpgradeResponse>;
-    /** Returns Facility Access configuration set up by business. */
-    configuration(params?: WlIntegrationFacilityAccessBrivoConfigurationParams): Promise<WlIntegrationFacilityAccessBrivoConfigurationResponse>;
-}
-export declare class WlIntegrationFacilityAccessNamespace {
-    private readonly _client;
-    readonly brivo: WlIntegrationFacilityAccessBrivoNamespace;
-    constructor(_client: WlClient);
-}
-export declare class WlIntegrationGoHighLevelLocationNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    locationDelete(params?: WlIntegrationGoHighLevelLocationLocationDeleteParams): Promise<WlIntegrationGoHighLevelLocationLocationDeleteResponse>;
-    locationPost(params?: WlIntegrationGoHighLevelLocationLocationPostParams): Promise<WlIntegrationGoHighLevelLocationLocationPostResponse>;
-}
-export declare class WlIntegrationGoHighLevelSubscriptionNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    subscription(params?: WlIntegrationGoHighLevelSubscriptionSubscriptionParams): Promise<WlIntegrationGoHighLevelSubscriptionSubscriptionResponse>;
-}
-export declare class WlIntegrationGoHighLevelNamespace {
-    private readonly _client;
-    readonly location: WlIntegrationGoHighLevelLocationNamespace;
-    readonly subscription: WlIntegrationGoHighLevelSubscriptionNamespace;
-    constructor(_client: WlClient);
-}
 export declare class WlIntegrationNamespace {
     private readonly _client;
     readonly autymate: WlIntegrationAutymateNamespace;
     readonly saml: WlIntegrationSamlNamespace;
     readonly curves: WlIntegrationCurvesNamespace;
     readonly dragonFly: WlIntegrationDragonFlyNamespace;
-    readonly facilityAccess: WlIntegrationFacilityAccessNamespace;
-    readonly goHighLevel: WlIntegrationGoHighLevelNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlCouponCouponListNamespace {
@@ -35389,96 +33905,6 @@ export declare class WlPostcardNamespace {
     readonly campaign: WlPostcardCampaignNamespace;
     constructor(_client: WlClient);
 }
-export declare class WlMarketingOverviewCampaignPerformanceNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Get campaign performance data of the business. */
-    campaignPerformance(params?: WlMarketingOverviewCampaignPerformanceCampaignPerformanceParams): Promise<WlMarketingOverviewCampaignPerformanceCampaignPerformanceResponse>;
-}
-export declare class WlMarketingOverviewWelcomeNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    welcomeDelete(params?: WlMarketingOverviewWelcomeWelcomeDeleteParams): Promise<WlMarketingOverviewWelcomeWelcomeDeleteResponse>;
-    welcomeGet(params?: WlMarketingOverviewWelcomeWelcomeGetParams): Promise<WlMarketingOverviewWelcomeWelcomeGetResponse>;
-}
-export declare class WlMarketingOverviewNamespace {
-    private readonly _client;
-    readonly campaignPerformance: WlMarketingOverviewCampaignPerformanceNamespace;
-    readonly welcome: WlMarketingOverviewWelcomeNamespace;
-    constructor(_client: WlClient);
-}
-export declare class WlMarketingAutomationCreateFlowNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets pre-built automation template data. */
-    triggerList(params?: WlMarketingAutomationCreateFlowTriggerListParams): Promise<WlMarketingAutomationCreateFlowTriggerListResponse>;
-}
-export declare class WlMarketingAutomationRecipientNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns the list of recipients for the given automation within the specified date range. */
-    automationRecipientGet(params?: WlMarketingAutomationRecipientAutomationRecipientGetParams): Promise<WlMarketingAutomationRecipientAutomationRecipientGetResponse>;
-    /** Manually adds selected clients to the automation as recipients. */
-    automationRecipientPost(params?: WlMarketingAutomationRecipientAutomationRecipientPostParams): Promise<WlMarketingAutomationRecipientAutomationRecipientPostResponse>;
-    /** Returns the current status of a recipient in an automation flow. */
-    automationRecipientStatusGet(params?: WlMarketingAutomationRecipientAutomationRecipientStatusGetParams): Promise<WlMarketingAutomationRecipientAutomationRecipientStatusGetResponse>;
-    /** Excludes a recipient from an automation flow. */
-    automationRecipientStatusPost(params?: WlMarketingAutomationRecipientAutomationRecipientStatusPostParams): Promise<WlMarketingAutomationRecipientAutomationRecipientStatusPostResponse>;
-}
-export declare class WlMarketingAutomationListNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets automation data. */
-    automationList(params?: WlMarketingAutomationListAutomationListParams): Promise<WlMarketingAutomationListAutomationListResponse>;
-}
-export declare class WlMarketingAutomationFolderNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Retrieve list of folders where the automation can be moved. The list does not contain the folder where the automation is currently located. Also retrieves the title of the automation and the title of the folder where it is currently located. */
-    folderMapGet(params?: WlMarketingAutomationFolderFolderMapGetParams): Promise<WlMarketingAutomationFolderFolderMapGetResponse>;
-    /** Move the automation to another folder. If the folder key is empty, the automation will be moved to the default folder. */
-    folderMapPost(params?: WlMarketingAutomationFolderFolderMapPostParams): Promise<WlMarketingAutomationFolderFolderMapPostResponse>;
-    /** Delete a folder. Automations in the folder will be moved to another folder or to the default folder. */
-    automationFolderDelete(params?: WlMarketingAutomationFolderAutomationFolderDeleteParams): Promise<WlMarketingAutomationFolderAutomationFolderDeleteResponse>;
-    /** Get list of folders in the business. */
-    automationFolderGet(params?: WlMarketingAutomationFolderAutomationFolderGetParams): Promise<WlMarketingAutomationFolderAutomationFolderGetResponse>;
-    /** Create or edit a folder. */
-    automationFolderPost(params?: WlMarketingAutomationFolderAutomationFolderPostParams): Promise<WlMarketingAutomationFolderAutomationFolderPostResponse>;
-    /** Change the order of folders. */
-    folderSort(params?: WlMarketingAutomationFolderFolderSortParams): Promise<WlMarketingAutomationFolderFolderSortResponse>;
-}
-export declare class WlMarketingAutomationPrebuiltNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Get the business types connected to the pre-built automation. */
-    prebuiltDuplicateGet(params?: WlMarketingAutomationPrebuiltPrebuiltDuplicateGetParams): Promise<WlMarketingAutomationPrebuiltPrebuiltDuplicateGetResponse>;
-    /** Duplicate the pre-built automation. */
-    prebuiltDuplicatePost(params?: WlMarketingAutomationPrebuiltPrebuiltDuplicatePostParams): Promise<WlMarketingAutomationPrebuiltPrebuiltDuplicatePostResponse>;
-    /** Gets automation data. */
-    automationPrebuilt(params?: WlMarketingAutomationPrebuiltAutomationPrebuiltParams): Promise<WlMarketingAutomationPrebuiltAutomationPrebuiltResponse>;
-}
-export declare class WlMarketingAutomationAiGenerationNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Build the ISAAC request payload from automation data without sending the request. */
-    askIsaacAutomationContent(params?: WlMarketingAutomationAiGenerationAskIsaacAutomationContentParams): Promise<WlMarketingAutomationAiGenerationAskIsaacAutomationContentResponse>;
-}
-export declare class WlMarketingAutomationNamespace {
-    private readonly _client;
-    readonly createFlow: WlMarketingAutomationCreateFlowNamespace;
-    readonly recipient: WlMarketingAutomationRecipientNamespace;
-    readonly list: WlMarketingAutomationListNamespace;
-    readonly folder: WlMarketingAutomationFolderNamespace;
-    readonly prebuilt: WlMarketingAutomationPrebuiltNamespace;
-    readonly aiGeneration: WlMarketingAutomationAiGenerationNamespace;
-    constructor(_client: WlClient);
-}
-export declare class WlMarketingNamespace {
-    private readonly _client;
-    readonly overview: WlMarketingOverviewNamespace;
-    readonly automation: WlMarketingAutomationNamespace;
-    constructor(_client: WlClient);
-}
 export declare class WlHelpPopupEmailNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -35582,7 +34008,6 @@ export declare class WlNamespace {
     readonly virtual: WlVirtualNamespace;
     readonly doorAccess: WlDoorAccessNamespace;
     readonly postcard: WlPostcardNamespace;
-    readonly marketing: WlMarketingNamespace;
     readonly help: WlHelpNamespace;
     readonly contact: WlContactNamespace;
     constructor(_client: WlClient);
