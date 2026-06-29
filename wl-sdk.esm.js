@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260629063739
+// OpenAPI spec version: 1.1.20260629092128
 // Build date: 2026-06-29
-// Endpoints: 472
-// Enums: 179
+// Endpoints: 466
+// Enums: 181
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,13 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (179 total) ---
-/** List of supported terminal interaction types. */
-export var ThothPayProcessorTerminalTerminalTypeSid;
-(function (ThothPayProcessorTerminalTerminalTypeSid) {
-    /** Magtek USB */
-    ThothPayProcessorTerminalTerminalTypeSid[ThothPayProcessorTerminalTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
-})(ThothPayProcessorTerminalTerminalTypeSid || (ThothPayProcessorTerminalTerminalTypeSid = {}));
+// --- Enum types (181 total) ---
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
 (function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
@@ -284,26 +278,6 @@ export var RsPayOwnerSid;
     /** System user */
     RsPayOwnerSid[RsPayOwnerSid["USER"] = 1] = "USER";
 })(RsPayOwnerSid || (RsPayOwnerSid = {}));
-/** List of possible status of readers. */
-export var ThothPayProcessorTerminalTerminalStatusSid;
-(function (ThothPayProcessorTerminalTerminalStatusSid) {
-    /** Status active */
-    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["ACTIVE"] = 1] = "ACTIVE";
-    /** Status inactive */
-    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["INACTIVE"] = 2] = "INACTIVE";
-    /** Status setup, reader is active but not added to stripe yet */
-    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["SETUP"] = 3] = "SETUP";
-})(ThothPayProcessorTerminalTerminalStatusSid || (ThothPayProcessorTerminalTerminalStatusSid = {}));
-/** List of reader status for reader list page. */
-export var ThothPayHardwareReaderStatusFilterSid;
-(function (ThothPayHardwareReaderStatusFilterSid) {
-    /** Active reader */
-    ThothPayHardwareReaderStatusFilterSid[ThothPayHardwareReaderStatusFilterSid["ACTIVE"] = 2] = "ACTIVE";
-    /** All reader */
-    ThothPayHardwareReaderStatusFilterSid[ThothPayHardwareReaderStatusFilterSid["ALL"] = 1] = "ALL";
-    /** Inactive reader */
-    ThothPayHardwareReaderStatusFilterSid[ThothPayHardwareReaderStatusFilterSid["INACTIVE"] = 3] = "INACTIVE";
-})(ThothPayHardwareReaderStatusFilterSid || (ThothPayHardwareReaderStatusFilterSid = {}));
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -2202,6 +2176,22 @@ export var WlReportGeneratorReportGeneratorStatusSid;
     /** Generation of this report is now completed */
     WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["READY"] = 3] = "READY";
 })(WlReportGeneratorReportGeneratorStatusSid || (WlReportGeneratorReportGeneratorStatusSid = {}));
+/** A list of account holder types which can be chosen. */
+export var RsPayBankAchHolderSid;
+(function (RsPayBankAchHolderSid) {
+    /** Account holder is a business */
+    RsPayBankAchHolderSid[RsPayBankAchHolderSid["BUSINESS"] = 2] = "BUSINESS";
+    /** Account holder is a person */
+    RsPayBankAchHolderSid[RsPayBankAchHolderSid["PERSONAL"] = 1] = "PERSONAL";
+})(RsPayBankAchHolderSid || (RsPayBankAchHolderSid = {}));
+/** A list of account types which can be chosen. */
+export var RsPayBankAchTypeSid;
+(function (RsPayBankAchTypeSid) {
+    /** Checking account */
+    RsPayBankAchTypeSid[RsPayBankAchTypeSid["CHECKING"] = 1] = "CHECKING";
+    /** Savings account */
+    RsPayBankAchTypeSid[RsPayBankAchTypeSid["SAVINGS"] = 2] = "SAVINGS";
+})(RsPayBankAchTypeSid || (RsPayBankAchTypeSid = {}));
 /** List of responses for Google Captcha token. */
 export var CoreGoogleCaptchaCaptchaResponseSid;
 (function (CoreGoogleCaptchaCaptchaResponseSid) {
@@ -4298,6 +4288,16 @@ export var WlSocialShareShareObjectSid;
     /** Review */
     WlSocialShareShareObjectSid[WlSocialShareShareObjectSid["REVIEW"] = 2] = "REVIEW";
 })(WlSocialShareShareObjectSid || (WlSocialShareShareObjectSid = {}));
+/** A list of bank account types. */
+export var RsPayBankSid;
+(function (RsPayBankSid) {
+    /** Bank account for ACH direct bank transactions. USA-specific system */
+    RsPayBankSid[RsPayBankSid["ACH"] = 2] = "ACH";
+    /** A credit card */
+    RsPayBankSid[RsPayBankSid["CARD"] = 1] = "CARD";
+    /** Bank account for Direct Entry direct bank transactions.  Australian-specific system */
+    RsPayBankSid[RsPayBankSid["DIRECT_ENTRY"] = 3] = "DIRECT_ENTRY";
+})(RsPayBankSid || (RsPayBankSid = {}));
 /** Payment actors (staff member, user or business owner). */
 export var RsPayActorSid;
 (function (RsPayActorSid) {
@@ -4308,6 +4308,28 @@ export var RsPayActorSid;
     /** User */
     RsPayActorSid[RsPayActorSid["USER"] = 2] = "USER";
 })(RsPayActorSid || (RsPayActorSid = {}));
+/** A list of SEC codes which can be chosen. */
+export var RsPayBankAchSecSid;
+(function (RsPayBankAchSecSid) {
+    /** Corporate bank account */
+    RsPayBankAchSecSid[RsPayBankAchSecSid["CCD"] = 4] = "CCD";
+    /** Prearranged Payment & Deposit */
+    RsPayBankAchSecSid[RsPayBankAchSecSid["PPD"] = 2] = "PPD";
+    /** Telephone Initiated Entry */
+    RsPayBankAchSecSid[RsPayBankAchSecSid["TEL"] = 3] = "TEL";
+    /** Web Initiated Entry */
+    RsPayBankAchSecSid[RsPayBankAchSecSid["WEB"] = 1] = "WEB";
+})(RsPayBankAchSecSid || (RsPayBankAchSecSid = {}));
+/** A list of modes in which payment form can be shown. */
+export var RsPayModeSid;
+(function (RsPayModeSid) {
+    /** The form is show in the mobile device */
+    RsPayModeSid[RsPayModeSid["MOBILE"] = 2] = "MOBILE";
+    /** A form is shown in a simple mode */
+    RsPayModeSid[RsPayModeSid["SIMPLE"] = 3] = "SIMPLE";
+    /** A form is shown in the web browser */
+    RsPayModeSid[RsPayModeSid["WEB"] = 1] = "WEB";
+})(RsPayModeSid || (RsPayModeSid = {}));
 /** Appointment display option. */
 export var WlScheduleDesignOptionSid;
 (function (WlScheduleDesignOptionSid) {
@@ -4941,77 +4963,6 @@ export var WlLoginPromotionGuestPassInviteInviteStatusEnum;
     WlLoginPromotionGuestPassInviteInviteStatusEnum[WlLoginPromotionGuestPassInviteInviteStatusEnum["NO_SHOW"] = 4] = "NO_SHOW";
 })(WlLoginPromotionGuestPassInviteInviteStatusEnum || (WlLoginPromotionGuestPassInviteInviteStatusEnum = {}));
 // --- Namespace classes ---
-export class ThothPayHardwareDirectConnectNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Removes terminal. */
-    directConnectHardwareElementDelete(params) {
-        return this._client._request('/Thoth/PayHardware/DirectConnect/DirectConnectHardwareElement.json', params, 'DELETE');
-    }
-    /** Fetch terminal information. */
-    directConnectHardwareElementGet(params) {
-        return this._client._request('/Thoth/PayHardware/DirectConnect/DirectConnectHardwareElement.json', params, 'GET');
-    }
-    /** Creates or updates terminal. */
-    directConnectHardwareElementPost(params) {
-        return this._client._request('/Thoth/PayHardware/DirectConnect/DirectConnectHardwareElement.json', params, 'POST');
-    }
-    directConnectHardwareList(params) {
-        return this._client._request('/Thoth/PayHardware/DirectConnect/DirectConnectHardwareList.json', params, 'GET');
-    }
-}
-export class ThothPayHardwareNuveiNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Removes terminal. */
-    nuveiHardwareElementDelete(params) {
-        return this._client._request('/Thoth/PayHardware/Nuvei/NuveiHardwareElement.json', params, 'DELETE');
-    }
-    /** Fetch terminal information. */
-    nuveiHardwareElementGet(params) {
-        return this._client._request('/Thoth/PayHardware/Nuvei/NuveiHardwareElement.json', params, 'GET');
-    }
-    /** Creates terminal. */
-    nuveiHardwareElementPost(params) {
-        return this._client._request('/Thoth/PayHardware/Nuvei/NuveiHardwareElement.json', params, 'POST');
-    }
-    nuveiHardwareList(params) {
-        return this._client._request('/Thoth/PayHardware/Nuvei/NuveiHardwareList.json', params, 'GET');
-    }
-}
-export class ThothPayHardwareStripeComNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Removes terminal. */
-    stripeComHardwareElementDelete(params) {
-        return this._client._request('/Thoth/PayHardware/StripeCom/StripeComHardwareElement.json', params, 'DELETE');
-    }
-    /** Fetch terminal information. */
-    stripeComHardwareElementGet(params) {
-        return this._client._request('/Thoth/PayHardware/StripeCom/StripeComHardwareElement.json', params, 'GET');
-    }
-    /** Creates terminal. */
-    stripeComHardwareElementPost(params) {
-        return this._client._request('/Thoth/PayHardware/StripeCom/StripeComHardwareElement.json', params, 'POST');
-    }
-    stripeComHardwareList(params) {
-        return this._client._request('/Thoth/PayHardware/StripeCom/StripeComHardwareList.json', params, 'GET');
-    }
-}
-export class ThothPayHardwareNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.directConnect = new ThothPayHardwareDirectConnectNamespace(this._client);
-        this.nuvei = new ThothPayHardwareNuveiNamespace(this._client);
-        this.stripeCom = new ThothPayHardwareStripeComNamespace(this._client);
-    }
-    hardwareStaffPreference(params) {
-        return this._client._request('/Thoth/PayHardware/HardwareStaffPreference.json', params, 'POST');
-    }
-}
 export class ThothExplorerSearchClassSessionNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5093,9 +5044,19 @@ export class ThothWlPayOwnerNamespace {
         return this._client._request('/Thoth/WlPay/Owner/Owner.json', params, 'GET');
     }
 }
+export class ThothWlPayAddressWidgetNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets data for "edit payment address" widget. */
+    widgetEdit(params) {
+        return this._client._request('/Thoth/WlPay/Address/Widget/WidgetEdit.json', params, 'GET');
+    }
+}
 export class ThothWlPayAddressNamespace {
     constructor(_client) {
         this._client = _client;
+        this.widget = new ThothWlPayAddressWidgetNamespace(this._client);
     }
     /** Gets user's payment addresses information. */
     address(params) {
@@ -5121,6 +5082,33 @@ export class ThothWlPayTransactionNamespace {
         this.report = new ThothWlPayTransactionReportNamespace(this._client);
     }
 }
+export class ThothWlPayBankAchAddNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes saved ACH. */
+    addDelete(params) {
+        return this._client._request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params, 'DELETE');
+    }
+    /** Gets widget for ACH account add. */
+    addGet(params) {
+        return this._client._request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params, 'GET');
+    }
+    /** Saves new ACH pay method. */
+    addPost(params) {
+        return this._client._request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params, 'POST');
+    }
+}
+export class ThothWlPayBankAchNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.add = new ThothWlPayBankAchAddNamespace(this._client);
+    }
+    /** Retrieves information about user's ACH accounts. */
+    list(params) {
+        return this._client._request('/Thoth/WlPay/Bank/Ach/List.json', params, 'GET');
+    }
+}
 export class ThothWlPayBankCardAddNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5139,10 +5127,20 @@ export class ThothWlPayBankCardAddNamespace {
         return this._client._request('/Thoth/WlPay/Bank/Card/Add/Add.json', params, 'POST');
     }
 }
+export class ThothWlPayBankCardWidgetNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a list of saved bank cards. */
+    widgetSelect(params) {
+        return this._client._request('/Thoth/WlPay/Bank/Card/Widget/WidgetSelect.json', params, 'GET');
+    }
+}
 export class ThothWlPayBankCardNamespace {
     constructor(_client) {
         this._client = _client;
         this.add = new ThothWlPayBankCardAddNamespace(this._client);
+        this.widget = new ThothWlPayBankCardWidgetNamespace(this._client);
     }
     /** Retrieves information about user's bank cards. */
     list(params) {
@@ -5152,6 +5150,7 @@ export class ThothWlPayBankCardNamespace {
 export class ThothWlPayBankNamespace {
     constructor(_client) {
         this._client = _client;
+        this.ach = new ThothWlPayBankAchNamespace(this._client);
         this.card = new ThothWlPayBankCardNamespace(this._client);
     }
 }
@@ -5170,7 +5169,6 @@ export class ThothWlPayNamespace {
 export class ThothNamespace {
     constructor(_client) {
         this._client = _client;
-        this.payHardware = new ThothPayHardwareNamespace(this._client);
         this.explorerSearch = new ThothExplorerSearchNamespace(this._client);
         this.reportCore = new ThothReportCoreNamespace(this._client);
         this.wlPay = new ThothWlPayNamespace(this._client);
@@ -7001,6 +6999,15 @@ export class WlSkinNamespace {
         return this._client._request('/Wl/Skin/SkinForeign.json', params, 'PUT');
     }
 }
+export class WlCurrencyNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves information about currencies. */
+    currency(params) {
+        return this._client._request('/Wl/Currency/Currency.json', params, 'GET');
+    }
+}
 export class WlTagNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8591,6 +8598,7 @@ export class WlNamespace {
         this.mail = new WlMailNamespace(this._client);
         this.staff = new WlStaffNamespace(this._client);
         this.skin = new WlSkinNamespace(this._client);
+        this.currency = new WlCurrencyNamespace(this._client);
         this.tag = new WlTagNamespace(this._client);
         this.tax = new WlTaxNamespace(this._client);
         this.review = new WlReviewNamespace(this._client);

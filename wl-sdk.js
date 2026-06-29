@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260629063739
+ * Spec version: 1.1.20260629092128
  * Build date:   2026-06-29
- * Endpoints:    472
+ * Endpoints:    466
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,21 +210,11 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260629063739';
+  WlClient.SPEC_VERSION = '1.1.20260629092128';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (472 total)
+  // Generated API methods (466 total)
   // ---------------------------------------------------------------------------
-
-  /**
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.thothPayHardwareHardwareStaffPreference = function(params)
-  {
-    return this.request('/Thoth/PayHardware/HardwareStaffPreference.json', params || {}, 'POST');
-  };
 
   /**
    * Gets list of class sessions based on search criteria.
@@ -453,187 +443,6 @@
   WlClient.prototype.thothWlPayAddressProfile = function(params)
   {
     return this.request('/Thoth/WlPay/Address/Profile.json', params || {}, 'GET');
-  };
-
-  /**
-   * Removes terminal.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.k_terminal] Terminal key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.thothPayHardwareDirectConnectDirectConnectHardwareElementDelete = function(params)
-  {
-    return this.request('/Thoth/PayHardware/DirectConnect/DirectConnectHardwareElement.json', params || {}, 'DELETE');
-  };
-
-  /**
-   * Fetch terminal information.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.k_terminal] Terminal key.
-   * @returns {Promise<Object>} Response data.
-   *  `id_model` {number} Hardware model ID.
-   *  `id_status` {number} List of possible status of readers. See {@link WlClient.ThothPayProcessorTerminalTerminalStatusSid}.
-   *  `ip_terminal` {?string} IP address of terminal.
-   *  `k_location` {string} Location key.
-   *  `s_terminal_id` {string} Terminal id which is added in the paragon.
-   *  `text_label` {string} Label of the terminal.
-   *  `text_location` {?string} Location name.
-   */
-  WlClient.prototype.thothPayHardwareDirectConnectDirectConnectHardwareElementGet = function(params)
-  {
-    return this.request('/Thoth/PayHardware/DirectConnect/DirectConnectHardwareElement.json', params || {}, 'GET');
-  };
-
-  /**
-   * Creates or updates terminal.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.k_terminal] Terminal key.
-   * @returns {Promise<Object>} Response data.
-   *  `k_terminal` {?string} Terminal key.
-   */
-  WlClient.prototype.thothPayHardwareDirectConnectDirectConnectHardwareElementPost = function(params)
-  {
-    return this.request('/Thoth/PayHardware/DirectConnect/DirectConnectHardwareElement.json', params || {}, 'POST');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_status Reader status ID for filter. See {@link WlClient.ThothPayHardwareReaderStatusFilterSid}.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.text_search] Text filter.
-   * @returns {Promise<Object>} Response data.
-   *  `a_list` {*[]} List of available hardware.
-   */
-  WlClient.prototype.thothPayHardwareDirectConnectDirectConnectHardwareList = function(params)
-  {
-    return this.request('/Thoth/PayHardware/DirectConnect/DirectConnectHardwareList.json', params || {}, 'GET');
-  };
-
-  /**
-   * Removes terminal.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.k_terminal] Terminal key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.thothPayHardwareNuveiNuveiHardwareElementDelete = function(params)
-  {
-    return this.request('/Thoth/PayHardware/Nuvei/NuveiHardwareElement.json', params || {}, 'DELETE');
-  };
-
-  /**
-   * Fetch terminal information.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.k_terminal] Terminal key.
-   * @returns {Promise<Object>} Response data.
-   *  `id_model` {number} Hardware model ID.
-   *  `id_status` {number} List of possible status of readers. See {@link WlClient.ThothPayProcessorTerminalTerminalStatusSid}.
-   *  `ip_terminal` {?string} IP address of terminal.
-   *  `k_location` {string} Location key.
-   *  `text_label` {string} Label of the terminal.
-   *  `text_location` {?string} Location name.
-   */
-  WlClient.prototype.thothPayHardwareNuveiNuveiHardwareElementGet = function(params)
-  {
-    return this.request('/Thoth/PayHardware/Nuvei/NuveiHardwareElement.json', params || {}, 'GET');
-  };
-
-  /**
-   * Creates terminal.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.k_terminal] Terminal key.
-   * @returns {Promise<Object>} Response data.
-   *  `k_terminal` {?string} Terminal key.
-   */
-  WlClient.prototype.thothPayHardwareNuveiNuveiHardwareElementPost = function(params)
-  {
-    return this.request('/Thoth/PayHardware/Nuvei/NuveiHardwareElement.json', params || {}, 'POST');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_status Reader status ID for filter. See {@link WlClient.ThothPayHardwareReaderStatusFilterSid}.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.text_search] Text filter.
-   * @returns {Promise<Object>} Response data.
-   *  `a_list` {*[]} List of available hardware.
-   */
-  WlClient.prototype.thothPayHardwareNuveiNuveiHardwareList = function(params)
-  {
-    return this.request('/Thoth/PayHardware/Nuvei/NuveiHardwareList.json', params || {}, 'GET');
-  };
-
-  /**
-   * Removes terminal.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.k_terminal] Terminal key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.thothPayHardwareStripeComStripeComHardwareElementDelete = function(params)
-  {
-    return this.request('/Thoth/PayHardware/StripeCom/StripeComHardwareElement.json', params || {}, 'DELETE');
-  };
-
-  /**
-   * Fetch terminal information.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.k_terminal] Terminal key.
-   * @returns {Promise<Object>} Response data.
-   *  `id_model` {number} Hardware model ID.
-   *  `id_status` {number} List of possible status of readers. See {@link WlClient.ThothPayProcessorTerminalTerminalStatusSid}.
-   *  `ip_terminal` {?string} IP address of terminal.
-   *  `k_location` {string} Location key.
-   *  `text_label` {string} Label of the terminal.
-   *  `text_location` {?string} Location name.
-   */
-  WlClient.prototype.thothPayHardwareStripeComStripeComHardwareElementGet = function(params)
-  {
-    return this.request('/Thoth/PayHardware/StripeCom/StripeComHardwareElement.json', params || {}, 'GET');
-  };
-
-  /**
-   * Creates terminal.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.k_terminal] Terminal key.
-   * @returns {Promise<Object>} Response data.
-   *  `k_terminal` {?string} Terminal key.
-   */
-  WlClient.prototype.thothPayHardwareStripeComStripeComHardwareElementPost = function(params)
-  {
-    return this.request('/Thoth/PayHardware/StripeCom/StripeComHardwareElement.json', params || {}, 'POST');
-  };
-
-  /**
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_status Reader status ID for filter. See {@link WlClient.ThothPayHardwareReaderStatusFilterSid}.
-   * @param {string} params.k_business Business key.
-   * @param {?string} [params.text_search] Text filter.
-   * @returns {Promise<Object>} Response data.
-   *  `a_list` {*[]} List of available hardware.
-   */
-  WlClient.prototype.thothPayHardwareStripeComStripeComHardwareList = function(params)
-  {
-    return this.request('/Thoth/PayHardware/StripeCom/StripeComHardwareList.json', params || {}, 'GET');
   };
 
   /**
@@ -1925,6 +1734,18 @@
   };
 
   /**
+   * Retrieves information about currencies.
+   *
+   * @param {Object} [params] Request parameters.
+   * @returns {Promise<Object>} Response data.
+   *  `a_currency` {Object[]} Keys - currency keys. Values - information about currency:
+   */
+  WlClient.prototype.wlCurrencyCurrency = function(params)
+  {
+    return this.request('/Wl/Currency/Currency.json', params || {}, 'GET');
+  };
+
+  /**
    * Returns tags of the specified business.
    *
    * Returns all client tags configured for the business in display order, along with flags
@@ -2151,6 +1972,22 @@
   };
 
   /**
+   * Retrieves information about user's ACH accounts.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business ID of current business.
+   * @param {string} params.k_location Location to show information for.
+   * @param {string} params.uid ID of a user to show information for.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object[]} List of ACH accounts:
+   *  `can_add` {boolean} Whether new ACH account can be added.
+   */
+  WlClient.prototype.thothWlPayBankAchList = function(params)
+  {
+    return this.request('/Thoth/WlPay/Bank/Ach/List.json', params || {}, 'GET');
+  };
+
+  /**
    * Retrieves information about user's bank cards.
    *
    * Returns the list of saved payment cards for the specified user and business, including card number fragment,
@@ -2168,6 +2005,21 @@
   WlClient.prototype.thothWlPayBankCardList = function(params)
   {
     return this.request('/Thoth/WlPay/Bank/Card/List.json', params || {}, 'GET');
+  };
+
+  /**
+   * Gets data for "edit payment address" widget.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business primary key in RsBusinessSql table.
+   * @returns {Promise<Object>} Response data.
+   *  `a_geo` {*[][]} List of possible regions.
+   *  `html_phone_mask` {string} Mask for phone entering (ready for output to the page).
+   *  `text_phone_mask` {string} Mask for phone entering.
+   */
+  WlClient.prototype.thothWlPayAddressWidgetWidgetEdit = function(params)
+  {
+    return this.request('/Thoth/WlPay/Address/Widget/WidgetEdit.json', params || {}, 'GET');
   };
 
   /**
@@ -6914,6 +6766,52 @@
   };
 
   /**
+   * Deletes saved ACH.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key. Primary key in RsBusinessSql table.
+   * @param {string} params.k_pay_bank Pay bank key to delete. Primary key in RsPayBankSql table.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.thothWlPayBankAchAddAddDelete = function(params)
+  {
+    return this.request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Gets widget for ACH account add.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {?number} [params.id_locale] Locale ID. One of {@link WlClient.CoreLocaleLocaleSid} constants.
+   * @param {boolean} params.is_new Determines if the set of configs of the new payment form design is used.
+   * @param {string} params.k_business Business key. Primary key in RsBusinessSql table.
+   * @param {string} params.k_location Location key. Primary key in RsLocationSql table.
+   * @param {string} params.k_pay_owner Pay owner key.
+   * @returns {Promise<Object>} Response data.
+   *  `html_widget` {string} The HTML form containing the fields required to add a card.
+   *  `id_pay_processor` {number} A list of payment gateways or processors. See {@link WlClient.ThothPayProcessorPayProcessorSid}.
+   */
+  WlClient.prototype.thothWlPayBankAchAddAddGet = function(params)
+  {
+    return this.request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves new ACH pay method.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key. Primary key in RsBusinessSql table.
+   * @param {string} params.k_location Location key. Primary key in RsLocationSql table.
+   * @param {string} params.k_pay_owner Pay owner key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_pay_bank` {Object} ACH account information:
+   */
+  WlClient.prototype.thothWlPayBankAchAddAddPost = function(params)
+  {
+    return this.request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params || {}, 'POST');
+  };
+
+  /**
    * Deletes saved card.
    *
    * Removes the payment card identified by `$k_pay_bank` from the specified business, permanently deleting
@@ -6963,6 +6861,25 @@
   WlClient.prototype.thothWlPayBankCardAddAddPost = function(params)
   {
     return this.request('/Thoth/WlPay/Bank/Card/Add/Add.json', params || {}, 'POST');
+  };
+
+  /**
+   * Gets a list of saved bank cards.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.id_pay_method Payment method. One of {@link WlClient.RsPayMethodSid} constants.
+   * @param {number} params.id_pay_mode Payment mode. See {@link WlClient.RsPayModeSid}.
+   * @param {number} params.id_pay_owner Payment owner kind. See {@link WlClient.RsPayOwnerSid}.
+   * @param {string} params.k_business Business key. Primary key in RsBusinessSql table.
+   * @param {string} params.k_currency Currency key. Primary key in RsCurrencySql table.
+   * @param {string} params.k_id Payment owner.
+   * @param {string} params.k_location Location key. Primary key in RsLocationSql table.
+   * @returns {Promise<Object>} Response data.
+   *  `a_pay_card` {*[]} List of saved bank cards. See RsPayBankCardSelectWidget::additional_data() fo...
+   */
+  WlClient.prototype.thothWlPayBankCardWidgetWidgetSelect = function(params)
+  {
+    return this.request('/Thoth/WlPay/Bank/Card/Widget/WidgetSelect.json', params || {}, 'GET');
   };
 
   /**
@@ -10384,18 +10301,8 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (192 total)
+  // Enum constants (194 total)
   // ---------------------------------------------------------------------------
-
-  /**
-   * List of supported terminal interaction types.
-   *
-   * @enum {number}
-   */
-  WlClient.ThothPayProcessorTerminalTerminalTypeSid = Object.freeze({
-    /** Magtek USB */
-    MAGTEK_USB: 1,
-  });
 
   /**
    * Experience types for class sessions to differentiate virtual and in-person sessions.
@@ -10695,34 +10602,6 @@
     BUSINESS: 2,
     /** System user */
     USER: 1,
-  });
-
-  /**
-   * List of possible status of readers.
-   *
-   * @enum {number}
-   */
-  WlClient.ThothPayProcessorTerminalTerminalStatusSid = Object.freeze({
-    /** Status active */
-    ACTIVE: 1,
-    /** Status inactive */
-    INACTIVE: 2,
-    /** Status setup, reader is active but not added to stripe yet */
-    SETUP: 3,
-  });
-
-  /**
-   * List of reader status for reader list page.
-   *
-   * @enum {number}
-   */
-  WlClient.ThothPayHardwareReaderStatusFilterSid = Object.freeze({
-    /** Active reader */
-    ACTIVE: 2,
-    /** All reader */
-    ALL: 1,
-    /** Inactive reader */
-    INACTIVE: 3,
   });
 
   /**
@@ -12829,6 +12708,30 @@
     QUEUED: 1,
     /** Generation of this report is now completed */
     READY: 3,
+  });
+
+  /**
+   * A list of account holder types which can be chosen.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPayBankAchHolderSid = Object.freeze({
+    /** Account holder is a business */
+    BUSINESS: 2,
+    /** Account holder is a person */
+    PERSONAL: 1,
+  });
+
+  /**
+   * A list of account types which can be chosen.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPayBankAchTypeSid = Object.freeze({
+    /** Checking account */
+    CHECKING: 1,
+    /** Savings account */
+    SAVINGS: 2,
   });
 
   /**
@@ -15184,6 +15087,20 @@
   });
 
   /**
+   * A list of bank account types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPayBankSid = Object.freeze({
+    /** Bank account for ACH direct bank transactions. USA-specific system */
+    ACH: 2,
+    /** A credit card */
+    CARD: 1,
+    /** Bank account for Direct Entry direct bank transactions.  Australian-specific system */
+    DIRECT_ENTRY: 3,
+  });
+
+  /**
    * Payment actors (staff member, user or business owner).
    *
    * @enum {number}
@@ -15195,6 +15112,36 @@
     STAFF: 1,
     /** User */
     USER: 2,
+  });
+
+  /**
+   * A list of SEC codes which can be chosen.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPayBankAchSecSid = Object.freeze({
+    /** Corporate bank account */
+    CCD: 4,
+    /** Prearranged Payment & Deposit */
+    PPD: 2,
+    /** Telephone Initiated Entry */
+    TEL: 3,
+    /** Web Initiated Entry */
+    WEB: 1,
+  });
+
+  /**
+   * A list of modes in which payment form can be shown.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPayModeSid = Object.freeze({
+    /** The form is show in the mobile device */
+    MOBILE: 2,
+    /** A form is shown in a simple mode */
+    SIMPLE: 3,
+    /** A form is shown in the web browser */
+    WEB: 1,
   });
 
   /**

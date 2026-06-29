@@ -19,11 +19,6 @@ export declare class WlApiError extends Error {
     readonly errors: WlApiErrorDetail[];
     constructor(status: number, body: unknown);
 }
-/** List of supported terminal interaction types. */
-export declare enum ThothPayProcessorTerminalTerminalTypeSid {
-    /** Magtek USB */
-    MAGTEK_USB = 1
-}
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export declare enum ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum {
     /** In-person session at a physical location */
@@ -278,24 +273,6 @@ export declare enum RsPayOwnerSid {
     BUSINESS = 2,
     /** System user */
     USER = 1
-}
-/** List of possible status of readers. */
-export declare enum ThothPayProcessorTerminalTerminalStatusSid {
-    /** Status active */
-    ACTIVE = 1,
-    /** Status inactive */
-    INACTIVE = 2,
-    /** Status setup, reader is active but not added to stripe yet */
-    SETUP = 3
-}
-/** List of reader status for reader list page. */
-export declare enum ThothPayHardwareReaderStatusFilterSid {
-    /** Active reader */
-    ACTIVE = 2,
-    /** All reader */
-    ALL = 1,
-    /** Inactive reader */
-    INACTIVE = 3
 }
 /** List of Google reCaptcha versions. */
 export declare enum CoreGoogleCaptchaCaptchaVersionSid {
@@ -2142,6 +2119,20 @@ export declare enum WlReportGeneratorReportGeneratorStatusSid {
     QUEUED = 1,
     /** Generation of this report is now completed */
     READY = 3
+}
+/** A list of account holder types which can be chosen. */
+export declare enum RsPayBankAchHolderSid {
+    /** Account holder is a business */
+    BUSINESS = 2,
+    /** Account holder is a person */
+    PERSONAL = 1
+}
+/** A list of account types which can be chosen. */
+export declare enum RsPayBankAchTypeSid {
+    /** Checking account */
+    CHECKING = 1,
+    /** Savings account */
+    SAVINGS = 2
 }
 /** List of responses for Google Captcha token. */
 export declare enum CoreGoogleCaptchaCaptchaResponseSid {
@@ -4175,6 +4166,15 @@ export declare enum WlSocialShareShareObjectSid {
     /** Review */
     REVIEW = 2
 }
+/** A list of bank account types. */
+export declare enum RsPayBankSid {
+    /** Bank account for ACH direct bank transactions. USA-specific system */
+    ACH = 2,
+    /** A credit card */
+    CARD = 1,
+    /** Bank account for Direct Entry direct bank transactions.  Australian-specific system */
+    DIRECT_ENTRY = 3
+}
 /** Payment actors (staff member, user or business owner). */
 export declare enum RsPayActorSid {
     /** Business owner */
@@ -4183,6 +4183,26 @@ export declare enum RsPayActorSid {
     STAFF = 1,
     /** User */
     USER = 2
+}
+/** A list of SEC codes which can be chosen. */
+export declare enum RsPayBankAchSecSid {
+    /** Corporate bank account */
+    CCD = 4,
+    /** Prearranged Payment & Deposit */
+    PPD = 2,
+    /** Telephone Initiated Entry */
+    TEL = 3,
+    /** Web Initiated Entry */
+    WEB = 1
+}
+/** A list of modes in which payment form can be shown. */
+export declare enum RsPayModeSid {
+    /** The form is show in the mobile device */
+    MOBILE = 2,
+    /** A form is shown in a simple mode */
+    SIMPLE = 3,
+    /** A form is shown in the web browser */
+    WEB = 1
 }
 /** Appointment display option. */
 export declare enum WlScheduleDesignOptionSid {
@@ -4767,8 +4787,6 @@ export declare enum WlLoginPromotionGuestPassInviteInviteStatusEnum {
     /** Guest accepted the invitation but did not show up for the visit. Pass is */
     NO_SHOW = 4
 }
-export type ThothPayHardwareHardwareStaffPreferenceParams = Record<string, unknown>;
-export type ThothPayHardwareHardwareStaffPreferenceResponse = Record<string, unknown>;
 export interface ThothExplorerSearchClassSessionClassSessionSearchParams {
     /** List of business keys to search by. */
     a_business: Array<string>;
@@ -5159,155 +5177,6 @@ export interface ThothWlPayAddressProfileResponse {
     s_street1: string | null;
     /** The second line of the client address. */
     s_street2: string | null;
-}
-export interface ThothPayHardwareDirectConnectDirectConnectHardwareElementDeleteParams {
-    /** Business key. */
-    k_business: string;
-    /** Terminal key. */
-    k_terminal?: string | null;
-}
-export type ThothPayHardwareDirectConnectDirectConnectHardwareElementDeleteResponse = Record<string, unknown>;
-export interface ThothPayHardwareDirectConnectDirectConnectHardwareElementGetParams {
-    /** Business key. */
-    k_business: string;
-    /** Terminal key. */
-    k_terminal?: string | null;
-}
-export interface ThothPayHardwareDirectConnectDirectConnectHardwareElementGetResponse {
-    /** Hardware model ID. */
-    id_model: number;
-    /** List of possible status of readers. @see ThothPayProcessorTerminalTerminalStatusSid */
-    id_status: ThothPayProcessorTerminalTerminalStatusSid;
-    /** IP address of terminal. */
-    ip_terminal: string | null;
-    /** Location key. */
-    k_location: string;
-    /** Terminal id which is added in the paragon. */
-    s_terminal_id: string;
-    /** Label of the terminal. */
-    text_label: string;
-    /** Location name. */
-    text_location: string | null;
-}
-export interface ThothPayHardwareDirectConnectDirectConnectHardwareElementPostParams {
-    /** Business key. */
-    k_business: string;
-    /** Terminal key. */
-    k_terminal?: string | null;
-}
-export interface ThothPayHardwareDirectConnectDirectConnectHardwareElementPostResponse {
-    /** Terminal key. */
-    k_terminal: string | null;
-}
-export interface ThothPayHardwareDirectConnectDirectConnectHardwareListParams {
-    /** Reader status ID for filter. @see ThothPayHardwareReaderStatusFilterSid */
-    id_status: ThothPayHardwareReaderStatusFilterSid;
-    /** Business key. */
-    k_business: string;
-    /** Text filter. */
-    text_search?: string | null;
-}
-export interface ThothPayHardwareDirectConnectDirectConnectHardwareListResponse {
-    /** List of available hardware. */
-    a_list: Array<unknown>;
-}
-export interface ThothPayHardwareNuveiNuveiHardwareElementDeleteParams {
-    /** Business key. */
-    k_business: string;
-    /** Terminal key. */
-    k_terminal?: string | null;
-}
-export type ThothPayHardwareNuveiNuveiHardwareElementDeleteResponse = Record<string, unknown>;
-export interface ThothPayHardwareNuveiNuveiHardwareElementGetParams {
-    /** Business key. */
-    k_business: string;
-    /** Terminal key. */
-    k_terminal?: string | null;
-}
-export interface ThothPayHardwareNuveiNuveiHardwareElementGetResponse {
-    /** Hardware model ID. */
-    id_model: number;
-    /** List of possible status of readers. @see ThothPayProcessorTerminalTerminalStatusSid */
-    id_status: ThothPayProcessorTerminalTerminalStatusSid;
-    /** IP address of terminal. */
-    ip_terminal: string | null;
-    /** Location key. */
-    k_location: string;
-    /** Label of the terminal. */
-    text_label: string;
-    /** Location name. */
-    text_location: string | null;
-}
-export interface ThothPayHardwareNuveiNuveiHardwareElementPostParams {
-    /** Business key. */
-    k_business: string;
-    /** Terminal key. */
-    k_terminal?: string | null;
-}
-export interface ThothPayHardwareNuveiNuveiHardwareElementPostResponse {
-    /** Terminal key. */
-    k_terminal: string | null;
-}
-export interface ThothPayHardwareNuveiNuveiHardwareListParams {
-    /** Reader status ID for filter. @see ThothPayHardwareReaderStatusFilterSid */
-    id_status: ThothPayHardwareReaderStatusFilterSid;
-    /** Business key. */
-    k_business: string;
-    /** Text filter. */
-    text_search?: string | null;
-}
-export interface ThothPayHardwareNuveiNuveiHardwareListResponse {
-    /** List of available hardware. */
-    a_list: Array<unknown>;
-}
-export interface ThothPayHardwareStripeComStripeComHardwareElementDeleteParams {
-    /** Business key. */
-    k_business: string;
-    /** Terminal key. */
-    k_terminal?: string | null;
-}
-export type ThothPayHardwareStripeComStripeComHardwareElementDeleteResponse = Record<string, unknown>;
-export interface ThothPayHardwareStripeComStripeComHardwareElementGetParams {
-    /** Business key. */
-    k_business: string;
-    /** Terminal key. */
-    k_terminal?: string | null;
-}
-export interface ThothPayHardwareStripeComStripeComHardwareElementGetResponse {
-    /** Hardware model ID. */
-    id_model: number;
-    /** List of possible status of readers. @see ThothPayProcessorTerminalTerminalStatusSid */
-    id_status: ThothPayProcessorTerminalTerminalStatusSid;
-    /** IP address of terminal. */
-    ip_terminal: string | null;
-    /** Location key. */
-    k_location: string;
-    /** Label of the terminal. */
-    text_label: string;
-    /** Location name. */
-    text_location: string | null;
-}
-export interface ThothPayHardwareStripeComStripeComHardwareElementPostParams {
-    /** Business key. */
-    k_business: string;
-    /** Terminal key. */
-    k_terminal?: string | null;
-}
-export interface ThothPayHardwareStripeComStripeComHardwareElementPostResponse {
-    /** Terminal key. */
-    k_terminal: string | null;
-}
-export interface ThothPayHardwareStripeComStripeComHardwareListParams {
-    /** Reader status ID for filter. @see ThothPayHardwareReaderStatusFilterSid */
-    id_status: ThothPayHardwareReaderStatusFilterSid;
-    /** Business key. */
-    k_business: string;
-    /** Text filter. */
-    text_search?: string | null;
-}
-export interface ThothPayHardwareStripeComStripeComHardwareListResponse {
-    /** List of available hardware. */
-    a_list: Array<unknown>;
 }
 export interface CoreRequestExampleParams {
     /** Example argument. */
@@ -8131,6 +8000,18 @@ export interface WlSkinSkinForeignPutResponse {
     /** Skin key. */
     k_skin: string;
 }
+export type WlCurrencyCurrencyParams = Record<string, unknown>;
+export interface WlCurrencyCurrencyResponse {
+    /** Keys - currency keys. Values - information about currency: */
+    a_currency: Array<{
+        /** `true` - locate sign before amount; `false` - locate sign after amount. */
+        is_before: boolean;
+        /** Sign of currency. */
+        s_sign: string;
+        /** International code of the currency. */
+        sid_currency: string;
+    }>;
+}
 export interface WlTagTagListGetParams {
     /** The business key of the tags. */
     k_business: string;
@@ -8387,6 +8268,35 @@ export interface ThothWlPayTransactionReportTransactionAllPaymentResponse {
     /** Determines whether the report is complete. */
     is_report_complete: boolean;
 }
+export interface ThothWlPayBankAchListParams {
+    /** ID of current business. */
+    k_business: string;
+    /** Location to show information for. */
+    k_location: string;
+    /** ID of a user to show information for. */
+    uid: string;
+}
+export interface ThothWlPayBankAchListResponse {
+    /** List of ACH accounts: */
+    a_list: Array<{
+        /** A list of account holder types which can be chosen. @see RsPayBankAchHolderSid */
+        id_pay_bank_ach_holder: RsPayBankAchHolderSid;
+        /** A list of account types which can be chosen. @see RsPayBankAchTypeSid */
+        id_pay_bank_ach_type: RsPayBankAchTypeSid;
+        /** `true` - this account is default payment method; `false` - otherwise. */
+        is_default: boolean;
+        /** ID of bank account. Primary key in RsPayBankSql. */
+        k_pay_bank: string;
+        /** Account name. */
+        text_name_account: string;
+        /** Account holder name. */
+        text_name_holder: string;
+        /** ACH account number. */
+        text_number: string;
+    }>;
+    /** Whether new ACH account can be added. */
+    can_add: boolean;
+}
 export interface ThothWlPayBankCardListParams {
     /** ID of current business. */
     k_business: string;
@@ -8440,6 +8350,18 @@ export interface ThothWlPayBankCardListResponse {
     }>;
     /** Whether new card can be added. */
     can_add: boolean;
+}
+export interface ThothWlPayAddressWidgetWidgetEditParams {
+    /** Business primary key in RsBusinessSql table. */
+    k_business: string;
+}
+export interface ThothWlPayAddressWidgetWidgetEditResponse {
+    /** List of possible regions. */
+    a_geo: Array<Array<unknown>>;
+    /** Mask for phone entering (ready for output to the page). */
+    html_phone_mask: string;
+    /** Mask for phone entering. */
+    text_phone_mask: string;
 }
 export interface CoreDriveImageUploadImageUploadGetParams {
     /** Allows to give custom parameters which can be required for different types of images. */
@@ -18521,6 +18443,82 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
 }
 export type WlTuitionEnrollmentTuitionEnrollmentCancelParams = Record<string, unknown>;
 export type WlTuitionEnrollmentTuitionEnrollmentCancelResponse = Record<string, unknown>;
+export interface ThothWlPayBankAchAddAddDeleteParams {
+    /** Business key. Primary key in RsBusinessSql table. */
+    k_business: string;
+    /** Pay bank key to delete. Primary key in RsPayBankSql table. */
+    k_pay_bank: string;
+}
+export type ThothWlPayBankAchAddAddDeleteResponse = Record<string, unknown>;
+export interface ThothWlPayBankAchAddAddGetParams {
+    /** Determines if the set of configs of the new payment form design is used. */
+    is_new: boolean;
+    /** Business key. Primary key in RsBusinessSql table. */
+    k_business: string;
+    /** Location key. Primary key in RsLocationSql table. */
+    k_location: string;
+    /** Pay owner key. */
+    k_pay_owner: string;
+    /** Locale ID. One of {@link CoreLocaleLocaleSid} constants. */
+    id_locale?: CoreLocaleLocaleSid | null;
+}
+export interface ThothWlPayBankAchAddAddGetResponse {
+    /** The HTML form containing the fields required to add a card. */
+    html_widget: string;
+    /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
+    id_pay_processor: ThothPayProcessorPayProcessorSid;
+}
+export interface ThothWlPayBankAchAddAddPostParams {
+    /** Business key. Primary key in RsBusinessSql table. */
+    k_business: string;
+    /** Location key. Primary key in RsLocationSql table. */
+    k_location: string;
+    /** Pay owner key. */
+    k_pay_owner: string;
+}
+export interface ThothWlPayBankAchAddAddPostResponse {
+    /** ACH account information: */
+    a_pay_bank: {
+        /** Whether current user can remove payment method. */
+        can_remove: boolean;
+        /** A list of bank account types. @see RsPayBankSid */
+        id_pay_bank: RsPayBankSid;
+        /** A list of account holder types which can be chosen. @see RsPayBankAchHolderSid */
+        id_pay_bank_ach_holder: RsPayBankAchHolderSid;
+        /** A list of account types which can be chosen. @see RsPayBankAchTypeSid */
+        id_pay_bank_ach_type: RsPayBankAchTypeSid;
+        /** `true` - this account is default payment method; `false` - otherwise. */
+        is_default: boolean;
+        /** Billing address. Primary key in RsPayAddressSql. */
+        k_pay_address: string;
+        /** ID of bank account. Primary key in RsPayBankSql. */
+        k_pay_bank: string;
+        /** Region ID. Primary key in AGeoSql table. */
+        k_region: string;
+        /** Name of city. */
+        text_city: string;
+        /** Name of country. */
+        text_country: string;
+        /** Account nickname. */
+        text_name: string;
+        /** Account name. */
+        text_name_account: string;
+        /** Account holder name. */
+        text_name_holder: string;
+        /** ACH account number. */
+        text_number: string;
+        /** Phone number. */
+        text_phone: string;
+        /** Postal code. */
+        text_postal: string;
+        /** Name of region. */
+        text_region: string;
+        /** Street address line 1. */
+        text_street1: string;
+        /** Street address line 2. */
+        text_street2: string;
+    };
+}
 export interface ThothWlPayBankCardAddAddDeleteParams {
     /** The business key number used internally by WellnessLiving. */
     k_business: string;
@@ -18549,6 +18547,26 @@ export interface ThothWlPayBankCardAddAddPostParams {
     k_pay_owner: string;
 }
 export type ThothWlPayBankCardAddAddPostResponse = Record<string, unknown>;
+export interface ThothWlPayBankCardWidgetWidgetSelectParams {
+    /** Payment method. One of {@link RsPayMethodSid} constants. */
+    id_pay_method: RsPayMethodSid;
+    /** Payment mode. @see RsPayModeSid */
+    id_pay_mode: RsPayModeSid;
+    /** Payment owner kind. @see RsPayOwnerSid */
+    id_pay_owner: RsPayOwnerSid;
+    /** Business key. Primary key in RsBusinessSql table. */
+    k_business: string;
+    /** Currency key. Primary key in RsCurrencySql table. */
+    k_currency: string;
+    /** Payment owner. */
+    k_id: string;
+    /** Location key. Primary key in RsLocationSql table. */
+    k_location: string;
+}
+export interface ThothWlPayBankCardWidgetWidgetSelectResponse {
+    /** List of saved bank cards. See RsPayBankCardSelectWidget::additional_data() for details. */
+    a_pay_card: Array<unknown>;
+}
 export type CoreRequestApiApplicationOriginDeleteParams = Record<string, unknown>;
 export type CoreRequestApiApplicationOriginDeleteResponse = Record<string, unknown>;
 export type CoreRequestApiApplicationOriginGetParams = Record<string, unknown>;
@@ -25153,47 +25171,6 @@ export interface WlShopProductOptionInventoryCountInventoryCountPostParams {
     k_business: string;
 }
 export type WlShopProductOptionInventoryCountInventoryCountPostResponse = Record<string, unknown>;
-export declare class ThothPayHardwareDirectConnectNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Removes terminal. */
-    directConnectHardwareElementDelete(params?: ThothPayHardwareDirectConnectDirectConnectHardwareElementDeleteParams): Promise<ThothPayHardwareDirectConnectDirectConnectHardwareElementDeleteResponse>;
-    /** Fetch terminal information. */
-    directConnectHardwareElementGet(params?: ThothPayHardwareDirectConnectDirectConnectHardwareElementGetParams): Promise<ThothPayHardwareDirectConnectDirectConnectHardwareElementGetResponse>;
-    /** Creates or updates terminal. */
-    directConnectHardwareElementPost(params?: ThothPayHardwareDirectConnectDirectConnectHardwareElementPostParams): Promise<ThothPayHardwareDirectConnectDirectConnectHardwareElementPostResponse>;
-    directConnectHardwareList(params?: ThothPayHardwareDirectConnectDirectConnectHardwareListParams): Promise<ThothPayHardwareDirectConnectDirectConnectHardwareListResponse>;
-}
-export declare class ThothPayHardwareNuveiNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Removes terminal. */
-    nuveiHardwareElementDelete(params?: ThothPayHardwareNuveiNuveiHardwareElementDeleteParams): Promise<ThothPayHardwareNuveiNuveiHardwareElementDeleteResponse>;
-    /** Fetch terminal information. */
-    nuveiHardwareElementGet(params?: ThothPayHardwareNuveiNuveiHardwareElementGetParams): Promise<ThothPayHardwareNuveiNuveiHardwareElementGetResponse>;
-    /** Creates terminal. */
-    nuveiHardwareElementPost(params?: ThothPayHardwareNuveiNuveiHardwareElementPostParams): Promise<ThothPayHardwareNuveiNuveiHardwareElementPostResponse>;
-    nuveiHardwareList(params?: ThothPayHardwareNuveiNuveiHardwareListParams): Promise<ThothPayHardwareNuveiNuveiHardwareListResponse>;
-}
-export declare class ThothPayHardwareStripeComNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Removes terminal. */
-    stripeComHardwareElementDelete(params?: ThothPayHardwareStripeComStripeComHardwareElementDeleteParams): Promise<ThothPayHardwareStripeComStripeComHardwareElementDeleteResponse>;
-    /** Fetch terminal information. */
-    stripeComHardwareElementGet(params?: ThothPayHardwareStripeComStripeComHardwareElementGetParams): Promise<ThothPayHardwareStripeComStripeComHardwareElementGetResponse>;
-    /** Creates terminal. */
-    stripeComHardwareElementPost(params?: ThothPayHardwareStripeComStripeComHardwareElementPostParams): Promise<ThothPayHardwareStripeComStripeComHardwareElementPostResponse>;
-    stripeComHardwareList(params?: ThothPayHardwareStripeComStripeComHardwareListParams): Promise<ThothPayHardwareStripeComStripeComHardwareListResponse>;
-}
-export declare class ThothPayHardwareNamespace {
-    private readonly _client;
-    readonly directConnect: ThothPayHardwareDirectConnectNamespace;
-    readonly nuvei: ThothPayHardwareNuveiNamespace;
-    readonly stripeCom: ThothPayHardwareStripeComNamespace;
-    constructor(_client: WlClient);
-    hardwareStaffPreference(params?: ThothPayHardwareHardwareStaffPreferenceParams): Promise<ThothPayHardwareHardwareStaffPreferenceResponse>;
-}
 export declare class ThothExplorerSearchClassSessionNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -25250,8 +25227,15 @@ export declare class ThothWlPayOwnerNamespace {
     /** Returns information about payment owner. */
     owner(params?: ThothWlPayOwnerOwnerParams): Promise<ThothWlPayOwnerOwnerResponse>;
 }
+export declare class ThothWlPayAddressWidgetNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets data for "edit payment address" widget. */
+    widgetEdit(params?: ThothWlPayAddressWidgetWidgetEditParams): Promise<ThothWlPayAddressWidgetWidgetEditResponse>;
+}
 export declare class ThothWlPayAddressNamespace {
     private readonly _client;
+    readonly widget: ThothWlPayAddressWidgetNamespace;
     constructor(_client: WlClient);
     /** Gets user's payment addresses information. */
     address(params?: ThothWlPayAddressAddressParams): Promise<ThothWlPayAddressAddressResponse>;
@@ -25269,6 +25253,23 @@ export declare class ThothWlPayTransactionNamespace {
     readonly report: ThothWlPayTransactionReportNamespace;
     constructor(_client: WlClient);
 }
+export declare class ThothWlPayBankAchAddNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Deletes saved ACH. */
+    addDelete(params?: ThothWlPayBankAchAddAddDeleteParams): Promise<ThothWlPayBankAchAddAddDeleteResponse>;
+    /** Gets widget for ACH account add. */
+    addGet(params?: ThothWlPayBankAchAddAddGetParams): Promise<ThothWlPayBankAchAddAddGetResponse>;
+    /** Saves new ACH pay method. */
+    addPost(params?: ThothWlPayBankAchAddAddPostParams): Promise<ThothWlPayBankAchAddAddPostResponse>;
+}
+export declare class ThothWlPayBankAchNamespace {
+    private readonly _client;
+    readonly add: ThothWlPayBankAchAddNamespace;
+    constructor(_client: WlClient);
+    /** Retrieves information about user's ACH accounts. */
+    list(params?: ThothWlPayBankAchListParams): Promise<ThothWlPayBankAchListResponse>;
+}
 export declare class ThothWlPayBankCardAddNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -25280,15 +25281,23 @@ export declare class ThothWlPayBankCardAddNamespace {
     /** Saves new bank card. */
     addPost(params?: ThothWlPayBankCardAddAddPostParams): Promise<ThothWlPayBankCardAddAddPostResponse>;
 }
+export declare class ThothWlPayBankCardWidgetNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets a list of saved bank cards. */
+    widgetSelect(params?: ThothWlPayBankCardWidgetWidgetSelectParams): Promise<ThothWlPayBankCardWidgetWidgetSelectResponse>;
+}
 export declare class ThothWlPayBankCardNamespace {
     private readonly _client;
     readonly add: ThothWlPayBankCardAddNamespace;
+    readonly widget: ThothWlPayBankCardWidgetNamespace;
     constructor(_client: WlClient);
     /** Retrieves information about user's bank cards. */
     list(params?: ThothWlPayBankCardListParams): Promise<ThothWlPayBankCardListResponse>;
 }
 export declare class ThothWlPayBankNamespace {
     private readonly _client;
+    readonly ach: ThothWlPayBankAchNamespace;
     readonly card: ThothWlPayBankCardNamespace;
     constructor(_client: WlClient);
 }
@@ -25305,7 +25314,6 @@ export declare class ThothWlPayNamespace {
 }
 export declare class ThothNamespace {
     private readonly _client;
-    readonly payHardware: ThothPayHardwareNamespace;
     readonly explorerSearch: ThothExplorerSearchNamespace;
     readonly reportCore: ThothReportCoreNamespace;
     readonly wlPay: ThothWlPayNamespace;
@@ -26498,6 +26506,12 @@ export declare class WlSkinNamespace {
     /** Updates the existing widget. */
     skinForeignPut(params?: WlSkinSkinForeignPutParams): Promise<WlSkinSkinForeignPutResponse>;
 }
+export declare class WlCurrencyNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Retrieves information about currencies. */
+    currency(params?: WlCurrencyCurrencyParams): Promise<WlCurrencyCurrencyResponse>;
+}
 export declare class WlTagNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -27564,6 +27578,7 @@ export declare class WlNamespace {
     readonly mail: WlMailNamespace;
     readonly staff: WlStaffNamespace;
     readonly skin: WlSkinNamespace;
+    readonly currency: WlCurrencyNamespace;
     readonly tag: WlTagNamespace;
     readonly tax: WlTaxNamespace;
     readonly review: WlReviewNamespace;
