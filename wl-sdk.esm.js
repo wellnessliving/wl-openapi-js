@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260626122054
+// OpenAPI spec version: 1.1.20260629054914
 // Build date: 2026-06-29
-// Endpoints: 473
-// Enums: 179
+// Endpoints: 472
+// Enums: 180
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (179 total) ---
+// --- Enum types (180 total) ---
 /** List of supported terminal interaction types. */
 export var ThothPayProcessorTerminalTerminalTypeSid;
 (function (ThothPayProcessorTerminalTerminalTypeSid) {
@@ -1634,18 +1634,62 @@ export var WlLoginMemberVaccinationStatusVaccinationStatusSid;
     /** Unknown */
     WlLoginMemberVaccinationStatusVaccinationStatusSid[WlLoginMemberVaccinationStatusVaccinationStatusSid["UNKNOWN"] = 4] = "UNKNOWN";
 })(WlLoginMemberVaccinationStatusVaccinationStatusSid || (WlLoginMemberVaccinationStatusVaccinationStatusSid = {}));
-/** List of image types. */
-export var CoreDriveDriveTypeSid;
-(function (CoreDriveDriveTypeSid) {
-    /** Bmp image */
-    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["BMP"] = 4] = "BMP";
-    /** Gif image */
-    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["GIF"] = 1] = "GIF";
-    /** Jpeg image */
-    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["JPEG"] = 2] = "JPEG";
-    /** Png image */
-    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["PNG"] = 3] = "PNG";
-})(CoreDriveDriveTypeSid || (CoreDriveDriveTypeSid = {}));
+/** Reasons why the client can't book this event. */
+export var WlEventDenyReasonSid;
+(function (WlEventDenyReasonSid) {
+    /** User is trying to book on behalf of another client, but does not have permission to do so */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["ACCESS_DENIED"] = 1] = "ACCESS_DENIED";
+    /** Manual restriction to book business, location or a certain class */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["ACCESS_LIMITED"] = 2] = "ACCESS_LIMITED";
+    /** The business can not take one more client because of business subscription limitations */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["ACCOUNT_LIMIT"] = 3] = "ACCOUNT_LIMIT";
+    /** Class is not available for certain age */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["AGE_RESTRICTION"] = 4] = "AGE_RESTRICTION";
+    /** Liability Release needs to be agreed */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["AGREE_NX"] = 5] = "AGREE_NX";
+    /** Client has unpaid fees */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BALANCE_NEGATIVE"] = 22] = "BALANCE_NEGATIVE";
+    /** It's too early to book a class */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BOOK_EARLY"] = 7] = "BOOK_EARLY";
+    /** It's too late to book a class */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BOOK_LATE"] = 8] = "BOOK_LATE";
+    /** User's visit overlaps with another visit */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BOOK_OVERLAP"] = 25] = "BOOK_OVERLAP";
+    /** User's pricing options do not allow booking another visit within a certain period because of pricing option limitations */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BOOK_RESTRICT"] = 9] = "BOOK_RESTRICT";
+    /** Client is already booked for this session */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BOOKED_ALREADY"] = 6] = "BOOKED_ALREADY";
+    /** Business is inactive */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BUSINESS_INACTIVE"] = 10] = "BUSINESS_INACTIVE";
+    /** Class is canceled */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["CLASS_CANCELED"] = 11] = "CLASS_CANCELED";
+    /** Class is finished */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["CLASS_FINISHED"] = 26] = "CLASS_FINISHED";
+    /** Class is full */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["CLASS_FULL"] = 14] = "CLASS_FULL";
+    /** Class does not exist anymore */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["CLASS_NOT_AVAILABLE_ANYMORE"] = 15] = "CLASS_NOT_AVAILABLE_ANYMORE";
+    /** Client is flagged at location */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["CLIENT_FLAGGED"] = 12] = "CLIENT_FLAGGED";
+    /** Credit card is required for booking services */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["CREDIT_CARD_REQUIRE"] = 13] = "CREDIT_CARD_REQUIRE";
+    /** Business is closed */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["HOLIDAY"] = 16] = "HOLIDAY";
+    /** Login is required */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["LOGIN_REQUIRED"] = 17] = "LOGIN_REQUIRED";
+    /** Online booking is disabled for the class */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["NOT_BOOKABLE"] = 18] = "NOT_BOOKABLE";
+    /** Online booking is disabled for this type of client */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["NOT_BOOKABLE_BY_TYPE"] = 24] = "NOT_BOOKABLE_BY_TYPE";
+    /** Required personal details missing */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["USER_INFO_MISSING"] = 19] = "USER_INFO_MISSING";
+    /** Visit to another class is required first */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["VISIT_BEFORE"] = 20] = "VISIT_BEFORE";
+    /** The wait list is full */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["WAIT_LIST_LIMIT_MAX"] = 21] = "WAIT_LIST_LIMIT_MAX";
+    /** Client has unsigned waiver */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["WAIVER_NX"] = 23] = "WAIVER_NX";
+})(WlEventDenyReasonSid || (WlEventDenyReasonSid = {}));
 /** Day time periods. */
 export var RsScheduleTimeSid;
 (function (RsScheduleTimeSid) {
@@ -2202,6 +2246,18 @@ export var WlReportGeneratorReportGeneratorStatusSid;
     /** Generation of this report is now completed */
     WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["READY"] = 3] = "READY";
 })(WlReportGeneratorReportGeneratorStatusSid || (WlReportGeneratorReportGeneratorStatusSid = {}));
+/** List of image types. */
+export var CoreDriveDriveTypeSid;
+(function (CoreDriveDriveTypeSid) {
+    /** Bmp image */
+    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["BMP"] = 4] = "BMP";
+    /** Gif image */
+    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["GIF"] = 1] = "GIF";
+    /** Jpeg image */
+    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["JPEG"] = 2] = "JPEG";
+    /** Png image */
+    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["PNG"] = 3] = "PNG";
+})(CoreDriveDriveTypeSid || (CoreDriveDriveTypeSid = {}));
 /** List of responses for Google Captcha token. */
 export var CoreGoogleCaptchaCaptchaResponseSid;
 (function (CoreGoogleCaptchaCaptchaResponseSid) {
@@ -5622,14 +5678,6 @@ export class WlScheduleNamespace {
     scheduleAvailableDate(params) {
         return this._client._request('/Wl/Schedule/ScheduleAvailableDate.json', params, 'GET');
     }
-    /** Returns parsed template for the schedule page. */
-    schedulePostBasedGet(params) {
-        return this._client._request('/Wl/Schedule/SchedulePostBased.json', params, 'GET');
-    }
-    /** Processes POST request to get the schedule for printing. */
-    schedulePostBasedPost(params) {
-        return this._client._request('/Wl/Schedule/SchedulePostBased.json', params, 'POST');
-    }
 }
 export class WlVisitNamespace {
     constructor(_client) {
@@ -8566,6 +8614,10 @@ export class WlTuitionEnrollmentNamespace {
     /** Returns list of enrollments for the tuition. */
     tuitionEnrollmentList(params) {
         return this._client._request('/Wl/Tuition/Enrollment/TuitionEnrollmentList.json', params, 'GET');
+    }
+    /** Allows canceling certain event enrollments within tuition. */
+    tuitionEnrollmentCancel(params) {
+        return this._client._request('/Wl/Tuition/Enrollment/TuitionEnrollmentCancel.json', params, 'PUT');
     }
 }
 export class WlTuitionNamespace {

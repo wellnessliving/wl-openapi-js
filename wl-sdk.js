@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260626122054
+ * Spec version: 1.1.20260629054914
  * Build date:   2026-06-29
- * Endpoints:    473
+ * Endpoints:    472
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260626122054';
+  WlClient.SPEC_VERSION = '1.1.20260629054914';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (473 total)
+  // Generated API methods (472 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -860,38 +860,6 @@
   WlClient.prototype.wlScheduleScheduleAvailableDate = function(params)
   {
     return this.request('/Wl/Schedule/ScheduleAvailableDate.json', params || {}, 'GET');
-  };
-
-  /**
-   * Returns parsed template for the schedule page.
-   *
-   * @param {Object} [params] Request parameters.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlScheduleSchedulePostBasedGet = function(params)
-  {
-    return this.request('/Wl/Schedule/SchedulePostBased.json', params || {}, 'GET');
-  };
-
-  /**
-   * Processes POST request to get the schedule for printing.
-   *
-   * Delegates to `get()` to avoid code duplication.
-   * Using POST avoids 414 (Request-URI Too Large) errors when `s_data` is large.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {boolean} params.is_backend Whether API is called in the backend mode.
-   * @param {boolean} params.is_widget Whether the schedule is shown in the widget.
-   * @param {string} params.k_business Business key for which schedule should be got.
-   * @param {string} params.uid User key who get the schedule.
-   * @returns {Promise<Object>} Response data.
-   *  `a_result` {?*[][]} Schedule info. Prepares only in the backend mode.
-   *  `a_schedule` {*[]} Schedule session data.
-   *  `html_template` {string} Parsed template of the schedule.
-   */
-  WlClient.prototype.wlScheduleSchedulePostBasedPost = function(params)
-  {
-    return this.request('/Wl/Schedule/SchedulePostBased.json', params || {}, 'POST');
   };
 
   /**
@@ -6933,6 +6901,19 @@
   };
 
   /**
+   * Allows canceling certain event enrollments within tuition.
+   *
+   * Send all users and events, which should be canceled to reduce tuition payment, cancel visits, and deactivate even pass.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlTuitionEnrollmentTuitionEnrollmentCancel = function(params)
+  {
+    return this.request('/Wl/Tuition/Enrollment/TuitionEnrollmentCancel.json', params || {}, 'PUT');
+  };
+
+  /**
    * Deletes saved card.
    *
    * Removes the payment card identified by `$k_pay_bank` from the specified business, permanently deleting
@@ -10403,7 +10384,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (192 total)
+  // Enum constants (193 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -12147,19 +12128,63 @@
   });
 
   /**
-   * List of image types.
+   * Reasons why the client can't book this event.
    *
    * @enum {number}
    */
-  WlClient.CoreDriveDriveTypeSid = Object.freeze({
-    /** Bmp image */
-    BMP: 4,
-    /** Gif image */
-    GIF: 1,
-    /** Jpeg image */
-    JPEG: 2,
-    /** Png image */
-    PNG: 3,
+  WlClient.WlEventDenyReasonSid = Object.freeze({
+    /** User is trying to book on behalf of another client, but does not have permission to do so */
+    ACCESS_DENIED: 1,
+    /** Manual restriction to book business, location or a certain class */
+    ACCESS_LIMITED: 2,
+    /** The business can not take one more client because of business subscription limitations */
+    ACCOUNT_LIMIT: 3,
+    /** Class is not available for certain age */
+    AGE_RESTRICTION: 4,
+    /** Liability Release needs to be agreed */
+    AGREE_NX: 5,
+    /** Client has unpaid fees */
+    BALANCE_NEGATIVE: 22,
+    /** It's too early to book a class */
+    BOOK_EARLY: 7,
+    /** It's too late to book a class */
+    BOOK_LATE: 8,
+    /** User's visit overlaps with another visit */
+    BOOK_OVERLAP: 25,
+    /** User's pricing options do not allow booking another visit within a certain period because of pricing option limitations */
+    BOOK_RESTRICT: 9,
+    /** Client is already booked for this session */
+    BOOKED_ALREADY: 6,
+    /** Business is inactive */
+    BUSINESS_INACTIVE: 10,
+    /** Class is canceled */
+    CLASS_CANCELED: 11,
+    /** Class is finished */
+    CLASS_FINISHED: 26,
+    /** Class is full */
+    CLASS_FULL: 14,
+    /** Class does not exist anymore */
+    CLASS_NOT_AVAILABLE_ANYMORE: 15,
+    /** Client is flagged at location */
+    CLIENT_FLAGGED: 12,
+    /** Credit card is required for booking services */
+    CREDIT_CARD_REQUIRE: 13,
+    /** Business is closed */
+    HOLIDAY: 16,
+    /** Login is required */
+    LOGIN_REQUIRED: 17,
+    /** Online booking is disabled for the class */
+    NOT_BOOKABLE: 18,
+    /** Online booking is disabled for this type of client */
+    NOT_BOOKABLE_BY_TYPE: 24,
+    /** Required personal details missing */
+    USER_INFO_MISSING: 19,
+    /** Visit to another class is required first */
+    VISIT_BEFORE: 20,
+    /** The wait list is full */
+    WAIT_LIST_LIMIT_MAX: 21,
+    /** Client has unsigned waiver */
+    WAIVER_NX: 23,
   });
 
   /**
@@ -12848,6 +12873,22 @@
     QUEUED: 1,
     /** Generation of this report is now completed */
     READY: 3,
+  });
+
+  /**
+   * List of image types.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreDriveDriveTypeSid = Object.freeze({
+    /** Bmp image */
+    BMP: 4,
+    /** Gif image */
+    GIF: 1,
+    /** Jpeg image */
+    JPEG: 2,
+    /** Png image */
+    PNG: 3,
   });
 
   /**

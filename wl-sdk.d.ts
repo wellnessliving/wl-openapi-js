@@ -1609,16 +1609,60 @@ export declare enum WlLoginMemberVaccinationStatusVaccinationStatusSid {
     /** Unknown */
     UNKNOWN = 4
 }
-/** List of image types. */
-export declare enum CoreDriveDriveTypeSid {
-    /** Bmp image */
-    BMP = 4,
-    /** Gif image */
-    GIF = 1,
-    /** Jpeg image */
-    JPEG = 2,
-    /** Png image */
-    PNG = 3
+/** Reasons why the client can't book this event. */
+export declare enum WlEventDenyReasonSid {
+    /** User is trying to book on behalf of another client, but does not have permission to do so */
+    ACCESS_DENIED = 1,
+    /** Manual restriction to book business, location or a certain class */
+    ACCESS_LIMITED = 2,
+    /** The business can not take one more client because of business subscription limitations */
+    ACCOUNT_LIMIT = 3,
+    /** Class is not available for certain age */
+    AGE_RESTRICTION = 4,
+    /** Liability Release needs to be agreed */
+    AGREE_NX = 5,
+    /** Client has unpaid fees */
+    BALANCE_NEGATIVE = 22,
+    /** It's too early to book a class */
+    BOOK_EARLY = 7,
+    /** It's too late to book a class */
+    BOOK_LATE = 8,
+    /** User's visit overlaps with another visit */
+    BOOK_OVERLAP = 25,
+    /** User's pricing options do not allow booking another visit within a certain period because of pricing option limitations */
+    BOOK_RESTRICT = 9,
+    /** Client is already booked for this session */
+    BOOKED_ALREADY = 6,
+    /** Business is inactive */
+    BUSINESS_INACTIVE = 10,
+    /** Class is canceled */
+    CLASS_CANCELED = 11,
+    /** Class is finished */
+    CLASS_FINISHED = 26,
+    /** Class is full */
+    CLASS_FULL = 14,
+    /** Class does not exist anymore */
+    CLASS_NOT_AVAILABLE_ANYMORE = 15,
+    /** Client is flagged at location */
+    CLIENT_FLAGGED = 12,
+    /** Credit card is required for booking services */
+    CREDIT_CARD_REQUIRE = 13,
+    /** Business is closed */
+    HOLIDAY = 16,
+    /** Login is required */
+    LOGIN_REQUIRED = 17,
+    /** Online booking is disabled for the class */
+    NOT_BOOKABLE = 18,
+    /** Online booking is disabled for this type of client */
+    NOT_BOOKABLE_BY_TYPE = 24,
+    /** Required personal details missing */
+    USER_INFO_MISSING = 19,
+    /** Visit to another class is required first */
+    VISIT_BEFORE = 20,
+    /** The wait list is full */
+    WAIT_LIST_LIMIT_MAX = 21,
+    /** Client has unsigned waiver */
+    WAIVER_NX = 23
 }
 /** Day time periods. */
 export declare enum RsScheduleTimeSid {
@@ -2142,6 +2186,17 @@ export declare enum WlReportGeneratorReportGeneratorStatusSid {
     QUEUED = 1,
     /** Generation of this report is now completed */
     READY = 3
+}
+/** List of image types. */
+export declare enum CoreDriveDriveTypeSid {
+    /** Bmp image */
+    BMP = 4,
+    /** Gif image */
+    GIF = 1,
+    /** Jpeg image */
+    JPEG = 2,
+    /** Png image */
+    PNG = 3
 }
 /** List of responses for Google Captcha token. */
 export declare enum CoreGoogleCaptchaCaptchaResponseSid {
@@ -5635,26 +5690,6 @@ export interface WlScheduleScheduleAvailableDateResponse {
     /** Nearest session date available for booking in user's or business timezone. */
     dl_next_available: string | null;
 }
-export type WlScheduleSchedulePostBasedGetParams = Record<string, unknown>;
-export type WlScheduleSchedulePostBasedGetResponse = Record<string, unknown>;
-export interface WlScheduleSchedulePostBasedPostParams {
-    /** Whether API is called in the backend mode. */
-    is_backend: boolean;
-    /** Whether the schedule is shown in the widget. */
-    is_widget: boolean;
-    /** Business key for which schedule should be got. */
-    k_business: string;
-    /** User key who get the schedule. */
-    uid: string;
-}
-export interface WlScheduleSchedulePostBasedPostResponse {
-    /** Schedule info. Prepares only in the backend mode. */
-    a_result: Array<Array<unknown>> | null;
-    /** Schedule session data. */
-    a_schedule: Array<unknown>;
-    /** Parsed template of the schedule. */
-    html_template: string;
-}
 export interface WlVisitVisitStatusGetParams {
     /** The business key. */
     k_business: string;
@@ -6019,6 +6054,7 @@ export interface WlEventEventListGetResponse {
     a_enrollment_block_list: Array<string>;
     /** A list of events corresponding to requested parameters. */
     a_event_list: Array<{
+        /** Information about age restrictions for this event, has the following structure: */
         a_age_restriction: {
             /** The minimum age for participation in the event. */
             i_age_from: number | null;
@@ -6027,50 +6063,132 @@ export interface WlEventEventListGetResponse {
             /** `true` if age restrictions are public and available, `false` if they're hidden. */
             is_age_public: boolean;
         };
+        /** List of book now tags connected to this event. */
         a_class_tab: Array<string>;
-        a_logo: Record<string, unknown>;
-        a_schedule: Array<Record<string, unknown>>;
-        a_search_tag: Array<Record<string, unknown>>;
+        /** Data about logo of the event. */
+        a_logo: {
+            /** Thumbnail height in pixels. */
+            i_height: number;
+            /** Thumbnail width in pixels. */
+            i_width: number;
+            /** `false` for the new wide-rectangle format; `true` for the legacy square format. */
+            is_old: boolean;
+            /** Thumbnail URL. */
+            s_url: string;
+        };
+        /** List of scheduled sessions of the event. */
+        a_schedule: {
+            /** List of weekday numbers when event occur. */
+            a_day: Array<number>;
+            /** List of staff members providing event session. */
+            a_staff_member: Record<string, unknown>;
+            /** End date of the schedule in `MySql` format. */
+            dl_end: string;
+            /** Start date of the schedule in `MySql` format. */
+            dl_start: string;
+            /** Whether this is a single day schedule (start and end dates of the schedule are the same). */
+            is_day: boolean;
+            /** Class period key. */
+            k_class_period: string;
+            /** Location key. */
+            k_location: string;
+            /** Resource key, which has category {@link WlResourceResourceCategoryEnum}. */
+            k_resource_location: string;
+            /** Location title. */
+            text_location: string;
+            /** Room where the session takes place. */
+            text_room: string;
+            /** Start and end time of the scheduled sessions in human readable format. */
+            text_time: string;
+        };
+        /** List of search tags connected to this event. */
+        a_search_tag: {
+            /** Search tag key. */
+            k_search_tag: string;
+            /** Name of the tag. */
+            text_title: string;
+        };
+        /** Whether event can be booked or not. */
         can_book: boolean;
+        /** Whether current user can cancel already booked event. */
         can_cancel: boolean;
+        /** End date, when early bird price ends in `MySql` format. */
         dl_early: string;
+        /** End date of the scheduled session in `MySql` format. */
         dl_end: string;
+        /** Local date of the closest session of the event. */
         dl_session: string;
+        /** Start date of the scheduled sessions in `MySql` format. */
         dl_start: string;
+        /** Date of the closest session of the event. */
         dtu_session: string;
+        /** Reason why session can not be booked. */
         html_reason: string;
+        /** Number of all sessions in the event. */
         i_session_all: number;
+        /** Number of future sessions in the event. */
         i_session_future: number;
+        /** Number of past sessions in the event. */
         i_session_past: number;
-        id_reason: number;
+        /** Reasons why the client can't book this event. @see WlEventDenyReasonSid */
+        id_reason: WlEventDenyReasonSid;
+        /** Whether booking of this event restricted because of age rules for [EventListApi](/Wl/Event/EventL... */
         is_age_restrict: boolean;
+        /** `true` if this event booking is restricted and restricted because of client's age only. */
         is_age_restrict_only: boolean;
+        /** Whether the event is available for booking or not. */
         is_available?: boolean | null;
+        /** Whether single sessions of the event can be booked. */
         is_block: boolean;
+        /** Allow clients to book on behalf of a guest. */
         is_book_for_guest: boolean;
+        /** Whether event is bookable. */
         is_bookable: boolean;
+        /** Whether event is already booked. */
         is_booked: boolean;
+        /** Whether booking of the event is closed already. */
         is_closed: boolean;
+        /** Whether event is full already. */
         is_full: boolean;
+        /** `true` if this class can be booked by any client; `false` otherwise. */
         is_online: boolean;
+        /** `true` means to show class only for clients who can book online, */
         is_online_private: boolean;
+        /** Whether event sessions can be booked after event has started. */
         is_open: boolean;
+        /** Whether clients of the business can pay for the event with purchase option only. */
         is_promotion_only: boolean;
+        /** Whether event sessions can be booked partially. */
         is_prorate: boolean;
+        /** Whether class/event can be paid with single session. */
         is_single_buy: boolean;
+        /** Whether event is virtual. */
         is_virtual: boolean;
+        /** Class key. */
         k_class: string;
+        /** Class period key of the closest session of the event. */
         k_class_period: string;
+        /** Key of enrollment block that corresponds to current row. */
         k_enrollment_block: string;
+        /** Location key of the closest session of the event. */
         k_location: string;
+        /** Maximum price per session in the event. */
         m_price_max: string;
+        /** Minimum price per session in the event. */
         m_price_min: string;
+        /** Price of the entire event. */
         m_price_total: string;
+        /** Early bird price of the entire event. */
         m_price_total_early: string;
+        /** Code of `html_reason`. Is used for testing purposes. */
         sid_reason: string;
+        /** Text message of the restriction based on age rules. */
         text_age_restrict: boolean;
+        /** Title of the event. */
         text_title: string;
+        /** Link to the start of the booking wizard to book the closed session from this event or the entire ... */
         url_book?: string | null;
+        /** Description of the event. */
         xml_description: string;
     }>;
 }
@@ -18448,15 +18566,26 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListParams {
 export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
     /** List of tuition enrollments. */
     a_enrollment: Array<{
+        /** Events for this enrollment. */
         a_events: Array<Record<string, unknown>>;
+        /** Date and time of the enrollment in local business timezone. */
         dtl_enrollment: string;
+        /** Number of payments left. */
         i_payments_left: number;
+        /** Key of the tuition purchase item. This is enrollment key, which can be used to modify and cancel ... */
+        k_purchase_item_tuition: string;
+        /** One payment amount. */
         m_payment: string;
+        /** Rest amount to be paid. */
         m_rest: string;
+        /** Total initial amount to be paid. */
         m_total: string;
+        /** Payer for this enrollment. */
         uid_payer: string;
     }>;
 }
+export type WlTuitionEnrollmentTuitionEnrollmentCancelParams = Record<string, unknown>;
+export type WlTuitionEnrollmentTuitionEnrollmentCancelResponse = Record<string, unknown>;
 export interface ThothWlPayBankCardAddAddDeleteParams {
     /** The business key number used internally by WellnessLiving. */
     k_business: string;
@@ -25549,10 +25678,6 @@ export declare class WlScheduleNamespace {
     cancelPost(params?: WlScheduleCancelPostParams): Promise<WlScheduleCancelPostResponse>;
     /** Finds the nearest class session that can be booked by the current user. */
     scheduleAvailableDate(params?: WlScheduleScheduleAvailableDateParams): Promise<WlScheduleScheduleAvailableDateResponse>;
-    /** Returns parsed template for the schedule page. */
-    schedulePostBasedGet(params?: WlScheduleSchedulePostBasedGetParams): Promise<WlScheduleSchedulePostBasedGetResponse>;
-    /** Processes POST request to get the schedule for printing. */
-    schedulePostBasedPost(params?: WlScheduleSchedulePostBasedPostParams): Promise<WlScheduleSchedulePostBasedPostResponse>;
 }
 export declare class WlVisitNamespace {
     private readonly _client;
@@ -27476,6 +27601,8 @@ export declare class WlTuitionEnrollmentNamespace {
     constructor(_client: WlClient);
     /** Returns list of enrollments for the tuition. */
     tuitionEnrollmentList(params?: WlTuitionEnrollmentTuitionEnrollmentListParams): Promise<WlTuitionEnrollmentTuitionEnrollmentListResponse>;
+    /** Allows canceling certain event enrollments within tuition. */
+    tuitionEnrollmentCancel(params?: WlTuitionEnrollmentTuitionEnrollmentCancelParams): Promise<WlTuitionEnrollmentTuitionEnrollmentCancelResponse>;
 }
 export declare class WlTuitionNamespace {
     private readonly _client;
