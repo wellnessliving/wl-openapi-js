@@ -8928,6 +8928,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
         i_capacity: number;
         /** Class duration. In number of minutes. */
         i_duration: number;
+        /** Number of usages of promotion required to pay for a single class session. */
+        i_visit: number;
         /** Limit of wait list. `null` if limit is not set. */
         i_wait_limit: number | null;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
@@ -9039,6 +9041,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
             i_capacity: number;
             /** Class duration. In number of minutes. */
             i_duration: number;
+            /** Number of usages of promotion required to pay for a single class session. */
+            i_visit: number;
             /** Limit of wait list. `null` if limit is not set. */
             i_wait_limit: number | null;
             /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
@@ -9249,6 +9253,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
         i_capacity: number;
         /** Class duration. In number of minutes. */
         i_duration: number;
+        /** Number of usages of promotion required to pay for a single class session. */
+        i_visit: number;
         /** Limit of wait list. `null` if limit is not set. */
         i_wait_limit: number | null;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
@@ -9360,6 +9366,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
             i_capacity: number;
             /** Class duration. In number of minutes. */
             i_duration: number;
+            /** Number of usages of promotion required to pay for a single class session. */
+            i_visit: number;
             /** Limit of wait list. `null` if limit is not set. */
             i_wait_limit: number | null;
             /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
