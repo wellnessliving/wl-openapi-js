@@ -2585,7 +2585,9 @@ export declare enum RsSaleSid {
     /** Products: water, t-shirts, etc. That is available for quick buy */
     QUICK_BUY = 10,
     /** Tuition */
-    TUITION = 14
+    TUITION = 14,
+    /** Tuition fees */
+    TUITION_FEE = 15
 }
 /** Sources of system notes. */
 export declare enum RsProfileNoteSid {

@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260701092857
+// OpenAPI spec version: 1.1.20260701100041
 // Build date: 2026-07-01
 // Endpoints: 468
 // Enums: 183
@@ -2674,6 +2674,8 @@ var RsSaleSid;
     RsSaleSid[RsSaleSid["QUICK_BUY"] = 10] = "QUICK_BUY";
     /** Tuition */
     RsSaleSid[RsSaleSid["TUITION"] = 14] = "TUITION";
+    /** Tuition fees */
+    RsSaleSid[RsSaleSid["TUITION_FEE"] = 15] = "TUITION_FEE";
 })(RsSaleSid || (exports.RsSaleSid = RsSaleSid = {}));
 /** Sources of system notes. */
 var RsProfileNoteSid;
