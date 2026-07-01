@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260701044406
+// OpenAPI spec version: 1.1.20260701070406
 // Build date: 2026-07-01
 // Endpoints: 466
-// Enums: 181
+// Enums: 183
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (181 total) ---
+// --- Enum types (183 total) ---
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
 (function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
@@ -4320,6 +4320,46 @@ export var RsPayBankAchSecSid;
     /** Web Initiated Entry */
     RsPayBankAchSecSid[RsPayBankAchSecSid["WEB"] = 1] = "WEB";
 })(RsPayBankAchSecSid || (RsPayBankAchSecSid = {}));
+/** An enum of credit card types. */
+export var ThothWlPayBankCardCardTypeEnum;
+(function (ThothWlPayBankCardCardTypeEnum) {
+    /** Credit Card */
+    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["CREDIT"] = 1] = "CREDIT";
+    /** Debit Card */
+    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
+})(ThothWlPayBankCardCardTypeEnum || (ThothWlPayBankCardCardTypeEnum = {}));
+/** A list of card types. */
+export var WlCardCardSystemSid;
+(function (WlCardCardSystemSid) {
+    /** American Express */
+    WlCardCardSystemSid[WlCardCardSystemSid["AMERICAN_EXPRESS"] = 1] = "AMERICAN_EXPRESS";
+    /** Bank of Montreal (BMO) */
+    WlCardCardSystemSid[WlCardCardSystemSid["BMO"] = 2] = "BMO";
+    /** Canadian Imperial Bank of Commerce (CIBC) */
+    WlCardCardSystemSid[WlCardCardSystemSid["CIBC"] = 3] = "CIBC";
+    /** Diners Club International */
+    WlCardCardSystemSid[WlCardCardSystemSid["DINNER_CLUB"] = 4] = "DINNER_CLUB";
+    /** Discover */
+    WlCardCardSystemSid[WlCardCardSystemSid["DISCOVER"] = 5] = "DISCOVER";
+    /** HSBC Bank Canada */
+    WlCardCardSystemSid[WlCardCardSystemSid["HSBC_CANADA"] = 6] = "HSBC_CANADA";
+    /** Japan Credit Bureau (JCB) */
+    WlCardCardSystemSid[WlCardCardSystemSid["JCB"] = 7] = "JCB";
+    /** Mastercard */
+    WlCardCardSystemSid[WlCardCardSystemSid["MASTERCARD"] = 8] = "MASTERCARD";
+    /** Royal Bank of Canada */
+    WlCardCardSystemSid[WlCardCardSystemSid["ROYAL_BANK"] = 9] = "ROYAL_BANK";
+    /** Scotiabank */
+    WlCardCardSystemSid[WlCardCardSystemSid["SCOTIBANK"] = 10] = "SCOTIBANK";
+    /** TD Canada Trust */
+    WlCardCardSystemSid[WlCardCardSystemSid["TD_CANADA"] = 11] = "TD_CANADA";
+    /** The card system can't be determined */
+    WlCardCardSystemSid[WlCardCardSystemSid["UNDEFINED"] = 13] = "UNDEFINED";
+    /** Union Pay */
+    WlCardCardSystemSid[WlCardCardSystemSid["UNION_PAY"] = 14] = "UNION_PAY";
+    /** Visa */
+    WlCardCardSystemSid[WlCardCardSystemSid["VISA"] = 12] = "VISA";
+})(WlCardCardSystemSid || (WlCardCardSystemSid = {}));
 /** A list of modes in which payment form can be shown. */
 export var RsPayModeSid;
 (function (RsPayModeSid) {

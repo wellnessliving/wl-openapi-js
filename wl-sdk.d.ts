@@ -4195,6 +4195,44 @@ export declare enum RsPayBankAchSecSid {
     /** Web Initiated Entry */
     WEB = 1
 }
+/** An enum of credit card types. */
+export declare enum ThothWlPayBankCardCardTypeEnum {
+    /** Credit Card */
+    CREDIT = 1,
+    /** Debit Card */
+    DEBIT = 2
+}
+/** A list of card types. */
+export declare enum WlCardCardSystemSid {
+    /** American Express */
+    AMERICAN_EXPRESS = 1,
+    /** Bank of Montreal (BMO) */
+    BMO = 2,
+    /** Canadian Imperial Bank of Commerce (CIBC) */
+    CIBC = 3,
+    /** Diners Club International */
+    DINNER_CLUB = 4,
+    /** Discover */
+    DISCOVER = 5,
+    /** HSBC Bank Canada */
+    HSBC_CANADA = 6,
+    /** Japan Credit Bureau (JCB) */
+    JCB = 7,
+    /** Mastercard */
+    MASTERCARD = 8,
+    /** Royal Bank of Canada */
+    ROYAL_BANK = 9,
+    /** Scotiabank */
+    SCOTIBANK = 10,
+    /** TD Canada Trust */
+    TD_CANADA = 11,
+    /** The card system can't be determined */
+    UNDEFINED = 13,
+    /** Union Pay */
+    UNION_PAY = 14,
+    /** Visa */
+    VISA = 12
+}
 /** A list of modes in which payment form can be shown. */
 export declare enum RsPayModeSid {
     /** The form is show in the mobile device */
@@ -4860,7 +4898,7 @@ export interface ThothReportCoreGeneratorQueryResponse {
         is_store: boolean;
         /** Argument for the MySQL function `cast()`. */
         s_cast?: string | null;
-        /** Name of a subclass of ReportGeneratorCellAbstract which objects can be used as a value */
+        /** Name of a cell class. */
         s_class?: Record<string, unknown> | null;
         /** CSS class that is used for formatting of this field. */
         s_class_css: string;
@@ -8285,7 +8323,7 @@ export interface ThothWlPayBankAchListResponse {
         id_pay_bank_ach_type: RsPayBankAchTypeSid;
         /** `true` - this account is default payment method; `false` - otherwise. */
         is_default: boolean;
-        /** ID of bank account. Primary key in RsPayBankSql. */
+        /** ID of bank account. */
         k_pay_bank: string;
         /** Account name. */
         text_name_account: string;
@@ -8352,12 +8390,32 @@ export interface ThothWlPayBankCardListResponse {
     can_add: boolean;
 }
 export interface ThothWlPayAddressWidgetWidgetEditParams {
-    /** Business primary key in RsBusinessSql table. */
+    /** Business key. */
     k_business: string;
 }
 export interface ThothWlPayAddressWidgetWidgetEditResponse {
-    /** List of possible regions. */
-    a_geo: Array<Array<unknown>>;
+    /** List of countries with their regions, keyed by country geo key. Each element: */
+    a_geo: Array<{
+        /** List of geographic regions within the country. Each element: */
+        a_region: {
+            /** `true` if this region is currently selected; `false` otherwise. */
+            is_select: boolean;
+            /** Region key. */
+            k_geo: string;
+            /** Region title. */
+            s_title: string;
+            /** Region abbreviation. */
+            text_abbr: string;
+        };
+        /** `true` if this country is currently selected; `false` otherwise. */
+        is_select: boolean;
+        /** Country key. */
+        k_geo: string;
+        /** Country title. */
+        s_title: string;
+        /** Country abbreviation. */
+        text_abbr: string;
+    }>;
     /** Mask for phone entering (ready for output to the page). */
     html_phone_mask: string;
     /** Mask for phone entering. */
@@ -18458,18 +18516,18 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
 export type WlTuitionEnrollmentTuitionEnrollmentCancelParams = Record<string, unknown>;
 export type WlTuitionEnrollmentTuitionEnrollmentCancelResponse = Record<string, unknown>;
 export interface ThothWlPayBankAchAddAddDeleteParams {
-    /** Business key. Primary key in RsBusinessSql table. */
+    /** Business key. */
     k_business: string;
-    /** Pay bank key to delete. Primary key in RsPayBankSql table. */
+    /** Pay bank key to delete. */
     k_pay_bank: string;
 }
 export type ThothWlPayBankAchAddAddDeleteResponse = Record<string, unknown>;
 export interface ThothWlPayBankAchAddAddGetParams {
     /** Determines if the set of configs of the new payment form design is used. */
     is_new: boolean;
-    /** Business key. Primary key in RsBusinessSql table. */
+    /** Business key. */
     k_business: string;
-    /** Location key. Primary key in RsLocationSql table. */
+    /** Location key. */
     k_location: string;
     /** Pay owner key. */
     k_pay_owner: string;
@@ -18483,9 +18541,9 @@ export interface ThothWlPayBankAchAddAddGetResponse {
     id_pay_processor: ThothPayProcessorPayProcessorSid;
 }
 export interface ThothWlPayBankAchAddAddPostParams {
-    /** Business key. Primary key in RsBusinessSql table. */
+    /** Business key. */
     k_business: string;
-    /** Location key. Primary key in RsLocationSql table. */
+    /** Location key. */
     k_location: string;
     /** Pay owner key. */
     k_pay_owner: string;
@@ -18503,11 +18561,11 @@ export interface ThothWlPayBankAchAddAddPostResponse {
         id_pay_bank_ach_type: RsPayBankAchTypeSid;
         /** `true` - this account is default payment method; `false` - otherwise. */
         is_default: boolean;
-        /** Billing address. Primary key in RsPayAddressSql. */
+        /** Billing address. */
         k_pay_address: string;
-        /** ID of bank account. Primary key in RsPayBankSql. */
+        /** ID of bank account. */
         k_pay_bank: string;
-        /** Region ID. Primary key in AGeoSql table. */
+        /** Region ID. */
         k_region: string;
         /** Name of city. */
         text_city: string;
@@ -18568,18 +18626,63 @@ export interface ThothWlPayBankCardWidgetWidgetSelectParams {
     id_pay_mode: RsPayModeSid;
     /** Payment owner kind. @see RsPayOwnerSid */
     id_pay_owner: RsPayOwnerSid;
-    /** Business key. Primary key in RsBusinessSql table. */
+    /** Business key. */
     k_business: string;
-    /** Currency key. Primary key in RsCurrencySql table. */
+    /** Currency key. */
     k_currency: string;
     /** Payment owner. */
     k_id: string;
-    /** Location key. Primary key in RsLocationSql table. */
+    /** Location key. */
     k_location: string;
 }
 export interface ThothWlPayBankCardWidgetWidgetSelectResponse {
-    /** List of saved bank cards. See RsPayBankCardSelectWidget::additional_data() for details. */
-    a_pay_card: Array<unknown>;
+    /** List of saved bank cards. */
+    a_pay_card: {
+        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
+        eid_card_type: ThothWlPayBankCardCardTypeEnum | null;
+        /** Card expiration month. */
+        i_month: number;
+        /** Card expiration year. */
+        i_year: number;
+        /** A list of card types. @see WlCardCardSystemSid */
+        id_card_system: WlCardCardSystemSid;
+        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
+        id_card_type: ThothWlPayBankCardCardTypeEnum | null;
+        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
+        id_pay_processor: ThothPayProcessorPayProcessorSid;
+        /** `true` if this card is the default payment method; `false` otherwise. */
+        is_default: boolean;
+        /** Billing address key. */
+        k_pay_address: string;
+        /** Payment card key. */
+        k_pay_bank: string;
+        /** Recurrent payment token key. */
+        k_pay_recurrent: string;
+        /** Billing region key. */
+        k_region: string;
+        /** Card nickname. Auto-generated from card system and masked number if not explicitly set. */
+        s_name: string;
+        /** Partial card number. */
+        s_number: string;
+        /** Card system SID. One of {@link WlCardCardSystemSid} constants as string. */
+        sid_card_system: string;
+        /** Billing city. */
+        text_city: string;
+        /** Country name resolved from the region's parent geo entity. Empty if region has no parent. */
+        text_country: string;
+        /** Cardholder name. */
+        text_holder: string;
+        /** Billing postal code. */
+        text_postal: string;
+        /** Public representation of the recurrent payment token, safe for browser output. */
+        text_public_token: string;
+        /** Region name resolved from the region key. Empty if no region is set. */
+        text_region: string;
+        /** Billing street address line 1. */
+        text_street_1: string;
+        /** Billing street address line 2. */
+        text_street_2: string;
+    };
 }
 export type CoreRequestApiApplicationOriginDeleteParams = Record<string, unknown>;
 export type CoreRequestApiApplicationOriginDeleteResponse = Record<string, unknown>;

@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260701044406
+ * Spec version: 1.1.20260701070406
  * Build date:   2026-07-01
  * Endpoints:    466
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260701044406';
+  WlClient.SPEC_VERSION = '1.1.20260701070406';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (466 total)
@@ -1978,6 +1978,9 @@
   /**
    * Retrieves information about user's ACH accounts.
    *
+   * Validates the user, business, and location, then retrieves all saved ACH accounts for the resolved merchant.
+   *  Also reports whether the current owner is allowed to add a new ACH account.
+   *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business ID of current business.
    * @param {string} params.k_location Location to show information for.
@@ -2014,10 +2017,13 @@
   /**
    * Gets data for "edit payment address" widget.
    *
+   * Returns the list of geographic regions and phone number format masks configured for the given business locale.
+   *  When no business key is provided, system-level defaults are returned.
+   *
    * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business primary key in RsBusinessSql table.
+   * @param {string} params.k_business Business key.
    * @returns {Promise<Object>} Response data.
-   *  `a_geo` {*[][]} List of possible regions.
+   *  `a_geo` {Object[]} List of countries with their regions, keyed by country geo key. Each element:
    *  `html_phone_mask` {string} Mask for phone entering (ready for output to the page).
    *  `text_phone_mask` {string} Mask for phone entering.
    */
@@ -6772,9 +6778,12 @@
   /**
    * Deletes saved ACH.
    *
+   * Removes the ACH bank account identified by `k_pay_bank` from the pay owner's saved payment methods
+   *  for the given business.
+   *
    * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key. Primary key in RsBusinessSql table.
-   * @param {string} params.k_pay_bank Pay bank key to delete. Primary key in RsPayBankSql table.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_pay_bank Pay bank key to delete.
    * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.thothWlPayBankAchAddAddDelete = function(params)
@@ -6785,11 +6794,15 @@
   /**
    * Gets widget for ACH account add.
    *
+   * Validates the locale, business, and pay owner, then determines whether to use Direct Entry (Australia and New
+   *  Zealand) or ACH as the payment method. Returns the rendered widget HTML and the processor ID for the
+   *  resolved merchant.
+   *
    * @param {Object} [params] Request parameters.
    * @param {?number} [params.id_locale] Locale ID. One of {@link WlClient.CoreLocaleLocaleSid} constants.
    * @param {boolean} params.is_new Determines if the set of configs of the new payment form design is used.
-   * @param {string} params.k_business Business key. Primary key in RsBusinessSql table.
-   * @param {string} params.k_location Location key. Primary key in RsLocationSql table.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_location Location key.
    * @param {string} params.k_pay_owner Pay owner key.
    * @returns {Promise<Object>} Response data.
    *  `html_widget` {string} The HTML form containing the fields required to add a card.
@@ -6803,9 +6816,13 @@
   /**
    * Saves new ACH pay method.
    *
+   * Processes the submitted ACH widget data, saves the bank account under the given pay owner and business,
+   *  and optionally marks it as the default payment method. Returns the saved account details including billing
+   *  address information.
+   *
    * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key. Primary key in RsBusinessSql table.
-   * @param {string} params.k_location Location key. Primary key in RsLocationSql table.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_location Location key.
    * @param {string} params.k_pay_owner Pay owner key.
    * @returns {Promise<Object>} Response data.
    *  `a_pay_bank` {Object} ACH account information:
@@ -6870,16 +6887,20 @@
   /**
    * Gets a list of saved bank cards.
    *
+   * Validates the payment method, currency, business, location, and pay owner type, then loads the configured
+   *  merchant and returns the list of saved cards available to the given owner. For business owners, a system-wide
+   *  merchant must be configured; for users, a business-specific merchant is required.
+   *
    * @param {Object} [params] Request parameters.
    * @param {number} params.id_pay_method Payment method. One of {@link WlClient.RsPayMethodSid} constants.
    * @param {number} params.id_pay_mode Payment mode. See {@link WlClient.RsPayModeSid}.
    * @param {number} params.id_pay_owner Payment owner kind. See {@link WlClient.RsPayOwnerSid}.
-   * @param {string} params.k_business Business key. Primary key in RsBusinessSql table.
-   * @param {string} params.k_currency Currency key. Primary key in RsCurrencySql table.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_currency Currency key.
    * @param {string} params.k_id Payment owner.
-   * @param {string} params.k_location Location key. Primary key in RsLocationSql table.
+   * @param {string} params.k_location Location key.
    * @returns {Promise<Object>} Response data.
-   *  `a_pay_card` {*[]} List of saved bank cards. See RsPayBankCardSelectWidget::additional_data() fo...
+   *  `a_pay_card` {Object} List of saved bank cards.
    */
   WlClient.prototype.thothWlPayBankCardWidgetWidgetSelect = function(params)
   {
@@ -10305,7 +10326,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (194 total)
+  // Enum constants (196 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -15132,6 +15153,54 @@
     TEL: 3,
     /** Web Initiated Entry */
     WEB: 1,
+  });
+
+  /**
+   * An enum of credit card types.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothWlPayBankCardCardTypeEnum = Object.freeze({
+    /** Credit Card */
+    CREDIT: 1,
+    /** Debit Card */
+    DEBIT: 2,
+  });
+
+  /**
+   * A list of card types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlCardCardSystemSid = Object.freeze({
+    /** American Express */
+    AMERICAN_EXPRESS: 1,
+    /** Bank of Montreal (BMO) */
+    BMO: 2,
+    /** Canadian Imperial Bank of Commerce (CIBC) */
+    CIBC: 3,
+    /** Diners Club International */
+    DINNER_CLUB: 4,
+    /** Discover */
+    DISCOVER: 5,
+    /** HSBC Bank Canada */
+    HSBC_CANADA: 6,
+    /** Japan Credit Bureau (JCB) */
+    JCB: 7,
+    /** Mastercard */
+    MASTERCARD: 8,
+    /** Royal Bank of Canada */
+    ROYAL_BANK: 9,
+    /** Scotiabank */
+    SCOTIBANK: 10,
+    /** TD Canada Trust */
+    TD_CANADA: 11,
+    /** The card system can't be determined */
+    UNDEFINED: 13,
+    /** Union Pay */
+    UNION_PAY: 14,
+    /** Visa */
+    VISA: 12,
   });
 
   /**
