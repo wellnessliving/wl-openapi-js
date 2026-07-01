@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260701125142
+ * Spec version: 1.1.20260701133339
  * Build date:   2026-07-01
- * Endpoints:    466
+ * Endpoints:    468
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260701125142';
+  WlClient.SPEC_VERSION = '1.1.20260701133339';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (466 total)
+  // Generated API methods (468 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -721,6 +721,38 @@
   WlClient.prototype.wlScheduleScheduleAvailableDate = function(params)
   {
     return this.request('/Wl/Schedule/ScheduleAvailableDate.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns parsed template for the schedule page.
+   *
+   * @param {Object} [params] Request parameters.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlScheduleSchedulePostBasedGet = function(params)
+  {
+    return this.request('/Wl/Schedule/SchedulePostBased.json', params || {}, 'GET');
+  };
+
+  /**
+   * Processes POST request to get the schedule for printing.
+   *
+   * Delegates to `get()` to avoid code duplication.
+   * Using POST avoids 414 (Request-URI Too Large) errors when `s_data` is large.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_backend Whether API is called in the backend mode.
+   * @param {boolean} params.is_widget Whether the schedule is shown in the widget.
+   * @param {string} params.k_business Business key for which schedule should be got.
+   * @param {string} params.uid User key who get the schedule.
+   * @returns {Promise<Object>} Response data.
+   *  `a_result` {?*[][]} Schedule info. Prepares only in the backend mode.
+   *  `a_schedule` {*[]} Schedule session data.
+   *  `html_template` {string} Parsed template of the schedule.
+   */
+  WlClient.prototype.wlScheduleSchedulePostBasedPost = function(params)
+  {
+    return this.request('/Wl/Schedule/SchedulePostBased.json', params || {}, 'POST');
   };
 
   /**
