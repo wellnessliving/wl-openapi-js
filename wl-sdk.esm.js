@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260701150634
+// OpenAPI spec version: 1.1.20260702094707
 // Build date: 2026-07-02
-// Endpoints: 468
+// Endpoints: 467
 // Enums: 183
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -6098,14 +6098,6 @@ export class WlScheduleNamespace {
     scheduleAvailableDate(params) {
         return this._client._request('/Wl/Schedule/ScheduleAvailableDate.json', params, 'GET');
     }
-    /** Returns parsed template for the schedule page. */
-    schedulePostBasedGet(params) {
-        return this._client._request('/Wl/Schedule/SchedulePostBased.json', params, 'GET');
-    }
-    /** Processes POST request to get the schedule for printing. */
-    schedulePostBasedPost(params) {
-        return this._client._request('/Wl/Schedule/SchedulePostBased.json', params, 'POST');
-    }
 }
 export class WlEventBookEventViewNamespace {
     constructor(_client) {
@@ -8112,6 +8104,20 @@ export class WlUserNamespace {
         this.info = new WlUserInfoNamespace(this._client);
     }
 }
+export class WlDoorAccessBrivoNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    webhook(params) {
+        return this._client._request('/Wl/DoorAccess/Brivo/Webhook.json', params, 'POST');
+    }
+}
+export class WlDoorAccessNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.brivo = new WlDoorAccessBrivoNamespace(this._client);
+    }
+}
 export class WlIntegrationAutymateNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8459,6 +8465,7 @@ export class WlNamespace {
         this.reward = new WlRewardNamespace(this._client);
         this.insurance = new WlInsuranceNamespace(this._client);
         this.user = new WlUserNamespace(this._client);
+        this.doorAccess = new WlDoorAccessNamespace(this._client);
         this.integration = new WlIntegrationNamespace(this._client);
         this.aiAgent = new WlAiAgentNamespace(this._client);
         this.microsoft = new WlMicrosoftNamespace(this._client);
