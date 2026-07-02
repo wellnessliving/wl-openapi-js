@@ -21356,6 +21356,11 @@ export interface WlBookProcessPurchasePurchaseResponse {
 export interface WlBookProcessPurchasePurchaseElementGroupParams {
     /** A list of purchase items. Each item is an associative array with the following keys: */
     a_purchase_item: Array<{
+        /** Additional item configurations. */
+        a_config?: {
+            /** List of tuition events. */
+            a_event_list?: Record<string, unknown>;
+        };
         /** Number of sessions which are booked simultaneously. */
         i_session?: number;
         /** A list of purchase types. @see RsPurchaseItemSid */
@@ -21638,6 +21643,16 @@ export interface WlBookProcessPurchasePurchase56Response {
     k_promotion_default: string;
 }
 export interface WlBookProcessPurchasePurchaseElementParams {
+    /** Additional configuration for the purchase item. */
+    a_config: {
+        /** List of tuition events. */
+        a_event_list?: {
+            /** Key of the event class. */
+            k_class: string;
+            /** Key of the tuition participant. */
+            uid: string;
+        };
+    };
     /** The number of sessions which are booked simultaneously. @see RsPurchaseItemSid */
     i_session: RsPurchaseItemSid;
     /** The ID of the purchase item type. One of {@link RsPurchaseItemSid}. */
@@ -21682,6 +21697,11 @@ export interface WlBookProcessPurchasePurchaseElementResponse {
 export interface WlBookProcessPurchasePurchaseElementListParams {
     /** A list of purchase items to get information for. Every element has the next keys: */
     a_purchase_item_request: Array<{
+        /** Additional configuration. */
+        a_config?: {
+            /** List of tuition events. */
+            a_event_list?: Record<string, unknown>;
+        };
         /** The number of sessions booked simultaneously. */
         i_session?: number;
         /** A list of purchase types. @see RsPurchaseItemSid */

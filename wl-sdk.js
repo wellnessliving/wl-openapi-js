@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260702055412
+ * Spec version: 1.1.20260702063547
  * Build date:   2026-07-02
  * Endpoints:    466
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260702055412';
+  WlClient.SPEC_VERSION = '1.1.20260702063547';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (466 total)
@@ -8005,6 +8005,7 @@
    * `get()` to compute the price breakdown for that item.
    *
    * @param {Object} [params] Request parameters.
+   * @param {Object} params.a_config Additional configuration for the purchase item.
    * @param {?string} [params.dtu_date] Date/time of session is booking.
    * @param {number} params.i_session The number of sessions which are booked simultaneously. See {@link WlClient.RsPurchaseItemSid}.
    * @param {number} params.id_purchase_item The ID of the purchase item type. One of {@link WlClient.RsPurchaseItemSid}.
