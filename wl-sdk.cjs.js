@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260701110635
+// OpenAPI spec version: 1.1.20260702055412
 // Build date: 2026-07-02
-// Endpoints: 468
+// Endpoints: 466
 // Enums: 183
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AGenderSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlAnnouncementSortFieldSid = exports.CoreSidSortOrderSid = exports.WlAnnouncementAnnouncementStatusEnum = exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.AFlagSid = exports.RsScheduleTimeSid = exports.CoreDriveDriveTypeSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.RsProjectSid = exports.WlModeModeSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.WlImportCustomCustomSid = exports.WlVisitVisitSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.WlPayBankCardCardTypeEnum = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.RsReportSid = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.WlTaskTaskStatusSid = exports.WlGenderGenderSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.RsPayOwnerSid = exports.CoreLocaleLocaleSid = exports.ThothPayProcessorPayProcessorSid = exports.RsPayMethodSid = exports.ACardSystemSid = exports.CoreLocaleCurrencySid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.RsHomeTourSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.WlApiError = void 0;
@@ -5734,14 +5734,6 @@ class WlScheduleNamespace {
     /** Finds the nearest class session that can be booked by the current user. */
     scheduleAvailableDate(params) {
         return this._client._request('/Wl/Schedule/ScheduleAvailableDate.json', params, 'GET');
-    }
-    /** Returns parsed template for the schedule page. */
-    schedulePostBasedGet(params) {
-        return this._client._request('/Wl/Schedule/SchedulePostBased.json', params, 'GET');
-    }
-    /** Processes POST request to get the schedule for printing. */
-    schedulePostBasedPost(params) {
-        return this._client._request('/Wl/Schedule/SchedulePostBased.json', params, 'POST');
     }
 }
 exports.WlScheduleNamespace = WlScheduleNamespace;

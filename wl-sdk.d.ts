@@ -5565,26 +5565,6 @@ export interface WlScheduleScheduleAvailableDateResponse {
     /** Nearest session date available for booking in user's or business timezone. */
     dl_next_available: string | null;
 }
-export type WlScheduleSchedulePostBasedGetParams = Record<string, unknown>;
-export type WlScheduleSchedulePostBasedGetResponse = Record<string, unknown>;
-export interface WlScheduleSchedulePostBasedPostParams {
-    /** Whether API is called in the backend mode. */
-    is_backend: boolean;
-    /** Whether the schedule is shown in the widget. */
-    is_widget: boolean;
-    /** Business key for which schedule should be got. */
-    k_business: string;
-    /** User key who get the schedule. */
-    uid: string;
-}
-export interface WlScheduleSchedulePostBasedPostResponse {
-    /** Schedule info. Prepares only in the backend mode. */
-    a_result: Array<Array<unknown>> | null;
-    /** Schedule session data. */
-    a_schedule: Array<unknown>;
-    /** Parsed template of the schedule. */
-    html_template: string;
-}
 export interface WlVisitVisitStatusGetParams {
     /** The business key. */
     k_business: string;
@@ -15753,6 +15733,13 @@ export interface WlCatalogCartCartParams {
         id_sale: RsSaleSid;
         /** The sale item key. */
         k_id: string;
+        /** Additional configuration. Used only for `id_sale` = {@link RsSaleSid}. */
+        a_config?: {
+            /** List of tuition events. */
+            a_event_list?: Record<string, unknown>;
+            /** Registration fees for tuition participants. */
+            a_registration_fee_list?: Record<string, unknown>;
+        };
         /** Key of login prize used on item. */
         k_login_prize?: string;
         /** Note: */
@@ -15782,6 +15769,13 @@ export interface WlCatalogCartCartResponse {
         id_sale: RsSaleSid;
         /** The sale item key. */
         k_id: string;
+        /** Additional configuration. Used only for `id_sale` = {@link RsSaleSid}. */
+        a_config?: {
+            /** List of tuition events. */
+            a_event_list?: Record<string, unknown>;
+            /** Registration fees for tuition participants. */
+            a_registration_fee_list?: Record<string, unknown>;
+        };
         /** Key of login prize used on item. */
         k_login_prize?: string;
         /** Note: */
@@ -23915,8 +23909,10 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartParams {
     a_item: Array<{
         /** The list of purchase item additional options: */
         a_config?: {
-            /** List of tuition components: */
+            /** List of tuition events for tuition participant. Each record has the next structure: */
             a_event_list?: Record<string, unknown>;
+            /** Registration fees for tuition participants. */
+            a_registration_fee_list?: Record<string, unknown>;
             /** The custom price. */
             f_price?: string;
             /** The prorate date. This should be passed when `is_prorate`=`true`. */
@@ -24007,8 +24003,10 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartResponse {
     a_item: Array<{
         /** The list of purchase item additional options: */
         a_config?: {
-            /** List of tuition components: */
+            /** List of tuition events for tuition participant. Each record has the next structure: */
             a_event_list?: Record<string, unknown>;
+            /** Registration fees for tuition participants. */
+            a_registration_fee_list?: Record<string, unknown>;
             /** The custom price. */
             f_price?: string;
             /** The prorate date. This should be passed when `is_prorate`=`true`. */
@@ -25760,10 +25758,6 @@ export declare class WlScheduleNamespace {
     cancelPost(params?: WlScheduleCancelPostParams): Promise<WlScheduleCancelPostResponse>;
     /** Finds the nearest class session that can be booked by the current user. */
     scheduleAvailableDate(params?: WlScheduleScheduleAvailableDateParams): Promise<WlScheduleScheduleAvailableDateResponse>;
-    /** Returns parsed template for the schedule page. */
-    schedulePostBasedGet(params?: WlScheduleSchedulePostBasedGetParams): Promise<WlScheduleSchedulePostBasedGetResponse>;
-    /** Processes POST request to get the schedule for printing. */
-    schedulePostBasedPost(params?: WlScheduleSchedulePostBasedPostParams): Promise<WlScheduleSchedulePostBasedPostResponse>;
 }
 export declare class WlVisitNamespace {
     private readonly _client;
