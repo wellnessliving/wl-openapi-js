@@ -18499,6 +18499,19 @@ export interface WlSocialShareSocialShareResponse {
 export type WlFacebookLoginFacebookLoginParams = Record<string, unknown>;
 export type WlFacebookLoginFacebookLoginResponse = Record<string, unknown>;
 export interface WlTuitionEnrollmentTuitionEnrollmentListParams {
+    /** Filters. */
+    a_filter: {
+        /** Leave only enrollments with the given events enrolled. */
+        a_event: Array<string>;
+        /** List of tuition statuses. */
+        a_statuses: Array<number>;
+        /** Leave only enrollments with the given payers or enrolled clients. */
+        a_uid_any: Array<string>;
+        /** Leave only enrollments with the given enrolled clients. */
+        a_uid_enrolled: Array<string>;
+        /** Leave only enrollments with the given payers. */
+        a_uid_payer: Array<string>;
+    };
     /** Business key. */
     k_business: string;
     /** Key of the tuition in tuition microservice. */

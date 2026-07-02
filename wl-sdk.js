@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260702084745
+ * Spec version: 1.1.20260702102248
  * Build date:   2026-07-02
  * Endpoints:    466
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260702084745';
+  WlClient.SPEC_VERSION = '1.1.20260702102248';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (466 total)
@@ -6752,6 +6752,7 @@
    * and the users have been enrolled in.
    *
    * @param {Object} [params] Request parameters.
+   * @param {Object} params.a_filter Filters.
    * @param {string} params.k_business Business key.
    * @param {string} params.s_tuition_id Key of the tuition in tuition microservice.
    * @returns {Promise<Object>} Response data.
