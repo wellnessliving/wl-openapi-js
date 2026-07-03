@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260703171649
+// OpenAPI spec version: 1.1.20260703195239
 // Build date: 2026-07-03
 // Endpoints: 496
 // Enums: 187
@@ -6124,7 +6124,7 @@ class WlLoginPromotionNamespace {
     promotionPayPauseDelete(params) {
         return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'DELETE');
     }
-    /** Returns promotion payment pause data: all hold periods when {@link WlLoginPromotionNamespace#promotionPayPauseGet} is `true`,  the specified hold period when {@link WlLoginPromotionNamespace#promotionPayPauseGet} is provided, or the currently  active hold period otherwise. */
+    /** Returns promotion payment pause data: all hold periods when {@link WlLoginPromotionNamespace#promotionPayPauseGet} is `true`,  the specified hold period when {@link WlLoginPromotionPromotionPayPauseGetResponse.k_promotion_pay_pause} is provided, or the currently  active hold period otherwise. */
     promotionPayPauseGet(params) {
         return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'GET');
     }

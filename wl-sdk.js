@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260703171649
+ * Spec version: 1.1.20260703195239
  * Build date:   2026-07-03
  * Endpoints:    496
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260703171649';
+  WlClient.SPEC_VERSION = '1.1.20260703195239';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (496 total)
@@ -6138,8 +6138,8 @@
    * Saves a quiz response with the given element answers.
    *
    * Validates the submitted answers and persists the response record in a transaction. If
-   * QuizResponseApi is set, only validation runs and no record is created.
-   * Pass QuizResponseApi to bypass validation for pre-confirmed responses.
+   * QuizResponseApi::$is_validate_only is set, only validation runs and no record is created.
+   * Pass QuizResponseApi::$is_skip to bypass validation for pre-confirmed responses.
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.can_anonymous Checks whether unauthorized user should be permitted to operate with form and make a response.
@@ -6235,8 +6235,8 @@
    * Saves a quiz response with the given element answers.
    *
    * Validates the submitted answers and persists the response record in a transaction. If
-   * QuizResponseApi is set, only validation runs and no record is created.
-   * Pass QuizResponseApi to bypass validation for pre-confirmed responses.
+   * QuizResponseApi::$is_validate_only is set, only validation runs and no record is created.
+   * Pass QuizResponseApi::$is_skip to bypass validation for pre-confirmed responses.
    * @deprecated Use {@link \Wl\Quiz\Response\Response65Api} instead.
    *
    * @param {Object} [params] Request parameters.

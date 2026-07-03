@@ -6318,7 +6318,7 @@ export interface WlLocationListBulkResponse {
         f_longitude: number;
         /** The full description of the location. */
         html_description_full: string;
-        /** A shorter description of the location. A preview of {@link WlLocationViewNamespace#view}. */
+        /** A shorter description of the location. A preview of {@link WlLocationViewViewResponse.html_descri... */
         html_description_preview: string;
         /** Maximum location image height. */
         i_logo_height: number;
@@ -7879,7 +7879,7 @@ export interface WlSessionEnvironmentGetResponse {
             'url-thumbnail': string;
         };
     } | null;
-    /** Local date with time now in current location {@link WlSessionNamespace#environmentGet}. */
+    /** Local date with time now in current location {@link WlSessionEnvironmentGetResponse.k_location}. */
     dtl_now: string;
     /** Whether exists form to confirm during registration process. */
     has_form_quiz: boolean;
@@ -12553,7 +12553,7 @@ export interface WlScheduleClassListClassListParams {
     dt_date: string;
     /** The list end date in UTC and in MySQL format. */
     dt_end: string;
-    /** `true` means to not generate {@link WlScheduleClassListNamespace#classList} result. */
+    /** `true` means to not generate {@link WlScheduleClassListClassListResponse.a_session} result. */
     is_response_short: boolean;
     /** If `true`, sessions from every class tab are returned. If `false`, use the */
     is_tab_all: boolean;
@@ -15972,7 +15972,7 @@ export interface WlVideoTagTagListResponse {
     }>;
 }
 export interface WlPurchaseReceiptPurchaseReceiptParams {
-    /** Whether {@link WlPurchaseReceiptNamespace#purchaseReceipt} and {@link WlPurchaseReceiptNamespace#... */
+    /** Whether {@link WlPurchaseReceiptPurchaseReceiptResponse.url_print} and {@link WlPurchaseReceiptPu... */
     is_url_public: boolean;
     /** The key of the purchase. */
     k_purchase?: string | null;
@@ -16141,7 +16141,7 @@ export interface WlLocationFlagFlagResponse {
         /** Value: `true` if user is flagged; `false` otherwise. */
         is_flag: boolean;
     };
-    /** Array, where keys are UIDs to be checked and values are same as {@link WlLocationFlagNamespace#fl... */
+    /** Array, where keys are UIDs to be checked and values are same as {@link WlLocationFlagFlagResponse... */
     a_restrictions_multiple: {
         /** `true` if the user cannot make new reservations. */
         is_book: boolean;
@@ -16220,7 +16220,7 @@ export interface WlLocationViewViewResponse {
     f_longitude: number;
     /** The full description of the location. */
     html_description_full: string;
-    /** A shorter description of the location. A preview of {@link WlLocationViewNamespace#view}. */
+    /** A shorter description of the location. A preview of {@link WlLocationViewViewResponse.html_descri... */
     html_description_preview: string;
     /** List of different types for landing pages based on business types. @see RsHomeTourSid */
     id_industry: RsHomeTourSid | null;
@@ -19552,7 +19552,7 @@ export interface WlLoginAttendanceAddAddGetResponse {
     m_account: string;
     /** The price of the session, including any taxes and discounts. */
     m_price: string | null;
-    /** The user's account balance if they were charged the {@link WlLoginAttendanceAddNamespace#addGet} ... */
+    /** The user's account balance if they were charged the {@link WlLoginAttendanceAddAddGetResponse.m_p... */
     m_rest: string | null;
 }
 export interface WlLoginAttendanceAddAddPostParams {
@@ -22026,7 +22026,7 @@ export interface WlEventBookEventViewElementResponse {
             /** Class session primary keys. */
             k_class_period: string;
         };
-        /** Image of event. See {@link WlEventBookEventViewNamespace#element}. */
+        /** Image of event. See {@link WlEventBookEventViewElementResponse.a_class_logo}. */
         a_class_logo: {
             /** Is returned only if staff has a photo. Image height. */
             i_height?: number;
@@ -22037,9 +22037,9 @@ export interface WlEventBookEventViewElementResponse {
             /** Is returned only if staff has a photo. URL to image. */
             url_logo?: string;
         };
-        /** Class tab keys. See {@link WlEventBookEventViewNamespace#element}. */
+        /** Class tab keys. See {@link WlEventBookEventViewElementResponse.a_class_tab}. */
         a_class_tab: Array<string>;
-        /** List of installment plans. See {@link WlEventBookEventViewNamespace#element}. */
+        /** List of installment plans. See {@link WlEventBookEventViewElementResponse.a_installment_template}. */
         a_installment_template: {
             /** The number of payments. */
             i_count: number;
@@ -22056,7 +22056,7 @@ export interface WlEventBookEventViewElementResponse {
             /** The title of the installment plan. */
             s_duration: string;
         };
-        /** Schedule of event sessions. See {@link WlEventBookEventViewNamespace#element}. */
+        /** Schedule of event sessions. See {@link WlEventBookEventViewElementResponse.a_schedule}. */
         a_schedule: {
             /** Days of the week when the session occurs. */
             a_day: Array<boolean>;
@@ -22097,7 +22097,7 @@ export interface WlEventBookEventViewElementResponse {
         };
         /** IDs of online store category. */
         a_shop_category: Array<string>;
-        /** Photos of staff. See {@link WlEventBookEventViewNamespace#element}. */
+        /** Photos of staff. See {@link WlEventBookEventViewElementResponse.a_staff_logo}. */
         a_staff_logo: {
             /** Image height. */
             i_height: number;
@@ -22138,7 +22138,7 @@ export interface WlEventBookEventViewElementResponse {
         is_makeup: boolean;
         /** `true` if the event session has already started or ended and is not available to book. */
         is_past: boolean;
-        /** `true` {@link WlEventBookEventViewNamespace#element} contains the custom policies from the event;... */
+        /** `true` {@link WlEventBookEventViewElementResponse.a_business_policy} contains the custom policies... */
         is_policy_custom: boolean;
         /** `true` if event is virtual; `false` otherwise. */
         is_virtual: boolean;
@@ -22302,7 +22302,7 @@ export interface WlEventBookEventViewElementResponse {
     is_makeup: boolean;
     /** `true` if the selected session has already started and do not available to book. */
     is_past: boolean;
-    /** `true` if the {@link WlEventBookEventViewNamespace#element} contains the custom policies from the... */
+    /** `true` if the {@link WlEventBookEventViewElementResponse.a_business_policy} contains the custom p... */
     is_policy_custom: boolean;
     /** `true` if the event can be paid with a Purchase Option only. */
     is_promotion_only: boolean;
@@ -22318,7 +22318,7 @@ export interface WlEventBookEventViewElementResponse {
     m_price: string;
     /** The price of the all sessions of the event. */
     m_price_total: string;
-    /** Price of the full event should be used as full price while {@link WlEventBookEventViewNamespace#e... */
+    /** Price of the full event should be used as full price while {@link WlEventBookEventViewElementResp... */
     m_price_total_early: string | null;
     /** The reason why the event can't be booked. */
     s_deny_reason: string;
@@ -25894,7 +25894,7 @@ export interface WlAppointmentBookAssetServiceServiceParams {
     k_timezone: string;
     /** User to get information for. */
     uid: string;
-    /** The appointment booking key to ignore when {@link WlAppointmentBookAssetServiceNamespace#service}... */
+    /** The appointment booking key to ignore when {@link WlAppointmentBookAssetServiceServiceResponse.a_... */
     k_appointment_ignore?: string | null;
 }
 export interface WlAppointmentBookAssetServiceServiceResponse {
@@ -26624,7 +26624,7 @@ export declare class WlLoginPromotionNamespace {
     constructor(_client: WlClient);
     /** Deletes specified promotion payment pause. */
     promotionPayPauseDelete(params?: WlLoginPromotionPromotionPayPauseDeleteParams): Promise<WlLoginPromotionPromotionPayPauseDeleteResponse>;
-    /** Returns promotion payment pause data: all hold periods when {@link WlLoginPromotionNamespace#promotionPayPauseGet} is `true`,  the specified hold period when {@link WlLoginPromotionNamespace#promotionPayPauseGet} is provided, or the currently  active hold period otherwise. */
+    /** Returns promotion payment pause data: all hold periods when {@link WlLoginPromotionNamespace#promotionPayPauseGet} is `true`,  the specified hold period when {@link WlLoginPromotionPromotionPayPauseGetResponse.k_promotion_pay_pause} is provided, or the currently  active hold period otherwise. */
     promotionPayPauseGet(params?: WlLoginPromotionPromotionPayPauseGetParams): Promise<WlLoginPromotionPromotionPayPauseGetResponse>;
     /** Adds or updates a payment pause period for promotion. */
     promotionPayPausePost(params?: WlLoginPromotionPromotionPayPausePostParams): Promise<WlLoginPromotionPromotionPayPausePostResponse>;
