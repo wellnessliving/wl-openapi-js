@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260703021706
+// OpenAPI spec version: 1.1.20260703024524
 // Build date: 2026-07-03
 // Endpoints: 466
 // Enums: 183
@@ -5003,6 +5003,10 @@ export var WlLoginPromotionGuestPassInviteInviteStatusEnum;
     WlLoginPromotionGuestPassInviteInviteStatusEnum[WlLoginPromotionGuestPassInviteInviteStatusEnum["LATE_CANCELLED"] = 5] = "LATE_CANCELLED";
     /** Guest accepted the invitation but did not show up for the visit. Pass is */
     WlLoginPromotionGuestPassInviteInviteStatusEnum[WlLoginPromotionGuestPassInviteInviteStatusEnum["NO_SHOW"] = 4] = "NO_SHOW";
+    /** Guest has a visit linked to the guest pass, but its outcome (attended, no-show, */
+    WlLoginPromotionGuestPassInviteInviteStatusEnum[WlLoginPromotionGuestPassInviteInviteStatusEnum["PENDING"] = 12] = "PENDING";
+    /** Guest is on the waitlist for the class session booked with the guest pass */
+    WlLoginPromotionGuestPassInviteInviteStatusEnum[WlLoginPromotionGuestPassInviteInviteStatusEnum["WAITLISTED"] = 11] = "WAITLISTED";
 })(WlLoginPromotionGuestPassInviteInviteStatusEnum || (WlLoginPromotionGuestPassInviteInviteStatusEnum = {}));
 // --- Namespace classes ---
 export class ThothExplorerSearchClassSessionNamespace {

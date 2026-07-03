@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260703021706
+ * Spec version: 1.1.20260703024524
  * Build date:   2026-07-03
  * Endpoints:    466
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260703021706';
+  WlClient.SPEC_VERSION = '1.1.20260703024524';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (466 total)
@@ -16047,6 +16047,10 @@
     LATE_CANCELLED: 5,
     /** Guest accepted the invitation but did not show up for the visit. Pass is */
     NO_SHOW: 4,
+    /** Guest has a visit linked to the guest pass, but its outcome (attended, no-show, */
+    PENDING: 12,
+    /** Guest is on the waitlist for the class session booked with the guest pass */
+    WAITLISTED: 11,
   });
 
   return WlClient;
