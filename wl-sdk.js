@@ -302,7 +302,7 @@
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
    *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
-   *  `dl_now` {string} Current local date in current location [EnvironmentApi](/Thoth/WlPay/Form/Env...
+   *  `dl_now` {string} Current local date in current location {@link WlClient#thothWlPayFormEnvironm...
    *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
    *  `f_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a percent of transaction...
    *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
@@ -332,7 +332,7 @@
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
    *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
-   *  `dl_now` {string} Current local date in current location [EnvironmentApi](/Thoth/WlPay/Form/Env...
+   *  `dl_now` {string} Current local date in current location {@link WlClient#thothWlPayFormEnvironm...
    *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
    *  `f_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a percent of transaction...
    *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
@@ -2029,7 +2029,7 @@
    *
    * First step of the two-step image upload flow. Stores the uploaded file in temporary drive storage and
    * returns preview URLs and dimension metadata so the user can review or crop the image before it is
-   * permanently saved. Call [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json) to commit the temporary image to the entity.
+   * permanently saved. Call {@link WlClient#coreDriveImageUploadImageUploadGet} to commit the temporary image to the entity.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_id The key of the image within `s_class`.
@@ -2209,7 +2209,7 @@
    *
    * Accepts the user's email address and an optional custom reset-page URL, validates the input,
    * optionally checks a CAPTCHA, and sends a password reset email containing a link the user can follow
-   * to set a new password using [ChangePasswordApplyApi](/Core/Passport/ChangePassword/ChangePasswordApply.json).
+   * to set a new password using {@link WlClient#corePassportChangePasswordChangePasswordApply}.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
@@ -2295,7 +2295,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_calendar` {string[]} Keys are dates of the days inside requested date range, when there is at leas...
    *  `a_quick` {Object} Information about classes/events for quick filter.
-   *  `a_session` {Object[]} A list of classes sessions starting with the date [ClassListApi](/Wl/Schedule...
+   *  `a_session` {Object[]} A list of classes sessions starting with the date {@link WlClient#wlScheduleC...
    *  `is_timezone_different` {boolean} If `true`, the list of sessions contains sessions from different time zones. ...
    *  `is_virtual_service` {boolean} If `true`, there exists at least one virtual service by a specified
    */
@@ -4591,8 +4591,8 @@
    * Saves a quiz response with the given element answers.
    *
    * Validates the submitted answers and persists the response record in a transaction. If
-   * [QuizResponseApi](/Core/Quiz/QuizResponse.json) is set, only validation runs and no record is created.
-   * Pass [QuizResponseApi](/Core/Quiz/QuizResponse.json) to bypass validation for pre-confirmed responses.
+   * QuizResponseApi is set, only validation runs and no record is created.
+   * Pass QuizResponseApi to bypass validation for pre-confirmed responses.
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.can_anonymous Checks whether unauthorized user should be permitted to operate with form and make a response.
@@ -4688,8 +4688,8 @@
    * Saves a quiz response with the given element answers.
    *
    * Validates the submitted answers and persists the response record in a transaction. If
-   * [QuizResponseApi](/Core/Quiz/QuizResponse.json) is set, only validation runs and no record is created.
-   * Pass [QuizResponseApi](/Core/Quiz/QuizResponse.json) to bypass validation for pre-confirmed responses.
+   * QuizResponseApi is set, only validation runs and no record is created.
+   * Pass QuizResponseApi to bypass validation for pre-confirmed responses.
    * @deprecated Use {@link Wl\Quiz\Response\Response65Api} instead.
    *
    * @param {Object} [params] Request parameters.
@@ -5597,8 +5597,8 @@
   /**
    * Retrieves information about staff.
    *
-   * This method can accept or one staff key [StaffViewApi](/Wl/Staff/StaffView/StaffView.json) or staff list
-   * [StaffViewApi](/Wl/Staff/StaffView/StaffView.json) but not both (exception would be thrown).
+   * This method can accept or one staff key {@link WlClient#wlStaffStaffViewStaffView} or staff list
+   * {@link WlClient#wlStaffStaffViewStaffView} but not both (exception would be thrown).
    *
    * @param {Object} [params] Request parameters.
    * @param {?string[]} [params.a_uid_staff_list] A list of staff user IDs.
@@ -6283,7 +6283,7 @@
    * @param {number} params.id_flow ID of the user behavior flow. See {@link WlClient.WlUserTrackingFlowSid}.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
-   * @param {string} params.uid_delete The key of the related user who [RelationApi](/Wl/Family/Relation/Relation.json) must be removed.
+   * @param {string} params.uid_delete The key of the related user who {@link WlClient#wlFamilyRelationRelationGet} must be removed.
    * @returns {Promise<Object>} Response data.
    *  `a_relation` {Object[]} Information about the user's relationships. Every element has the following f...
    */
@@ -6311,8 +6311,8 @@
   };
 
   /**
-   * Adds to user [RelationApi](/Wl/Family/Relation/Relation.json)
-  relative [RelationApi](/Wl/Family/Relation/Relation.json).
+   * Adds to user {@link WlClient#wlFamilyRelationRelationGet}
+  relative {@link WlClient#wlFamilyRelationRelationGet}.
    *
    * Creates a bidirectional family relationship between the user identified by `uid` and the user specified in
    * `a_new`, then returns the updated list of relationships for `uid`.
@@ -6717,7 +6717,7 @@
   /**
    * Signs the user in using their login and hashed password.
    *
-   * Accepts the user login, a password hash derived using the notepad obtained from [NotepadApi](/Core/Passport/Login/Enter/Notepad.json),
+   * Accepts the user login, a password hash derived using the notepad obtained from {@link WlClient#corePassportLoginEnterNotepad},
    * and an optional remember preference. Validates credentials, enforces CAPTCHA when too many failed
    * attempts have occurred, starts a session for the user, and returns a redirect URL if applicable.
    *
@@ -6734,7 +6734,7 @@
    * Generates notepad for user sign in form.
    *
    * Generates a cryptographic nonce (one-time random string) and stores it in the session so that the
-   * client can hash the user's password with it before sending it to [EnterApi](/Core/Passport/Login/Enter/Enter.json). This prevents
+   * client can hash the user's password with it before sending it to {@link WlClient#corePassportLoginEnterEnter}. This prevents
    * replay attacks and avoids transmitting passwords in plain text.
    *
    * @param {Object} [params] Request parameters.
@@ -6754,7 +6754,7 @@
    * Validates the new user's data and sends a confirmation email to complete registration.
    *
    * Accepts the new user's name, email, and password, validates each field, stores the pending registration,
-   * and sends a confirmation email with a link to complete registration via [RegisterConfirmApi](/Core/Passport/Login/Register/RegisterConfirm.json).
+   * and sends a confirmation email with a link to complete registration via {@link WlClient#corePassportLoginRegisterRegisterConfirm}.
    * An optional application ID and custom confirmation URL may be provided.
    *
    * @param {Object} [params] Request body fields.
@@ -6770,7 +6770,7 @@
   /**
    * Confirms email of a new user and completes registration.
    *
-   * Accepts the email, login, and verification code obtained from the confirmation link sent by [RegisterApi](/Core/Passport/Login/Register/Register.json),
+   * Accepts the email, login, and verification code obtained from the confirmation link sent by {@link WlClient#corePassportLoginRegisterRegister},
    * validates them against the pending registration record, creates the user account, and returns the new user's UID.
    *
    * @param {Object} [params] Request parameters.
@@ -6857,8 +6857,8 @@
   };
 
   /**
-   * Gets schedule of business [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json) for day
-  [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json).
+   * Gets schedule of business {@link WlClient#wlScheduleScheduleListStaffAppScheduleList} for day
+  {@link WlClient#wlScheduleScheduleListStaffAppScheduleList}.
    *
    * Returns all classes and appointments scheduled for the given business on the specified date,
    * sorted chronologically. Supports both single-day and date-range modes, and includes full
@@ -7165,7 +7165,7 @@
    *  eligibility for available options.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_service List of selected services without current [PurchaseApi](/Wl/Appointment/Book/Purchase/Purchase.js...
+   * @param {Object[]} params.a_service List of selected services without current {@link WlClient#wlAppointmentBookPurchasePurchase}.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {string} params.dt_date The date to use to check for expiration of Purchase Options.
    * @param {number} params.i_duration The asset booking duration.
@@ -7179,7 +7179,7 @@
    * @param {?string} [params.k_login_promotion] The Purchase Option ID used to pay for the appointment.
    * @param {string} params.k_resource The resource key.
    * @param {string} params.k_service The service key used to select available Purchase Options.
-   * @param {?string} [params.k_timezone] The timezone key for [PurchaseApi](/Wl/Appointment/Book/Purchase/Purchase.json).
+   * @param {?string} [params.k_timezone] The timezone key for {@link WlClient#wlAppointmentBookPurchasePurchase}.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
    *  `a_login_prize` {Object} Data about the login prize which can be used to pay for service.
@@ -7522,8 +7522,8 @@
    * @param {number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
    * @param {number} params.id_purchase_item The purchase item ID. A constant of {@link WlClient.RsPurchaseItemSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
-   * @param {?string} [params.k_business] The business key. Currently used only with [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json...
-   * @param {string} params.k_id The item key. Depends on [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json) property.
+   * @param {?string} [params.k_business] The business key. Currently used only with {@link WlClient#wlAppointmentBookPaymentPaymentGet} va...
+   * @param {string} params.k_id The item key. Depends on {@link WlClient#wlAppointmentBookPaymentPaymentGet} property.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.k_login_promotion The login promotion key.
    * @param {string} params.k_session_pass Session pass key.
@@ -7560,7 +7560,7 @@
    * @param {number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
    * @param {number} params.id_purchase_item The purchase item ID. A constant of {@link WlClient.RsPurchaseItemSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
-   * @param {string} params.k_id The item key. Depends on [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json) property.
+   * @param {string} params.k_id The item key. Depends on {@link WlClient#wlAppointmentBookPaymentPaymentGet} property.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.text_coupon_code Gift card code.
    * @param {string} params.text_discount_code The discount code to be applied to the purchase.
@@ -7645,7 +7645,7 @@
    * Retrieves list of available service add-ons.
    *
    * Returns all active add-on products available for the specified service, including title, image,
-   *  price, and quantity information. Results are not filtered by client type; use [Product62Api](/Wl/Appointment/Book/Product/Product62.json)
+   *  price, and quantity information. Results are not filtered by client type; use {@link WlClient#wlAppointmentBookProductProduct62}
    *  when filtering by client login type is required.
    *
    * @param {Object} [params] Request parameters.
@@ -8316,9 +8316,9 @@
    * @param {number[]} params.a_day List of days of the week to create visits. Each value is a {@link WlClient.ADateWeekSid} constant.
    * @param {string[]} params.a_visit_ignore List of visits to be ignored. Each value is a string consisting of a class period key
    * @param {string} params.dt_date Date and time of the class, when recurring booking was called, in UTC timezone.
-   * @param {string} params.dt_from Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repea...
-   * @param {string} params.dt_to Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repe...
-   * @param {number} params.i_count Count of the visits to be created. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Rep... See {@link WlClient.RsRepeatEndSid}.
+   * @param {string} params.dt_from Date to start recurring booking. Not empty only when {@link WlClient#wlBookProcessFrequencyRepeat...
+   * @param {string} params.dt_to Date to finish recurring booking. Not empty only when {@link WlClient#wlBookProcessFrequencyRepea...
+   * @param {number} params.i_count Count of the visits to be created. Not empty only when {@link WlClient#wlBookProcessFrequencyRepe... See {@link WlClient.RsRepeatEndSid}.
    * @param {number} params.i_duration Count of days\weeks\months between recurring bookings.
    * @param {number} params.id_duration Recurring booking interval, one of {@link WlClient.ADurationSid} constants.
    * @param {number} params.id_mode WellnessLiving mode, one of {@link WlClient.WlModeModeSid} constants.
@@ -8333,8 +8333,8 @@
    * @param {string} params.uid_actor Key of user, who perform booking.
    * @returns {Promise<Object>} Response data.
    *  `a_visit` {Object[]} List of visits to be created for the given settings:
-   *  `dt_from` {string} Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Pro...
-   *  `dt_to` {string} Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Pr...
+   *  `dt_from` {string} Date to start recurring booking. Not empty only when {@link WlClient#wlBookPr...
+   *  `dt_to` {string} Date to finish recurring booking. Not empty only when {@link WlClient#wlBookP...
    *  `i_count` {number} Possible ways to stop repeatable events. See {@link WlClient.RsRepeatEndSid}.
    *  `text_date_from` {string} Start date of repeatable period in human-readable format.
    *  `text_date_to` {string} End date of repeatable period in human-readable format.
@@ -9289,7 +9289,7 @@
    *
    * Persists all text fields of the Client App Materials form (store listing copy, contact details,
    * privacy policy URL, etc.) for the specified business. File assets such as icons and screenshots
-   * are submitted separately via [ApplicationResourceUploadApi](/Wl/Skin/Application/Resource/ApplicationResourceUpload.json). Requires the App Build
+   * are submitted separately via {@link WlClient#wlSkinApplicationResourceApplicationResourceUpload}. Requires the App Build
    * Automation edit privilege.
    *
    * @param {Object} [params] Request body fields.

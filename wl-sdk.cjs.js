@@ -4981,7 +4981,7 @@ class WlScheduleScheduleListStaffAppNamespace {
     scheduleList(params) {
         return this._client._request('/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json', params, 'GET');
     }
-    /** Gets schedule of business [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json) for day [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json). */
+    /** Gets schedule of business {@link WlScheduleScheduleListStaffAppNamespace#scheduleList} for day {@link WlScheduleScheduleListStaffAppNamespace#scheduleList}. */
     scheduleListByToken(params) {
         return this._client._request('/Wl/Schedule/ScheduleList/StaffApp/ScheduleListByToken.json', params, 'GET');
     }
@@ -7966,7 +7966,7 @@ class WlFamilyRelationNamespace {
     relation72Get(params) {
         return this._client._request('/Wl/Family/Relation/Relation72.json', params, 'GET');
     }
-    /** Adds to user [RelationApi](/Wl/Family/Relation/Relation.json) relative [RelationApi](/Wl/Family/Relation/Relation.json). */
+    /** Adds to user {@link WlFamilyRelationNamespace#relationGet} relative {@link WlFamilyRelationNamespace#relationGet}. */
     relation72Post(params) {
         return this._client._request('/Wl/Family/Relation/Relation72.json', params, 'POST');
     }

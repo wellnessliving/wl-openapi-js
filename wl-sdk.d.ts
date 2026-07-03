@@ -4337,7 +4337,7 @@ export interface ThothWlPayFormEnvironmentUserResponse {
         /** Key of the business merchant. Primary key in RsBusinessMerchantSql. */
         k_business_merchant: string;
     }> | null;
-    /** Current local date in current location [EnvironmentApi](/Thoth/WlPay/Form/Environment.json) */
+    /** Current local date in current location {@link ThothWlPayFormNamespace#environment} */
     dl_now: string;
     /** Surcharge amount for payment with card represented as a percent of transaction amount. */
     f_surcharge: string | null;
@@ -4401,7 +4401,7 @@ export interface ThothWlPayFormEnvironmentResponse {
         /** Key of the business merchant. Primary key in RsBusinessMerchantSql. */
         k_business_merchant: string;
     }> | null;
-    /** Current local date in current location [EnvironmentApi](/Thoth/WlPay/Form/Environment.json) */
+    /** Current local date in current location {@link ThothWlPayFormNamespace#environment} */
     dl_now: string;
     /** Surcharge amount for payment with card represented as a percent of transaction amount. */
     f_surcharge: string | null;
@@ -5023,7 +5023,7 @@ export interface WlLocationListBulkResponse {
         f_longitude: number;
         /** The full description of the location. */
         html_description_full: string;
-        /** A shorter description of the location. A preview of [ViewApi](/Wl/Location/View/View.json). */
+        /** A shorter description of the location. A preview of {@link WlLocationViewNamespace#view}. */
         html_description_preview: string;
         /** Maximum location image height. */
         i_logo_height: number;
@@ -7385,7 +7385,7 @@ export interface WlHolidayBulkBusinessHolidayParams {
     k_business: string;
 }
 export interface WlHolidayBulkBusinessHolidayResponse {
-    /** An array consisting of the business's closed day data for all locations by holiday keys [HolidayA... */
+    /** An array consisting of the business's closed day data for all locations by holiday keys {@link Wl... */
     a_business_holidays: Array<{
         /** List of effected classes, keys are class keys. */
         a_class: Array<boolean>;
@@ -7778,7 +7778,7 @@ export interface WlScheduleClassListClassList68Response {
         /** Total sessions found. */
         i_class: number;
     };
-    /** A list of classes sessions starting with the date [ClassListApi](/Wl/Schedule/ClassList/ClassList... */
+    /** A list of classes sessions starting with the date {@link WlScheduleClassListNamespace#classList} */
     a_session: Array<{
         /** Keys of class tab. */
         a_class_tab: Array<string>;
@@ -11815,7 +11815,7 @@ export interface WlLoginAttendanceAttendanceListResponse {
         k_login_promotion: string;
         /** The key of the visit. */
         k_visit: string;
-        /** The purchase used to pay for the session. Instance of [PurchaseListElementApi](/Wl/Profile/Purcha... */
+        /** The purchase used to pay for the session. Instance of {@link WlProfilePurchaseListNamespace#purch... */
         o_purchase_item: string | null;
         /** The expiry information for the Purchase Option. This field is deprecated, use the text_ version i... */
         s_expire: string;
@@ -12061,7 +12061,7 @@ export interface WlLoginAttendanceAttendanceListResponse {
         k_login_promotion: string;
         /** The key of the visit. */
         k_visit: string;
-        /** The purchase used to pay for the session. Instance of [PurchaseListElementApi](/Wl/Profile/Purcha... */
+        /** The purchase used to pay for the session. Instance of {@link WlProfilePurchaseListNamespace#purch... */
         o_purchase_item: string | null;
         /** The expiry information for the Purchase Option. This field is deprecated, use the text_ version i... */
         s_expire: string;
@@ -12307,7 +12307,7 @@ export interface WlLoginAttendanceAttendanceListResponse {
         k_login_promotion: string;
         /** The key of the visit. */
         k_visit: string;
-        /** The purchase used to pay for the session. Instance of [PurchaseListElementApi](/Wl/Profile/Purcha... */
+        /** The purchase used to pay for the session. Instance of {@link WlProfilePurchaseListNamespace#purch... */
         o_purchase_item: string | null;
         /** The expiry information for the Purchase Option. This field is deprecated, use the text_ version i... */
         s_expire: string;
@@ -12694,7 +12694,7 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         k_login_promotion: string;
         /** The key of the visit. */
         k_visit: string;
-        /** The purchase used to pay for the session. Instance of [PurchaseListElementApi](/Wl/Profile/Purcha... */
+        /** The purchase used to pay for the session. Instance of {@link WlProfilePurchaseListNamespace#purch... */
         o_purchase_item: string | null;
         /** The expiry information for the Purchase Option. This field is deprecated, use the text_ version i... */
         s_expire: string;
@@ -12940,7 +12940,7 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         k_login_promotion: string;
         /** The key of the visit. */
         k_visit: string;
-        /** The purchase used to pay for the session. Instance of [PurchaseListElementApi](/Wl/Profile/Purcha... */
+        /** The purchase used to pay for the session. Instance of {@link WlProfilePurchaseListNamespace#purch... */
         o_purchase_item: string | null;
         /** The expiry information for the Purchase Option. This field is deprecated, use the text_ version i... */
         s_expire: string;
@@ -13186,7 +13186,7 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         k_login_promotion: string;
         /** The key of the visit. */
         k_visit: string;
-        /** The purchase used to pay for the session. Instance of [PurchaseListElementApi](/Wl/Profile/Purcha... */
+        /** The purchase used to pay for the session. Instance of {@link WlProfilePurchaseListNamespace#purch... */
         o_purchase_item: string | null;
         /** The expiry information for the Purchase Option. This field is deprecated, use the text_ version i... */
         s_expire: string;
@@ -17023,7 +17023,7 @@ export interface WlFamilyRelationRelation72DeleteParams {
     k_business: string;
     /** The key of the user whose relationships are being assessed. */
     uid: string;
-    /** The key of the related user who [RelationApi](/Wl/Family/Relation/Relation.json) must be removed. */
+    /** The key of the related user who {@link WlFamilyRelationNamespace#relationGet} must be removed. */
     uid_delete: string;
 }
 export interface WlFamilyRelationRelation72DeleteResponse {
@@ -18613,7 +18613,7 @@ export interface WlAppointmentBookPurchasePurchaseResponse {
     text_login_promotion: string;
 }
 export interface WlAppointmentBookPurchasePurchase72Params {
-    /** List of selected services without current [PurchaseApi](/Wl/Appointment/Book/Purchase/Purchase.js... */
+    /** List of selected services without current {@link WlAppointmentBookPurchaseNamespace#purchase}. */
     a_service: Array<{
         /** List of purchase options selected for the service. */
         a_purchase: {
@@ -18663,7 +18663,7 @@ export interface WlAppointmentBookPurchasePurchase72Params {
     k_appointment?: string | null;
     /** The Purchase Option ID used to pay for the appointment. */
     k_login_promotion?: string | null;
-    /** The timezone key for [PurchaseApi](/Wl/Appointment/Book/Purchase/Purchase.json). */
+    /** The timezone key for {@link WlAppointmentBookPurchaseNamespace#purchase}. */
     k_timezone?: string | null;
 }
 export interface WlAppointmentBookPurchasePurchase72Response {
@@ -19556,7 +19556,7 @@ export interface WlAppointmentBookPaymentPaymentPostGetParams {
     id_purchase_item: RsPurchaseItemSid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
     is_walk_in: boolean;
-    /** The item key. Depends on [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json) property. */
+    /** The item key. Depends on {@link WlAppointmentBookPaymentNamespace#paymentGet} property. */
     k_id: string;
     /** Location to show available appointment booking schedule. */
     k_location: string;
@@ -19574,7 +19574,7 @@ export interface WlAppointmentBookPaymentPaymentPostGetParams {
     text_discount_code: string;
     /** The user key. */
     uid: string;
-    /** The business key. Currently used only with [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json... */
+    /** The business key. Currently used only with {@link WlAppointmentBookPaymentNamespace#paymentGet} v... */
     k_business?: string | null;
 }
 export interface WlAppointmentBookPaymentPaymentPostGetResponse {
@@ -19635,7 +19635,7 @@ export interface WlAppointmentBookPaymentPaymentPostPostParams {
     id_purchase_item: RsPurchaseItemSid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
     is_walk_in: boolean;
-    /** The item key. Depends on [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json) property. */
+    /** The item key. Depends on {@link WlAppointmentBookPaymentNamespace#paymentGet} property. */
     k_id: string;
     /** Location to show available appointment booking schedule. */
     k_location: string;
@@ -21278,11 +21278,11 @@ export interface WlBookProcessFrequencyRepeatParallelParams {
     a_visit_ignore: Array<string>;
     /** Date and time of the class, when recurring booking was called, in UTC timezone. */
     dt_date: string;
-    /** Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repea... */
+    /** Date to start recurring booking. Not empty only when {@link WlBookProcessFrequencyNamespace#repea... */
     dt_from: string;
-    /** Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repe... */
+    /** Date to finish recurring booking. Not empty only when {@link WlBookProcessFrequencyNamespace#repe... */
     dt_to: string;
-    /** Count of the visits to be created. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Rep... @see RsRepeatEndSid */
+    /** Count of the visits to be created. Not empty only when {@link WlBookProcessFrequencyNamespace#rep... @see RsRepeatEndSid */
     i_count: RsRepeatEndSid;
     /** Count of days\weeks\months between recurring bookings. */
     i_duration: number;
@@ -21339,9 +21339,9 @@ export interface WlBookProcessFrequencyRepeatParallelResponse {
         /** Visit date and time in location's time zone in human-readable format. */
         s_date: string;
     }>;
-    /** Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repea... */
+    /** Date to start recurring booking. Not empty only when {@link WlBookProcessFrequencyNamespace#repea... */
     dt_from: string;
-    /** Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repe... */
+    /** Date to finish recurring booking. Not empty only when {@link WlBookProcessFrequencyNamespace#repe... */
     dt_to: string;
     /** Possible ways to stop repeatable events. @see RsRepeatEndSid */
     i_count: RsRepeatEndSid;
@@ -24156,7 +24156,7 @@ export declare class WlScheduleScheduleListStaffAppNamespace {
     constructor(_client: WlClient);
     /** Gets schedule of business `k_business` for day `dt_date`. */
     scheduleList(params?: WlScheduleScheduleListStaffAppScheduleListParams): Promise<WlScheduleScheduleListStaffAppScheduleListResponse>;
-    /** Gets schedule of business [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json) for day [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json). */
+    /** Gets schedule of business {@link WlScheduleScheduleListStaffAppNamespace#scheduleList} for day {@link WlScheduleScheduleListStaffAppNamespace#scheduleList}. */
     scheduleListByToken(params?: WlScheduleScheduleListStaffAppScheduleListByTokenParams): Promise<WlScheduleScheduleListStaffAppScheduleListByTokenResponse>;
 }
 export declare class WlScheduleScheduleListNamespace {
@@ -25963,7 +25963,7 @@ export declare class WlFamilyRelationNamespace {
     relation72Delete(params?: WlFamilyRelationRelation72DeleteParams): Promise<WlFamilyRelationRelation72DeleteResponse>;
     /** Gets relative list. */
     relation72Get(params?: WlFamilyRelationRelation72GetParams): Promise<WlFamilyRelationRelation72GetResponse>;
-    /** Adds to user [RelationApi](/Wl/Family/Relation/Relation.json) relative [RelationApi](/Wl/Family/Relation/Relation.json). */
+    /** Adds to user {@link WlFamilyRelationNamespace#relationGet} relative {@link WlFamilyRelationNamespace#relationGet}. */
     relation72Post(params?: WlFamilyRelationRelation72PostParams): Promise<WlFamilyRelationRelation72PostResponse>;
 }
 export declare class WlFamilyNamespace {
