@@ -4825,7 +4825,11 @@ export declare enum WlLoginPromotionGuestPassInviteInviteStatusEnum {
     /** Guest cancelled the visit too late and was penalised. Pass is consumed and */
     LATE_CANCELLED = 5,
     /** Guest accepted the invitation but did not show up for the visit. Pass is */
-    NO_SHOW = 4
+    NO_SHOW = 4,
+    /** Guest has a visit linked to the guest pass, but its outcome (attended, no-show, */
+    PENDING = 12,
+    /** Guest is on the waitlist for the class session booked with the guest pass */
+    WAITLISTED = 11
 }
 export interface CoreRequestExampleParams {
     /** Example argument. */
@@ -18288,6 +18292,19 @@ export interface WlSocialShareSocialShareResponse {
 export type WlFacebookLoginFacebookLoginParams = Record<string, unknown>;
 export type WlFacebookLoginFacebookLoginResponse = Record<string, unknown>;
 export interface WlTuitionEnrollmentTuitionEnrollmentListParams {
+    /** Filters. */
+    a_filter: {
+        /** Leave only enrollments with the given events enrolled. */
+        a_event: Array<string>;
+        /** List of tuition statuses. */
+        a_statuses: Array<number>;
+        /** Leave only enrollments with the given payers or enrolled clients. */
+        a_uid_any: Array<string>;
+        /** Leave only enrollments with the given enrolled clients. */
+        a_uid_enrolled: Array<string>;
+        /** Leave only enrollments with the given payers. */
+        a_uid_payer: Array<string>;
+    };
     /** Business key. */
     k_business: string;
     /** Key of the tuition in tuition microservice. */
@@ -18614,6 +18631,8 @@ export interface WlMemberGroupEditEditGetResponse {
     id_member_group_shape: WlMemberGroupShapeSid;
     /** Whether Facility Access enabled for group. */
     is_brivo_active: boolean;
+    /** Whether automatic check-in on Brivo access granted is enabled for the group. */
+    is_brivo_checkin_active: boolean;
     /** Whether Brivo invitation feature enabled for the group. */
     is_brivo_invitation_active: boolean;
     /** `true` to enable group icon. `false` to disable. */
@@ -27360,6 +27379,7 @@ export declare class WlUserNamespace {
 export declare class WlDoorAccessBrivoNamespace {
     private readonly _client;
     constructor(_client: WlClient);
+    /** Receives a Brivo door-access event. */
     webhook(params?: WlDoorAccessBrivoWebhookParams): Promise<WlDoorAccessBrivoWebhookResponse>;
 }
 export declare class WlDoorAccessNamespace {

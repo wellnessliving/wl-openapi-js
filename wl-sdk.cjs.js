@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260702121520
+// OpenAPI spec version: 1.1.20260703064842
 // Build date: 2026-07-03
 // Endpoints: 467
 // Enums: 183
@@ -5016,6 +5016,10 @@ var WlLoginPromotionGuestPassInviteInviteStatusEnum;
     WlLoginPromotionGuestPassInviteInviteStatusEnum[WlLoginPromotionGuestPassInviteInviteStatusEnum["LATE_CANCELLED"] = 5] = "LATE_CANCELLED";
     /** Guest accepted the invitation but did not show up for the visit. Pass is */
     WlLoginPromotionGuestPassInviteInviteStatusEnum[WlLoginPromotionGuestPassInviteInviteStatusEnum["NO_SHOW"] = 4] = "NO_SHOW";
+    /** Guest has a visit linked to the guest pass, but its outcome (attended, no-show, */
+    WlLoginPromotionGuestPassInviteInviteStatusEnum[WlLoginPromotionGuestPassInviteInviteStatusEnum["PENDING"] = 12] = "PENDING";
+    /** Guest is on the waitlist for the class session booked with the guest pass */
+    WlLoginPromotionGuestPassInviteInviteStatusEnum[WlLoginPromotionGuestPassInviteInviteStatusEnum["WAITLISTED"] = 11] = "WAITLISTED";
 })(WlLoginPromotionGuestPassInviteInviteStatusEnum || (exports.WlLoginPromotionGuestPassInviteInviteStatusEnum = WlLoginPromotionGuestPassInviteInviteStatusEnum = {}));
 // --- Namespace classes ---
 class CoreRequestApiApplicationCredentialNamespace {
@@ -8363,6 +8367,7 @@ class WlDoorAccessBrivoNamespace {
     constructor(_client) {
         this._client = _client;
     }
+    /** Receives a Brivo door-access event. */
     webhook(params) {
         return this._client._request('/Wl/DoorAccess/Brivo/Webhook.json', params, 'POST');
     }

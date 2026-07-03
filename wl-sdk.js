@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260702121520
+ * Spec version: 1.1.20260703064842
  * Build date:   2026-07-03
  * Endpoints:    467
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260702121520';
+  WlClient.SPEC_VERSION = '1.1.20260703064842';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (467 total)
@@ -6087,6 +6087,11 @@
   };
 
   /**
+   * Receives a Brivo door-access event.
+   *
+   * Authenticates the request by the per-business webhook secret, then decodes the Brivo `AUDIT` event
+   *  payload and store the access fact and, when enabled, trigger an automatic check-in.
+   *  Access-denied and unrecognized events are ignored.
    *
    * @param {Object} [params] Request parameters.
    * @returns {Promise<Object>} Response data.
@@ -6654,6 +6659,7 @@
    * and the users have been enrolled in.
    *
    * @param {Object} [params] Request parameters.
+   * @param {Object} params.a_filter Filters.
    * @param {string} params.k_business Business key.
    * @param {string} params.s_tuition_id Key of the tuition in tuition microservice.
    * @returns {Promise<Object>} Response data.
@@ -6961,6 +6967,7 @@
    *  `id_conversion_type` {?number} Lead conversion type. See {@link WlClient.WlLeadConversionLeadConversionTypeSid}.
    *  `id_member_group_shape` {number} Shapes of client group icons. See {@link WlClient.WlMemberGroupShapeSid}.
    *  `is_brivo_active` {boolean} Whether Facility Access enabled for group.
+   *  `is_brivo_checkin_active` {boolean} Whether automatic check-in on Brivo access granted is enabled for the group.
    *  `is_brivo_invitation_active` {boolean} Whether Brivo invitation feature enabled for the group.
    *  `is_icon` {boolean} `true` to enable group icon. `false` to disable.
    *  `is_update` {boolean} Whether auto-update enabled for group.
@@ -16056,6 +16063,10 @@
     LATE_CANCELLED: 5,
     /** Guest accepted the invitation but did not show up for the visit. Pass is */
     NO_SHOW: 4,
+    /** Guest has a visit linked to the guest pass, but its outcome (attended, no-show, */
+    PENDING: 12,
+    /** Guest is on the waitlist for the class session booked with the guest pass */
+    WAITLISTED: 11,
   });
 
   return WlClient;
