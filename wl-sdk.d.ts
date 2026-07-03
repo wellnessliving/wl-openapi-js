@@ -18532,6 +18532,8 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
         dtl_enrollment: string;
         /** Number of payments left. */
         i_payments_left: number;
+        /** Number of payments total at the moment of enrollment. */
+        i_payments_total: number;
         /** Installment plan status. */
         id_installment_status: number;
         /** Key of the tuition purchase item. This is enrollment key, which can be used to modify and cancel ... */
