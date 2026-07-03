@@ -12,6 +12,12 @@ const CHANNELS = ['stable', 'dev', 'production'];
 const HTTP_METHODS = new Set(['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace']);
 
 /**
+ * HTTP verb priority order used to pick a stable "first available" method when a markdown
+ * link to an API path omits the verb and the path has more than one HTTP method.
+ */
+const HTTP_VERB_PRIORITY = ['get', 'post', 'put', 'patch', 'delete', 'head', 'options', 'trace'];
+
+/**
  * Clones the OpenAPI spec repository if not already present.
  */
 function ensureSpec()
@@ -38,15 +44,150 @@ function resolveRef(spec, ref)
 let _enumTsNames = new Map();
 
 /**
- * Converts OpenAPI markdown links to `{@link TsName}` when the target is a generated enum,
- * or strips them to plain text otherwise.
+ * Maps each API path to the generated TS namespace class, method name, and HTTP method used
+ * to reach it, so convertYamlLinks can resolve bare markdown links to an API path. Populated
+ * in buildTs() before any doc comment is generated.
+ *
+ * When a path has more than one HTTP method, the one with the highest
+ * {@link HTTP_VERB_PRIORITY} is used, since a markdown link to a bare API path does not
+ * specify which HTTP method it refers to.
+ *
+ * @type {Map<string, {className: string, methodName: string, httpMethod: string}>}
+ */
+let _pathMethodInfo = new Map();
+
+/**
+ * Maps 'apiPath:httpMethod' to its operation object, populated in buildTs() alongside
+ * {@link _pathMethodInfo} so property links can inspect the resolved operation's schema.
+ *
+ * @type {Map<string, {apiPath: string, httpMethod: string, operation: Object, pathLevelParams: Object[]}>}
+ */
+let _opsByKey = new Map();
+
+/**
+ * Maps 'apiPath:httpMethod' to its generated interface names, set to the same object built
+ * in buildTs() so property links can reference the response interface.
+ *
+ * @type {Object<string, {paramsName: string, responseName: string}>}
+ */
+let _interfaceMapRef = null;
+
+/**
+ * OpenAPI spec of the current build, set in buildTs() so property links can resolve the
+ * response schema of the target operation.
+ *
+ * @type {Object|null}
+ */
+let _currentSpec = null;
+
+/**
+ * Computes the effective (deduplicated) method name for every operation directly on a
+ * namespace tree node, matching the suffixing rule applied in generateClasses().
+ *
+ * @param {{methods: {apiPath: string, httpMethod: string, methodName: string}[]}} node
+ * @returns {Map<string, string>} Effective method name keyed by 'apiPath:httpMethod'.
+ */
+function computeNodeMethodNames(node)
+{
+  const methodNameCount = {};
+  for (const m of node.methods)
+  {
+    methodNameCount[m.methodName] = (methodNameCount[m.methodName] || 0) + 1;
+  }
+
+  const result = new Map();
+  for (const m of node.methods)
+  {
+    const effectiveName = (methodNameCount[m.methodName] > 1)
+      ? m.methodName + m.httpMethod.charAt(0).toUpperCase() + m.httpMethod.slice(1)
+      : m.methodName;
+    result.set(m.apiPath + ':' + m.httpMethod, effectiveName);
+  }
+  return result;
+}
+
+/**
+ * Walks the namespace tree to populate {@link _pathMethodInfo}, without emitting any code.
+ * Must run before any doc comment is generated, so convertYamlLinks can cross-reference
+ * paths regardless of where they appear in the spec.
+ *
+ * @param {Object} node Namespace tree node (see buildTree()).
+ * @param {string[]} pathSegments Namespace path segments leading to this node.
+ */
+function populateMethodInfo(node, pathSegments)
+{
+  for (const [, child] of node.children)
+  {
+    populateMethodInfo(child, [...pathSegments, child.segment]);
+  }
+
+  if (pathSegments.length === 0) return;
+
+  const className = segmentsToName(pathSegments) + 'Namespace';
+  const nodeMethodNames = computeNodeMethodNames(node);
+
+  const byPath = new Map();
+  for (const m of node.methods)
+  {
+    if (!byPath.has(m.apiPath)) byPath.set(m.apiPath, []);
+    byPath.get(m.apiPath).push({
+      httpMethod: m.httpMethod,
+      methodName: nodeMethodNames.get(m.apiPath + ':' + m.httpMethod),
+    });
+  }
+
+  for (const [apiPath, list] of byPath)
+  {
+    list.sort((a, b) => HTTP_VERB_PRIORITY.indexOf(a.httpMethod) - HTTP_VERB_PRIORITY.indexOf(b.httpMethod));
+    _pathMethodInfo.set(apiPath, { className, methodName: list[0].methodName, httpMethod: list[0].httpMethod });
+  }
+}
+
+/**
+ * Resolves a markdown API-path link to a TSDoc `{@link}` target.
+ *
+ * A bare label resolves to the namespace class method. A label ending with `::$prop`
+ * additionally resolves to the response interface property when that property exists on the
+ * resolved operation's response schema; otherwise it falls back to the method link.
+ *
+ * @param {string} label Markdown link label, e.g. 'ImageUploadApi' or 'ImageUploadApi::$k_id'.
+ * @param {string} apiPath API path, e.g. '/Core/Drive/ImageUpload/ImageUpload.json'.
+ * @returns {string|null} `{@link}` target text, or `null` if the path has no generated method.
+ */
+function resolveApiPathLink(label, apiPath)
+{
+  const info = _pathMethodInfo.get(apiPath);
+  if (!info) return null;
+
+  const propMatch = label.match(/::\$(\w+)$/);
+  if (propMatch)
+  {
+    const opKey = apiPath + ':' + info.httpMethod;
+    const op = _opsByKey.get(opKey);
+    const iface = _interfaceMapRef ? _interfaceMapRef[opKey] : null;
+    const responseSchema = op ? resolveResponseSchema(_currentSpec, op.operation) : null;
+    if (
+      iface && responseSchema && responseSchema.properties &&
+      Object.prototype.hasOwnProperty.call(responseSchema.properties, propMatch[1])
+    )
+    {
+      return iface.responseName + '.' + propMatch[1];
+    }
+  }
+
+  return info.className + '#' + info.methodName;
+}
+
+/**
+ * Converts OpenAPI markdown links to `{@link TsName}` for enums or the resolved namespace
+ * class method (or response property) for API paths, or strips them to plain text otherwise.
  *
  * @param {string} text
  * @returns {string}
  */
 function convertYamlLinks(text)
 {
-  return String(text || '').replace(
+  let result = String(text || '').replace(
     /\[([^\]]+)\]\(#\/components\/schemas\/([^)]+)\)/g,
     function(match, linkText, schemaKey)
     {
@@ -54,6 +195,17 @@ function convertYamlLinks(text)
       return tsName ? '{@link ' + tsName + '}' : linkText;
     }
   );
+
+  result = result.replace(
+    /\[([^\]]+)\]\((\/[^)]+\.json)\)/g,
+    function(match, linkText, apiPath)
+    {
+      const target = resolveApiPathLink(linkText, apiPath);
+      return target ? '{@link ' + target + '}' : linkText;
+    }
+  );
+
+  return result;
 }
 
 /**
@@ -438,12 +590,7 @@ function generateClasses(spec, node, pathSegments, interfaceMap)
     lines.push('  constructor(private readonly _client: WlClient) {}');
   }
 
-  // Detect duplicate leaf names (same path, different HTTP method) for method name deduplication.
-  const methodNameCount = {};
-  for (const m of node.methods)
-  {
-    methodNameCount[m.methodName] = (methodNameCount[m.methodName] || 0) + 1;
-  }
+  const nodeMethodNames = computeNodeMethodNames(node);
 
   for (const method of node.methods)
   {
@@ -452,9 +599,7 @@ function generateClasses(spec, node, pathSegments, interfaceMap)
     const paramsName = iface.paramsName || 'Record<string, unknown>';
     const responseName = iface.responseName || 'Record<string, unknown>';
 
-    const effectiveName = (methodNameCount[method.methodName] > 1)
-      ? method.methodName + method.httpMethod.charAt(0).toUpperCase() + method.httpMethod.slice(1)
-      : method.methodName;
+    const effectiveName = nodeMethodNames.get(key);
 
     lines.push('');
     if (method.operation.summary)
@@ -608,6 +753,8 @@ function buildTs(spec, version)
   const specVersion = (spec.info && spec.info.version) ? String(spec.info.version) : 'unknown';
   const buildDate = new Date().toISOString().slice(0, 10);
 
+  _currentSpec = spec;
+
   // Populate the enum names map first so convertYamlLinks and getEnumTsName work during generation.
   _enumTsNames.clear();
   for (const [schemaName, schema] of Object.entries((spec.components && spec.components.schemas) || {}))
@@ -639,18 +786,36 @@ function buildTs(spec, version)
     pathMethodCount[op.apiPath] = (pathMethodCount[op.apiPath] || 0) + 1;
   }
 
-  // Generate per-operation interfaces.
-  const interfaceBlocks = [];
+  // Resolve interface names and the namespace tree/method names for every operation before
+  // generating any doc comment, so convertYamlLinks can cross-reference them regardless of
+  // where the target path appears in the spec.
   const interfaceMap = {};
-
+  _opsByKey.clear();
   for (const op of ops)
   {
     const segments = op.apiPath.replace(/^\//, '').replace(/\.json$/i, '').split('/');
     const namePrefix = segmentsToName(segments);
-    const multiMethod = pathMethodCount[op.apiPath] > 1;
-    const methodSuffix = multiMethod
+    const methodSuffix = (pathMethodCount[op.apiPath] > 1)
       ? op.httpMethod.charAt(0).toUpperCase() + op.httpMethod.slice(1)
       : '';
+
+    interfaceMap[op.apiPath + ':' + op.httpMethod] = {
+      paramsName: namePrefix + methodSuffix + 'Params',
+      responseName: namePrefix + methodSuffix + 'Response',
+    };
+    _opsByKey.set(op.apiPath + ':' + op.httpMethod, op);
+  }
+  _interfaceMapRef = interfaceMap;
+
+  const tree = buildTree(ops);
+  _pathMethodInfo.clear();
+  populateMethodInfo(tree, []);
+
+  // Generate per-operation interfaces (descriptions may link to any other path/property).
+  const interfaceBlocks = [];
+  for (const op of ops)
+  {
+    const { paramsName, responseName } = interfaceMap[op.apiPath + ':' + op.httpMethod];
 
     const allParams = [
       ...(Array.isArray(op.pathLevelParams) ? op.pathLevelParams : []),
@@ -659,19 +824,13 @@ function buildTs(spec, version)
       .map((p) => (p && p.$ref) ? (resolveRef(spec, p.$ref) || p) : p)
       .filter((p) => p && (p.in === 'query' || p.in === 'path'));
 
-    const paramsName = namePrefix + methodSuffix + 'Params';
-    const responseName = namePrefix + methodSuffix + 'Response';
-
     interfaceBlocks.push(generateParamsInterface(spec, paramsName, allParams));
 
     const responseSchema = resolveResponseSchema(spec, op.operation);
     interfaceBlocks.push(generateResponseInterface(spec, responseName, responseSchema));
-
-    interfaceMap[op.apiPath + ':' + op.httpMethod] = { paramsName, responseName };
   }
 
-  // Build namespace tree and generate classes.
-  const tree = buildTree(ops);
+  // Generate classes (summaries may also link to any other path/property).
   const classBlocks = generateClasses(spec, tree, [], interfaceMap);
 
   // Top-level namespace list for WlClient.

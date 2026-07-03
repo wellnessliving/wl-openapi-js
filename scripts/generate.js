@@ -12,6 +12,12 @@ const CHANNELS = ['stable', 'dev', 'production'];
 const HTTP_METHODS = new Set(['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace']);
 
 /**
+ * HTTP verb priority order used to pick a stable "first available" method when a markdown
+ * link to an API path omits the verb and the path has more than one HTTP method.
+ */
+const HTTP_VERB_PRIORITY = ['get', 'post', 'put', 'patch', 'delete', 'head', 'options', 'trace'];
+
+/**
  * Clones the OpenAPI spec repository if not already present.
  */
 function ensureSpec()
@@ -146,15 +152,39 @@ function pathToMethodName(apiPath)
 let _enumJsNames = new Map();
 
 /**
- * Converts OpenAPI markdown links to `{@link WlClient.JsName}` when the target is a generated
- * enum, or strips them to plain text otherwise.
+ * Maps each API path to its generated `WlClient` method names, one entry per HTTP method,
+ * ordered by {@link HTTP_VERB_PRIORITY}. Populated in buildSdk() before any code generation runs.
+ *
+ * @type {Map<string, {httpMethod: string, methodName: string}[]>}
+ */
+let _pathMethodNames = new Map();
+
+/**
+ * Returns the generated `WlClient` method name for an API path.
+ *
+ * When the path has more than one HTTP method, the one with the highest
+ * {@link HTTP_VERB_PRIORITY} is used, since a markdown link to a bare API path does not
+ * specify which HTTP method it refers to.
+ *
+ * @param {string} apiPath
+ * @returns {string|null} Method name, or `null` if the path has no generated method.
+ */
+function getMethodNameForPath(apiPath)
+{
+  const list = _pathMethodNames.get(apiPath);
+  return (list && list.length > 0) ? list[0].methodName : null;
+}
+
+/**
+ * Converts OpenAPI markdown links to `{@link WlClient.JsName}` for enums or
+ * `{@link WlClient#methodName}` for API paths, or strips them to plain text otherwise.
  *
  * @param {string} text
  * @returns {string}
  */
 function convertYamlLinks(text)
 {
-  return String(text || '').replace(
+  let result = String(text || '').replace(
     /\[([^\]]+)\]\(#\/components\/schemas\/([^)]+)\)/g,
     function(match, linkText, schemaKey)
     {
@@ -162,6 +192,17 @@ function convertYamlLinks(text)
       return jsName ? '{@link WlClient.' + jsName + '}' : linkText;
     }
   );
+
+  result = result.replace(
+    /\[([^\]]+)\]\((\/[^)]+\.json)\)/g,
+    function(match, linkText, apiPath)
+    {
+      const methodName = getMethodNameForPath(apiPath);
+      return methodName ? '{@link WlClient#' + methodName + '}' : linkText;
+    }
+  );
+
+  return result;
 }
 
 /**
@@ -581,8 +622,10 @@ function buildSdk(spec, version, templateSrc)
     baseNameCount[base] = (baseNameCount[base] || 0) + 1;
   }
 
+  // Resolve every method name before generating any docs, so convertYamlLinks can
+  // cross-reference methods regardless of where their path appears in the spec.
   const usedNames = new Set();
-  const methods = [];
+  _pathMethodNames.clear();
 
   for (const op of ops)
   {
@@ -598,7 +641,21 @@ function buildSdk(spec, version, templateSrc)
     }
 
     usedNames.add(name);
-    methods.push(buildMethod(spec, op.apiPath, op.httpMethod, op.operation, op.pathLevelParams, name));
+    op.methodName = name;
+
+    if (!_pathMethodNames.has(op.apiPath)) _pathMethodNames.set(op.apiPath, []);
+    _pathMethodNames.get(op.apiPath).push({ httpMethod: op.httpMethod, methodName: name });
+  }
+
+  for (const methodList of _pathMethodNames.values())
+  {
+    methodList.sort((a, b) => HTTP_VERB_PRIORITY.indexOf(a.httpMethod) - HTTP_VERB_PRIORITY.indexOf(b.httpMethod));
+  }
+
+  const methods = [];
+  for (const op of ops)
+  {
+    methods.push(buildMethod(spec, op.apiPath, op.httpMethod, op.operation, op.pathLevelParams, op.methodName));
   }
 
   const methodCount = methods.length;
