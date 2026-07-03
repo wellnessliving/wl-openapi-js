@@ -12051,6 +12051,8 @@ export interface WlScheduleClassListClassListParams {
     uid: string;
     /** Class filter by type. */
     is_virtual?: boolean | null;
+    /** Key of timezone. */
+    k_timezone?: string | null;
 }
 export interface WlScheduleClassListClassListResponse {
     /** Keys are dates of the days inside requested date range, when there is at least one class in the b... */
@@ -18323,6 +18325,8 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
         dtl_enrollment: string;
         /** Number of payments left. */
         i_payments_left: number;
+        /** Number of payments total at the moment of enrollment. */
+        i_payments_total: number;
         /** Installment plan status. */
         id_installment_status: number;
         /** Key of the tuition purchase item. This is enrollment key, which can be used to modify and cancel ... */

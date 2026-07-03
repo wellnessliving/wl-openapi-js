@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260703100406
+ * Spec version: 1.1.20260703125427
  * Build date:   2026-07-03
  * Endpoints:    467
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260703100406';
+  WlClient.SPEC_VERSION = '1.1.20260703125427';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (467 total)
@@ -3579,6 +3579,7 @@
    * @param {?boolean} [params.is_virtual] Class filter by type.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_class_tab The category tab key.
+   * @param {?string} [params.k_timezone] Key of timezone.
    * @param {string} params.s_staff The list of staff members to filter.
    * @param {string} params.s_staff_uid The list of staff user keys to filter.
    * @param {boolean} params.show_cancel If `true`, canceled sessions will be returned. If `false`, canceled sessions won't be returned.
