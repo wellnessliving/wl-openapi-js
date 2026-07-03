@@ -2017,6 +2017,130 @@ export declare enum RsPurchaseItemSid {
     /** Tuition fee purchase item */
     TUITION_FEE = 27
 }
+/** A list of currency codes. */
+export declare enum RsCurrencySid {
+    /** United Arab Emirates dirham */
+    AED = 11,
+    /** Australian dollar */
+    AUD = 6,
+    /** Bermudian Dollar */
+    BMD = 18,
+    /** Bahamian dollar */
+    BSD = 19,
+    /** Canadian dollar */
+    CAD = 4,
+    /** Egypt Pound */
+    EGP = 8,
+    /** Euro */
+    EUR = 13,
+    /** British pound */
+    GBP = 3,
+    /** Kuwaiti dinar */
+    KWD = 14,
+    /** Cayman Islands dollar */
+    KYD = 5,
+    /** Mauritian Rupee */
+    MUR = 16,
+    /** New Zealand Dollar */
+    NZD = 10,
+    /** Philippines Pesco */
+    PHP = 12,
+    /** Saudi Riyal */
+    SAR = 15,
+    /** Singapore dollar */
+    SGD = 20,
+    /** Unknown code */
+    UNKNOWN = 2,
+    /** US dollars */
+    USD = 1,
+    /** West African CFA franc */
+    XOF = 17,
+    /** South African rand */
+    ZAR = 7
+}
+/** The list of available modes. */
+export declare enum RsPlaceSid {
+    /** Backend mode */
+    BACKEND = 2,
+    /** The script is executed in the background (like an asynchronous task, regular task or a cron method) */
+    BACKGROUND = 5,
+    /** Directory pages */
+    DIRECTORY = 3,
+    /** Default frontend mode. All pages not in backend mode except microsite and directory pages */
+    FRONTEND = 1,
+    /** Microsite pages */
+    MICROSITE = 4
+}
+/** List of possible plans for AchieveSubscription subscription. */
+export declare enum WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid {
+    /** Basic */
+    FREE = 1,
+    /** Premium */
+    PREMIUM = 2,
+    /** White Label (Legacy) */
+    WHITE = 3,
+    /** White Label */
+    WHITE0125 = 7,
+    /** White Label (Business Max) */
+    WHITE_MAX = 4,
+    /** White Label (Legacy) */
+    WHITE_PLUS = 6,
+    /** White Label (Business Pro) */
+    WHITE_PRO = 5
+}
+/** List of possible plans for BaseSubscription subscription. */
+export declare enum WlBusinessAccountSubscriptionBaseBaseSubscriptionSid {
+    /** Advanced */
+    ADVANCED = 4,
+    /** Basic */
+    BASIC = 3,
+    /** Business(Legacy) */
+    BUSINESS = 7,
+    /** Business */
+    BUSINESS_2405 = 11,
+    /** Business(Legacy) */
+    BUSINESS_LIGHT = 8,
+    /** Business Max */
+    BUSINESS_MAX = 9,
+    /** Business Pro */
+    BUSINESS_PRO = 10,
+    /** Enterprise */
+    ENTERPRISE = 6,
+    /** None */
+    FREE = 1,
+    /** Business Partner */
+    PARTNER = 2,
+    /** Platform Access */
+    PLATFORM_ACCESS = 15,
+    /** Professional */
+    PROFESSIONAL = 5,
+    /** Starter */
+    STARTER = 12,
+    /** Starter */
+    STARTER_2502 = 13,
+    /** Trial */
+    TRIAL = 14
+}
+/** List of possible plans for MarketingSuiteSubscription subscription. */
+export declare enum WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid {
+    /** Pro */
+    BASIC = 2,
+    /** Standard (Business) */
+    BASIC_BUSINESS = 4,
+    /** Standard (Legacy) */
+    BASIC_OLD = 3,
+    /** Base */
+    FREE = 1,
+    /** Ultimate */
+    PRO = 5
+}
+/** Contains travel modes. */
+export declare enum WlBusinessFranchiseTravelTravelModeSid {
+    /** Curves travel mode */
+    CURVES = 1,
+    /** Flexible travel mode */
+    FLEXIBLE = 2
+}
 /** A list of skin types. */
 export declare enum RsSkinSid {
     /** Ai Agent web-chat */
@@ -2069,6 +2193,39 @@ export declare enum ThothExplorerSearchClassSessionSearchWordClassSessionExperie
     IN_PERSON = 1,
     /** Virtual session conducted through a virtual provider */
     VIRTUAL = 2
+}
+/** Payment actors (staff member, user or business owner). */
+export declare enum RsPayActorSid {
+    /** Business owner */
+    BUSINESS = 3,
+    /** Staff member */
+    STAFF = 1,
+    /** User */
+    USER = 2
+}
+/** Statuses of payment intents. */
+export declare enum ThothPayProcessorStripeComPaymentIntentStatusSid {
+    /** You may cancel a Payment Intent at any point before it is processing or succeeded. This invalidates the */
+    CANCELED = 7,
+    /** Once required actions are handled, the Payment Intent moves to processing. While for some payment methods */
+    PROCESSING = 4,
+    /** If the payment requires additional actions, such as authenticating with 3D Secure , the Payment Intent has a status */
+    REQUIRES_ACTION = 3,
+    /** Requires capture */
+    REQUIRES_CAPTURE = 6,
+    /** After the customer provides their payment information, the Payment Intent is ready to be confirmed */
+    REQUIRES_CONFIRMATION = 2,
+    /** When the Payment Intent is created, it has a status of `requires_payment_method` until a payment method is */
+    REQUIRES_PAYMENT_METHOD = 1,
+    /** A Payment Intent with a status of succeeded means that the payment flow it is driving is complete */
+    SUCCEEDED = 5
+}
+/** An enum of credit card types. */
+export declare enum ThothWlPayBankCardCardTypeEnum {
+    /** Credit Card */
+    CREDIT = 1,
+    /** Debit Card */
+    DEBIT = 2
 }
 /** A list of payment gateways or processors. */
 export declare enum ThothPayProcessorPayProcessorSid {
@@ -4268,39 +4425,6 @@ export declare enum WlShareShareSid {
     /** Item is available for selected staff roles */
     SELECTED_STAFF_ROLE = 3
 }
-/** List of possible plans for BaseSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionBaseBaseSubscriptionSid {
-    /** Advanced */
-    ADVANCED = 4,
-    /** Basic */
-    BASIC = 3,
-    /** Business(Legacy) */
-    BUSINESS = 7,
-    /** Business */
-    BUSINESS_2405 = 11,
-    /** Business(Legacy) */
-    BUSINESS_LIGHT = 8,
-    /** Business Max */
-    BUSINESS_MAX = 9,
-    /** Business Pro */
-    BUSINESS_PRO = 10,
-    /** Enterprise */
-    ENTERPRISE = 6,
-    /** None */
-    FREE = 1,
-    /** Business Partner */
-    PARTNER = 2,
-    /** Platform Access */
-    PLATFORM_ACCESS = 15,
-    /** Professional */
-    PROFESSIONAL = 5,
-    /** Starter */
-    STARTER = 12,
-    /** Starter */
-    STARTER_2502 = 13,
-    /** Trial */
-    TRIAL = 14
-}
 /** List of possible plans for SmsSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionSmsSmsSubscriptionSid {
     /** 1000 Messages */
@@ -4323,36 +4447,6 @@ export declare enum WlBusinessAccountSubscriptionSmsSmsSubscriptionSid {
     FREE = 1,
     /** Message Center Professional */
     PREMIUM = 3
-}
-/** List of possible plans for AchieveSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid {
-    /** Basic */
-    FREE = 1,
-    /** Premium */
-    PREMIUM = 2,
-    /** White Label (Legacy) */
-    WHITE = 3,
-    /** White Label */
-    WHITE0125 = 7,
-    /** White Label (Business Max) */
-    WHITE_MAX = 4,
-    /** White Label (Legacy) */
-    WHITE_PLUS = 6,
-    /** White Label (Business Pro) */
-    WHITE_PRO = 5
-}
-/** List of possible plans for MarketingSuiteSubscription subscription. */
-export declare enum WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid {
-    /** Pro */
-    BASIC = 2,
-    /** Standard (Business) */
-    BASIC_BUSINESS = 4,
-    /** Standard (Legacy) */
-    BASIC_OLD = 3,
-    /** Base */
-    FREE = 1,
-    /** Ultimate */
-    PRO = 5
 }
 /** List of possible plans for CollectionsSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid {
@@ -4729,22 +4823,6 @@ export declare enum WlSkinApplicationUpgradeAppUpdateTypeEnum {
     MINOR = 2,
     /** Major update (3) - for incompatible API changes or major new features */
     MAJOR = 3
-}
-/** Payment actors (staff member, user or business owner). */
-export declare enum RsPayActorSid {
-    /** Business owner */
-    BUSINESS = 3,
-    /** Staff member */
-    STAFF = 1,
-    /** User */
-    USER = 2
-}
-/** An enum of credit card types. */
-export declare enum ThothWlPayBankCardCardTypeEnum {
-    /** Credit Card */
-    CREDIT = 1,
-    /** Debit Card */
-    DEBIT = 2
 }
 /** A list of card types. */
 export declare enum WlCardCardSystemSid {
@@ -5224,6 +5302,13 @@ export interface WlLeadLeadPostResponse {
     /** The key of the new user. */
     uid: string;
 }
+export type WlLeadLeadCheckParams = Record<string, unknown>;
+export interface WlLeadLeadCheckResponse {
+    /** `true` if user with specified email is lead of a specified business, `false` - otherwise. */
+    is_lead: boolean;
+    /** `true` if user with specified email is a member of a specified business, `false` - otherwise. */
+    is_member: boolean;
+}
 export interface WlReportDataParams {
     /** The page of results to show, starting at zero. The API will return 256 results per page. */
     i_page: number;
@@ -5353,7 +5438,7 @@ export interface WlBusinessDataResponse {
     is_tip_sign: boolean;
     /** The franchisor business key. This will be empty if this business is the franchisor or not in a fr... */
     k_business_franchisor: string;
-    /** The business key obtained by the security token `text_token`. */
+    /** The business key obtained by the security token [DataApi](/Wl/Business/Data.json). */
     k_business_token: string;
     /** Key of the business type. */
     k_business_type: string;
@@ -5872,6 +5957,16 @@ export interface WlVisitVisitStatusPostParams {
     k_mail_pattern_live?: string | null;
 }
 export type WlVisitVisitStatusPostResponse = Record<string, unknown>;
+export interface WlVisitVisitTotalCountParams {
+    /** Business key. */
+    k_business: string;
+    /** User key. */
+    uid: string;
+}
+export interface WlVisitVisitTotalCountResponse {
+    /** Total number of visits. */
+    i_visit_total: number;
+}
 export interface WlVideoVideoElementDeleteParams {
     /** If `true`, the API is being used from backend. Otherwise, this will be `false`. */
     is_backend: boolean;
@@ -6518,11 +6613,11 @@ export interface WlHolidayHolidayParams {
     k_business: string;
 }
 export interface WlHolidayHolidayResponse {
-    /** A list of the location's closed day titles by location keys on the date `dl_work`. */
+    /** A list of the location's closed day titles by location keys on the date [HolidayApi](/Wl/Holiday/... */
     a_location_holiday: Array<string>;
-    /** `true` if the business has a closed day on the date `dl_work`, `false` if otherwise. */
+    /** `true` if the business has a closed day on the date [HolidayApi](/Wl/Holiday/Holiday.json), `fals... */
     is_business_holiday: boolean;
-    /** The message used for the business's closed day on the date `dl_work`. */
+    /** The message used for the business's closed day on the date [HolidayApi](/Wl/Holiday/Holiday.json). */
     text_business_title: string;
 }
 export interface WlHolidayBulkBusinessHolidayParams {
@@ -7702,6 +7797,179 @@ export interface WlTagTagListPostResponse {
         text_title: string;
     }>;
 }
+export interface WlSessionEnvironmentGetParams {
+    /** Application ID. */
+    s_application_id: string;
+}
+export interface WlSessionEnvironmentGetResponse {
+    /** List of businesses which are available in given application. */
+    a_business: Array<string> | null;
+    /** List of businesses keys, which are connected to franchise. */
+    a_business_franchise_all: Array<string> | null;
+    /** List of business franchisee keys. */
+    a_business_franchisee: Array<string> | null;
+    /** Payment alert data. `null` if user is not logged or none businesses are available for user, or if... */
+    a_payment_alert: {
+        /** Time left in seconds. `null` if business account is not created */
+        i_duration: number;
+        /** Determines whether to show an alert. Alert should be shown only once per session. */
+        is_alert: boolean;
+        /** Determines whether the business is churned. */
+        is_churn: boolean;
+        /** Link to business billing page on the web. */
+        url_billing: string;
+    } | null;
+    /** Settings of splash screen customization for business: */
+    a_splash_screen: {
+        /** Background image. */
+        a_background: {
+            /** Actual height of thumbnail image. */
+            i_height: number;
+            /** Height of original image. */
+            i_height_src: number;
+            /** Angle on which image was rotated compared to the original. */
+            i_rotate: number;
+            /** Actual width of thumbnail image. */
+            i_width: number;
+            /** Width of original image. */
+            i_width_src: number;
+            /** Whether thumbnail is a resized variant of original image. If `false`, `url-thumbnail` */
+            'is-resize': boolean;
+            /** URL to original image in file storage. */
+            'url-view': string;
+            /** URL to resized and rotated image in file storage. If the original is larger than */
+            'url-thumbnail': string;
+        };
+        /** Background color. */
+        a_gradient: {
+            /** Actual height of thumbnail image. */
+            i_height: number;
+            /** Height of original image. */
+            i_height_src: number;
+            /** Angle on which image was rotated compared to the original. */
+            i_rotate: number;
+            /** Actual width of thumbnail image. */
+            i_width: number;
+            /** Width of original image. */
+            i_width_src: number;
+            /** Whether thumbnail is a resized variant of original image. If `false`, `url-thumbnail` */
+            'is-resize': boolean;
+            /** URL to original image in file storage. */
+            'url-view': string;
+            /** URL to resized and rotated image in file storage. If the original is larger than */
+            'url-thumbnail': string;
+        };
+        /** Logo image. */
+        a_image: {
+            /** Actual height of thumbnail image. */
+            i_height: number;
+            /** Height of original image. */
+            i_height_src: number;
+            /** Angle on which image was rotated compared to the original. */
+            i_rotate: number;
+            /** Actual width of thumbnail image. */
+            i_width: number;
+            /** Width of original image. */
+            i_width_src: number;
+            /** Whether thumbnail is a resized variant of original image. If `false`, `url-thumbnail` */
+            'is-resize': boolean;
+            /** URL to original image in file storage. */
+            'url-view': string;
+            /** URL to resized and rotated image in file storage. If the original is larger than */
+            'url-thumbnail': string;
+        };
+    } | null;
+    /** Local date with time now in current location [EnvironmentApi](/Wl/Session/Environment.json). */
+    dtl_now: string;
+    /** Whether exists form to confirm during registration process. */
+    has_form_quiz: boolean;
+    /** Whether the merchant is configured for the client's home location or for business [EnvironmentApi... */
+    has_merchant: boolean;
+    /** A list of currency codes. @see RsCurrencySid */
+    id_currency: RsCurrencySid;
+    /** A list of locales. @see CoreLocaleLocaleSid */
+    id_locale: CoreLocaleLocaleSid;
+    /** The list of available modes. @see RsPlaceSid */
+    id_place: RsPlaceSid;
+    /** List of possible plans for AchieveSubscription subscription. @see WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid */
+    id_plan_achieve: WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid;
+    /** List of possible plans for BaseSubscription subscription. @see WlBusinessAccountSubscriptionBaseBaseSubscriptionSid */
+    id_plan_base: WlBusinessAccountSubscriptionBaseBaseSubscriptionSid;
+    /** List of possible plans for MarketingSuiteSubscription subscription. @see WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid */
+    id_plan_marketing: WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid;
+    /** Contains travel modes. @see WlBusinessFranchiseTravelTravelModeSid */
+    id_travel_mode: WlBusinessFranchiseTravelTravelModeSid | null;
+    /** Whether AI agent chat (CAASI) is available for current business. */
+    is_aiagent_chat: boolean;
+    /** Determines current business has custom application. If `true` application has custom application,... */
+    is_application_custom: boolean;
+    /** `true` if user must be redirected to billing page to enter credit card; `false` otherwise. */
+    is_billing_required: boolean;
+    /** `true` if clients must sign in to book an appointment; `false` otherwise. */
+    is_booking_appointment_authorize: boolean;
+    /** `true` if user must be redirected from booking page to billing page to enter credit card; */
+    is_booking_required_billing: boolean;
+    /** Determines if a business has multiple locations. */
+    is_business_location_multiple: boolean;
+    /** `true` id profile details can be shared with the new location while adding a client that already ... */
+    is_client_profile_share: boolean | null;
+    /** If clients are allowed to select a date and time, then the available asset while asset booking. */
+    is_client_select_date_asset: boolean;
+    /** `true` - user has unassigned contract(s); `false` - otherwise. */
+    is_contract: boolean;
+    /** `true` is allowed relationship to display, `false` - otherwise. */
+    is_family_relation_display_client: boolean;
+    /** `true` - if business is franchisor; `false` - otherwise. */
+    is_franchisor: boolean;
+    /** `true` to use page of geographical search of locations (possible for franchise case only); `false... */
+    is_location_geo: boolean;
+    /** `true` - in backend application user must be redirected to location selection; `false` - otherwise. */
+    is_location_redirect: boolean;
+    /** `true` if user must be redirected to profile page to enter mandatory fields; `false` otherwise. */
+    is_profile_required: boolean;
+    /** Indicates whether to obtain customer required information such as required profile data and waive... */
+    is_request_required_information: boolean;
+    /** `true` if user is traveler; `false` otherwise. */
+    is_traveller: boolean;
+    /** `true` if it is required to sign online waiver, `false` otherwise. */
+    is_waiver_required: boolean;
+    /** Key of business to be set as current. */
+    k_business: string;
+    /** Not `null` for franchise application only. */
+    k_business_franchisor: string | null;
+    /** Currency key. */
+    k_currency: string;
+    /** Key of location to be set as current. */
+    k_location: string;
+    /** Country code for business locale {@link CoreLocaleLocaleSid} constants. */
+    text_country_code: string;
+    /** Current user key. `null` if user is not signed in. */
+    uid: string | null;
+    /** Business login URL. */
+    url_login: string | null;
+}
+export interface WlSessionEnvironmentPutParams {
+    /** Application ID. */
+    s_application_id: string;
+}
+export type WlSessionEnvironmentPutResponse = Record<string, unknown>;
+export interface WlSkinSkinGetParams {
+    /** Skin key. */
+    k_skin: string;
+}
+export interface WlSkinSkinGetResponse {
+    /** Skin data. */
+    a_skin: Array<unknown>;
+    /** A list of skin types. @see RsSkinSid */
+    id_skin: RsSkinSid;
+    /** URL to the main page of the widget. */
+    url_skin: string;
+}
+export interface WlSkinSkinPostParams {
+    /** Skin key. */
+    k_skin: string;
+}
+export type WlSkinSkinPostResponse = Record<string, unknown>;
 export interface WlSkinSkinForeignDeleteParams {
     /** Skin type, one of {@link RsSkinSid} constants. */
     id_skin: RsSkinSid;
@@ -7825,6 +8093,148 @@ export interface WlRankRankResponse {
         text_rank_category: string;
     }>;
 }
+export interface WlDriveProductImageUploadGetParams {
+    /** Allows to give custom parameters which can be required for different types of images. */
+    a_config: Array<unknown>;
+    /** If `true`, the temporary image will be retrieved. Otherwise, this will be `false`. */
+    is_temporary: boolean;
+    /** The image ID set in [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json). */
+    k_id: string;
+    /** The name of the class that manages this image. */
+    s_class: string;
+}
+export interface WlDriveProductImageUploadGetResponse {
+    /** Information about the text for an empty image upload. */
+    a_text_empty: {
+        /** Class to change view of the upload form. */
+        s_class: string;
+        /** Text to replacing. */
+        s_text: string;
+    } | null;
+    /** An HTML string to use for the image recommendation. */
+    html_image_hint: string;
+    /** The maximum height of image. */
+    i_height_max: number | null;
+    /** The minimum height of image. */
+    i_height_min: number | null;
+    /** The height of the thumbnail image. */
+    i_thumbnail_height: number | null;
+    /** The width of the thumbnail image. */
+    i_thumbnail_width: number | null;
+    /** The maximum width of the image. */
+    i_width_max: number | null;
+    /** The minimum width of the image. */
+    i_width_min: number | null;
+    /** If `true`, the image is treated as circular. Otherwise, this will be `false`. */
+    is_circular: boolean | null;
+    /** If `true`, image deletion is permitted. Otherwise, this will be `false`. */
+    is_delete_allow: boolean | null;
+    /** The link protection code. */
+    s_code: string | null;
+    /** The image link. */
+    s_link: string | null;
+    /** The image URL that should be displayed in cases where no image is uploaded. */
+    url_empty: string | null;
+    /** The thumbnail URL of the image. */
+    url_thumbnail: string | null;
+    /** The script URL where new image should be uploaded from. */
+    url_upload: string | null;
+    /** The URL of the full image. */
+    url_view: string | null;
+}
+export interface WlDriveProductImageUploadPostParams {
+    /** Allows to give custom parameters which can be required for different types of images. */
+    a_config: Array<unknown>;
+    /** The name of the class that manages this image. */
+    s_class: string;
+}
+export interface WlDriveProductImageUploadPostResponse {
+    /** Image information for every ID. */
+    a_image: Array<{
+        /** Information about the text on the empty upload image. */
+        a_text_empty: {
+            /** Class to change view of the upload form. */
+            s_class: string;
+            /** Text to replacing. */
+            s_text: string;
+        };
+        /** The maximum height of the image. */
+        i_height_max: number;
+        /** The minimum height of the image. */
+        i_height_min: number;
+        /** The height of the thumbnail image. */
+        i_thumbnail_height: number;
+        /** The width of thumbnail image. */
+        i_thumbnail_width: number;
+        /** The maximum width of image. */
+        i_width_max: number;
+        /** The minimum width of image. */
+        i_width_min: number;
+        /** `true` if image is treated as circular; `false` otherwise. */
+        is_circular: boolean;
+        /** `true` if image deleting is allowed; `false` otherwise. */
+        is_delete_allow: boolean;
+        /** The image link. */
+        s_link: string;
+        /** The URL of the image that should be shown in a case image is not uploaded. */
+        url_empty: string;
+        /** The URL of thumbnail of the image. `null` if image is not uploaded. */
+        url_thumbnail: string | null;
+        /** The URL the script where new image should be uploaded. */
+        url_upload: string;
+        /** The URL of the full image. `null` if image is not uploaded. */
+        url_view: string | null;
+    }>;
+}
+export interface WlDriveProductImageUploadPutParams {
+    /** Allows to give custom parameters which can be required for different types of images. */
+    a_config: Array<unknown>;
+    /** If `true`, the temporary image will be retrieved. Otherwise, this will be `false`. */
+    is_temporary: boolean;
+    /** The image ID set in [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json). */
+    k_id: string;
+    /** The name of the class that manages this image. */
+    s_class: string;
+}
+export interface WlDriveProductImageUploadPutResponse {
+    /** Information about the text for an empty image upload. */
+    a_text_empty: {
+        /** Class to change view of the upload form. */
+        s_class: string;
+        /** Text to replacing. */
+        s_text: string;
+    } | null;
+    /** An HTML string to use for the image recommendation. */
+    html_image_hint: string;
+    /** The maximum height of image. */
+    i_height_max: number | null;
+    /** The minimum height of image. */
+    i_height_min: number | null;
+    /** The height of the thumbnail image. */
+    i_thumbnail_height: number | null;
+    /** The width of the thumbnail image. */
+    i_thumbnail_width: number | null;
+    /** The maximum width of the image. */
+    i_width_max: number | null;
+    /** The minimum width of the image. */
+    i_width_min: number | null;
+    /** If `true`, the image is treated as circular. Otherwise, this will be `false`. */
+    is_circular: boolean | null;
+    /** If `true`, image deletion is permitted. Otherwise, this will be `false`. */
+    is_delete_allow: boolean | null;
+    /** The link protection code. */
+    s_code: string | null;
+    /** The image link. */
+    s_link: string | null;
+    /** The image URL that should be displayed in cases where no image is uploaded. */
+    url_empty: string | null;
+    /** The thumbnail URL of the image. */
+    url_thumbnail: string | null;
+    /** The script URL where new image should be uploaded from. */
+    url_upload: string | null;
+    /** The URL of the full image. */
+    url_view: string | null;
+}
 export interface ThothExplorerSearchClassSessionClassSessionSearchParams {
     /** List of business keys to search by. */
     a_business: Array<string>;
@@ -7869,6 +8279,92 @@ export interface ThothExplorerSearchClassSessionClassSessionSearchResponse {
         /** Class session key. */
         k_class_period_session: string;
     };
+}
+export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams = Record<string, unknown>;
+export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse = Record<string, unknown>;
+export type ThothPayProcessorNuveiNuveiUpdateOrderParams = Record<string, unknown>;
+export interface ThothPayProcessorNuveiNuveiUpdateOrderResponse {
+    /** Error message. */
+    text_message: string | null;
+}
+export type ThothPayProcessorNuveiNuveiOpenOrderParams = Record<string, unknown>;
+export interface ThothPayProcessorNuveiNuveiOpenOrderResponse {
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string | null;
+    /** The order ID provided by Nuvei. */
+    s_nuvei_order: string | null;
+    /** The session identifier to be used by the request that processes the newly opened order. */
+    s_nuvei_session: string | null;
+    /** Error message. */
+    text_message: string | null;
+}
+export type ThothPayProcessorNuveiNuveiTransactionCancelParams = Record<string, unknown>;
+export type ThothPayProcessorNuveiNuveiTransactionCancelResponse = Record<string, unknown>;
+export type ThothPayProcessorStripeComStripeComKeyParams = Record<string, unknown>;
+export interface ThothPayProcessorStripeComStripeComKeyResponse {
+    /** Merchant public key. */
+    s_public: string | null;
+}
+export interface ThothPayProcessorStripeComPaymentIntentUpdateParams {
+    /** ID of the actor. One of {@link RsPayActorSid} constants. */
+    id_pay_actor: RsPayActorSid | null;
+    /** Key of the business to update Payment Intent for. */
+    k_business: string;
+    /** Key of the business merchant to update Payment Intent for. */
+    k_business_merchant: string;
+    /** Key of the payment transaction to update. */
+    k_pay_transaction: string;
+    /** Payment intent ID to update. */
+    s_payment_intent: string;
+    /** Payment owner user key. */
+    uid_purchase?: string | null;
+}
+export type ThothPayProcessorStripeComPaymentIntentUpdateResponse = Record<string, unknown>;
+export type ThothPayProcessorStripeComStripeComPayInitParams = Record<string, unknown>;
+export interface ThothPayProcessorStripeComStripeComPayInitResponse {
+    /** Statuses of payment intents. @see ThothPayProcessorStripeComPaymentIntentStatusSid */
+    id_status: ThothPayProcessorStripeComPaymentIntentStatusSid;
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string | null;
+    /** Payment Intent client secret key. */
+    s_client_secret: string;
+    /** Payment intent ID. */
+    s_payment_intent: string;
+    /** Error message. */
+    text_message: string | null;
+}
+export type ThothPayProcessorStripeComStripeComPaymentIntentCancelParams = Record<string, unknown>;
+export type ThothPayProcessorStripeComStripeComPaymentIntentCancelResponse = Record<string, unknown>;
+export type ThothPayProcessorCyberSourceCsPaEnrollmentParams = Record<string, unknown>;
+export interface ThothPayProcessorCyberSourceCsPaEnrollmentResponse {
+    /** JSON Web Token to include into the request to the second frame. */
+    s_jwt: string | null;
+    /** URL for frontend interaction. */
+    url_interact: string | null;
+}
+export type ThothPayProcessorCyberSourceCsPaValidateParams = Record<string, unknown>;
+export type ThothPayProcessorCyberSourceCsPaValidateResponse = Record<string, unknown>;
+export type ThothPayProcessorCyberSourceCsCaptureContextParams = Record<string, unknown>;
+export interface ThothPayProcessorCyberSourceCsCaptureContextResponse {
+    /** Microform Integration JavaScript library integrity property value. */
+    s_client_library_integrity: string | null;
+    /** Contents of the key. */
+    s_key: string | null;
+    /** ID of the key. */
+    s_key_id: string | null;
+    /** Microform Integration JavaScript library url. */
+    url_client_library: string | null;
+}
+export type ThothPayProcessorCyberSourceCsPaSetupParams = Record<string, unknown>;
+export interface ThothPayProcessorCyberSourceCsPaSetupResponse {
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string;
+    /** JWT token, as returned by Cyber Source. */
+    s_jwt: string;
+    /** Reference ID, as returned by Cyber Source. */
+    s_reference: string;
+    /** Device collection URL, as returned by Cyber Source. */
+    url_collection: string;
 }
 export type ThothReportCoreGeneratorQueryParams = Record<string, unknown>;
 export interface ThothReportCoreGeneratorQueryResponse {
@@ -8221,7 +8717,7 @@ export interface CoreRequestApiKeySecretParams {
     s_csrf: string;
     /** The session key. */
     s_key_session: string;
-    /** Alias of `url_origin`. */
+    /** Alias of [KeySecretApi](/Core/Request/Api/KeySecret.json). */
     url_domain: string;
     /** Origin for client requests. */
     url_origin: string;
@@ -8268,7 +8764,7 @@ export interface CoreDriveImageUploadImageUploadGetParams {
     a_config: Array<unknown>;
     /** If `true`, the temporary image will be retrieved. Otherwise, this will be `false`. */
     is_temporary: boolean;
-    /** The image ID set in `s_class`. */
+    /** The image ID set in [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json). */
     k_id: string;
     /** The name of the class that manages this image. */
     s_class: string;
@@ -8361,7 +8857,7 @@ export interface CoreDriveImageUploadImageUploadPutParams {
     a_config: Array<unknown>;
     /** If `true`, the temporary image will be retrieved. Otherwise, this will be `false`. */
     is_temporary: boolean;
-    /** The image ID set in `s_class`. */
+    /** The image ID set in [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json). */
     k_id: string;
     /** The name of the class that manages this image. */
     s_class: string;
@@ -8406,7 +8902,7 @@ export interface CoreDriveImageUploadImageUploadPutResponse {
     url_view: string | null;
 }
 export interface CoreDriveImageUploadImageUploadTemporaryParams {
-    /** The key of the image within `s_class`. */
+    /** The key of the image within [ImageUploadTemporaryApi](/Core/Drive/ImageUpload/ImageUploadTemporar... */
     k_id: string;
     /** The name of the class that manages this image. */
     s_class: string;
@@ -8476,6 +8972,34 @@ export interface CoreGoogleCaptchaCaptchaScorePostResponse {
 }
 export type CoreGoogleCaptchaCaptchaScorePutParams = Record<string, unknown>;
 export type CoreGoogleCaptchaCaptchaScorePutResponse = Record<string, unknown>;
+export interface CoreSpaApplicationSpaApplicationParams {
+    /** Unique ID of application. */
+    s_application: string;
+}
+export interface CoreSpaApplicationSpaApplicationResponse {
+    /** `true` - enable for this application sign in with Apple; `false` - disable. */
+    is_apple: boolean;
+    /** `true` - enable for this application sign in with Facebook; `false` - disable. */
+    is_facebook: boolean;
+    /** `true` - enable for this application sign in with Facebook for Android; `false` - disable. */
+    is_facebook_android: boolean;
+    /** `true` - enable for this application sign in with Google; `false` - disable. */
+    is_google: boolean;
+    /** `true` - enable for this application sign in with Microsoft; `false` - disable. */
+    is_microsoft: boolean;
+    /** `true` - registration of new user is denied in application; `false` - registration of new user is... */
+    is_register_deny: boolean;
+    /** `true` if sign in via social networks is allowed; `false` otherwise. */
+    is_social: boolean;
+    /** `true` if sign in via TJX Azure is allowed; `false` otherwise. */
+    is_tjx: boolean;
+    /** Tjx button name. */
+    text_tjx_button_name: string;
+    /** Facebook authorization link. */
+    url_facebook: string;
+    /** Tjx link. */
+    url_tjx: string;
+}
 export type SocialAppleLoginAppleLoginDeleteParams = Record<string, unknown>;
 export type SocialAppleLoginAppleLoginDeleteResponse = Record<string, unknown>;
 export type SocialAppleLoginAppleLoginPostParams = Record<string, unknown>;
@@ -9116,7 +9640,7 @@ export interface WlBusinessAmazonRegionAmazonRegionParams {
     a_business: Array<string>;
 }
 export interface WlBusinessAmazonRegionAmazonRegionResponse {
-    /** List of region IDs for `a_business`. */
+    /** List of region IDs for [AmazonRegionApi](/Wl/Business/AmazonRegion/AmazonRegion.json). */
     a_business_region: Array<number>;
 }
 export interface WlBusinessAuthorizePartnerAuthorizePartnerParams {
@@ -12029,7 +12553,7 @@ export interface WlScheduleClassListClassListParams {
     dt_date: string;
     /** The list end date in UTC and in MySQL format. */
     dt_end: string;
-    /** `true` means to not generate `a_session` result. */
+    /** `true` means to not generate [ClassListApi](/Wl/Schedule/ClassList/ClassList.json) result. */
     is_response_short: boolean;
     /** If `true`, sessions from every class tab are returned. If `false`, use the */
     is_tab_all: boolean;
@@ -12057,7 +12581,7 @@ export interface WlScheduleClassListClassListParams {
 export interface WlScheduleClassListClassListResponse {
     /** Keys are dates of the days inside requested date range, when there is at least one class in the b... */
     a_calendar: Array<Array<unknown>>;
-    /** A list of classes sessions starting with the date `dt_date` */
+    /** A list of classes sessions starting with the date [ClassListApi](/Wl/Schedule/ClassList/ClassList... */
     a_session: Array<{
         /** Keys of class tab. */
         a_class_tab: Array<string>;
@@ -13381,6 +13905,25 @@ export interface WlClassesPromotionClassPromotionResponse {
     /** The default promotion key. */
     k_promotion_default: string | null;
 }
+export interface WlClassesInfoInfoParams {
+    /** Key of the business in which the class resides. */
+    k_business: string;
+    /** Class identifier to get information for. */
+    k_class: string;
+}
+export interface WlClassesInfoInfoResponse {
+    /** Service logo information: */
+    a_logo: {
+        /** Whether service image is empty. */
+        is_empty: boolean;
+        /** Url link to image. */
+        s_url: string;
+    };
+    /** `true` means event, `false` means class. */
+    is_event: boolean;
+    /** Title of the class. */
+    text_title: string;
+}
 export interface WlProfilePurchasePurchaseElementParams {
     /** The key of the redemption code used to obtain some goods. */
     k_code: string;
@@ -13394,7 +13937,7 @@ export interface WlProfilePurchasePurchaseElementParams {
     k_purchase_item: string;
     /** The key of the make-up session used to attend an event. */
     k_session_pass: string;
-    /** The business key. Currently used only with `k_session_pass` variable. */
+    /** The business key. Currently used only with [PurchaseElementApi](/Wl/Profile/Purchase/PurchaseElem... */
     k_business?: string | null;
 }
 export interface WlProfilePurchasePurchaseElementResponse {
@@ -13914,7 +14457,7 @@ export interface WlProfileActivityElementResponse {
     dt_date_local: string;
     /** Description of the action, who and what did. */
     html_message: string;
-    /** Total amount of account credits user got for `k_login_activity`. */
+    /** Total amount of account credits user got for [ElementApi](/Wl/Profile/Activity/Element.json). */
     i_credit_score: number;
     /** The total amount of rewards points the client received for the activity. */
     i_score: number;
@@ -14126,7 +14669,7 @@ export interface WlProfilePurchaseListPurchaseListElementParams {
     k_purchase_item: string;
     /** The ID of the makeup session used to attend an event. */
     k_session_pass: string;
-    /** The business key. Used with `k_session_pass` variable and */
+    /** The business key. Used with [PurchaseListElementApi](/Wl/Profile/PurchaseList/PurchaseListElement... */
     k_business?: string | null;
 }
 export interface WlProfilePurchaseListPurchaseListElementResponse {
@@ -14275,7 +14818,7 @@ export interface WlProfilePurchaseListPurchaseListElementResponse {
     k_code_result: string;
     /** The key of the currency used to make the purchase. */
     k_currency: string;
-    /** The key of the item. This can correspond to one of many values depending on `id_sale`. */
+    /** The key of the item. This can correspond to one of many values depending on [PurchaseListElementA... */
     k_id: string;
     /** The key of the purchased promotion. This won't be `0` only for promotions. */
     k_login_promotion_result: string;
@@ -14487,6 +15030,38 @@ export interface WlProfileAttachAttachElementPostResponse {
     /** Attachment key. */
     k_attach: string;
 }
+export interface WlProfileTimezoneProfileTimezoneGetParams {
+    /** Key of the business, in which user selected timezone. */
+    k_business: string;
+}
+export interface WlProfileTimezoneProfileTimezoneGetResponse {
+    /** List of timezones. Keys - timezone keys; */
+    a_timezone: Array<{
+        /** Timezone key. */
+        k_geo_timezone: string;
+        /** Shift time zone. */
+        i_shift: number;
+        /** File name. */
+        s_file: string;
+        /** Order. */
+        i_order: number;
+        /** Timezone abbreviation. */
+        text_abbr: string;
+        /** Timezone title. */
+        s_title: string;
+        /** Timezone key. */
+        k_timezone: string;
+    }>;
+    /** Whether clients are allowed to adjust timezone. */
+    is_profile_timezone: boolean;
+    /** Key of the timezone which is currently selected. */
+    k_timezone_select: string;
+}
+export interface WlProfileTimezoneProfileTimezonePutParams {
+    /** Key of the business, in which user selected timezone. */
+    k_business: string;
+}
+export type WlProfileTimezoneProfileTimezonePutResponse = Record<string, unknown>;
 export interface WlProfileAttendanceAttendanceOverlapParams {
     /** Duration of a service. */
     i_duration: number;
@@ -15292,7 +15867,7 @@ export interface WlVideoCategoryCategoryListGetParams {
     text_filter: string;
 }
 export interface WlVideoCategoryCategoryListGetResponse {
-    /** The business video library categories as found in `k_business`. */
+    /** The business video library categories as found in [CategoryListApi](/Wl/Video/Category/CategoryLi... */
     a_video_category: Array<{
         /** Determines whether the video category can be deleted. */
         can_delete: boolean;
@@ -15397,7 +15972,7 @@ export interface WlVideoTagTagListResponse {
     }>;
 }
 export interface WlPurchaseReceiptPurchaseReceiptParams {
-    /** Whether `url_print` and `url_print_receipt` require authentication. */
+    /** Whether [PurchaseReceiptApi](/Wl/Purchase/Receipt/PurchaseReceipt.json) and [PurchaseReceiptApi](... */
     is_url_public: boolean;
     /** The key of the purchase. */
     k_purchase?: string | null;
@@ -15566,7 +16141,7 @@ export interface WlLocationFlagFlagResponse {
         /** Value: `true` if user is flagged; `false` otherwise. */
         is_flag: boolean;
     };
-    /** Array, where keys are UIDs to be checked and values are same as `a_restrictions_single`. */
+    /** Array, where keys are UIDs to be checked and values are same as [FlagApi](/Wl/Location/Flag/Flag.... */
     a_restrictions_multiple: {
         /** `true` if the user cannot make new reservations. */
         is_book: boolean;
@@ -15585,6 +16160,18 @@ export interface WlLocationFlagFlagResponse {
 }
 export type WlLocationWorkTimeLocationWorkTimeParams = Record<string, unknown>;
 export type WlLocationWorkTimeLocationWorkTimeResponse = Record<string, unknown>;
+export interface WlLocationLocationRateLocationRateParams {
+    /** ID of a location to show rate for. */
+    k_location: string;
+}
+export interface WlLocationLocationRateLocationRateResponse {
+    /** Location rate. */
+    f_rate: number;
+    /** Review count. */
+    i_review: number;
+    /** Determines that the rate type exists in the current business type. */
+    is_rate: boolean;
+}
 export interface WlLocationViewViewParams {
     /** Maximum location image height. */
     i_logo_height: number;
@@ -15633,7 +16220,7 @@ export interface WlLocationViewViewResponse {
     f_longitude: number;
     /** The full description of the location. */
     html_description_full: string;
-    /** A shorter description of the location. A preview of `html_description_full`. */
+    /** A shorter description of the location. A preview of [ViewApi](/Wl/Location/View/View.json). */
     html_description_preview: string;
     /** List of different types for landing pages based on business types. @see RsHomeTourSid */
     id_industry: RsHomeTourSid | null;
@@ -16475,6 +17062,30 @@ export interface WlCatalogCartLimitQuantityResponse {
     i_quantity_limit: number | null;
     /** Determines whether the limit quantity has been exceeded. */
     is_limit_exceeded: boolean | null;
+}
+export interface WlCatalogQuizQuizParams {
+    /** List of purchase items. Each element has format `[id_purchase_item]::[k_id]`, where */
+    a_purchase_item: Array<{
+        /** A list of purchase types. @see RsPurchaseItemSid */
+        id_purchase_item: RsPurchaseItemSid;
+        /** Key of the item. Depends on `id_purchase_item` of this array. */
+        k_id: string;
+    }>;
+    /** Key of a business. */
+    k_business: string;
+    /** Key of a user who is making a purchase. */
+    uid?: string | null;
+}
+export interface WlCatalogQuizQuizResponse {
+    /** List of quizzes. Each element has next structure: */
+    a_quiz: {
+        /** Whether the quiz is required and can not be skipped. */
+        is_require: boolean;
+        /** Quiz key. */
+        k_quiz: string;
+        /** Quiz title. */
+        text_title: string;
+    };
 }
 export interface WlPromotionIndexPromotionIndexParams {
     /** Image height in pixels. Please specify this value if you need image to be returned in specific size. */
@@ -17881,9 +18492,9 @@ export interface WlIntegrationDragonFlyAccessResponse {
     can_access: boolean;
 }
 export interface WlAiAgentLinkSendMailParams {
-    /** Purchase item ID. Required if `text_action` is 'purchase'. @see RsPurchaseItemSid */
+    /** Purchase item ID. Required if [SendMailApi](/Wl/AiAgent/Link/SendMail.json) is 'purchase'. @see RsPurchaseItemSid */
     id_purchase_item: RsPurchaseItemSid;
-    /** Service ID. Required if `text_action` is 'booking'. @see RsServiceSid */
+    /** Service ID. Required if [SendMailApi](/Wl/AiAgent/Link/SendMail.json) is 'booking'. @see RsServiceSid */
     id_service: RsServiceSid;
     /** Business key. Required. */
     k_business: string;
@@ -18022,7 +18633,7 @@ export interface WlFamilyRelationRelationDeleteParams {
     k_business: string;
     /** The key of the user whose relationships are being assessed. */
     uid: string;
-    /** The key of the related user who `uid` must be removed. */
+    /** The key of the related user who [RelationApi](/Wl/Family/Relation/Relation.json) must be removed. */
     uid_delete: string;
 }
 export interface WlFamilyRelationRelationDeleteResponse {
@@ -18234,7 +18845,7 @@ export interface WlReviewReviewListReviewListParams {
     id_order?: WlReviewReviewListReviewOrderSid | null;
 }
 export interface WlReviewReviewListReviewListResponse {
-    /** List of reviews. If passed `i_page` then the result will be full, otherwise in result will be key... */
+    /** List of reviews. If passed [ReviewListApi](/Wl/Review/ReviewList/ReviewList.json) then the result... */
     a_review: Array<{
         /** `true` if can reply to review, `false` otherwise. */
         can_reply: boolean;
@@ -18790,6 +19401,14 @@ export interface WlBusinessAccountSubscriptionSubscriptionInfoResponse {
     /** Whether subscription is active. */
     is_active: boolean;
 }
+export interface WlBusinessConfigOptionBusinessConfigOptionParams {
+    /** Key of business. */
+    k_business: string;
+}
+export interface WlBusinessConfigOptionBusinessConfigOptionResponse {
+    /** List of config option values. */
+    a_option: Array<string>;
+}
 export interface WlBusinessAuthorizeSupportResponseResponseParams {
     /** Determines whether the user will be granted access or if access will be revoked. */
     is_grant: boolean;
@@ -18933,7 +19552,7 @@ export interface WlLoginAttendanceAddAddGetResponse {
     m_account: string;
     /** The price of the session, including any taxes and discounts. */
     m_price: string | null;
-    /** The user's account balance if they were charged the `m_price` amount. */
+    /** The user's account balance if they were charged the [AddApi](/Wl/Login/Attendance/Add/Add.json) a... */
     m_rest: string | null;
 }
 export interface WlLoginAttendanceAddAddPostParams {
@@ -21076,11 +21695,11 @@ export interface WlBookProcessFrequencyRepeatParams {
     a_visit_ignore: Array<string>;
     /** Date and time of the class, when recurring booking was called, in UTC timezone. */
     dt_date: string;
-    /** Date to start recurring booking. Not empty only when `id_repeat_end` == {@link RsRepeatEndSid}. */
+    /** Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repea... */
     dt_from: string;
-    /** Date to finish recurring booking. Not empty only when `id_repeat_end` == {@link RsRepeatEndSid}. */
+    /** Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repe... */
     dt_to: string;
-    /** Count of the visits to be created. Not empty only when `id_repeat_end` == {@link RsRepeatEndSid}. */
+    /** Count of the visits to be created. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Rep... @see RsRepeatEndSid */
     i_count: RsRepeatEndSid;
     /** Count of days\weeks\months between recurring bookings. */
     i_duration: number;
@@ -21135,9 +21754,9 @@ export interface WlBookProcessFrequencyRepeatResponse {
         /** Visit date and time in location's time zone in human-readable format. */
         s_date: string;
     }>;
-    /** Date to start recurring booking. Not empty only when `id_repeat_end` == {@link RsRepeatEndSid}. */
+    /** Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repea... */
     dt_from: string;
-    /** Date to finish recurring booking. Not empty only when `id_repeat_end` == {@link RsRepeatEndSid}. */
+    /** Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repe... */
     dt_to: string;
     /** Possible ways to stop repeatable events. @see RsRepeatEndSid */
     i_count: RsRepeatEndSid;
@@ -21407,7 +22026,7 @@ export interface WlEventBookEventViewElementResponse {
             /** Class session primary keys. */
             k_class_period: string;
         };
-        /** Image of event. See `a_class_logo`. */
+        /** Image of event. See [ElementApi](/Wl/Event/Book/EventView/Element.json). */
         a_class_logo: {
             /** Is returned only if staff has a photo. Image height. */
             i_height?: number;
@@ -21418,9 +22037,9 @@ export interface WlEventBookEventViewElementResponse {
             /** Is returned only if staff has a photo. URL to image. */
             url_logo?: string;
         };
-        /** Class tab keys. See `a_class_tab`. */
+        /** Class tab keys. See [ElementApi](/Wl/Event/Book/EventView/Element.json). */
         a_class_tab: Array<string>;
-        /** List of installment plans. See `a_installment_template`. */
+        /** List of installment plans. See [ElementApi](/Wl/Event/Book/EventView/Element.json). */
         a_installment_template: {
             /** The number of payments. */
             i_count: number;
@@ -21437,7 +22056,7 @@ export interface WlEventBookEventViewElementResponse {
             /** The title of the installment plan. */
             s_duration: string;
         };
-        /** Schedule of event sessions. See `a_schedule`. */
+        /** Schedule of event sessions. See [ElementApi](/Wl/Event/Book/EventView/Element.json). */
         a_schedule: {
             /** Days of the week when the session occurs. */
             a_day: Array<boolean>;
@@ -21478,7 +22097,7 @@ export interface WlEventBookEventViewElementResponse {
         };
         /** IDs of online store category. */
         a_shop_category: Array<string>;
-        /** Photos of staff. See `a_staff_logo`. */
+        /** Photos of staff. See [ElementApi](/Wl/Event/Book/EventView/Element.json). */
         a_staff_logo: {
             /** Image height. */
             i_height: number;
@@ -21519,7 +22138,7 @@ export interface WlEventBookEventViewElementResponse {
         is_makeup: boolean;
         /** `true` if the event session has already started or ended and is not available to book. */
         is_past: boolean;
-        /** `true` `a_business_policy` contains the custom policies from the event; `false` otherwise. */
+        /** `true` [ElementApi](/Wl/Event/Book/EventView/Element.json) contains the custom policies from the ... */
         is_policy_custom: boolean;
         /** `true` if event is virtual; `false` otherwise. */
         is_virtual: boolean;
@@ -21683,7 +22302,7 @@ export interface WlEventBookEventViewElementResponse {
     is_makeup: boolean;
     /** `true` if the selected session has already started and do not available to book. */
     is_past: boolean;
-    /** `true` if the `a_business_policy` contains the custom policies from the event. */
+    /** `true` if the [ElementApi](/Wl/Event/Book/EventView/Element.json) contains the custom policies fr... */
     is_policy_custom: boolean;
     /** `true` if the event can be paid with a Purchase Option only. */
     is_promotion_only: boolean;
@@ -21699,7 +22318,7 @@ export interface WlEventBookEventViewElementResponse {
     m_price: string;
     /** The price of the all sessions of the event. */
     m_price_total: string;
-    /** Price of the full event should be used as full price while `dt_early` is actual. */
+    /** Price of the full event should be used as full price while [ElementApi](/Wl/Event/Book/EventView/... */
     m_price_total_early: string | null;
     /** The reason why the event can't be booked. */
     s_deny_reason: string;
@@ -21901,6 +22520,33 @@ export interface WlProfileFormResponseResponseListResponse {
     can_remove: boolean;
     /** Whether response can be viewed by current user. */
     can_view: boolean;
+}
+export interface WlProfileContractContractAllContractAllParams {
+    /** Business to get information for. */
+    k_business: string;
+    /** User to get information for. */
+    uid: string;
+}
+export interface WlProfileContractContractAllContractAllResponse {
+    /** List of contacts. Every element has next keys: */
+    a_contract: Array<{
+        /** Agreement date in business timezone. */
+        dt_agree_local: string;
+        /** Agreement date in UTC. */
+        dt_agree_utc: string;
+        /** Contract text. */
+        html_contract: string;
+        /** Purchase item title. */
+        html_title: string;
+        /** IP address from which agreement was done. */
+        ip_agree: string;
+        /** Purchase item key. */
+        k_purchase_item: string;
+        /** Purchase item title. */
+        text_title: string;
+        /** URL to agreement signature. */
+        url_signature: string;
+    }>;
 }
 export interface WlAppointmentBookServiceCategoryParams {
     /** List of user keys to book appointments. */
@@ -22416,7 +23062,7 @@ export interface WlAppointmentBookScheduleCalendarResponse {
             i_order: number;
             /** Timezone shift from UTC in hours. */
             i_shift: number;
-            /** `true` for selected timezone - from `k_timezone` param or client's default timezone when param no... */
+            /** `true` for selected timezone - from [CalendarApi](/Wl/Appointment/Book/Schedule/Calendar.json) pa... */
             is_select: boolean;
             /** Timezone key. */
             k_timezone: string;
@@ -22827,7 +23473,7 @@ export interface WlAppointmentBookPaymentPaymentGetParams {
     id_purchase_item: RsPurchaseItemSid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
     is_walk_in: boolean;
-    /** The item key. Depends on `id_purchase_item` property. */
+    /** The item key. Depends on [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json) property. */
     k_id: string;
     /** Location to show available appointment booking schedule. */
     k_location: string;
@@ -22845,7 +23491,7 @@ export interface WlAppointmentBookPaymentPaymentGetParams {
     text_discount_code: string;
     /** The user key. */
     uid: string;
-    /** The business key. Currently used only with `k_session_pass` variable. */
+    /** The business key. Currently used only with [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json... */
     k_business?: string | null;
 }
 export interface WlAppointmentBookPaymentPaymentGetResponse {
@@ -22939,7 +23585,7 @@ export interface WlAppointmentBookPaymentPaymentPostParams {
     id_purchase_item: RsPurchaseItemSid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
     is_walk_in: boolean;
-    /** The item key. Depends on `id_purchase_item` property. */
+    /** The item key. Depends on [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json) property. */
     k_id: string;
     /** Location to show available appointment booking schedule. */
     k_location: string;
@@ -23255,7 +23901,7 @@ export interface WlAppointmentBookStaffListResponse {
     is_gender_different: boolean;
 }
 export interface WlAppointmentBookPurchasePurchaseParams {
-    /** List of selected services without current `k_service`. */
+    /** List of selected services without current [PurchaseApi](/Wl/Appointment/Book/Purchase/Purchase.js... */
     a_service: Array<{
         /** List of purchase options selected for the service. */
         a_purchase: {
@@ -23303,7 +23949,7 @@ export interface WlAppointmentBookPurchasePurchaseParams {
     i_width?: number | null;
     /** The Purchase Option ID used to pay for the appointment. */
     k_login_promotion?: string | null;
-    /** The timezone key for `dt_date`. */
+    /** The timezone key for [PurchaseApi](/Wl/Appointment/Book/Purchase/Purchase.json). */
     k_timezone?: string | null;
 }
 export interface WlAppointmentBookPurchasePurchaseResponse {
@@ -24254,7 +24900,7 @@ export interface WlCatalogStaffAppCatalogListCatalogListResponse {
         id_sale: RsSaleSid | null;
         /** Determines whether the sale item can be purchased by the client. */
         is_online_sell: boolean;
-        /** This will be `true` if this Purchase Option is suitable to pay for the visit `k_visit`. */
+        /** This will be `true` if this Purchase Option is suitable to pay for the visit [CatalogListApi](/Wl... */
         is_visit: boolean;
         /** The sale item ID. */
         k_id: string;
@@ -24592,7 +25238,7 @@ export interface ThothWlPayBankCardAddAddPostParams {
 }
 export type ThothWlPayBankCardAddAddPostResponse = Record<string, unknown>;
 export interface ThothWlPayBankCardWidgetWidgetSelectParams {
-    /** Payment method. One of {@link RsPayMethodSid} constants. */
+    /** Payment method. @see RsPayMethodSid */
     id_pay_method: RsPayMethodSid | null;
     /** Payment mode. @see RsPayModeSid */
     id_pay_mode: RsPayModeSid;
@@ -24611,7 +25257,7 @@ export interface ThothWlPayBankCardWidgetWidgetSelectResponse {
     /** List of saved bank cards. */
     a_pay_card: {
         /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
-        eid_card_type: ThothWlPayBankCardCardTypeEnum | null;
+        eid_card_type: ThothWlPayBankCardCardTypeEnum;
         /** Card expiration month. */
         i_month: number;
         /** Card expiration year. */
@@ -24619,7 +25265,7 @@ export interface ThothWlPayBankCardWidgetWidgetSelectResponse {
         /** A list of card types. @see WlCardCardSystemSid */
         id_card_system: WlCardCardSystemSid;
         /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
-        id_card_type: ThothWlPayBankCardCardTypeEnum | null;
+        id_card_type: ThothWlPayBankCardCardTypeEnum;
         /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
         id_pay_processor: ThothPayProcessorPayProcessorSid;
         /** `true` if this card is the default payment method; `false` otherwise. */
@@ -24672,7 +25318,7 @@ export interface ThothWlPayBankAchAddAddGetParams {
     k_location: string;
     /** Pay owner key. */
     k_pay_owner: string;
-    /** Locale ID. One of {@link CoreLocaleLocaleSid} constants. */
+    /** Locale ID. @see CoreLocaleLocaleSid */
     id_locale?: CoreLocaleLocaleSid;
 }
 export interface ThothWlPayBankAchAddAddGetResponse {
@@ -25248,7 +25894,7 @@ export interface WlAppointmentBookAssetServiceServiceParams {
     k_timezone: string;
     /** User to get information for. */
     uid: string;
-    /** The appointment booking key to ignore when `a_resource_busy` is derived. */
+    /** The appointment booking key to ignore when [ServiceApi](/Wl/Appointment/Book/Asset/Service/Servic... */
     k_appointment_ignore?: string | null;
 }
 export interface WlAppointmentBookAssetServiceServiceResponse {
@@ -25532,6 +26178,17 @@ export declare class CoreDriveNamespace {
     readonly imageUpload: CoreDriveImageUploadNamespace;
     constructor(_client: WlClient);
 }
+export declare class CoreSpaApplicationNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets information of application. */
+    spaApplication(params?: CoreSpaApplicationSpaApplicationParams): Promise<CoreSpaApplicationSpaApplicationResponse>;
+}
+export declare class CoreSpaNamespace {
+    private readonly _client;
+    readonly application: CoreSpaApplicationNamespace;
+    constructor(_client: WlClient);
+}
 export declare class CoreNamespace {
     private readonly _client;
     readonly request: CoreRequestNamespace;
@@ -25542,6 +26199,7 @@ export declare class CoreNamespace {
     readonly captcha: CoreCaptchaNamespace;
     readonly passport: CorePassportNamespace;
     readonly drive: CoreDriveNamespace;
+    readonly spa: CoreSpaNamespace;
     constructor(_client: WlClient);
 }
 export declare class SocialMicrosoftNamespace {
@@ -25618,6 +26276,8 @@ export declare class WlLeadNamespace {
     leadGet(params?: WlLeadLeadGetParams): Promise<WlLeadLeadGetResponse>;
     /** Saves new user via "Lead capture". */
     leadPost(params?: WlLeadLeadPostParams): Promise<WlLeadLeadPostResponse>;
+    /** Checks if user with specified email already registered for specified business. */
+    leadCheck(params?: WlLeadLeadCheckParams): Promise<WlLeadLeadCheckResponse>;
 }
 export declare class WlReportNamespace {
     private readonly _client;
@@ -25649,8 +26309,15 @@ export declare class WlBusinessAccountNamespace {
     /** Generates list of active business keys for the same region as the requesting user (proper permissions required). */
     businessAccount(params?: WlBusinessAccountBusinessAccountParams): Promise<WlBusinessAccountBusinessAccountResponse>;
 }
+export declare class WlBusinessConfigOptionNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns config option values for specified business. */
+    businessConfigOption(params?: WlBusinessConfigOptionBusinessConfigOptionParams): Promise<WlBusinessConfigOptionBusinessConfigOptionResponse>;
+}
 export declare class WlBusinessConfigNamespace {
     private readonly _client;
+    readonly option: WlBusinessConfigOptionNamespace;
     constructor(_client: WlClient);
     /** Gets information about a business config. */
     businessConfig(params?: WlBusinessConfigBusinessConfigParams): Promise<WlBusinessConfigBusinessConfigResponse>;
@@ -25957,7 +26624,7 @@ export declare class WlLoginPromotionNamespace {
     constructor(_client: WlClient);
     /** Deletes specified promotion payment pause. */
     promotionPayPauseDelete(params?: WlLoginPromotionPromotionPayPauseDeleteParams): Promise<WlLoginPromotionPromotionPayPauseDeleteResponse>;
-    /** Returns promotion payment pause data: all hold periods when `is_list` is `true`,  the specified hold period when `k_promotion_pay_pause` is provided, or the currently  active hold period otherwise. */
+    /** Returns promotion payment pause data: all hold periods when [PromotionPayPauseApi](/Wl/Login/Promotion/PromotionPayPause.json) is `true`,  the specified hold period when [PromotionPayPauseApi](/Wl/Login/Promotion/PromotionPayPause.json) is provided, or the currently  active hold period otherwise. */
     promotionPayPauseGet(params?: WlLoginPromotionPromotionPayPauseGetParams): Promise<WlLoginPromotionPromotionPayPauseGetResponse>;
     /** Adds or updates a payment pause period for promotion. */
     promotionPayPausePost(params?: WlLoginPromotionPromotionPayPausePostParams): Promise<WlLoginPromotionPromotionPayPausePostResponse>;
@@ -26055,7 +26722,7 @@ export declare class WlSchedulePageNamespace {
 export declare class WlScheduleScheduleListStaffAppNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Gets schedule of business `k_business` for day `dt_date`. */
+    /** Gets schedule of business [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json) for day [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json). */
     scheduleList(params?: WlScheduleScheduleListStaffAppScheduleListParams): Promise<WlScheduleScheduleListStaffAppScheduleListResponse>;
     /** Gets schedule of business [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json) for day [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json). */
     scheduleListByToken(params?: WlScheduleScheduleListStaffAppScheduleListByTokenParams): Promise<WlScheduleScheduleListStaffAppScheduleListByTokenResponse>;
@@ -26106,7 +26773,7 @@ export declare class WlEventNamespace {
     eventListGet(params?: WlEventEventListGetParams): Promise<WlEventEventListGetResponse>;
     /** Resets the event list cache for the specified business and user. */
     eventListPut(params?: WlEventEventListPutParams): Promise<WlEventEventListPutResponse>;
-    /** Cancels book of event `k_class`. */
+    /** Cancels book of event [EventCancelWholeApi](/Wl/Event/EventCancelWhole.json). */
     eventCancelWhole(params?: WlEventEventCancelWholeParams): Promise<WlEventEventCancelWholeResponse>;
 }
 export declare class WlProfilePurchaseNamespace {
@@ -26208,6 +26875,14 @@ export declare class WlProfileAttachNamespace {
     /** In case the attachment key is not specified, it adds a new attachment. In case the attachment key is specified, edits the attachment. */
     attachElementPost(params?: WlProfileAttachAttachElementPostParams): Promise<WlProfileAttachAttachElementPostResponse>;
 }
+export declare class WlProfileTimezoneNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets a list of timezones with currently selected user's timezone and the business policy adjustment whether  clients are allowed to adjust timezone. */
+    profileTimezoneGet(params?: WlProfileTimezoneProfileTimezoneGetParams): Promise<WlProfileTimezoneProfileTimezoneGetResponse>;
+    /** Updates selected timezone for the site visitor in the given business. */
+    profileTimezonePut(params?: WlProfileTimezoneProfileTimezonePutParams): Promise<WlProfileTimezoneProfileTimezonePutResponse>;
+}
 export declare class WlProfileAttendanceScheduleFrontendNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -26226,8 +26901,15 @@ export declare class WlProfileAttendanceNamespace {
     /** Returns a list of visits that overlap with the specified service, class, resource, or time data. */
     attendanceOverlap(params?: WlProfileAttendanceAttendanceOverlapParams): Promise<WlProfileAttendanceAttendanceOverlapResponse>;
 }
+export declare class WlProfileContractContractAllNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets list of contracts. */
+    contractAll(params?: WlProfileContractContractAllContractAllParams): Promise<WlProfileContractContractAllContractAllResponse>;
+}
 export declare class WlProfileContractNamespace {
     private readonly _client;
+    readonly contractAll: WlProfileContractContractAllNamespace;
     constructor(_client: WlClient);
     /** Returns contract information for the specified purchase option. */
     contractGet(params?: WlProfileContractContractGetParams): Promise<WlProfileContractContractGetResponse>;
@@ -26255,6 +26937,7 @@ export declare class WlProfileNamespace {
     readonly setting: WlProfileSettingNamespace;
     readonly term: WlProfileTermNamespace;
     readonly attach: WlProfileAttachNamespace;
+    readonly timezone: WlProfileTimezoneNamespace;
     readonly attendance: WlProfileAttendanceNamespace;
     readonly contract: WlProfileContractNamespace;
     readonly form: WlProfileFormNamespace;
@@ -26299,6 +26982,8 @@ export declare class WlVisitNamespace {
     visitStatusGet(params?: WlVisitVisitStatusGetParams): Promise<WlVisitVisitStatusGetResponse>;
     /** Changes visit status. */
     visitStatusPost(params?: WlVisitVisitStatusPostParams): Promise<WlVisitVisitStatusPostResponse>;
+    /** Returns the total visit count for the user at the business. */
+    visitTotalCount(params?: WlVisitVisitTotalCountParams): Promise<WlVisitVisitTotalCountResponse>;
 }
 export declare class WlVideoWatchNamespace {
     private readonly _client;
@@ -26371,7 +27056,7 @@ export declare class WlVideoNamespace {
 export declare class WlLocationFlagNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Checks if user `uid` is flagged in location `k_location` or each of users `a_uid` is flagged in location `k_location`. */
+    /** Checks if user [FlagApi](/Wl/Location/Flag/Flag.json) is flagged in location [FlagApi](/Wl/Location/Flag/Flag.json) or each of users [FlagApi](/Wl/Location/Flag/Flag.json) is flagged in location [FlagApi](/Wl/Location/Flag/Flag.json). */
     flag(params?: WlLocationFlagFlagParams): Promise<WlLocationFlagFlagResponse>;
 }
 export declare class WlLocationWorkTimeNamespace {
@@ -26379,6 +27064,12 @@ export declare class WlLocationWorkTimeNamespace {
     constructor(_client: WlClient);
     /** Saves working hours of the location. */
     locationWorkTime(params?: WlLocationWorkTimeLocationWorkTimeParams): Promise<WlLocationWorkTimeLocationWorkTimeResponse>;
+}
+export declare class WlLocationLocationRateNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Retrieves information about location rate. */
+    locationRate(params?: WlLocationLocationRateLocationRateParams): Promise<WlLocationLocationRateLocationRateResponse>;
 }
 export declare class WlLocationViewNamespace {
     private readonly _client;
@@ -26396,6 +27087,7 @@ export declare class WlLocationNamespace {
     private readonly _client;
     readonly flag: WlLocationFlagNamespace;
     readonly workTime: WlLocationWorkTimeNamespace;
+    readonly locationRate: WlLocationLocationRateNamespace;
     readonly view: WlLocationViewNamespace;
     readonly facility: WlLocationFacilityNamespace;
     constructor(_client: WlClient);
@@ -26512,6 +27204,14 @@ export declare class WlTagNamespace {
     /** Saves the list of tags. Can be used to create new tags or update existing ones. */
     tagListPost(params?: WlTagTagListPostParams): Promise<WlTagTagListPostResponse>;
 }
+export declare class WlSessionNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns current session environment. */
+    environmentGet(params?: WlSessionEnvironmentGetParams): Promise<WlSessionEnvironmentGetResponse>;
+    /** Saves current location of business for current user. */
+    environmentPut(params?: WlSessionEnvironmentPutParams): Promise<WlSessionEnvironmentPutResponse>;
+}
 export declare class WlSkinApplicationConnectNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -26549,6 +27249,10 @@ export declare class WlSkinNamespace {
     readonly application: WlSkinApplicationNamespace;
     readonly widget: WlSkinWidgetNamespace;
     constructor(_client: WlClient);
+    /** Gets skin data. */
+    skinGet(params?: WlSkinSkinGetParams): Promise<WlSkinSkinGetResponse>;
+    /** Saves the specified skin fields. */
+    skinPost(params?: WlSkinSkinPostParams): Promise<WlSkinSkinPostResponse>;
     /** Deletes the existing widget. */
     skinForeignDelete(params?: WlSkinSkinForeignDeleteParams): Promise<WlSkinSkinForeignDeleteResponse>;
     /** Creates a new widget. */
@@ -26596,6 +27300,16 @@ export declare class WlRankNamespace {
     constructor(_client: WlClient);
     /** Gets belts list of a business. */
     rank(params?: WlRankRankParams): Promise<WlRankRankResponse>;
+}
+export declare class WlDriveNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns information about the image. */
+    productImageUploadGet(params?: WlDriveProductImageUploadGetParams): Promise<WlDriveProductImageUploadGetResponse>;
+    /** Loads image information for a list of IDs. The POST method is used instead of the GET method because the maximum permitted URI length is restricted. */
+    productImageUploadPost(params?: WlDriveProductImageUploadPostParams): Promise<WlDriveProductImageUploadPostResponse>;
+    /** Updates the image. */
+    productImageUploadPut(params?: WlDriveProductImageUploadPutParams): Promise<WlDriveProductImageUploadPutResponse>;
 }
 export declare class WlMemberInfoNamespace {
     private readonly _client;
@@ -26937,6 +27651,12 @@ export declare class WlClassesPromotionNamespace {
     /** Returns list of promotions that can be used to pay for the class / event. */
     classPromotion(params?: WlClassesPromotionClassPromotionParams): Promise<WlClassesPromotionClassPromotionResponse>;
 }
+export declare class WlClassesInfoNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets information about class. */
+    info(params?: WlClassesInfoInfoParams): Promise<WlClassesInfoInfoResponse>;
+}
 export declare class WlClassesPeriodModifyNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -26955,6 +27675,7 @@ export declare class WlClassesNamespace {
     readonly classList: WlClassesClassListNamespace;
     readonly classView: WlClassesClassViewNamespace;
     readonly promotion: WlClassesPromotionNamespace;
+    readonly info: WlClassesInfoNamespace;
     readonly period: WlClassesPeriodNamespace;
     constructor(_client: WlClient);
 }
@@ -27231,6 +27952,12 @@ export declare class WlCatalogCartNamespace {
     /** Checks limit quantity and whether a promotion can be added to the cart. */
     limitQuantity(params?: WlCatalogCartLimitQuantityParams): Promise<WlCatalogCartLimitQuantityResponse>;
 }
+export declare class WlCatalogQuizNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets quizzes for the selected purchase options. */
+    quiz(params?: WlCatalogQuizQuizParams): Promise<WlCatalogQuizQuizResponse>;
+}
 export declare class WlCatalogStaffAppCatalogCartNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -27261,6 +27988,7 @@ export declare class WlCatalogNamespace {
     readonly payment: WlCatalogPaymentNamespace;
     readonly catalogList: WlCatalogCatalogListNamespace;
     readonly cart: WlCatalogCartNamespace;
+    readonly quiz: WlCatalogQuizNamespace;
     readonly staffApp: WlCatalogStaffAppNamespace;
     constructor(_client: WlClient);
 }
@@ -27284,7 +28012,7 @@ export declare class WlRewardScoreNamespace {
 export declare class WlRewardActionCategoryListNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Retrieves all reward action categories for business specified in `k_business`. */
+    /** Retrieves all reward action categories for business specified in [CategoryListApi](/Wl/Reward/Action/CategoryList/CategoryList.json). */
     categoryList(params?: WlRewardActionCategoryListCategoryListParams): Promise<WlRewardActionCategoryListCategoryListResponse>;
 }
 export declare class WlRewardActionNamespace {
@@ -27305,7 +28033,7 @@ export declare class WlRewardActionNamespace {
 export declare class WlRewardBoardBoardListNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Retrieves all reward boards for business specified in `k_business`. */
+    /** Retrieves all reward boards for business specified in [ListApi](/Wl/Reward/Board/BoardList/List.json). */
     list(params?: WlRewardBoardBoardListListParams): Promise<WlRewardBoardBoardListListResponse>;
 }
 export declare class WlRewardBoardNamespace {
@@ -27530,7 +28258,7 @@ export declare class WlFamilyRelationNamespace {
     relationDelete(params?: WlFamilyRelationRelationDeleteParams): Promise<WlFamilyRelationRelationDeleteResponse>;
     /** Gets relative list. */
     relationGet(params?: WlFamilyRelationRelationGetParams): Promise<WlFamilyRelationRelationGetResponse>;
-    /** Adds to user `uid` relative `a_new`. */
+    /** Adds to user [RelationApi](/Wl/Family/Relation/Relation.json) relative [RelationApi](/Wl/Family/Relation/Relation.json). */
     relationPost(params?: WlFamilyRelationRelationPostParams): Promise<WlFamilyRelationRelationPostResponse>;
     /** Gets relationships list. */
     familyRelation(params?: WlFamilyRelationFamilyRelationParams): Promise<WlFamilyRelationFamilyRelationResponse>;
@@ -27624,11 +28352,13 @@ export declare class WlNamespace {
     readonly quiz: WlQuizNamespace;
     readonly fitbuilder: WlFitbuilderNamespace;
     readonly tag: WlTagNamespace;
+    readonly session: WlSessionNamespace;
     readonly skin: WlSkinNamespace;
     readonly currency: WlCurrencyNamespace;
     readonly tax: WlTaxNamespace;
     readonly review: WlReviewNamespace;
     readonly rank: WlRankNamespace;
+    readonly drive: WlDriveNamespace;
     readonly member: WlMemberNamespace;
     readonly reception: WlReceptionNamespace;
     readonly notification: WlNotificationNamespace;
@@ -27669,6 +28399,49 @@ export declare class ThothExplorerSearchClassSessionNamespace {
 export declare class ThothExplorerSearchNamespace {
     private readonly _client;
     readonly classSession: ThothExplorerSearchClassSessionNamespace;
+    constructor(_client: WlClient);
+}
+export declare class ThothPayProcessorNuveiNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Finalizes the `Nuvei` transaction after successful payer authentication. */
+    nuveiTransactionOnAuthSuccess(params?: ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams): Promise<ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse>;
+    /** Updates the amount of a previously opened `Nuvei` order. */
+    nuveiUpdateOrder(params?: ThothPayProcessorNuveiNuveiUpdateOrderParams): Promise<ThothPayProcessorNuveiNuveiUpdateOrderResponse>;
+    /** Opens a `Nuvei` order for the payment transaction. */
+    nuveiOpenOrder(params?: ThothPayProcessorNuveiNuveiOpenOrderParams): Promise<ThothPayProcessorNuveiNuveiOpenOrderResponse>;
+    /** Cancels the `Nuvei` transaction. */
+    nuveiTransactionCancel(params?: ThothPayProcessorNuveiNuveiTransactionCancelParams): Promise<ThothPayProcessorNuveiNuveiTransactionCancelResponse>;
+}
+export declare class ThothPayProcessorStripeComNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets the `Stripe` public key for a merchant. */
+    stripeComKey(params?: ThothPayProcessorStripeComStripeComKeyParams): Promise<ThothPayProcessorStripeComStripeComKeyResponse>;
+    /** Updates a `Stripe` Payment Intent. */
+    paymentIntentUpdate(params?: ThothPayProcessorStripeComPaymentIntentUpdateParams): Promise<ThothPayProcessorStripeComPaymentIntentUpdateResponse>;
+    /** Initializes a `Stripe` payment. */
+    stripeComPayInit(params?: ThothPayProcessorStripeComStripeComPayInitParams): Promise<ThothPayProcessorStripeComStripeComPayInitResponse>;
+    /** Cancels a `Stripe` Payment Intent. */
+    stripeComPaymentIntentCancel(params?: ThothPayProcessorStripeComStripeComPaymentIntentCancelParams): Promise<ThothPayProcessorStripeComStripeComPaymentIntentCancelResponse>;
+}
+export declare class ThothPayProcessorCyberSourceNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Checks `CyberSource` Payer Authentication enrollment. */
+    csPaEnrollment(params?: ThothPayProcessorCyberSourceCsPaEnrollmentParams): Promise<ThothPayProcessorCyberSourceCsPaEnrollmentResponse>;
+    /** Validates the `CyberSource` Payer Authentication result. */
+    csPaValidate(params?: ThothPayProcessorCyberSourceCsPaValidateParams): Promise<ThothPayProcessorCyberSourceCsPaValidateResponse>;
+    /** Generates a capture context for `CyberSource` Flex Microform. */
+    csCaptureContext(params?: ThothPayProcessorCyberSourceCsCaptureContextParams): Promise<ThothPayProcessorCyberSourceCsCaptureContextResponse>;
+    /** Starts `CyberSource` Payer Authentication setup. */
+    csPaSetup(params?: ThothPayProcessorCyberSourceCsPaSetupParams): Promise<ThothPayProcessorCyberSourceCsPaSetupResponse>;
+}
+export declare class ThothPayProcessorNamespace {
+    private readonly _client;
+    readonly nuvei: ThothPayProcessorNuveiNamespace;
+    readonly stripeCom: ThothPayProcessorStripeComNamespace;
+    readonly cyberSource: ThothPayProcessorCyberSourceNamespace;
     constructor(_client: WlClient);
 }
 export declare class ThothReportCoreGeneratorNamespace {
@@ -27804,6 +28577,7 @@ export declare class ThothWlPayNamespace {
 export declare class ThothNamespace {
     private readonly _client;
     readonly explorerSearch: ThothExplorerSearchNamespace;
+    readonly payProcessor: ThothPayProcessorNamespace;
     readonly reportCore: ThothReportCoreNamespace;
     readonly wlPay: ThothWlPayNamespace;
     constructor(_client: WlClient);

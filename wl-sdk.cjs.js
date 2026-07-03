@@ -1,21 +1,21 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260703125427
+// OpenAPI spec version: 1.1.20260703171649
 // Build date: 2026-07-03
-// Endpoints: 467
-// Enums: 183
+// Endpoints: 496
+// Enums: 187
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ADurationSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsPayMethodSid = exports.WlAnnouncementSortFieldSid = exports.WlAnnouncementAnnouncementStatusEnum = exports.RsProjectSid = exports.RsHomeTourSid = exports.WlVideoCatalogFilterSortFilterSortSid = exports.CoreSidSortOrderSid = exports.WlVideoVideoSourceSid = exports.CoreSidYesNoSid = exports.WlVideoVideoEmbedSourceSid = exports.RsPrivilegeRoleSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AFlagSid = exports.RsScheduleTimeSid = exports.CoreDriveDriveTypeSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.AGenderSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlImportCustomCustomSid = exports.WlVisitVisitSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.WlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.RsReportSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlGenderGenderSid = exports.WlTaskTaskStatusSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.CoreLocaleLocaleSid = exports.WlApiError = void 0;
-exports.RsAppointmentPaySid = exports.WlPrivilegePrivilegeSid = exports.WlProfileAttachAttachPreviewSid = exports.WlLocationFlagFlagSourceEnum = exports.RsLoginNoteFlagSid = exports.RsLoginNoteAccessSid = exports.RsProfileNoteSid = exports.RsLoginActivityTypeSid = exports.WlDesignIconSid = exports.WlProfileRegisterSourceSid = exports.RsCommissionTypeSid = exports.RsActivationSid = exports.WlServiceBookableSid = exports.WlClassesRequirePaySid = exports.WlBookProcessProcessSpaSid = exports.RsFamilyRelationSid = exports.RsRepeatEndSid = exports.WlVirtualVirtualProviderSid = exports.WlScheduleClassViewDenyReasonSid = exports.WlResourceResourceCategoryEnum = exports.RsMailSid = exports.WlReceptionDesignCheckInSoundSid = exports.WlReceptionApplicationMemberInfoIconSid = exports.WlReceptionApplicationMemberInfoColorSid = exports.WlLoginTypeClientTypeSid = exports.RsServiceSid = exports.WlVisitNoteSidNoteSid = exports.RsSaleSid = exports.WlVisitPassProspectSid = exports.WlProfileSensorSensorTypesSid = exports.CoreQuizResponseResponseStatusSid = exports.WlMemberProgressFieldTypeSid = exports.WlMemberProgressFieldMeasurementSid = exports.WlMemberProgressFieldProgressFieldSid = exports.RsBusinessDesignLogoStyleSid = exports.RsBusinessDesignLogoPositionSid = exports.RsPageFrontendHeaderLayoutSid = exports.WlBusinessPolicyChargeSid = exports.WlBusinessPolicyBlameSid = exports.CoreGoogleCaptchaCaptchaResponseSid = exports.RsPayOwnerSid = exports.ThothPayProcessorPayProcessorSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.RsReviewStatusSid = exports.RsSkinSid = exports.RsPurchaseItemSid = exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = void 0;
-exports.WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = exports.WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = exports.WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid = exports.WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid = exports.WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = exports.WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = exports.WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = exports.WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = exports.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = exports.WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = exports.WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = exports.WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = exports.WlBusinessAccountSubscriptionSmsSmsSubscriptionSid = exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = exports.WlShareShareSid = exports.WlSearchSearchOperationSid = exports.WlMemberGroupShapeSid = exports.WlLeadConversionLeadConversionTypeSid = exports.RsPayBankAchTypeSid = exports.RsPayBankAchHolderSid = exports.RsPayAccountChargeSid = exports.WlSocialShareShareObjectSid = exports.WlReviewReviewListReviewOrderSid = exports.WlUserTrackingFlowSid = exports.WlCouponTypeSid = exports.WlBusinessFranchiseLocationBusinessFranchiseLocationSid = exports.WlReportGeneratorReportGeneratorStatusSid = exports.WlIntegrationAutymateAutymateAccessModeSid = exports.WlIntegrationAutymateAutymateStatusSid = exports.RsRewardScoreSid = exports.RsRewardActionCategorySid = exports.WlCatalogQuickPurchaseTypeSid = exports.WlQuizResponseSourceSid = exports.RsProgramCategorySid = exports.WlPromotionEditLimitCycleSid = exports.WlShopCategoryShopCategorySortSid = exports.WlCatalogPurchaseOptionViewSid = exports.RsTaxSid = exports.WlCouponEditDurationTypeSid = exports.WlCouponEditActivationSid = exports.WlResourceImageImageIconSid = exports.WlResourceLayoutShapeLayoutShapeSid = exports.RsFacilitySid = exports.RsAgeSid = exports.ASocialSid = exports.WlVideoWatchWatchSourceSid = void 0;
-exports.CorePassportChangePasswordNamespace = exports.CorePassportLoginNamespace = exports.CorePassportLoginSignOutNamespace = exports.CorePassportLoginRegisterNamespace = exports.CorePassportLoginEnterNamespace = exports.CoreCaptchaNamespace = exports.CoreSidNamespace = exports.CoreWebSocketNamespace = exports.CoreGoogleNamespace = exports.CoreGoogleCaptchaNamespace = exports.CoreGeoNamespace = exports.CoreGeoRegionNamespace = exports.CoreRequestNamespace = exports.CoreRequestTokenNamespace = exports.CoreRequestApiNamespace = exports.CoreRequestApiApplicationNamespace = exports.CoreRequestApiApplicationCredentialNamespace = exports.WlLoginPromotionGuestPassInviteInviteStatusEnum = exports.RsPayBankAchSecSid = exports.RsPayBankSid = exports.RsPayModeSid = exports.WlCardCardSystemSid = exports.ThothWlPayBankCardCardTypeEnum = exports.RsPayActorSid = exports.WlSkinApplicationUpgradeAppUpdateTypeEnum = exports.WlSkinApplicationResourceApplicationCategorySid = exports.WlShopProductPurchaseRestrictionSid = exports.WlPassportLoginEnterOtpDeliveryStrategyEnum = exports.RsServicePriceSid = exports.WlLoginLoginRoleSid = exports.RsAppointmentEditConflictSid = exports.RsServiceRequireSid = exports.WlServiceServiceBookFlowSid = exports.RsClassModifyModeSid = exports.RsClassModifyActionSid = exports.WlBookProcessProcessCheckSid = exports.WlScheduleDesignOptionSid = exports.WlReceptionRosterDirectSid = exports.WlPromotionGuestPassGuestPassResetTypeSid = exports.WlLoginPromotionConvertConvertWhenSid = exports.WlPromotionConvertPromotionConvertSid = exports.WlLoginAttendanceAddOptionSid = exports.WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = exports.WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = exports.WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = exports.WlBusinessAccountSubscriptionApiApiSubscriptionSid = exports.WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = exports.WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = void 0;
-exports.WlLoginAttendanceNamespace = exports.WlLoginAttendanceAddNamespace = exports.WlLoginMailNamespace = exports.WlMailNamespace = exports.WlMailPatternNamespace = exports.WlMailPatternAutomatedMarketingNamespace = exports.WlMailPatternAutomatedMarketingCustomTemplateNamespace = exports.WlBusinessNamespace = exports.WlBusinessUserNamespace = exports.WlBusinessUserSubscribeNamespace = exports.WlBusinessRewardNamespace = exports.WlBusinessRewardConfigNamespace = exports.WlBusinessFranchiseNamespace = exports.WlBusinessFranchiseLocationNamespace = exports.WlBusinessAuthorizeSupportNamespace = exports.WlBusinessAuthorizeSupportResponseNamespace = exports.WlBusinessWaiverNamespace = exports.WlBusinessTypeNamespace = exports.WlBusinessAuthorizePartnerNamespace = exports.WlBusinessAmazonRegionNamespace = exports.WlBusinessSearchNamespace = exports.WlBusinessPhoneNamespace = exports.WlBusinessLeadNamespace = exports.WlBusinessDesignNamespace = exports.WlBusinessPartnerNamespace = exports.WlBusinessClaimNamespace = exports.WlBusinessSelectNamespace = exports.WlBusinessConfigNamespace = exports.WlBusinessAccountNamespace = exports.WlBusinessAccountSubscriptionNamespace = exports.WlBusinessAccountSubscriptionAchieveNamespace = exports.WlReportNamespace = exports.WlLeadNamespace = exports.WlLeadSourceNamespace = exports.SocialNamespace = exports.SocialGoogleNamespace = exports.SocialGooglePlusNamespace = exports.SocialFacebookNamespace = exports.SocialFacebookLoginNamespace = exports.SocialAppleNamespace = exports.SocialAppleLoginNamespace = exports.SocialMicrosoftNamespace = exports.CoreNamespace = exports.CoreDriveNamespace = exports.CoreDriveImageUploadNamespace = exports.CorePassportNamespace = exports.CorePassportUserNamespace = exports.CorePassportUserEmailNamespace = exports.CorePassportEnterNamespace = exports.CorePassportEnterJwtNamespace = void 0;
-exports.WlVideoWatchNamespace = exports.WlVisitNamespace = exports.WlStaffNamespace = exports.WlStaffStaffViewNamespace = exports.WlStaffPrivilegeNamespace = exports.WlStaffStaffListNamespace = exports.WlProfileNamespace = exports.WlProfileFormNamespace = exports.WlProfileFormResponseNamespace = exports.WlProfileContractNamespace = exports.WlProfileAttendanceNamespace = exports.WlProfileAttendanceScheduleNamespace = exports.WlProfileAttendanceScheduleFrontendNamespace = exports.WlProfileAttachNamespace = exports.WlProfileTermNamespace = exports.WlProfileSettingNamespace = exports.WlProfilePurchaseListNamespace = exports.WlProfileAlertNamespace = exports.WlProfileActivityNamespace = exports.WlProfileEditNamespace = exports.WlProfileEditEmailNamespace = exports.WlProfilePurchaseNamespace = exports.WlEventNamespace = exports.WlEventBookNamespace = exports.WlEventBookEventListNamespace = exports.WlEventBookEventViewNamespace = exports.WlScheduleNamespace = exports.WlScheduleScheduleListNamespace = exports.WlScheduleScheduleListStaffAppNamespace = exports.WlSchedulePageNamespace = exports.WlScheduleClassViewNamespace = exports.WlScheduleTabNamespace = exports.WlScheduleClassListNamespace = exports.WlLoginNamespace = exports.WlLoginProductNamespace = exports.WlLoginCouponNamespace = exports.WlLoginPermissionNamespace = exports.WlLoginTypeNamespace = exports.WlLoginAddNamespace = exports.WlLoginAgreeNamespace = exports.WlLoginPromotionNamespace = exports.WlLoginPromotionGuestPassNamespace = exports.WlLoginPromotionGuestPassApplyNamespace = exports.WlLoginPromotionGuestPassClaimNamespace = exports.WlLoginPromotionGuestPassInviteNamespace = exports.WlLoginPromotionConvertNamespace = exports.WlLoginSearchNamespace = exports.WlLoginSearchStaffAppNamespace = exports.WlLoginMemberNamespace = exports.WlLoginMemberDynamicIdNamespace = void 0;
-exports.WlNotificationSendNamespace = exports.WlReceptionNamespace = exports.WlReceptionDesignNamespace = exports.WlReceptionRosterNamespace = exports.WlReceptionRosterDesignNamespace = exports.WlReceptionApplicationNamespace = exports.WlMemberNamespace = exports.WlMemberProgressNamespace = exports.WlMemberProgressGoalNamespace = exports.WlMemberProgressGoalEditNamespace = exports.WlMemberProgressLogNamespace = exports.WlMemberProgressLogCompareNamespace = exports.WlMemberProgressLogImageNamespace = exports.WlMemberProgressLogEditNamespace = exports.WlMemberProgressFieldNamespace = exports.WlMemberProgressFieldEditNamespace = exports.WlMemberGroupNamespace = exports.WlMemberGroupGroupListNamespace = exports.WlMemberGroupUserNamespace = exports.WlMemberGroupEditNamespace = exports.WlMemberPurchaseNamespace = exports.WlMemberInfoNamespace = exports.WlRankNamespace = exports.WlReviewNamespace = exports.WlReviewReviewListNamespace = exports.WlTaxNamespace = exports.WlCurrencyNamespace = exports.WlSkinNamespace = exports.WlSkinWidgetNamespace = exports.WlSkinApplicationNamespace = exports.WlSkinApplicationResourceNamespace = exports.WlSkinApplicationConnectNamespace = exports.WlTagNamespace = exports.WlFitbuilderNamespace = exports.WlQuizNamespace = exports.WlQuizResponseNamespace = exports.WlPromotionNamespace = exports.WlPromotionIndexNamespace = exports.WlHolidayNamespace = exports.WlCollectorNamespace = exports.WlAnnouncementNamespace = exports.WlLocationNamespace = exports.WlLocationFacilityNamespace = exports.WlLocationViewNamespace = exports.WlLocationWorkTimeNamespace = exports.WlLocationFlagNamespace = exports.WlVideoNamespace = exports.WlVideoTagNamespace = exports.WlVideoLevelNamespace = exports.WlVideoCategoryNamespace = void 0;
-exports.WlPassportLoginRegisterNamespace = exports.WlPassportLoginEnterNamespace = exports.WlSmsNamespace = exports.WlSmsPhoneNamespace = exports.WlResourceNamespace = exports.WlResourceResourceListNamespace = exports.WlResourceLayoutNamespace = exports.WlGoogleNamespace = exports.WlGoogleLoginNamespace = exports.WlServiceNamespace = exports.WlServiceServiceListNamespace = exports.WlPurchaseNamespace = exports.WlPurchaseShareNamespace = exports.WlPurchaseMailNamespace = exports.WlPurchaseReceiptNamespace = exports.WlAppointmentNamespace = exports.WlAppointmentBookNamespace = exports.WlAppointmentBookAssetNamespace = exports.WlAppointmentBookAssetServiceNamespace = exports.WlAppointmentBookProductNamespace = exports.WlAppointmentBookQuestionNamespace = exports.WlAppointmentBookPurchaseNamespace = exports.WlAppointmentBookStaffNamespace = exports.WlAppointmentBookPaymentNamespace = exports.WlAppointmentBookFinishNamespace = exports.WlAppointmentBookScheduleNamespace = exports.WlAppointmentBookServiceNamespace = exports.WlAppointmentRecentNamespace = exports.WlAppointmentInfoNamespace = exports.WlAppointmentEditNamespace = exports.WlClassesNamespace = exports.WlClassesPeriodNamespace = exports.WlClassesPeriodModifyNamespace = exports.WlClassesPromotionNamespace = exports.WlClassesClassViewNamespace = exports.WlClassesClassListNamespace = exports.WlBookNamespace = exports.WlBookCancelNamespace = exports.WlBookProcessNamespace = exports.WlBookProcessFrequencyNamespace = exports.WlBookProcessQuizNamespace = exports.WlBookProcessInfoNamespace = exports.WlBookProcessStoreNamespace = exports.WlBookProcessPaymentNamespace = exports.WlBookProcessResourceNamespace = exports.WlBookProcessPurchaseNamespace = exports.WlBookProcessGuestNamespace = exports.WlBookProcessRelationNamespace = exports.WlNotificationNamespace = exports.WlNotificationOtpNamespace = void 0;
-exports.WlSearchTagNamespace = exports.WlFamilyNamespace = exports.WlFamilyRelationNamespace = exports.WlDiscountNamespace = exports.WlDiscountCodeNamespace = exports.WlDiscountCodeEditNamespace = exports.WlCouponNamespace = exports.WlCouponCouponListNamespace = exports.WlShopNamespace = exports.WlShopProductNamespace = exports.WlShopProductOptionNamespace = exports.WlShopProductOptionInventoryNamespace = exports.WlShopProductOptionInventoryCountNamespace = exports.WlShopCategoryNamespace = exports.WlMicrosoftNamespace = exports.WlMicrosoftLoginNamespace = exports.WlAiAgentNamespace = exports.WlAiAgentLinkNamespace = exports.WlIntegrationNamespace = exports.WlIntegrationDragonFlyNamespace = exports.WlIntegrationCurvesNamespace = exports.WlIntegrationSamlNamespace = exports.WlIntegrationAutymateNamespace = exports.WlDoorAccessNamespace = exports.WlDoorAccessBrivoNamespace = exports.WlUserNamespace = exports.WlUserInfoNamespace = exports.WlUserReferrerNamespace = exports.WlInsuranceNamespace = exports.WlInsuranceEnrollmentNamespace = exports.WlInsuranceEnrollmentFieldNamespace = exports.WlInsuranceCatalogNamespace = exports.WlRewardNamespace = exports.WlRewardPrizeNamespace = exports.WlRewardBoardNamespace = exports.WlRewardBoardBoardListNamespace = exports.WlRewardActionNamespace = exports.WlRewardActionCategoryListNamespace = exports.WlRewardScoreNamespace = exports.WlRewardScoreCurrentNamespace = exports.WlCatalogNamespace = exports.WlCatalogStaffAppNamespace = exports.WlCatalogStaffAppCatalogViewNamespace = exports.WlCatalogStaffAppCatalogListNamespace = exports.WlCatalogStaffAppCatalogCartNamespace = exports.WlCatalogCartNamespace = exports.WlCatalogCatalogListNamespace = exports.WlCatalogPaymentNamespace = exports.WlPassportNamespace = exports.WlPassportLoginNamespace = void 0;
-exports.WlClient = exports.ThothNamespace = exports.ThothWlPayNamespace = exports.ThothWlPayTransactionNamespace = exports.ThothWlPayTransactionReportNamespace = exports.ThothWlPayBankNamespace = exports.ThothWlPayBankAchNamespace = exports.ThothWlPayBankAchAddNamespace = exports.ThothWlPayBankCardNamespace = exports.ThothWlPayBankCardWidgetNamespace = exports.ThothWlPayBankCardAddNamespace = exports.ThothWlPayAddressNamespace = exports.ThothWlPayAddressWidgetNamespace = exports.ThothWlPayMethodNamespace = exports.ThothWlPayOwnerNamespace = exports.ThothWlPayAccountNamespace = exports.ThothWlPayAccountChargeNamespace = exports.ThothWlPayFormNamespace = exports.ThothReportCoreNamespace = exports.ThothReportCoreGeneratorNamespace = exports.ThothExplorerSearchNamespace = exports.ThothExplorerSearchClassSessionNamespace = exports.WlNamespace = exports.WlTuitionNamespace = exports.WlTuitionEnrollmentNamespace = exports.WlFacebookNamespace = exports.WlFacebookLoginNamespace = exports.WlSocialNamespace = exports.WlSocialShareNamespace = exports.WlGymNamespace = exports.WlGymVisitNamespace = exports.WlSearchNamespace = void 0;
+exports.WlProfileRegisterSourceSid = exports.RsCommissionTypeSid = exports.RsActivationSid = exports.WlServiceBookableSid = exports.WlClassesRequirePaySid = exports.WlBookProcessProcessSpaSid = exports.RsFamilyRelationSid = exports.RsRepeatEndSid = exports.WlVirtualVirtualProviderSid = exports.WlScheduleClassViewDenyReasonSid = exports.WlResourceResourceCategoryEnum = exports.RsMailSid = exports.WlReceptionDesignCheckInSoundSid = exports.WlReceptionApplicationMemberInfoIconSid = exports.WlReceptionApplicationMemberInfoColorSid = exports.WlLoginTypeClientTypeSid = exports.RsServiceSid = exports.WlVisitNoteSidNoteSid = exports.RsSaleSid = exports.WlVisitPassProspectSid = exports.WlProfileSensorSensorTypesSid = exports.CoreQuizResponseResponseStatusSid = exports.WlMemberProgressFieldTypeSid = exports.WlMemberProgressFieldMeasurementSid = exports.WlMemberProgressFieldProgressFieldSid = exports.RsBusinessDesignLogoStyleSid = exports.RsBusinessDesignLogoPositionSid = exports.RsPageFrontendHeaderLayoutSid = exports.WlBusinessPolicyChargeSid = exports.WlBusinessPolicyBlameSid = exports.CoreGoogleCaptchaCaptchaResponseSid = exports.RsPayOwnerSid = exports.ThothPayProcessorPayProcessorSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorStripeComPaymentIntentStatusSid = exports.RsPayActorSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.RsReviewStatusSid = exports.RsSkinSid = exports.WlBusinessFranchiseTravelTravelModeSid = exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = exports.RsPlaceSid = exports.RsCurrencySid = exports.RsPurchaseItemSid = exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = void 0;
+exports.WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = exports.WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = exports.WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = exports.WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = exports.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = exports.WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = exports.WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = exports.WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = exports.WlBusinessAccountSubscriptionSmsSmsSubscriptionSid = exports.WlShareShareSid = exports.WlSearchSearchOperationSid = exports.WlMemberGroupShapeSid = exports.WlLeadConversionLeadConversionTypeSid = exports.RsPayBankAchTypeSid = exports.RsPayBankAchHolderSid = exports.RsPayAccountChargeSid = exports.WlSocialShareShareObjectSid = exports.WlReviewReviewListReviewOrderSid = exports.WlUserTrackingFlowSid = exports.WlCouponTypeSid = exports.WlBusinessFranchiseLocationBusinessFranchiseLocationSid = exports.WlReportGeneratorReportGeneratorStatusSid = exports.WlIntegrationAutymateAutymateAccessModeSid = exports.WlIntegrationAutymateAutymateStatusSid = exports.RsRewardScoreSid = exports.RsRewardActionCategorySid = exports.WlCatalogQuickPurchaseTypeSid = exports.WlQuizResponseSourceSid = exports.RsProgramCategorySid = exports.WlPromotionEditLimitCycleSid = exports.WlShopCategoryShopCategorySortSid = exports.WlCatalogPurchaseOptionViewSid = exports.RsTaxSid = exports.WlCouponEditDurationTypeSid = exports.WlCouponEditActivationSid = exports.WlResourceImageImageIconSid = exports.WlResourceLayoutShapeLayoutShapeSid = exports.RsFacilitySid = exports.RsAgeSid = exports.ASocialSid = exports.WlVideoWatchWatchSourceSid = exports.RsAppointmentPaySid = exports.WlPrivilegePrivilegeSid = exports.WlProfileAttachAttachPreviewSid = exports.WlLocationFlagFlagSourceEnum = exports.RsLoginNoteFlagSid = exports.RsLoginNoteAccessSid = exports.RsProfileNoteSid = exports.RsLoginActivityTypeSid = exports.WlDesignIconSid = void 0;
+exports.CorePassportLoginEnterNamespace = exports.CoreCaptchaNamespace = exports.CoreSidNamespace = exports.CoreWebSocketNamespace = exports.CoreGoogleNamespace = exports.CoreGoogleCaptchaNamespace = exports.CoreGeoNamespace = exports.CoreGeoRegionNamespace = exports.CoreRequestNamespace = exports.CoreRequestTokenNamespace = exports.CoreRequestApiNamespace = exports.CoreRequestApiApplicationNamespace = exports.CoreRequestApiApplicationCredentialNamespace = exports.WlLoginPromotionGuestPassInviteInviteStatusEnum = exports.RsPayBankAchSecSid = exports.RsPayBankSid = exports.RsPayModeSid = exports.WlCardCardSystemSid = exports.WlSkinApplicationUpgradeAppUpdateTypeEnum = exports.WlSkinApplicationResourceApplicationCategorySid = exports.WlShopProductPurchaseRestrictionSid = exports.WlPassportLoginEnterOtpDeliveryStrategyEnum = exports.RsServicePriceSid = exports.WlLoginLoginRoleSid = exports.RsAppointmentEditConflictSid = exports.RsServiceRequireSid = exports.WlServiceServiceBookFlowSid = exports.RsClassModifyModeSid = exports.RsClassModifyActionSid = exports.WlBookProcessProcessCheckSid = exports.WlScheduleDesignOptionSid = exports.WlReceptionRosterDirectSid = exports.WlPromotionGuestPassGuestPassResetTypeSid = exports.WlLoginPromotionConvertConvertWhenSid = exports.WlPromotionConvertPromotionConvertSid = exports.WlLoginAttendanceAddOptionSid = exports.WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = exports.WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = exports.WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = exports.WlBusinessAccountSubscriptionApiApiSubscriptionSid = exports.WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = exports.WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = exports.WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = exports.WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = exports.WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid = exports.WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid = void 0;
+exports.WlBusinessNamespace = exports.WlBusinessUserNamespace = exports.WlBusinessUserSubscribeNamespace = exports.WlBusinessRewardNamespace = exports.WlBusinessRewardConfigNamespace = exports.WlBusinessFranchiseNamespace = exports.WlBusinessFranchiseLocationNamespace = exports.WlBusinessAuthorizeSupportNamespace = exports.WlBusinessAuthorizeSupportResponseNamespace = exports.WlBusinessWaiverNamespace = exports.WlBusinessTypeNamespace = exports.WlBusinessAuthorizePartnerNamespace = exports.WlBusinessAmazonRegionNamespace = exports.WlBusinessSearchNamespace = exports.WlBusinessPhoneNamespace = exports.WlBusinessLeadNamespace = exports.WlBusinessDesignNamespace = exports.WlBusinessPartnerNamespace = exports.WlBusinessClaimNamespace = exports.WlBusinessSelectNamespace = exports.WlBusinessConfigNamespace = exports.WlBusinessConfigOptionNamespace = exports.WlBusinessAccountNamespace = exports.WlBusinessAccountSubscriptionNamespace = exports.WlBusinessAccountSubscriptionAchieveNamespace = exports.WlReportNamespace = exports.WlLeadNamespace = exports.WlLeadSourceNamespace = exports.SocialNamespace = exports.SocialGoogleNamespace = exports.SocialGooglePlusNamespace = exports.SocialFacebookNamespace = exports.SocialFacebookLoginNamespace = exports.SocialAppleNamespace = exports.SocialAppleLoginNamespace = exports.SocialMicrosoftNamespace = exports.CoreNamespace = exports.CoreSpaNamespace = exports.CoreSpaApplicationNamespace = exports.CoreDriveNamespace = exports.CoreDriveImageUploadNamespace = exports.CorePassportNamespace = exports.CorePassportUserNamespace = exports.CorePassportUserEmailNamespace = exports.CorePassportEnterNamespace = exports.CorePassportEnterJwtNamespace = exports.CorePassportChangePasswordNamespace = exports.CorePassportLoginNamespace = exports.CorePassportLoginSignOutNamespace = exports.CorePassportLoginRegisterNamespace = void 0;
+exports.WlProfileContractNamespace = exports.WlProfileContractContractAllNamespace = exports.WlProfileAttendanceNamespace = exports.WlProfileAttendanceScheduleNamespace = exports.WlProfileAttendanceScheduleFrontendNamespace = exports.WlProfileTimezoneNamespace = exports.WlProfileAttachNamespace = exports.WlProfileTermNamespace = exports.WlProfileSettingNamespace = exports.WlProfilePurchaseListNamespace = exports.WlProfileAlertNamespace = exports.WlProfileActivityNamespace = exports.WlProfileEditNamespace = exports.WlProfileEditEmailNamespace = exports.WlProfilePurchaseNamespace = exports.WlEventNamespace = exports.WlEventBookNamespace = exports.WlEventBookEventListNamespace = exports.WlEventBookEventViewNamespace = exports.WlScheduleNamespace = exports.WlScheduleScheduleListNamespace = exports.WlScheduleScheduleListStaffAppNamespace = exports.WlSchedulePageNamespace = exports.WlScheduleClassViewNamespace = exports.WlScheduleTabNamespace = exports.WlScheduleClassListNamespace = exports.WlLoginNamespace = exports.WlLoginProductNamespace = exports.WlLoginCouponNamespace = exports.WlLoginPermissionNamespace = exports.WlLoginTypeNamespace = exports.WlLoginAddNamespace = exports.WlLoginAgreeNamespace = exports.WlLoginPromotionNamespace = exports.WlLoginPromotionGuestPassNamespace = exports.WlLoginPromotionGuestPassApplyNamespace = exports.WlLoginPromotionGuestPassClaimNamespace = exports.WlLoginPromotionGuestPassInviteNamespace = exports.WlLoginPromotionConvertNamespace = exports.WlLoginSearchNamespace = exports.WlLoginSearchStaffAppNamespace = exports.WlLoginMemberNamespace = exports.WlLoginMemberDynamicIdNamespace = exports.WlLoginAttendanceNamespace = exports.WlLoginAttendanceAddNamespace = exports.WlLoginMailNamespace = exports.WlMailNamespace = exports.WlMailPatternNamespace = exports.WlMailPatternAutomatedMarketingNamespace = exports.WlMailPatternAutomatedMarketingCustomTemplateNamespace = void 0;
+exports.WlMemberProgressLogImageNamespace = exports.WlMemberProgressLogEditNamespace = exports.WlMemberProgressFieldNamespace = exports.WlMemberProgressFieldEditNamespace = exports.WlMemberGroupNamespace = exports.WlMemberGroupGroupListNamespace = exports.WlMemberGroupUserNamespace = exports.WlMemberGroupEditNamespace = exports.WlMemberPurchaseNamespace = exports.WlMemberInfoNamespace = exports.WlDriveNamespace = exports.WlRankNamespace = exports.WlReviewNamespace = exports.WlReviewReviewListNamespace = exports.WlTaxNamespace = exports.WlCurrencyNamespace = exports.WlSkinNamespace = exports.WlSkinWidgetNamespace = exports.WlSkinApplicationNamespace = exports.WlSkinApplicationResourceNamespace = exports.WlSkinApplicationConnectNamespace = exports.WlSessionNamespace = exports.WlTagNamespace = exports.WlFitbuilderNamespace = exports.WlQuizNamespace = exports.WlQuizResponseNamespace = exports.WlPromotionNamespace = exports.WlPromotionIndexNamespace = exports.WlHolidayNamespace = exports.WlCollectorNamespace = exports.WlAnnouncementNamespace = exports.WlLocationNamespace = exports.WlLocationFacilityNamespace = exports.WlLocationViewNamespace = exports.WlLocationLocationRateNamespace = exports.WlLocationWorkTimeNamespace = exports.WlLocationFlagNamespace = exports.WlVideoNamespace = exports.WlVideoTagNamespace = exports.WlVideoLevelNamespace = exports.WlVideoCategoryNamespace = exports.WlVideoWatchNamespace = exports.WlVisitNamespace = exports.WlStaffNamespace = exports.WlStaffStaffViewNamespace = exports.WlStaffPrivilegeNamespace = exports.WlStaffStaffListNamespace = exports.WlProfileNamespace = exports.WlProfileFormNamespace = exports.WlProfileFormResponseNamespace = void 0;
+exports.WlPurchaseMailNamespace = exports.WlPurchaseReceiptNamespace = exports.WlAppointmentNamespace = exports.WlAppointmentBookNamespace = exports.WlAppointmentBookAssetNamespace = exports.WlAppointmentBookAssetServiceNamespace = exports.WlAppointmentBookProductNamespace = exports.WlAppointmentBookQuestionNamespace = exports.WlAppointmentBookPurchaseNamespace = exports.WlAppointmentBookStaffNamespace = exports.WlAppointmentBookPaymentNamespace = exports.WlAppointmentBookFinishNamespace = exports.WlAppointmentBookScheduleNamespace = exports.WlAppointmentBookServiceNamespace = exports.WlAppointmentRecentNamespace = exports.WlAppointmentInfoNamespace = exports.WlAppointmentEditNamespace = exports.WlClassesNamespace = exports.WlClassesPeriodNamespace = exports.WlClassesPeriodModifyNamespace = exports.WlClassesInfoNamespace = exports.WlClassesPromotionNamespace = exports.WlClassesClassViewNamespace = exports.WlClassesClassListNamespace = exports.WlBookNamespace = exports.WlBookCancelNamespace = exports.WlBookProcessNamespace = exports.WlBookProcessFrequencyNamespace = exports.WlBookProcessQuizNamespace = exports.WlBookProcessInfoNamespace = exports.WlBookProcessStoreNamespace = exports.WlBookProcessPaymentNamespace = exports.WlBookProcessResourceNamespace = exports.WlBookProcessPurchaseNamespace = exports.WlBookProcessGuestNamespace = exports.WlBookProcessRelationNamespace = exports.WlNotificationNamespace = exports.WlNotificationOtpNamespace = exports.WlNotificationSendNamespace = exports.WlReceptionNamespace = exports.WlReceptionDesignNamespace = exports.WlReceptionRosterNamespace = exports.WlReceptionRosterDesignNamespace = exports.WlReceptionApplicationNamespace = exports.WlMemberNamespace = exports.WlMemberProgressNamespace = exports.WlMemberProgressGoalNamespace = exports.WlMemberProgressGoalEditNamespace = exports.WlMemberProgressLogNamespace = exports.WlMemberProgressLogCompareNamespace = void 0;
+exports.WlMicrosoftNamespace = exports.WlMicrosoftLoginNamespace = exports.WlAiAgentNamespace = exports.WlAiAgentLinkNamespace = exports.WlIntegrationNamespace = exports.WlIntegrationDragonFlyNamespace = exports.WlIntegrationCurvesNamespace = exports.WlIntegrationSamlNamespace = exports.WlIntegrationAutymateNamespace = exports.WlDoorAccessNamespace = exports.WlDoorAccessBrivoNamespace = exports.WlUserNamespace = exports.WlUserInfoNamespace = exports.WlUserReferrerNamespace = exports.WlInsuranceNamespace = exports.WlInsuranceEnrollmentNamespace = exports.WlInsuranceEnrollmentFieldNamespace = exports.WlInsuranceCatalogNamespace = exports.WlRewardNamespace = exports.WlRewardPrizeNamespace = exports.WlRewardBoardNamespace = exports.WlRewardBoardBoardListNamespace = exports.WlRewardActionNamespace = exports.WlRewardActionCategoryListNamespace = exports.WlRewardScoreNamespace = exports.WlRewardScoreCurrentNamespace = exports.WlCatalogNamespace = exports.WlCatalogStaffAppNamespace = exports.WlCatalogStaffAppCatalogViewNamespace = exports.WlCatalogStaffAppCatalogListNamespace = exports.WlCatalogStaffAppCatalogCartNamespace = exports.WlCatalogQuizNamespace = exports.WlCatalogCartNamespace = exports.WlCatalogCatalogListNamespace = exports.WlCatalogPaymentNamespace = exports.WlPassportNamespace = exports.WlPassportLoginNamespace = exports.WlPassportLoginRegisterNamespace = exports.WlPassportLoginEnterNamespace = exports.WlSmsNamespace = exports.WlSmsPhoneNamespace = exports.WlResourceNamespace = exports.WlResourceResourceListNamespace = exports.WlResourceLayoutNamespace = exports.WlGoogleNamespace = exports.WlGoogleLoginNamespace = exports.WlServiceNamespace = exports.WlServiceServiceListNamespace = exports.WlPurchaseNamespace = exports.WlPurchaseShareNamespace = void 0;
+exports.WlClient = exports.ThothNamespace = exports.ThothWlPayNamespace = exports.ThothWlPayTransactionNamespace = exports.ThothWlPayTransactionReportNamespace = exports.ThothWlPayBankNamespace = exports.ThothWlPayBankAchNamespace = exports.ThothWlPayBankAchAddNamespace = exports.ThothWlPayBankCardNamespace = exports.ThothWlPayBankCardWidgetNamespace = exports.ThothWlPayBankCardAddNamespace = exports.ThothWlPayAddressNamespace = exports.ThothWlPayAddressWidgetNamespace = exports.ThothWlPayMethodNamespace = exports.ThothWlPayOwnerNamespace = exports.ThothWlPayAccountNamespace = exports.ThothWlPayAccountChargeNamespace = exports.ThothWlPayFormNamespace = exports.ThothReportCoreNamespace = exports.ThothReportCoreGeneratorNamespace = exports.ThothPayProcessorNamespace = exports.ThothPayProcessorCyberSourceNamespace = exports.ThothPayProcessorStripeComNamespace = exports.ThothPayProcessorNuveiNamespace = exports.ThothExplorerSearchNamespace = exports.ThothExplorerSearchClassSessionNamespace = exports.WlNamespace = exports.WlTuitionNamespace = exports.WlTuitionEnrollmentNamespace = exports.WlFacebookNamespace = exports.WlFacebookLoginNamespace = exports.WlSocialNamespace = exports.WlSocialShareNamespace = exports.WlGymNamespace = exports.WlGymVisitNamespace = exports.WlSearchNamespace = exports.WlSearchTagNamespace = exports.WlFamilyNamespace = exports.WlFamilyRelationNamespace = exports.WlDiscountNamespace = exports.WlDiscountCodeNamespace = exports.WlDiscountCodeEditNamespace = exports.WlCouponNamespace = exports.WlCouponCouponListNamespace = exports.WlShopNamespace = exports.WlShopProductNamespace = exports.WlShopProductOptionNamespace = exports.WlShopProductOptionInventoryNamespace = exports.WlShopProductOptionInventoryCountNamespace = exports.WlShopCategoryNamespace = void 0;
 class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -26,7 +26,7 @@ class WlApiError extends Error {
     }
 }
 exports.WlApiError = WlApiError;
-// --- Enum types (183 total) ---
+// --- Enum types (187 total) ---
 /** A list of locales. */
 var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -2079,6 +2079,136 @@ var RsPurchaseItemSid;
     /** Tuition fee purchase item */
     RsPurchaseItemSid[RsPurchaseItemSid["TUITION_FEE"] = 27] = "TUITION_FEE";
 })(RsPurchaseItemSid || (exports.RsPurchaseItemSid = RsPurchaseItemSid = {}));
+/** A list of currency codes. */
+var RsCurrencySid;
+(function (RsCurrencySid) {
+    /** United Arab Emirates dirham */
+    RsCurrencySid[RsCurrencySid["AED"] = 11] = "AED";
+    /** Australian dollar */
+    RsCurrencySid[RsCurrencySid["AUD"] = 6] = "AUD";
+    /** Bermudian Dollar */
+    RsCurrencySid[RsCurrencySid["BMD"] = 18] = "BMD";
+    /** Bahamian dollar */
+    RsCurrencySid[RsCurrencySid["BSD"] = 19] = "BSD";
+    /** Canadian dollar */
+    RsCurrencySid[RsCurrencySid["CAD"] = 4] = "CAD";
+    /** Egypt Pound */
+    RsCurrencySid[RsCurrencySid["EGP"] = 8] = "EGP";
+    /** Euro */
+    RsCurrencySid[RsCurrencySid["EUR"] = 13] = "EUR";
+    /** British pound */
+    RsCurrencySid[RsCurrencySid["GBP"] = 3] = "GBP";
+    /** Kuwaiti dinar */
+    RsCurrencySid[RsCurrencySid["KWD"] = 14] = "KWD";
+    /** Cayman Islands dollar */
+    RsCurrencySid[RsCurrencySid["KYD"] = 5] = "KYD";
+    /** Mauritian Rupee */
+    RsCurrencySid[RsCurrencySid["MUR"] = 16] = "MUR";
+    /** New Zealand Dollar */
+    RsCurrencySid[RsCurrencySid["NZD"] = 10] = "NZD";
+    /** Philippines Pesco */
+    RsCurrencySid[RsCurrencySid["PHP"] = 12] = "PHP";
+    /** Saudi Riyal */
+    RsCurrencySid[RsCurrencySid["SAR"] = 15] = "SAR";
+    /** Singapore dollar */
+    RsCurrencySid[RsCurrencySid["SGD"] = 20] = "SGD";
+    /** Unknown code */
+    RsCurrencySid[RsCurrencySid["UNKNOWN"] = 2] = "UNKNOWN";
+    /** US dollars */
+    RsCurrencySid[RsCurrencySid["USD"] = 1] = "USD";
+    /** West African CFA franc */
+    RsCurrencySid[RsCurrencySid["XOF"] = 17] = "XOF";
+    /** South African rand */
+    RsCurrencySid[RsCurrencySid["ZAR"] = 7] = "ZAR";
+})(RsCurrencySid || (exports.RsCurrencySid = RsCurrencySid = {}));
+/** The list of available modes. */
+var RsPlaceSid;
+(function (RsPlaceSid) {
+    /** Backend mode */
+    RsPlaceSid[RsPlaceSid["BACKEND"] = 2] = "BACKEND";
+    /** The script is executed in the background (like an asynchronous task, regular task or a cron method) */
+    RsPlaceSid[RsPlaceSid["BACKGROUND"] = 5] = "BACKGROUND";
+    /** Directory pages */
+    RsPlaceSid[RsPlaceSid["DIRECTORY"] = 3] = "DIRECTORY";
+    /** Default frontend mode. All pages not in backend mode except microsite and directory pages */
+    RsPlaceSid[RsPlaceSid["FRONTEND"] = 1] = "FRONTEND";
+    /** Microsite pages */
+    RsPlaceSid[RsPlaceSid["MICROSITE"] = 4] = "MICROSITE";
+})(RsPlaceSid || (exports.RsPlaceSid = RsPlaceSid = {}));
+/** List of possible plans for AchieveSubscription subscription. */
+var WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid;
+(function (WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid) {
+    /** Basic */
+    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Premium */
+    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["PREMIUM"] = 2] = "PREMIUM";
+    /** White Label (Legacy) */
+    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["WHITE"] = 3] = "WHITE";
+    /** White Label */
+    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["WHITE0125"] = 7] = "WHITE0125";
+    /** White Label (Business Max) */
+    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["WHITE_MAX"] = 4] = "WHITE_MAX";
+    /** White Label (Legacy) */
+    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["WHITE_PLUS"] = 6] = "WHITE_PLUS";
+    /** White Label (Business Pro) */
+    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["WHITE_PRO"] = 5] = "WHITE_PRO";
+})(WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid || (exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = {}));
+/** List of possible plans for BaseSubscription subscription. */
+var WlBusinessAccountSubscriptionBaseBaseSubscriptionSid;
+(function (WlBusinessAccountSubscriptionBaseBaseSubscriptionSid) {
+    /** Advanced */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["ADVANCED"] = 4] = "ADVANCED";
+    /** Basic */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["BASIC"] = 3] = "BASIC";
+    /** Business(Legacy) */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["BUSINESS"] = 7] = "BUSINESS";
+    /** Business */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["BUSINESS_2405"] = 11] = "BUSINESS_2405";
+    /** Business(Legacy) */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["BUSINESS_LIGHT"] = 8] = "BUSINESS_LIGHT";
+    /** Business Max */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["BUSINESS_MAX"] = 9] = "BUSINESS_MAX";
+    /** Business Pro */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["BUSINESS_PRO"] = 10] = "BUSINESS_PRO";
+    /** Enterprise */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["ENTERPRISE"] = 6] = "ENTERPRISE";
+    /** None */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Business Partner */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["PARTNER"] = 2] = "PARTNER";
+    /** Platform Access */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["PLATFORM_ACCESS"] = 15] = "PLATFORM_ACCESS";
+    /** Professional */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["PROFESSIONAL"] = 5] = "PROFESSIONAL";
+    /** Starter */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["STARTER"] = 12] = "STARTER";
+    /** Starter */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["STARTER_2502"] = 13] = "STARTER_2502";
+    /** Trial */
+    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["TRIAL"] = 14] = "TRIAL";
+})(WlBusinessAccountSubscriptionBaseBaseSubscriptionSid || (exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = {}));
+/** List of possible plans for MarketingSuiteSubscription subscription. */
+var WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid;
+(function (WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid) {
+    /** Pro */
+    WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid[WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** Standard (Business) */
+    WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid[WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid["BASIC_BUSINESS"] = 4] = "BASIC_BUSINESS";
+    /** Standard (Legacy) */
+    WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid[WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid["BASIC_OLD"] = 3] = "BASIC_OLD";
+    /** Base */
+    WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid[WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Ultimate */
+    WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid[WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid["PRO"] = 5] = "PRO";
+})(WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid || (exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = {}));
+/** Contains travel modes. */
+var WlBusinessFranchiseTravelTravelModeSid;
+(function (WlBusinessFranchiseTravelTravelModeSid) {
+    /** Curves travel mode */
+    WlBusinessFranchiseTravelTravelModeSid[WlBusinessFranchiseTravelTravelModeSid["CURVES"] = 1] = "CURVES";
+    /** Flexible travel mode */
+    WlBusinessFranchiseTravelTravelModeSid[WlBusinessFranchiseTravelTravelModeSid["FLEXIBLE"] = 2] = "FLEXIBLE";
+})(WlBusinessFranchiseTravelTravelModeSid || (exports.WlBusinessFranchiseTravelTravelModeSid = WlBusinessFranchiseTravelTravelModeSid = {}));
 /** A list of skin types. */
 var RsSkinSid;
 (function (RsSkinSid) {
@@ -2135,6 +2265,42 @@ var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
     /** Virtual session conducted through a virtual provider */
     ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum[ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum["VIRTUAL"] = 2] = "VIRTUAL";
 })(ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum || (exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = {}));
+/** Payment actors (staff member, user or business owner). */
+var RsPayActorSid;
+(function (RsPayActorSid) {
+    /** Business owner */
+    RsPayActorSid[RsPayActorSid["BUSINESS"] = 3] = "BUSINESS";
+    /** Staff member */
+    RsPayActorSid[RsPayActorSid["STAFF"] = 1] = "STAFF";
+    /** User */
+    RsPayActorSid[RsPayActorSid["USER"] = 2] = "USER";
+})(RsPayActorSid || (exports.RsPayActorSid = RsPayActorSid = {}));
+/** Statuses of payment intents. */
+var ThothPayProcessorStripeComPaymentIntentStatusSid;
+(function (ThothPayProcessorStripeComPaymentIntentStatusSid) {
+    /** You may cancel a Payment Intent at any point before it is processing or succeeded. This invalidates the */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["CANCELED"] = 7] = "CANCELED";
+    /** Once required actions are handled, the Payment Intent moves to processing. While for some payment methods */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["PROCESSING"] = 4] = "PROCESSING";
+    /** If the payment requires additional actions, such as authenticating with 3D Secure , the Payment Intent has a status */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_ACTION"] = 3] = "REQUIRES_ACTION";
+    /** Requires capture */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_CAPTURE"] = 6] = "REQUIRES_CAPTURE";
+    /** After the customer provides their payment information, the Payment Intent is ready to be confirmed */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_CONFIRMATION"] = 2] = "REQUIRES_CONFIRMATION";
+    /** When the Payment Intent is created, it has a status of `requires_payment_method` until a payment method is */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_PAYMENT_METHOD"] = 1] = "REQUIRES_PAYMENT_METHOD";
+    /** A Payment Intent with a status of succeeded means that the payment flow it is driving is complete */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["SUCCEEDED"] = 5] = "SUCCEEDED";
+})(ThothPayProcessorStripeComPaymentIntentStatusSid || (exports.ThothPayProcessorStripeComPaymentIntentStatusSid = ThothPayProcessorStripeComPaymentIntentStatusSid = {}));
+/** An enum of credit card types. */
+var ThothWlPayBankCardCardTypeEnum;
+(function (ThothWlPayBankCardCardTypeEnum) {
+    /** Credit Card */
+    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["CREDIT"] = 1] = "CREDIT";
+    /** Debit Card */
+    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
+})(ThothWlPayBankCardCardTypeEnum || (exports.ThothWlPayBankCardCardTypeEnum = ThothWlPayBankCardCardTypeEnum = {}));
 /** A list of payment gateways or processors. */
 var ThothPayProcessorPayProcessorSid;
 (function (ThothPayProcessorPayProcessorSid) {
@@ -4407,40 +4573,6 @@ var WlShareShareSid;
     /** Item is available for selected staff roles */
     WlShareShareSid[WlShareShareSid["SELECTED_STAFF_ROLE"] = 3] = "SELECTED_STAFF_ROLE";
 })(WlShareShareSid || (exports.WlShareShareSid = WlShareShareSid = {}));
-/** List of possible plans for BaseSubscription subscription. */
-var WlBusinessAccountSubscriptionBaseBaseSubscriptionSid;
-(function (WlBusinessAccountSubscriptionBaseBaseSubscriptionSid) {
-    /** Advanced */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["ADVANCED"] = 4] = "ADVANCED";
-    /** Basic */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["BASIC"] = 3] = "BASIC";
-    /** Business(Legacy) */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["BUSINESS"] = 7] = "BUSINESS";
-    /** Business */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["BUSINESS_2405"] = 11] = "BUSINESS_2405";
-    /** Business(Legacy) */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["BUSINESS_LIGHT"] = 8] = "BUSINESS_LIGHT";
-    /** Business Max */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["BUSINESS_MAX"] = 9] = "BUSINESS_MAX";
-    /** Business Pro */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["BUSINESS_PRO"] = 10] = "BUSINESS_PRO";
-    /** Enterprise */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["ENTERPRISE"] = 6] = "ENTERPRISE";
-    /** None */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Business Partner */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["PARTNER"] = 2] = "PARTNER";
-    /** Platform Access */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["PLATFORM_ACCESS"] = 15] = "PLATFORM_ACCESS";
-    /** Professional */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["PROFESSIONAL"] = 5] = "PROFESSIONAL";
-    /** Starter */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["STARTER"] = 12] = "STARTER";
-    /** Starter */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["STARTER_2502"] = 13] = "STARTER_2502";
-    /** Trial */
-    WlBusinessAccountSubscriptionBaseBaseSubscriptionSid[WlBusinessAccountSubscriptionBaseBaseSubscriptionSid["TRIAL"] = 14] = "TRIAL";
-})(WlBusinessAccountSubscriptionBaseBaseSubscriptionSid || (exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = {}));
 /** List of possible plans for SmsSubscription subscription. */
 var WlBusinessAccountSubscriptionSmsSmsSubscriptionSid;
 (function (WlBusinessAccountSubscriptionSmsSmsSubscriptionSid) {
@@ -4465,38 +4597,6 @@ var WlBusinessAccountSubscriptionSmsSmsSubscriptionSid;
     /** Message Center Professional */
     WlBusinessAccountSubscriptionSmsSmsSubscriptionSid[WlBusinessAccountSubscriptionSmsSmsSubscriptionSid["PREMIUM"] = 3] = "PREMIUM";
 })(WlBusinessAccountSubscriptionSmsSmsSubscriptionSid || (exports.WlBusinessAccountSubscriptionSmsSmsSubscriptionSid = WlBusinessAccountSubscriptionSmsSmsSubscriptionSid = {}));
-/** List of possible plans for AchieveSubscription subscription. */
-var WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid;
-(function (WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid) {
-    /** Basic */
-    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Premium */
-    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["PREMIUM"] = 2] = "PREMIUM";
-    /** White Label (Legacy) */
-    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["WHITE"] = 3] = "WHITE";
-    /** White Label */
-    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["WHITE0125"] = 7] = "WHITE0125";
-    /** White Label (Business Max) */
-    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["WHITE_MAX"] = 4] = "WHITE_MAX";
-    /** White Label (Legacy) */
-    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["WHITE_PLUS"] = 6] = "WHITE_PLUS";
-    /** White Label (Business Pro) */
-    WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid[WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid["WHITE_PRO"] = 5] = "WHITE_PRO";
-})(WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid || (exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = {}));
-/** List of possible plans for MarketingSuiteSubscription subscription. */
-var WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid;
-(function (WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid) {
-    /** Pro */
-    WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid[WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid["BASIC"] = 2] = "BASIC";
-    /** Standard (Business) */
-    WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid[WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid["BASIC_BUSINESS"] = 4] = "BASIC_BUSINESS";
-    /** Standard (Legacy) */
-    WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid[WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid["BASIC_OLD"] = 3] = "BASIC_OLD";
-    /** Base */
-    WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid[WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Ultimate */
-    WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid[WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid["PRO"] = 5] = "PRO";
-})(WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid || (exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = {}));
 /** List of possible plans for CollectionsSubscription subscription. */
 var WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid;
 (function (WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid) {
@@ -4913,24 +5013,6 @@ var WlSkinApplicationUpgradeAppUpdateTypeEnum;
     /** Major update (3) - for incompatible API changes or major new features */
     WlSkinApplicationUpgradeAppUpdateTypeEnum[WlSkinApplicationUpgradeAppUpdateTypeEnum["MAJOR"] = 3] = "MAJOR";
 })(WlSkinApplicationUpgradeAppUpdateTypeEnum || (exports.WlSkinApplicationUpgradeAppUpdateTypeEnum = WlSkinApplicationUpgradeAppUpdateTypeEnum = {}));
-/** Payment actors (staff member, user or business owner). */
-var RsPayActorSid;
-(function (RsPayActorSid) {
-    /** Business owner */
-    RsPayActorSid[RsPayActorSid["BUSINESS"] = 3] = "BUSINESS";
-    /** Staff member */
-    RsPayActorSid[RsPayActorSid["STAFF"] = 1] = "STAFF";
-    /** User */
-    RsPayActorSid[RsPayActorSid["USER"] = 2] = "USER";
-})(RsPayActorSid || (exports.RsPayActorSid = RsPayActorSid = {}));
-/** An enum of credit card types. */
-var ThothWlPayBankCardCardTypeEnum;
-(function (ThothWlPayBankCardCardTypeEnum) {
-    /** Credit Card */
-    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["CREDIT"] = 1] = "CREDIT";
-    /** Debit Card */
-    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
-})(ThothWlPayBankCardCardTypeEnum || (exports.ThothWlPayBankCardCardTypeEnum = ThothWlPayBankCardCardTypeEnum = {}));
 /** A list of card types. */
 var WlCardCardSystemSid;
 (function (WlCardCardSystemSid) {
@@ -5317,6 +5399,23 @@ class CoreDriveNamespace {
     }
 }
 exports.CoreDriveNamespace = CoreDriveNamespace;
+class CoreSpaApplicationNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets information of application. */
+    spaApplication(params) {
+        return this._client._request('/Core/Spa/Application/SpaApplication.json', params, 'GET');
+    }
+}
+exports.CoreSpaApplicationNamespace = CoreSpaApplicationNamespace;
+class CoreSpaNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.application = new CoreSpaApplicationNamespace(this._client);
+    }
+}
+exports.CoreSpaNamespace = CoreSpaNamespace;
 class CoreNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5328,6 +5427,7 @@ class CoreNamespace {
         this.captcha = new CoreCaptchaNamespace(this._client);
         this.passport = new CorePassportNamespace(this._client);
         this.drive = new CoreDriveNamespace(this._client);
+        this.spa = new CoreSpaNamespace(this._client);
     }
 }
 exports.CoreNamespace = CoreNamespace;
@@ -5450,6 +5550,10 @@ class WlLeadNamespace {
     leadPost(params) {
         return this._client._request('/Wl/Lead/Lead.json', params, 'POST');
     }
+    /** Checks if user with specified email already registered for specified business. */
+    leadCheck(params) {
+        return this._client._request('/Wl/Lead/LeadCheck.json', params, 'POST');
+    }
 }
 exports.WlLeadNamespace = WlLeadNamespace;
 class WlReportNamespace {
@@ -5502,9 +5606,20 @@ class WlBusinessAccountNamespace {
     }
 }
 exports.WlBusinessAccountNamespace = WlBusinessAccountNamespace;
+class WlBusinessConfigOptionNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns config option values for specified business. */
+    businessConfigOption(params) {
+        return this._client._request('/Wl/Business/Config/Option/BusinessConfigOption.json', params, 'GET');
+    }
+}
+exports.WlBusinessConfigOptionNamespace = WlBusinessConfigOptionNamespace;
 class WlBusinessConfigNamespace {
     constructor(_client) {
         this._client = _client;
+        this.option = new WlBusinessConfigOptionNamespace(this._client);
     }
     /** Gets information about a business config. */
     businessConfig(params) {
@@ -6009,7 +6124,7 @@ class WlLoginPromotionNamespace {
     promotionPayPauseDelete(params) {
         return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'DELETE');
     }
-    /** Returns promotion payment pause data: all hold periods when `is_list` is `true`,  the specified hold period when `k_promotion_pay_pause` is provided, or the currently  active hold period otherwise. */
+    /** Returns promotion payment pause data: all hold periods when [PromotionPayPauseApi](/Wl/Login/Promotion/PromotionPayPause.json) is `true`,  the specified hold period when [PromotionPayPauseApi](/Wl/Login/Promotion/PromotionPayPause.json) is provided, or the currently  active hold period otherwise. */
     promotionPayPauseGet(params) {
         return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'GET');
     }
@@ -6169,7 +6284,7 @@ class WlScheduleScheduleListStaffAppNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets schedule of business `k_business` for day `dt_date`. */
+    /** Gets schedule of business [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json) for day [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json). */
     scheduleList(params) {
         return this._client._request('/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json', params, 'GET');
     }
@@ -6250,7 +6365,7 @@ class WlEventNamespace {
     eventListPut(params) {
         return this._client._request('/Wl/Event/EventList.json', params, 'PUT');
     }
-    /** Cancels book of event `k_class`. */
+    /** Cancels book of event [EventCancelWholeApi](/Wl/Event/EventCancelWhole.json). */
     eventCancelWhole(params) {
         return this._client._request('/Wl/Event/EventCancelWhole.json', params, 'POST');
     }
@@ -6431,6 +6546,20 @@ class WlProfileAttachNamespace {
     }
 }
 exports.WlProfileAttachNamespace = WlProfileAttachNamespace;
+class WlProfileTimezoneNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a list of timezones with currently selected user's timezone and the business policy adjustment whether  clients are allowed to adjust timezone. */
+    profileTimezoneGet(params) {
+        return this._client._request('/Wl/Profile/Timezone/ProfileTimezone.json', params, 'GET');
+    }
+    /** Updates selected timezone for the site visitor in the given business. */
+    profileTimezonePut(params) {
+        return this._client._request('/Wl/Profile/Timezone/ProfileTimezone.json', params, 'PUT');
+    }
+}
+exports.WlProfileTimezoneNamespace = WlProfileTimezoneNamespace;
 class WlProfileAttendanceScheduleFrontendNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6459,9 +6588,20 @@ class WlProfileAttendanceNamespace {
     }
 }
 exports.WlProfileAttendanceNamespace = WlProfileAttendanceNamespace;
+class WlProfileContractContractAllNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets list of contracts. */
+    contractAll(params) {
+        return this._client._request('/Wl/Profile/Contract/ContractAll/ContractAll.json', params, 'GET');
+    }
+}
+exports.WlProfileContractContractAllNamespace = WlProfileContractContractAllNamespace;
 class WlProfileContractNamespace {
     constructor(_client) {
         this._client = _client;
+        this.contractAll = new WlProfileContractContractAllNamespace(this._client);
     }
     /** Returns contract information for the specified purchase option. */
     contractGet(params) {
@@ -6501,6 +6641,7 @@ class WlProfileNamespace {
         this.setting = new WlProfileSettingNamespace(this._client);
         this.term = new WlProfileTermNamespace(this._client);
         this.attach = new WlProfileAttachNamespace(this._client);
+        this.timezone = new WlProfileTimezoneNamespace(this._client);
         this.attendance = new WlProfileAttendanceNamespace(this._client);
         this.contract = new WlProfileContractNamespace(this._client);
         this.form = new WlProfileFormNamespace(this._client);
@@ -6570,6 +6711,10 @@ class WlVisitNamespace {
     /** Changes visit status. */
     visitStatusPost(params) {
         return this._client._request('/Wl/Visit/VisitStatus.json', params, 'POST');
+    }
+    /** Returns the total visit count for the user at the business. */
+    visitTotalCount(params) {
+        return this._client._request('/Wl/Visit/VisitTotalCount.json', params, 'GET');
     }
 }
 exports.WlVisitNamespace = WlVisitNamespace;
@@ -6699,7 +6844,7 @@ class WlLocationFlagNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Checks if user `uid` is flagged in location `k_location` or each of users `a_uid` is flagged in location `k_location`. */
+    /** Checks if user [FlagApi](/Wl/Location/Flag/Flag.json) is flagged in location [FlagApi](/Wl/Location/Flag/Flag.json) or each of users [FlagApi](/Wl/Location/Flag/Flag.json) is flagged in location [FlagApi](/Wl/Location/Flag/Flag.json). */
     flag(params) {
         return this._client._request('/Wl/Location/Flag/Flag.json', params, 'GET');
     }
@@ -6715,6 +6860,16 @@ class WlLocationWorkTimeNamespace {
     }
 }
 exports.WlLocationWorkTimeNamespace = WlLocationWorkTimeNamespace;
+class WlLocationLocationRateNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves information about location rate. */
+    locationRate(params) {
+        return this._client._request('/Wl/Location/LocationRate/LocationRate.json', params, 'GET');
+    }
+}
+exports.WlLocationLocationRateNamespace = WlLocationLocationRateNamespace;
 class WlLocationViewNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6740,6 +6895,7 @@ class WlLocationNamespace {
         this._client = _client;
         this.flag = new WlLocationFlagNamespace(this._client);
         this.workTime = new WlLocationWorkTimeNamespace(this._client);
+        this.locationRate = new WlLocationLocationRateNamespace(this._client);
         this.view = new WlLocationViewNamespace(this._client);
         this.facility = new WlLocationFacilityNamespace(this._client);
     }
@@ -6941,6 +7097,20 @@ class WlTagNamespace {
     }
 }
 exports.WlTagNamespace = WlTagNamespace;
+class WlSessionNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns current session environment. */
+    environmentGet(params) {
+        return this._client._request('/Wl/Session/Environment.json', params, 'GET');
+    }
+    /** Saves current location of business for current user. */
+    environmentPut(params) {
+        return this._client._request('/Wl/Session/Environment.json', params, 'PUT');
+    }
+}
+exports.WlSessionNamespace = WlSessionNamespace;
 class WlSkinApplicationConnectNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7000,6 +7170,14 @@ class WlSkinNamespace {
         this._client = _client;
         this.application = new WlSkinApplicationNamespace(this._client);
         this.widget = new WlSkinWidgetNamespace(this._client);
+    }
+    /** Gets skin data. */
+    skinGet(params) {
+        return this._client._request('/Wl/Skin/Skin.json', params, 'GET');
+    }
+    /** Saves the specified skin fields. */
+    skinPost(params) {
+        return this._client._request('/Wl/Skin/Skin.json', params, 'POST');
     }
     /** Deletes the existing widget. */
     skinForeignDelete(params) {
@@ -7086,6 +7264,24 @@ class WlRankNamespace {
     }
 }
 exports.WlRankNamespace = WlRankNamespace;
+class WlDriveNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns information about the image. */
+    productImageUploadGet(params) {
+        return this._client._request('/Wl/Drive/ProductImageUpload.json', params, 'GET');
+    }
+    /** Loads image information for a list of IDs. The POST method is used instead of the GET method because the maximum permitted URI length is restricted. */
+    productImageUploadPost(params) {
+        return this._client._request('/Wl/Drive/ProductImageUpload.json', params, 'POST');
+    }
+    /** Updates the image. */
+    productImageUploadPut(params) {
+        return this._client._request('/Wl/Drive/ProductImageUpload.json', params, 'PUT');
+    }
+}
+exports.WlDriveNamespace = WlDriveNamespace;
 class WlMemberInfoNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7648,6 +7844,16 @@ class WlClassesPromotionNamespace {
     }
 }
 exports.WlClassesPromotionNamespace = WlClassesPromotionNamespace;
+class WlClassesInfoNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets information about class. */
+    info(params) {
+        return this._client._request('/Wl/Classes/Info/Info.json', params, 'GET');
+    }
+}
+exports.WlClassesInfoNamespace = WlClassesInfoNamespace;
 class WlClassesPeriodModifyNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7675,6 +7881,7 @@ class WlClassesNamespace {
         this.classList = new WlClassesClassListNamespace(this._client);
         this.classView = new WlClassesClassViewNamespace(this._client);
         this.promotion = new WlClassesPromotionNamespace(this._client);
+        this.info = new WlClassesInfoNamespace(this._client);
         this.period = new WlClassesPeriodNamespace(this._client);
     }
 }
@@ -8122,6 +8329,16 @@ class WlCatalogCartNamespace {
     }
 }
 exports.WlCatalogCartNamespace = WlCatalogCartNamespace;
+class WlCatalogQuizNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets quizzes for the selected purchase options. */
+    quiz(params) {
+        return this._client._request('/Wl/Catalog/Quiz/Quiz.json', params, 'GET');
+    }
+}
+exports.WlCatalogQuizNamespace = WlCatalogQuizNamespace;
 class WlCatalogStaffAppCatalogCartNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8167,6 +8384,7 @@ class WlCatalogNamespace {
         this.payment = new WlCatalogPaymentNamespace(this._client);
         this.catalogList = new WlCatalogCatalogListNamespace(this._client);
         this.cart = new WlCatalogCartNamespace(this._client);
+        this.quiz = new WlCatalogQuizNamespace(this._client);
         this.staffApp = new WlCatalogStaffAppNamespace(this._client);
     }
 }
@@ -8204,7 +8422,7 @@ class WlRewardActionCategoryListNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Retrieves all reward action categories for business specified in `k_business`. */
+    /** Retrieves all reward action categories for business specified in [CategoryListApi](/Wl/Reward/Action/CategoryList/CategoryList.json). */
     categoryList(params) {
         return this._client._request('/Wl/Reward/Action/CategoryList/CategoryList.json', params, 'GET');
     }
@@ -8241,7 +8459,7 @@ class WlRewardBoardBoardListNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Retrieves all reward boards for business specified in `k_business`. */
+    /** Retrieves all reward boards for business specified in [ListApi](/Wl/Reward/Board/BoardList/List.json). */
     list(params) {
         return this._client._request('/Wl/Reward/Board/BoardList/List.json', params, 'GET');
     }
@@ -8600,7 +8818,7 @@ class WlFamilyRelationNamespace {
     relationGet(params) {
         return this._client._request('/Wl/Family/Relation/Relation.json', params, 'GET');
     }
-    /** Adds to user `uid` relative `a_new`. */
+    /** Adds to user [RelationApi](/Wl/Family/Relation/Relation.json) relative [RelationApi](/Wl/Family/Relation/Relation.json). */
     relationPost(params) {
         return this._client._request('/Wl/Family/Relation/Relation.json', params, 'POST');
     }
@@ -8740,11 +8958,13 @@ class WlNamespace {
         this.quiz = new WlQuizNamespace(this._client);
         this.fitbuilder = new WlFitbuilderNamespace(this._client);
         this.tag = new WlTagNamespace(this._client);
+        this.session = new WlSessionNamespace(this._client);
         this.skin = new WlSkinNamespace(this._client);
         this.currency = new WlCurrencyNamespace(this._client);
         this.tax = new WlTaxNamespace(this._client);
         this.review = new WlReviewNamespace(this._client);
         this.rank = new WlRankNamespace(this._client);
+        this.drive = new WlDriveNamespace(this._client);
         this.member = new WlMemberNamespace(this._client);
         this.reception = new WlReceptionNamespace(this._client);
         this.notification = new WlNotificationNamespace(this._client);
@@ -8794,6 +9014,81 @@ class ThothExplorerSearchNamespace {
     }
 }
 exports.ThothExplorerSearchNamespace = ThothExplorerSearchNamespace;
+class ThothPayProcessorNuveiNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Finalizes the `Nuvei` transaction after successful payer authentication. */
+    nuveiTransactionOnAuthSuccess(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiTransactionOnAuthSuccess.json', params, 'POST');
+    }
+    /** Updates the amount of a previously opened `Nuvei` order. */
+    nuveiUpdateOrder(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiUpdateOrder.json', params, 'POST');
+    }
+    /** Opens a `Nuvei` order for the payment transaction. */
+    nuveiOpenOrder(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiOpenOrder.json', params, 'POST');
+    }
+    /** Cancels the `Nuvei` transaction. */
+    nuveiTransactionCancel(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiTransactionCancel.json', params, 'POST');
+    }
+}
+exports.ThothPayProcessorNuveiNamespace = ThothPayProcessorNuveiNamespace;
+class ThothPayProcessorStripeComNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets the `Stripe` public key for a merchant. */
+    stripeComKey(params) {
+        return this._client._request('/Thoth/PayProcessor/StripeCom/StripeComKey.json', params, 'POST');
+    }
+    /** Updates a `Stripe` Payment Intent. */
+    paymentIntentUpdate(params) {
+        return this._client._request('/Thoth/PayProcessor/StripeCom/PaymentIntentUpdate.json', params, 'POST');
+    }
+    /** Initializes a `Stripe` payment. */
+    stripeComPayInit(params) {
+        return this._client._request('/Thoth/PayProcessor/StripeCom/StripeComPayInit.json', params, 'POST');
+    }
+    /** Cancels a `Stripe` Payment Intent. */
+    stripeComPaymentIntentCancel(params) {
+        return this._client._request('/Thoth/PayProcessor/StripeCom/StripeComPaymentIntentCancel.json', params, 'POST');
+    }
+}
+exports.ThothPayProcessorStripeComNamespace = ThothPayProcessorStripeComNamespace;
+class ThothPayProcessorCyberSourceNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks `CyberSource` Payer Authentication enrollment. */
+    csPaEnrollment(params) {
+        return this._client._request('/Thoth/PayProcessor/CyberSource/CsPaEnrollment.json', params, 'POST');
+    }
+    /** Validates the `CyberSource` Payer Authentication result. */
+    csPaValidate(params) {
+        return this._client._request('/Thoth/PayProcessor/CyberSource/CsPaValidate.json', params, 'POST');
+    }
+    /** Generates a capture context for `CyberSource` Flex Microform. */
+    csCaptureContext(params) {
+        return this._client._request('/Thoth/PayProcessor/CyberSource/CsCaptureContext.json', params, 'POST');
+    }
+    /** Starts `CyberSource` Payer Authentication setup. */
+    csPaSetup(params) {
+        return this._client._request('/Thoth/PayProcessor/CyberSource/CsPaSetup.json', params, 'POST');
+    }
+}
+exports.ThothPayProcessorCyberSourceNamespace = ThothPayProcessorCyberSourceNamespace;
+class ThothPayProcessorNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.nuvei = new ThothPayProcessorNuveiNamespace(this._client);
+        this.stripeCom = new ThothPayProcessorStripeComNamespace(this._client);
+        this.cyberSource = new ThothPayProcessorCyberSourceNamespace(this._client);
+    }
+}
+exports.ThothPayProcessorNamespace = ThothPayProcessorNamespace;
 class ThothReportCoreGeneratorNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9004,6 +9299,7 @@ class ThothNamespace {
     constructor(_client) {
         this._client = _client;
         this.explorerSearch = new ThothExplorerSearchNamespace(this._client);
+        this.payProcessor = new ThothPayProcessorNamespace(this._client);
         this.reportCore = new ThothReportCoreNamespace(this._client);
         this.wlPay = new ThothWlPayNamespace(this._client);
     }
