@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260703090919
+ * Spec version: 1.1.20260703100406
  * Build date:   2026-07-03
  * Endpoints:    467
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260703090919';
+  WlClient.SPEC_VERSION = '1.1.20260703100406';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (467 total)
@@ -12075,6 +12075,8 @@
     API: 28,
     /** Registered through `Azure` */
     AZURE: 21,
+    /** Visit has been checked-in by Brivo Door Access */
+    BRIVO_DOOR_ACCESS: 31,
     /** Visit has been created by `CENTRED` */
     CENTRED: 23,
     /** Visit has been created by `ClassPass` */

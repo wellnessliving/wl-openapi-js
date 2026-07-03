@@ -1578,6 +1578,8 @@ export declare enum WlModeModeSid {
     API = 28,
     /** Registered through `Azure` */
     AZURE = 21,
+    /** Visit has been checked-in by Brivo Door Access */
+    BRIVO_DOOR_ACCESS = 31,
     /** Visit has been created by `CENTRED` */
     CENTRED = 23,
     /** Visit has been created by `ClassPass` */
