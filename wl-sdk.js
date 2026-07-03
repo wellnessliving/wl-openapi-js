@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260703091131
+ * Spec version: 1.1.20260703131648
  * Build date:   2026-07-03
- * Endpoints:    466
+ * Endpoints:    483
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260703091131';
+  WlClient.SPEC_VERSION = '1.1.20260703131648';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (466 total)
+  // Generated API methods (483 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -486,6 +486,11 @@
    *
    * Accepts the CAPTCHA version, the action name, and the user token obtained from the Google reCAPTCHA widget,
    * and stores them in the session so that subsequent API requests requiring CAPTCHA verification can use them.
+   * 
+   * Site keys for initialize Google reCAPTCHA:
+   * * Version 2 (invisible):
+   *   * Demo/Staging - `6Ldqwe0gAAAAANve1TEPFb_Yxgb9wsoIfrNL6-2Z`
+   * ...
    * @deprecated Use {@link \Core\Google\Captcha\GoogleCaptchaApi} instead of this.
    *
    * @param {Object} [params] Request body fields.
@@ -733,6 +738,23 @@
   };
 
   /**
+   * Returns the total visit count for the user at the business.
+   *
+   * Sums the number of attended visits with the historical visit count carried over for the user, so
+   *  that visits recorded before the account existed in the system are also counted.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.uid User key.
+   * @returns {Promise<Object>} Response data.
+   *  `i_visit_total` {number} Total number of visits.
+   */
+  WlClient.prototype.wlVisitVisitTotalCount = function(params)
+  {
+    return this.request('/Wl/Visit/VisitTotalCount.json', params || {}, 'GET');
+  };
+
+  /**
    * Gets location lists for a bulk of businesses.
    *
    * Accepts a JSON-encoded list of business keys, a JSON-encoded list of location keys, or both, and returns
@@ -755,9 +777,9 @@
   /**
    * Creates new location or edits the existing location.
    *
-   * When `k_location` is omitted, creates a new location requiring `k_city`,
-   *  `text_address`, and `text_title`.
-   * When `k_location` is provided, updates only the supplied fields of the existing location.
+   * When [LocationApi](/Wl/Location/Location.json) is omitted, creates a new location requiring [LocationApi](/Wl/Location/Location.json),
+   *  [LocationApi](/Wl/Location/Location.json), and [LocationApi](/Wl/Location/Location.json).
+   * When [LocationApi](/Wl/Location/Location.json) is provided, updates only the supplied fields of the existing location.
    *  Returns the key of the created or updated location.
    *
    * @param {Object} [params] Request body fields.
@@ -859,7 +881,7 @@
   };
 
   /**
-   * Cancels book of event `k_class`.
+   * Cancels book of event [EventCancelWholeApi](/Wl/Event/EventCancelWhole.json).
    *
    * Used when a client wants to drop out of a multi-session event entirely. Cancels all remaining
    * upcoming sessions at once, including any waitlisted spots, without requiring the client to cancel
@@ -1005,7 +1027,7 @@
   /**
    * Checks access to given report.
    *
-   * Accepts either `id_report` (first-generation reports) or `cid_report` (second-generation reports), but not both,
+   * Accepts either [AccessApi](/Wl/Report/Access.json) (first-generation reports) or [AccessApi](/Wl/Report/Access.json) (second-generation reports), but not both,
    * and returns `has_access` indicating whether the current user may view the report in the given business.
    *
    * @param {Object} [params] Request parameters.
@@ -1167,6 +1189,24 @@
   WlClient.prototype.wlLeadLeadPost = function(params)
   {
     return this.request('/Wl/Lead/Lead.json', params || {}, 'POST');
+  };
+
+  /**
+   * Checks if user with specified email already registered for specified business.
+   *
+   * Looks up an existing account by the given email address. If no account with that email exists,
+   *  the user is reported as neither a member nor a lead. If an account exists, the response reports
+   *  whether that user is already a member of the specified business, and whether that user is already
+   *  registered as a lead for the specified business.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `is_lead` {boolean} `true` if user with specified email is lead of a specified business, `false` ...
+   *  `is_member` {boolean} `true` if user with specified email is a member of a specified business, `fal...
+   */
+  WlClient.prototype.wlLeadLeadCheck = function(params)
+  {
+    return this.request('/Wl/Lead/LeadCheck.json', params || {}, 'POST');
   };
 
   /**
@@ -1678,6 +1718,90 @@
   };
 
   /**
+   * Returns current session environment.
+   *
+   * Determines the current business, location, and user for the session, taking into account the
+   *  application type, franchise settings, and multi-datacenter routing, and returns the resulting
+   *  environment data used to bootstrap the client application.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.s_application_id Application ID.
+   * @returns {Promise<Object>} Response data.
+   *  `a_business` {?string[]} List of businesses which are available in given application.
+   *  `a_business_franchise_all` {?string[]} List of businesses keys, which are connected to franchise.
+   *  `a_business_franchisee` {?string[]} List of business franchisee keys.
+   *  `a_payment_alert` {?Object} Payment alert data. `null` if user is not logged or none businesses are avail...
+   *  `a_splash_screen` {?Object} Settings of splash screen customization for business:
+   *  `dtl_now` {string} Local date with time now in current location [EnvironmentApi](/Wl/Session/Env...
+   *  `has_form_quiz` {boolean} Whether exists form to confirm during registration process.
+   *  `has_merchant` {boolean} Whether the merchant is configured for the client's home location or for busi...
+   *  `id_currency` {number} A list of currency codes. See {@link WlClient.RsCurrencySid}.
+   *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
+   *  `id_place` {number} The list of available modes. See {@link WlClient.RsPlaceSid}.
+   *  `id_plan_achieve` {number} List of possible plans for AchieveSubscription subscription. See {@link WlClient.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid}.
+   *  `id_plan_base` {number} List of possible plans for BaseSubscription subscription. See {@link WlClient.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid}.
+   *  `id_plan_marketing` {number} List of possible plans for MarketingSuiteSubscription subscription. See {@link WlClient.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid}.
+   *  `id_travel_mode` {?number} Contains travel modes. See {@link WlClient.WlBusinessFranchiseTravelTravelModeSid}.
+   *  `is_aiagent_chat` {boolean} Whether AI agent chat (CAASI) is available for current business.
+   *  `is_application_custom` {boolean} Determines current business has custom application. If `true` application has...
+   *  `is_billing_required` {boolean} `true` if user must be redirected to billing page to enter credit card; `fals...
+   *  `is_booking_appointment_authorize` {boolean} `true` if clients must sign in to book an appointment; `false` otherwise.
+   *  `is_booking_required_billing` {boolean} `true` if user must be redirected from booking page to billing page to enter ...
+   *  `...` {*}
+   */
+  WlClient.prototype.wlSessionEnvironmentGet = function(params)
+  {
+    return this.request('/Wl/Session/Environment.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves current location of business for current user.
+   *
+   * Switches the current business and location for the session, forwarding the request to another
+   *  data center when the target business is hosted elsewhere.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.s_application_id Application ID.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlSessionEnvironmentPut = function(params)
+  {
+    return this.request('/Wl/Session/Environment.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Gets skin data.
+   *
+   * Returns the skin settings and the main widget page URL for the given skin key.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_skin Skin key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_skin` {*[]} Skin data.
+   *  `id_skin` {number} A list of skin types. See {@link WlClient.RsSkinSid}.
+   *  `url_skin` {string} URL to the main page of the widget.
+   */
+  WlClient.prototype.wlSkinSkinGet = function(params)
+  {
+    return this.request('/Wl/Skin/Skin.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves the specified skin fields.
+   *
+   * Applies the given field values to the skin data and logs the change when any field value has
+   *  actually changed.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_skin Skin key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlSkinSkinPost = function(params)
+  {
+    return this.request('/Wl/Skin/Skin.json', params || {}, 'POST');
+  };
+
+  /**
    * Deletes the existing widget.
    *
    * Permanently removes a widget skin and its foreign ID mapping from the business. Used
@@ -1899,9 +2023,9 @@
    * @param {string} params.dl_work The date working hours are required for.
    * @param {string} params.k_business The business key.
    * @returns {Promise<Object>} Response data.
-   *  `a_location_holiday` {string[]} A list of the location's closed day titles by location keys on the date `dl_w...
-   *  `is_business_holiday` {boolean} `true` if the business has a closed day on the date `dl_work`, `false` if oth...
-   *  `text_business_title` {string} The message used for the business's closed day on the date `dl_work`.
+   *  `a_location_holiday` {string[]} A list of the location's closed day titles by location keys on the date [Holi...
+   *  `is_business_holiday` {boolean} `true` if the business has a closed day on the date [HolidayApi](/Wl/Holiday/...
+   *  `text_business_title` {string} The message used for the business's closed day on the date [HolidayApi](/Wl/H...
    */
   WlClient.prototype.wlHolidayHoliday = function(params)
   {
@@ -1922,6 +2046,94 @@
   WlClient.prototype.wlHolidayBulkBusinessHoliday = function(params)
   {
     return this.request('/Wl/Holiday/BulkBusinessHoliday.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns information about the image.
+   *
+   * Used to initialize an image upload widget for an existing entity. Returns thumbnail and full-size URLs,
+   * upload endpoint, dimension constraints, and whether deletion is allowed, so the frontend can render the
+   * current image and offer upload or delete actions.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {*[]} params.a_config Allows to give custom parameters which can be required for different types of images.
+   * @param {boolean} params.is_temporary If `true`, the temporary image will be retrieved. Otherwise, this will be `false`.
+   * @param {string} params.k_id The image ID set in [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json).
+   * @param {string} params.s_class The name of the class that manages this image.
+   * @returns {Promise<Object>} Response data.
+   *  `a_text_empty` {?Object} Information about the text for an empty image upload.
+   *  `html_image_hint` {string} An HTML string to use for the image recommendation.
+   *  `i_height_max` {?number} The maximum height of image.
+   *  `i_height_min` {?number} The minimum height of image.
+   *  `i_thumbnail_height` {?number} The height of the thumbnail image.
+   *  `i_thumbnail_width` {?number} The width of the thumbnail image.
+   *  `i_width_max` {?number} The maximum width of the image.
+   *  `i_width_min` {?number} The minimum width of the image.
+   *  `is_circular` {?boolean} If `true`, the image is treated as circular. Otherwise, this will be `false`.
+   *  `is_delete_allow` {?boolean} If `true`, image deletion is permitted. Otherwise, this will be `false`.
+   *  `s_code` {?string} The link protection code.
+   *  `s_link` {?string} The image link.
+   *  `url_empty` {?string} The image URL that should be displayed in cases where no image is uploaded.
+   *  `url_thumbnail` {?string} The thumbnail URL of the image.
+   *  `url_upload` {?string} The script URL where new image should be uploaded from.
+   *  `url_view` {?string} The URL of the full image.
+   */
+  WlClient.prototype.wlDriveProductImageUploadGet = function(params)
+  {
+    return this.request('/Wl/Drive/ProductImageUpload.json', params || {}, 'GET');
+  };
+
+  /**
+   * Loads image information for a list of IDs.
+  The POST method is used instead of the GET method because the maximum permitted URI length is restricted.
+   *
+   * Bulk variant of the GET method for pages that must display many images at once. Accepts a JSON-encoded
+   * list of entity IDs and returns the same metadata as the single-item GET, loading all images in one
+   * round-trip to avoid N+1 requests.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {*[]} params.a_config Allows to give custom parameters which can be required for different types of images.
+   * @param {string} params.s_class The name of the class that manages this image.
+   * @returns {Promise<Object>} Response data.
+   *  `a_image` {Object[]} Image information for every ID.
+   */
+  WlClient.prototype.wlDriveProductImageUploadPost = function(params)
+  {
+    return this.request('/Wl/Drive/ProductImageUpload.json', params || {}, 'POST');
+  };
+
+  /**
+   * Updates the image.
+   *
+   * Applies a command (such as delete or replace) to a previously uploaded image, then returns the
+   * refreshed image metadata so the frontend can update the widget state without a separate GET call.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {*[]} params.a_config Allows to give custom parameters which can be required for different types of images.
+   * @param {boolean} params.is_temporary If `true`, the temporary image will be retrieved. Otherwise, this will be `false`.
+   * @param {string} params.k_id The image ID set in [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json).
+   * @param {string} params.s_class The name of the class that manages this image.
+   * @returns {Promise<Object>} Response data.
+   *  `a_text_empty` {?Object} Information about the text for an empty image upload.
+   *  `html_image_hint` {string} An HTML string to use for the image recommendation.
+   *  `i_height_max` {?number} The maximum height of image.
+   *  `i_height_min` {?number} The minimum height of image.
+   *  `i_thumbnail_height` {?number} The height of the thumbnail image.
+   *  `i_thumbnail_width` {?number} The width of the thumbnail image.
+   *  `i_width_max` {?number} The maximum width of the image.
+   *  `i_width_min` {?number} The minimum width of the image.
+   *  `is_circular` {?boolean} If `true`, the image is treated as circular. Otherwise, this will be `false`.
+   *  `is_delete_allow` {?boolean} If `true`, image deletion is permitted. Otherwise, this will be `false`.
+   *  `s_code` {?string} The link protection code.
+   *  `s_link` {?string} The image link.
+   *  `url_empty` {?string} The image URL that should be displayed in cases where no image is uploaded.
+   *  `url_thumbnail` {?string} The thumbnail URL of the image.
+   *  `url_upload` {?string} The script URL where new image should be uploaded from.
+   *  `url_view` {?string} The URL of the full image.
+   */
+  WlClient.prototype.wlDriveProductImageUploadPut = function(params)
+  {
+    return this.request('/Wl/Drive/ProductImageUpload.json', params || {}, 'PUT');
   };
 
   /**
@@ -2042,7 +2254,7 @@
    * @param {Object} [params] Request parameters.
    * @param {*[]} params.a_config Allows to give custom parameters which can be required for different types of images.
    * @param {boolean} params.is_temporary If `true`, the temporary image will be retrieved. Otherwise, this will be `false`.
-   * @param {string} params.k_id The image ID set in `s_class`.
+   * @param {string} params.k_id The image ID set in [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json).
    * @param {string} params.s_class The name of the class that manages this image.
    * @returns {Promise<Object>} Response data.
    *  `a_text_empty` {?Object} Information about the text for an empty image upload.
@@ -2095,7 +2307,7 @@
    * @param {Object} [params] Request parameters.
    * @param {*[]} params.a_config Allows to give custom parameters which can be required for different types of images.
    * @param {boolean} params.is_temporary If `true`, the temporary image will be retrieved. Otherwise, this will be `false`.
-   * @param {string} params.k_id The image ID set in `s_class`.
+   * @param {string} params.k_id The image ID set in [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json).
    * @param {string} params.s_class The name of the class that manages this image.
    * @returns {Promise<Object>} Response data.
    *  `a_text_empty` {?Object} Information about the text for an empty image upload.
@@ -2128,7 +2340,7 @@
    * permanently saved. Call [ImageUploadApi](/Core/Drive/ImageUpload/ImageUpload.json) to commit the temporary image to the entity.
    *
    * @param {Object} [params] Request parameters.
-   * @param {string} params.k_id The key of the image within `s_class`.
+   * @param {string} params.k_id The key of the image within [ImageUploadTemporaryApi](/Core/Drive/ImageUpload/ImageUploadTemporar...
    * @param {string} params.s_class The name of the class that manages this image.
    * @returns {Promise<Object>} Response data.
    *  `has_crop` {boolean} If `true`, a crop is used. Otherwise, this will be `false` if a crop isn't us...
@@ -2157,7 +2369,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.s_csrf The CSRF code from the client side.
    * @param {string} params.s_key_session The session key.
-   * @param {string} params.url_domain Alias of `url_origin`.
+   * @param {string} params.url_domain Alias of [KeySecretApi](/Core/Request/Api/KeySecret.json).
    * @param {string} params.url_origin Origin for client requests.
    * @returns {Promise<Object>} Response data.
    *  `s_key_secret` {string} The secret key for the request signing.
@@ -2208,6 +2420,11 @@
    *
    * Accepts the CAPTCHA version, the action name, and the user token obtained from the Google reCAPTCHA widget,
    * and stores them in the session so that subsequent API requests requiring CAPTCHA verification can use them.
+   * 
+   * Site keys for initialize Google reCAPTCHA:
+   * * Version 2 (invisible):
+   *   * Demo/Staging - `6Ldqwe0gAAAAANve1TEPFb_Yxgb9wsoIfrNL6-2Z`
+   * ...
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
@@ -2262,6 +2479,33 @@
   WlClient.prototype.coreGoogleCaptchaCaptchaScorePut = function(params)
   {
     return this.request('/Core/Google/Captcha/CaptchaScore.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Gets information of application.
+   *
+   * Returns which sign-in methods (Apple, Facebook, Google, Microsoft, TJX) are enabled for the
+   * application, along with the social sign-in and registration restrictions and the
+   * corresponding authorization links.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.s_application Unique ID of application.
+   * @returns {Promise<Object>} Response data.
+   *  `is_apple` {boolean} `true` - enable for this application sign in with Apple; `false` - disable.
+   *  `is_facebook` {boolean} `true` - enable for this application sign in with Facebook; `false` - disable.
+   *  `is_facebook_android` {boolean} `true` - enable for this application sign in with Facebook for Android; `fals...
+   *  `is_google` {boolean} `true` - enable for this application sign in with Google; `false` - disable.
+   *  `is_microsoft` {boolean} `true` - enable for this application sign in with Microsoft; `false` - disable.
+   *  `is_register_deny` {boolean} `true` - registration of new user is denied in application; `false` - registr...
+   *  `is_social` {boolean} `true` if sign in via social networks is allowed; `false` otherwise.
+   *  `is_tjx` {boolean} `true` if sign in via TJX Azure is allowed; `false` otherwise.
+   *  `text_tjx_button_name` {string} Tjx button name.
+   *  `url_facebook` {string} Facebook authorization link.
+   *  `url_tjx` {string} Tjx link.
+   */
+  WlClient.prototype.coreSpaApplicationSpaApplication = function(params)
+  {
+    return this.request('/Core/Spa/Application/SpaApplication.json', params || {}, 'GET');
   };
 
   /**
@@ -2384,7 +2628,7 @@
    * requests and the browser refuse to send the request (situations with long class ID, event ID or staff ID lists).
    * 
    *  - Added generation of a separate 'Quick filter'.
-   * This generation is enabled using the flag `show_quick_filter`.
+   * This generation is enabled using the flag [ClassList68Api](/Wl/Schedule/ClassList/ClassList68.json).
    * ...
    *
    * @param {Object} [params] Request body fields.
@@ -2416,7 +2660,7 @@
    * @param {Object[]} params.a_time Class filter by time of day.
    * @param {string} params.dt_date The list start date in UTC and in MySQL format.
    * @param {string} params.dt_end The list end date in UTC and in MySQL format.
-   * @param {boolean} params.is_response_short `true` means to not generate `a_session` result.
+   * @param {boolean} params.is_response_short `true` means to not generate [ClassListApi](/Wl/Schedule/ClassList/ClassList.json) result.
    * @param {boolean} params.is_tab_all If `true`, sessions from every class tab are returned. If `false`, use the
    * @param {?boolean} [params.is_virtual] Class filter by type.
    * @param {string} params.k_business The business key.
@@ -2429,7 +2673,7 @@
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
    *  `a_calendar` {*[][]} Keys are dates of the days inside requested date range, when there is at leas...
-   *  `a_session` {Object[]} A list of classes sessions starting with the date `dt_date`
+   *  `a_session` {Object[]} A list of classes sessions starting with the date [ClassListApi](/Wl/Schedule...
    *  `is_timezone_different` {boolean} If `true`, the list of sessions contains sessions from different time zones. ...
    *  `is_virtual_service` {boolean} If `true`, there exists at least one virtual service by a specified
    */
@@ -2818,8 +3062,8 @@
   };
 
   /**
-   * Checks if user `uid` is flagged in location `k_location` or
-  each of users `a_uid` is flagged in location `k_location`.
+   * Checks if user [FlagApi](/Wl/Location/Flag/Flag.json) is flagged in location [FlagApi](/Wl/Location/Flag/Flag.json) or
+  each of users [FlagApi](/Wl/Location/Flag/Flag.json) is flagged in location [FlagApi](/Wl/Location/Flag/Flag.json).
    *
    * Accepts either a single user key (`uid`) or an array of user keys (`a_uid`) and returns the flag status
    * for each, including whether the flagged user is restricted from booking or purchasing at the location.
@@ -2830,7 +3074,7 @@
    * @param {?string} [params.uid] The user's key.
    * @returns {Promise<Object>} Response data.
    *  `a_flag` {Object} Array with structure:
-   *  `a_restrictions_multiple` {?Object} Array, where keys are UIDs to be checked and values are same as `a_restrictio...
+   *  `a_restrictions_multiple` {?Object} Array, where keys are UIDs to be checked and values are same as [FlagApi](/Wl...
    *  `a_restrictions_single` {?Object} `null` if user is not flagged in the location.
    *  `is_flag` {boolean} `true` if the user is flagged and can make purchases, but cannot make new res...
    */
@@ -2854,6 +3098,24 @@
   };
 
   /**
+   * Retrieves information about location rate.
+   *
+   * Returns the average rating and review count for the location, along with whether rating is
+   *  enabled for the business type the location belongs to.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_location ID of a location to show rate for.
+   * @returns {Promise<Object>} Response data.
+   *  `f_rate` {number} Location rate.
+   *  `i_review` {number} Review count.
+   *  `is_rate` {boolean} Determines that the rate type exists in the current business type.
+   */
+  WlClient.prototype.wlLocationLocationRateLocationRate = function(params)
+  {
+    return this.request('/Wl/Location/LocationRate/LocationRate.json', params || {}, 'GET');
+  };
+
+  /**
    * Returns detailed information about the specified location.
    *
    * Returns the full profile of a location, including address, coordinates, timezone, contact information,
@@ -2873,7 +3135,7 @@
    *  `f_latitude` {number} The latitude coordinate of the location.
    *  `f_longitude` {number} The longitude coordinate of the location.
    *  `html_description_full` {string} The full description of the location.
-   *  `html_description_preview` {string} A shorter description of the location. A preview of `html_description_full`.
+   *  `html_description_preview` {string} A shorter description of the location. A preview of [ViewApi](/Wl/Location/Vi...
    *  `id_industry` {number} List of different types for landing pages based on business types. See {@link WlClient.RsHomeTourSid}.
    *  `is_phone` {boolean} `true` if to display phone number on location page. `false` otherwise.
    *  `is_top_choice` {boolean} `true` if WellnessLiving identifies this is a top choice location, `false` ot...
@@ -3176,7 +3438,7 @@
    * In case the attachment key is not specified, it adds a new attachment.
   In case the attachment key is specified, edits the attachment.
    *
-   * When `k_attach` is empty, uploads a new file to the client profile; when set, updates the
+   * When [AttachElementApi](/Wl/Profile/Attach/AttachElement.json) is empty, uploads a new file to the client profile; when set, updates the
    *  attachment metadata, file content, or visibility flag depending on the provided fields.
    *
    * @param {Object} [params] Request parameters.
@@ -3200,7 +3462,7 @@
    * @deprecated Use {@link \Wl\Profile\PurchaseList\PurchaseListElementApi} instead. It provides the same functionality and more.
    *
    * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_business] The business key. Currently used only with `k_session_pass` variable.
+   * @param {?string} [params.k_business] The business key. Currently used only with [PurchaseElementApi](/Wl/Profile/Purchase/PurchaseElem...
    * @param {string} params.k_code The key of the redemption code used to obtain some goods.
    * @param {string} params.k_enrollment_book The key of an entirely booked event.
    * @param {string} params.k_login_product The key of a purchased product.
@@ -3282,7 +3544,7 @@
    * @param {Object} [params] Request parameters.
    * @param {number} params.i_image_height Image Height in pixels. Please specify this value if you need purchase image to be returned in sp...
    * @param {number} params.i_image_width Image Width in pixels. Please specify this value if you need purchase image to be returned in spe...
-   * @param {?string} [params.k_business] The business key. Used with `k_session_pass` variable and
+   * @param {?string} [params.k_business] The business key. Used with [PurchaseListElementApi](/Wl/Profile/PurchaseList/PurchaseListElement...
    * @param {string} params.k_code The ID of the redemption code used to obtain the item. This should be specified only for items ob...
    * @param {string} params.k_enrollment_book The key of an entirely booked event. This must be specified if the purchased item is a whole event
    * @param {string} params.k_login_product The key of a purchased product. This must be specified if the purchased item is a product and par...
@@ -3391,6 +3653,40 @@
   };
 
   /**
+   * Gets a list of timezones with currently selected user's timezone and the business policy adjustment whether
+   clients are allowed to adjust timezone.
+   *
+   * Includes the timezone abbreviation, UTC shift, and display order for each entry, and falls back to
+   *  the business-configured guest timezone when no member is signed in.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the business, in which user selected timezone.
+   * @returns {Promise<Object>} Response data.
+   *  `a_timezone` {Object[]} List of timezones. Keys - timezone keys;
+   *  `is_profile_timezone` {boolean} Whether clients are allowed to adjust timezone.
+   *  `k_timezone_select` {string} Key of the timezone which is currently selected.
+   */
+  WlClient.prototype.wlProfileTimezoneProfileTimezoneGet = function(params)
+  {
+    return this.request('/Wl/Profile/Timezone/ProfileTimezone.json', params || {}, 'GET');
+  };
+
+  /**
+   * Updates selected timezone for the site visitor in the given business.
+   *
+   * Validates the requested timezone against the business timezone deprecation policy, then saves it
+   *  either to the member's profile field or, for a guest, to the guest-scoped timezone selection.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the business, in which user selected timezone.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlProfileTimezoneProfileTimezonePut = function(params)
+  {
+    return this.request('/Wl/Profile/Timezone/ProfileTimezone.json', params || {}, 'PUT');
+  };
+
+  /**
    * Returns online waiver information for the specified user and business.
    *
    * Returns the rendered online waiver text for the business along with the client's current
@@ -3496,7 +3792,7 @@
    *  `dt_date_gmt` {string} The date of the activity in GMT.
    *  `dt_date_local` {string} The date of the activity in the client's time zone.
    *  `html_message` {string} Description of the action, who and what did.
-   *  `i_credit_score` {number} Total amount of account credits user got for `k_login_activity`.
+   *  `i_credit_score` {number} Total amount of account credits user got for [ElementApi](/Wl/Profile/Activit...
    *  `i_score` {number} The total amount of rewards points the client received for the activity.
    *  `i_spend` {number} The rewards points used to redeem a prize.
    *  `id_icon` {?number} List of available design icons. See {@link WlClient.WlDesignIconSid}.
@@ -3659,6 +3955,25 @@
   WlClient.prototype.wlClassesPromotionClassPromotion = function(params)
   {
     return this.request('/Wl/Classes/Promotion/ClassPromotion.json', params || {}, 'GET');
+  };
+
+  /**
+   * Gets information about class.
+   *
+   * Returns the class title, service logo, and whether the class is actually an event, based on the
+   *  given business and class keys.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the business in which the class resides.
+   * @param {string} params.k_class Class identifier to get information for.
+   * @returns {Promise<Object>} Response data.
+   *  `a_logo` {Object} Service logo information:
+   *  `is_event` {boolean} `true` means event, `false` means class.
+   *  `text_title` {string} Title of the class.
+   */
+  WlClient.prototype.wlClassesInfoInfo = function(params)
+  {
+    return this.request('/Wl/Classes/Info/Info.json', params || {}, 'GET');
   };
 
   /**
@@ -3933,7 +4248,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_business List of business key.
    * @returns {Promise<Object>} Response data.
-   *  `a_business_region` {number[]} List of region IDs for `a_business`.
+   *  `a_business_region` {number[]} List of region IDs for [AmazonRegionApi](/Wl/Business/AmazonRegion/AmazonRegi...
    */
   WlClient.prototype.wlBusinessAmazonRegionAmazonRegion = function(params)
   {
@@ -4131,8 +4446,8 @@
   };
 
   /**
-   * Returns promotion payment pause data: all hold periods when `is_list` is `true`,
-   the specified hold period when `k_promotion_pay_pause` is provided, or the currently
+   * Returns promotion payment pause data: all hold periods when [PromotionPayPauseApi](/Wl/Login/Promotion/PromotionPayPause.json) is `true`,
+   the specified hold period when [PromotionPayPauseApi](/Wl/Login/Promotion/PromotionPayPause.json) is provided, or the currently
    active hold period otherwise.
    *
    * Also returns notification settings (email, push, SMS flags and email pattern key) and the date the last
@@ -5003,6 +5318,25 @@
   };
 
   /**
+   * Gets quizzes for the selected purchase options.
+   *
+   * Resolves the quizzes required or available for the services behind the given purchase items,
+   *  taking into account quizzes already completed by the specified user, and returns them so the
+   *  client can collect answers before booking is finished.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {Object[]} params.a_purchase_item List of purchase items. Each element has format `[id_purchase_item]::[k_id]`, where
+   * @param {string} params.k_business Key of a business.
+   * @param {?string} [params.uid] Key of a user who is making a purchase.
+   * @returns {Promise<Object>} Response data.
+   *  `a_quiz` {Object} List of quizzes. Each element has next structure:
+   */
+  WlClient.prototype.wlCatalogQuizQuiz = function(params)
+  {
+    return this.request('/Wl/Catalog/Quiz/Quiz.json', params || {}, 'GET');
+  };
+
+  /**
    * Records the start of a video watch session for the current user.
    *
    * Creates a new watch record for the user and video, verifying that the user has access to
@@ -5105,7 +5439,7 @@
    * @param {string} params.k_business The business key.
    * @param {string} params.text_filter The filter phrase used to filter categories by name.
    * @returns {Promise<Object>} Response data.
-   *  `a_video_category` {Object[]} The business video library categories as found in `k_business`.
+   *  `a_video_category` {Object[]} The business video library categories as found in [CategoryListApi](/Wl/Video...
    */
   WlClient.prototype.wlVideoCategoryCategoryListGet = function(params)
   {
@@ -5500,7 +5834,7 @@
    * itemized purchase items, payment methods, pricing summary, and print URLs.
    *
    * @param {Object} [params] Request parameters.
-   * @param {boolean} params.is_url_public Whether `url_print` and `url_print_receipt` require authentication.
+   * @param {boolean} params.is_url_public Whether [PurchaseReceiptApi](/Wl/Purchase/Receipt/PurchaseReceipt.json) and [PurchaseReceiptApi](...
    * @param {?string} [params.k_purchase] The key of the purchase.
    * @returns {Promise<Object>} Response data.
    *  `a_account_rest` {Object} Information about the account balance for a user's account after payment for ...
@@ -5611,8 +5945,8 @@
    *  item is referenced in the email body.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_purchase_item Purchase item ID. Required if `text_action` is 'purchase'. See {@link WlClient.RsPurchaseItemSid}.
-   * @param {number} params.id_service Service ID. Required if `text_action` is 'booking'. See {@link WlClient.RsServiceSid}.
+   * @param {number} params.id_purchase_item Purchase item ID. Required if [SendMailApi](/Wl/AiAgent/Link/SendMail.json) is 'purchase'. See {@link WlClient.RsPurchaseItemSid}.
+   * @param {number} params.id_service Service ID. Required if [SendMailApi](/Wl/AiAgent/Link/SendMail.json) is 'booking'. See {@link WlClient.RsServiceSid}.
    * @param {string} params.k_business Business key. Required.
    * @param {string} params.k_id Unique identifier for the link.
    * @param {string} params.text_action Action type. Must be 'purchase' or 'booking'.
@@ -5668,8 +6002,8 @@
   /**
    * Retrieves information about staff.
    *
-   * This method can accept or one staff key `k_staff` or staff list
-   * `a_staff_list` but not both (exception would be thrown).
+   * This method can accept or one staff key [StaffViewApi](/Wl/Staff/StaffView/StaffView.json) or staff list
+   * [StaffViewApi](/Wl/Staff/StaffView/StaffView.json) but not both (exception would be thrown).
    * @deprecated Use {@link \Wl\Staff\StaffView\StaffView74Api}
    *
    * @param {Object} [params] Request parameters.
@@ -6328,7 +6662,7 @@
    * @param {number} params.id_flow ID of the user behavior flow. See {@link WlClient.WlUserTrackingFlowSid}.
    * @param {string} params.k_business The business key.
    * @param {string} params.uid The key of the user whose relationships are being assessed.
-   * @param {string} params.uid_delete The key of the related user who `uid` must be removed.
+   * @param {string} params.uid_delete The key of the related user who [RelationApi](/Wl/Family/Relation/Relation.json) must be removed.
    * @returns {Promise<Object>} Response data.
    *  `a_relation` {Object[]} Information about the user's relationships. Every element has the following f...
    */
@@ -6356,8 +6690,8 @@
   };
 
   /**
-   * Adds to user `uid`
-  relative `a_new`.
+   * Adds to user [RelationApi](/Wl/Family/Relation/Relation.json)
+  relative [RelationApi](/Wl/Family/Relation/Relation.json).
    *
    * Creates a bidirectional family relationship between the user identified by `uid` and the user specified in
    * `a_new`, then returns the updated list of relationships for `uid`.
@@ -6689,7 +7023,7 @@
    * @param {string} params.k_location The key of the location to show reviews for. If not specified, business key should be specified.
    * @param {string} params.uid The user's key. WellnessLiving allows staff to check low-rated reviews before posting them. Staff...
    * @returns {Promise<Object>} Response data.
-   *  `a_review` {Object[]} List of reviews. If passed `i_page` then the result will be full, otherwise i...
+   *  `a_review` {Object[]} List of reviews. If passed [ReviewListApi](/Wl/Review/ReviewList/ReviewList.j...
    */
   WlClient.prototype.wlReviewReviewListReviewList = function(params)
   {
@@ -7070,8 +7404,8 @@
   };
 
   /**
-   * Gets schedule of business `k_business` for day
-  `dt_date`.
+   * Gets schedule of business [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json) for day
+  [ScheduleListApi](/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json).
    *
    * Returns all classes and appointments scheduled for the given business on the specified date,
    * sorted chronologically. Supports both single-day and date-range modes, and includes full
@@ -7226,10 +7560,10 @@
   /**
    * Completes the appointment booking for one or more providers, optionally creating a new client.
    *
-   * Accepts booking details for one or more providers in `a_book_data`,
+   * Accepts booking details for one or more providers in [FinishMultipleApi](/Wl/Appointment/Book/Finish/FinishMultiple.json),
    *  processes payment using the selected Purchase Option, creates appointment records, and sends
    *  booking confirmation notifications. A new client account can be created by supplying user
-   *  details in `a_user` when no UID is provided.
+   *  details in [FinishMultipleApi](/Wl/Appointment/Book/Finish/FinishMultiple.json) when no UID is provided.
    *
    * @param {Object} [params] Request parameters.
    * @param {number[]} params.a_pay The payment type for the appointment. One of the {@link WlClient.RsAppointmentPaySid} constants.
@@ -7361,7 +7695,7 @@
    * @deprecated Use {@link \Wl\Appointment\Book\Purchase\Purchase72Api} instead.
    *
    * @param {Object} [params] Request parameters.
-   * @param {Object[]} params.a_service List of selected services without current `k_service`.
+   * @param {Object[]} params.a_service List of selected services without current [PurchaseApi](/Wl/Appointment/Book/Purchase/Purchase.js...
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {string} params.dt_date The date to use to check for expiration of Purchase Options.
    * @param {number} params.i_duration The asset booking duration.
@@ -7374,7 +7708,7 @@
    * @param {?string} [params.k_login_promotion] The Purchase Option ID used to pay for the appointment.
    * @param {string} params.k_resource The resource key.
    * @param {string} params.k_service The service key used to select available Purchase Options.
-   * @param {?string} [params.k_timezone] The timezone key for `dt_date`.
+   * @param {?string} [params.k_timezone] The timezone key for [PurchaseApi](/Wl/Appointment/Book/Purchase/Purchase.json).
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
    *  `a_login_prize` {Object} Data about the login prize which can be used to pay for service.
@@ -7571,7 +7905,7 @@
    *
    * Returns the list of bookable assets at the given location, optionally filtered by category and book now tab.
    *  When a date and time are provided, only assets available at that time are included and busy asset slots
-   *  are returned in `a_asset_busy`. Supports both frontend and backend modes.
+   *  are returned in [AssetListApi](/Wl/Appointment/Book/Asset/AssetList.json). Supports both frontend and backend modes.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dtl_date The selected date and time of the asset booking. It is used in cases when the business booking po...
@@ -7631,8 +7965,8 @@
    * @param {number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
    * @param {number} params.id_purchase_item The purchase item ID. A constant of {@link WlClient.RsPurchaseItemSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
-   * @param {?string} [params.k_business] The business key. Currently used only with `k_session_pass` variable.
-   * @param {string} params.k_id The item key. Depends on `id_purchase_item` property.
+   * @param {?string} [params.k_business] The business key. Currently used only with [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json...
+   * @param {string} params.k_id The item key. Depends on [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json) property.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.k_login_promotion The login promotion key.
    * @param {string} params.k_session_pass Session pass key.
@@ -7671,7 +8005,7 @@
    * @param {number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
    * @param {number} params.id_purchase_item The purchase item ID. A constant of {@link WlClient.RsPurchaseItemSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
-   * @param {string} params.k_id The item key. Depends on `id_purchase_item` property.
+   * @param {string} params.k_id The item key. Depends on [PaymentApi](/Wl/Appointment/Book/Payment/Payment.json) property.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.text_coupon_code Gift card code.
    * @param {string} params.text_discount_code The discount code to be applied to the purchase.
@@ -8518,9 +8852,9 @@
    * @param {number[]} params.a_day List of days of the week to create visits. Each value is a {@link WlClient.ADateWeekSid} constant.
    * @param {string[]} params.a_visit_ignore List of visits to be ignored. Each value is a string consisting of a class period key
    * @param {string} params.dt_date Date and time of the class, when recurring booking was called, in UTC timezone.
-   * @param {string} params.dt_from Date to start recurring booking. Not empty only when `id_repeat_end` == {@link WlClient.RsRepeatE...
-   * @param {string} params.dt_to Date to finish recurring booking. Not empty only when `id_repeat_end` == {@link WlClient.RsRepeat...
-   * @param {number} params.i_count Count of the visits to be created. Not empty only when `id_repeat_end` == {@link WlClient.RsRepea... See {@link WlClient.RsRepeatEndSid}.
+   * @param {string} params.dt_from Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repea...
+   * @param {string} params.dt_to Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Repe...
+   * @param {number} params.i_count Count of the visits to be created. Not empty only when [RepeatApi](/Wl/Book/Process/Frequency/Rep... See {@link WlClient.RsRepeatEndSid}.
    * @param {number} params.i_duration Count of days\weeks\months between recurring bookings.
    * @param {number} params.id_duration Recurring booking interval, one of {@link WlClient.ADurationSid} constants.
    * @param {number} params.id_mode WellnessLiving mode, one of {@link WlClient.WlModeModeSid} constants.
@@ -8534,8 +8868,8 @@
    * @param {string} params.uid_actor Key of user, who perform booking.
    * @returns {Promise<Object>} Response data.
    *  `a_visit` {Object[]} List of visits to be created for the given settings:
-   *  `dt_from` {string} Date to start recurring booking. Not empty only when `id_repeat_end` == {@lin...
-   *  `dt_to` {string} Date to finish recurring booking. Not empty only when `id_repeat_end` == {@li...
+   *  `dt_from` {string} Date to start recurring booking. Not empty only when [RepeatApi](/Wl/Book/Pro...
+   *  `dt_to` {string} Date to finish recurring booking. Not empty only when [RepeatApi](/Wl/Book/Pr...
    *  `i_count` {number} Possible ways to stop repeatable events. See {@link WlClient.RsRepeatEndSid}.
    *  `text_date_from` {string} Start date of repeatable period in human-readable format.
    *  `text_date_to` {string} End date of repeatable period in human-readable format.
@@ -8752,6 +9086,23 @@
   };
 
   /**
+   * Gets list of contracts.
+   *
+   * Returns every contract the user has subscribed to or is required to agree to for the given
+   *  business, including the agreement date, signature link, and contract text.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business to get information for.
+   * @param {string} params.uid User to get information for.
+   * @returns {Promise<Object>} Response data.
+   *  `a_contract` {Object[]} List of contacts. Every element has next keys:
+   */
+  WlClient.prototype.wlProfileContractContractAllContractAll = function(params)
+  {
+    return this.request('/Wl/Profile/Contract/ContractAll/ContractAll.json', params || {}, 'GET');
+  };
+
+  /**
    * Retrieves information about event item.
    *
    * Used to render the event detail page or event card in the booking flow. Returns everything needed
@@ -8938,6 +9289,22 @@
   WlClient.prototype.wlBusinessFranchiseLocationBusinessFranchiseLocation = function(params)
   {
     return this.request('/Wl/Business/Franchise/Location/BusinessFranchiseLocation.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns config option values for specified business.
+   *
+   * Loads every registered business configuration option for the given business and returns its
+   *  current value, keyed by the config option class CID.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of business.
+   * @returns {Promise<Object>} Response data.
+   *  `a_option` {string[]} List of config option values.
+   */
+  WlClient.prototype.wlBusinessConfigOptionBusinessConfigOption = function(params)
+  {
+    return this.request('/Wl/Business/Config/Option/BusinessConfigOption.json', params || {}, 'GET');
   };
 
   /**
@@ -9166,7 +9533,7 @@
    *  `k_session_pass` {string} The key of a session pass that can be used for a single session payment.
    *  `m_account` {string} Account balance.
    *  `m_price` {?string} The price of the session, including any taxes and discounts.
-   *  `m_rest` {?string} The user's account balance if they were charged the `m_price` amount.
+   *  `m_rest` {?string} The user's account balance if they were charged the [AddApi](/Wl/Login/Attend...
    */
   WlClient.prototype.wlLoginAttendanceAddAddGet = function(params)
   {
@@ -9371,7 +9738,7 @@
 
   /**
    * Retrieves all reward action categories for business specified in
-  `k_business`.
+  [CategoryListApi](/Wl/Reward/Action/CategoryList/CategoryList.json).
    *
    * Returns the list of reward action categories including category type ID, database key, and title for the
    * given business.
@@ -9406,7 +9773,7 @@
   };
 
   /**
-   * Retrieves all reward boards for business specified in `k_business`.
+   * Retrieves all reward boards for business specified in [ListApi](/Wl/Reward/Board/BoardList/List.json).
    *
    * Returns the list of reward boards available to the given user in the business, including board key and title,
    * filtered to exclude boards the user is not eligible to view.
@@ -9895,7 +10262,7 @@
    *
    * Returns the asset categories and individual assets linked to the service at the given location.
    *  Each asset includes its availability flag for the requested time slot. The response also includes
-   *  `a_resource_busy` with currently reserved asset slots and a flag indicating
+   *  [ServiceApi](/Wl/Appointment/Book/Asset/Service/Service.json) with currently reserved asset slots and a flag indicating
    *  whether the current user is allowed to book unavailable assets.
    *
    * @param {Object} [params] Request parameters.
@@ -9904,7 +10271,7 @@
    * @param {boolean} params.is_backend If `true`, back-end mode is selected.
    * @param {boolean} params.is_grid_any Whether to show both grid layouts and custom layouts.
    * @param {boolean} params.is_show_unavailable_assets Whether unavailable assets should be included.
-   * @param {?string} [params.k_appointment_ignore] The appointment booking key to ignore when `a_resource_busy` is derived.
+   * @param {?string} [params.k_appointment_ignore] The appointment booking key to ignore when [ServiceApi](/Wl/Appointment/Book/Asset/Service/Servic...
    * @param {string} params.k_location The selected location key.
    * @param {string} params.k_service The selected service's key.
    * @param {string} params.k_timezone Timezone of date and time of service start.
@@ -10085,7 +10452,7 @@
    * Validates and stores the submitted notification template (email, push or SMS) for the given
    *  business. A system template edited under a business is copied into that business instead of
    *  modifying the original. The saved mail pattern key is returned in
-   *  `k_mail_pattern`.
+   *  [PatternApi](/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/Pattern.json).
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.id_mail ID of the notification. One of {@link WlClient.RsMailSid} constants. `0` for empty template.
@@ -10328,7 +10695,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (196 total)
+  // Enum constants (199 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -12645,6 +13012,160 @@
     INSTRUCTOR: 3,
     /** Staff role location owner */
     LOCATION_OWNER: 2,
+  });
+
+  /**
+   * A list of currency codes.
+   *
+   * @enum {number}
+   */
+  WlClient.RsCurrencySid = Object.freeze({
+    /** United Arab Emirates dirham */
+    AED: 11,
+    /** Australian dollar */
+    AUD: 6,
+    /** Bermudian Dollar */
+    BMD: 18,
+    /** Bahamian dollar */
+    BSD: 19,
+    /** Canadian dollar */
+    CAD: 4,
+    /** Egypt Pound */
+    EGP: 8,
+    /** Euro */
+    EUR: 13,
+    /** British pound */
+    GBP: 3,
+    /** Kuwaiti dinar */
+    KWD: 14,
+    /** Cayman Islands dollar */
+    KYD: 5,
+    /** Mauritian Rupee */
+    MUR: 16,
+    /** New Zealand Dollar */
+    NZD: 10,
+    /** Philippines Pesco */
+    PHP: 12,
+    /** Saudi Riyal */
+    SAR: 15,
+    /** Singapore dollar */
+    SGD: 20,
+    /** Unknown code */
+    UNKNOWN: 2,
+    /** US dollars */
+    USD: 1,
+    /** West African CFA franc */
+    XOF: 17,
+    /** South African rand */
+    ZAR: 7,
+  });
+
+  /**
+   * The list of available modes.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPlaceSid = Object.freeze({
+    /** Backend mode */
+    BACKEND: 2,
+    /** The script is executed in the background (like an asynchronous task, regular task or a cron method) */
+    BACKGROUND: 5,
+    /** Directory pages */
+    DIRECTORY: 3,
+    /** Default frontend mode. All pages not in backend mode except microsite and directory pages */
+    FRONTEND: 1,
+    /** Microsite pages */
+    MICROSITE: 4,
+  });
+
+  /**
+   * List of possible plans for AchieveSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = Object.freeze({
+    /** Basic */
+    FREE: 1,
+    /** Premium */
+    PREMIUM: 2,
+    /** White Label (Legacy) */
+    WHITE: 3,
+    /** White Label */
+    WHITE0125: 7,
+    /** White Label (Business Max) */
+    WHITE_MAX: 4,
+    /** White Label (Legacy) */
+    WHITE_PLUS: 6,
+    /** White Label (Business Pro) */
+    WHITE_PRO: 5,
+  });
+
+  /**
+   * List of possible plans for BaseSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = Object.freeze({
+    /** Advanced */
+    ADVANCED: 4,
+    /** Basic */
+    BASIC: 3,
+    /** Business(Legacy) */
+    BUSINESS: 7,
+    /** Business */
+    BUSINESS_2405: 11,
+    /** Business(Legacy) */
+    BUSINESS_LIGHT: 8,
+    /** Business Max */
+    BUSINESS_MAX: 9,
+    /** Business Pro */
+    BUSINESS_PRO: 10,
+    /** Enterprise */
+    ENTERPRISE: 6,
+    /** None */
+    FREE: 1,
+    /** Business Partner */
+    PARTNER: 2,
+    /** Platform Access */
+    PLATFORM_ACCESS: 15,
+    /** Professional */
+    PROFESSIONAL: 5,
+    /** Starter */
+    STARTER: 12,
+    /** Starter */
+    STARTER_2502: 13,
+    /** Trial */
+    TRIAL: 14,
+  });
+
+  /**
+   * List of possible plans for MarketingSuiteSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = Object.freeze({
+    /** Pro */
+    BASIC: 2,
+    /** Standard (Business) */
+    BASIC_BUSINESS: 4,
+    /** Standard (Legacy) */
+    BASIC_OLD: 3,
+    /** Base */
+    FREE: 1,
+    /** Ultimate */
+    PRO: 5,
+  });
+
+  /**
+   * Contains travel modes.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessFranchiseTravelTravelModeSid = Object.freeze({
+    /** Curves travel mode */
+    CURVES: 1,
+    /** Flexible travel mode */
+    FLEXIBLE: 2,
   });
 
   /**
@@ -15374,66 +15895,6 @@
   });
 
   /**
-   * List of possible plans for AchieveSubscription subscription.
-   *
-   * @enum {number}
-   */
-  WlClient.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = Object.freeze({
-    /** Basic */
-    FREE: 1,
-    /** Premium */
-    PREMIUM: 2,
-    /** White Label (Legacy) */
-    WHITE: 3,
-    /** White Label */
-    WHITE0125: 7,
-    /** White Label (Business Max) */
-    WHITE_MAX: 4,
-    /** White Label (Legacy) */
-    WHITE_PLUS: 6,
-    /** White Label (Business Pro) */
-    WHITE_PRO: 5,
-  });
-
-  /**
-   * List of possible plans for BaseSubscription subscription.
-   *
-   * @enum {number}
-   */
-  WlClient.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = Object.freeze({
-    /** Advanced */
-    ADVANCED: 4,
-    /** Basic */
-    BASIC: 3,
-    /** Business(Legacy) */
-    BUSINESS: 7,
-    /** Business */
-    BUSINESS_2405: 11,
-    /** Business(Legacy) */
-    BUSINESS_LIGHT: 8,
-    /** Business Max */
-    BUSINESS_MAX: 9,
-    /** Business Pro */
-    BUSINESS_PRO: 10,
-    /** Enterprise */
-    ENTERPRISE: 6,
-    /** None */
-    FREE: 1,
-    /** Business Partner */
-    PARTNER: 2,
-    /** Platform Access */
-    PLATFORM_ACCESS: 15,
-    /** Professional */
-    PROFESSIONAL: 5,
-    /** Starter */
-    STARTER: 12,
-    /** Starter */
-    STARTER_2502: 13,
-    /** Trial */
-    TRIAL: 14,
-  });
-
-  /**
    * List of possible plans for SmsSubscription subscription.
    *
    * @enum {number}
@@ -15543,24 +16004,6 @@
     FREE: 1,
     /** Professional */
     PROFESSIONAL: 2,
-  });
-
-  /**
-   * List of possible plans for MarketingSuiteSubscription subscription.
-   *
-   * @enum {number}
-   */
-  WlClient.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = Object.freeze({
-    /** Pro */
-    BASIC: 2,
-    /** Standard (Business) */
-    BASIC_BUSINESS: 4,
-    /** Standard (Legacy) */
-    BASIC_OLD: 3,
-    /** Base */
-    FREE: 1,
-    /** Ultimate */
-    PRO: 5,
   });
 
   /**
