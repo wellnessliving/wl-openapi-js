@@ -16300,6 +16300,31 @@ export interface WlServiceServiceListListResponse {
     a_service: Array<{
         /** Whether service will be hidden in the White Label mobile application. */
         hide_application: boolean;
+        /** Whether appointment type is active. */
+        is_active: boolean;
+        /** Appointment type identifier, primary key. */
+        k_service: string;
+        /** Appointment type category identifier, primary key. */
+        k_service_category: string;
+        /** Appointment type category name. */
+        text_category: string;
+        /** Appointment type name. */
+        text_service: string;
+    }>;
+}
+export interface WlServiceServiceListList75Params {
+    /** Whether to return franchisee-created appointment types (if business is franchisor). */
+    is_franchise: boolean;
+    /** Business key, primary key. */
+    k_business: string;
+}
+export interface WlServiceServiceListList75Response {
+    /** Appointment types list: */
+    a_service: Array<{
+        /** Whether service will be hidden in the White Label mobile application. */
+        hide_application: boolean;
+        /** Whether appointment type is active. */
+        is_active: boolean;
         /** Appointment type identifier, primary key. */
         k_service: string;
         /** Appointment type category identifier, primary key. */
@@ -27851,6 +27876,8 @@ export declare class WlServiceServiceListNamespace {
     constructor(_client: WlClient);
     /** Returns list of appointment type in the business. */
     list(params?: WlServiceServiceListListParams): Promise<WlServiceServiceListListResponse>;
+    /** Returns list of appointment type in the business. */
+    list75(params?: WlServiceServiceListList75Params): Promise<WlServiceServiceListList75Response>;
 }
 export declare class WlServiceNamespace {
     private readonly _client;

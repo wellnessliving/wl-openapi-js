@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260706145201
+// OpenAPI spec version: 1.1.20260706210751
 // Build date: 2026-07-06
-// Endpoints: 496
+// Endpoints: 497
 // Enums: 187
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -7940,6 +7940,10 @@ export class WlServiceServiceListNamespace {
     /** Returns list of appointment type in the business. */
     list(params) {
         return this._client._request('/Wl/Service/ServiceList/List.json', params, 'GET');
+    }
+    /** Returns list of appointment type in the business. */
+    list75(params) {
+        return this._client._request('/Wl/Service/ServiceList/List75.json', params, 'GET');
     }
 }
 export class WlServiceNamespace {

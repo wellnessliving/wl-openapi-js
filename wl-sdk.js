@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260706145201
+ * Spec version: 1.1.20260706210751
  * Build date:   2026-07-06
- * Endpoints:    496
+ * Endpoints:    497
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260706145201';
+  WlClient.SPEC_VERSION = '1.1.20260706210751';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (496 total)
+  // Generated API methods (497 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -5769,6 +5769,22 @@
   WlClient.prototype.wlServiceServiceListList = function(params)
   {
     return this.request('/Wl/Service/ServiceList/List.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns list of appointment type in the business.
+   *
+   * Gets key of the business and returns all available appointment types with their names and categories.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_franchise Whether to return franchisee-created appointment types (if business is franchisor).
+   * @param {string} params.k_business Business key, primary key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_service` {Object[]} Appointment types list:
+   */
+  WlClient.prototype.wlServiceServiceListList75 = function(params)
+  {
+    return this.request('/Wl/Service/ServiceList/List75.json', params || {}, 'GET');
   };
 
   /**
