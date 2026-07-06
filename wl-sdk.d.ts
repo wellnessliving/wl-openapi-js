@@ -13491,13 +13491,6 @@ export interface WlBookProcessProcessGroupParams {
     k_class_period: string;
 }
 export interface WlBookProcessProcessGroupResponse {
-    /** List of errors that occurred during booking. */
-    a_book_error: Array<{
-        /** Error code identifying the type of error that occurred. */
-        text_code: string;
-        /** Human-readable error message describing the booking failure. */
-        text_message: string;
-    }>;
     /** Primary keys of users' activity that correspond to bookings made. */
     a_login_activity_book: Array<string>;
     /** Primary keys of bookings made. */

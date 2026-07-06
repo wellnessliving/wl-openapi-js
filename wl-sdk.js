@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260706102850
+ * Spec version: 1.1.20260706145201
  * Build date:   2026-07-06
  * Endpoints:    496
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260706102850';
+  WlClient.SPEC_VERSION = '1.1.20260706145201';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (496 total)
@@ -4185,7 +4185,6 @@
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
    * @returns {Promise<Object>} Response data.
-   *  `a_book_error` {Object[]} List of errors that occurred during booking.
    *  `a_login_activity_book` {string[]} Primary keys of users' activity that correspond to bookings made.
    *  `a_visit` {string[]} Primary keys of bookings made.
    *  `k_login_activity_purchase` {?string} The key of the user's activity corresponding to the purchase made.
