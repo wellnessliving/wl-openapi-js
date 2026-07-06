@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260706071712
+ * Spec version: 1.1.20260706111657
  * Build date:   2026-07-06
- * Endpoints:    483
+ * Endpoints:    485
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260706071712';
+  WlClient.SPEC_VERSION = '1.1.20260706111657';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (483 total)
+  // Generated API methods (485 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2921,7 +2921,6 @@
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
    * @returns {Promise<Object>} Response data.
-   *  `a_book_error` {Object[]} List of errors that occurred during booking.
    *  `a_login_activity_book` {string[]} Primary keys of users' activity that correspond to bookings made.
    *  `a_visit` {string[]} Primary keys of bookings made.
    *  `k_login_activity_purchase` {?string} The key of the user's activity corresponding to the purchase made.
@@ -9057,6 +9056,53 @@
   WlClient.prototype.wlProfileEditEmailEditEmailPost = function(params)
   {
     return this.request('/Wl/Profile/Edit/Email/EditEmail.json', params || {}, 'POST');
+  };
+
+  /**
+   * Loads unpaid appointments data for the multiple payment panel.
+   *
+   * Loads unpaid appointments together with their addons, applicable purchase options, and
+   *  purchase options already owned by the client. Appointments are loaded either for a client
+   *  and their relatives on a specific day, or for an explicit list of appointments specified in
+   *  {@link WlClient#wlProfileAttendanceSchedulePaymentMultipleGet}.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_appointment List of appointment keys for which to load unpaid data.
+   * @param {string} params.dtl_date Local date and time for which visit is booked in MySQL format.
+   * @param {boolean} params.is_simple When set to `true` it's mean that need load full information about unpaid visits:
+   * @param {string} params.k_business The business key.
+   * @param {string} params.k_location The location key.
+   * @param {string} params.k_visit Last booked visit key.
+   * @param {string} params.uid The user's key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_client` {Object} Clients' data.
+   *  `a_staff_list` {Object} List of available staff members for tips.
+   *  `i_unpaid_number` {number} Total number of unpaid appointments.
+   *  `is_tip` {boolean} Whether tips are accepted.
+   */
+  WlClient.prototype.wlProfileAttendanceSchedulePaymentMultipleGet = function(params)
+  {
+    return this.request('/Wl/Profile/Attendance/Schedule/PaymentMultiple.json', params || {}, 'GET');
+  };
+
+  /**
+   * Applies existing purchase options for appointments pay and generates a link for payment in the store.
+   *
+   * Applies purchase options and session passes already owned by the client to the selected
+   *  visits. Redirects to the store cart or checkout page so the client can complete payment for
+   *  any remaining unpaid addons or newly purchased purchase options.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {Object[]} params.a_visit_pay Visits payment data.
+   * @param {boolean} params.is_checkout Determines for which store page the redirection url should be generated.
+   * @param {string} params.k_business The business key.
+   * @param {string} params.uid The user's key.
+   * @returns {Promise<Object>} Response data.
+   *  `url_redirect` {string} Url for redirect after applying existing purchase options.
+   */
+  WlClient.prototype.wlProfileAttendanceSchedulePaymentMultiplePost = function(params)
+  {
+    return this.request('/Wl/Profile/Attendance/Schedule/PaymentMultiple.json', params || {}, 'POST');
   };
 
   /**

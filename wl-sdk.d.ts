@@ -10399,13 +10399,6 @@ export interface WlBookProcessProcessGroupParams {
     k_class_period: string;
 }
 export interface WlBookProcessProcessGroupResponse {
-    /** List of errors that occurred during booking. */
-    a_book_error: Array<{
-        /** Error code identifying the type of error that occurred. */
-        text_code: string;
-        /** Human-readable error message describing the booking failure. */
-        text_message: string;
-    }>;
     /** Primary keys of users' activity that correspond to bookings made. */
     a_login_activity_book: Array<string>;
     /** Primary keys of bookings made. */
@@ -23385,6 +23378,136 @@ export interface WlProfileEditEmailEditEmailPostResponse {
     /** Shows, whether client was registered in the business: `true` if user was added to the business, */
     is_added: boolean;
 }
+export interface WlProfileAttendanceSchedulePaymentMultipleGetParams {
+    /** List of appointment keys for which to load unpaid data. */
+    a_appointment: Array<string>;
+    /** Local date and time for which visit is booked in MySQL format. */
+    dtl_date: string;
+    /** When set to `true` it's mean that need load full information about unpaid visits: */
+    is_simple: boolean;
+    /** The business key. */
+    k_business: string;
+    /** The location key. */
+    k_location: string;
+    /** Last booked visit key. */
+    k_visit: string;
+    /** The user's key. */
+    uid: string;
+}
+export interface WlProfileAttendanceSchedulePaymentMultipleGetResponse {
+    /** Clients' data. */
+    a_client: {
+        /** Information about relation. `null` if there is no relation, in particular when appointments */
+        a_relation: {
+            /** Relation type between two relatives. @see RsFamilyRelationSid */
+            id_family_relation: RsFamilyRelationSid;
+            /** Payer UID. */
+            uid_payer: string;
+        } | null;
+        /** Unpaid appointments data. */
+        a_service: {
+            /** List of add-ons: */
+            a_addon: {
+                /** Number of the product. */
+                i_count: number;
+                /** `true` if the product is paid, otherwise `false`. */
+                is_paid: boolean;
+                /** Formatted product price */
+                html_price: string;
+                /** Product price. */
+                m_price: string;
+                /** Product title. */
+                text_title: string;
+            };
+            /** Promotions that can be used to pay for appointment: */
+            a_promotion_applicable: {
+                /** Promotion price. */
+                m_price: string;
+                /** Sort order. */
+                i_order: number;
+                /** Promotion key. */
+                text_key: string;
+                /** Promotion price. */
+                text_price: string;
+                /** Promotion title. */
+                text_title: string;
+            };
+            /** Promotions owned by the client, which can be used to pay for appointment: */
+            a_promotion_owned: {
+                /** Limit of visits. */
+                i_limit: number;
+                /** Sort order. */
+                i_order: number;
+                /** The number of the remaining visits. */
+                i_remain: number;
+                /** Promotion key. */
+                text_key: string;
+                /** Promotion price. */
+                text_price: string;
+                /** Promotion title. */
+                text_title: string;
+                /** Promotion title with number of remaining sessions. */
+                text_title_remain: string;
+            };
+            /** `true` if appointment has unpaid add-ons, otherwise `false`. */
+            has_unpaid_addon: boolean;
+            /** `true` if the appointment is not free and not paid, otherwise `false`. */
+            is_pay_need: boolean;
+            /** `true` if the payment is required, otherwise `false`. */
+            is_required: boolean;
+            /** Appointment key. */
+            k_appointment: string;
+            /** Appointment staff key. */
+            k_staff: string;
+            /** Appointment date. */
+            text_date: string;
+            /** Appointment title. */
+            text_service: string;
+            /** Name of the staff leading the appointment. `null` for asset. */
+            text_staff: string | null;
+            /** Appointment time. */
+            text_time: string;
+            /** Appointment timezone abbreviation. */
+            text_timezone_abbr: string;
+        };
+        /** The user for whom the appointment is booked. */
+        uid: string;
+    };
+    /** List of available staff members for tips. */
+    a_staff_list: {
+        /** Staff key. */
+        k_staff: string;
+        /** Name of the staff. */
+        text_name: string;
+    };
+    /** Total number of unpaid appointments. */
+    i_unpaid_number: number;
+    /** Whether tips are accepted. */
+    is_tip: boolean;
+}
+export interface WlProfileAttendanceSchedulePaymentMultiplePostParams {
+    /** Visits payment data. */
+    a_visit_pay: Array<{
+        /** Selected for payment products options keys. */
+        a_shop_product_option: Array<string>;
+        /** The visit key. */
+        k_visit: string;
+        /** Selected pay option to apply. The key has structure PayChangeApi::$text_key. */
+        text_key: string;
+        /** The user key. */
+        uid: string;
+    }>;
+    /** Determines for which store page the redirection url should be generated. */
+    is_checkout: boolean;
+    /** The business key. */
+    k_business: string;
+    /** The user's key. */
+    uid: string;
+}
+export interface WlProfileAttendanceSchedulePaymentMultiplePostResponse {
+    /** Url for redirect after applying existing purchase options. */
+    url_redirect: string;
+}
 export interface WlProfileFormResponseResponseListParams {
     /** Defines whether completed forms should not be included in result list of forms. */
     hide_completed: boolean;
@@ -26509,6 +26632,10 @@ export declare class WlProfileAttendanceScheduleNamespace {
     private readonly _client;
     readonly frontend: WlProfileAttendanceScheduleFrontendNamespace;
     constructor(_client: WlClient);
+    /** Loads unpaid appointments data for the multiple payment panel. */
+    paymentMultipleGet(params?: WlProfileAttendanceSchedulePaymentMultipleGetParams): Promise<WlProfileAttendanceSchedulePaymentMultipleGetResponse>;
+    /** Applies existing purchase options for appointments pay and generates a link for payment in the store. */
+    paymentMultiplePost(params?: WlProfileAttendanceSchedulePaymentMultiplePostParams): Promise<WlProfileAttendanceSchedulePaymentMultiplePostResponse>;
 }
 export declare class WlProfileAttendanceNamespace {
     private readonly _client;

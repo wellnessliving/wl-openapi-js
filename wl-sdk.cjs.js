@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260706071712
+// OpenAPI spec version: 1.1.20260706111657
 // Build date: 2026-07-06
-// Endpoints: 483
+// Endpoints: 485
 // Enums: 186
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AGenderSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlAnnouncementSortFieldSid = exports.CoreSidSortOrderSid = exports.WlAnnouncementAnnouncementStatusEnum = exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.AFlagSid = exports.RsScheduleTimeSid = exports.CoreDriveDriveTypeSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.RsProjectSid = exports.WlModeModeSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.WlImportCustomCustomSid = exports.WlVisitVisitSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.WlPayBankCardCardTypeEnum = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.RsReportSid = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.WlTaskTaskStatusSid = exports.WlGenderGenderSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.RsPayOwnerSid = exports.CoreLocaleLocaleSid = exports.ThothPayProcessorPayProcessorSid = exports.RsPayMethodSid = exports.ACardSystemSid = exports.CoreLocaleCurrencySid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.RsHomeTourSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.WlApiError = void 0;
@@ -6089,6 +6089,14 @@ class WlProfileAttendanceScheduleNamespace {
     constructor(_client) {
         this._client = _client;
         this.frontend = new WlProfileAttendanceScheduleFrontendNamespace(this._client);
+    }
+    /** Loads unpaid appointments data for the multiple payment panel. */
+    paymentMultipleGet(params) {
+        return this._client._request('/Wl/Profile/Attendance/Schedule/PaymentMultiple.json', params, 'GET');
+    }
+    /** Applies existing purchase options for appointments pay and generates a link for payment in the store. */
+    paymentMultiplePost(params) {
+        return this._client._request('/Wl/Profile/Attendance/Schedule/PaymentMultiple.json', params, 'POST');
     }
 }
 exports.WlProfileAttendanceScheduleNamespace = WlProfileAttendanceScheduleNamespace;
