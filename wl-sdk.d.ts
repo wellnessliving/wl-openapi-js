@@ -18359,7 +18359,12 @@ export interface WlUserInfoUserIntegrationResponse {
         is_reserve_with_google: boolean;
     } | null;
 }
-export type WlDoorAccessBrivoWebhookParams = Record<string, unknown>;
+export interface WlDoorAccessBrivoWebhookParams {
+    /** Business the webhook belongs to. Taken from the webhook URL. */
+    k_business: string;
+    /** Secret token from the webhook URL used to authenticate the Brivo request. */
+    s_token: string;
+}
 export type WlDoorAccessBrivoWebhookResponse = Record<string, unknown>;
 export interface WlIntegrationAutymateAutymateActivateParams {
     /** The mode of the request. @see WlIntegrationAutymateAutymateAccessModeSid */

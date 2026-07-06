@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260706082212
+ * Spec version: 1.1.20260706102850
  * Build date:   2026-07-06
  * Endpoints:    496
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260706082212';
+  WlClient.SPEC_VERSION = '1.1.20260706102850';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (496 total)
@@ -6627,6 +6627,8 @@
    *  Access-denied and unrecognized events are ignored.
    *
    * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business the webhook belongs to. Taken from the webhook URL.
+   * @param {string} params.s_token Secret token from the webhook URL used to authenticate the Brivo request.
    * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlDoorAccessBrivoWebhook = function(params)
