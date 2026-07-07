@@ -18641,8 +18641,12 @@ export interface WlDiscountCodeDiscountCodeParams {
     k_business: string;
 }
 export interface WlDiscountCodeDiscountCodeResponse {
-    /** Discount codes list. */
+    /** Discount codes list. Each element has the following structure: */
     a_list: Array<{
+        /** `true` if the discount code is active, `false` otherwise. */
+        is_active: boolean;
+        /** `true` if the discount code is removed, `false` otherwise. */
+        is_remove: boolean;
         /** Discount code key. */
         k_discount_code: string;
         /** Discount code title. */
@@ -22567,7 +22571,7 @@ export interface WlProfileAttendanceSchedulePaymentMultipleGetResponse {
             text_time: string;
             /** Appointment timezone abbreviation. */
             text_timezone_abbr: string;
-            /** Appointment staff user key, primary key in PassportLoginSql table. */
+            /** Appointment user key. */
             uid_staff: string;
         };
         /** The user for whom the appointment is booked. */
@@ -22582,7 +22586,7 @@ export interface WlProfileAttendanceSchedulePaymentMultipleGetResponse {
     } | {
         /** Staff full name. */
         text_name: string;
-        /** Staff user key, primary key in PassportLoginSql table. */
+        /** Staff user key. */
         uid_staff: string;
     };
     /** Total number of unpaid appointments. */
