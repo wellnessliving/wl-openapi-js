@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260707080132
+ * Spec version: 1.1.20260707081927
  * Build date:   2026-07-07
  * Endpoints:    485
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260707080132';
+  WlClient.SPEC_VERSION = '1.1.20260707081927';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (485 total)
@@ -6569,7 +6569,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key of the discount codes.
    * @returns {Promise<Object>} Response data.
-   *  `a_list` {Object[]} Discount codes list.
+   *  `a_list` {Object[]} Discount codes list. Each element has the following structure:
    */
   WlClient.prototype.wlDiscountCodeDiscountCode = function(params)
   {

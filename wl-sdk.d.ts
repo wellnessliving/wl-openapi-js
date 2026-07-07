@@ -18376,8 +18376,12 @@ export interface WlDiscountCodeDiscountCodeParams {
     k_business: string;
 }
 export interface WlDiscountCodeDiscountCodeResponse {
-    /** Discount codes list. */
+    /** Discount codes list. Each element has the following structure: */
     a_list: Array<{
+        /** `true` if the discount code is active, `false` otherwise. */
+        is_active: boolean;
+        /** `true` if the discount code is removed, `false` otherwise. */
+        is_remove: boolean;
         /** Discount code key. */
         k_discount_code: string;
         /** Discount code title. */
