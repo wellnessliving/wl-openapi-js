@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260707164110
+// OpenAPI spec version: 1.1.20260707130709
 // Build date: 2026-07-07
-// Endpoints: 468
-// Enums: 160
+// Endpoints: 485
+// Enums: 186
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (160 total) ---
+// --- Enum types (186 total) ---
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
 (function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
@@ -1964,6 +1964,92 @@ export var AGenderSid;
     /** Gender is undefined in cases where the user preferred not to identify their gender */
     AGenderSid[AGenderSid["UNDEFINED"] = 3] = "UNDEFINED";
 })(AGenderSid || (AGenderSid = {}));
+/** The status of form actions. */
+export var WlQuizActivityActivitySid;
+(function (WlQuizActivityActivitySid) {
+    /** Form was added to the profile */
+    WlQuizActivityActivitySid[WlQuizActivityActivitySid["ADD"] = 1] = "ADD";
+    /** Form was saved as a draft */
+    WlQuizActivityActivitySid[WlQuizActivityActivitySid["DRAFT"] = 2] = "DRAFT";
+    /** Form was edited */
+    WlQuizActivityActivitySid[WlQuizActivityActivitySid["EDIT"] = 3] = "EDIT";
+    /** Form was exported to CSV file */
+    WlQuizActivityActivitySid[WlQuizActivityActivitySid["EXPORT_CSV"] = 4] = "EXPORT_CSV";
+    /** Form was exported to PDF file */
+    WlQuizActivityActivitySid[WlQuizActivityActivitySid["EXPORT_PDF"] = 5] = "EXPORT_PDF";
+    /** Form was printed */
+    WlQuizActivityActivitySid[WlQuizActivityActivitySid["PRINTING"] = 6] = "PRINTING";
+    /** Form was submitted */
+    WlQuizActivityActivitySid[WlQuizActivityActivitySid["SUBMIT"] = 7] = "SUBMIT";
+    /** Form was viewed */
+    WlQuizActivityActivitySid[WlQuizActivityActivitySid["VIEW"] = 8] = "VIEW";
+})(WlQuizActivityActivitySid || (WlQuizActivityActivitySid = {}));
+/** List of quiz frequency types. */
+export var WlQuizQuizFrequencySid;
+(function (WlQuizQuizFrequencySid) {
+    /** Client will be asked to complete the quiz every time they book a service or purchase item */
+    WlQuizQuizFrequencySid[WlQuizQuizFrequencySid["EVERY"] = 1] = "EVERY";
+    /** Client will be asked to complete the quiz the first time they book a service or purchase item */
+    WlQuizQuizFrequencySid[WlQuizQuizFrequencySid["FIRST"] = 2] = "FIRST";
+    /** Client will be asked to complete the quiz only one time when they book a service or purchase item */
+    WlQuizQuizFrequencySid[WlQuizQuizFrequencySid["ONCE"] = 3] = "ONCE";
+})(WlQuizQuizFrequencySid || (WlQuizQuizFrequencySid = {}));
+/** A list of purchase types. */
+export var RsPurchaseItemSid;
+(function (RsPurchaseItemSid) {
+    /** Personal user's account refill */
+    RsPurchaseItemSid[RsPurchaseItemSid["ACCOUNT"] = 7] = "ACCOUNT";
+    /** Business account payment */
+    RsPurchaseItemSid[RsPurchaseItemSid["ACCOUNT_BUSINESS"] = 11] = "ACCOUNT_BUSINESS";
+    /** Single appointment reservation */
+    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT"] = 8] = "APPOINTMENT";
+    /** Single appointment reservation with deposit */
+    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT_DEPOSIT"] = 18] = "APPOINTMENT_DEPOSIT";
+    /** Tips for the appointment */
+    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT_TIP"] = 22] = "APPOINTMENT_TIP";
+    /** Expense that comes along with the payment business. It contains information about additional services which are */
+    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_EXPENSE"] = 16] = "BUSINESS_EXPENSE";
+    /** A skipped purchase for the business account */
+    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_SKIP"] = 17] = "BUSINESS_SKIP";
+    /** Business subscription payment */
+    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_SUBSCRIPTION"] = 23] = "BUSINESS_SUBSCRIPTION";
+    /** Single classes */
+    RsPurchaseItemSid[RsPurchaseItemSid["CLASS_PERIOD"] = 2] = "CLASS_PERIOD";
+    /** Collectors payments */
+    RsPurchaseItemSid[RsPurchaseItemSid["COLLECTOR_DEBT"] = 24] = "COLLECTOR_DEBT";
+    /** Arbitrary money withdrawal with comment */
+    RsPurchaseItemSid[RsPurchaseItemSid["COMMENT"] = 13] = "COMMENT";
+    /** Gift Cards */
+    RsPurchaseItemSid[RsPurchaseItemSid["COUPON"] = 10] = "COUPON";
+    /** Events and enrollments. Client can not book only one class, he needs to book the whole enrollment */
+    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT"] = 4] = "ENROLLMENT";
+    /** Enrollment reservation with a deposit */
+    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT_DEPOSIT"] = 19] = "ENROLLMENT_DEPOSIT";
+    /** Enrollment reservation with a discount */
+    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT_DISCOUNT"] = 21] = "ENROLLMENT_DISCOUNT";
+    /** Payment by an installment plan */
+    RsPurchaseItemSid[RsPurchaseItemSid["INSTALLMENT"] = 14] = "INSTALLMENT";
+    /** Recurrent payments */
+    RsPurchaseItemSid[RsPurchaseItemSid["MEMBERSHIP"] = 3] = "MEMBERSHIP";
+    /** Products */
+    RsPurchaseItemSid[RsPurchaseItemSid["PRODUCT"] = 9] = "PRODUCT";
+    /** Promotions */
+    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION"] = 1] = "PROMOTION";
+    /** Early cancellation fee for a memberships */
+    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION_CANCEL_FEE"] = 25] = "PROMOTION_CANCEL_FEE";
+    /** A purchase to renew a promotion */
+    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION_RENEW"] = 12] = "PROMOTION_RENEW";
+    /** A purchase to book an asset */
+    RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE"] = 15] = "RESOURCE";
+    /** A purchase to book a deposit asset */
+    RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE_DEPOSIT"] = 20] = "RESOURCE_DEPOSIT";
+    /** Purchase item for appointments */
+    RsPurchaseItemSid[RsPurchaseItemSid["SERVICE"] = 6] = "SERVICE";
+    /** Tuition purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TUITION"] = 26] = "TUITION";
+    /** Tuition fee purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TUITION_FEE"] = 27] = "TUITION_FEE";
+})(RsPurchaseItemSid || (RsPurchaseItemSid = {}));
 /** List of embed video sources. */
 export var WlVideoVideoEmbedSourceSid;
 (function (WlVideoVideoEmbedSourceSid) {
@@ -2342,62 +2428,6 @@ export var RsAppointmentPaySid;
     /** Nothing was paid */
     RsAppointmentPaySid[RsAppointmentPaySid["NONE"] = 1] = "NONE";
 })(RsAppointmentPaySid || (RsAppointmentPaySid = {}));
-/** A list of purchase types. */
-export var RsPurchaseItemSid;
-(function (RsPurchaseItemSid) {
-    /** Personal user's account refill */
-    RsPurchaseItemSid[RsPurchaseItemSid["ACCOUNT"] = 7] = "ACCOUNT";
-    /** Business account payment */
-    RsPurchaseItemSid[RsPurchaseItemSid["ACCOUNT_BUSINESS"] = 11] = "ACCOUNT_BUSINESS";
-    /** Single appointment reservation */
-    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT"] = 8] = "APPOINTMENT";
-    /** Single appointment reservation with deposit */
-    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT_DEPOSIT"] = 18] = "APPOINTMENT_DEPOSIT";
-    /** Tips for the appointment */
-    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT_TIP"] = 22] = "APPOINTMENT_TIP";
-    /** Expense that comes along with the payment business. It contains information about additional services which are */
-    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_EXPENSE"] = 16] = "BUSINESS_EXPENSE";
-    /** A skipped purchase for the business account */
-    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_SKIP"] = 17] = "BUSINESS_SKIP";
-    /** Business subscription payment */
-    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_SUBSCRIPTION"] = 23] = "BUSINESS_SUBSCRIPTION";
-    /** Single classes */
-    RsPurchaseItemSid[RsPurchaseItemSid["CLASS_PERIOD"] = 2] = "CLASS_PERIOD";
-    /** Collectors payments */
-    RsPurchaseItemSid[RsPurchaseItemSid["COLLECTOR_DEBT"] = 24] = "COLLECTOR_DEBT";
-    /** Arbitrary money withdrawal with comment */
-    RsPurchaseItemSid[RsPurchaseItemSid["COMMENT"] = 13] = "COMMENT";
-    /** Gift Cards */
-    RsPurchaseItemSid[RsPurchaseItemSid["COUPON"] = 10] = "COUPON";
-    /** Events and enrollments. Client can not book only one class, he needs to book the whole enrollment */
-    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT"] = 4] = "ENROLLMENT";
-    /** Enrollment reservation with a deposit */
-    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT_DEPOSIT"] = 19] = "ENROLLMENT_DEPOSIT";
-    /** Enrollment reservation with a discount */
-    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT_DISCOUNT"] = 21] = "ENROLLMENT_DISCOUNT";
-    /** Payment by an installment plan */
-    RsPurchaseItemSid[RsPurchaseItemSid["INSTALLMENT"] = 14] = "INSTALLMENT";
-    /** Recurrent payments */
-    RsPurchaseItemSid[RsPurchaseItemSid["MEMBERSHIP"] = 3] = "MEMBERSHIP";
-    /** Products */
-    RsPurchaseItemSid[RsPurchaseItemSid["PRODUCT"] = 9] = "PRODUCT";
-    /** Promotions */
-    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION"] = 1] = "PROMOTION";
-    /** Early cancellation fee for a memberships */
-    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION_CANCEL_FEE"] = 25] = "PROMOTION_CANCEL_FEE";
-    /** A purchase to renew a promotion */
-    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION_RENEW"] = 12] = "PROMOTION_RENEW";
-    /** A purchase to book an asset */
-    RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE"] = 15] = "RESOURCE";
-    /** A purchase to book a deposit asset */
-    RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE_DEPOSIT"] = 20] = "RESOURCE_DEPOSIT";
-    /** Purchase item for appointments */
-    RsPurchaseItemSid[RsPurchaseItemSid["SERVICE"] = 6] = "SERVICE";
-    /** Tuition purchase item */
-    RsPurchaseItemSid[RsPurchaseItemSid["TUITION"] = 26] = "TUITION";
-    /** Tuition fee purchase item */
-    RsPurchaseItemSid[RsPurchaseItemSid["TUITION_FEE"] = 27] = "TUITION_FEE";
-})(RsPurchaseItemSid || (RsPurchaseItemSid = {}));
 /** Possible ways to stop repeatable events. */
 export var RsRepeatEndSid;
 (function (RsRepeatEndSid) {
@@ -3172,6 +3202,34 @@ export var WlLoginTypeClientTypeSid;
     /** Record contains type of client */
     WlLoginTypeClientTypeSid[WlLoginTypeClientTypeSid["PASSHOLDER"] = 2] = "PASSHOLDER";
 })(WlLoginTypeClientTypeSid || (WlLoginTypeClientTypeSid = {}));
+/** List of sources where quiz response can be generated. */
+export var WlQuizResponseSourceSid;
+(function (WlQuizResponseSourceSid) {
+    /** Quiz response received during booking process */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["BOOKING"] = 2] = "BOOKING";
+    /** Quiz response was imported */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["IMPORT"] = 6] = "IMPORT";
+    /** Quiz response received by kiosk mode link */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["KIOSK"] = 7] = "KIOSK";
+    /** Quiz response received by direct link */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["LINK"] = 1] = "LINK";
+    /** Quiz response received by direct link */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["MANUAL"] = 5] = "MANUAL";
+    /** Quiz response received during purchase process */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["PURCHASE"] = 4] = "PURCHASE";
+    /** Quiz response received during registration process */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["REGISTRATION"] = 3] = "REGISTRATION";
+})(WlQuizResponseSourceSid || (WlQuizResponseSourceSid = {}));
+/** List of quick purchase item types. */
+export var WlCatalogQuickPurchaseTypeSid;
+(function (WlCatalogQuickPurchaseTypeSid) {
+    /** Classes */
+    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["CLASSES"] = 224] = "CLASSES";
+    /** Resource */
+    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["RESOURCE"] = 681] = "RESOURCE";
+    /** Service */
+    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["SERVICE"] = 690] = "SERVICE";
+})(WlCatalogQuickPurchaseTypeSid || (WlCatalogQuickPurchaseTypeSid = {}));
 /** Coupon date start rule. */
 export var WlCouponEditActivationSid;
 (function (WlCouponEditActivationSid) {
@@ -4520,24 +4578,6 @@ export var WlBookProcessProcessCheckSid;
     /** Check a client has no unsigned waiver */
     WlBookProcessProcessCheckSid[WlBookProcessProcessCheckSid["WAIVER"] = 2] = "WAIVER";
 })(WlBookProcessProcessCheckSid || (WlBookProcessProcessCheckSid = {}));
-/** List of sources where quiz response can be generated. */
-export var WlQuizResponseSourceSid;
-(function (WlQuizResponseSourceSid) {
-    /** Quiz response received during booking process */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["BOOKING"] = 2] = "BOOKING";
-    /** Quiz response was imported */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["IMPORT"] = 6] = "IMPORT";
-    /** Quiz response received by kiosk mode link */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["KIOSK"] = 7] = "KIOSK";
-    /** Quiz response received by direct link */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["LINK"] = 1] = "LINK";
-    /** Quiz response received by direct link */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["MANUAL"] = 5] = "MANUAL";
-    /** Quiz response received during purchase process */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["PURCHASE"] = 4] = "PURCHASE";
-    /** Quiz response received during registration process */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["REGISTRATION"] = 3] = "REGISTRATION";
-})(WlQuizResponseSourceSid || (WlQuizResponseSourceSid = {}));
 /** The list of possible actions for class modify wizard. */
 export var RsClassModifyActionSid;
 (function (RsClassModifyActionSid) {
@@ -4560,6 +4600,244 @@ export var RsClassModifyModeSid;
     /** Staff working hours */
     RsClassModifyModeSid[RsClassModifyModeSid["STAFF_PERIOD"] = 3] = "STAFF_PERIOD";
 })(RsClassModifyModeSid || (RsClassModifyModeSid = {}));
+/** List of possible plans for AiAgentSubscription subscription. */
+export var WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid;
+(function (WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid) {
+    /** Chat Agent */
+    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["CHAT_AGENT"] = 4] = "CHAT_AGENT";
+    /** Dental Phone Agent */
+    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["DENTAL_PHONE_AGENT"] = 5] = "DENTAL_PHONE_AGENT";
+    /** None */
+    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+    /** Assistant */
+    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["STANDARD"] = 3] = "STANDARD";
+})(WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid || (WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = {}));
+/** List of possible plans for SmsSubscription subscription. */
+export var WlBusinessAccountSubscriptionSmsSmsSubscriptionSid;
+(function (WlBusinessAccountSubscriptionSmsSmsSubscriptionSid) {
+    /** 1000 Messages */
+    WlBusinessAccountSubscriptionSmsSmsSubscriptionSid[WlBusinessAccountSubscriptionSmsSmsSubscriptionSid["CENTER_1000"] = 5] = "CENTER_1000";
+    /** 10000 Messages */
+    WlBusinessAccountSubscriptionSmsSmsSubscriptionSid[WlBusinessAccountSubscriptionSmsSmsSubscriptionSid["CENTER_10000"] = 8] = "CENTER_10000";
+    /** 2500 Messages */
+    WlBusinessAccountSubscriptionSmsSmsSubscriptionSid[WlBusinessAccountSubscriptionSmsSmsSubscriptionSid["CENTER_2500"] = 6] = "CENTER_2500";
+    /** 25000 Messages */
+    WlBusinessAccountSubscriptionSmsSmsSubscriptionSid[WlBusinessAccountSubscriptionSmsSmsSubscriptionSid["CENTER_25000"] = 9] = "CENTER_25000";
+    /** 500 Messages */
+    WlBusinessAccountSubscriptionSmsSmsSubscriptionSid[WlBusinessAccountSubscriptionSmsSmsSubscriptionSid["CENTER_500"] = 4] = "CENTER_500";
+    /** 5000 Messages */
+    WlBusinessAccountSubscriptionSmsSmsSubscriptionSid[WlBusinessAccountSubscriptionSmsSmsSubscriptionSid["CENTER_5000"] = 7] = "CENTER_5000";
+    /** Message Center Custom */
+    WlBusinessAccountSubscriptionSmsSmsSubscriptionSid[WlBusinessAccountSubscriptionSmsSmsSubscriptionSid["CENTER_CUSTOM"] = 10] = "CENTER_CUSTOM";
+    /** Enterprise */
+    WlBusinessAccountSubscriptionSmsSmsSubscriptionSid[WlBusinessAccountSubscriptionSmsSmsSubscriptionSid["ENTERPRISE"] = 11] = "ENTERPRISE";
+    /** None */
+    WlBusinessAccountSubscriptionSmsSmsSubscriptionSid[WlBusinessAccountSubscriptionSmsSmsSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Message Center Professional */
+    WlBusinessAccountSubscriptionSmsSmsSubscriptionSid[WlBusinessAccountSubscriptionSmsSmsSubscriptionSid["PREMIUM"] = 3] = "PREMIUM";
+})(WlBusinessAccountSubscriptionSmsSmsSubscriptionSid || (WlBusinessAccountSubscriptionSmsSmsSubscriptionSid = {}));
+/** List of possible plans for FitliveSubscription subscription. */
+export var WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid;
+(function (WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid) {
+    /** Advanced */
+    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["ADVANCED"] = 5] = "ADVANCED";
+    /** Basic */
+    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["BASIC"] = 4] = "BASIC";
+    /** None */
+    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["LICENCED"] = 2] = "LICENCED";
+    /** Suspended */
+    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["SUSPENDED"] = 3] = "SUSPENDED";
+})(WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid || (WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = {}));
+/** List of possible plans for ZoomSubscription subscription. */
+export var WlBusinessAccountSubscriptionZoomZoomSubscriptionSid;
+(function (WlBusinessAccountSubscriptionZoomZoomSubscriptionSid) {
+    /** Basic */
+    WlBusinessAccountSubscriptionZoomZoomSubscriptionSid[WlBusinessAccountSubscriptionZoomZoomSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** None */
+    WlBusinessAccountSubscriptionZoomZoomSubscriptionSid[WlBusinessAccountSubscriptionZoomZoomSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionZoomZoomSubscriptionSid[WlBusinessAccountSubscriptionZoomZoomSubscriptionSid["PROFESSIONAL"] = 3] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionZoomZoomSubscriptionSid || (WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = {}));
+/** List of possible plans for FinanceSubscription subscription. */
+export var WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid;
+(function (WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid[WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid[WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid || (WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid = {}));
+/** List of possible plans for FitbuilderSubscription subscription. */
+export var WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid;
+(function (WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid[WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid[WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid || (WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = {}));
+/** List of possible plans for FitvidSubscription subscription. */
+export var WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid;
+(function (WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid) {
+    /** Basic */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** Enterprise */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["ENTERPRISE"] = 3] = "ENTERPRISE";
+    /** None */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Premium */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["PREMIUM"] = 4] = "PREMIUM";
+})(WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid || (WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = {}));
+/** List of possible plans for FitzoneSubscription subscription. */
+export var WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid;
+(function (WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid[WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid[WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid || (WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = {}));
+/** List of possible plans for PostcardSubscription subscription. */
+export var WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid;
+(function (WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid) {
+    /** Basic */
+    WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid[WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid["BASIC"] = 3] = "BASIC";
+    /** None */
+    WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid[WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid[WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid || (WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid = {}));
+/** List of possible plans for QuizSubscription subscription. */
+export var WlBusinessAccountSubscriptionQuizQuizSubscriptionSid;
+(function (WlBusinessAccountSubscriptionQuizQuizSubscriptionSid) {
+    /** Business */
+    WlBusinessAccountSubscriptionQuizQuizSubscriptionSid[WlBusinessAccountSubscriptionQuizQuizSubscriptionSid["BUSINESS"] = 3] = "BUSINESS";
+    /** None */
+    WlBusinessAccountSubscriptionQuizQuizSubscriptionSid[WlBusinessAccountSubscriptionQuizQuizSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionQuizQuizSubscriptionSid[WlBusinessAccountSubscriptionQuizQuizSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+    /** Starter */
+    WlBusinessAccountSubscriptionQuizQuizSubscriptionSid[WlBusinessAccountSubscriptionQuizQuizSubscriptionSid["STARTER"] = 4] = "STARTER";
+})(WlBusinessAccountSubscriptionQuizQuizSubscriptionSid || (WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = {}));
+/** List of possible plans for ReviewSubscription subscription. */
+export var WlBusinessAccountSubscriptionReviewReviewSubscriptionSid;
+(function (WlBusinessAccountSubscriptionReviewReviewSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionReviewReviewSubscriptionSid[WlBusinessAccountSubscriptionReviewReviewSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionReviewReviewSubscriptionSid[WlBusinessAccountSubscriptionReviewReviewSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionReviewReviewSubscriptionSid || (WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = {}));
+/** List of possible plans for RewardSubscription subscription. */
+export var WlBusinessAccountSubscriptionRewardRewardSubscriptionSid;
+(function (WlBusinessAccountSubscriptionRewardRewardSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionRewardRewardSubscriptionSid[WlBusinessAccountSubscriptionRewardRewardSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionRewardRewardSubscriptionSid[WlBusinessAccountSubscriptionRewardRewardSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionRewardRewardSubscriptionSid || (WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = {}));
+/** List of possible plans for WebsiteSubscription subscription. */
+export var WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid;
+(function (WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid) {
+    /** Basic */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** Basic */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["BASIC_LARGE"] = 6] = "BASIC_LARGE";
+    /** Enterprise */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["ENTERPRISE"] = 4] = "ENTERPRISE";
+    /** None */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Premium */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PREMIUM"] = 3] = "PREMIUM";
+    /** Premium (Business Max) */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PREMIUM_MAX"] = 7] = "PREMIUM_MAX";
+    /** Professional */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PROFESSIONAL"] = 5] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid || (WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = {}));
+/** List of possible plans for AssetSubscription subscription. */
+export var WlBusinessAccountSubscriptionAssetAssetSubscriptionSid;
+(function (WlBusinessAccountSubscriptionAssetAssetSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionAssetAssetSubscriptionSid[WlBusinessAccountSubscriptionAssetAssetSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionAssetAssetSubscriptionSid[WlBusinessAccountSubscriptionAssetAssetSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionAssetAssetSubscriptionSid || (WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = {}));
+/** List of possible plans for DoorSubscription subscription. */
+export var WlBusinessAccountSubscriptionDoorDoorSubscriptionSid;
+(function (WlBusinessAccountSubscriptionDoorDoorSubscriptionSid) {
+    /** Brivo */
+    WlBusinessAccountSubscriptionDoorDoorSubscriptionSid[WlBusinessAccountSubscriptionDoorDoorSubscriptionSid["BASE"] = 2] = "BASE";
+    /** None */
+    WlBusinessAccountSubscriptionDoorDoorSubscriptionSid[WlBusinessAccountSubscriptionDoorDoorSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Passport */
+    WlBusinessAccountSubscriptionDoorDoorSubscriptionSid[WlBusinessAccountSubscriptionDoorDoorSubscriptionSid["PASSPORT"] = 3] = "PASSPORT";
+})(WlBusinessAccountSubscriptionDoorDoorSubscriptionSid || (WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = {}));
+/** List of possible plans for ApiSubscription subscription. */
+export var WlBusinessAccountSubscriptionApiApiSubscriptionSid;
+(function (WlBusinessAccountSubscriptionApiApiSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionApiApiSubscriptionSid[WlBusinessAccountSubscriptionApiApiSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Premium */
+    WlBusinessAccountSubscriptionApiApiSubscriptionSid[WlBusinessAccountSubscriptionApiApiSubscriptionSid["PREMIUM"] = 2] = "PREMIUM";
+})(WlBusinessAccountSubscriptionApiApiSubscriptionSid || (WlBusinessAccountSubscriptionApiApiSubscriptionSid = {}));
+/** List of possible plans for ZapierSubscription subscription. */
+export var WlBusinessAccountSubscriptionZapierZapierSubscriptionSid;
+(function (WlBusinessAccountSubscriptionZapierZapierSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionZapierZapierSubscriptionSid[WlBusinessAccountSubscriptionZapierZapierSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionZapierZapierSubscriptionSid[WlBusinessAccountSubscriptionZapierZapierSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionZapierZapierSubscriptionSid || (WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = {}));
+/** List of possible plans for CollectionsSubscription subscription. */
+export var WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid;
+(function (WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid[WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Integration Requested */
+    WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid[WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid["INTEGRATION_REQUESTED"] = 3] = "INTEGRATION_REQUESTED";
+    /** Professional */
+    WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid[WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid || (WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = {}));
+/** List of possible plans for GoHighLevelSubscription subscription. */
+export var WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid;
+(function (WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid) {
+    /** Standard */
+    WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid[WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** Free */
+    WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid[WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid["FREE"] = 1] = "FREE";
+})(WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid || (WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = {}));
+/** List of possible plans for EmailSubscription subscription. */
+export var WlBusinessAccountSubscriptionEmailEmailSubscriptionSid;
+(function (WlBusinessAccountSubscriptionEmailEmailSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionEmailEmailSubscriptionSid[WlBusinessAccountSubscriptionEmailEmailSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Standard */
+    WlBusinessAccountSubscriptionEmailEmailSubscriptionSid[WlBusinessAccountSubscriptionEmailEmailSubscriptionSid["STANDARD"] = 2] = "STANDARD";
+})(WlBusinessAccountSubscriptionEmailEmailSubscriptionSid || (WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = {}));
+/** List of possible plans for ConstantContactSubscription subscription. */
+export var WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid;
+(function (WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid[WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Standard */
+    WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid[WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid["STANDARD"] = 2] = "STANDARD";
+})(WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid || (WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = {}));
+/** List of possible plans for MailchimpSubscription subscription. */
+export var WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid;
+(function (WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid[WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Standard */
+    WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid[WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid["STANDARD"] = 2] = "STANDARD";
+})(WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid || (WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = {}));
+/** List of possible plans for BusinessCoachSubscription subscription. */
+export var WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid;
+(function (WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid) {
+    /** Business Success Coaching */
+    WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid[WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid["BUSINESS_SUCCESS_COACHING"] = 2] = "BUSINESS_SUCCESS_COACHING";
+    /** No subscription */
+    WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid[WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid["FREE"] = 1] = "FREE";
+})(WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid || (WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = {}));
 /** List of options to convert promotion. */
 export var WlPromotionConvertPromotionConvertSid;
 (function (WlPromotionConvertPromotionConvertSid) {
@@ -5898,6 +6176,10 @@ export class WlBusinessAccountSubscriptionNamespace {
         this._client = _client;
         this.achieve = new WlBusinessAccountSubscriptionAchieveNamespace(this._client);
     }
+    /** Gets information about subscription. */
+    subscriptionInfo(params) {
+        return this._client._request('/Wl/Business/Account/Subscription/SubscriptionInfo.json', params, 'GET');
+    }
 }
 export class WlBusinessAccountNamespace {
     constructor(_client) {
@@ -6544,6 +6826,89 @@ export class WlLoginNamespace {
     /** Retrieves information about a list of users. This is done via "post" method because only "post" allows large requests. */
     loginPost(params) {
         return this._client._request('/Wl/Login/Login.json', params, 'POST');
+    }
+}
+export class WlQuizResponseNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes the specified quiz response or list of responses for the given business. */
+    response65Delete(params) {
+        return this._client._request('/Wl/Quiz/Response/Response65.json', params, 'DELETE');
+    }
+    /** Returns quiz response data including element answers, dates, and access information. */
+    response65Get(params) {
+        return this._client._request('/Wl/Quiz/Response/Response65.json', params, 'GET');
+    }
+    /** Saves a quiz response with the given element answers. */
+    response65Post(params) {
+        return this._client._request('/Wl/Quiz/Response/Response65.json', params, 'POST');
+    }
+    /** Validates, updates and reindex response information for associated user. */
+    response65Put(params) {
+        return this._client._request('/Wl/Quiz/Response/Response65.json', params, 'PUT');
+    }
+    /** Deletes the specified quiz response or list of responses for the given business. */
+    /** @deprecated */
+    responseDelete(params) {
+        return this._client._request('/Wl/Quiz/Response/Response.json', params, 'DELETE');
+    }
+    /** Returns quiz response data including element answers, dates, and access information. */
+    /** @deprecated */
+    responseGet(params) {
+        return this._client._request('/Wl/Quiz/Response/Response.json', params, 'GET');
+    }
+    /** Saves a quiz response with the given element answers. */
+    /** @deprecated */
+    responsePost(params) {
+        return this._client._request('/Wl/Quiz/Response/Response.json', params, 'POST');
+    }
+    /** Validates, updates and reindex response information for associated user. */
+    /** @deprecated */
+    responsePut(params) {
+        return this._client._request('/Wl/Quiz/Response/Response.json', params, 'PUT');
+    }
+}
+export class WlQuizNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.response = new WlQuizResponseNamespace(this._client);
+    }
+    /** Deletes the quiz with the given key. */
+    /** @deprecated */
+    quizElementDelete(params) {
+        return this._client._request('/Wl/Quiz/QuizElement.json', params, 'DELETE');
+    }
+    /** Returns quiz element data including settings, elements, and access information for the given quiz. */
+    /** @deprecated */
+    quizElementGet(params) {
+        return this._client._request('/Wl/Quiz/QuizElement.json', params, 'GET');
+    }
+    /** Creates or updates a quiz with the given elements and settings. */
+    /** @deprecated */
+    quizElementPost(params) {
+        return this._client._request('/Wl/Quiz/QuizElement.json', params, 'POST');
+    }
+    /** Updates the active status of the given quiz. */
+    /** @deprecated */
+    quizElementPut(params) {
+        return this._client._request('/Wl/Quiz/QuizElement.json', params, 'PUT');
+    }
+    /** Deletes the quiz with the given key. */
+    quizElement72Delete(params) {
+        return this._client._request('/Wl/Quiz/QuizElement72.json', params, 'DELETE');
+    }
+    /** Returns quiz element data including settings, elements, and access information for the given quiz. */
+    quizElement72Get(params) {
+        return this._client._request('/Wl/Quiz/QuizElement72.json', params, 'GET');
+    }
+    /** Creates or updates a quiz with the given elements and settings. */
+    quizElement72Post(params) {
+        return this._client._request('/Wl/Quiz/QuizElement72.json', params, 'POST');
+    }
+    /** Updates the active status of the given quiz. */
+    quizElement72Put(params) {
+        return this._client._request('/Wl/Quiz/QuizElement72.json', params, 'PUT');
     }
 }
 export class WlVideoWatchNamespace {
@@ -8471,6 +8836,7 @@ export class WlNamespace {
         this.lead = new WlLeadNamespace(this._client);
         this.promotion = new WlPromotionNamespace(this._client);
         this.login = new WlLoginNamespace(this._client);
+        this.quiz = new WlQuizNamespace(this._client);
         this.video = new WlVideoNamespace(this._client);
         this.fitbuilder = new WlFitbuilderNamespace(this._client);
         this.mail = new WlMailNamespace(this._client);
