@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260706210751
+// OpenAPI spec version: 1.1.20260707081558
 // Build date: 2026-07-07
-// Endpoints: 497
+// Endpoints: 499
 // Enums: 187
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -6452,6 +6452,14 @@ export class WlProfileAttendanceScheduleNamespace {
     constructor(_client) {
         this._client = _client;
         this.frontend = new WlProfileAttendanceScheduleFrontendNamespace(this._client);
+    }
+    /** Loads unpaid appointments data for the multiple payment panel. */
+    paymentMultipleGet(params) {
+        return this._client._request('/Wl/Profile/Attendance/Schedule/PaymentMultiple.json', params, 'GET');
+    }
+    /** Applies existing purchase options for appointments pay and generates a link for payment in the store. */
+    paymentMultiplePost(params) {
+        return this._client._request('/Wl/Profile/Attendance/Schedule/PaymentMultiple.json', params, 'POST');
     }
 }
 export class WlProfileAttendanceNamespace {
