@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260708103828
+ * Spec version: 1.1.20260708114809
  * Build date:   2026-07-08
- * Endpoints:    499
+ * Endpoints:    500
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260708103828';
+  WlClient.SPEC_VERSION = '1.1.20260708114809';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (499 total)
+  // Generated API methods (500 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -4426,6 +4426,21 @@
   WlClient.prototype.wlClassesInfoInfo = function(params)
   {
     return this.request('/Wl/Classes/Info/Info.json', params || {}, 'GET');
+  };
+
+  /**
+   * Gets the list of promotions and products available at the location.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business The business key.
+   * @param {string} params.k_location The location key to filter available items by.
+   * @returns {Promise<Object>} Response data.
+   *  `a_product` {Object[]} The list of products available at the location. Each element has the followin...
+   *  `a_promotion` {Object[]} The list of promotions available at the location. Each element has the follow...
+   */
+  WlClient.prototype.wlBillingBulkPurchaseItemList = function(params)
+  {
+    return this.request('/Wl/Billing/Bulk/PurchaseItemList.json', params || {}, 'GET');
   };
 
   /**

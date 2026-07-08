@@ -13919,6 +13919,45 @@ export interface WlClassesInfoInfoResponse {
     /** Title of the class. */
     text_title: string;
 }
+export interface WlBillingBulkPurchaseItemListParams {
+    /** The business key. */
+    k_business: string;
+    /** The location key to filter available items by. */
+    k_location: string;
+}
+export interface WlBillingBulkPurchaseItemListResponse {
+    /** The list of products available at the location. Each element has the following structure: */
+    a_product: Array<{
+        /** The list of product options available at the location. Each element has the following structure: */
+        a_option: {
+            /** `true` if the product tracks inventory, `false` otherwise. */
+            is_inventory: boolean;
+            /** The product option key. */
+            k_shop_product_option: string;
+            /** The regular price of the option. */
+            m_price: string;
+            /** The product option title. */
+            text_title: string;
+        };
+        /** The product key. */
+        k_shop_product: string;
+        /** The product title. */
+        text_title: string;
+    }>;
+    /** The list of promotions available at the location. Each element has the following structure: */
+    a_promotion: Array<{
+        /** The promotion program. */
+        id_program: number;
+        /** The promotion program type. */
+        id_program_type: number;
+        /** The promotion key. */
+        k_promotion: string;
+        /** The promotion price, excluding taxes. */
+        m_price: string;
+        /** The promotion title. */
+        text_title: string;
+    }>;
+}
 export interface WlProfilePurchasePurchaseElementParams {
     /** The key of the redemption code used to obtain some goods. */
     k_code: string;
@@ -27847,6 +27886,17 @@ export declare class WlClassesNamespace {
     readonly period: WlClassesPeriodNamespace;
     constructor(_client: WlClient);
 }
+export declare class WlBillingBulkNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets the list of promotions and products available at the location. */
+    purchaseItemList(params?: WlBillingBulkPurchaseItemListParams): Promise<WlBillingBulkPurchaseItemListResponse>;
+}
+export declare class WlBillingNamespace {
+    private readonly _client;
+    readonly bulk: WlBillingBulkNamespace;
+    constructor(_client: WlClient);
+}
 export declare class WlAppointmentEditNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -28534,6 +28584,7 @@ export declare class WlNamespace {
     readonly notification: WlNotificationNamespace;
     readonly book: WlBookNamespace;
     readonly classes: WlClassesNamespace;
+    readonly billing: WlBillingNamespace;
     readonly appointment: WlAppointmentNamespace;
     readonly purchase: WlPurchaseNamespace;
     readonly service: WlServiceNamespace;

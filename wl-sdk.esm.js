@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260708103828
+// OpenAPI spec version: 1.1.20260708114809
 // Build date: 2026-07-08
-// Endpoints: 499
+// Endpoints: 500
 // Enums: 187
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -7687,6 +7687,21 @@ export class WlClassesNamespace {
         this.period = new WlClassesPeriodNamespace(this._client);
     }
 }
+export class WlBillingBulkNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets the list of promotions and products available at the location. */
+    purchaseItemList(params) {
+        return this._client._request('/Wl/Billing/Bulk/PurchaseItemList.json', params, 'GET');
+    }
+}
+export class WlBillingNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.bulk = new WlBillingBulkNamespace(this._client);
+    }
+}
 export class WlAppointmentEditNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8685,6 +8700,7 @@ export class WlNamespace {
         this.notification = new WlNotificationNamespace(this._client);
         this.book = new WlBookNamespace(this._client);
         this.classes = new WlClassesNamespace(this._client);
+        this.billing = new WlBillingNamespace(this._client);
         this.appointment = new WlAppointmentNamespace(this._client);
         this.purchase = new WlPurchaseNamespace(this._client);
         this.service = new WlServiceNamespace(this._client);
