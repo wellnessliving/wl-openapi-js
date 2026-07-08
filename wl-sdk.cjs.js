@@ -1,8 +1,8 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260707153245
-// Build date: 2026-07-07
+// OpenAPI spec version: 1.1.20260708081355
+// Build date: 2026-07-08
 // Endpoints: 499
 // Enums: 187
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -3682,6 +3682,8 @@ var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PARTNER_PROGRAM_MANAGE"] = 94] = "PARTNER_PROGRAM_MANAGE";
     /** Access to Payment Processing */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PAYMENT_PROCESSING"] = 166] = "PAYMENT_PROCESSING";
+    /** Allows the staff member to initiate bulk billing of multiple clients in one batch */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PERFORM_BULK_BILLING"] = 245] = "PERFORM_BULK_BILLING";
     /** Permission to perform Physical Inventory Count */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PHYSICAL_INVENTORY_COUNT"] = 156] = "PHYSICAL_INVENTORY_COUNT";
     /** Staff member with this role will be able to send postcards */
