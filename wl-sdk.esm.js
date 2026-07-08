@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260707130709
+// OpenAPI spec version: 1.1.20260708062531
 // Build date: 2026-07-08
-// Endpoints: 485
-// Enums: 186
+// Endpoints: 497
+// Enums: 187
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (186 total) ---
+// --- Enum types (187 total) ---
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
 (function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
@@ -90,22 +90,16 @@ export var RsHomeTourSid;
     /** Zumba */
     RsHomeTourSid[RsHomeTourSid["ZUMBA"] = 27] = "ZUMBA";
 })(RsHomeTourSid || (RsHomeTourSid = {}));
-/** Lists statuses of reports from point of view of its generation. */
-export var ThothReportCoreGeneratorReportGeneratorStatusSid;
-(function (ThothReportCoreGeneratorReportGeneratorStatusSid) {
-    /** Report is in an inconsistent state */
-    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["ABORTED"] = 6] = "ABORTED";
-    /** Current operation is being aborted now */
-    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["ABORTING"] = 5] = "ABORTING";
-    /** This report is being deleted now */
-    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["DELETING"] = 4] = "DELETING";
-    /** This report is being generated now */
-    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["GENERATING"] = 2] = "GENERATING";
-    /** Generation of this report is queued */
-    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["QUEUED"] = 1] = "QUEUED";
-    /** Generation of this report is now completed */
-    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["READY"] = 3] = "READY";
-})(ThothReportCoreGeneratorReportGeneratorStatusSid || (ThothReportCoreGeneratorReportGeneratorStatusSid = {}));
+/** Payment actors (staff member, user or business owner). */
+export var RsPayActorSid;
+(function (RsPayActorSid) {
+    /** Business owner */
+    RsPayActorSid[RsPayActorSid["BUSINESS"] = 3] = "BUSINESS";
+    /** Staff member */
+    RsPayActorSid[RsPayActorSid["STAFF"] = 1] = "STAFF";
+    /** User */
+    RsPayActorSid[RsPayActorSid["USER"] = 2] = "USER";
+})(RsPayActorSid || (RsPayActorSid = {}));
 /** A list of currencies. */
 export var CoreLocaleCurrencySid;
 (function (CoreLocaleCurrencySid) {
@@ -148,6 +142,72 @@ export var CoreLocaleCurrencySid;
     /** South African rand */
     CoreLocaleCurrencySid[CoreLocaleCurrencySid["ZAR"] = 7] = "ZAR";
 })(CoreLocaleCurrencySid || (CoreLocaleCurrencySid = {}));
+/** Statuses of payment intents. */
+export var ThothPayProcessorStripeComPaymentIntentStatusSid;
+(function (ThothPayProcessorStripeComPaymentIntentStatusSid) {
+    /** You may cancel a Payment Intent at any point before it is processing or succeeded. This invalidates the */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["CANCELED"] = 7] = "CANCELED";
+    /** Once required actions are handled, the Payment Intent moves to processing. While for some payment methods */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["PROCESSING"] = 4] = "PROCESSING";
+    /** If the payment requires additional actions, such as authenticating with 3D Secure , the Payment Intent has a status */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_ACTION"] = 3] = "REQUIRES_ACTION";
+    /** Requires capture */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_CAPTURE"] = 6] = "REQUIRES_CAPTURE";
+    /** After the customer provides their payment information, the Payment Intent is ready to be confirmed */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_CONFIRMATION"] = 2] = "REQUIRES_CONFIRMATION";
+    /** When the Payment Intent is created, it has a status of `requires_payment_method` until a payment method is */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_PAYMENT_METHOD"] = 1] = "REQUIRES_PAYMENT_METHOD";
+    /** A Payment Intent with a status of succeeded means that the payment flow it is driving is complete */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["SUCCEEDED"] = 5] = "SUCCEEDED";
+})(ThothPayProcessorStripeComPaymentIntentStatusSid || (ThothPayProcessorStripeComPaymentIntentStatusSid = {}));
+/** An enum of credit card types. */
+export var ThothWlPayBankCardCardTypeEnum;
+(function (ThothWlPayBankCardCardTypeEnum) {
+    /** Credit Card */
+    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["CREDIT"] = 1] = "CREDIT";
+    /** Debit Card */
+    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
+})(ThothWlPayBankCardCardTypeEnum || (ThothWlPayBankCardCardTypeEnum = {}));
+/** A list of payment methods. */
+export var RsPayMethodSid;
+(function (RsPayMethodSid) {
+    /** Payment with personal user account (rs.pay.account) */
+    RsPayMethodSid[RsPayMethodSid["ACCOUNT"] = 7] = "ACCOUNT";
+    /** ACH system (USA-specific direct banking transactions) */
+    RsPayMethodSid[RsPayMethodSid["ACH"] = 9] = "ACH";
+    /** Payment with cash */
+    RsPayMethodSid[RsPayMethodSid["CASH"] = 4] = "CASH";
+    /** Payment with a cheque */
+    RsPayMethodSid[RsPayMethodSid["CHEQUE"] = 5] = "CHEQUE";
+    /** Payment with a coupon */
+    RsPayMethodSid[RsPayMethodSid["COUPON"] = 8] = "COUPON";
+    /** Direct Entry system (australian-specific direct banking transactions) */
+    RsPayMethodSid[RsPayMethodSid["DIRECT_ENTRY"] = 10] = "DIRECT_ENTRY";
+    /** Online payment. Card not present */
+    RsPayMethodSid[RsPayMethodSid["ECOMMERCE"] = 2] = "ECOMMERCE";
+    /** Payment with an external terminal */
+    RsPayMethodSid[RsPayMethodSid["EXTERNAL"] = 6] = "EXTERNAL";
+    /** Special method to be used for migration process */
+    RsPayMethodSid[RsPayMethodSid["IMPORT_ACCRUAL"] = 11] = "IMPORT_ACCRUAL";
+    /** Payment method at a Points of sale */
+    RsPayMethodSid[RsPayMethodSid["POS"] = 1] = "POS";
+})(RsPayMethodSid || (RsPayMethodSid = {}));
+/** Lists statuses of reports from point of view of its generation. */
+export var ThothReportCoreGeneratorReportGeneratorStatusSid;
+(function (ThothReportCoreGeneratorReportGeneratorStatusSid) {
+    /** Report is in an inconsistent state */
+    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["ABORTED"] = 6] = "ABORTED";
+    /** Current operation is being aborted now */
+    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["ABORTING"] = 5] = "ABORTING";
+    /** This report is being deleted now */
+    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["DELETING"] = 4] = "DELETING";
+    /** This report is being generated now */
+    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["GENERATING"] = 2] = "GENERATING";
+    /** Generation of this report is queued */
+    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["QUEUED"] = 1] = "QUEUED";
+    /** Generation of this report is now completed */
+    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["READY"] = 3] = "READY";
+})(ThothReportCoreGeneratorReportGeneratorStatusSid || (ThothReportCoreGeneratorReportGeneratorStatusSid = {}));
 /** A class for a list of card systems. */
 export var ACardSystemSid;
 (function (ACardSystemSid) {
@@ -180,30 +240,6 @@ export var ACardSystemSid;
     /** Visa */
     ACardSystemSid[ACardSystemSid["VISA"] = 12] = "VISA";
 })(ACardSystemSid || (ACardSystemSid = {}));
-/** A list of payment methods. */
-export var RsPayMethodSid;
-(function (RsPayMethodSid) {
-    /** Payment with personal user account (rs.pay.account) */
-    RsPayMethodSid[RsPayMethodSid["ACCOUNT"] = 7] = "ACCOUNT";
-    /** ACH system (USA-specific direct banking transactions) */
-    RsPayMethodSid[RsPayMethodSid["ACH"] = 9] = "ACH";
-    /** Payment with cash */
-    RsPayMethodSid[RsPayMethodSid["CASH"] = 4] = "CASH";
-    /** Payment with a cheque */
-    RsPayMethodSid[RsPayMethodSid["CHEQUE"] = 5] = "CHEQUE";
-    /** Payment with a coupon */
-    RsPayMethodSid[RsPayMethodSid["COUPON"] = 8] = "COUPON";
-    /** Direct Entry system (australian-specific direct banking transactions) */
-    RsPayMethodSid[RsPayMethodSid["DIRECT_ENTRY"] = 10] = "DIRECT_ENTRY";
-    /** Online payment. Card not present */
-    RsPayMethodSid[RsPayMethodSid["ECOMMERCE"] = 2] = "ECOMMERCE";
-    /** Payment with an external terminal */
-    RsPayMethodSid[RsPayMethodSid["EXTERNAL"] = 6] = "EXTERNAL";
-    /** Special method to be used for migration process */
-    RsPayMethodSid[RsPayMethodSid["IMPORT_ACCRUAL"] = 11] = "IMPORT_ACCRUAL";
-    /** Payment method at a Points of sale */
-    RsPayMethodSid[RsPayMethodSid["POS"] = 1] = "POS";
-})(RsPayMethodSid || (RsPayMethodSid = {}));
 /** A list of payment gateways or processors. */
 export var ThothPayProcessorPayProcessorSid;
 (function (ThothPayProcessorPayProcessorSid) {
@@ -4430,16 +4466,6 @@ export var RsPayBankSid;
     /** Bank account for Direct Entry direct bank transactions.  Australian-specific system */
     RsPayBankSid[RsPayBankSid["DIRECT_ENTRY"] = 3] = "DIRECT_ENTRY";
 })(RsPayBankSid || (RsPayBankSid = {}));
-/** Payment actors (staff member, user or business owner). */
-export var RsPayActorSid;
-(function (RsPayActorSid) {
-    /** Business owner */
-    RsPayActorSid[RsPayActorSid["BUSINESS"] = 3] = "BUSINESS";
-    /** Staff member */
-    RsPayActorSid[RsPayActorSid["STAFF"] = 1] = "STAFF";
-    /** User */
-    RsPayActorSid[RsPayActorSid["USER"] = 2] = "USER";
-})(RsPayActorSid || (RsPayActorSid = {}));
 /** A list of SEC codes which can be chosen. */
 export var RsPayBankAchSecSid;
 (function (RsPayBankAchSecSid) {
@@ -4452,14 +4478,6 @@ export var RsPayBankAchSecSid;
     /** Web Initiated Entry */
     RsPayBankAchSecSid[RsPayBankAchSecSid["WEB"] = 1] = "WEB";
 })(RsPayBankAchSecSid || (RsPayBankAchSecSid = {}));
-/** An enum of credit card types. */
-export var ThothWlPayBankCardCardTypeEnum;
-(function (ThothWlPayBankCardCardTypeEnum) {
-    /** Credit Card */
-    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["CREDIT"] = 1] = "CREDIT";
-    /** Debit Card */
-    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
-})(ThothWlPayBankCardCardTypeEnum || (ThothWlPayBankCardCardTypeEnum = {}));
 /** A list of card types. */
 export var WlCardCardSystemSid;
 (function (WlCardCardSystemSid) {
@@ -5088,6 +5106,77 @@ export class ThothExplorerSearchNamespace {
         this.classSession = new ThothExplorerSearchClassSessionNamespace(this._client);
     }
 }
+export class ThothPayProcessorStripeComNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets the `Stripe` public key for a merchant. */
+    stripeComKey(params) {
+        return this._client._request('/Thoth/PayProcessor/StripeCom/StripeComKey.json', params, 'POST');
+    }
+    /** Updates a `Stripe` Payment Intent. */
+    paymentIntentUpdate(params) {
+        return this._client._request('/Thoth/PayProcessor/StripeCom/PaymentIntentUpdate.json', params, 'POST');
+    }
+    /** Initializes a `Stripe` payment. */
+    stripeComPayInit(params) {
+        return this._client._request('/Thoth/PayProcessor/StripeCom/StripeComPayInit.json', params, 'POST');
+    }
+    /** Cancels a `Stripe` Payment Intent. */
+    stripeComPaymentIntentCancel(params) {
+        return this._client._request('/Thoth/PayProcessor/StripeCom/StripeComPaymentIntentCancel.json', params, 'POST');
+    }
+}
+export class ThothPayProcessorNuveiNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Finalizes the `Nuvei` transaction after successful payer authentication. */
+    nuveiTransactionOnAuthSuccess(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiTransactionOnAuthSuccess.json', params, 'POST');
+    }
+    /** Updates the amount of a previously opened `Nuvei` order. */
+    nuveiUpdateOrder(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiUpdateOrder.json', params, 'POST');
+    }
+    /** Opens a `Nuvei` order for the payment transaction. */
+    nuveiOpenOrder(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiOpenOrder.json', params, 'POST');
+    }
+    /** Cancels the `Nuvei` transaction. */
+    nuveiTransactionCancel(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiTransactionCancel.json', params, 'POST');
+    }
+}
+export class ThothPayProcessorCyberSourceNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks `CyberSource` Payer Authentication enrollment. */
+    csPaEnrollment(params) {
+        return this._client._request('/Thoth/PayProcessor/CyberSource/CsPaEnrollment.json', params, 'POST');
+    }
+    /** Validates the `CyberSource` Payer Authentication result. */
+    csPaValidate(params) {
+        return this._client._request('/Thoth/PayProcessor/CyberSource/CsPaValidate.json', params, 'POST');
+    }
+    /** Generates a capture context for `CyberSource` Flex Microform. */
+    csCaptureContext(params) {
+        return this._client._request('/Thoth/PayProcessor/CyberSource/CsCaptureContext.json', params, 'POST');
+    }
+    /** Starts `CyberSource` Payer Authentication setup. */
+    csPaSetup(params) {
+        return this._client._request('/Thoth/PayProcessor/CyberSource/CsPaSetup.json', params, 'POST');
+    }
+}
+export class ThothPayProcessorNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.stripeCom = new ThothPayProcessorStripeComNamespace(this._client);
+        this.nuvei = new ThothPayProcessorNuveiNamespace(this._client);
+        this.cyberSource = new ThothPayProcessorCyberSourceNamespace(this._client);
+    }
+}
 export class ThothReportCoreGeneratorNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5280,6 +5369,7 @@ export class ThothNamespace {
     constructor(_client) {
         this._client = _client;
         this.explorerSearch = new ThothExplorerSearchNamespace(this._client);
+        this.payProcessor = new ThothPayProcessorNamespace(this._client);
         this.reportCore = new ThothReportCoreNamespace(this._client);
         this.wlPay = new ThothWlPayNamespace(this._client);
     }

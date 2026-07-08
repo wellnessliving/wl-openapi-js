@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260707130709
+ * Spec version: 1.1.20260708062531
  * Build date:   2026-07-08
- * Endpoints:    485
+ * Endpoints:    497
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260707130709';
+  WlClient.SPEC_VERSION = '1.1.20260708062531';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (485 total)
+  // Generated API methods (497 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -243,6 +243,204 @@
   WlClient.prototype.thothExplorerSearchClassSessionClassSessionSearch = function(params)
   {
     return this.request('/Thoth/ExplorerSearch/ClassSession/ClassSessionSearch.json', params || {}, 'GET');
+  };
+
+  /**
+   * Gets the `Stripe` public key for a merchant.
+   *
+   * Returns the publishable key configured for the business merchant, so it can be used by the
+   *  frontend to initialize `Stripe` payment elements.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `s_public` {?string} Merchant public key.
+   */
+  WlClient.prototype.thothPayProcessorStripeComStripeComKey = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/StripeCom/StripeComKey.json', params || {}, 'POST');
+  };
+
+  /**
+   * Updates a `Stripe` Payment Intent.
+   *
+   * Adjusts the amount and surcharge of the Payment Intent created for the Stripe Payment Element
+   *  form when the cart contents change, keeping the underlying payment transaction in sync.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.id_pay_actor ID of the actor. One of {@link WlClient.RsPayActorSid} constants.
+   * @param {string} params.k_business Key of the business to update Payment Intent for.
+   * @param {string} params.k_business_merchant Key of the business merchant to update Payment Intent for.
+   * @param {string} params.k_pay_transaction Key of the payment transaction to update.
+   * @param {string} params.s_payment_intent Payment intent ID to update.
+   * @param {?string} [params.uid_purchase] Payment owner user key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.thothPayProcessorStripeComPaymentIntentUpdate = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/StripeCom/PaymentIntentUpdate.json', params || {}, 'POST');
+  };
+
+  /**
+   * Initializes a `Stripe` payment.
+   *
+   * Starts a payment transaction and creates a not-captured Payment Intent at `stripe.com`, returning
+   *  its status and client secret to continue the payment flow on the frontend.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `id_status` {number} Statuses of payment intents. See {@link WlClient.ThothPayProcessorStripeComPaymentIntentStatusSid}.
+   *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `s_client_secret` {string} Payment Intent client secret key.
+   *  `s_payment_intent` {string} Payment intent ID.
+   *  `text_message` {?string} Error message.
+   */
+  WlClient.prototype.thothPayProcessorStripeComStripeComPayInit = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/StripeCom/StripeComPayInit.json', params || {}, 'POST');
+  };
+
+  /**
+   * Cancels a `Stripe` Payment Intent.
+   *
+   * Verifies that the Payment Intent belongs to the current payer authentication session, then
+   *  refunds the associated payment transaction to release the reserved amount.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.thothPayProcessorStripeComStripeComPaymentIntentCancel = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/StripeCom/StripeComPaymentIntentCancel.json', params || {}, 'POST');
+  };
+
+  /**
+   * Finalizes the `Nuvei` transaction after successful payer authentication.
+   *
+   * Validates the payer authentication session and encrypted card token, then updates the payment
+   *  transaction created by {@link WlClient#thothPayProcessorNuveiNuveiOpenOrder} with the gateway transaction ID and card data.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.thothPayProcessorNuveiNuveiTransactionOnAuthSuccess = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/Nuvei/NuveiTransactionOnAuthSuccess.json', params || {}, 'POST');
+  };
+
+  /**
+   * Updates the amount of a previously opened `Nuvei` order.
+   *
+   * Validates the payer authentication session, then requests `Nuvei` to update the amount of the order
+   *  opened by {@link WlClient#thothPayProcessorNuveiNuveiOpenOrder} and adjusts the payment transaction accordingly.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `text_message` {?string} Error message.
+   */
+  WlClient.prototype.thothPayProcessorNuveiNuveiUpdateOrder = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/Nuvei/NuveiUpdateOrder.json', params || {}, 'POST');
+  };
+
+  /**
+   * Opens a `Nuvei` order for the payment transaction.
+   *
+   * Authenticates the merchant credentials, starts a payment transaction, and requests `Nuvei` to open
+   *  an order for the requested amount, returning the order and session identifiers needed to continue
+   *  the payer authentication flow.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `s_nuvei_order` {?string} The order ID provided by Nuvei.
+   *  `s_nuvei_session` {?string} The session identifier to be used by the request that processes the newly ope...
+   *  `text_message` {?string} Error message.
+   */
+  WlClient.prototype.thothPayProcessorNuveiNuveiOpenOrder = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/Nuvei/NuveiOpenOrder.json', params || {}, 'POST');
+  };
+
+  /**
+   * Cancels the `Nuvei` transaction.
+   *
+   * Voids the payer authentication session opened by {@link WlClient#thothPayProcessorNuveiNuveiOpenOrder} and schedules the
+   *  underlying payment transaction to be voided.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.thothPayProcessorNuveiNuveiTransactionCancel = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/Nuvei/NuveiTransactionCancel.json', params || {}, 'POST');
+  };
+
+  /**
+   * Checks `CyberSource` Payer Authentication enrollment.
+   *
+   * Verifies whether the payer must complete additional authentication steps for the transaction
+   *  started by {@link WlClient#thothPayProcessorCyberSourceCsPaSetup}, returning a JWT and interaction URL when a challenge is required.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `s_jwt` {?string} JSON Web Token to include into the request to the second frame.
+   *  `url_interact` {?string} URL for frontend interaction.
+   */
+  WlClient.prototype.thothPayProcessorCyberSourceCsPaEnrollment = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/CyberSource/CsPaEnrollment.json', params || {}, 'POST');
+  };
+
+  /**
+   * Validates the `CyberSource` Payer Authentication result.
+   *
+   * Retrieves the authentication result for the transaction validated by {@link WlClient#thothPayProcessorCyberSourceCsPaEnrollment}
+   *  and confirms whether the payer authentication succeeded, allowing the merchant to proceed with
+   *  processing the payment.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.thothPayProcessorCyberSourceCsPaValidate = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/CyberSource/CsPaValidate.json', params || {}, 'POST');
+  };
+
+  /**
+   * Generates a capture context for `CyberSource` Flex Microform.
+   *
+   * Returns a capture context and key ID that the client uses to encrypt the card number before
+   *  sending it in the follow-on Tokenize Card request.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `s_client_library_integrity` {?string} Microform Integration JavaScript library integrity property value.
+   *  `s_key` {?string} Contents of the key.
+   *  `s_key_id` {?string} ID of the key.
+   *  `url_client_library` {?string} Microform Integration JavaScript library url.
+   */
+  WlClient.prototype.thothPayProcessorCyberSourceCsCaptureContext = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/CyberSource/CsCaptureContext.json', params || {}, 'POST');
+  };
+
+  /**
+   * Starts `CyberSource` Payer Authentication setup.
+   *
+   * Validates the payment request and card data, starts a payment transaction, and requests
+   *  `CyberSource` to set up payer authentication, returning the JWT and device collection URL
+   *  needed to continue the flow.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `k_pay_transaction` {string} Key of payment transaction that was created.
+   *  `s_jwt` {string} JWT token, as returned by Cyber Source.
+   *  `s_reference` {string} Reference ID, as returned by Cyber Source.
+   *  `url_collection` {string} Device collection URL, as returned by Cyber Source.
+   */
+  WlClient.prototype.thothPayProcessorCyberSourceCsPaSetup = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/CyberSource/CsPaSetup.json', params || {}, 'POST');
   };
 
   /**
@@ -307,7 +505,7 @@
    * @param {?string} [params.uid_owner] The user ID to retrieve payment information for.
    * @returns {Promise<Object>} Response data.
    *  `a_card_system` {number[]} A list of supported bank card systems.
-   *  `a_method_staff` {number[]} A list of payment methods enabled for staff members.
+   *  `a_method_staff` {?number[]} A list of payment methods enabled for staff members.
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
    *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
@@ -342,7 +540,7 @@
    * @param {?string} [params.uid_owner] The user ID to retrieve payment information for.
    * @returns {Promise<Object>} Response data.
    *  `a_card_system` {number[]} A list of supported bank card systems.
-   *  `a_method_staff` {number[]} A list of payment methods enabled for staff members.
+   *  `a_method_staff` {?number[]} A list of payment methods enabled for staff members.
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
    *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
@@ -4928,7 +5126,7 @@
    * @param {string} params.dtu_start Minimal date and time of purchase in UTC. Empty string means no filter by minimal date.
    * @param {number} params.i_page Number of the page to get.
    * @param {number} params.i_page_size Page size.
-   * @param {number} params.id_pay_method ID of the payment method. One of the {@link WlClient.RsPayMethodSid} constants. Zero means no fil...
+   * @param {?number} params.id_pay_method ID of the payment method. One of the {@link WlClient.RsPayMethodSid} constants. Zero means no fil...
    * @param {string} params.k_business Business key.
    * @param {string} params.k_location Location key. Empty string means no filter by location.
    * @param {string} params.k_shop_product_option Product option key. Empty string means no filter by product option.
@@ -6809,7 +7007,7 @@
    * batch number, and payment method information.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number[]} params.a_pay_method_remove List of payment methods to filter out in the report.
+   * @param {?number[]} params.a_pay_method_remove List of payment methods to filter out in the report.
    * @param {string} params.dl_date The date in local time to retrieve transactions for.
    * @param {number} params.i_page The page of the report, starting from 0.
    * @param {boolean} params.is_refresh Determines whether this report should be refreshed.
@@ -7133,7 +7331,7 @@
    *  resolved merchant.
    *
    * @param {Object} [params] Request parameters.
-   * @param {?number} [params.id_locale] Locale ID. One of {@link WlClient.CoreLocaleLocaleSid} constants.
+   * @param {?number} [params.id_locale] Locale ID. See {@link WlClient.CoreLocaleLocaleSid}.
    * @param {boolean} params.is_new Determines if the set of configs of the new payment form design is used.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_location Location key.
@@ -7226,7 +7424,7 @@
    *  merchant must be configured; for users, a business-specific merchant is required.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_pay_method Payment method. One of {@link WlClient.RsPayMethodSid} constants.
+   * @param {?number} params.id_pay_method Payment method. See {@link WlClient.RsPayMethodSid}.
    * @param {number} params.id_pay_mode Payment mode. See {@link WlClient.RsPayModeSid}.
    * @param {number} params.id_pay_owner Payment owner kind. See {@link WlClient.RsPayOwnerSid}.
    * @param {string} params.k_business Business key.
@@ -10741,7 +10939,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (199 total)
+  // Enum constants (200 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -10829,23 +11027,17 @@
   });
 
   /**
-   * Lists statuses of reports from point of view of its generation.
+   * Payment actors (staff member, user or business owner).
    *
    * @enum {number}
    */
-  WlClient.ThothReportCoreGeneratorReportGeneratorStatusSid = Object.freeze({
-    /** Report is in an inconsistent state */
-    ABORTED: 6,
-    /** Current operation is being aborted now */
-    ABORTING: 5,
-    /** This report is being deleted now */
-    DELETING: 4,
-    /** This report is being generated now */
-    GENERATING: 2,
-    /** Generation of this report is queued */
-    QUEUED: 1,
-    /** Generation of this report is now completed */
-    READY: 3,
+  WlClient.RsPayActorSid = Object.freeze({
+    /** Business owner */
+    BUSINESS: 3,
+    /** Staff member */
+    STAFF: 1,
+    /** User */
+    USER: 2,
   });
 
   /**
@@ -10895,6 +11087,88 @@
   });
 
   /**
+   * Statuses of payment intents.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothPayProcessorStripeComPaymentIntentStatusSid = Object.freeze({
+    /** You may cancel a Payment Intent at any point before it is processing or succeeded. This invalidates the */
+    CANCELED: 7,
+    /** Once required actions are handled, the Payment Intent moves to processing. While for some payment methods */
+    PROCESSING: 4,
+    /** If the payment requires additional actions, such as authenticating with 3D Secure , the Payment Intent has a status */
+    REQUIRES_ACTION: 3,
+    /** Requires capture */
+    REQUIRES_CAPTURE: 6,
+    /** After the customer provides their payment information, the Payment Intent is ready to be confirmed */
+    REQUIRES_CONFIRMATION: 2,
+    /** When the Payment Intent is created, it has a status of `requires_payment_method` until a payment method is */
+    REQUIRES_PAYMENT_METHOD: 1,
+    /** A Payment Intent with a status of succeeded means that the payment flow it is driving is complete */
+    SUCCEEDED: 5,
+  });
+
+  /**
+   * An enum of credit card types.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothWlPayBankCardCardTypeEnum = Object.freeze({
+    /** Credit Card */
+    CREDIT: 1,
+    /** Debit Card */
+    DEBIT: 2,
+  });
+
+  /**
+   * A list of payment methods.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPayMethodSid = Object.freeze({
+    /** Payment with personal user account (rs.pay.account) */
+    ACCOUNT: 7,
+    /** ACH system (USA-specific direct banking transactions) */
+    ACH: 9,
+    /** Payment with cash */
+    CASH: 4,
+    /** Payment with a cheque */
+    CHEQUE: 5,
+    /** Payment with a coupon */
+    COUPON: 8,
+    /** Direct Entry system (australian-specific direct banking transactions) */
+    DIRECT_ENTRY: 10,
+    /** Online payment. Card not present */
+    ECOMMERCE: 2,
+    /** Payment with an external terminal */
+    EXTERNAL: 6,
+    /** Special method to be used for migration process */
+    IMPORT_ACCRUAL: 11,
+    /** Payment method at a Points of sale */
+    POS: 1,
+  });
+
+  /**
+   * Lists statuses of reports from point of view of its generation.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothReportCoreGeneratorReportGeneratorStatusSid = Object.freeze({
+    /** Report is in an inconsistent state */
+    ABORTED: 6,
+    /** Current operation is being aborted now */
+    ABORTING: 5,
+    /** This report is being deleted now */
+    DELETING: 4,
+    /** This report is being generated now */
+    GENERATING: 2,
+    /** Generation of this report is queued */
+    QUEUED: 1,
+    /** Generation of this report is now completed */
+    READY: 3,
+  });
+
+  /**
    * A class for a list of card systems.
    *
    * @enum {number}
@@ -10928,34 +11202,6 @@
     UNION_PAY: 14,
     /** Visa */
     VISA: 12,
-  });
-
-  /**
-   * A list of payment methods.
-   *
-   * @enum {number}
-   */
-  WlClient.RsPayMethodSid = Object.freeze({
-    /** Payment with personal user account (rs.pay.account) */
-    ACCOUNT: 7,
-    /** ACH system (USA-specific direct banking transactions) */
-    ACH: 9,
-    /** Payment with cash */
-    CASH: 4,
-    /** Payment with a cheque */
-    CHEQUE: 5,
-    /** Payment with a coupon */
-    COUPON: 8,
-    /** Direct Entry system (australian-specific direct banking transactions) */
-    DIRECT_ENTRY: 10,
-    /** Online payment. Card not present */
-    ECOMMERCE: 2,
-    /** Payment with an external terminal */
-    EXTERNAL: 6,
-    /** Special method to be used for migration process */
-    IMPORT_ACCRUAL: 11,
-    /** Payment method at a Points of sale */
-    POS: 1,
   });
 
   /**
@@ -15697,20 +15943,6 @@
   });
 
   /**
-   * Payment actors (staff member, user or business owner).
-   *
-   * @enum {number}
-   */
-  WlClient.RsPayActorSid = Object.freeze({
-    /** Business owner */
-    BUSINESS: 3,
-    /** Staff member */
-    STAFF: 1,
-    /** User */
-    USER: 2,
-  });
-
-  /**
    * A list of SEC codes which can be chosen.
    *
    * @enum {number}
@@ -15724,18 +15956,6 @@
     TEL: 3,
     /** Web Initiated Entry */
     WEB: 1,
-  });
-
-  /**
-   * An enum of credit card types.
-   *
-   * @enum {number}
-   */
-  WlClient.ThothWlPayBankCardCardTypeEnum = Object.freeze({
-    /** Credit Card */
-    CREDIT: 1,
-    /** Debit Card */
-    DEBIT: 2,
   });
 
   /**

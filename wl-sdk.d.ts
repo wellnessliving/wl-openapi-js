@@ -93,20 +93,14 @@ export declare enum RsHomeTourSid {
     /** Zumba */
     ZUMBA = 27
 }
-/** Lists statuses of reports from point of view of its generation. */
-export declare enum ThothReportCoreGeneratorReportGeneratorStatusSid {
-    /** Report is in an inconsistent state */
-    ABORTED = 6,
-    /** Current operation is being aborted now */
-    ABORTING = 5,
-    /** This report is being deleted now */
-    DELETING = 4,
-    /** This report is being generated now */
-    GENERATING = 2,
-    /** Generation of this report is queued */
-    QUEUED = 1,
-    /** Generation of this report is now completed */
-    READY = 3
+/** Payment actors (staff member, user or business owner). */
+export declare enum RsPayActorSid {
+    /** Business owner */
+    BUSINESS = 3,
+    /** Staff member */
+    STAFF = 1,
+    /** User */
+    USER = 2
 }
 /** A list of currencies. */
 export declare enum CoreLocaleCurrencySid {
@@ -149,6 +143,68 @@ export declare enum CoreLocaleCurrencySid {
     /** South African rand */
     ZAR = 7
 }
+/** Statuses of payment intents. */
+export declare enum ThothPayProcessorStripeComPaymentIntentStatusSid {
+    /** You may cancel a Payment Intent at any point before it is processing or succeeded. This invalidates the */
+    CANCELED = 7,
+    /** Once required actions are handled, the Payment Intent moves to processing. While for some payment methods */
+    PROCESSING = 4,
+    /** If the payment requires additional actions, such as authenticating with 3D Secure , the Payment Intent has a status */
+    REQUIRES_ACTION = 3,
+    /** Requires capture */
+    REQUIRES_CAPTURE = 6,
+    /** After the customer provides their payment information, the Payment Intent is ready to be confirmed */
+    REQUIRES_CONFIRMATION = 2,
+    /** When the Payment Intent is created, it has a status of `requires_payment_method` until a payment method is */
+    REQUIRES_PAYMENT_METHOD = 1,
+    /** A Payment Intent with a status of succeeded means that the payment flow it is driving is complete */
+    SUCCEEDED = 5
+}
+/** An enum of credit card types. */
+export declare enum ThothWlPayBankCardCardTypeEnum {
+    /** Credit Card */
+    CREDIT = 1,
+    /** Debit Card */
+    DEBIT = 2
+}
+/** A list of payment methods. */
+export declare enum RsPayMethodSid {
+    /** Payment with personal user account (rs.pay.account) */
+    ACCOUNT = 7,
+    /** ACH system (USA-specific direct banking transactions) */
+    ACH = 9,
+    /** Payment with cash */
+    CASH = 4,
+    /** Payment with a cheque */
+    CHEQUE = 5,
+    /** Payment with a coupon */
+    COUPON = 8,
+    /** Direct Entry system (australian-specific direct banking transactions) */
+    DIRECT_ENTRY = 10,
+    /** Online payment. Card not present */
+    ECOMMERCE = 2,
+    /** Payment with an external terminal */
+    EXTERNAL = 6,
+    /** Special method to be used for migration process */
+    IMPORT_ACCRUAL = 11,
+    /** Payment method at a Points of sale */
+    POS = 1
+}
+/** Lists statuses of reports from point of view of its generation. */
+export declare enum ThothReportCoreGeneratorReportGeneratorStatusSid {
+    /** Report is in an inconsistent state */
+    ABORTED = 6,
+    /** Current operation is being aborted now */
+    ABORTING = 5,
+    /** This report is being deleted now */
+    DELETING = 4,
+    /** This report is being generated now */
+    GENERATING = 2,
+    /** Generation of this report is queued */
+    QUEUED = 1,
+    /** Generation of this report is now completed */
+    READY = 3
+}
 /** A class for a list of card systems. */
 export declare enum ACardSystemSid {
     /** American Express */
@@ -179,29 +235,6 @@ export declare enum ACardSystemSid {
     UNION_PAY = 14,
     /** Visa */
     VISA = 12
-}
-/** A list of payment methods. */
-export declare enum RsPayMethodSid {
-    /** Payment with personal user account (rs.pay.account) */
-    ACCOUNT = 7,
-    /** ACH system (USA-specific direct banking transactions) */
-    ACH = 9,
-    /** Payment with cash */
-    CASH = 4,
-    /** Payment with a cheque */
-    CHEQUE = 5,
-    /** Payment with a coupon */
-    COUPON = 8,
-    /** Direct Entry system (australian-specific direct banking transactions) */
-    DIRECT_ENTRY = 10,
-    /** Online payment. Card not present */
-    ECOMMERCE = 2,
-    /** Payment with an external terminal */
-    EXTERNAL = 6,
-    /** Special method to be used for migration process */
-    IMPORT_ACCRUAL = 11,
-    /** Payment method at a Points of sale */
-    POS = 1
 }
 /** A list of payment gateways or processors. */
 export declare enum ThothPayProcessorPayProcessorSid {
@@ -4301,15 +4334,6 @@ export declare enum RsPayBankSid {
     /** Bank account for Direct Entry direct bank transactions.  Australian-specific system */
     DIRECT_ENTRY = 3
 }
-/** Payment actors (staff member, user or business owner). */
-export declare enum RsPayActorSid {
-    /** Business owner */
-    BUSINESS = 3,
-    /** Staff member */
-    STAFF = 1,
-    /** User */
-    USER = 2
-}
 /** A list of SEC codes which can be chosen. */
 export declare enum RsPayBankAchSecSid {
     /** Corporate bank account */
@@ -4320,13 +4344,6 @@ export declare enum RsPayBankAchSecSid {
     TEL = 3,
     /** Web Initiated Entry */
     WEB = 1
-}
-/** An enum of credit card types. */
-export declare enum ThothWlPayBankCardCardTypeEnum {
-    /** Credit Card */
-    CREDIT = 1,
-    /** Debit Card */
-    DEBIT = 2
 }
 /** A list of card types. */
 export declare enum WlCardCardSystemSid {
@@ -4937,6 +4954,92 @@ export interface ThothExplorerSearchClassSessionClassSessionSearchResponse {
         k_class_period_session: string;
     };
 }
+export type ThothPayProcessorStripeComStripeComKeyParams = Record<string, unknown>;
+export interface ThothPayProcessorStripeComStripeComKeyResponse {
+    /** Merchant public key. */
+    s_public: string | null;
+}
+export interface ThothPayProcessorStripeComPaymentIntentUpdateParams {
+    /** ID of the actor. One of {@link RsPayActorSid} constants. */
+    id_pay_actor: RsPayActorSid;
+    /** Key of the business to update Payment Intent for. */
+    k_business: string;
+    /** Key of the business merchant to update Payment Intent for. */
+    k_business_merchant: string;
+    /** Key of the payment transaction to update. */
+    k_pay_transaction: string;
+    /** Payment intent ID to update. */
+    s_payment_intent: string;
+    /** Payment owner user key. */
+    uid_purchase?: string | null;
+}
+export type ThothPayProcessorStripeComPaymentIntentUpdateResponse = Record<string, unknown>;
+export type ThothPayProcessorStripeComStripeComPayInitParams = Record<string, unknown>;
+export interface ThothPayProcessorStripeComStripeComPayInitResponse {
+    /** Statuses of payment intents. @see ThothPayProcessorStripeComPaymentIntentStatusSid */
+    id_status: ThothPayProcessorStripeComPaymentIntentStatusSid;
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string | null;
+    /** Payment Intent client secret key. */
+    s_client_secret: string;
+    /** Payment intent ID. */
+    s_payment_intent: string;
+    /** Error message. */
+    text_message: string | null;
+}
+export type ThothPayProcessorStripeComStripeComPaymentIntentCancelParams = Record<string, unknown>;
+export type ThothPayProcessorStripeComStripeComPaymentIntentCancelResponse = Record<string, unknown>;
+export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams = Record<string, unknown>;
+export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse = Record<string, unknown>;
+export type ThothPayProcessorNuveiNuveiUpdateOrderParams = Record<string, unknown>;
+export interface ThothPayProcessorNuveiNuveiUpdateOrderResponse {
+    /** Error message. */
+    text_message: string | null;
+}
+export type ThothPayProcessorNuveiNuveiOpenOrderParams = Record<string, unknown>;
+export interface ThothPayProcessorNuveiNuveiOpenOrderResponse {
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string | null;
+    /** The order ID provided by Nuvei. */
+    s_nuvei_order: string | null;
+    /** The session identifier to be used by the request that processes the newly opened order. */
+    s_nuvei_session: string | null;
+    /** Error message. */
+    text_message: string | null;
+}
+export type ThothPayProcessorNuveiNuveiTransactionCancelParams = Record<string, unknown>;
+export type ThothPayProcessorNuveiNuveiTransactionCancelResponse = Record<string, unknown>;
+export type ThothPayProcessorCyberSourceCsPaEnrollmentParams = Record<string, unknown>;
+export interface ThothPayProcessorCyberSourceCsPaEnrollmentResponse {
+    /** JSON Web Token to include into the request to the second frame. */
+    s_jwt: string | null;
+    /** URL for frontend interaction. */
+    url_interact: string | null;
+}
+export type ThothPayProcessorCyberSourceCsPaValidateParams = Record<string, unknown>;
+export type ThothPayProcessorCyberSourceCsPaValidateResponse = Record<string, unknown>;
+export type ThothPayProcessorCyberSourceCsCaptureContextParams = Record<string, unknown>;
+export interface ThothPayProcessorCyberSourceCsCaptureContextResponse {
+    /** Microform Integration JavaScript library integrity property value. */
+    s_client_library_integrity: string | null;
+    /** Contents of the key. */
+    s_key: string | null;
+    /** ID of the key. */
+    s_key_id: string | null;
+    /** Microform Integration JavaScript library url. */
+    url_client_library: string | null;
+}
+export type ThothPayProcessorCyberSourceCsPaSetupParams = Record<string, unknown>;
+export interface ThothPayProcessorCyberSourceCsPaSetupResponse {
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string;
+    /** JWT token, as returned by Cyber Source. */
+    s_jwt: string;
+    /** Reference ID, as returned by Cyber Source. */
+    s_reference: string;
+    /** Device collection URL, as returned by Cyber Source. */
+    url_collection: string;
+}
 export type ThothReportCoreGeneratorQueryParams = Record<string, unknown>;
 export interface ThothReportCoreGeneratorQueryResponse {
     /** A list of dynamic fields in this report. */
@@ -5065,11 +5168,11 @@ export interface ThothWlPayFormEnvironmentUserResponse {
     /** A list of supported bank card systems. */
     a_card_system: Array<ACardSystemSid>;
     /** A list of payment methods enabled for staff members. */
-    a_method_staff: Array<RsPayMethodSid>;
+    a_method_staff: Array<RsPayMethodSid | null>;
     /** A list of all payment methods that can be used within this business. */
     a_method_support: Array<{
         /** A list of payment methods. @see RsPayMethodSid */
-        id_pay_method: RsPayMethodSid;
+        id_pay_method: RsPayMethodSid | null;
         /** Determines whether this method is available for clients. This field is only returned for custom p... */
         is_client?: boolean;
         /** The key of the custom payment method. */
@@ -5129,11 +5232,11 @@ export interface ThothWlPayFormEnvironmentResponse {
     /** A list of supported bank card systems. */
     a_card_system: Array<ACardSystemSid>;
     /** A list of payment methods enabled for staff members. */
-    a_method_staff: Array<RsPayMethodSid>;
+    a_method_staff: Array<RsPayMethodSid | null>;
     /** A list of all payment methods that can be used within this business. */
     a_method_support: Array<{
         /** A list of payment methods. @see RsPayMethodSid */
-        id_pay_method: RsPayMethodSid;
+        id_pay_method: RsPayMethodSid | null;
         /** Determines whether this method is available for clients. This field is only returned for custom p... */
         is_client?: boolean;
         /** The key of the custom payment method. */
@@ -5193,7 +5296,7 @@ export interface ThothWlPayMethodListResponse {
     /** A list of payment methods: */
     a_pay_method: Array<{
         /** A list of payment methods. @see RsPayMethodSid */
-        id_pay_method: RsPayMethodSid;
+        id_pay_method: RsPayMethodSid | null;
         /** Payment method key. */
         k_pay_method: string | null;
         /** The payment method name. */
@@ -6412,7 +6515,7 @@ export interface WlCollectorDebtTransactionResponse {
         /** The amount of the payment's transaction. */
         m_pay_amount: string;
         /** A list of payment methods. @see RsPayMethodSid */
-        id_pay_method: RsPayMethodSid;
+        id_pay_method: RsPayMethodSid | null;
         /** Defines whether the payment was performed via a third party service. */
         is_pay_collections: boolean;
         /** Defines whether the initial debt to which this related transaction is fully paid. */
@@ -8643,7 +8746,7 @@ export interface ThothWlPayTransactionReportTransactionAllPaymentResponse {
         /** List of pay transactions associated with this row. Each element: */
         a_pay_transaction: {
             /** A list of payment methods. @see RsPayMethodSid */
-            id_pay_method: RsPayMethodSid;
+            id_pay_method: RsPayMethodSid | null;
             /** Pay transaction key. */
             k_pay_transaction: string;
             /** Amount paid. */
@@ -14939,7 +15042,7 @@ export interface WlLoginProductProductParams {
     /** Page size. */
     i_page_size: number;
     /** ID of the payment method. One of the {@link RsPayMethodSid} constants. Zero means no filter by pa... */
-    id_pay_method: RsPayMethodSid;
+    id_pay_method: RsPayMethodSid | null;
     /** Business key. */
     k_business: string;
     /** Location key. Empty string means no filter by location. */
@@ -18720,7 +18823,7 @@ export interface WlIntegrationAutymateAutymateActivateResponse {
 }
 export interface WlIntegrationAutymateReportParams {
     /** List of payment methods to filter out in the report. */
-    a_pay_method_remove: Array<RsPayMethodSid>;
+    a_pay_method_remove: Array<RsPayMethodSid | null>;
     /** The date in local time to retrieve transactions for. */
     dl_date: string;
     /** The page of the report, starting from 0. */
@@ -19071,7 +19174,7 @@ export interface ThothWlPayBankAchAddAddGetParams {
     k_location: string;
     /** Pay owner key. */
     k_pay_owner: string;
-    /** Locale ID. One of {@link CoreLocaleLocaleSid} constants. */
+    /** Locale ID. @see CoreLocaleLocaleSid */
     id_locale?: CoreLocaleLocaleSid | null;
 }
 export interface ThothWlPayBankAchAddAddGetResponse {
@@ -19160,8 +19263,8 @@ export interface ThothWlPayBankCardAddAddPostParams {
 }
 export type ThothWlPayBankCardAddAddPostResponse = Record<string, unknown>;
 export interface ThothWlPayBankCardWidgetWidgetSelectParams {
-    /** Payment method. One of {@link RsPayMethodSid} constants. */
-    id_pay_method: RsPayMethodSid;
+    /** Payment method. @see RsPayMethodSid */
+    id_pay_method: RsPayMethodSid | null;
     /** Payment mode. @see RsPayModeSid */
     id_pay_mode: RsPayModeSid;
     /** Payment owner kind. @see RsPayOwnerSid */
@@ -19179,7 +19282,7 @@ export interface ThothWlPayBankCardWidgetWidgetSelectResponse {
     /** List of saved bank cards. */
     a_pay_card: {
         /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
-        eid_card_type: ThothWlPayBankCardCardTypeEnum | null;
+        eid_card_type: ThothWlPayBankCardCardTypeEnum;
         /** Card expiration month. */
         i_month: number;
         /** Card expiration year. */
@@ -19187,7 +19290,7 @@ export interface ThothWlPayBankCardWidgetWidgetSelectResponse {
         /** A list of card types. @see WlCardCardSystemSid */
         id_card_system: WlCardCardSystemSid;
         /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
-        id_card_type: ThothWlPayBankCardCardTypeEnum | null;
+        id_card_type: ThothWlPayBankCardCardTypeEnum;
         /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
         id_pay_processor: ThothPayProcessorPayProcessorSid;
         /** `true` if this card is the default payment method; `false` otherwise. */
@@ -26028,6 +26131,49 @@ export declare class ThothExplorerSearchNamespace {
     readonly classSession: ThothExplorerSearchClassSessionNamespace;
     constructor(_client: WlClient);
 }
+export declare class ThothPayProcessorStripeComNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets the `Stripe` public key for a merchant. */
+    stripeComKey(params?: ThothPayProcessorStripeComStripeComKeyParams): Promise<ThothPayProcessorStripeComStripeComKeyResponse>;
+    /** Updates a `Stripe` Payment Intent. */
+    paymentIntentUpdate(params?: ThothPayProcessorStripeComPaymentIntentUpdateParams): Promise<ThothPayProcessorStripeComPaymentIntentUpdateResponse>;
+    /** Initializes a `Stripe` payment. */
+    stripeComPayInit(params?: ThothPayProcessorStripeComStripeComPayInitParams): Promise<ThothPayProcessorStripeComStripeComPayInitResponse>;
+    /** Cancels a `Stripe` Payment Intent. */
+    stripeComPaymentIntentCancel(params?: ThothPayProcessorStripeComStripeComPaymentIntentCancelParams): Promise<ThothPayProcessorStripeComStripeComPaymentIntentCancelResponse>;
+}
+export declare class ThothPayProcessorNuveiNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Finalizes the `Nuvei` transaction after successful payer authentication. */
+    nuveiTransactionOnAuthSuccess(params?: ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams): Promise<ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse>;
+    /** Updates the amount of a previously opened `Nuvei` order. */
+    nuveiUpdateOrder(params?: ThothPayProcessorNuveiNuveiUpdateOrderParams): Promise<ThothPayProcessorNuveiNuveiUpdateOrderResponse>;
+    /** Opens a `Nuvei` order for the payment transaction. */
+    nuveiOpenOrder(params?: ThothPayProcessorNuveiNuveiOpenOrderParams): Promise<ThothPayProcessorNuveiNuveiOpenOrderResponse>;
+    /** Cancels the `Nuvei` transaction. */
+    nuveiTransactionCancel(params?: ThothPayProcessorNuveiNuveiTransactionCancelParams): Promise<ThothPayProcessorNuveiNuveiTransactionCancelResponse>;
+}
+export declare class ThothPayProcessorCyberSourceNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Checks `CyberSource` Payer Authentication enrollment. */
+    csPaEnrollment(params?: ThothPayProcessorCyberSourceCsPaEnrollmentParams): Promise<ThothPayProcessorCyberSourceCsPaEnrollmentResponse>;
+    /** Validates the `CyberSource` Payer Authentication result. */
+    csPaValidate(params?: ThothPayProcessorCyberSourceCsPaValidateParams): Promise<ThothPayProcessorCyberSourceCsPaValidateResponse>;
+    /** Generates a capture context for `CyberSource` Flex Microform. */
+    csCaptureContext(params?: ThothPayProcessorCyberSourceCsCaptureContextParams): Promise<ThothPayProcessorCyberSourceCsCaptureContextResponse>;
+    /** Starts `CyberSource` Payer Authentication setup. */
+    csPaSetup(params?: ThothPayProcessorCyberSourceCsPaSetupParams): Promise<ThothPayProcessorCyberSourceCsPaSetupResponse>;
+}
+export declare class ThothPayProcessorNamespace {
+    private readonly _client;
+    readonly stripeCom: ThothPayProcessorStripeComNamespace;
+    readonly nuvei: ThothPayProcessorNuveiNamespace;
+    readonly cyberSource: ThothPayProcessorCyberSourceNamespace;
+    constructor(_client: WlClient);
+}
 export declare class ThothReportCoreGeneratorNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -26161,6 +26307,7 @@ export declare class ThothWlPayNamespace {
 export declare class ThothNamespace {
     private readonly _client;
     readonly explorerSearch: ThothExplorerSearchNamespace;
+    readonly payProcessor: ThothPayProcessorNamespace;
     readonly reportCore: ThothReportCoreNamespace;
     readonly wlPay: ThothWlPayNamespace;
     constructor(_client: WlClient);
