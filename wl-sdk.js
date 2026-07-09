@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260709090643
+ * Spec version: 1.1.20260709134057
  * Build date:   2026-07-09
  * Endpoints:    500
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260709090643';
+  WlClient.SPEC_VERSION = '1.1.20260709134057';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (500 total)
@@ -2008,9 +2008,9 @@
    * @returns {Promise<Object>} Response data.
    *  `s_public` {?string} Merchant public key.
    */
-  WlClient.prototype.thothPayProcessorStripeComStripeComKey = function(params)
+  WlClient.prototype.wlPayProcessorStripeComStripeComKey = function(params)
   {
-    return this.request('/Thoth/PayProcessor/StripeCom/StripeComKey.json', params || {}, 'POST');
+    return this.request('/Wl/Pay/Processor/StripeCom/StripeComKey.json', params || {}, 'POST');
   };
 
   /**
@@ -2028,9 +2028,9 @@
    * @param {?string} [params.uid_purchase] Payment owner user key.
    * @returns {Promise<Object>} Response data.
    */
-  WlClient.prototype.thothPayProcessorStripeComPaymentIntentUpdate = function(params)
+  WlClient.prototype.wlPayProcessorStripeComPaymentIntentUpdate = function(params)
   {
-    return this.request('/Thoth/PayProcessor/StripeCom/PaymentIntentUpdate.json', params || {}, 'POST');
+    return this.request('/Wl/Pay/Processor/StripeCom/PaymentIntentUpdate.json', params || {}, 'POST');
   };
 
   /**
@@ -2047,9 +2047,9 @@
    *  `s_payment_intent` {string} Payment intent ID.
    *  `text_message` {?string} Error message.
    */
-  WlClient.prototype.thothPayProcessorStripeComStripeComPayInit = function(params)
+  WlClient.prototype.wlPayProcessorStripeComStripeComPayInit = function(params)
   {
-    return this.request('/Thoth/PayProcessor/StripeCom/StripeComPayInit.json', params || {}, 'POST');
+    return this.request('/Wl/Pay/Processor/StripeCom/StripeComPayInit.json', params || {}, 'POST');
   };
 
   /**
@@ -2061,40 +2061,40 @@
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
    */
-  WlClient.prototype.thothPayProcessorStripeComStripeComPaymentIntentCancel = function(params)
+  WlClient.prototype.wlPayProcessorStripeComStripeComPaymentIntentCancel = function(params)
   {
-    return this.request('/Thoth/PayProcessor/StripeCom/StripeComPaymentIntentCancel.json', params || {}, 'POST');
+    return this.request('/Wl/Pay/Processor/StripeCom/StripeComPaymentIntentCancel.json', params || {}, 'POST');
   };
 
   /**
    * Checks `CyberSource` Payer Authentication enrollment.
    *
    * Verifies whether the payer must complete additional authentication steps for the transaction
-   *  started by {@link WlClient#thothPayProcessorCyberSourceCsPaSetup}, returning a JWT and interaction URL when a challenge is required.
+   *  started by CsPaSetupApi, returning a JWT and interaction URL when a challenge is required.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
    *  `s_jwt` {?string} JSON Web Token to include into the request to the second frame.
    *  `url_interact` {?string} URL for frontend interaction.
    */
-  WlClient.prototype.thothPayProcessorCyberSourceCsPaEnrollment = function(params)
+  WlClient.prototype.wlPayProcessorCyberSourceCsPaEnrollment = function(params)
   {
-    return this.request('/Thoth/PayProcessor/CyberSource/CsPaEnrollment.json', params || {}, 'POST');
+    return this.request('/Wl/Pay/Processor/CyberSource/CsPaEnrollment.json', params || {}, 'POST');
   };
 
   /**
    * Validates the `CyberSource` Payer Authentication result.
    *
-   * Retrieves the authentication result for the transaction validated by {@link WlClient#thothPayProcessorCyberSourceCsPaEnrollment}
+   * Retrieves the authentication result for the transaction validated by CsPaEnrollmentApi
    *  and confirms whether the payer authentication succeeded, allowing the merchant to proceed with
    *  processing the payment.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
    */
-  WlClient.prototype.thothPayProcessorCyberSourceCsPaValidate = function(params)
+  WlClient.prototype.wlPayProcessorCyberSourceCsPaValidate = function(params)
   {
-    return this.request('/Thoth/PayProcessor/CyberSource/CsPaValidate.json', params || {}, 'POST');
+    return this.request('/Wl/Pay/Processor/CyberSource/CsPaValidate.json', params || {}, 'POST');
   };
 
   /**
@@ -2110,9 +2110,9 @@
    *  `s_key_id` {?string} ID of the key.
    *  `url_client_library` {?string} Microform Integration JavaScript library url.
    */
-  WlClient.prototype.thothPayProcessorCyberSourceCsCaptureContext = function(params)
+  WlClient.prototype.wlPayProcessorCyberSourceCsCaptureContext = function(params)
   {
-    return this.request('/Thoth/PayProcessor/CyberSource/CsCaptureContext.json', params || {}, 'POST');
+    return this.request('/Wl/Pay/Processor/CyberSource/CsCaptureContext.json', params || {}, 'POST');
   };
 
   /**
@@ -2129,9 +2129,9 @@
    *  `s_reference` {string} Reference ID, as returned by Cyber Source.
    *  `url_collection` {string} Device collection URL, as returned by Cyber Source.
    */
-  WlClient.prototype.thothPayProcessorCyberSourceCsPaSetup = function(params)
+  WlClient.prototype.wlPayProcessorCyberSourceCsPaSetup = function(params)
   {
-    return this.request('/Thoth/PayProcessor/CyberSource/CsPaSetup.json', params || {}, 'POST');
+    return this.request('/Wl/Pay/Processor/CyberSource/CsPaSetup.json', params || {}, 'POST');
   };
 
   /**
@@ -2155,9 +2155,9 @@
    *  `s_report` {string} Key of this report.
    *  `text_error` {string} Text of an error message that occurred during generation of the report.
    */
-  WlClient.prototype.thothReportCoreGeneratorQuery = function(params)
+  WlClient.prototype.wlReportGeneratorQuery = function(params)
   {
-    return this.request('/Thoth/ReportCore/Generator/Query.json', params || {}, 'POST');
+    return this.request('/Wl/Report/Generator/Query.json', params || {}, 'POST');
   };
 
   /**
@@ -2165,7 +2165,7 @@
    *
    * Called before rendering a payment form to determine which payment methods and card types are available
    * for a given business and location, what surcharges apply, and how the form should behave (tip prompt,
-   * optional card save). This endpoint is deprecated; use {@link WlClient#thothWlPayFormEnvironmentUser}
+   * optional card save). This endpoint is deprecated; use EnvironmentUserApi
    *  for new integrations.
    * @deprecated Use {@link \Thoth\WlPay\Form\EnvironmentUserApi} instead.
    *
@@ -2180,7 +2180,7 @@
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
    *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
-   *  `dl_now` {string} Current local date in current location {@link WlClient#thothWlPayFormEnvironm...
+   *  `dl_now` {string} Current local date in current location EnvironmentApi::$k_location
    *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
    *  `f_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a percent of transaction...
    *  `id_locale` {number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
@@ -2190,9 +2190,9 @@
    *  `m_surcharge` {?string} Surcharge amount for payment with card represented as a fixed amount.
    *  `m_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a fixed amount.
    */
-  WlClient.prototype.thothWlPayFormEnvironment = function(params)
+  WlClient.prototype.wlPayFormEnvironment = function(params)
   {
-    return this.request('/Thoth/WlPay/Form/Environment.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Form/Environment.json', params || {}, 'GET');
   };
 
   /**
@@ -2200,7 +2200,7 @@
    *
    * Called before rendering a payment form to determine which payment methods and card types are available
    * for a given business and location, what surcharges apply, and how the form should behave (tip prompt,
-   * optional card save). This endpoint is deprecated; use {@link WlClient#thothWlPayFormEnvironmentUser}
+   * optional card save). This endpoint is deprecated; use EnvironmentUserApi
    *  for new integrations.
    *
    * @param {Object} [params] Request parameters.
@@ -2214,7 +2214,7 @@
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
    *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
-   *  `dl_now` {string} Current local date in current location {@link WlClient#thothWlPayFormEnvironm...
+   *  `dl_now` {string} Current local date in current location EnvironmentApi::$k_location
    *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
    *  `f_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a percent of transaction...
    *  `id_locale` {number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
@@ -2224,9 +2224,9 @@
    *  `m_surcharge` {?string} Surcharge amount for payment with card represented as a fixed amount.
    *  `m_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a fixed amount.
    */
-  WlClient.prototype.thothWlPayFormEnvironmentUser = function(params)
+  WlClient.prototype.wlPayFormEnvironmentUser = function(params)
   {
-    return this.request('/Thoth/WlPay/Form/EnvironmentUser.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Form/EnvironmentUser.json', params || {}, 'GET');
   };
 
   /**
@@ -2234,7 +2234,7 @@
    *
    * Returns the list of existing accounts and accounts not yet created for the user within the specified business,
    * including balance, currency, and payment method details.
-   * When {@link WlClient#thothWlPayAccountAccount} is `true`, resolves the money owner and includes the debtor status.
+   * When AccountApi::$is_owner is `true`, resolves the money owner and includes the debtor status.
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_owner If `true`, information for the account's owner is returned. Clients can be configured to pay for ...
@@ -2245,9 +2245,9 @@
    *  `a_account_nx` {Object[]} A list of accounts that have not been created for this user yet.
    *  `is_debtor` {boolean} Determines whether the user is a debtor. If `true` - the owner of this accoun...
    */
-  WlClient.prototype.thothWlPayAccountAccount = function(params)
+  WlClient.prototype.wlPayAccountAccount = function(params)
   {
-    return this.request('/Thoth/WlPay/Account/Account.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Account/Account.json', params || {}, 'GET');
   };
 
   /**
@@ -2266,9 +2266,9 @@
    *  `k_pay_owner` {string} The payment owner key. This is used for financial transactions.
    *  `k_pay_owner_money` {string} Key of the money owner.
    */
-  WlClient.prototype.thothWlPayOwnerOwner = function(params)
+  WlClient.prototype.wlPayOwnerOwner = function(params)
   {
-    return this.request('/Thoth/WlPay/Owner/Owner.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Owner/Owner.json', params || {}, 'GET');
   };
 
   /**
@@ -2286,9 +2286,9 @@
    * @returns {Promise<Object>} Response data.
    *  `a_pay_method` {Object[]} A list of payment methods:
    */
-  WlClient.prototype.thothWlPayMethodList = function(params)
+  WlClient.prototype.wlPayMethodList = function(params)
   {
-    return this.request('/Thoth/WlPay/Method/List.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Method/List.json', params || {}, 'GET');
   };
 
   /**
@@ -2305,9 +2305,9 @@
    * @returns {Promise<Object>} Response data.
    *  `a_pay_address` {?Object[]} The payee's address information.
    */
-  WlClient.prototype.thothWlPayAddressAddress = function(params)
+  WlClient.prototype.wlPayAddressAddress = function(params)
   {
-    return this.request('/Thoth/WlPay/Address/Address.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Address/Address.json', params || {}, 'GET');
   };
 
   /**
@@ -2329,9 +2329,9 @@
    *  `s_street1` {?string} The first line of the client address.
    *  `s_street2` {?string} The second line of the client address.
    */
-  WlClient.prototype.thothWlPayAddressProfile = function(params)
+  WlClient.prototype.wlPayAddressProfile = function(params)
   {
-    return this.request('/Thoth/WlPay/Address/Profile.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Address/Profile.json', params || {}, 'GET');
   };
 
   /**
@@ -4430,6 +4430,9 @@
 
   /**
    * Gets the list of promotions and products available at the location.
+   *
+   * Validates access to the business, then loads promotions with their prices and products expanded into
+   *  their options, keeping only the items available at the requested location.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
@@ -6661,9 +6664,9 @@
    * @param {string} params.s_token Secret token from the webhook URL used to authenticate the Brivo request.
    * @returns {Promise<Object>} Response data.
    */
-  WlClient.prototype.wlDoorAccessBrivoWebhook = function(params)
+  WlClient.prototype.dooraccessbrivowebhook = function(params)
   {
-    return this.request('/Wl/DoorAccess/Brivo/Webhook.json', params || {}, 'POST');
+    return this.request('/door-access/brivo/webhook', params || {}, 'POST');
   };
 
   /**
@@ -7264,9 +7267,9 @@
    * @returns {Promise<Object>} Response data.
    *  `k_purchase` {string} The ID of the purchase that was created during payment.
    */
-  WlClient.prototype.thothWlPayAccountChargeCharge = function(params)
+  WlClient.prototype.wlPayAccountChargeCharge = function(params)
   {
-    return this.request('/Thoth/WlPay/Account/Charge/Charge.json', params || {}, 'POST');
+    return this.request('/Wl/Pay/Account/Charge/Charge.json', params || {}, 'POST');
   };
 
   /**
@@ -7284,9 +7287,9 @@
    *  `a_list` {Object[]} List of bank cards.
    *  `can_add` {boolean} Whether new card can be added.
    */
-  WlClient.prototype.thothWlPayBankCardList = function(params)
+  WlClient.prototype.wlPayBankCardList = function(params)
   {
-    return this.request('/Thoth/WlPay/Bank/Card/List.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Bank/Card/List.json', params || {}, 'GET');
   };
 
   /**
@@ -7303,9 +7306,9 @@
    *  `a_list` {Object[]} List of ACH accounts:
    *  `can_add` {boolean} Whether new ACH account can be added.
    */
-  WlClient.prototype.thothWlPayBankAchList = function(params)
+  WlClient.prototype.wlPayBankAchList = function(params)
   {
-    return this.request('/Thoth/WlPay/Bank/Ach/List.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Bank/Ach/List.json', params || {}, 'GET');
   };
 
   /**
@@ -7333,9 +7336,9 @@
    *  `is_more` {boolean} Determines whether to show more rows in the report.
    *  `is_report_complete` {boolean} Determines whether the report is complete.
    */
-  WlClient.prototype.thothWlPayTransactionReportTransactionAllPayment = function(params)
+  WlClient.prototype.wlPayTransactionReportTransactionAllPayment = function(params)
   {
-    return this.request('/Thoth/WlPay/Transaction/Report/TransactionAllPayment.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Transaction/Report/TransactionAllPayment.json', params || {}, 'GET');
   };
 
   /**
@@ -7351,9 +7354,9 @@
    *  `html_phone_mask` {string} Mask for phone entering (ready for output to the page).
    *  `text_phone_mask` {string} Mask for phone entering.
    */
-  WlClient.prototype.thothWlPayAddressWidgetWidgetEdit = function(params)
+  WlClient.prototype.wlPayAddressWidgetWidgetEdit = function(params)
   {
-    return this.request('/Thoth/WlPay/Address/Widget/WidgetEdit.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Address/Widget/WidgetEdit.json', params || {}, 'GET');
   };
 
   /**
@@ -9126,10 +9129,10 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_appointment List of appointment keys for which to load unpaid data.
-   * @param {string} params.dtl_date Local date and time for which visit is booked in MySQL format.
+   * @param {?string} [params.dtl_date] Local date and time for which visit is booked in MySQL format.
    * @param {boolean} params.is_simple When set to `true` it's mean that need load full information about unpaid visits:
    * @param {string} params.k_business The business key.
-   * @param {string} params.k_location The location key.
+   * @param {?string} [params.k_location] The location key.
    * @param {string} params.k_visit Last booked visit key.
    * @param {string} params.uid The user's key.
    * @returns {Promise<Object>} Response data.
@@ -10384,9 +10387,9 @@
    * @param {string} params.k_pay_bank Pay bank key to delete.
    * @returns {Promise<Object>} Response data.
    */
-  WlClient.prototype.thothWlPayBankCardAddAddDelete = function(params)
+  WlClient.prototype.wlPayBankCardAddAddDelete = function(params)
   {
-    return this.request('/Thoth/WlPay/Bank/Card/Add/Add.json', params || {}, 'DELETE');
+    return this.request('/Wl/Pay/Bank/Card/Add/Add.json', params || {}, 'DELETE');
   };
 
   /**
@@ -10403,9 +10406,9 @@
    * @returns {Promise<Object>} Response data.
    *  `html_widget` {string} The HTML form containing the fields required to add a card.
    */
-  WlClient.prototype.thothWlPayBankCardAddAddGet = function(params)
+  WlClient.prototype.wlPayBankCardAddAddGet = function(params)
   {
-    return this.request('/Thoth/WlPay/Bank/Card/Add/Add.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Bank/Card/Add/Add.json', params || {}, 'GET');
   };
 
   /**
@@ -10420,9 +10423,9 @@
    * @param {string} params.k_pay_owner The payment owner ID. This is different from the user ID. It can be found with
    * @returns {Promise<Object>} Response data.
    */
-  WlClient.prototype.thothWlPayBankCardAddAddPost = function(params)
+  WlClient.prototype.wlPayBankCardAddAddPost = function(params)
   {
-    return this.request('/Thoth/WlPay/Bank/Card/Add/Add.json', params || {}, 'POST');
+    return this.request('/Wl/Pay/Bank/Card/Add/Add.json', params || {}, 'POST');
   };
 
   /**
@@ -10443,9 +10446,9 @@
    * @returns {Promise<Object>} Response data.
    *  `a_pay_card` {Object} List of saved bank cards.
    */
-  WlClient.prototype.thothWlPayBankCardWidgetWidgetSelect = function(params)
+  WlClient.prototype.wlPayBankCardWidgetWidgetSelect = function(params)
   {
-    return this.request('/Thoth/WlPay/Bank/Card/Widget/WidgetSelect.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Bank/Card/Widget/WidgetSelect.json', params || {}, 'GET');
   };
 
   /**
@@ -10459,9 +10462,9 @@
    * @param {string} params.k_pay_bank Pay bank key to delete.
    * @returns {Promise<Object>} Response data.
    */
-  WlClient.prototype.thothWlPayBankAchAddAddDelete = function(params)
+  WlClient.prototype.wlPayBankAchAddAddDelete = function(params)
   {
-    return this.request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params || {}, 'DELETE');
+    return this.request('/Wl/Pay/Bank/Ach/Add/Add.json', params || {}, 'DELETE');
   };
 
   /**
@@ -10481,9 +10484,9 @@
    *  `html_widget` {string} The HTML form containing the fields required to add a card.
    *  `id_pay_processor` {number} A list of payment gateways or processors. See {@link WlClient.ThothPayProcessorPayProcessorSid}.
    */
-  WlClient.prototype.thothWlPayBankAchAddAddGet = function(params)
+  WlClient.prototype.wlPayBankAchAddAddGet = function(params)
   {
-    return this.request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params || {}, 'GET');
+    return this.request('/Wl/Pay/Bank/Ach/Add/Add.json', params || {}, 'GET');
   };
 
   /**
@@ -10500,9 +10503,9 @@
    * @returns {Promise<Object>} Response data.
    *  `a_pay_bank` {Object} ACH account information:
    */
-  WlClient.prototype.thothWlPayBankAchAddAddPost = function(params)
+  WlClient.prototype.wlPayBankAchAddAddPost = function(params)
   {
-    return this.request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params || {}, 'POST');
+    return this.request('/Wl/Pay/Bank/Ach/Add/Add.json', params || {}, 'POST');
   };
 
   /**
@@ -14892,6 +14895,8 @@
     CLASS_LOCK_SEARCH: 152,
     /** Edit class schedule */
     CLASS_PERIOD: 5,
+    /** Allows a staff member to see other staff members' class sessions on the schedule in read-only mode */
+    CLASS_SCHEDULE_VIEW: 246,
     /** Add and view client's contact logs */
     CONTACT_LOG_MANAGE: 135,
     /** Add, remove, and edit gift cards */
