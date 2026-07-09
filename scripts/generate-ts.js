@@ -459,9 +459,10 @@ function buildTree(ops)
     {
       if (!node.children.has(seg))
       {
+        const pascalSeg = toIdentifierSegment(seg);
         node.children.set(seg, {
-          segment: seg,
-          key: seg.charAt(0).toLowerCase() + seg.slice(1),
+          segment: pascalSeg,
+          key: pascalSeg.charAt(0).toLowerCase() + pascalSeg.slice(1),
           children: new Map(),
           methods: [],
         });
@@ -469,9 +470,10 @@ function buildTree(ops)
       node = node.children.get(seg);
     }
 
+    const pascalMethod = toIdentifierSegment(methodSegment);
     node.methods.push({
       ...op,
-      methodName: methodSegment.charAt(0).toLowerCase() + methodSegment.slice(1),
+      methodName: pascalMethod.charAt(0).toLowerCase() + pascalMethod.slice(1),
     });
   }
 
@@ -482,9 +484,26 @@ function buildTree(ops)
 // Interface generation
 // ---------------------------------------------------------------------------
 
+/**
+ * Converts a single raw API path segment into a `PascalCase` identifier fragment, splitting on
+ * `-`/`_` delimiters. Segments that are already a single `PascalCase` word (the codebase
+ * convention) pass through unchanged.
+ *
+ * @param {string} segment Raw path segment (e.g. `door-access`, `PayProcessor`).
+ * @returns {string}
+ */
+function toIdentifierSegment(segment)
+{
+  return segment
+    .split(/[-_]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
+}
+
 function segmentsToName(segments)
 {
-  return segments.join('');
+  return segments.map(toIdentifierSegment).join('');
 }
 
 function generateParamsInterface(spec, name, allParams)
