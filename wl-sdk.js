@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260709134057
+ * Spec version: 1.1.20260709142513
  * Build date:   2026-07-09
- * Endpoints:    500
+ * Endpoints:    499
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260709134057';
+  WlClient.SPEC_VERSION = '1.1.20260709142513';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (500 total)
+  // Generated API methods (499 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -6650,23 +6650,6 @@
   WlClient.prototype.wlUserInfoUserIntegration = function(params)
   {
     return this.request('/Wl/User/Info/UserIntegration.json', params || {}, 'GET');
-  };
-
-  /**
-   * Receives a Brivo door-access event.
-   *
-   * Authenticates the request by the per-business webhook secret, then decodes the Brivo `AUDIT` event
-   *  payload and store the access fact and, when enabled, trigger an automatic check-in.
-   *  Access-denied and unrecognized events are ignored.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business the webhook belongs to. Taken from the webhook URL.
-   * @param {string} params.s_token Secret token from the webhook URL used to authenticate the Brivo request.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.dooraccessbrivowebhook = function(params)
-  {
-    return this.request('/door-access/brivo/webhook', params || {}, 'POST');
   };
 
   /**

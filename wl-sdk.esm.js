@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260709134057
+// OpenAPI spec version: 1.1.20260709142513
 // Build date: 2026-07-09
-// Endpoints: 500
+// Endpoints: 499
 // Enums: 187
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -8996,21 +8996,6 @@ export class ThothNamespace {
         this.payProcessor = new ThothPayProcessorNamespace(this._client);
     }
 }
-export class DoorAccessBrivoNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Receives a Brivo door-access event. */
-    webhook(params) {
-        return this._client._request('/door-access/brivo/webhook', params, 'POST');
-    }
-}
-export class DoorAccessNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.brivo = new DoorAccessBrivoNamespace(this._client);
-    }
-}
 // --- Client ---
 /** WellnessLiving API client. */
 export class WlClient {
@@ -9026,7 +9011,6 @@ export class WlClient {
         this.social = new SocialNamespace(this);
         this.wl = new WlNamespace(this);
         this.thoth = new ThothNamespace(this);
-        this.doorAccess = new DoorAccessNamespace(this);
     }
     _request(path, params, method) {
         const httpMethod = method.toUpperCase();

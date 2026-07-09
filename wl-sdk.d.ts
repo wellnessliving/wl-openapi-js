@@ -18420,13 +18420,6 @@ export interface WlUserInfoUserIntegrationResponse {
         is_reserve_with_google: boolean;
     } | null;
 }
-export interface DoorAccessBrivoWebhookParams {
-    /** Business the webhook belongs to. Taken from the webhook URL. */
-    k_business: string;
-    /** Secret token from the webhook URL used to authenticate the Brivo request. */
-    s_token: string;
-}
-export type DoorAccessBrivoWebhookResponse = Record<string, unknown>;
 export interface WlIntegrationAutymateAutymateActivateParams {
     /** The mode of the request. @see WlIntegrationAutymateAutymateAccessModeSid */
     id_mode: WlIntegrationAutymateAutymateAccessModeSid;
@@ -28793,17 +28786,6 @@ export declare class ThothNamespace {
     readonly payProcessor: ThothPayProcessorNamespace;
     constructor(_client: WlClient);
 }
-export declare class DoorAccessBrivoNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Receives a Brivo door-access event. */
-    webhook(params?: DoorAccessBrivoWebhookParams): Promise<DoorAccessBrivoWebhookResponse>;
-}
-export declare class DoorAccessNamespace {
-    private readonly _client;
-    readonly brivo: DoorAccessBrivoNamespace;
-    constructor(_client: WlClient);
-}
 /** WellnessLiving API client. */
 export declare class WlClient {
     private readonly _token;
@@ -28813,7 +28795,6 @@ export declare class WlClient {
     readonly social: SocialNamespace;
     readonly wl: WlNamespace;
     readonly thoth: ThothNamespace;
-    readonly doorAccess: DoorAccessNamespace;
     constructor(options: WlClientOptions);
     _request<T>(path: string, params: unknown, method: string): Promise<T>;
 }
