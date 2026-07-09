@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260709075149
+// OpenAPI spec version: 1.1.20260709081637
 // Build date: 2026-07-09
-// Endpoints: 497
+// Endpoints: 525
 // Enums: 187
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -5374,377 +5374,254 @@ export class ThothNamespace {
         this.wlPay = new ThothWlPayNamespace(this._client);
     }
 }
-export class CoreRequestApiApplicationCredentialNamespace {
+export class WlPayProcessorStripeComNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Deletes the specified credential for the application. */
-    credentialDelete(params) {
-        return this._client._request('/Core/Request/Api/Application/Credential/Credential.json', params, 'DELETE');
+    /** Gets the `Stripe` public key for a merchant. */
+    stripeComKey(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComKey.json', params, 'POST');
     }
-    /** Returns the credential data for the application. */
-    credentialGet(params) {
-        return this._client._request('/Core/Request/Api/Application/Credential/Credential.json', params, 'GET');
+    /** Updates a `Stripe` Payment Intent. */
+    paymentIntentUpdate(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/PaymentIntentUpdate.json', params, 'POST');
     }
-    /** Saves the credential for the application. */
-    credentialPut(params) {
-        return this._client._request('/Core/Request/Api/Application/Credential/Credential.json', params, 'PUT');
+    /** Initializes a `Stripe` payment. */
+    stripeComPayInit(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPayInit.json', params, 'POST');
+    }
+    /** Cancels a `Stripe` Payment Intent. */
+    stripeComPaymentIntentCancel(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPaymentIntentCancel.json', params, 'POST');
     }
 }
-export class CoreRequestApiApplicationNamespace {
+export class WlPayProcessorCyberSourceNamespace {
     constructor(_client) {
         this._client = _client;
-        this.credential = new CoreRequestApiApplicationCredentialNamespace(this._client);
     }
-    /** Restricts access to API for all sites, which are given in the list. */
-    originDelete(params) {
-        return this._client._request('/Core/Request/Api/Application/Origin.json', params, 'DELETE');
+    /** Checks `CyberSource` Payer Authentication enrollment. */
+    csPaEnrollment(params) {
+        return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaEnrollment.json', params, 'POST');
     }
-    /** Gets list of all sites, where usage of the API is allowed for the current application. */
-    originGet(params) {
-        return this._client._request('/Core/Request/Api/Application/Origin.json', params, 'GET');
+    /** Validates the `CyberSource` Payer Authentication result. */
+    csPaValidate(params) {
+        return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaValidate.json', params, 'POST');
     }
-    /** Allows access to API for all sites, which are given in the list. */
-    originPut(params) {
-        return this._client._request('/Core/Request/Api/Application/Origin.json', params, 'PUT');
+    /** Generates a capture context for `CyberSource` Flex Microform. */
+    csCaptureContext(params) {
+        return this._client._request('/Wl/Pay/Processor/CyberSource/CsCaptureContext.json', params, 'POST');
+    }
+    /** Starts `CyberSource` Payer Authentication setup. */
+    csPaSetup(params) {
+        return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaSetup.json', params, 'POST');
     }
 }
-export class CoreRequestApiNamespace {
+export class WlPayProcessorNamespace {
     constructor(_client) {
         this._client = _client;
-        this.application = new CoreRequestApiApplicationNamespace(this._client);
-    }
-    /** Gets a secret key for signing. */
-    keySecret(params) {
-        return this._client._request('/Core/Request/Api/KeySecret.json', params, 'GET');
+        this.stripeCom = new WlPayProcessorStripeComNamespace(this._client);
+        this.cyberSource = new WlPayProcessorCyberSourceNamespace(this._client);
     }
 }
-export class CoreRequestTokenNamespace {
+export class WlPayAccountChargeNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets new pin code. */
-    tokenPin(params) {
-        return this._client._request('/Core/Request/Token/TokenPin.json', params, 'GET');
+    /** Refills the user account balance by the specified payment amount or adjusts it manually. */
+    charge(params) {
+        return this._client._request('/Wl/Pay/Account/Charge/Charge.json', params, 'POST');
     }
 }
-export class CoreRequestNamespace {
+export class WlPayAccountNamespace {
     constructor(_client) {
         this._client = _client;
-        this.api = new CoreRequestApiNamespace(this._client);
-        this.token = new CoreRequestTokenNamespace(this._client);
+        this.charge = new WlPayAccountChargeNamespace(this._client);
     }
-    /** Returns the example result for debugging. */
-    example(params) {
-        return this._client._request('/Core/Request/Example.json', params, 'GET');
+    /** Retrieves information about accounts of given user in given business. */
+    account(params) {
+        return this._client._request('/Wl/Pay/Account/Account.json', params, 'GET');
     }
 }
-export class CoreGeoRegionNamespace {
+export class WlPayFormNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Retrieves information about countries and regions. */
-    region(params) {
-        return this._client._request('/Core/Geo/Region/Region.json', params, 'GET');
+    /** Returns information about payment environment. */
+    environmentUser(params) {
+        return this._client._request('/Wl/Pay/Form/EnvironmentUser.json', params, 'GET');
     }
-}
-export class CoreGeoNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.region = new CoreGeoRegionNamespace(this._client);
-    }
-    /** Returns a list of cities to show in combobox list. */
-    combobox(params) {
-        return this._client._request('/Core/Geo/Combobox.json', params, 'GET');
-    }
-}
-export class CoreGoogleCaptchaNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Saves the user CAPTCHA token for the current session. */
-    googleCaptcha(params) {
-        return this._client._request('/Core/Google/Captcha/GoogleCaptcha.json', params, 'PUT');
-    }
-    /** Returns the overridden score for the reCAPTCHA v3. */
-    captchaScoreGet(params) {
-        return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'GET');
-    }
-    /** Validates the reCAPTCHA v3 token. */
-    captchaScorePost(params) {
-        return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'POST');
-    }
-    /** Overrides the score for the reCAPTCHA v3. */
-    captchaScorePut(params) {
-        return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'PUT');
-    }
-}
-export class CoreGoogleNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.captcha = new CoreGoogleCaptchaNamespace(this._client);
-    }
-    /** Saves the user CAPTCHA token for the current session. */
+    /** Returns information about payment environment. */
     /** @deprecated */
-    googleCaptcha(params) {
-        return this._client._request('/Core/Google/GoogleCaptcha.json', params, 'PUT');
+    environment(params) {
+        return this._client._request('/Wl/Pay/Form/Environment.json', params, 'GET');
     }
 }
-export class CoreWebSocketNamespace {
+export class WlPayMethodNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Checks whether a listener can subscribe to specified channel. Subscribes in a case of positive result. */
-    subscribe(params) {
-        return this._client._request('/Core/WebSocket/Subscribe.json', params, 'POST');
+    /** Returns list of active payment methods data. */
+    list(params) {
+        return this._client._request('/Wl/Pay/Method/List.json', params, 'GET');
     }
 }
-export class CoreSidNamespace {
+export class WlPayOwnerNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns the list of all items for the given Sid class. */
-    coreSid(params) {
-        return this._client._request('/Core/Sid/CoreSid.json', params, 'GET');
+    /** Returns information about payment owner. */
+    owner(params) {
+        return this._client._request('/Wl/Pay/Owner/Owner.json', params, 'GET');
     }
 }
-export class CoreCaptchaNamespace {
+export class WlPayAddressWidgetNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Checks if a CAPTCHA is required for the given captcha type. */
-    captchaRequire(params) {
-        return this._client._request('/Core/Captcha/CaptchaRequire.json', params, 'GET');
+    /** Gets data for "edit payment address" widget. */
+    widgetEdit(params) {
+        return this._client._request('/Wl/Pay/Address/Widget/WidgetEdit.json', params, 'GET');
     }
 }
-export class CoreDriveImageUploadNamespace {
+export class WlPayAddressNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.widget = new WlPayAddressWidgetNamespace(this._client);
+    }
+    /** Gets user's payment addresses information. */
+    address(params) {
+        return this._client._request('/Wl/Pay/Address/Address.json', params, 'GET');
+    }
+    /** Returns default payment address data that is retrieved from user profile. */
+    profile(params) {
+        return this._client._request('/Wl/Pay/Address/Profile.json', params, 'GET');
+    }
+}
+export class WlPayTransactionReportNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns information about the image. */
-    imageUploadGet(params) {
-        return this._client._request('/Core/Drive/ImageUpload/ImageUpload.json', params, 'GET');
-    }
-    /** Loads image information for a list of IDs. The POST method is used instead of the GET method because the maximum permitted URI length is restricted. */
-    imageUploadPost(params) {
-        return this._client._request('/Core/Drive/ImageUpload/ImageUpload.json', params, 'POST');
-    }
-    /** Updates the image. */
-    imageUploadPut(params) {
-        return this._client._request('/Core/Drive/ImageUpload/ImageUpload.json', params, 'PUT');
-    }
-    /** Saves new uploaded image. */
-    imageUploadTemporary(params) {
-        return this._client._request('/Core/Drive/ImageUpload/ImageUploadTemporary.json', params, 'POST');
+    /** Returns All Transactions Report data for the specified date range. */
+    transactionAllPayment(params) {
+        return this._client._request('/Wl/Pay/Transaction/Report/TransactionAllPayment.json', params, 'GET');
     }
 }
-export class CoreDriveNamespace {
+export class WlPayTransactionNamespace {
     constructor(_client) {
         this._client = _client;
-        this.imageUpload = new CoreDriveImageUploadNamespace(this._client);
+        this.report = new WlPayTransactionReportNamespace(this._client);
     }
 }
-export class CoreSpaApplicationNamespace {
+export class WlPayBankAchAddNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets information of application. */
-    spaApplication(params) {
-        return this._client._request('/Core/Spa/Application/SpaApplication.json', params, 'GET');
+    /** Deletes saved ACH. */
+    addDelete(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'DELETE');
+    }
+    /** Gets widget for ACH account add. */
+    addGet(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'GET');
+    }
+    /** Saves new ACH pay method. */
+    addPost(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'POST');
     }
 }
-export class CoreSpaNamespace {
+export class WlPayBankAchNamespace {
     constructor(_client) {
         this._client = _client;
-        this.application = new CoreSpaApplicationNamespace(this._client);
+        this.add = new WlPayBankAchAddNamespace(this._client);
+    }
+    /** Retrieves information about user's ACH accounts. */
+    list(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/List.json', params, 'GET');
     }
 }
-export class CorePassportLoginEnterNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Signs the user in using their login and hashed password. */
-    enter(params) {
-        return this._client._request('/Core/Passport/Login/Enter/Enter.json', params, 'POST');
-    }
-    /** Generates notepad for user sign in form. */
-    notepad(params) {
-        return this._client._request('/Core/Passport/Login/Enter/Notepad.json', params, 'GET');
-    }
-}
-export class CorePassportLoginRegisterNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Validates the new user's data and sends a confirmation email to complete registration. */
-    register(params) {
-        return this._client._request('/Core/Passport/Login/Register/Register.json', params, 'POST');
-    }
-    /** Confirms email of a new user and completes registration. */
-    registerConfirm(params) {
-        return this._client._request('/Core/Passport/Login/Register/RegisterConfirm.json', params, 'POST');
-    }
-}
-export class CorePassportLoginSignOutNamespace {
+export class WlPayBankCardAddNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Signs user out. */
-    signOut(params) {
-        return this._client._request('/Core/Passport/Login/SignOut/SignOut.json', params, 'POST');
+    /** Deletes saved card. */
+    addDelete(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'DELETE');
+    }
+    /** Gets code of bank card widget. */
+    /** @deprecated */
+    addGet(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'GET');
+    }
+    /** Saves new bank card. */
+    addPost(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'POST');
     }
 }
-export class CorePassportLoginNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.enter = new CorePassportLoginEnterNamespace(this._client);
-        this.register = new CorePassportLoginRegisterNamespace(this._client);
-        this.signOut = new CorePassportLoginSignOutNamespace(this._client);
-    }
-    /** Returns information about user that is currently signed in. */
-    info(params) {
-        return this._client._request('/Core/Passport/Login/Info.json', params, 'GET');
-    }
-}
-export class CorePassportChangePasswordNamespace {
+export class WlPayBankCardWidgetNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Saves for user new password. */
-    changePasswordApply(params) {
-        return this._client._request('/Core/Passport/ChangePassword/ChangePasswordApply.json', params, 'POST');
-    }
-    /** Sends to user "password recovery" mail. */
-    changePasswordBegin(params) {
-        return this._client._request('/Core/Passport/ChangePassword/ChangePasswordBegin.json', params, 'POST');
+    /** Gets a list of saved bank cards. */
+    widgetSelect(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Widget/WidgetSelect.json', params, 'GET');
     }
 }
-export class CorePassportEnterJwtNamespace {
+export class WlPayBankCardNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.add = new WlPayBankCardAddNamespace(this._client);
+        this.widget = new WlPayBankCardWidgetNamespace(this._client);
+    }
+    /** Retrieves information about user's bank cards. */
+    list(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/List.json', params, 'GET');
+    }
+}
+export class WlPayBankNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.ach = new WlPayBankAchNamespace(this._client);
+        this.card = new WlPayBankCardNamespace(this._client);
+    }
+}
+export class WlPayNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.processor = new WlPayProcessorNamespace(this._client);
+        this.account = new WlPayAccountNamespace(this._client);
+        this.form = new WlPayFormNamespace(this._client);
+        this.method = new WlPayMethodNamespace(this._client);
+        this.owner = new WlPayOwnerNamespace(this._client);
+        this.address = new WlPayAddressNamespace(this._client);
+        this.transaction = new WlPayTransactionNamespace(this._client);
+        this.bank = new WlPayBankNamespace(this._client);
+    }
+}
+export class WlReportGeneratorNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns a jwt token that can be used to log user. */
-    jwtToken(params) {
-        return this._client._request('/Core/Passport/Enter/Jwt/JwtToken.json', params, 'GET');
+    /** Returns contents of a report as a table. */
+    query(params) {
+        return this._client._request('/Wl/Report/Generator/Query.json', params, 'POST');
     }
 }
-export class CorePassportEnterNamespace {
+export class WlReportNamespace {
     constructor(_client) {
         this._client = _client;
-        this.jwt = new CorePassportEnterJwtNamespace(this._client);
+        this.generator = new WlReportGeneratorNamespace(this._client);
     }
-}
-export class CorePassportUserEmailNamespace {
-    constructor(_client) {
-        this._client = _client;
+    /** Gets data of required report. */
+    data(params) {
+        return this._client._request('/Wl/Report/Data.json', params, 'GET');
     }
-    /** Checks if email address exists. */
-    emailExist(params) {
-        return this._client._request('/Core/Passport/User/Email/EmailExist.json', params, 'GET');
+    /** Checks access to given report. */
+    access(params) {
+        return this._client._request('/Wl/Report/Access.json', params, 'GET');
     }
-}
-export class CorePassportUserNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.email = new CorePassportUserEmailNamespace(this._client);
-    }
-}
-export class CorePassportNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.login = new CorePassportLoginNamespace(this._client);
-        this.changePassword = new CorePassportChangePasswordNamespace(this._client);
-        this.enter = new CorePassportEnterNamespace(this._client);
-        this.user = new CorePassportUserNamespace(this._client);
-    }
-}
-export class CoreNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.request = new CoreRequestNamespace(this._client);
-        this.geo = new CoreGeoNamespace(this._client);
-        this.google = new CoreGoogleNamespace(this._client);
-        this.webSocket = new CoreWebSocketNamespace(this._client);
-        this.sid = new CoreSidNamespace(this._client);
-        this.captcha = new CoreCaptchaNamespace(this._client);
-        this.drive = new CoreDriveNamespace(this._client);
-        this.spa = new CoreSpaNamespace(this._client);
-        this.passport = new CorePassportNamespace(this._client);
-    }
-}
-export class SocialMicrosoftNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Removes the association between a website client and a Microsoft account. */
-    loginDelete(params) {
-        return this._client._request('/Social/Microsoft/Login.json', params, 'DELETE');
-    }
-    /** Collects data for the Microsoft login button. */
-    loginGet(params) {
-        return this._client._request('/Social/Microsoft/Login.json', params, 'GET');
-    }
-    /** Signs a user in with Microsoft. */
-    loginPost(params) {
-        return this._client._request('/Social/Microsoft/Login.json', params, 'POST');
-    }
-}
-export class SocialAppleLoginNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Removes the association between a website client and the Apple account. Invalidates the tokens and associated client authorizations. */
-    appleLoginDelete(params) {
-        return this._client._request('/Social/Apple/Login/AppleLogin.json', params, 'DELETE');
-    }
-    /** Signs user in with Apple. */
-    appleLoginPost(params) {
-        return this._client._request('/Social/Apple/Login/AppleLogin.json', params, 'POST');
-    }
-}
-export class SocialAppleNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.login = new SocialAppleLoginNamespace(this._client);
-    }
-}
-export class SocialFacebookLoginNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Authorizes user with facebook. */
-    login(params) {
-        return this._client._request('/Social/Facebook/Login/Login.json', params, 'POST');
-    }
-}
-export class SocialFacebookNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.login = new SocialFacebookLoginNamespace(this._client);
-    }
-}
-export class SocialGooglePlusNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Authorizes user with Google. */
-    login(params) {
-        return this._client._request('/Social/Google/Plus/Login.json', params, 'POST');
-    }
-}
-export class SocialGoogleNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.plus = new SocialGooglePlusNamespace(this._client);
-    }
-}
-export class SocialNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.microsoft = new SocialMicrosoftNamespace(this._client);
-        this.apple = new SocialAppleNamespace(this._client);
-        this.facebook = new SocialFacebookNamespace(this._client);
-        this.google = new SocialGoogleNamespace(this._client);
+    /** Gets data of required report collection. */
+    pageData(params) {
+        return this._client._request('/Wl/Report/PageData.json', params, 'GET');
     }
 }
 export class WlScheduleClassListNamespace {
@@ -6514,23 +6391,6 @@ export class WlBusinessNamespace {
     /** Gets information about businesses where given user is a staff member. */
     businessAccess(params) {
         return this._client._request('/Wl/Business/BusinessAccess.json', params, 'GET');
-    }
-}
-export class WlReportNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets data of required report. */
-    data(params) {
-        return this._client._request('/Wl/Report/Data.json', params, 'GET');
-    }
-    /** Checks access to given report. */
-    access(params) {
-        return this._client._request('/Wl/Report/Access.json', params, 'GET');
-    }
-    /** Gets data of required report collection. */
-    pageData(params) {
-        return this._client._request('/Wl/Report/PageData.json', params, 'GET');
     }
 }
 export class WlCollectorNamespace {
@@ -8914,13 +8774,14 @@ export class WlTuitionNamespace {
 export class WlNamespace {
     constructor(_client) {
         this._client = _client;
+        this.pay = new WlPayNamespace(this._client);
+        this.report = new WlReportNamespace(this._client);
         this.schedule = new WlScheduleNamespace(this._client);
         this.visit = new WlVisitNamespace(this._client);
         this.location = new WlLocationNamespace(this._client);
         this.profile = new WlProfileNamespace(this._client);
         this.event = new WlEventNamespace(this._client);
         this.business = new WlBusinessNamespace(this._client);
-        this.report = new WlReportNamespace(this._client);
         this.collector = new WlCollectorNamespace(this._client);
         this.announcement = new WlAnnouncementNamespace(this._client);
         this.lead = new WlLeadNamespace(this._client);
@@ -8970,6 +8831,379 @@ export class WlNamespace {
         this.tuition = new WlTuitionNamespace(this._client);
     }
 }
+export class CoreRequestApiApplicationCredentialNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes the specified credential for the application. */
+    credentialDelete(params) {
+        return this._client._request('/Core/Request/Api/Application/Credential/Credential.json', params, 'DELETE');
+    }
+    /** Returns the credential data for the application. */
+    credentialGet(params) {
+        return this._client._request('/Core/Request/Api/Application/Credential/Credential.json', params, 'GET');
+    }
+    /** Saves the credential for the application. */
+    credentialPut(params) {
+        return this._client._request('/Core/Request/Api/Application/Credential/Credential.json', params, 'PUT');
+    }
+}
+export class CoreRequestApiApplicationNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.credential = new CoreRequestApiApplicationCredentialNamespace(this._client);
+    }
+    /** Restricts access to API for all sites, which are given in the list. */
+    originDelete(params) {
+        return this._client._request('/Core/Request/Api/Application/Origin.json', params, 'DELETE');
+    }
+    /** Gets list of all sites, where usage of the API is allowed for the current application. */
+    originGet(params) {
+        return this._client._request('/Core/Request/Api/Application/Origin.json', params, 'GET');
+    }
+    /** Allows access to API for all sites, which are given in the list. */
+    originPut(params) {
+        return this._client._request('/Core/Request/Api/Application/Origin.json', params, 'PUT');
+    }
+}
+export class CoreRequestApiNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.application = new CoreRequestApiApplicationNamespace(this._client);
+    }
+    /** Gets a secret key for signing. */
+    keySecret(params) {
+        return this._client._request('/Core/Request/Api/KeySecret.json', params, 'GET');
+    }
+}
+export class CoreRequestTokenNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets new pin code. */
+    tokenPin(params) {
+        return this._client._request('/Core/Request/Token/TokenPin.json', params, 'GET');
+    }
+}
+export class CoreRequestNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.api = new CoreRequestApiNamespace(this._client);
+        this.token = new CoreRequestTokenNamespace(this._client);
+    }
+    /** Returns the example result for debugging. */
+    example(params) {
+        return this._client._request('/Core/Request/Example.json', params, 'GET');
+    }
+}
+export class CoreGeoRegionNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves information about countries and regions. */
+    region(params) {
+        return this._client._request('/Core/Geo/Region/Region.json', params, 'GET');
+    }
+}
+export class CoreGeoNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.region = new CoreGeoRegionNamespace(this._client);
+    }
+    /** Returns a list of cities to show in combobox list. */
+    combobox(params) {
+        return this._client._request('/Core/Geo/Combobox.json', params, 'GET');
+    }
+}
+export class CoreGoogleCaptchaNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Saves the user CAPTCHA token for the current session. */
+    googleCaptcha(params) {
+        return this._client._request('/Core/Google/Captcha/GoogleCaptcha.json', params, 'PUT');
+    }
+    /** Returns the overridden score for the reCAPTCHA v3. */
+    captchaScoreGet(params) {
+        return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'GET');
+    }
+    /** Validates the reCAPTCHA v3 token. */
+    captchaScorePost(params) {
+        return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'POST');
+    }
+    /** Overrides the score for the reCAPTCHA v3. */
+    captchaScorePut(params) {
+        return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'PUT');
+    }
+}
+export class CoreGoogleNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.captcha = new CoreGoogleCaptchaNamespace(this._client);
+    }
+    /** Saves the user CAPTCHA token for the current session. */
+    /** @deprecated */
+    googleCaptcha(params) {
+        return this._client._request('/Core/Google/GoogleCaptcha.json', params, 'PUT');
+    }
+}
+export class CoreWebSocketNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks whether a listener can subscribe to specified channel. Subscribes in a case of positive result. */
+    subscribe(params) {
+        return this._client._request('/Core/WebSocket/Subscribe.json', params, 'POST');
+    }
+}
+export class CoreSidNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the list of all items for the given Sid class. */
+    coreSid(params) {
+        return this._client._request('/Core/Sid/CoreSid.json', params, 'GET');
+    }
+}
+export class CoreCaptchaNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks if a CAPTCHA is required for the given captcha type. */
+    captchaRequire(params) {
+        return this._client._request('/Core/Captcha/CaptchaRequire.json', params, 'GET');
+    }
+}
+export class CoreDriveImageUploadNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns information about the image. */
+    imageUploadGet(params) {
+        return this._client._request('/Core/Drive/ImageUpload/ImageUpload.json', params, 'GET');
+    }
+    /** Loads image information for a list of IDs. The POST method is used instead of the GET method because the maximum permitted URI length is restricted. */
+    imageUploadPost(params) {
+        return this._client._request('/Core/Drive/ImageUpload/ImageUpload.json', params, 'POST');
+    }
+    /** Updates the image. */
+    imageUploadPut(params) {
+        return this._client._request('/Core/Drive/ImageUpload/ImageUpload.json', params, 'PUT');
+    }
+    /** Saves new uploaded image. */
+    imageUploadTemporary(params) {
+        return this._client._request('/Core/Drive/ImageUpload/ImageUploadTemporary.json', params, 'POST');
+    }
+}
+export class CoreDriveNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.imageUpload = new CoreDriveImageUploadNamespace(this._client);
+    }
+}
+export class CoreSpaApplicationNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets information of application. */
+    spaApplication(params) {
+        return this._client._request('/Core/Spa/Application/SpaApplication.json', params, 'GET');
+    }
+}
+export class CoreSpaNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.application = new CoreSpaApplicationNamespace(this._client);
+    }
+}
+export class CorePassportLoginEnterNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Signs the user in using their login and hashed password. */
+    enter(params) {
+        return this._client._request('/Core/Passport/Login/Enter/Enter.json', params, 'POST');
+    }
+    /** Generates notepad for user sign in form. */
+    notepad(params) {
+        return this._client._request('/Core/Passport/Login/Enter/Notepad.json', params, 'GET');
+    }
+}
+export class CorePassportLoginRegisterNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Validates the new user's data and sends a confirmation email to complete registration. */
+    register(params) {
+        return this._client._request('/Core/Passport/Login/Register/Register.json', params, 'POST');
+    }
+    /** Confirms email of a new user and completes registration. */
+    registerConfirm(params) {
+        return this._client._request('/Core/Passport/Login/Register/RegisterConfirm.json', params, 'POST');
+    }
+}
+export class CorePassportLoginSignOutNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Signs user out. */
+    signOut(params) {
+        return this._client._request('/Core/Passport/Login/SignOut/SignOut.json', params, 'POST');
+    }
+}
+export class CorePassportLoginNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.enter = new CorePassportLoginEnterNamespace(this._client);
+        this.register = new CorePassportLoginRegisterNamespace(this._client);
+        this.signOut = new CorePassportLoginSignOutNamespace(this._client);
+    }
+    /** Returns information about user that is currently signed in. */
+    info(params) {
+        return this._client._request('/Core/Passport/Login/Info.json', params, 'GET');
+    }
+}
+export class CorePassportChangePasswordNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Saves for user new password. */
+    changePasswordApply(params) {
+        return this._client._request('/Core/Passport/ChangePassword/ChangePasswordApply.json', params, 'POST');
+    }
+    /** Sends to user "password recovery" mail. */
+    changePasswordBegin(params) {
+        return this._client._request('/Core/Passport/ChangePassword/ChangePasswordBegin.json', params, 'POST');
+    }
+}
+export class CorePassportEnterJwtNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns a jwt token that can be used to log user. */
+    jwtToken(params) {
+        return this._client._request('/Core/Passport/Enter/Jwt/JwtToken.json', params, 'GET');
+    }
+}
+export class CorePassportEnterNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.jwt = new CorePassportEnterJwtNamespace(this._client);
+    }
+}
+export class CorePassportUserEmailNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks if email address exists. */
+    emailExist(params) {
+        return this._client._request('/Core/Passport/User/Email/EmailExist.json', params, 'GET');
+    }
+}
+export class CorePassportUserNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.email = new CorePassportUserEmailNamespace(this._client);
+    }
+}
+export class CorePassportNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.login = new CorePassportLoginNamespace(this._client);
+        this.changePassword = new CorePassportChangePasswordNamespace(this._client);
+        this.enter = new CorePassportEnterNamespace(this._client);
+        this.user = new CorePassportUserNamespace(this._client);
+    }
+}
+export class CoreNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.request = new CoreRequestNamespace(this._client);
+        this.geo = new CoreGeoNamespace(this._client);
+        this.google = new CoreGoogleNamespace(this._client);
+        this.webSocket = new CoreWebSocketNamespace(this._client);
+        this.sid = new CoreSidNamespace(this._client);
+        this.captcha = new CoreCaptchaNamespace(this._client);
+        this.drive = new CoreDriveNamespace(this._client);
+        this.spa = new CoreSpaNamespace(this._client);
+        this.passport = new CorePassportNamespace(this._client);
+    }
+}
+export class SocialMicrosoftNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes the association between a website client and a Microsoft account. */
+    loginDelete(params) {
+        return this._client._request('/Social/Microsoft/Login.json', params, 'DELETE');
+    }
+    /** Collects data for the Microsoft login button. */
+    loginGet(params) {
+        return this._client._request('/Social/Microsoft/Login.json', params, 'GET');
+    }
+    /** Signs a user in with Microsoft. */
+    loginPost(params) {
+        return this._client._request('/Social/Microsoft/Login.json', params, 'POST');
+    }
+}
+export class SocialAppleLoginNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes the association between a website client and the Apple account. Invalidates the tokens and associated client authorizations. */
+    appleLoginDelete(params) {
+        return this._client._request('/Social/Apple/Login/AppleLogin.json', params, 'DELETE');
+    }
+    /** Signs user in with Apple. */
+    appleLoginPost(params) {
+        return this._client._request('/Social/Apple/Login/AppleLogin.json', params, 'POST');
+    }
+}
+export class SocialAppleNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.login = new SocialAppleLoginNamespace(this._client);
+    }
+}
+export class SocialFacebookLoginNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Authorizes user with facebook. */
+    login(params) {
+        return this._client._request('/Social/Facebook/Login/Login.json', params, 'POST');
+    }
+}
+export class SocialFacebookNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.login = new SocialFacebookLoginNamespace(this._client);
+    }
+}
+export class SocialGooglePlusNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Authorizes user with Google. */
+    login(params) {
+        return this._client._request('/Social/Google/Plus/Login.json', params, 'POST');
+    }
+}
+export class SocialGoogleNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.plus = new SocialGooglePlusNamespace(this._client);
+    }
+}
+export class SocialNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.microsoft = new SocialMicrosoftNamespace(this._client);
+        this.apple = new SocialAppleNamespace(this._client);
+        this.facebook = new SocialFacebookNamespace(this._client);
+        this.google = new SocialGoogleNamespace(this._client);
+    }
+}
 // --- Client ---
 /** WellnessLiving API client. */
 export class WlClient {
@@ -8982,9 +9216,9 @@ export class WlClient {
         this._baseUrl = (base.charAt(base.length - 1) === '/') ? base.slice(0, -1) : base;
         this._timeout = (options.timeout != null && options.timeout > 0) ? options.timeout : 30000;
         this.thoth = new ThothNamespace(this);
+        this.wl = new WlNamespace(this);
         this.core = new CoreNamespace(this);
         this.social = new SocialNamespace(this);
-        this.wl = new WlNamespace(this);
     }
     _request(path, params, method) {
         const httpMethod = method.toUpperCase();

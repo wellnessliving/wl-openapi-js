@@ -4954,11 +4954,31 @@ export interface ThothExplorerSearchClassSessionClassSessionSearchResponse {
         k_class_period_session: string;
     };
 }
+export type WlPayProcessorStripeComStripeComKeyParams = Record<string, unknown>;
+export interface WlPayProcessorStripeComStripeComKeyResponse {
+    /** Merchant public key. */
+    s_public: string | null;
+}
 export type ThothPayProcessorStripeComStripeComKeyParams = Record<string, unknown>;
 export interface ThothPayProcessorStripeComStripeComKeyResponse {
     /** Merchant public key. */
     s_public: string | null;
 }
+export interface WlPayProcessorStripeComPaymentIntentUpdateParams {
+    /** ID of the actor. One of {@link RsPayActorSid} constants. */
+    id_pay_actor: RsPayActorSid;
+    /** Key of the business to update Payment Intent for. */
+    k_business: string;
+    /** Key of the business merchant to update Payment Intent for. */
+    k_business_merchant: string;
+    /** Key of the payment transaction to update. */
+    k_pay_transaction: string;
+    /** Payment intent ID to update. */
+    s_payment_intent: string;
+    /** Payment owner user key. */
+    uid_purchase?: string | null;
+}
+export type WlPayProcessorStripeComPaymentIntentUpdateResponse = Record<string, unknown>;
 export interface ThothPayProcessorStripeComPaymentIntentUpdateParams {
     /** ID of the actor. One of {@link RsPayActorSid} constants. */
     id_pay_actor: RsPayActorSid;
@@ -4974,6 +4994,19 @@ export interface ThothPayProcessorStripeComPaymentIntentUpdateParams {
     uid_purchase?: string | null;
 }
 export type ThothPayProcessorStripeComPaymentIntentUpdateResponse = Record<string, unknown>;
+export type WlPayProcessorStripeComStripeComPayInitParams = Record<string, unknown>;
+export interface WlPayProcessorStripeComStripeComPayInitResponse {
+    /** Statuses of payment intents. @see ThothPayProcessorStripeComPaymentIntentStatusSid */
+    id_status: ThothPayProcessorStripeComPaymentIntentStatusSid;
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string | null;
+    /** Payment Intent client secret key. */
+    s_client_secret: string;
+    /** Payment intent ID. */
+    s_payment_intent: string;
+    /** Error message. */
+    text_message: string | null;
+}
 export type ThothPayProcessorStripeComStripeComPayInitParams = Record<string, unknown>;
 export interface ThothPayProcessorStripeComStripeComPayInitResponse {
     /** Statuses of payment intents. @see ThothPayProcessorStripeComPaymentIntentStatusSid */
@@ -4987,6 +5020,8 @@ export interface ThothPayProcessorStripeComStripeComPayInitResponse {
     /** Error message. */
     text_message: string | null;
 }
+export type WlPayProcessorStripeComStripeComPaymentIntentCancelParams = Record<string, unknown>;
+export type WlPayProcessorStripeComStripeComPaymentIntentCancelResponse = Record<string, unknown>;
 export type ThothPayProcessorStripeComStripeComPaymentIntentCancelParams = Record<string, unknown>;
 export type ThothPayProcessorStripeComStripeComPaymentIntentCancelResponse = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams = Record<string, unknown>;
@@ -5009,6 +5044,13 @@ export interface ThothPayProcessorNuveiNuveiOpenOrderResponse {
 }
 export type ThothPayProcessorNuveiNuveiTransactionCancelParams = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiTransactionCancelResponse = Record<string, unknown>;
+export type WlPayProcessorCyberSourceCsPaEnrollmentParams = Record<string, unknown>;
+export interface WlPayProcessorCyberSourceCsPaEnrollmentResponse {
+    /** JSON Web Token to include into the request to the second frame. */
+    s_jwt: string | null;
+    /** URL for frontend interaction. */
+    url_interact: string | null;
+}
 export type ThothPayProcessorCyberSourceCsPaEnrollmentParams = Record<string, unknown>;
 export interface ThothPayProcessorCyberSourceCsPaEnrollmentResponse {
     /** JSON Web Token to include into the request to the second frame. */
@@ -5016,8 +5058,21 @@ export interface ThothPayProcessorCyberSourceCsPaEnrollmentResponse {
     /** URL for frontend interaction. */
     url_interact: string | null;
 }
+export type WlPayProcessorCyberSourceCsPaValidateParams = Record<string, unknown>;
+export type WlPayProcessorCyberSourceCsPaValidateResponse = Record<string, unknown>;
 export type ThothPayProcessorCyberSourceCsPaValidateParams = Record<string, unknown>;
 export type ThothPayProcessorCyberSourceCsPaValidateResponse = Record<string, unknown>;
+export type WlPayProcessorCyberSourceCsCaptureContextParams = Record<string, unknown>;
+export interface WlPayProcessorCyberSourceCsCaptureContextResponse {
+    /** Microform Integration JavaScript library integrity property value. */
+    s_client_library_integrity: string | null;
+    /** Contents of the key. */
+    s_key: string | null;
+    /** ID of the key. */
+    s_key_id: string | null;
+    /** Microform Integration JavaScript library url. */
+    url_client_library: string | null;
+}
 export type ThothPayProcessorCyberSourceCsCaptureContextParams = Record<string, unknown>;
 export interface ThothPayProcessorCyberSourceCsCaptureContextResponse {
     /** Microform Integration JavaScript library integrity property value. */
@@ -5029,6 +5084,17 @@ export interface ThothPayProcessorCyberSourceCsCaptureContextResponse {
     /** Microform Integration JavaScript library url. */
     url_client_library: string | null;
 }
+export type WlPayProcessorCyberSourceCsPaSetupParams = Record<string, unknown>;
+export interface WlPayProcessorCyberSourceCsPaSetupResponse {
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string;
+    /** JWT token, as returned by Cyber Source. */
+    s_jwt: string;
+    /** Reference ID, as returned by Cyber Source. */
+    s_reference: string;
+    /** Device collection URL, as returned by Cyber Source. */
+    url_collection: string;
+}
 export type ThothPayProcessorCyberSourceCsPaSetupParams = Record<string, unknown>;
 export interface ThothPayProcessorCyberSourceCsPaSetupResponse {
     /** Key of payment transaction that was created. */
@@ -5039,6 +5105,76 @@ export interface ThothPayProcessorCyberSourceCsPaSetupResponse {
     s_reference: string;
     /** Device collection URL, as returned by Cyber Source. */
     url_collection: string;
+}
+export type WlReportGeneratorQueryParams = Record<string, unknown>;
+export interface WlReportGeneratorQueryResponse {
+    /** A list of dynamic fields in this report. */
+    a_dynamic: Array<{
+        /** Fields of the complex cell. */
+        a_cell: Array<Record<string, unknown>>;
+        /** Elements of a customization from that are required by this filter field. */
+        a_customization_element: Array<Array<unknown>>;
+        /** A list of scalar types of values that this field can get. */
+        a_type: Array<unknown>;
+        /** Whether this field is dynamic or static. */
+        is_dynamic: boolean;
+        /** Whether this field is used for export. */
+        is_export?: boolean | null;
+        /** Whether this field should be hidden by default. It can later be shown by using the customization ... */
+        is_hide_by_default: boolean;
+        /** Whether this field should be hidden if the entire column is empty. */
+        is_hide_if_empty: boolean;
+        /** Whether this field is nullable. */
+        is_null: boolean;
+        /** Whether the ordering by this field is available. */
+        is_order?: boolean | null;
+        /** Whether this field should be shown during report render. */
+        is_show: boolean;
+        /** Whether this field is stored in the report storage. */
+        is_store: boolean;
+        /** Argument for the MySQL function `cast()`. */
+        s_cast?: string | null;
+        /** Name of a cell class. */
+        s_class?: Record<string, unknown> | null;
+        /** CSS class that is used for formatting of this field. */
+        s_class_css: string;
+        /** Name of formatting method that is used for formatting of this field during export. */
+        s_format?: string | null;
+        /** Name of a public property in which value of this field is stored. */
+        s_name: string;
+        /** A string by which report columns are sorted. */
+        s_sort: string;
+        /** Type of this field, as specified in its PHP doc. */
+        s_type: string;
+        /** Data to derive title of a column which values are represented by this report field. */
+        text_title?: string | null;
+        /** Title of this field that is used during export. */
+        text_title_export?: string | null;
+        /** Text of the cell info tooltip. */
+        text_title_info?: string | null;
+    }>;
+    /** A list of fields in this report. */
+    a_field: Array<string>;
+    /** Report data. */
+    a_row: Array<Array<string>>;
+    /** A list of stale rows. */
+    a_stale: Array<number>;
+    /** Warning list of the report. */
+    a_warning: Array<string>;
+    /** Date and time when this report has completed generation. */
+    dtu_complete: string;
+    /** Date and time when this report was put on generation queue. */
+    dtu_queue: string;
+    /** Date and time when generation of this report has started. */
+    dtu_start: string;
+    /** A CAS (compare-and-swap) number that allows to track changes in the report storage. */
+    i_cas_change: number;
+    /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
+    id_report_status: ThothReportCoreGeneratorReportGeneratorStatusSid;
+    /** Key of this report. */
+    s_report: string;
+    /** Text of an error message that occurred during generation of the report. */
+    text_error: string;
 }
 export type ThothReportCoreGeneratorQueryParams = Record<string, unknown>;
 export interface ThothReportCoreGeneratorQueryResponse {
@@ -5110,6 +5246,50 @@ export interface ThothReportCoreGeneratorQueryResponse {
     /** Text of an error message that occurred during generation of the report. */
     text_error: string;
 }
+export interface WlPayAccountAccountParams {
+    /** If `true`, information for the account's owner is returned. Clients can be configured to pay for ... */
+    is_owner: boolean;
+    /** The key of the business to show information for. */
+    k_business: string;
+    /** The key of the user to show information for. */
+    uid: string;
+}
+export interface WlPayAccountAccountResponse {
+    /** A list of the user's accounts. */
+    a_account: {
+        /** A list of currencies. @see CoreLocaleCurrencySid */
+        id_currency: CoreLocaleCurrencySid;
+        /** Key of account currency. */
+        k_currency: string;
+        /** ID of payment account.  `null` if this is a user account based on system payment method. */
+        k_pay_account: string | null;
+        /** ID of custom payment method. `null` if this is a user account based on system payment method. */
+        k_pay_method: string | null;
+        /** Account balance. */
+        m_rest: string;
+        /** Name of a custom payment method. `null` if this is a user account based on system payment method. */
+        s_method: string | null;
+    };
+    /** A list of accounts that have not been created for this user yet. */
+    a_account_nx: Array<{
+        /** `true` if the account is allowed to have a negative balance, `false` otherwise. */
+        can_negative: boolean;
+        /** A list of currencies. @see CoreLocaleCurrencySid */
+        id_currency: CoreLocaleCurrencySid;
+        /** Currency key. */
+        k_currency: string;
+        /** Payment account key. `null` for accounts not yet created. */
+        k_pay_account: string | null;
+        /** Custom payment method key. `null` for accounts based on the system payment method. */
+        k_pay_method: string | null;
+        /** Account balance. Always `'0.00'` for accounts not yet created. */
+        m_rest: string;
+        /** Name of the custom payment method. `null` for accounts based on the system payment method. */
+        s_method: string | null;
+    }>;
+    /** Determines whether the user is a debtor. If `true` - the owner of this account is a debtor. */
+    is_debtor: boolean;
+}
 export interface ThothWlPayAccountAccountParams {
     /** If `true`, information for the account's owner is returned. Clients can be configured to pay for ... */
     is_owner: boolean;
@@ -5154,6 +5334,70 @@ export interface ThothWlPayAccountAccountResponse {
     /** Determines whether the user is a debtor. If `true` - the owner of this account is a debtor. */
     is_debtor: boolean;
 }
+export interface WlPayFormEnvironmentUserParams {
+    /** The key of the business to retrieve payment information for. */
+    k_business: string;
+    /** The key of the currency to retrieve payment information for. */
+    k_currency: string;
+    /** The key of the location to retrieve payment information for. */
+    k_location: string;
+    /** The user ID to retrieve payment information for. */
+    uid_owner?: string | null;
+}
+export interface WlPayFormEnvironmentUserResponse {
+    /** A list of supported bank card systems. */
+    a_card_system: Array<ACardSystemSid>;
+    /** A list of payment methods enabled for staff members. */
+    a_method_staff: Array<RsPayMethodSid | null>;
+    /** A list of all payment methods that can be used within this business. */
+    a_method_support: Array<{
+        /** A list of payment methods. @see RsPayMethodSid */
+        id_pay_method: RsPayMethodSid | null;
+        /** Determines whether this method is available for clients. This field is only returned for custom p... */
+        is_client?: boolean;
+        /** The key of the custom payment method. */
+        k_pay_method: string | null;
+        /** The name of payment method. This field is only returned for custom payment methods. */
+        s_method?: string;
+    }>;
+    /** The configuration array that's sent to mobile card reader plugin. */
+    a_mobile_config: Array<unknown> | null;
+    /** Represents information about payment processors. */
+    a_pay_processor: Array<{
+        /** Public keys configured for this payment processor. */
+        a_public_keys: Array<unknown> | null;
+        /** Public info configured for this payment processor. */
+        a_public_info: Array<unknown> | null;
+        /** Whether `save payment method` option should be hidden. `true` if hidden, `false` - otherwise. */
+        hide_save_source: boolean;
+        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
+        id_pay_processor: ThothPayProcessorPayProcessorSid;
+        /** `true` if 3DS should be performed, `false` if 3DS should not be performed. `null` if this is not ... */
+        is_enabled_3ds: boolean | null;
+        /** `true` if the merchant is in a test mode, `false` otherwise. */
+        is_test: boolean | null;
+        /** Key of the business merchant. */
+        k_business_merchant: string;
+    }> | null;
+    /** Current local date in current location {@link ThothWlPayFormNamespace#environment} */
+    dl_now: string;
+    /** Surcharge amount for payment with card represented as a percent of transaction amount. */
+    f_surcharge: string | null;
+    /** Surcharge amount for payment with ACH represented as a percent of transaction amount. */
+    f_surcharge_ach: string | null;
+    /** A list of locales. @see CoreLocaleLocaleSid */
+    id_locale: CoreLocaleLocaleSid | null;
+    /** `true` if clients can choose whether their banking and credit card information is saved at checkout, */
+    is_save_optional: boolean;
+    /** Determines whether newly added payment sources should be saved. This will be `true` if payment so... */
+    is_save_source: boolean;
+    /** Whether tips are accepted. */
+    is_tip: boolean;
+    /** Surcharge amount for payment with card represented as a fixed amount. */
+    m_surcharge: string | null;
+    /** Surcharge amount for payment with ACH represented as a fixed amount. */
+    m_surcharge_ach: string | null;
+}
 export interface ThothWlPayFormEnvironmentUserParams {
     /** The key of the business to retrieve payment information for. */
     k_business: string;
@@ -5165,6 +5409,70 @@ export interface ThothWlPayFormEnvironmentUserParams {
     uid_owner?: string | null;
 }
 export interface ThothWlPayFormEnvironmentUserResponse {
+    /** A list of supported bank card systems. */
+    a_card_system: Array<ACardSystemSid>;
+    /** A list of payment methods enabled for staff members. */
+    a_method_staff: Array<RsPayMethodSid | null>;
+    /** A list of all payment methods that can be used within this business. */
+    a_method_support: Array<{
+        /** A list of payment methods. @see RsPayMethodSid */
+        id_pay_method: RsPayMethodSid | null;
+        /** Determines whether this method is available for clients. This field is only returned for custom p... */
+        is_client?: boolean;
+        /** The key of the custom payment method. */
+        k_pay_method: string | null;
+        /** The name of payment method. This field is only returned for custom payment methods. */
+        s_method?: string;
+    }>;
+    /** The configuration array that's sent to mobile card reader plugin. */
+    a_mobile_config: Array<unknown> | null;
+    /** Represents information about payment processors. */
+    a_pay_processor: Array<{
+        /** Public keys configured for this payment processor. */
+        a_public_keys: Array<unknown> | null;
+        /** Public info configured for this payment processor. */
+        a_public_info: Array<unknown> | null;
+        /** Whether `save payment method` option should be hidden. `true` if hidden, `false` - otherwise. */
+        hide_save_source: boolean;
+        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
+        id_pay_processor: ThothPayProcessorPayProcessorSid;
+        /** `true` if 3DS should be performed, `false` if 3DS should not be performed. `null` if this is not ... */
+        is_enabled_3ds: boolean | null;
+        /** `true` if the merchant is in a test mode, `false` otherwise. */
+        is_test: boolean | null;
+        /** Key of the business merchant. */
+        k_business_merchant: string;
+    }> | null;
+    /** Current local date in current location {@link ThothWlPayFormNamespace#environment} */
+    dl_now: string;
+    /** Surcharge amount for payment with card represented as a percent of transaction amount. */
+    f_surcharge: string | null;
+    /** Surcharge amount for payment with ACH represented as a percent of transaction amount. */
+    f_surcharge_ach: string | null;
+    /** A list of locales. @see CoreLocaleLocaleSid */
+    id_locale: CoreLocaleLocaleSid | null;
+    /** `true` if clients can choose whether their banking and credit card information is saved at checkout, */
+    is_save_optional: boolean;
+    /** Determines whether newly added payment sources should be saved. This will be `true` if payment so... */
+    is_save_source: boolean;
+    /** Whether tips are accepted. */
+    is_tip: boolean;
+    /** Surcharge amount for payment with card represented as a fixed amount. */
+    m_surcharge: string | null;
+    /** Surcharge amount for payment with ACH represented as a fixed amount. */
+    m_surcharge_ach: string | null;
+}
+export interface WlPayFormEnvironmentParams {
+    /** The key of the business to retrieve payment information for. */
+    k_business: string;
+    /** The key of the currency to retrieve payment information for. */
+    k_currency: string;
+    /** The key of the location to retrieve payment information for. */
+    k_location: string;
+    /** The user ID to retrieve payment information for. */
+    uid_owner?: string | null;
+}
+export interface WlPayFormEnvironmentResponse {
     /** A list of supported bank card systems. */
     a_card_system: Array<ACardSystemSid>;
     /** A list of payment methods enabled for staff members. */
@@ -5282,6 +5590,27 @@ export interface ThothWlPayFormEnvironmentResponse {
     /** Surcharge amount for payment with ACH represented as a fixed amount. */
     m_surcharge_ach: string | null;
 }
+export interface WlPayMethodListParams {
+    /** Whether only active payment methods should be returned. */
+    is_active: boolean;
+    /** The business key. */
+    k_business: string;
+    /** Whether payment method {@link RsPayMethodSid} should be included in response. */
+    show_manual: boolean;
+    /** The key of a user to show information for. */
+    uid: string;
+}
+export interface WlPayMethodListResponse {
+    /** A list of payment methods: */
+    a_pay_method: Array<{
+        /** A list of payment methods. @see RsPayMethodSid */
+        id_pay_method: RsPayMethodSid | null;
+        /** Payment method key. */
+        k_pay_method: string | null;
+        /** The payment method name. */
+        s_title: string;
+    }>;
+}
 export interface ThothWlPayMethodListParams {
     /** Whether only active payment methods should be returned. */
     is_active: boolean;
@@ -5303,6 +5632,22 @@ export interface ThothWlPayMethodListResponse {
         s_title: string;
     }>;
 }
+export interface WlPayOwnerOwnerParams {
+    /** Key of a user to show information for. */
+    uid: string;
+    /** Business key. */
+    k_business?: string | null;
+}
+export interface WlPayOwnerOwnerResponse {
+    /** A list of money owners from which account money can be transferred. @see RsPayOwnerSid */
+    id_pay_owner: RsPayOwnerSid;
+    /** Is client pay only for self. If parent pays for child this flag will be `false` for both. */
+    is_pay_self_only: boolean;
+    /** The payment owner key. This is used for financial transactions. */
+    k_pay_owner: string;
+    /** Key of the money owner. */
+    k_pay_owner_money: string;
+}
 export interface ThothWlPayOwnerOwnerParams {
     /** Key of a user to show information for. */
     uid: string;
@@ -5318,6 +5663,49 @@ export interface ThothWlPayOwnerOwnerResponse {
     k_pay_owner: string;
     /** Key of the money owner. */
     k_pay_owner_money: string;
+}
+export interface WlPayAddressAddressParams {
+    /** The ID of the payment owner type. @see RsPayOwnerSid */
+    id_pay_owner: RsPayOwnerSid;
+    /** Business key, where the payment is performed. */
+    k_business: string;
+    /** The primary key of a payment owner. */
+    k_id: string;
+}
+export interface WlPayAddressAddressResponse {
+    /** The payee's address information. */
+    a_pay_address: Array<{
+        /** `true` if this address is currently selected, `false` otherwise. */
+        is_selected: boolean;
+        /** Country geo key. `null` if the country cannot be determined. */
+        k_country: string | null;
+        /** Payment address key. Primary key in the `rs_pay_address` table. */
+        k_pay_address: string;
+        /** Region geo key. */
+        k_region: string;
+        /** City name. */
+        s_city: string;
+        /** Country name. `null` if the country cannot be determined. */
+        s_country: string | null;
+        /** Country abbreviation code, or an empty string if unavailable. */
+        s_country_code: string;
+        /** Full name of the address owner. */
+        s_name: string;
+        /** Phone number. */
+        s_phone: string;
+        /** Postal code. */
+        s_postal: string;
+        /** Region name. */
+        s_region: string | null;
+        /** Region abbreviation code. `null` if the region cannot be determined. */
+        s_region_code: string | null;
+        /** First line of the street address. */
+        s_street1: string;
+        /** Second line of the street address. */
+        s_street2: string;
+        /** Email address of the owner. `null` if the owner is a business. */
+        text_mail: string | null;
+    }> | null;
 }
 export interface ThothWlPayAddressAddressParams {
     /** The ID of the payment owner type. @see RsPayOwnerSid */
@@ -5361,6 +5749,30 @@ export interface ThothWlPayAddressAddressResponse {
         /** Email address of the owner. `null` if the owner is a business. */
         text_mail: string | null;
     }> | null;
+}
+export interface WlPayAddressProfileParams {
+    /** The business key number used internally by WellnessLiving. */
+    k_business: string;
+    /** The key of the user whose data should be retrieved. */
+    uid: string;
+}
+export interface WlPayAddressProfileResponse {
+    /** The country key. */
+    k_geo_country: string | null;
+    /** The region ID. */
+    k_geo_region: string | null;
+    /** The name of the city in the address. */
+    s_city: string | null;
+    /** The client name as listed in their address. */
+    s_name: string | null;
+    /** The client phone number. */
+    s_phone: string | null;
+    /** The client postal or zip code. */
+    s_postal: string | null;
+    /** The first line of the client address. */
+    s_street1: string | null;
+    /** The second line of the client address. */
+    s_street2: string | null;
 }
 export interface ThothWlPayAddressProfileParams {
     /** The business key number used internally by WellnessLiving. */
@@ -8710,6 +9122,22 @@ export interface WlDriveProductImageUploadPutResponse {
     /** The URL of the full image. */
     url_view: string | null;
 }
+export interface WlPayAccountChargeChargeParams {
+    /** The account charge mode. @see RsPayAccountChargeSid */
+    id_pay_account_charge: RsPayAccountChargeSid;
+    /** If `true`, the account is filled by a staff member in the backend. Otherwise, this will be `false`. */
+    is_staff: boolean;
+    /** The ID of the business the user account belongs to. */
+    k_business: string;
+    /** The ID of the user account to refill. */
+    k_pay_account: string;
+    /** The ID of the user whose account is being refilled. */
+    uid: string;
+}
+export interface WlPayAccountChargeChargeResponse {
+    /** The ID of the purchase that was created during payment. */
+    k_purchase: string;
+}
 export interface ThothWlPayAccountChargeChargeParams {
     /** The account charge mode. @see RsPayAccountChargeSid */
     id_pay_account_charge: RsPayAccountChargeSid;
@@ -8725,6 +9153,88 @@ export interface ThothWlPayAccountChargeChargeParams {
 export interface ThothWlPayAccountChargeChargeResponse {
     /** The ID of the purchase that was created during payment. */
     k_purchase: string;
+}
+export interface WlPayTransactionReportTransactionAllPaymentParams {
+    /** The end date in local time to retrieve transactions for. */
+    dl_date_end: string;
+    /** The end date in local time to retrieve transactions for. */
+    dl_date_start: string;
+    /** The page of the report, starting from 0. */
+    i_page: number;
+    /** Determines whether the report should be refreshed. */
+    is_refresh: boolean;
+    /** The key of the business for which report should be generated. */
+    k_business: string;
+}
+export interface WlPayTransactionReportTransactionAllPaymentResponse {
+    /** A list of fields in the report. */
+    a_field: Array<string>;
+    /** The report data. */
+    a_row: Array<{
+        /** List of pay transactions associated with this row. Each element: */
+        a_pay_transaction: {
+            /** A list of payment methods. @see RsPayMethodSid */
+            id_pay_method: RsPayMethodSid | null;
+            /** Pay transaction key. */
+            k_pay_transaction: string;
+            /** Amount paid. */
+            m_amount: string;
+            /** Surcharge amount from store settings. */
+            m_surcharge: string;
+            /** Batch number for this transaction. */
+            s_batch_number: string;
+        };
+        /** Start date and time of the purchase in UTC. */
+        dtu_purchase_start: string;
+        /** Purchase key. */
+        k_purchase: string;
+        /** Net sales amount. */
+        m_net_sale: string;
+        /** Total tax amount. */
+        m_total_tax: string;
+        /** First name of the client. */
+        'o_client.text_first': string;
+        /** Last name of the client. */
+        'o_client.text_last': string;
+        /** Full name of the client. */
+        'o_client.text_name': string;
+        /** Location key. */
+        'o_location.k_location': string;
+        /** Batch number of the first transaction in the row. */
+        s_batch_number: string;
+        /** Street address of the location. */
+        text_location_address: string;
+        /** Name of the location's city. */
+        text_location_city: string;
+        /** Name of the location's country. */
+        text_location_country: string;
+        /** Postal code of the location. */
+        text_location_postal: string;
+        /** Name of the location's region. */
+        text_location_region: string;
+        /** Name of the payment method used. */
+        text_payment_method: string;
+        /** Name of the base payment method. If a custom method was used, this is the method it is based on. */
+        text_payment_method_base: string;
+        /** Comma-separated list of tax names applied to the purchase. */
+        text_tax_title: string;
+        /** Comma-separated list of tax values. Percentage-based taxes have `%` appended; */
+        text_tax_value: string;
+    }>;
+    /** The warning list of the report. */
+    a_warning: Array<string>;
+    /** The date and time if the report has completed generation. Otherwise, this will be `null`. */
+    dtu_complete: string | null;
+    /** The date and time if this report has been put in the generation queue. Otherwise, this will be `n... */
+    dtu_queue: string | null;
+    /** The date and time if generation of this report has started. Otherwise, this will be `null`. */
+    dtu_start: string | null;
+    /** Lists statuses of reports from point of view of its generation. @see WlReportGeneratorReportGeneratorStatusSid */
+    id_report_status: WlReportGeneratorReportGeneratorStatusSid;
+    /** Determines whether to show more rows in the report. */
+    is_more: boolean;
+    /** Determines whether the report is complete. */
+    is_report_complete: boolean;
 }
 export interface ThothWlPayTransactionReportTransactionAllPaymentParams {
     /** The end date in local time to retrieve transactions for. */
@@ -8808,6 +9318,35 @@ export interface ThothWlPayTransactionReportTransactionAllPaymentResponse {
     /** Determines whether the report is complete. */
     is_report_complete: boolean;
 }
+export interface WlPayBankAchListParams {
+    /** ID of current business. */
+    k_business: string;
+    /** Location to show information for. */
+    k_location: string;
+    /** ID of a user to show information for. */
+    uid: string;
+}
+export interface WlPayBankAchListResponse {
+    /** List of ACH accounts: */
+    a_list: Array<{
+        /** A list of account holder types which can be chosen. @see RsPayBankAchHolderSid */
+        id_pay_bank_ach_holder: RsPayBankAchHolderSid;
+        /** A list of account types which can be chosen. @see RsPayBankAchTypeSid */
+        id_pay_bank_ach_type: RsPayBankAchTypeSid;
+        /** `true` - this account is default payment method; `false` - otherwise. */
+        is_default: boolean;
+        /** ID of bank account. */
+        k_pay_bank: string;
+        /** Account name. */
+        text_name_account: string;
+        /** Account holder name. */
+        text_name_holder: string;
+        /** ACH account number. */
+        text_number: string;
+    }>;
+    /** Whether new ACH account can be added. */
+    can_add: boolean;
+}
 export interface ThothWlPayBankAchListParams {
     /** ID of current business. */
     k_business: string;
@@ -8835,6 +9374,60 @@ export interface ThothWlPayBankAchListResponse {
         text_number: string;
     }>;
     /** Whether new ACH account can be added. */
+    can_add: boolean;
+}
+export interface WlPayBankCardListParams {
+    /** ID of current business. */
+    k_business: string;
+    /** Location to show information for. */
+    k_location: string;
+    /** ID of a user to show information for. */
+    uid: string;
+}
+export interface WlPayBankCardListResponse {
+    /** A list of bank cards. */
+    a_bank_card: {
+        /** The month when the payment card expires, represented by a number (1=January and 12=December). */
+        i_month: number;
+        /** The last two digits of the year when the payment card expires. */
+        i_year: number;
+        /** A class for a list of card systems. @see ACardSystemSid */
+        id_card_system: ACardSystemSid;
+        /** If `true`, then this card is the user default card. */
+        is_default: boolean;
+        /** The payment address ID. This refers to a physical address associated with a payment card. */
+        k_pay_address: string;
+        /** The payment method ID. Each payment card for each user will have its own ID. */
+        k_pay_bank: string;
+        /** The payment card descriptor. This is typically the company name and the last 4 digits of the card */
+        text_name_card: string;
+        /** The name of the card owner as it appears on the card. */
+        text_name_holder: string;
+        /** A portion of the payment card number, used to identify the card. */
+        text_number: string;
+    };
+    /** List of bank cards. */
+    a_list: Array<{
+        /** The month when the payment card expires, represented by a number (1=January and 12=December). */
+        i_month: number;
+        /** The last two digits of the year when the payment card expires. */
+        i_year: number;
+        /** A class for a list of card systems. @see ACardSystemSid */
+        id_card_system: ACardSystemSid;
+        /** If `true`, then this card is the user default card. */
+        is_default: boolean;
+        /** The payment address ID. This refers to a physical address associated with a payment card. */
+        k_pay_address: string;
+        /** The payment method ID. Each payment card for each user will have its own ID. */
+        k_pay_bank: string;
+        /** The payment card descriptor. This is typically the company name and the last 4 digits of the card */
+        text_name_card: string;
+        /** The name of the card owner as it appears on the card. */
+        text_name_holder: string;
+        /** A portion of the payment card number, used to identify the card. */
+        text_number: string;
+    }>;
+    /** Whether new card can be added. */
     can_add: boolean;
 }
 export interface ThothWlPayBankCardListParams {
@@ -8890,6 +9483,38 @@ export interface ThothWlPayBankCardListResponse {
     }>;
     /** Whether new card can be added. */
     can_add: boolean;
+}
+export interface WlPayAddressWidgetWidgetEditParams {
+    /** Business key. */
+    k_business: string;
+}
+export interface WlPayAddressWidgetWidgetEditResponse {
+    /** List of countries with their regions, keyed by country geo key. Each element: */
+    a_geo: Array<{
+        /** List of geographic regions within the country. Each element: */
+        a_region: {
+            /** `true` if this region is currently selected; `false` otherwise. */
+            is_select: boolean;
+            /** Region key. */
+            k_geo: string;
+            /** Region title. */
+            s_title: string;
+            /** Region abbreviation. */
+            text_abbr: string;
+        };
+        /** `true` if this country is currently selected; `false` otherwise. */
+        is_select: boolean;
+        /** Country key. */
+        k_geo: string;
+        /** Country title. */
+        s_title: string;
+        /** Country abbreviation. */
+        text_abbr: string;
+    }>;
+    /** Mask for phone entering (ready for output to the page). */
+    html_phone_mask: string;
+    /** Mask for phone entering. */
+    text_phone_mask: string;
 }
 export interface ThothWlPayAddressWidgetWidgetEditParams {
     /** Business key. */
@@ -19158,6 +19783,82 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
 }
 export type WlTuitionEnrollmentTuitionEnrollmentCancelParams = Record<string, unknown>;
 export type WlTuitionEnrollmentTuitionEnrollmentCancelResponse = Record<string, unknown>;
+export interface WlPayBankAchAddAddDeleteParams {
+    /** Business key. */
+    k_business: string;
+    /** Pay bank key to delete. */
+    k_pay_bank: string;
+}
+export type WlPayBankAchAddAddDeleteResponse = Record<string, unknown>;
+export interface WlPayBankAchAddAddGetParams {
+    /** Determines if the set of configs of the new payment form design is used. */
+    is_new: boolean;
+    /** Business key. */
+    k_business: string;
+    /** Location key. */
+    k_location: string;
+    /** Pay owner key. */
+    k_pay_owner: string;
+    /** Locale ID. @see CoreLocaleLocaleSid */
+    id_locale?: CoreLocaleLocaleSid | null;
+}
+export interface WlPayBankAchAddAddGetResponse {
+    /** The HTML form containing the fields required to add a card. */
+    html_widget: string;
+    /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
+    id_pay_processor: ThothPayProcessorPayProcessorSid;
+}
+export interface WlPayBankAchAddAddPostParams {
+    /** Business key. */
+    k_business: string;
+    /** Location key. */
+    k_location: string;
+    /** Pay owner key. */
+    k_pay_owner: string;
+}
+export interface WlPayBankAchAddAddPostResponse {
+    /** ACH account information: */
+    a_pay_bank: {
+        /** Whether current user can remove payment method. */
+        can_remove: boolean;
+        /** A list of bank account types. @see RsPayBankSid */
+        id_pay_bank: RsPayBankSid;
+        /** A list of account holder types which can be chosen. @see RsPayBankAchHolderSid */
+        id_pay_bank_ach_holder: RsPayBankAchHolderSid;
+        /** A list of account types which can be chosen. @see RsPayBankAchTypeSid */
+        id_pay_bank_ach_type: RsPayBankAchTypeSid;
+        /** `true` - this account is default payment method; `false` - otherwise. */
+        is_default: boolean;
+        /** Billing address. */
+        k_pay_address: string;
+        /** ID of bank account. */
+        k_pay_bank: string;
+        /** Region ID. */
+        k_region: string;
+        /** Name of city. */
+        text_city: string;
+        /** Name of country. */
+        text_country: string;
+        /** Account nickname. */
+        text_name: string;
+        /** Account name. */
+        text_name_account: string;
+        /** Account holder name. */
+        text_name_holder: string;
+        /** ACH account number. */
+        text_number: string;
+        /** Phone number. */
+        text_phone: string;
+        /** Postal code. */
+        text_postal: string;
+        /** Name of region. */
+        text_region: string;
+        /** Street address line 1. */
+        text_street1: string;
+        /** Street address line 2. */
+        text_street2: string;
+    };
+}
 export interface ThothWlPayBankAchAddAddDeleteParams {
     /** Business key. */
     k_business: string;
@@ -19234,6 +19935,34 @@ export interface ThothWlPayBankAchAddAddPostResponse {
         text_street2: string;
     };
 }
+export interface WlPayBankCardAddAddDeleteParams {
+    /** The business key number used internally by WellnessLiving. */
+    k_business: string;
+    /** Pay bank key to delete. */
+    k_pay_bank: string;
+}
+export type WlPayBankCardAddAddDeleteResponse = Record<string, unknown>;
+export interface WlPayBankCardAddAddGetParams {
+    /** The business key number used internally by WellnessLiving. */
+    k_business: string;
+    /** The location key. */
+    k_location: string;
+    /** The payment owner ID. This is different from the user ID. It can be found with */
+    k_pay_owner: string;
+}
+export interface WlPayBankCardAddAddGetResponse {
+    /** The HTML form containing the fields required to add a card. */
+    html_widget: string;
+}
+export interface WlPayBankCardAddAddPostParams {
+    /** The business key number used internally by WellnessLiving. */
+    k_business: string;
+    /** The location key. */
+    k_location: string;
+    /** The payment owner ID. This is different from the user ID. It can be found with */
+    k_pay_owner: string;
+}
+export type WlPayBankCardAddAddPostResponse = Record<string, unknown>;
 export interface ThothWlPayBankCardAddAddDeleteParams {
     /** The business key number used internally by WellnessLiving. */
     k_business: string;
@@ -19262,6 +19991,71 @@ export interface ThothWlPayBankCardAddAddPostParams {
     k_pay_owner: string;
 }
 export type ThothWlPayBankCardAddAddPostResponse = Record<string, unknown>;
+export interface WlPayBankCardWidgetWidgetSelectParams {
+    /** Payment method. @see RsPayMethodSid */
+    id_pay_method: RsPayMethodSid | null;
+    /** Payment mode. @see RsPayModeSid */
+    id_pay_mode: RsPayModeSid;
+    /** Payment owner kind. @see RsPayOwnerSid */
+    id_pay_owner: RsPayOwnerSid;
+    /** Business key. */
+    k_business: string;
+    /** Currency key. */
+    k_currency: string;
+    /** Payment owner. */
+    k_id: string;
+    /** Location key. */
+    k_location: string;
+}
+export interface WlPayBankCardWidgetWidgetSelectResponse {
+    /** List of saved bank cards. */
+    a_pay_card: {
+        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
+        eid_card_type: ThothWlPayBankCardCardTypeEnum;
+        /** Card expiration month. */
+        i_month: number;
+        /** Card expiration year. */
+        i_year: number;
+        /** A list of card types. @see WlCardCardSystemSid */
+        id_card_system: WlCardCardSystemSid;
+        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
+        id_card_type: ThothWlPayBankCardCardTypeEnum;
+        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
+        id_pay_processor: ThothPayProcessorPayProcessorSid;
+        /** `true` if this card is the default payment method; `false` otherwise. */
+        is_default: boolean;
+        /** Billing address key. */
+        k_pay_address: string;
+        /** Payment card key. */
+        k_pay_bank: string;
+        /** Recurrent payment token key. */
+        k_pay_recurrent: string;
+        /** Billing region key. */
+        k_region: string;
+        /** Card nickname. Auto-generated from card system and masked number if not explicitly set. */
+        s_name: string;
+        /** Partial card number. */
+        s_number: string;
+        /** Card system SID. One of {@link WlCardCardSystemSid} constants as string. */
+        sid_card_system: string;
+        /** Billing city. */
+        text_city: string;
+        /** Country name resolved from the region's parent geo entity. Empty if region has no parent. */
+        text_country: string;
+        /** Cardholder name. */
+        text_holder: string;
+        /** Billing postal code. */
+        text_postal: string;
+        /** Public representation of the recurrent payment token, safe for browser output. */
+        text_public_token: string;
+        /** Region name resolved from the region key. Empty if no region is set. */
+        text_region: string;
+        /** Billing street address line 1. */
+        text_street_1: string;
+        /** Billing street address line 2. */
+        text_street_2: string;
+    };
+}
 export interface ThothWlPayBankCardWidgetWidgetSelectParams {
     /** Payment method. @see RsPayMethodSid */
     id_pay_method: RsPayMethodSid | null;
@@ -26312,261 +27106,172 @@ export declare class ThothNamespace {
     readonly wlPay: ThothWlPayNamespace;
     constructor(_client: WlClient);
 }
-export declare class CoreRequestApiApplicationCredentialNamespace {
+export declare class WlPayProcessorStripeComNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Deletes the specified credential for the application. */
-    credentialDelete(params?: CoreRequestApiApplicationCredentialCredentialDeleteParams): Promise<CoreRequestApiApplicationCredentialCredentialDeleteResponse>;
-    /** Returns the credential data for the application. */
-    credentialGet(params?: CoreRequestApiApplicationCredentialCredentialGetParams): Promise<CoreRequestApiApplicationCredentialCredentialGetResponse>;
-    /** Saves the credential for the application. */
-    credentialPut(params?: CoreRequestApiApplicationCredentialCredentialPutParams): Promise<CoreRequestApiApplicationCredentialCredentialPutResponse>;
+    /** Gets the `Stripe` public key for a merchant. */
+    stripeComKey(params?: WlPayProcessorStripeComStripeComKeyParams): Promise<WlPayProcessorStripeComStripeComKeyResponse>;
+    /** Updates a `Stripe` Payment Intent. */
+    paymentIntentUpdate(params?: WlPayProcessorStripeComPaymentIntentUpdateParams): Promise<WlPayProcessorStripeComPaymentIntentUpdateResponse>;
+    /** Initializes a `Stripe` payment. */
+    stripeComPayInit(params?: WlPayProcessorStripeComStripeComPayInitParams): Promise<WlPayProcessorStripeComStripeComPayInitResponse>;
+    /** Cancels a `Stripe` Payment Intent. */
+    stripeComPaymentIntentCancel(params?: WlPayProcessorStripeComStripeComPaymentIntentCancelParams): Promise<WlPayProcessorStripeComStripeComPaymentIntentCancelResponse>;
 }
-export declare class CoreRequestApiApplicationNamespace {
+export declare class WlPayProcessorCyberSourceNamespace {
     private readonly _client;
-    readonly credential: CoreRequestApiApplicationCredentialNamespace;
     constructor(_client: WlClient);
-    /** Restricts access to API for all sites, which are given in the list. */
-    originDelete(params?: CoreRequestApiApplicationOriginDeleteParams): Promise<CoreRequestApiApplicationOriginDeleteResponse>;
-    /** Gets list of all sites, where usage of the API is allowed for the current application. */
-    originGet(params?: CoreRequestApiApplicationOriginGetParams): Promise<CoreRequestApiApplicationOriginGetResponse>;
-    /** Allows access to API for all sites, which are given in the list. */
-    originPut(params?: CoreRequestApiApplicationOriginPutParams): Promise<CoreRequestApiApplicationOriginPutResponse>;
+    /** Checks `CyberSource` Payer Authentication enrollment. */
+    csPaEnrollment(params?: WlPayProcessorCyberSourceCsPaEnrollmentParams): Promise<WlPayProcessorCyberSourceCsPaEnrollmentResponse>;
+    /** Validates the `CyberSource` Payer Authentication result. */
+    csPaValidate(params?: WlPayProcessorCyberSourceCsPaValidateParams): Promise<WlPayProcessorCyberSourceCsPaValidateResponse>;
+    /** Generates a capture context for `CyberSource` Flex Microform. */
+    csCaptureContext(params?: WlPayProcessorCyberSourceCsCaptureContextParams): Promise<WlPayProcessorCyberSourceCsCaptureContextResponse>;
+    /** Starts `CyberSource` Payer Authentication setup. */
+    csPaSetup(params?: WlPayProcessorCyberSourceCsPaSetupParams): Promise<WlPayProcessorCyberSourceCsPaSetupResponse>;
 }
-export declare class CoreRequestApiNamespace {
+export declare class WlPayProcessorNamespace {
     private readonly _client;
-    readonly application: CoreRequestApiApplicationNamespace;
+    readonly stripeCom: WlPayProcessorStripeComNamespace;
+    readonly cyberSource: WlPayProcessorCyberSourceNamespace;
     constructor(_client: WlClient);
-    /** Gets a secret key for signing. */
-    keySecret(params?: CoreRequestApiKeySecretParams): Promise<CoreRequestApiKeySecretResponse>;
 }
-export declare class CoreRequestTokenNamespace {
+export declare class WlPayAccountChargeNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Gets new pin code. */
-    tokenPin(params?: CoreRequestTokenTokenPinParams): Promise<CoreRequestTokenTokenPinResponse>;
+    /** Refills the user account balance by the specified payment amount or adjusts it manually. */
+    charge(params?: WlPayAccountChargeChargeParams): Promise<WlPayAccountChargeChargeResponse>;
 }
-export declare class CoreRequestNamespace {
+export declare class WlPayAccountNamespace {
     private readonly _client;
-    readonly api: CoreRequestApiNamespace;
-    readonly token: CoreRequestTokenNamespace;
+    readonly charge: WlPayAccountChargeNamespace;
     constructor(_client: WlClient);
-    /** Returns the example result for debugging. */
-    example(params?: CoreRequestExampleParams): Promise<CoreRequestExampleResponse>;
+    /** Retrieves information about accounts of given user in given business. */
+    account(params?: WlPayAccountAccountParams): Promise<WlPayAccountAccountResponse>;
 }
-export declare class CoreGeoRegionNamespace {
+export declare class WlPayFormNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Retrieves information about countries and regions. */
-    region(params?: CoreGeoRegionRegionParams): Promise<CoreGeoRegionRegionResponse>;
-}
-export declare class CoreGeoNamespace {
-    private readonly _client;
-    readonly region: CoreGeoRegionNamespace;
-    constructor(_client: WlClient);
-    /** Returns a list of cities to show in combobox list. */
-    combobox(params?: CoreGeoComboboxParams): Promise<CoreGeoComboboxResponse>;
-}
-export declare class CoreGoogleCaptchaNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Saves the user CAPTCHA token for the current session. */
-    googleCaptcha(params?: CoreGoogleCaptchaGoogleCaptchaParams): Promise<CoreGoogleCaptchaGoogleCaptchaResponse>;
-    /** Returns the overridden score for the reCAPTCHA v3. */
-    captchaScoreGet(params?: CoreGoogleCaptchaCaptchaScoreGetParams): Promise<CoreGoogleCaptchaCaptchaScoreGetResponse>;
-    /** Validates the reCAPTCHA v3 token. */
-    captchaScorePost(params?: CoreGoogleCaptchaCaptchaScorePostParams): Promise<CoreGoogleCaptchaCaptchaScorePostResponse>;
-    /** Overrides the score for the reCAPTCHA v3. */
-    captchaScorePut(params?: CoreGoogleCaptchaCaptchaScorePutParams): Promise<CoreGoogleCaptchaCaptchaScorePutResponse>;
-}
-export declare class CoreGoogleNamespace {
-    private readonly _client;
-    readonly captcha: CoreGoogleCaptchaNamespace;
-    constructor(_client: WlClient);
-    /** Saves the user CAPTCHA token for the current session. */
+    /** Returns information about payment environment. */
+    environmentUser(params?: WlPayFormEnvironmentUserParams): Promise<WlPayFormEnvironmentUserResponse>;
+    /** Returns information about payment environment. */
     /** @deprecated */
-    googleCaptcha(params?: CoreGoogleGoogleCaptchaParams): Promise<CoreGoogleGoogleCaptchaResponse>;
+    environment(params?: WlPayFormEnvironmentParams): Promise<WlPayFormEnvironmentResponse>;
 }
-export declare class CoreWebSocketNamespace {
+export declare class WlPayMethodNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Checks whether a listener can subscribe to specified channel. Subscribes in a case of positive result. */
-    subscribe(params?: CoreWebSocketSubscribeParams): Promise<CoreWebSocketSubscribeResponse>;
+    /** Returns list of active payment methods data. */
+    list(params?: WlPayMethodListParams): Promise<WlPayMethodListResponse>;
 }
-export declare class CoreSidNamespace {
+export declare class WlPayOwnerNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Returns the list of all items for the given Sid class. */
-    coreSid(params?: CoreSidCoreSidParams): Promise<CoreSidCoreSidResponse>;
+    /** Returns information about payment owner. */
+    owner(params?: WlPayOwnerOwnerParams): Promise<WlPayOwnerOwnerResponse>;
 }
-export declare class CoreCaptchaNamespace {
+export declare class WlPayAddressWidgetNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Checks if a CAPTCHA is required for the given captcha type. */
-    captchaRequire(params?: CoreCaptchaCaptchaRequireParams): Promise<CoreCaptchaCaptchaRequireResponse>;
+    /** Gets data for "edit payment address" widget. */
+    widgetEdit(params?: WlPayAddressWidgetWidgetEditParams): Promise<WlPayAddressWidgetWidgetEditResponse>;
 }
-export declare class CoreDriveImageUploadNamespace {
+export declare class WlPayAddressNamespace {
+    private readonly _client;
+    readonly widget: WlPayAddressWidgetNamespace;
+    constructor(_client: WlClient);
+    /** Gets user's payment addresses information. */
+    address(params?: WlPayAddressAddressParams): Promise<WlPayAddressAddressResponse>;
+    /** Returns default payment address data that is retrieved from user profile. */
+    profile(params?: WlPayAddressProfileParams): Promise<WlPayAddressProfileResponse>;
+}
+export declare class WlPayTransactionReportNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Returns information about the image. */
-    imageUploadGet(params?: CoreDriveImageUploadImageUploadGetParams): Promise<CoreDriveImageUploadImageUploadGetResponse>;
-    /** Loads image information for a list of IDs. The POST method is used instead of the GET method because the maximum permitted URI length is restricted. */
-    imageUploadPost(params?: CoreDriveImageUploadImageUploadPostParams): Promise<CoreDriveImageUploadImageUploadPostResponse>;
-    /** Updates the image. */
-    imageUploadPut(params?: CoreDriveImageUploadImageUploadPutParams): Promise<CoreDriveImageUploadImageUploadPutResponse>;
-    /** Saves new uploaded image. */
-    imageUploadTemporary(params?: CoreDriveImageUploadImageUploadTemporaryParams): Promise<CoreDriveImageUploadImageUploadTemporaryResponse>;
+    /** Returns All Transactions Report data for the specified date range. */
+    transactionAllPayment(params?: WlPayTransactionReportTransactionAllPaymentParams): Promise<WlPayTransactionReportTransactionAllPaymentResponse>;
 }
-export declare class CoreDriveNamespace {
+export declare class WlPayTransactionNamespace {
     private readonly _client;
-    readonly imageUpload: CoreDriveImageUploadNamespace;
+    readonly report: WlPayTransactionReportNamespace;
     constructor(_client: WlClient);
 }
-export declare class CoreSpaApplicationNamespace {
+export declare class WlPayBankAchAddNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Gets information of application. */
-    spaApplication(params?: CoreSpaApplicationSpaApplicationParams): Promise<CoreSpaApplicationSpaApplicationResponse>;
+    /** Deletes saved ACH. */
+    addDelete(params?: WlPayBankAchAddAddDeleteParams): Promise<WlPayBankAchAddAddDeleteResponse>;
+    /** Gets widget for ACH account add. */
+    addGet(params?: WlPayBankAchAddAddGetParams): Promise<WlPayBankAchAddAddGetResponse>;
+    /** Saves new ACH pay method. */
+    addPost(params?: WlPayBankAchAddAddPostParams): Promise<WlPayBankAchAddAddPostResponse>;
 }
-export declare class CoreSpaNamespace {
+export declare class WlPayBankAchNamespace {
     private readonly _client;
-    readonly application: CoreSpaApplicationNamespace;
+    readonly add: WlPayBankAchAddNamespace;
     constructor(_client: WlClient);
+    /** Retrieves information about user's ACH accounts. */
+    list(params?: WlPayBankAchListParams): Promise<WlPayBankAchListResponse>;
 }
-export declare class CorePassportLoginEnterNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Signs the user in using their login and hashed password. */
-    enter(params?: CorePassportLoginEnterEnterParams): Promise<CorePassportLoginEnterEnterResponse>;
-    /** Generates notepad for user sign in form. */
-    notepad(params?: CorePassportLoginEnterNotepadParams): Promise<CorePassportLoginEnterNotepadResponse>;
-}
-export declare class CorePassportLoginRegisterNamespace {
+export declare class WlPayBankCardAddNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Validates the new user's data and sends a confirmation email to complete registration. */
-    register(params?: CorePassportLoginRegisterRegisterParams): Promise<CorePassportLoginRegisterRegisterResponse>;
-    /** Confirms email of a new user and completes registration. */
-    registerConfirm(params?: CorePassportLoginRegisterRegisterConfirmParams): Promise<CorePassportLoginRegisterRegisterConfirmResponse>;
+    /** Deletes saved card. */
+    addDelete(params?: WlPayBankCardAddAddDeleteParams): Promise<WlPayBankCardAddAddDeleteResponse>;
+    /** Gets code of bank card widget. */
+    /** @deprecated */
+    addGet(params?: WlPayBankCardAddAddGetParams): Promise<WlPayBankCardAddAddGetResponse>;
+    /** Saves new bank card. */
+    addPost(params?: WlPayBankCardAddAddPostParams): Promise<WlPayBankCardAddAddPostResponse>;
 }
-export declare class CorePassportLoginSignOutNamespace {
+export declare class WlPayBankCardWidgetNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Signs user out. */
-    signOut(params?: CorePassportLoginSignOutSignOutParams): Promise<CorePassportLoginSignOutSignOutResponse>;
+    /** Gets a list of saved bank cards. */
+    widgetSelect(params?: WlPayBankCardWidgetWidgetSelectParams): Promise<WlPayBankCardWidgetWidgetSelectResponse>;
 }
-export declare class CorePassportLoginNamespace {
+export declare class WlPayBankCardNamespace {
     private readonly _client;
-    readonly enter: CorePassportLoginEnterNamespace;
-    readonly register: CorePassportLoginRegisterNamespace;
-    readonly signOut: CorePassportLoginSignOutNamespace;
+    readonly add: WlPayBankCardAddNamespace;
+    readonly widget: WlPayBankCardWidgetNamespace;
     constructor(_client: WlClient);
-    /** Returns information about user that is currently signed in. */
-    info(params?: CorePassportLoginInfoParams): Promise<CorePassportLoginInfoResponse>;
+    /** Retrieves information about user's bank cards. */
+    list(params?: WlPayBankCardListParams): Promise<WlPayBankCardListResponse>;
 }
-export declare class CorePassportChangePasswordNamespace {
+export declare class WlPayBankNamespace {
     private readonly _client;
-    constructor(_client: WlClient);
-    /** Saves for user new password. */
-    changePasswordApply(params?: CorePassportChangePasswordChangePasswordApplyParams): Promise<CorePassportChangePasswordChangePasswordApplyResponse>;
-    /** Sends to user "password recovery" mail. */
-    changePasswordBegin(params?: CorePassportChangePasswordChangePasswordBeginParams): Promise<CorePassportChangePasswordChangePasswordBeginResponse>;
-}
-export declare class CorePassportEnterJwtNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns a jwt token that can be used to log user. */
-    jwtToken(params?: CorePassportEnterJwtJwtTokenParams): Promise<CorePassportEnterJwtJwtTokenResponse>;
-}
-export declare class CorePassportEnterNamespace {
-    private readonly _client;
-    readonly jwt: CorePassportEnterJwtNamespace;
+    readonly ach: WlPayBankAchNamespace;
+    readonly card: WlPayBankCardNamespace;
     constructor(_client: WlClient);
 }
-export declare class CorePassportUserEmailNamespace {
+export declare class WlPayNamespace {
     private readonly _client;
-    constructor(_client: WlClient);
-    /** Checks if email address exists. */
-    emailExist(params?: CorePassportUserEmailEmailExistParams): Promise<CorePassportUserEmailEmailExistResponse>;
-}
-export declare class CorePassportUserNamespace {
-    private readonly _client;
-    readonly email: CorePassportUserEmailNamespace;
-    constructor(_client: WlClient);
-}
-export declare class CorePassportNamespace {
-    private readonly _client;
-    readonly login: CorePassportLoginNamespace;
-    readonly changePassword: CorePassportChangePasswordNamespace;
-    readonly enter: CorePassportEnterNamespace;
-    readonly user: CorePassportUserNamespace;
+    readonly processor: WlPayProcessorNamespace;
+    readonly account: WlPayAccountNamespace;
+    readonly form: WlPayFormNamespace;
+    readonly method: WlPayMethodNamespace;
+    readonly owner: WlPayOwnerNamespace;
+    readonly address: WlPayAddressNamespace;
+    readonly transaction: WlPayTransactionNamespace;
+    readonly bank: WlPayBankNamespace;
     constructor(_client: WlClient);
 }
-export declare class CoreNamespace {
+export declare class WlReportGeneratorNamespace {
     private readonly _client;
-    readonly request: CoreRequestNamespace;
-    readonly geo: CoreGeoNamespace;
-    readonly google: CoreGoogleNamespace;
-    readonly webSocket: CoreWebSocketNamespace;
-    readonly sid: CoreSidNamespace;
-    readonly captcha: CoreCaptchaNamespace;
-    readonly drive: CoreDriveNamespace;
-    readonly spa: CoreSpaNamespace;
-    readonly passport: CorePassportNamespace;
     constructor(_client: WlClient);
+    /** Returns contents of a report as a table. */
+    query(params?: WlReportGeneratorQueryParams): Promise<WlReportGeneratorQueryResponse>;
 }
-export declare class SocialMicrosoftNamespace {
+export declare class WlReportNamespace {
     private readonly _client;
+    readonly generator: WlReportGeneratorNamespace;
     constructor(_client: WlClient);
-    /** Removes the association between a website client and a Microsoft account. */
-    loginDelete(params?: SocialMicrosoftLoginDeleteParams): Promise<SocialMicrosoftLoginDeleteResponse>;
-    /** Collects data for the Microsoft login button. */
-    loginGet(params?: SocialMicrosoftLoginGetParams): Promise<SocialMicrosoftLoginGetResponse>;
-    /** Signs a user in with Microsoft. */
-    loginPost(params?: SocialMicrosoftLoginPostParams): Promise<SocialMicrosoftLoginPostResponse>;
-}
-export declare class SocialAppleLoginNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Removes the association between a website client and the Apple account. Invalidates the tokens and associated client authorizations. */
-    appleLoginDelete(params?: SocialAppleLoginAppleLoginDeleteParams): Promise<SocialAppleLoginAppleLoginDeleteResponse>;
-    /** Signs user in with Apple. */
-    appleLoginPost(params?: SocialAppleLoginAppleLoginPostParams): Promise<SocialAppleLoginAppleLoginPostResponse>;
-}
-export declare class SocialAppleNamespace {
-    private readonly _client;
-    readonly login: SocialAppleLoginNamespace;
-    constructor(_client: WlClient);
-}
-export declare class SocialFacebookLoginNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Authorizes user with facebook. */
-    login(params?: SocialFacebookLoginLoginParams): Promise<SocialFacebookLoginLoginResponse>;
-}
-export declare class SocialFacebookNamespace {
-    private readonly _client;
-    readonly login: SocialFacebookLoginNamespace;
-    constructor(_client: WlClient);
-}
-export declare class SocialGooglePlusNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Authorizes user with Google. */
-    login(params?: SocialGooglePlusLoginParams): Promise<SocialGooglePlusLoginResponse>;
-}
-export declare class SocialGoogleNamespace {
-    private readonly _client;
-    readonly plus: SocialGooglePlusNamespace;
-    constructor(_client: WlClient);
-}
-export declare class SocialNamespace {
-    private readonly _client;
-    readonly microsoft: SocialMicrosoftNamespace;
-    readonly apple: SocialAppleNamespace;
-    readonly facebook: SocialFacebookNamespace;
-    readonly google: SocialGoogleNamespace;
-    constructor(_client: WlClient);
+    /** Gets data of required report. */
+    data(params?: WlReportDataParams): Promise<WlReportDataResponse>;
+    /** Checks access to given report. */
+    access(params?: WlReportAccessParams): Promise<WlReportAccessResponse>;
+    /** Gets data of required report collection. */
+    pageData(params?: WlReportPageDataParams): Promise<WlReportPageDataResponse>;
 }
 export declare class WlScheduleClassListNamespace {
     private readonly _client;
@@ -27073,16 +27778,6 @@ export declare class WlBusinessNamespace {
     businessPut(params?: WlBusinessBusinessPutParams): Promise<WlBusinessBusinessPutResponse>;
     /** Gets information about businesses where given user is a staff member. */
     businessAccess(params?: WlBusinessBusinessAccessParams): Promise<WlBusinessBusinessAccessResponse>;
-}
-export declare class WlReportNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets data of required report. */
-    data(params?: WlReportDataParams): Promise<WlReportDataResponse>;
-    /** Checks access to given report. */
-    access(params?: WlReportAccessParams): Promise<WlReportAccessResponse>;
-    /** Gets data of required report collection. */
-    pageData(params?: WlReportPageDataParams): Promise<WlReportPageDataResponse>;
 }
 export declare class WlCollectorNamespace {
     private readonly _client;
@@ -28639,13 +29334,14 @@ export declare class WlTuitionNamespace {
 }
 export declare class WlNamespace {
     private readonly _client;
+    readonly pay: WlPayNamespace;
+    readonly report: WlReportNamespace;
     readonly schedule: WlScheduleNamespace;
     readonly visit: WlVisitNamespace;
     readonly location: WlLocationNamespace;
     readonly profile: WlProfileNamespace;
     readonly event: WlEventNamespace;
     readonly business: WlBusinessNamespace;
-    readonly report: WlReportNamespace;
     readonly collector: WlCollectorNamespace;
     readonly announcement: WlAnnouncementNamespace;
     readonly lead: WlLeadNamespace;
@@ -28695,15 +29391,271 @@ export declare class WlNamespace {
     readonly tuition: WlTuitionNamespace;
     constructor(_client: WlClient);
 }
+export declare class CoreRequestApiApplicationCredentialNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Deletes the specified credential for the application. */
+    credentialDelete(params?: CoreRequestApiApplicationCredentialCredentialDeleteParams): Promise<CoreRequestApiApplicationCredentialCredentialDeleteResponse>;
+    /** Returns the credential data for the application. */
+    credentialGet(params?: CoreRequestApiApplicationCredentialCredentialGetParams): Promise<CoreRequestApiApplicationCredentialCredentialGetResponse>;
+    /** Saves the credential for the application. */
+    credentialPut(params?: CoreRequestApiApplicationCredentialCredentialPutParams): Promise<CoreRequestApiApplicationCredentialCredentialPutResponse>;
+}
+export declare class CoreRequestApiApplicationNamespace {
+    private readonly _client;
+    readonly credential: CoreRequestApiApplicationCredentialNamespace;
+    constructor(_client: WlClient);
+    /** Restricts access to API for all sites, which are given in the list. */
+    originDelete(params?: CoreRequestApiApplicationOriginDeleteParams): Promise<CoreRequestApiApplicationOriginDeleteResponse>;
+    /** Gets list of all sites, where usage of the API is allowed for the current application. */
+    originGet(params?: CoreRequestApiApplicationOriginGetParams): Promise<CoreRequestApiApplicationOriginGetResponse>;
+    /** Allows access to API for all sites, which are given in the list. */
+    originPut(params?: CoreRequestApiApplicationOriginPutParams): Promise<CoreRequestApiApplicationOriginPutResponse>;
+}
+export declare class CoreRequestApiNamespace {
+    private readonly _client;
+    readonly application: CoreRequestApiApplicationNamespace;
+    constructor(_client: WlClient);
+    /** Gets a secret key for signing. */
+    keySecret(params?: CoreRequestApiKeySecretParams): Promise<CoreRequestApiKeySecretResponse>;
+}
+export declare class CoreRequestTokenNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets new pin code. */
+    tokenPin(params?: CoreRequestTokenTokenPinParams): Promise<CoreRequestTokenTokenPinResponse>;
+}
+export declare class CoreRequestNamespace {
+    private readonly _client;
+    readonly api: CoreRequestApiNamespace;
+    readonly token: CoreRequestTokenNamespace;
+    constructor(_client: WlClient);
+    /** Returns the example result for debugging. */
+    example(params?: CoreRequestExampleParams): Promise<CoreRequestExampleResponse>;
+}
+export declare class CoreGeoRegionNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Retrieves information about countries and regions. */
+    region(params?: CoreGeoRegionRegionParams): Promise<CoreGeoRegionRegionResponse>;
+}
+export declare class CoreGeoNamespace {
+    private readonly _client;
+    readonly region: CoreGeoRegionNamespace;
+    constructor(_client: WlClient);
+    /** Returns a list of cities to show in combobox list. */
+    combobox(params?: CoreGeoComboboxParams): Promise<CoreGeoComboboxResponse>;
+}
+export declare class CoreGoogleCaptchaNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Saves the user CAPTCHA token for the current session. */
+    googleCaptcha(params?: CoreGoogleCaptchaGoogleCaptchaParams): Promise<CoreGoogleCaptchaGoogleCaptchaResponse>;
+    /** Returns the overridden score for the reCAPTCHA v3. */
+    captchaScoreGet(params?: CoreGoogleCaptchaCaptchaScoreGetParams): Promise<CoreGoogleCaptchaCaptchaScoreGetResponse>;
+    /** Validates the reCAPTCHA v3 token. */
+    captchaScorePost(params?: CoreGoogleCaptchaCaptchaScorePostParams): Promise<CoreGoogleCaptchaCaptchaScorePostResponse>;
+    /** Overrides the score for the reCAPTCHA v3. */
+    captchaScorePut(params?: CoreGoogleCaptchaCaptchaScorePutParams): Promise<CoreGoogleCaptchaCaptchaScorePutResponse>;
+}
+export declare class CoreGoogleNamespace {
+    private readonly _client;
+    readonly captcha: CoreGoogleCaptchaNamespace;
+    constructor(_client: WlClient);
+    /** Saves the user CAPTCHA token for the current session. */
+    /** @deprecated */
+    googleCaptcha(params?: CoreGoogleGoogleCaptchaParams): Promise<CoreGoogleGoogleCaptchaResponse>;
+}
+export declare class CoreWebSocketNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Checks whether a listener can subscribe to specified channel. Subscribes in a case of positive result. */
+    subscribe(params?: CoreWebSocketSubscribeParams): Promise<CoreWebSocketSubscribeResponse>;
+}
+export declare class CoreSidNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the list of all items for the given Sid class. */
+    coreSid(params?: CoreSidCoreSidParams): Promise<CoreSidCoreSidResponse>;
+}
+export declare class CoreCaptchaNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Checks if a CAPTCHA is required for the given captcha type. */
+    captchaRequire(params?: CoreCaptchaCaptchaRequireParams): Promise<CoreCaptchaCaptchaRequireResponse>;
+}
+export declare class CoreDriveImageUploadNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns information about the image. */
+    imageUploadGet(params?: CoreDriveImageUploadImageUploadGetParams): Promise<CoreDriveImageUploadImageUploadGetResponse>;
+    /** Loads image information for a list of IDs. The POST method is used instead of the GET method because the maximum permitted URI length is restricted. */
+    imageUploadPost(params?: CoreDriveImageUploadImageUploadPostParams): Promise<CoreDriveImageUploadImageUploadPostResponse>;
+    /** Updates the image. */
+    imageUploadPut(params?: CoreDriveImageUploadImageUploadPutParams): Promise<CoreDriveImageUploadImageUploadPutResponse>;
+    /** Saves new uploaded image. */
+    imageUploadTemporary(params?: CoreDriveImageUploadImageUploadTemporaryParams): Promise<CoreDriveImageUploadImageUploadTemporaryResponse>;
+}
+export declare class CoreDriveNamespace {
+    private readonly _client;
+    readonly imageUpload: CoreDriveImageUploadNamespace;
+    constructor(_client: WlClient);
+}
+export declare class CoreSpaApplicationNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets information of application. */
+    spaApplication(params?: CoreSpaApplicationSpaApplicationParams): Promise<CoreSpaApplicationSpaApplicationResponse>;
+}
+export declare class CoreSpaNamespace {
+    private readonly _client;
+    readonly application: CoreSpaApplicationNamespace;
+    constructor(_client: WlClient);
+}
+export declare class CorePassportLoginEnterNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Signs the user in using their login and hashed password. */
+    enter(params?: CorePassportLoginEnterEnterParams): Promise<CorePassportLoginEnterEnterResponse>;
+    /** Generates notepad for user sign in form. */
+    notepad(params?: CorePassportLoginEnterNotepadParams): Promise<CorePassportLoginEnterNotepadResponse>;
+}
+export declare class CorePassportLoginRegisterNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Validates the new user's data and sends a confirmation email to complete registration. */
+    register(params?: CorePassportLoginRegisterRegisterParams): Promise<CorePassportLoginRegisterRegisterResponse>;
+    /** Confirms email of a new user and completes registration. */
+    registerConfirm(params?: CorePassportLoginRegisterRegisterConfirmParams): Promise<CorePassportLoginRegisterRegisterConfirmResponse>;
+}
+export declare class CorePassportLoginSignOutNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Signs user out. */
+    signOut(params?: CorePassportLoginSignOutSignOutParams): Promise<CorePassportLoginSignOutSignOutResponse>;
+}
+export declare class CorePassportLoginNamespace {
+    private readonly _client;
+    readonly enter: CorePassportLoginEnterNamespace;
+    readonly register: CorePassportLoginRegisterNamespace;
+    readonly signOut: CorePassportLoginSignOutNamespace;
+    constructor(_client: WlClient);
+    /** Returns information about user that is currently signed in. */
+    info(params?: CorePassportLoginInfoParams): Promise<CorePassportLoginInfoResponse>;
+}
+export declare class CorePassportChangePasswordNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Saves for user new password. */
+    changePasswordApply(params?: CorePassportChangePasswordChangePasswordApplyParams): Promise<CorePassportChangePasswordChangePasswordApplyResponse>;
+    /** Sends to user "password recovery" mail. */
+    changePasswordBegin(params?: CorePassportChangePasswordChangePasswordBeginParams): Promise<CorePassportChangePasswordChangePasswordBeginResponse>;
+}
+export declare class CorePassportEnterJwtNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns a jwt token that can be used to log user. */
+    jwtToken(params?: CorePassportEnterJwtJwtTokenParams): Promise<CorePassportEnterJwtJwtTokenResponse>;
+}
+export declare class CorePassportEnterNamespace {
+    private readonly _client;
+    readonly jwt: CorePassportEnterJwtNamespace;
+    constructor(_client: WlClient);
+}
+export declare class CorePassportUserEmailNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Checks if email address exists. */
+    emailExist(params?: CorePassportUserEmailEmailExistParams): Promise<CorePassportUserEmailEmailExistResponse>;
+}
+export declare class CorePassportUserNamespace {
+    private readonly _client;
+    readonly email: CorePassportUserEmailNamespace;
+    constructor(_client: WlClient);
+}
+export declare class CorePassportNamespace {
+    private readonly _client;
+    readonly login: CorePassportLoginNamespace;
+    readonly changePassword: CorePassportChangePasswordNamespace;
+    readonly enter: CorePassportEnterNamespace;
+    readonly user: CorePassportUserNamespace;
+    constructor(_client: WlClient);
+}
+export declare class CoreNamespace {
+    private readonly _client;
+    readonly request: CoreRequestNamespace;
+    readonly geo: CoreGeoNamespace;
+    readonly google: CoreGoogleNamespace;
+    readonly webSocket: CoreWebSocketNamespace;
+    readonly sid: CoreSidNamespace;
+    readonly captcha: CoreCaptchaNamespace;
+    readonly drive: CoreDriveNamespace;
+    readonly spa: CoreSpaNamespace;
+    readonly passport: CorePassportNamespace;
+    constructor(_client: WlClient);
+}
+export declare class SocialMicrosoftNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Removes the association between a website client and a Microsoft account. */
+    loginDelete(params?: SocialMicrosoftLoginDeleteParams): Promise<SocialMicrosoftLoginDeleteResponse>;
+    /** Collects data for the Microsoft login button. */
+    loginGet(params?: SocialMicrosoftLoginGetParams): Promise<SocialMicrosoftLoginGetResponse>;
+    /** Signs a user in with Microsoft. */
+    loginPost(params?: SocialMicrosoftLoginPostParams): Promise<SocialMicrosoftLoginPostResponse>;
+}
+export declare class SocialAppleLoginNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Removes the association between a website client and the Apple account. Invalidates the tokens and associated client authorizations. */
+    appleLoginDelete(params?: SocialAppleLoginAppleLoginDeleteParams): Promise<SocialAppleLoginAppleLoginDeleteResponse>;
+    /** Signs user in with Apple. */
+    appleLoginPost(params?: SocialAppleLoginAppleLoginPostParams): Promise<SocialAppleLoginAppleLoginPostResponse>;
+}
+export declare class SocialAppleNamespace {
+    private readonly _client;
+    readonly login: SocialAppleLoginNamespace;
+    constructor(_client: WlClient);
+}
+export declare class SocialFacebookLoginNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Authorizes user with facebook. */
+    login(params?: SocialFacebookLoginLoginParams): Promise<SocialFacebookLoginLoginResponse>;
+}
+export declare class SocialFacebookNamespace {
+    private readonly _client;
+    readonly login: SocialFacebookLoginNamespace;
+    constructor(_client: WlClient);
+}
+export declare class SocialGooglePlusNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Authorizes user with Google. */
+    login(params?: SocialGooglePlusLoginParams): Promise<SocialGooglePlusLoginResponse>;
+}
+export declare class SocialGoogleNamespace {
+    private readonly _client;
+    readonly plus: SocialGooglePlusNamespace;
+    constructor(_client: WlClient);
+}
+export declare class SocialNamespace {
+    private readonly _client;
+    readonly microsoft: SocialMicrosoftNamespace;
+    readonly apple: SocialAppleNamespace;
+    readonly facebook: SocialFacebookNamespace;
+    readonly google: SocialGoogleNamespace;
+    constructor(_client: WlClient);
+}
 /** WellnessLiving API client. */
 export declare class WlClient {
     private readonly _token;
     private readonly _baseUrl;
     private readonly _timeout;
     readonly thoth: ThothNamespace;
+    readonly wl: WlNamespace;
     readonly core: CoreNamespace;
     readonly social: SocialNamespace;
-    readonly wl: WlNamespace;
     constructor(options: WlClientOptions);
     _request<T>(path: string, params: unknown, method: string): Promise<T>;
 }
