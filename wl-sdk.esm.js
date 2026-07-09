@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260709081637
+// OpenAPI spec version: 1.1.20260709093626
 // Build date: 2026-07-09
-// Endpoints: 525
+// Endpoints: 497
 // Enums: 187
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -5106,27 +5106,6 @@ export class ThothExplorerSearchNamespace {
         this.classSession = new ThothExplorerSearchClassSessionNamespace(this._client);
     }
 }
-export class ThothPayProcessorStripeComNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets the `Stripe` public key for a merchant. */
-    stripeComKey(params) {
-        return this._client._request('/Thoth/PayProcessor/StripeCom/StripeComKey.json', params, 'POST');
-    }
-    /** Updates a `Stripe` Payment Intent. */
-    paymentIntentUpdate(params) {
-        return this._client._request('/Thoth/PayProcessor/StripeCom/PaymentIntentUpdate.json', params, 'POST');
-    }
-    /** Initializes a `Stripe` payment. */
-    stripeComPayInit(params) {
-        return this._client._request('/Thoth/PayProcessor/StripeCom/StripeComPayInit.json', params, 'POST');
-    }
-    /** Cancels a `Stripe` Payment Intent. */
-    stripeComPaymentIntentCancel(params) {
-        return this._client._request('/Thoth/PayProcessor/StripeCom/StripeComPaymentIntentCancel.json', params, 'POST');
-    }
-}
 export class ThothPayProcessorNuveiNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5148,221 +5127,10 @@ export class ThothPayProcessorNuveiNamespace {
         return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiTransactionCancel.json', params, 'POST');
     }
 }
-export class ThothPayProcessorCyberSourceNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Checks `CyberSource` Payer Authentication enrollment. */
-    csPaEnrollment(params) {
-        return this._client._request('/Thoth/PayProcessor/CyberSource/CsPaEnrollment.json', params, 'POST');
-    }
-    /** Validates the `CyberSource` Payer Authentication result. */
-    csPaValidate(params) {
-        return this._client._request('/Thoth/PayProcessor/CyberSource/CsPaValidate.json', params, 'POST');
-    }
-    /** Generates a capture context for `CyberSource` Flex Microform. */
-    csCaptureContext(params) {
-        return this._client._request('/Thoth/PayProcessor/CyberSource/CsCaptureContext.json', params, 'POST');
-    }
-    /** Starts `CyberSource` Payer Authentication setup. */
-    csPaSetup(params) {
-        return this._client._request('/Thoth/PayProcessor/CyberSource/CsPaSetup.json', params, 'POST');
-    }
-}
 export class ThothPayProcessorNamespace {
     constructor(_client) {
         this._client = _client;
-        this.stripeCom = new ThothPayProcessorStripeComNamespace(this._client);
         this.nuvei = new ThothPayProcessorNuveiNamespace(this._client);
-        this.cyberSource = new ThothPayProcessorCyberSourceNamespace(this._client);
-    }
-}
-export class ThothReportCoreGeneratorNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns contents of a report as a table. */
-    query(params) {
-        return this._client._request('/Thoth/ReportCore/Generator/Query.json', params, 'POST');
-    }
-}
-export class ThothReportCoreNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.generator = new ThothReportCoreGeneratorNamespace(this._client);
-    }
-}
-export class ThothWlPayAccountChargeNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Refills the user account balance by the specified payment amount or adjusts it manually. */
-    charge(params) {
-        return this._client._request('/Thoth/WlPay/Account/Charge/Charge.json', params, 'POST');
-    }
-}
-export class ThothWlPayAccountNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.charge = new ThothWlPayAccountChargeNamespace(this._client);
-    }
-    /** Retrieves information about accounts of given user in given business. */
-    account(params) {
-        return this._client._request('/Thoth/WlPay/Account/Account.json', params, 'GET');
-    }
-}
-export class ThothWlPayFormNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns information about payment environment. */
-    environmentUser(params) {
-        return this._client._request('/Thoth/WlPay/Form/EnvironmentUser.json', params, 'GET');
-    }
-    /** Returns information about payment environment. */
-    /** @deprecated */
-    environment(params) {
-        return this._client._request('/Thoth/WlPay/Form/Environment.json', params, 'GET');
-    }
-}
-export class ThothWlPayMethodNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns list of active payment methods data. */
-    list(params) {
-        return this._client._request('/Thoth/WlPay/Method/List.json', params, 'GET');
-    }
-}
-export class ThothWlPayOwnerNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns information about payment owner. */
-    owner(params) {
-        return this._client._request('/Thoth/WlPay/Owner/Owner.json', params, 'GET');
-    }
-}
-export class ThothWlPayAddressWidgetNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets data for "edit payment address" widget. */
-    widgetEdit(params) {
-        return this._client._request('/Thoth/WlPay/Address/Widget/WidgetEdit.json', params, 'GET');
-    }
-}
-export class ThothWlPayAddressNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.widget = new ThothWlPayAddressWidgetNamespace(this._client);
-    }
-    /** Gets user's payment addresses information. */
-    address(params) {
-        return this._client._request('/Thoth/WlPay/Address/Address.json', params, 'GET');
-    }
-    /** Returns default payment address data that is retrieved from user profile. */
-    profile(params) {
-        return this._client._request('/Thoth/WlPay/Address/Profile.json', params, 'GET');
-    }
-}
-export class ThothWlPayTransactionReportNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns All Transactions Report data for the specified date range. */
-    transactionAllPayment(params) {
-        return this._client._request('/Thoth/WlPay/Transaction/Report/TransactionAllPayment.json', params, 'GET');
-    }
-}
-export class ThothWlPayTransactionNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.report = new ThothWlPayTransactionReportNamespace(this._client);
-    }
-}
-export class ThothWlPayBankAchAddNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Deletes saved ACH. */
-    addDelete(params) {
-        return this._client._request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params, 'DELETE');
-    }
-    /** Gets widget for ACH account add. */
-    addGet(params) {
-        return this._client._request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params, 'GET');
-    }
-    /** Saves new ACH pay method. */
-    addPost(params) {
-        return this._client._request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params, 'POST');
-    }
-}
-export class ThothWlPayBankAchNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.add = new ThothWlPayBankAchAddNamespace(this._client);
-    }
-    /** Retrieves information about user's ACH accounts. */
-    list(params) {
-        return this._client._request('/Thoth/WlPay/Bank/Ach/List.json', params, 'GET');
-    }
-}
-export class ThothWlPayBankCardAddNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Deletes saved card. */
-    addDelete(params) {
-        return this._client._request('/Thoth/WlPay/Bank/Card/Add/Add.json', params, 'DELETE');
-    }
-    /** Gets code of bank card widget. */
-    /** @deprecated */
-    addGet(params) {
-        return this._client._request('/Thoth/WlPay/Bank/Card/Add/Add.json', params, 'GET');
-    }
-    /** Saves new bank card. */
-    addPost(params) {
-        return this._client._request('/Thoth/WlPay/Bank/Card/Add/Add.json', params, 'POST');
-    }
-}
-export class ThothWlPayBankCardWidgetNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets a list of saved bank cards. */
-    widgetSelect(params) {
-        return this._client._request('/Thoth/WlPay/Bank/Card/Widget/WidgetSelect.json', params, 'GET');
-    }
-}
-export class ThothWlPayBankCardNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.add = new ThothWlPayBankCardAddNamespace(this._client);
-        this.widget = new ThothWlPayBankCardWidgetNamespace(this._client);
-    }
-    /** Retrieves information about user's bank cards. */
-    list(params) {
-        return this._client._request('/Thoth/WlPay/Bank/Card/List.json', params, 'GET');
-    }
-}
-export class ThothWlPayBankNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.ach = new ThothWlPayBankAchNamespace(this._client);
-        this.card = new ThothWlPayBankCardNamespace(this._client);
-    }
-}
-export class ThothWlPayNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.account = new ThothWlPayAccountNamespace(this._client);
-        this.form = new ThothWlPayFormNamespace(this._client);
-        this.method = new ThothWlPayMethodNamespace(this._client);
-        this.owner = new ThothWlPayOwnerNamespace(this._client);
-        this.address = new ThothWlPayAddressNamespace(this._client);
-        this.transaction = new ThothWlPayTransactionNamespace(this._client);
-        this.bank = new ThothWlPayBankNamespace(this._client);
     }
 }
 export class ThothNamespace {
@@ -5370,8 +5138,6 @@ export class ThothNamespace {
         this._client = _client;
         this.explorerSearch = new ThothExplorerSearchNamespace(this._client);
         this.payProcessor = new ThothPayProcessorNamespace(this._client);
-        this.reportCore = new ThothReportCoreNamespace(this._client);
-        this.wlPay = new ThothWlPayNamespace(this._client);
     }
 }
 export class WlPayProcessorStripeComNamespace {

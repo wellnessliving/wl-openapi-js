@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260709081637
+ * Spec version: 1.1.20260709093626
  * Build date:   2026-07-09
- * Endpoints:    525
+ * Endpoints:    497
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260709081637';
+  WlClient.SPEC_VERSION = '1.1.20260709093626';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (525 total)
+  // Generated API methods (497 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -261,21 +261,6 @@
   };
 
   /**
-   * Gets the `Stripe` public key for a merchant.
-   *
-   * Returns the publishable key configured for the business merchant, so it can be used by the
-   *  frontend to initialize `Stripe` payment elements.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   *  `s_public` {?string} Merchant public key.
-   */
-  WlClient.prototype.thothPayProcessorStripeComStripeComKey = function(params)
-  {
-    return this.request('/Thoth/PayProcessor/StripeCom/StripeComKey.json', params || {}, 'POST');
-  };
-
-  /**
    * Updates a `Stripe` Payment Intent.
    *
    * Adjusts the amount and surcharge of the Payment Intent created for the Stripe Payment Element
@@ -293,26 +278,6 @@
   WlClient.prototype.wlPayProcessorStripeComPaymentIntentUpdate = function(params)
   {
     return this.request('/Wl/Pay/Processor/StripeCom/PaymentIntentUpdate.json', params || {}, 'POST');
-  };
-
-  /**
-   * Updates a `Stripe` Payment Intent.
-   *
-   * Adjusts the amount and surcharge of the Payment Intent created for the Stripe Payment Element
-   *  form when the cart contents change, keeping the underlying payment transaction in sync.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_pay_actor ID of the actor. One of {@link WlClient.RsPayActorSid} constants.
-   * @param {string} params.k_business Key of the business to update Payment Intent for.
-   * @param {string} params.k_business_merchant Key of the business merchant to update Payment Intent for.
-   * @param {string} params.k_pay_transaction Key of the payment transaction to update.
-   * @param {string} params.s_payment_intent Payment intent ID to update.
-   * @param {?string} [params.uid_purchase] Payment owner user key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.thothPayProcessorStripeComPaymentIntentUpdate = function(params)
-  {
-    return this.request('/Thoth/PayProcessor/StripeCom/PaymentIntentUpdate.json', params || {}, 'POST');
   };
 
   /**
@@ -335,25 +300,6 @@
   };
 
   /**
-   * Initializes a `Stripe` payment.
-   *
-   * Starts a payment transaction and creates a not-captured Payment Intent at `stripe.com`, returning
-   *  its status and client secret to continue the payment flow on the frontend.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   *  `id_status` {number} Statuses of payment intents. See {@link WlClient.ThothPayProcessorStripeComPaymentIntentStatusSid}.
-   *  `k_pay_transaction` {?string} Key of payment transaction that was created.
-   *  `s_client_secret` {string} Payment Intent client secret key.
-   *  `s_payment_intent` {string} Payment intent ID.
-   *  `text_message` {?string} Error message.
-   */
-  WlClient.prototype.thothPayProcessorStripeComStripeComPayInit = function(params)
-  {
-    return this.request('/Thoth/PayProcessor/StripeCom/StripeComPayInit.json', params || {}, 'POST');
-  };
-
-  /**
    * Cancels a `Stripe` Payment Intent.
    *
    * Verifies that the Payment Intent belongs to the current payer authentication session, then
@@ -365,20 +311,6 @@
   WlClient.prototype.wlPayProcessorStripeComStripeComPaymentIntentCancel = function(params)
   {
     return this.request('/Wl/Pay/Processor/StripeCom/StripeComPaymentIntentCancel.json', params || {}, 'POST');
-  };
-
-  /**
-   * Cancels a `Stripe` Payment Intent.
-   *
-   * Verifies that the Payment Intent belongs to the current payer authentication session, then
-   *  refunds the associated payment transaction to release the reserved amount.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.thothPayProcessorStripeComStripeComPaymentIntentCancel = function(params)
-  {
-    return this.request('/Thoth/PayProcessor/StripeCom/StripeComPaymentIntentCancel.json', params || {}, 'POST');
   };
 
   /**
@@ -447,7 +379,7 @@
    * Checks `CyberSource` Payer Authentication enrollment.
    *
    * Verifies whether the payer must complete additional authentication steps for the transaction
-   *  started by {@link WlClient#thothPayProcessorCyberSourceCsPaSetup}, returning a JWT and interaction URL when a challenge is required.
+   *  started by CsPaSetupApi, returning a JWT and interaction URL when a challenge is required.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
@@ -460,25 +392,9 @@
   };
 
   /**
-   * Checks `CyberSource` Payer Authentication enrollment.
-   *
-   * Verifies whether the payer must complete additional authentication steps for the transaction
-   *  started by {@link WlClient#thothPayProcessorCyberSourceCsPaSetup}, returning a JWT and interaction URL when a challenge is required.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   *  `s_jwt` {?string} JSON Web Token to include into the request to the second frame.
-   *  `url_interact` {?string} URL for frontend interaction.
-   */
-  WlClient.prototype.thothPayProcessorCyberSourceCsPaEnrollment = function(params)
-  {
-    return this.request('/Thoth/PayProcessor/CyberSource/CsPaEnrollment.json', params || {}, 'POST');
-  };
-
-  /**
    * Validates the `CyberSource` Payer Authentication result.
    *
-   * Retrieves the authentication result for the transaction validated by {@link WlClient#thothPayProcessorCyberSourceCsPaEnrollment}
+   * Retrieves the authentication result for the transaction validated by CsPaEnrollmentApi
    *  and confirms whether the payer authentication succeeded, allowing the merchant to proceed with
    *  processing the payment.
    *
@@ -488,21 +404,6 @@
   WlClient.prototype.wlPayProcessorCyberSourceCsPaValidate = function(params)
   {
     return this.request('/Wl/Pay/Processor/CyberSource/CsPaValidate.json', params || {}, 'POST');
-  };
-
-  /**
-   * Validates the `CyberSource` Payer Authentication result.
-   *
-   * Retrieves the authentication result for the transaction validated by {@link WlClient#thothPayProcessorCyberSourceCsPaEnrollment}
-   *  and confirms whether the payer authentication succeeded, allowing the merchant to proceed with
-   *  processing the payment.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.thothPayProcessorCyberSourceCsPaValidate = function(params)
-  {
-    return this.request('/Thoth/PayProcessor/CyberSource/CsPaValidate.json', params || {}, 'POST');
   };
 
   /**
@@ -524,24 +425,6 @@
   };
 
   /**
-   * Generates a capture context for `CyberSource` Flex Microform.
-   *
-   * Returns a capture context and key ID that the client uses to encrypt the card number before
-   *  sending it in the follow-on Tokenize Card request.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   *  `s_client_library_integrity` {?string} Microform Integration JavaScript library integrity property value.
-   *  `s_key` {?string} Contents of the key.
-   *  `s_key_id` {?string} ID of the key.
-   *  `url_client_library` {?string} Microform Integration JavaScript library url.
-   */
-  WlClient.prototype.thothPayProcessorCyberSourceCsCaptureContext = function(params)
-  {
-    return this.request('/Thoth/PayProcessor/CyberSource/CsCaptureContext.json', params || {}, 'POST');
-  };
-
-  /**
    * Starts `CyberSource` Payer Authentication setup.
    *
    * Validates the payment request and card data, starts a payment transaction, and requests
@@ -558,25 +441,6 @@
   WlClient.prototype.wlPayProcessorCyberSourceCsPaSetup = function(params)
   {
     return this.request('/Wl/Pay/Processor/CyberSource/CsPaSetup.json', params || {}, 'POST');
-  };
-
-  /**
-   * Starts `CyberSource` Payer Authentication setup.
-   *
-   * Validates the payment request and card data, starts a payment transaction, and requests
-   *  `CyberSource` to set up payer authentication, returning the JWT and device collection URL
-   *  needed to continue the flow.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   *  `k_pay_transaction` {string} Key of payment transaction that was created.
-   *  `s_jwt` {string} JWT token, as returned by Cyber Source.
-   *  `s_reference` {string} Reference ID, as returned by Cyber Source.
-   *  `url_collection` {string} Device collection URL, as returned by Cyber Source.
-   */
-  WlClient.prototype.thothPayProcessorCyberSourceCsPaSetup = function(params)
-  {
-    return this.request('/Thoth/PayProcessor/CyberSource/CsPaSetup.json', params || {}, 'POST');
   };
 
   /**
@@ -606,37 +470,11 @@
   };
 
   /**
-   * Returns contents of a report as a table.
-   *
-   * If the report is not yet generated, it gets generated.
-   * If the report is being generated now, partial content may be returned.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   *  `a_dynamic` {Object[]} A list of dynamic fields in this report.
-   *  `a_field` {string[]} A list of fields in this report.
-   *  `a_row` {string[][]} Report data.
-   *  `a_stale` {number[]} A list of stale rows.
-   *  `a_warning` {string[]} Warning list of the report.
-   *  `dtu_complete` {string} Date and time when this report has completed generation.
-   *  `dtu_queue` {string} Date and time when this report was put on generation queue.
-   *  `dtu_start` {string} Date and time when generation of this report has started.
-   *  `i_cas_change` {number} A CAS (compare-and-swap) number that allows to track changes in the report st...
-   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation. See {@link WlClient.ThothReportCoreGeneratorReportGeneratorStatusSid}.
-   *  `s_report` {string} Key of this report.
-   *  `text_error` {string} Text of an error message that occurred during generation of the report.
-   */
-  WlClient.prototype.thothReportCoreGeneratorQuery = function(params)
-  {
-    return this.request('/Thoth/ReportCore/Generator/Query.json', params || {}, 'POST');
-  };
-
-  /**
    * Retrieves information about accounts of given user in given business.
    *
    * Returns the list of existing accounts and accounts not yet created for the user within the specified business,
    * including balance, currency, and payment method details.
-   * When {@link WlClient#thothWlPayAccountAccount} is `true`, resolves the money owner and includes the debtor status.
+   * When AccountApi::$is_owner is `true`, resolves the money owner and includes the debtor status.
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_owner If `true`, information for the account's owner is returned. Clients can be configured to pay for ...
@@ -653,32 +491,11 @@
   };
 
   /**
-   * Retrieves information about accounts of given user in given business.
-   *
-   * Returns the list of existing accounts and accounts not yet created for the user within the specified business,
-   * including balance, currency, and payment method details.
-   * When {@link WlClient#thothWlPayAccountAccount} is `true`, resolves the money owner and includes the debtor status.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {boolean} params.is_owner If `true`, information for the account's owner is returned. Clients can be configured to pay for ...
-   * @param {string} params.k_business The key of the business to show information for.
-   * @param {string} params.uid The key of the user to show information for.
-   * @returns {Promise<Object>} Response data.
-   *  `a_account` {Object} A list of the user's accounts.
-   *  `a_account_nx` {Object[]} A list of accounts that have not been created for this user yet.
-   *  `is_debtor` {boolean} Determines whether the user is a debtor. If `true` - the owner of this accoun...
-   */
-  WlClient.prototype.thothWlPayAccountAccount = function(params)
-  {
-    return this.request('/Thoth/WlPay/Account/Account.json', params || {}, 'GET');
-  };
-
-  /**
    * Returns information about payment environment.
    *
    * Called before rendering a payment form to determine which payment methods and card types are available
    * for a given business and location, what surcharges apply, and how the form should behave (tip prompt,
-   * optional card save). This endpoint is deprecated; use {@link WlClient#thothWlPayFormEnvironmentUser}
+   * optional card save). This endpoint is deprecated; use EnvironmentUserApi
    *  for new integrations.
    *
    * @param {Object} [params] Request parameters.
@@ -692,7 +509,7 @@
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
    *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
-   *  `dl_now` {string} Current local date in current location {@link WlClient#thothWlPayFormEnvironm...
+   *  `dl_now` {string} Current local date in current location EnvironmentApi::$k_location
    *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
    *  `f_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a percent of transaction...
    *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
@@ -712,41 +529,7 @@
    *
    * Called before rendering a payment form to determine which payment methods and card types are available
    * for a given business and location, what surcharges apply, and how the form should behave (tip prompt,
-   * optional card save). This endpoint is deprecated; use {@link WlClient#thothWlPayFormEnvironmentUser}
-   *  for new integrations.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business The key of the business to retrieve payment information for.
-   * @param {string} params.k_currency The key of the currency to retrieve payment information for.
-   * @param {string} params.k_location The key of the location to retrieve payment information for.
-   * @param {?string} [params.uid_owner] The user ID to retrieve payment information for.
-   * @returns {Promise<Object>} Response data.
-   *  `a_card_system` {number[]} A list of supported bank card systems.
-   *  `a_method_staff` {?number[]} A list of payment methods enabled for staff members.
-   *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
-   *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
-   *  `a_pay_processor` {?Object[]} Represents information about payment processors.
-   *  `dl_now` {string} Current local date in current location {@link WlClient#thothWlPayFormEnvironm...
-   *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
-   *  `f_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a percent of transaction...
-   *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
-   *  `is_save_optional` {boolean} `true` if clients can choose whether their banking and credit card informatio...
-   *  `is_save_source` {boolean} Determines whether newly added payment sources should be saved. This will be ...
-   *  `is_tip` {boolean} Whether tips are accepted.
-   *  `m_surcharge` {?string} Surcharge amount for payment with card represented as a fixed amount.
-   *  `m_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a fixed amount.
-   */
-  WlClient.prototype.thothWlPayFormEnvironmentUser = function(params)
-  {
-    return this.request('/Thoth/WlPay/Form/EnvironmentUser.json', params || {}, 'GET');
-  };
-
-  /**
-   * Returns information about payment environment.
-   *
-   * Called before rendering a payment form to determine which payment methods and card types are available
-   * for a given business and location, what surcharges apply, and how the form should behave (tip prompt,
-   * optional card save). This endpoint is deprecated; use {@link WlClient#thothWlPayFormEnvironmentUser}
+   * optional card save). This endpoint is deprecated; use EnvironmentUserApi
    *  for new integrations.
    * @deprecated Use {@link \Thoth\WlPay\Form\EnvironmentUserApi} instead.
    *
@@ -761,7 +544,7 @@
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
    *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
-   *  `dl_now` {string} Current local date in current location {@link WlClient#thothWlPayFormEnvironm...
+   *  `dl_now` {string} Current local date in current location EnvironmentApi::$k_location
    *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
    *  `f_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a percent of transaction...
    *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
@@ -774,41 +557,6 @@
   WlClient.prototype.wlPayFormEnvironment = function(params)
   {
     return this.request('/Wl/Pay/Form/Environment.json', params || {}, 'GET');
-  };
-
-  /**
-   * Returns information about payment environment.
-   *
-   * Called before rendering a payment form to determine which payment methods and card types are available
-   * for a given business and location, what surcharges apply, and how the form should behave (tip prompt,
-   * optional card save). This endpoint is deprecated; use {@link WlClient#thothWlPayFormEnvironmentUser}
-   *  for new integrations.
-   * @deprecated Use {@link \Thoth\WlPay\Form\EnvironmentUserApi} instead.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business The key of the business to retrieve payment information for.
-   * @param {string} params.k_currency The key of the currency to retrieve payment information for.
-   * @param {string} params.k_location The key of the location to retrieve payment information for.
-   * @param {?string} [params.uid_owner] The user ID to retrieve payment information for.
-   * @returns {Promise<Object>} Response data.
-   *  `a_card_system` {number[]} A list of supported bank card systems.
-   *  `a_method_staff` {?number[]} A list of payment methods enabled for staff members.
-   *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
-   *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
-   *  `a_pay_processor` {?Object[]} Represents information about payment processors.
-   *  `dl_now` {string} Current local date in current location {@link WlClient#thothWlPayFormEnvironm...
-   *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
-   *  `f_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a percent of transaction...
-   *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
-   *  `is_save_optional` {boolean} `true` if clients can choose whether their banking and credit card informatio...
-   *  `is_save_source` {boolean} Determines whether newly added payment sources should be saved. This will be ...
-   *  `is_tip` {boolean} Whether tips are accepted.
-   *  `m_surcharge` {?string} Surcharge amount for payment with card represented as a fixed amount.
-   *  `m_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a fixed amount.
-   */
-  WlClient.prototype.thothWlPayFormEnvironment = function(params)
-  {
-    return this.request('/Thoth/WlPay/Form/Environment.json', params || {}, 'GET');
   };
 
   /**
@@ -829,26 +577,6 @@
   WlClient.prototype.wlPayMethodList = function(params)
   {
     return this.request('/Wl/Pay/Method/List.json', params || {}, 'GET');
-  };
-
-  /**
-   * Returns list of active payment methods data.
-   *
-   * Returns the system-level payment methods enabled for the business combined with any custom payment methods
-   * configured for the business and accessible to the given user based on their role. When `$is_active` is
-   * `false`, inactive custom methods are included as well.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {boolean} params.is_active Whether only active payment methods should be returned.
-   * @param {string} params.k_business The business key.
-   * @param {boolean} params.show_manual Whether payment method {@link WlClient.RsPayMethodSid} should be included in response.
-   * @param {string} params.uid The key of a user to show information for.
-   * @returns {Promise<Object>} Response data.
-   *  `a_pay_method` {Object[]} A list of payment methods:
-   */
-  WlClient.prototype.thothWlPayMethodList = function(params)
-  {
-    return this.request('/Thoth/WlPay/Method/List.json', params || {}, 'GET');
   };
 
   /**
@@ -873,27 +601,6 @@
   };
 
   /**
-   * Returns information about payment owner.
-   *
-   * Must be called before initiating any payment on behalf of a user, to determine the correct payment
-   * owner keys to pass to the payment form. Also indicates whether a family-account relationship exists
-   * (for example, a parent paying for a child), which affects how the payment form is pre-populated.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?string} [params.k_business] Business key.
-   * @param {string} params.uid Key of a user to show information for.
-   * @returns {Promise<Object>} Response data.
-   *  `id_pay_owner` {number} A list of money owners from which account money can be transferred. See {@link WlClient.RsPayOwnerSid}.
-   *  `is_pay_self_only` {boolean} Is client pay only for self. If parent pays for child this flag will be `fals...
-   *  `k_pay_owner` {string} The payment owner key. This is used for financial transactions.
-   *  `k_pay_owner_money` {string} Key of the money owner.
-   */
-  WlClient.prototype.thothWlPayOwnerOwner = function(params)
-  {
-    return this.request('/Thoth/WlPay/Owner/Owner.json', params || {}, 'GET');
-  };
-
-  /**
    * Gets user's payment addresses information.
    *
    * Returns the list of saved payment addresses for the specified owner type and key, including address fields,
@@ -910,25 +617,6 @@
   WlClient.prototype.wlPayAddressAddress = function(params)
   {
     return this.request('/Wl/Pay/Address/Address.json', params || {}, 'GET');
-  };
-
-  /**
-   * Gets user's payment addresses information.
-   *
-   * Returns the list of saved payment addresses for the specified owner type and key, including address fields,
-   * country and region details, and the currently selected address. Returns `null` if the current user cannot
-   * edit bank accounts for the owner.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_pay_owner The ID of the payment owner type. See {@link WlClient.RsPayOwnerSid}.
-   * @param {string} params.k_business Business key, where the payment is performed.
-   * @param {string} params.k_id The primary key of a payment owner.
-   * @returns {Promise<Object>} Response data.
-   *  `a_pay_address` {?Object[]} The payee's address information.
-   */
-  WlClient.prototype.thothWlPayAddressAddress = function(params)
-  {
-    return this.request('/Thoth/WlPay/Address/Address.json', params || {}, 'GET');
   };
 
   /**
@@ -953,30 +641,6 @@
   WlClient.prototype.wlPayAddressProfile = function(params)
   {
     return this.request('/Wl/Pay/Address/Profile.json', params || {}, 'GET');
-  };
-
-  /**
-   * Returns default payment address data that is retrieved from user profile.
-   *
-   * Loads the user's profile for the given business and returns address fields (name, phone, street, city,
-   * postal code, country, region) to pre-populate a payment address form.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business The business key number used internally by WellnessLiving.
-   * @param {string} params.uid The key of the user whose data should be retrieved.
-   * @returns {Promise<Object>} Response data.
-   *  `k_geo_country` {?string} The country key.
-   *  `k_geo_region` {?string} The region ID.
-   *  `s_city` {?string} The name of the city in the address.
-   *  `s_name` {?string} The client name as listed in their address.
-   *  `s_phone` {?string} The client phone number.
-   *  `s_postal` {?string} The client postal or zip code.
-   *  `s_street1` {?string} The first line of the client address.
-   *  `s_street2` {?string} The second line of the client address.
-   */
-  WlClient.prototype.thothWlPayAddressProfile = function(params)
-  {
-    return this.request('/Thoth/WlPay/Address/Profile.json', params || {}, 'GET');
   };
 
   /**
@@ -2692,27 +2356,6 @@
   };
 
   /**
-   * Refills the user account balance by the specified payment amount or adjusts it manually.
-   *
-   * Accepts the payment amount, account key or user-and-business identifiers, charge mode, and payment form
-   * data. Processes the payment through the configured payment environment and returns the purchase key
-   * when a new purchase is created (for the automatic charge mode).
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_pay_account_charge The account charge mode. See {@link WlClient.RsPayAccountChargeSid}.
-   * @param {boolean} params.is_staff If `true`, the account is filled by a staff member in the backend. Otherwise, this will be `false`.
-   * @param {string} params.k_business The ID of the business the user account belongs to.
-   * @param {string} params.k_pay_account The ID of the user account to refill.
-   * @param {string} params.uid The ID of the user whose account is being refilled.
-   * @returns {Promise<Object>} Response data.
-   *  `k_purchase` {string} The ID of the purchase that was created during payment.
-   */
-  WlClient.prototype.thothWlPayAccountChargeCharge = function(params)
-  {
-    return this.request('/Thoth/WlPay/Account/Charge/Charge.json', params || {}, 'POST');
-  };
-
-  /**
    * Returns All Transactions Report data for the specified date range.
    *
    * Provides access to the All Transactions Report used for revenue reconciliation and export. The report
@@ -2743,36 +2386,6 @@
   };
 
   /**
-   * Returns All Transactions Report data for the specified date range.
-   *
-   * Provides access to the All Transactions Report used for revenue reconciliation and export. The report
-   * is generated asynchronously and cached; check `$id_report_status` to determine whether generation is
-   * still in progress. Set `$is_refresh` to request regeneration and use `$i_page` to paginate through
-   * up to `LIMIT` rows per request.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.dl_date_end The end date in local time to retrieve transactions for.
-   * @param {string} params.dl_date_start The end date in local time to retrieve transactions for.
-   * @param {number} params.i_page The page of the report, starting from 0.
-   * @param {boolean} params.is_refresh Determines whether the report should be refreshed.
-   * @param {string} params.k_business The key of the business for which report should be generated.
-   * @returns {Promise<Object>} Response data.
-   *  `a_field` {string[]} A list of fields in the report.
-   *  `a_row` {Object[]} The report data.
-   *  `a_warning` {string[]} The warning list of the report.
-   *  `dtu_complete` {?string} The date and time if the report has completed generation. Otherwise, this wil...
-   *  `dtu_queue` {?string} The date and time if this report has been put in the generation queue. Otherw...
-   *  `dtu_start` {?string} The date and time if generation of this report has started. Otherwise, this w...
-   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation. See {@link WlClient.WlReportGeneratorReportGeneratorStatusSid}.
-   *  `is_more` {boolean} Determines whether to show more rows in the report.
-   *  `is_report_complete` {boolean} Determines whether the report is complete.
-   */
-  WlClient.prototype.thothWlPayTransactionReportTransactionAllPayment = function(params)
-  {
-    return this.request('/Thoth/WlPay/Transaction/Report/TransactionAllPayment.json', params || {}, 'GET');
-  };
-
-  /**
    * Retrieves information about user's ACH accounts.
    *
    * Validates the user, business, and location, then retrieves all saved ACH accounts for the resolved merchant.
@@ -2789,25 +2402,6 @@
   WlClient.prototype.wlPayBankAchList = function(params)
   {
     return this.request('/Wl/Pay/Bank/Ach/List.json', params || {}, 'GET');
-  };
-
-  /**
-   * Retrieves information about user's ACH accounts.
-   *
-   * Validates the user, business, and location, then retrieves all saved ACH accounts for the resolved merchant.
-   *  Also reports whether the current owner is allowed to add a new ACH account.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business ID of current business.
-   * @param {string} params.k_location Location to show information for.
-   * @param {string} params.uid ID of a user to show information for.
-   * @returns {Promise<Object>} Response data.
-   *  `a_list` {Object[]} List of ACH accounts:
-   *  `can_add` {boolean} Whether new ACH account can be added.
-   */
-  WlClient.prototype.thothWlPayBankAchList = function(params)
-  {
-    return this.request('/Thoth/WlPay/Bank/Ach/List.json', params || {}, 'GET');
   };
 
   /**
@@ -2831,26 +2425,6 @@
   };
 
   /**
-   * Retrieves information about user's bank cards.
-   *
-   * Returns the list of saved payment cards for the specified user and business, including card number fragment,
-   * expiry date, card system, holder name, and default status. Also returns whether new cards can be added.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business ID of current business.
-   * @param {string} params.k_location Location to show information for.
-   * @param {string} params.uid ID of a user to show information for.
-   * @returns {Promise<Object>} Response data.
-   *  `a_bank_card` {Object} A list of bank cards.
-   *  `a_list` {Object[]} List of bank cards.
-   *  `can_add` {boolean} Whether new card can be added.
-   */
-  WlClient.prototype.thothWlPayBankCardList = function(params)
-  {
-    return this.request('/Thoth/WlPay/Bank/Card/List.json', params || {}, 'GET');
-  };
-
-  /**
    * Gets data for "edit payment address" widget.
    *
    * Returns the list of geographic regions and phone number format masks configured for the given business locale.
@@ -2866,24 +2440,6 @@
   WlClient.prototype.wlPayAddressWidgetWidgetEdit = function(params)
   {
     return this.request('/Wl/Pay/Address/Widget/WidgetEdit.json', params || {}, 'GET');
-  };
-
-  /**
-   * Gets data for "edit payment address" widget.
-   *
-   * Returns the list of geographic regions and phone number format masks configured for the given business locale.
-   *  When no business key is provided, system-level defaults are returned.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_geo` {Object[]} List of countries with their regions, keyed by country geo key. Each element:
-   *  `html_phone_mask` {string} Mask for phone entering (ready for output to the page).
-   *  `text_phone_mask` {string} Mask for phone entering.
-   */
-  WlClient.prototype.thothWlPayAddressWidgetWidgetEdit = function(params)
-  {
-    return this.request('/Thoth/WlPay/Address/Widget/WidgetEdit.json', params || {}, 'GET');
   };
 
   /**
@@ -7809,63 +7365,6 @@
   };
 
   /**
-   * Deletes saved ACH.
-   *
-   * Removes the ACH bank account identified by `k_pay_bank` from the pay owner's saved payment methods
-   *  for the given business.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_pay_bank Pay bank key to delete.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.thothWlPayBankAchAddAddDelete = function(params)
-  {
-    return this.request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params || {}, 'DELETE');
-  };
-
-  /**
-   * Gets widget for ACH account add.
-   *
-   * Validates the locale, business, and pay owner, then determines whether to use Direct Entry (Australia and New
-   *  Zealand) or ACH as the payment method. Returns the rendered widget HTML and the processor ID for the
-   *  resolved merchant.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?number} [params.id_locale] Locale ID. See {@link WlClient.CoreLocaleLocaleSid}.
-   * @param {boolean} params.is_new Determines if the set of configs of the new payment form design is used.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_location Location key.
-   * @param {string} params.k_pay_owner Pay owner key.
-   * @returns {Promise<Object>} Response data.
-   *  `html_widget` {string} The HTML form containing the fields required to add a card.
-   *  `id_pay_processor` {number} A list of payment gateways or processors. See {@link WlClient.ThothPayProcessorPayProcessorSid}.
-   */
-  WlClient.prototype.thothWlPayBankAchAddAddGet = function(params)
-  {
-    return this.request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params || {}, 'GET');
-  };
-
-  /**
-   * Saves new ACH pay method.
-   *
-   * Processes the submitted ACH widget data, saves the bank account under the given pay owner and business,
-   *  and optionally marks it as the default payment method. Returns the saved account details including billing
-   *  address information.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_location Location key.
-   * @param {string} params.k_pay_owner Pay owner key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_pay_bank` {Object} ACH account information:
-   */
-  WlClient.prototype.thothWlPayBankAchAddAddPost = function(params)
-  {
-    return this.request('/Thoth/WlPay/Bank/Ach/Add/Add.json', params || {}, 'POST');
-  };
-
-  /**
    * Deletes saved card.
    *
    * Removes the payment card identified by `$k_pay_bank` from the specified business, permanently deleting
@@ -7918,58 +7417,6 @@
   };
 
   /**
-   * Deletes saved card.
-   *
-   * Removes the payment card identified by `$k_pay_bank` from the specified business, permanently deleting
-   * the stored card record.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business The business key number used internally by WellnessLiving.
-   * @param {string} params.k_pay_bank Pay bank key to delete.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.thothWlPayBankCardAddAddDelete = function(params)
-  {
-    return this.request('/Thoth/WlPay/Bank/Card/Add/Add.json', params || {}, 'DELETE');
-  };
-
-  /**
-   * Gets code of bank card widget.
-   *
-   * Returns an HTML snippet containing the card entry form rendered by the server-side widget for the given
-   * payment owner. This method is deprecated; prefer building the card widget on the client side.
-   * @deprecated Make card widget in client side using `RsPayBankCardEditWidget` class.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business The business key number used internally by WellnessLiving.
-   * @param {string} params.k_location The location key.
-   * @param {string} params.k_pay_owner The payment owner ID. This is different from the user ID. It can be found with
-   * @returns {Promise<Object>} Response data.
-   *  `html_widget` {string} The HTML form containing the fields required to add a card.
-   */
-  WlClient.prototype.thothWlPayBankCardAddAddGet = function(params)
-  {
-    return this.request('/Thoth/WlPay/Bank/Card/Add/Add.json', params || {}, 'GET');
-  };
-
-  /**
-   * Saves new bank card.
-   *
-   * Validates the payment owner and business, then saves the new card details provided in `$a_card_detail`
-   * and optionally sets the card as the default recurring payment source.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business The business key number used internally by WellnessLiving.
-   * @param {string} params.k_location The location key.
-   * @param {string} params.k_pay_owner The payment owner ID. This is different from the user ID. It can be found with
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.thothWlPayBankCardAddAddPost = function(params)
-  {
-    return this.request('/Thoth/WlPay/Bank/Card/Add/Add.json', params || {}, 'POST');
-  };
-
-  /**
    * Gets a list of saved bank cards.
    *
    * Validates the payment method, currency, business, location, and pay owner type, then loads the configured
@@ -7990,29 +7437,6 @@
   WlClient.prototype.wlPayBankCardWidgetWidgetSelect = function(params)
   {
     return this.request('/Wl/Pay/Bank/Card/Widget/WidgetSelect.json', params || {}, 'GET');
-  };
-
-  /**
-   * Gets a list of saved bank cards.
-   *
-   * Validates the payment method, currency, business, location, and pay owner type, then loads the configured
-   *  merchant and returns the list of saved cards available to the given owner. For business owners, a system-wide
-   *  merchant must be configured; for users, a business-specific merchant is required.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {?number} params.id_pay_method Payment method. See {@link WlClient.RsPayMethodSid}.
-   * @param {number} params.id_pay_mode Payment mode. See {@link WlClient.RsPayModeSid}.
-   * @param {number} params.id_pay_owner Payment owner kind. See {@link WlClient.RsPayOwnerSid}.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_currency Currency key.
-   * @param {string} params.k_id Payment owner.
-   * @param {string} params.k_location Location key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_pay_card` {Object} List of saved bank cards.
-   */
-  WlClient.prototype.thothWlPayBankCardWidgetWidgetSelect = function(params)
-  {
-    return this.request('/Thoth/WlPay/Bank/Card/Widget/WidgetSelect.json', params || {}, 'GET');
   };
 
   /**
@@ -9842,10 +9266,10 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_appointment List of appointment keys for which to load unpaid data.
-   * @param {string} params.dtl_date Local date and time for which visit is booked in MySQL format.
+   * @param {?string} [params.dtl_date] Local date and time for which visit is booked in MySQL format.
    * @param {boolean} params.is_simple When set to `true` it's mean that need load full information about unpaid visits:
    * @param {string} params.k_business The business key.
-   * @param {string} params.k_location The location key.
+   * @param {?string} [params.k_location] The location key.
    * @param {string} params.k_visit Last booked visit key.
    * @param {string} params.uid The user's key.
    * @returns {Promise<Object>} Response data.

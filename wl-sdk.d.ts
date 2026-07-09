@@ -4959,11 +4959,6 @@ export interface WlPayProcessorStripeComStripeComKeyResponse {
     /** Merchant public key. */
     s_public: string | null;
 }
-export type ThothPayProcessorStripeComStripeComKeyParams = Record<string, unknown>;
-export interface ThothPayProcessorStripeComStripeComKeyResponse {
-    /** Merchant public key. */
-    s_public: string | null;
-}
 export interface WlPayProcessorStripeComPaymentIntentUpdateParams {
     /** ID of the actor. One of {@link RsPayActorSid} constants. */
     id_pay_actor: RsPayActorSid;
@@ -4979,21 +4974,6 @@ export interface WlPayProcessorStripeComPaymentIntentUpdateParams {
     uid_purchase?: string | null;
 }
 export type WlPayProcessorStripeComPaymentIntentUpdateResponse = Record<string, unknown>;
-export interface ThothPayProcessorStripeComPaymentIntentUpdateParams {
-    /** ID of the actor. One of {@link RsPayActorSid} constants. */
-    id_pay_actor: RsPayActorSid;
-    /** Key of the business to update Payment Intent for. */
-    k_business: string;
-    /** Key of the business merchant to update Payment Intent for. */
-    k_business_merchant: string;
-    /** Key of the payment transaction to update. */
-    k_pay_transaction: string;
-    /** Payment intent ID to update. */
-    s_payment_intent: string;
-    /** Payment owner user key. */
-    uid_purchase?: string | null;
-}
-export type ThothPayProcessorStripeComPaymentIntentUpdateResponse = Record<string, unknown>;
 export type WlPayProcessorStripeComStripeComPayInitParams = Record<string, unknown>;
 export interface WlPayProcessorStripeComStripeComPayInitResponse {
     /** Statuses of payment intents. @see ThothPayProcessorStripeComPaymentIntentStatusSid */
@@ -5007,23 +4987,8 @@ export interface WlPayProcessorStripeComStripeComPayInitResponse {
     /** Error message. */
     text_message: string | null;
 }
-export type ThothPayProcessorStripeComStripeComPayInitParams = Record<string, unknown>;
-export interface ThothPayProcessorStripeComStripeComPayInitResponse {
-    /** Statuses of payment intents. @see ThothPayProcessorStripeComPaymentIntentStatusSid */
-    id_status: ThothPayProcessorStripeComPaymentIntentStatusSid;
-    /** Key of payment transaction that was created. */
-    k_pay_transaction: string | null;
-    /** Payment Intent client secret key. */
-    s_client_secret: string;
-    /** Payment intent ID. */
-    s_payment_intent: string;
-    /** Error message. */
-    text_message: string | null;
-}
 export type WlPayProcessorStripeComStripeComPaymentIntentCancelParams = Record<string, unknown>;
 export type WlPayProcessorStripeComStripeComPaymentIntentCancelResponse = Record<string, unknown>;
-export type ThothPayProcessorStripeComStripeComPaymentIntentCancelParams = Record<string, unknown>;
-export type ThothPayProcessorStripeComStripeComPaymentIntentCancelResponse = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiUpdateOrderParams = Record<string, unknown>;
@@ -5051,30 +5016,10 @@ export interface WlPayProcessorCyberSourceCsPaEnrollmentResponse {
     /** URL for frontend interaction. */
     url_interact: string | null;
 }
-export type ThothPayProcessorCyberSourceCsPaEnrollmentParams = Record<string, unknown>;
-export interface ThothPayProcessorCyberSourceCsPaEnrollmentResponse {
-    /** JSON Web Token to include into the request to the second frame. */
-    s_jwt: string | null;
-    /** URL for frontend interaction. */
-    url_interact: string | null;
-}
 export type WlPayProcessorCyberSourceCsPaValidateParams = Record<string, unknown>;
 export type WlPayProcessorCyberSourceCsPaValidateResponse = Record<string, unknown>;
-export type ThothPayProcessorCyberSourceCsPaValidateParams = Record<string, unknown>;
-export type ThothPayProcessorCyberSourceCsPaValidateResponse = Record<string, unknown>;
 export type WlPayProcessorCyberSourceCsCaptureContextParams = Record<string, unknown>;
 export interface WlPayProcessorCyberSourceCsCaptureContextResponse {
-    /** Microform Integration JavaScript library integrity property value. */
-    s_client_library_integrity: string | null;
-    /** Contents of the key. */
-    s_key: string | null;
-    /** ID of the key. */
-    s_key_id: string | null;
-    /** Microform Integration JavaScript library url. */
-    url_client_library: string | null;
-}
-export type ThothPayProcessorCyberSourceCsCaptureContextParams = Record<string, unknown>;
-export interface ThothPayProcessorCyberSourceCsCaptureContextResponse {
     /** Microform Integration JavaScript library integrity property value. */
     s_client_library_integrity: string | null;
     /** Contents of the key. */
@@ -5095,89 +5040,8 @@ export interface WlPayProcessorCyberSourceCsPaSetupResponse {
     /** Device collection URL, as returned by Cyber Source. */
     url_collection: string;
 }
-export type ThothPayProcessorCyberSourceCsPaSetupParams = Record<string, unknown>;
-export interface ThothPayProcessorCyberSourceCsPaSetupResponse {
-    /** Key of payment transaction that was created. */
-    k_pay_transaction: string;
-    /** JWT token, as returned by Cyber Source. */
-    s_jwt: string;
-    /** Reference ID, as returned by Cyber Source. */
-    s_reference: string;
-    /** Device collection URL, as returned by Cyber Source. */
-    url_collection: string;
-}
 export type WlReportGeneratorQueryParams = Record<string, unknown>;
 export interface WlReportGeneratorQueryResponse {
-    /** A list of dynamic fields in this report. */
-    a_dynamic: Array<{
-        /** Fields of the complex cell. */
-        a_cell: Array<Record<string, unknown>>;
-        /** Elements of a customization from that are required by this filter field. */
-        a_customization_element: Array<Array<unknown>>;
-        /** A list of scalar types of values that this field can get. */
-        a_type: Array<unknown>;
-        /** Whether this field is dynamic or static. */
-        is_dynamic: boolean;
-        /** Whether this field is used for export. */
-        is_export?: boolean | null;
-        /** Whether this field should be hidden by default. It can later be shown by using the customization ... */
-        is_hide_by_default: boolean;
-        /** Whether this field should be hidden if the entire column is empty. */
-        is_hide_if_empty: boolean;
-        /** Whether this field is nullable. */
-        is_null: boolean;
-        /** Whether the ordering by this field is available. */
-        is_order?: boolean | null;
-        /** Whether this field should be shown during report render. */
-        is_show: boolean;
-        /** Whether this field is stored in the report storage. */
-        is_store: boolean;
-        /** Argument for the MySQL function `cast()`. */
-        s_cast?: string | null;
-        /** Name of a cell class. */
-        s_class?: Record<string, unknown> | null;
-        /** CSS class that is used for formatting of this field. */
-        s_class_css: string;
-        /** Name of formatting method that is used for formatting of this field during export. */
-        s_format?: string | null;
-        /** Name of a public property in which value of this field is stored. */
-        s_name: string;
-        /** A string by which report columns are sorted. */
-        s_sort: string;
-        /** Type of this field, as specified in its PHP doc. */
-        s_type: string;
-        /** Data to derive title of a column which values are represented by this report field. */
-        text_title?: string | null;
-        /** Title of this field that is used during export. */
-        text_title_export?: string | null;
-        /** Text of the cell info tooltip. */
-        text_title_info?: string | null;
-    }>;
-    /** A list of fields in this report. */
-    a_field: Array<string>;
-    /** Report data. */
-    a_row: Array<Array<string>>;
-    /** A list of stale rows. */
-    a_stale: Array<number>;
-    /** Warning list of the report. */
-    a_warning: Array<string>;
-    /** Date and time when this report has completed generation. */
-    dtu_complete: string;
-    /** Date and time when this report was put on generation queue. */
-    dtu_queue: string;
-    /** Date and time when generation of this report has started. */
-    dtu_start: string;
-    /** A CAS (compare-and-swap) number that allows to track changes in the report storage. */
-    i_cas_change: number;
-    /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
-    id_report_status: ThothReportCoreGeneratorReportGeneratorStatusSid;
-    /** Key of this report. */
-    s_report: string;
-    /** Text of an error message that occurred during generation of the report. */
-    text_error: string;
-}
-export type ThothReportCoreGeneratorQueryParams = Record<string, unknown>;
-export interface ThothReportCoreGeneratorQueryResponse {
     /** A list of dynamic fields in this report. */
     a_dynamic: Array<{
         /** Fields of the complex cell. */
@@ -5290,50 +5154,6 @@ export interface WlPayAccountAccountResponse {
     /** Determines whether the user is a debtor. If `true` - the owner of this account is a debtor. */
     is_debtor: boolean;
 }
-export interface ThothWlPayAccountAccountParams {
-    /** If `true`, information for the account's owner is returned. Clients can be configured to pay for ... */
-    is_owner: boolean;
-    /** The key of the business to show information for. */
-    k_business: string;
-    /** The key of the user to show information for. */
-    uid: string;
-}
-export interface ThothWlPayAccountAccountResponse {
-    /** A list of the user's accounts. */
-    a_account: {
-        /** A list of currencies. @see CoreLocaleCurrencySid */
-        id_currency: CoreLocaleCurrencySid;
-        /** Key of account currency. */
-        k_currency: string;
-        /** ID of payment account.  `null` if this is a user account based on system payment method. */
-        k_pay_account: string | null;
-        /** ID of custom payment method. `null` if this is a user account based on system payment method. */
-        k_pay_method: string | null;
-        /** Account balance. */
-        m_rest: string;
-        /** Name of a custom payment method. `null` if this is a user account based on system payment method. */
-        s_method: string | null;
-    };
-    /** A list of accounts that have not been created for this user yet. */
-    a_account_nx: Array<{
-        /** `true` if the account is allowed to have a negative balance, `false` otherwise. */
-        can_negative: boolean;
-        /** A list of currencies. @see CoreLocaleCurrencySid */
-        id_currency: CoreLocaleCurrencySid;
-        /** Currency key. */
-        k_currency: string;
-        /** Payment account key. `null` for accounts not yet created. */
-        k_pay_account: string | null;
-        /** Custom payment method key. `null` for accounts based on the system payment method. */
-        k_pay_method: string | null;
-        /** Account balance. Always `'0.00'` for accounts not yet created. */
-        m_rest: string;
-        /** Name of the custom payment method. `null` for accounts based on the system payment method. */
-        s_method: string | null;
-    }>;
-    /** Determines whether the user is a debtor. If `true` - the owner of this account is a debtor. */
-    is_debtor: boolean;
-}
 export interface WlPayFormEnvironmentUserParams {
     /** The key of the business to retrieve payment information for. */
     k_business: string;
@@ -5379,71 +5199,7 @@ export interface WlPayFormEnvironmentUserResponse {
         /** Key of the business merchant. */
         k_business_merchant: string;
     }> | null;
-    /** Current local date in current location {@link ThothWlPayFormNamespace#environment} */
-    dl_now: string;
-    /** Surcharge amount for payment with card represented as a percent of transaction amount. */
-    f_surcharge: string | null;
-    /** Surcharge amount for payment with ACH represented as a percent of transaction amount. */
-    f_surcharge_ach: string | null;
-    /** A list of locales. @see CoreLocaleLocaleSid */
-    id_locale: CoreLocaleLocaleSid | null;
-    /** `true` if clients can choose whether their banking and credit card information is saved at checkout, */
-    is_save_optional: boolean;
-    /** Determines whether newly added payment sources should be saved. This will be `true` if payment so... */
-    is_save_source: boolean;
-    /** Whether tips are accepted. */
-    is_tip: boolean;
-    /** Surcharge amount for payment with card represented as a fixed amount. */
-    m_surcharge: string | null;
-    /** Surcharge amount for payment with ACH represented as a fixed amount. */
-    m_surcharge_ach: string | null;
-}
-export interface ThothWlPayFormEnvironmentUserParams {
-    /** The key of the business to retrieve payment information for. */
-    k_business: string;
-    /** The key of the currency to retrieve payment information for. */
-    k_currency: string;
-    /** The key of the location to retrieve payment information for. */
-    k_location: string;
-    /** The user ID to retrieve payment information for. */
-    uid_owner?: string | null;
-}
-export interface ThothWlPayFormEnvironmentUserResponse {
-    /** A list of supported bank card systems. */
-    a_card_system: Array<ACardSystemSid>;
-    /** A list of payment methods enabled for staff members. */
-    a_method_staff: Array<RsPayMethodSid | null>;
-    /** A list of all payment methods that can be used within this business. */
-    a_method_support: Array<{
-        /** A list of payment methods. @see RsPayMethodSid */
-        id_pay_method: RsPayMethodSid | null;
-        /** Determines whether this method is available for clients. This field is only returned for custom p... */
-        is_client?: boolean;
-        /** The key of the custom payment method. */
-        k_pay_method: string | null;
-        /** The name of payment method. This field is only returned for custom payment methods. */
-        s_method?: string;
-    }>;
-    /** The configuration array that's sent to mobile card reader plugin. */
-    a_mobile_config: Array<unknown> | null;
-    /** Represents information about payment processors. */
-    a_pay_processor: Array<{
-        /** Public keys configured for this payment processor. */
-        a_public_keys: Array<unknown> | null;
-        /** Public info configured for this payment processor. */
-        a_public_info: Array<unknown> | null;
-        /** Whether `save payment method` option should be hidden. `true` if hidden, `false` - otherwise. */
-        hide_save_source: boolean;
-        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
-        id_pay_processor: ThothPayProcessorPayProcessorSid;
-        /** `true` if 3DS should be performed, `false` if 3DS should not be performed. `null` if this is not ... */
-        is_enabled_3ds: boolean | null;
-        /** `true` if the merchant is in a test mode, `false` otherwise. */
-        is_test: boolean | null;
-        /** Key of the business merchant. */
-        k_business_merchant: string;
-    }> | null;
-    /** Current local date in current location {@link ThothWlPayFormNamespace#environment} */
+    /** Current local date in current location EnvironmentApi::$k_location */
     dl_now: string;
     /** Surcharge amount for payment with card represented as a percent of transaction amount. */
     f_surcharge: string | null;
@@ -5507,71 +5263,7 @@ export interface WlPayFormEnvironmentResponse {
         /** Key of the business merchant. */
         k_business_merchant: string;
     }> | null;
-    /** Current local date in current location {@link ThothWlPayFormNamespace#environment} */
-    dl_now: string;
-    /** Surcharge amount for payment with card represented as a percent of transaction amount. */
-    f_surcharge: string | null;
-    /** Surcharge amount for payment with ACH represented as a percent of transaction amount. */
-    f_surcharge_ach: string | null;
-    /** A list of locales. @see CoreLocaleLocaleSid */
-    id_locale: CoreLocaleLocaleSid | null;
-    /** `true` if clients can choose whether their banking and credit card information is saved at checkout, */
-    is_save_optional: boolean;
-    /** Determines whether newly added payment sources should be saved. This will be `true` if payment so... */
-    is_save_source: boolean;
-    /** Whether tips are accepted. */
-    is_tip: boolean;
-    /** Surcharge amount for payment with card represented as a fixed amount. */
-    m_surcharge: string | null;
-    /** Surcharge amount for payment with ACH represented as a fixed amount. */
-    m_surcharge_ach: string | null;
-}
-export interface ThothWlPayFormEnvironmentParams {
-    /** The key of the business to retrieve payment information for. */
-    k_business: string;
-    /** The key of the currency to retrieve payment information for. */
-    k_currency: string;
-    /** The key of the location to retrieve payment information for. */
-    k_location: string;
-    /** The user ID to retrieve payment information for. */
-    uid_owner?: string | null;
-}
-export interface ThothWlPayFormEnvironmentResponse {
-    /** A list of supported bank card systems. */
-    a_card_system: Array<ACardSystemSid>;
-    /** A list of payment methods enabled for staff members. */
-    a_method_staff: Array<RsPayMethodSid | null>;
-    /** A list of all payment methods that can be used within this business. */
-    a_method_support: Array<{
-        /** A list of payment methods. @see RsPayMethodSid */
-        id_pay_method: RsPayMethodSid | null;
-        /** Determines whether this method is available for clients. This field is only returned for custom p... */
-        is_client?: boolean;
-        /** The key of the custom payment method. */
-        k_pay_method: string | null;
-        /** The name of payment method. This field is only returned for custom payment methods. */
-        s_method?: string;
-    }>;
-    /** The configuration array that's sent to mobile card reader plugin. */
-    a_mobile_config: Array<unknown> | null;
-    /** Represents information about payment processors. */
-    a_pay_processor: Array<{
-        /** Public keys configured for this payment processor. */
-        a_public_keys: Array<unknown> | null;
-        /** Public info configured for this payment processor. */
-        a_public_info: Array<unknown> | null;
-        /** Whether `save payment method` option should be hidden. `true` if hidden, `false` - otherwise. */
-        hide_save_source: boolean;
-        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
-        id_pay_processor: ThothPayProcessorPayProcessorSid;
-        /** `true` if 3DS should be performed, `false` if 3DS should not be performed. `null` if this is not ... */
-        is_enabled_3ds: boolean | null;
-        /** `true` if the merchant is in a test mode, `false` otherwise. */
-        is_test: boolean | null;
-        /** Key of the business merchant. */
-        k_business_merchant: string;
-    }> | null;
-    /** Current local date in current location {@link ThothWlPayFormNamespace#environment} */
+    /** Current local date in current location EnvironmentApi::$k_location */
     dl_now: string;
     /** Surcharge amount for payment with card represented as a percent of transaction amount. */
     f_surcharge: string | null;
@@ -5611,27 +5303,6 @@ export interface WlPayMethodListResponse {
         s_title: string;
     }>;
 }
-export interface ThothWlPayMethodListParams {
-    /** Whether only active payment methods should be returned. */
-    is_active: boolean;
-    /** The business key. */
-    k_business: string;
-    /** Whether payment method {@link RsPayMethodSid} should be included in response. */
-    show_manual: boolean;
-    /** The key of a user to show information for. */
-    uid: string;
-}
-export interface ThothWlPayMethodListResponse {
-    /** A list of payment methods: */
-    a_pay_method: Array<{
-        /** A list of payment methods. @see RsPayMethodSid */
-        id_pay_method: RsPayMethodSid | null;
-        /** Payment method key. */
-        k_pay_method: string | null;
-        /** The payment method name. */
-        s_title: string;
-    }>;
-}
 export interface WlPayOwnerOwnerParams {
     /** Key of a user to show information for. */
     uid: string;
@@ -5639,22 +5310,6 @@ export interface WlPayOwnerOwnerParams {
     k_business?: string | null;
 }
 export interface WlPayOwnerOwnerResponse {
-    /** A list of money owners from which account money can be transferred. @see RsPayOwnerSid */
-    id_pay_owner: RsPayOwnerSid;
-    /** Is client pay only for self. If parent pays for child this flag will be `false` for both. */
-    is_pay_self_only: boolean;
-    /** The payment owner key. This is used for financial transactions. */
-    k_pay_owner: string;
-    /** Key of the money owner. */
-    k_pay_owner_money: string;
-}
-export interface ThothWlPayOwnerOwnerParams {
-    /** Key of a user to show information for. */
-    uid: string;
-    /** Business key. */
-    k_business?: string | null;
-}
-export interface ThothWlPayOwnerOwnerResponse {
     /** A list of money owners from which account money can be transferred. @see RsPayOwnerSid */
     id_pay_owner: RsPayOwnerSid;
     /** Is client pay only for self. If parent pays for child this flag will be `false` for both. */
@@ -5707,49 +5362,6 @@ export interface WlPayAddressAddressResponse {
         text_mail: string | null;
     }> | null;
 }
-export interface ThothWlPayAddressAddressParams {
-    /** The ID of the payment owner type. @see RsPayOwnerSid */
-    id_pay_owner: RsPayOwnerSid;
-    /** Business key, where the payment is performed. */
-    k_business: string;
-    /** The primary key of a payment owner. */
-    k_id: string;
-}
-export interface ThothWlPayAddressAddressResponse {
-    /** The payee's address information. */
-    a_pay_address: Array<{
-        /** `true` if this address is currently selected, `false` otherwise. */
-        is_selected: boolean;
-        /** Country geo key. `null` if the country cannot be determined. */
-        k_country: string | null;
-        /** Payment address key. Primary key in the `rs_pay_address` table. */
-        k_pay_address: string;
-        /** Region geo key. */
-        k_region: string;
-        /** City name. */
-        s_city: string;
-        /** Country name. `null` if the country cannot be determined. */
-        s_country: string | null;
-        /** Country abbreviation code, or an empty string if unavailable. */
-        s_country_code: string;
-        /** Full name of the address owner. */
-        s_name: string;
-        /** Phone number. */
-        s_phone: string;
-        /** Postal code. */
-        s_postal: string;
-        /** Region name. */
-        s_region: string | null;
-        /** Region abbreviation code. `null` if the region cannot be determined. */
-        s_region_code: string | null;
-        /** First line of the street address. */
-        s_street1: string;
-        /** Second line of the street address. */
-        s_street2: string;
-        /** Email address of the owner. `null` if the owner is a business. */
-        text_mail: string | null;
-    }> | null;
-}
 export interface WlPayAddressProfileParams {
     /** The business key number used internally by WellnessLiving. */
     k_business: string;
@@ -5757,30 +5369,6 @@ export interface WlPayAddressProfileParams {
     uid: string;
 }
 export interface WlPayAddressProfileResponse {
-    /** The country key. */
-    k_geo_country: string | null;
-    /** The region ID. */
-    k_geo_region: string | null;
-    /** The name of the city in the address. */
-    s_city: string | null;
-    /** The client name as listed in their address. */
-    s_name: string | null;
-    /** The client phone number. */
-    s_phone: string | null;
-    /** The client postal or zip code. */
-    s_postal: string | null;
-    /** The first line of the client address. */
-    s_street1: string | null;
-    /** The second line of the client address. */
-    s_street2: string | null;
-}
-export interface ThothWlPayAddressProfileParams {
-    /** The business key number used internally by WellnessLiving. */
-    k_business: string;
-    /** The key of the user whose data should be retrieved. */
-    uid: string;
-}
-export interface ThothWlPayAddressProfileResponse {
     /** The country key. */
     k_geo_country: string | null;
     /** The region ID. */
@@ -9138,22 +8726,6 @@ export interface WlPayAccountChargeChargeResponse {
     /** The ID of the purchase that was created during payment. */
     k_purchase: string;
 }
-export interface ThothWlPayAccountChargeChargeParams {
-    /** The account charge mode. @see RsPayAccountChargeSid */
-    id_pay_account_charge: RsPayAccountChargeSid;
-    /** If `true`, the account is filled by a staff member in the backend. Otherwise, this will be `false`. */
-    is_staff: boolean;
-    /** The ID of the business the user account belongs to. */
-    k_business: string;
-    /** The ID of the user account to refill. */
-    k_pay_account: string;
-    /** The ID of the user whose account is being refilled. */
-    uid: string;
-}
-export interface ThothWlPayAccountChargeChargeResponse {
-    /** The ID of the purchase that was created during payment. */
-    k_purchase: string;
-}
 export interface WlPayTransactionReportTransactionAllPaymentParams {
     /** The end date in local time to retrieve transactions for. */
     dl_date_end: string;
@@ -9167,88 +8739,6 @@ export interface WlPayTransactionReportTransactionAllPaymentParams {
     k_business: string;
 }
 export interface WlPayTransactionReportTransactionAllPaymentResponse {
-    /** A list of fields in the report. */
-    a_field: Array<string>;
-    /** The report data. */
-    a_row: Array<{
-        /** List of pay transactions associated with this row. Each element: */
-        a_pay_transaction: {
-            /** A list of payment methods. @see RsPayMethodSid */
-            id_pay_method: RsPayMethodSid | null;
-            /** Pay transaction key. */
-            k_pay_transaction: string;
-            /** Amount paid. */
-            m_amount: string;
-            /** Surcharge amount from store settings. */
-            m_surcharge: string;
-            /** Batch number for this transaction. */
-            s_batch_number: string;
-        };
-        /** Start date and time of the purchase in UTC. */
-        dtu_purchase_start: string;
-        /** Purchase key. */
-        k_purchase: string;
-        /** Net sales amount. */
-        m_net_sale: string;
-        /** Total tax amount. */
-        m_total_tax: string;
-        /** First name of the client. */
-        'o_client.text_first': string;
-        /** Last name of the client. */
-        'o_client.text_last': string;
-        /** Full name of the client. */
-        'o_client.text_name': string;
-        /** Location key. */
-        'o_location.k_location': string;
-        /** Batch number of the first transaction in the row. */
-        s_batch_number: string;
-        /** Street address of the location. */
-        text_location_address: string;
-        /** Name of the location's city. */
-        text_location_city: string;
-        /** Name of the location's country. */
-        text_location_country: string;
-        /** Postal code of the location. */
-        text_location_postal: string;
-        /** Name of the location's region. */
-        text_location_region: string;
-        /** Name of the payment method used. */
-        text_payment_method: string;
-        /** Name of the base payment method. If a custom method was used, this is the method it is based on. */
-        text_payment_method_base: string;
-        /** Comma-separated list of tax names applied to the purchase. */
-        text_tax_title: string;
-        /** Comma-separated list of tax values. Percentage-based taxes have `%` appended; */
-        text_tax_value: string;
-    }>;
-    /** The warning list of the report. */
-    a_warning: Array<string>;
-    /** The date and time if the report has completed generation. Otherwise, this will be `null`. */
-    dtu_complete: string | null;
-    /** The date and time if this report has been put in the generation queue. Otherwise, this will be `n... */
-    dtu_queue: string | null;
-    /** The date and time if generation of this report has started. Otherwise, this will be `null`. */
-    dtu_start: string | null;
-    /** Lists statuses of reports from point of view of its generation. @see WlReportGeneratorReportGeneratorStatusSid */
-    id_report_status: WlReportGeneratorReportGeneratorStatusSid;
-    /** Determines whether to show more rows in the report. */
-    is_more: boolean;
-    /** Determines whether the report is complete. */
-    is_report_complete: boolean;
-}
-export interface ThothWlPayTransactionReportTransactionAllPaymentParams {
-    /** The end date in local time to retrieve transactions for. */
-    dl_date_end: string;
-    /** The end date in local time to retrieve transactions for. */
-    dl_date_start: string;
-    /** The page of the report, starting from 0. */
-    i_page: number;
-    /** Determines whether the report should be refreshed. */
-    is_refresh: boolean;
-    /** The key of the business for which report should be generated. */
-    k_business: string;
-}
-export interface ThothWlPayTransactionReportTransactionAllPaymentResponse {
     /** A list of fields in the report. */
     a_field: Array<string>;
     /** The report data. */
@@ -9347,35 +8837,6 @@ export interface WlPayBankAchListResponse {
     /** Whether new ACH account can be added. */
     can_add: boolean;
 }
-export interface ThothWlPayBankAchListParams {
-    /** ID of current business. */
-    k_business: string;
-    /** Location to show information for. */
-    k_location: string;
-    /** ID of a user to show information for. */
-    uid: string;
-}
-export interface ThothWlPayBankAchListResponse {
-    /** List of ACH accounts: */
-    a_list: Array<{
-        /** A list of account holder types which can be chosen. @see RsPayBankAchHolderSid */
-        id_pay_bank_ach_holder: RsPayBankAchHolderSid;
-        /** A list of account types which can be chosen. @see RsPayBankAchTypeSid */
-        id_pay_bank_ach_type: RsPayBankAchTypeSid;
-        /** `true` - this account is default payment method; `false` - otherwise. */
-        is_default: boolean;
-        /** ID of bank account. */
-        k_pay_bank: string;
-        /** Account name. */
-        text_name_account: string;
-        /** Account holder name. */
-        text_name_holder: string;
-        /** ACH account number. */
-        text_number: string;
-    }>;
-    /** Whether new ACH account can be added. */
-    can_add: boolean;
-}
 export interface WlPayBankCardListParams {
     /** ID of current business. */
     k_business: string;
@@ -9430,97 +8891,11 @@ export interface WlPayBankCardListResponse {
     /** Whether new card can be added. */
     can_add: boolean;
 }
-export interface ThothWlPayBankCardListParams {
-    /** ID of current business. */
-    k_business: string;
-    /** Location to show information for. */
-    k_location: string;
-    /** ID of a user to show information for. */
-    uid: string;
-}
-export interface ThothWlPayBankCardListResponse {
-    /** A list of bank cards. */
-    a_bank_card: {
-        /** The month when the payment card expires, represented by a number (1=January and 12=December). */
-        i_month: number;
-        /** The last two digits of the year when the payment card expires. */
-        i_year: number;
-        /** A class for a list of card systems. @see ACardSystemSid */
-        id_card_system: ACardSystemSid;
-        /** If `true`, then this card is the user default card. */
-        is_default: boolean;
-        /** The payment address ID. This refers to a physical address associated with a payment card. */
-        k_pay_address: string;
-        /** The payment method ID. Each payment card for each user will have its own ID. */
-        k_pay_bank: string;
-        /** The payment card descriptor. This is typically the company name and the last 4 digits of the card */
-        text_name_card: string;
-        /** The name of the card owner as it appears on the card. */
-        text_name_holder: string;
-        /** A portion of the payment card number, used to identify the card. */
-        text_number: string;
-    };
-    /** List of bank cards. */
-    a_list: Array<{
-        /** The month when the payment card expires, represented by a number (1=January and 12=December). */
-        i_month: number;
-        /** The last two digits of the year when the payment card expires. */
-        i_year: number;
-        /** A class for a list of card systems. @see ACardSystemSid */
-        id_card_system: ACardSystemSid;
-        /** If `true`, then this card is the user default card. */
-        is_default: boolean;
-        /** The payment address ID. This refers to a physical address associated with a payment card. */
-        k_pay_address: string;
-        /** The payment method ID. Each payment card for each user will have its own ID. */
-        k_pay_bank: string;
-        /** The payment card descriptor. This is typically the company name and the last 4 digits of the card */
-        text_name_card: string;
-        /** The name of the card owner as it appears on the card. */
-        text_name_holder: string;
-        /** A portion of the payment card number, used to identify the card. */
-        text_number: string;
-    }>;
-    /** Whether new card can be added. */
-    can_add: boolean;
-}
 export interface WlPayAddressWidgetWidgetEditParams {
     /** Business key. */
     k_business: string;
 }
 export interface WlPayAddressWidgetWidgetEditResponse {
-    /** List of countries with their regions, keyed by country geo key. Each element: */
-    a_geo: Array<{
-        /** List of geographic regions within the country. Each element: */
-        a_region: {
-            /** `true` if this region is currently selected; `false` otherwise. */
-            is_select: boolean;
-            /** Region key. */
-            k_geo: string;
-            /** Region title. */
-            s_title: string;
-            /** Region abbreviation. */
-            text_abbr: string;
-        };
-        /** `true` if this country is currently selected; `false` otherwise. */
-        is_select: boolean;
-        /** Country key. */
-        k_geo: string;
-        /** Country title. */
-        s_title: string;
-        /** Country abbreviation. */
-        text_abbr: string;
-    }>;
-    /** Mask for phone entering (ready for output to the page). */
-    html_phone_mask: string;
-    /** Mask for phone entering. */
-    text_phone_mask: string;
-}
-export interface ThothWlPayAddressWidgetWidgetEditParams {
-    /** Business key. */
-    k_business: string;
-}
-export interface ThothWlPayAddressWidgetWidgetEditResponse {
     /** List of countries with their regions, keyed by country geo key. Each element: */
     a_geo: Array<{
         /** List of geographic regions within the country. Each element: */
@@ -19859,82 +19234,6 @@ export interface WlPayBankAchAddAddPostResponse {
         text_street2: string;
     };
 }
-export interface ThothWlPayBankAchAddAddDeleteParams {
-    /** Business key. */
-    k_business: string;
-    /** Pay bank key to delete. */
-    k_pay_bank: string;
-}
-export type ThothWlPayBankAchAddAddDeleteResponse = Record<string, unknown>;
-export interface ThothWlPayBankAchAddAddGetParams {
-    /** Determines if the set of configs of the new payment form design is used. */
-    is_new: boolean;
-    /** Business key. */
-    k_business: string;
-    /** Location key. */
-    k_location: string;
-    /** Pay owner key. */
-    k_pay_owner: string;
-    /** Locale ID. @see CoreLocaleLocaleSid */
-    id_locale?: CoreLocaleLocaleSid | null;
-}
-export interface ThothWlPayBankAchAddAddGetResponse {
-    /** The HTML form containing the fields required to add a card. */
-    html_widget: string;
-    /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
-    id_pay_processor: ThothPayProcessorPayProcessorSid;
-}
-export interface ThothWlPayBankAchAddAddPostParams {
-    /** Business key. */
-    k_business: string;
-    /** Location key. */
-    k_location: string;
-    /** Pay owner key. */
-    k_pay_owner: string;
-}
-export interface ThothWlPayBankAchAddAddPostResponse {
-    /** ACH account information: */
-    a_pay_bank: {
-        /** Whether current user can remove payment method. */
-        can_remove: boolean;
-        /** A list of bank account types. @see RsPayBankSid */
-        id_pay_bank: RsPayBankSid;
-        /** A list of account holder types which can be chosen. @see RsPayBankAchHolderSid */
-        id_pay_bank_ach_holder: RsPayBankAchHolderSid;
-        /** A list of account types which can be chosen. @see RsPayBankAchTypeSid */
-        id_pay_bank_ach_type: RsPayBankAchTypeSid;
-        /** `true` - this account is default payment method; `false` - otherwise. */
-        is_default: boolean;
-        /** Billing address. */
-        k_pay_address: string;
-        /** ID of bank account. */
-        k_pay_bank: string;
-        /** Region ID. */
-        k_region: string;
-        /** Name of city. */
-        text_city: string;
-        /** Name of country. */
-        text_country: string;
-        /** Account nickname. */
-        text_name: string;
-        /** Account name. */
-        text_name_account: string;
-        /** Account holder name. */
-        text_name_holder: string;
-        /** ACH account number. */
-        text_number: string;
-        /** Phone number. */
-        text_phone: string;
-        /** Postal code. */
-        text_postal: string;
-        /** Name of region. */
-        text_region: string;
-        /** Street address line 1. */
-        text_street1: string;
-        /** Street address line 2. */
-        text_street2: string;
-    };
-}
 export interface WlPayBankCardAddAddDeleteParams {
     /** The business key number used internally by WellnessLiving. */
     k_business: string;
@@ -19963,34 +19262,6 @@ export interface WlPayBankCardAddAddPostParams {
     k_pay_owner: string;
 }
 export type WlPayBankCardAddAddPostResponse = Record<string, unknown>;
-export interface ThothWlPayBankCardAddAddDeleteParams {
-    /** The business key number used internally by WellnessLiving. */
-    k_business: string;
-    /** Pay bank key to delete. */
-    k_pay_bank: string;
-}
-export type ThothWlPayBankCardAddAddDeleteResponse = Record<string, unknown>;
-export interface ThothWlPayBankCardAddAddGetParams {
-    /** The business key number used internally by WellnessLiving. */
-    k_business: string;
-    /** The location key. */
-    k_location: string;
-    /** The payment owner ID. This is different from the user ID. It can be found with */
-    k_pay_owner: string;
-}
-export interface ThothWlPayBankCardAddAddGetResponse {
-    /** The HTML form containing the fields required to add a card. */
-    html_widget: string;
-}
-export interface ThothWlPayBankCardAddAddPostParams {
-    /** The business key number used internally by WellnessLiving. */
-    k_business: string;
-    /** The location key. */
-    k_location: string;
-    /** The payment owner ID. This is different from the user ID. It can be found with */
-    k_pay_owner: string;
-}
-export type ThothWlPayBankCardAddAddPostResponse = Record<string, unknown>;
 export interface WlPayBankCardWidgetWidgetSelectParams {
     /** Payment method. @see RsPayMethodSid */
     id_pay_method: RsPayMethodSid | null;
@@ -20008,71 +19279,6 @@ export interface WlPayBankCardWidgetWidgetSelectParams {
     k_location: string;
 }
 export interface WlPayBankCardWidgetWidgetSelectResponse {
-    /** List of saved bank cards. */
-    a_pay_card: {
-        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
-        eid_card_type: ThothWlPayBankCardCardTypeEnum;
-        /** Card expiration month. */
-        i_month: number;
-        /** Card expiration year. */
-        i_year: number;
-        /** A list of card types. @see WlCardCardSystemSid */
-        id_card_system: WlCardCardSystemSid;
-        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
-        id_card_type: ThothWlPayBankCardCardTypeEnum;
-        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
-        id_pay_processor: ThothPayProcessorPayProcessorSid;
-        /** `true` if this card is the default payment method; `false` otherwise. */
-        is_default: boolean;
-        /** Billing address key. */
-        k_pay_address: string;
-        /** Payment card key. */
-        k_pay_bank: string;
-        /** Recurrent payment token key. */
-        k_pay_recurrent: string;
-        /** Billing region key. */
-        k_region: string;
-        /** Card nickname. Auto-generated from card system and masked number if not explicitly set. */
-        s_name: string;
-        /** Partial card number. */
-        s_number: string;
-        /** Card system SID. One of {@link WlCardCardSystemSid} constants as string. */
-        sid_card_system: string;
-        /** Billing city. */
-        text_city: string;
-        /** Country name resolved from the region's parent geo entity. Empty if region has no parent. */
-        text_country: string;
-        /** Cardholder name. */
-        text_holder: string;
-        /** Billing postal code. */
-        text_postal: string;
-        /** Public representation of the recurrent payment token, safe for browser output. */
-        text_public_token: string;
-        /** Region name resolved from the region key. Empty if no region is set. */
-        text_region: string;
-        /** Billing street address line 1. */
-        text_street_1: string;
-        /** Billing street address line 2. */
-        text_street_2: string;
-    };
-}
-export interface ThothWlPayBankCardWidgetWidgetSelectParams {
-    /** Payment method. @see RsPayMethodSid */
-    id_pay_method: RsPayMethodSid | null;
-    /** Payment mode. @see RsPayModeSid */
-    id_pay_mode: RsPayModeSid;
-    /** Payment owner kind. @see RsPayOwnerSid */
-    id_pay_owner: RsPayOwnerSid;
-    /** Business key. */
-    k_business: string;
-    /** Currency key. */
-    k_currency: string;
-    /** Payment owner. */
-    k_id: string;
-    /** Location key. */
-    k_location: string;
-}
-export interface ThothWlPayBankCardWidgetWidgetSelectResponse {
     /** List of saved bank cards. */
     a_pay_card: {
         /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
@@ -24282,18 +23488,18 @@ export interface WlProfileEditEmailEditEmailPostResponse {
 export interface WlProfileAttendanceSchedulePaymentMultipleGetParams {
     /** List of appointment keys for which to load unpaid data. */
     a_appointment: Array<string>;
-    /** Local date and time for which visit is booked in MySQL format. */
-    dtl_date: string;
     /** When set to `true` it's mean that need load full information about unpaid visits: */
     is_simple: boolean;
     /** The business key. */
     k_business: string;
-    /** The location key. */
-    k_location: string;
     /** Last booked visit key. */
     k_visit: string;
     /** The user's key. */
     uid: string;
+    /** Local date and time for which visit is booked in MySQL format. */
+    dtl_date?: string | null;
+    /** The location key. */
+    k_location?: string | null;
 }
 export interface WlProfileAttendanceSchedulePaymentMultipleGetResponse {
     /** Clients' data. */
@@ -26925,18 +26131,6 @@ export declare class ThothExplorerSearchNamespace {
     readonly classSession: ThothExplorerSearchClassSessionNamespace;
     constructor(_client: WlClient);
 }
-export declare class ThothPayProcessorStripeComNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets the `Stripe` public key for a merchant. */
-    stripeComKey(params?: ThothPayProcessorStripeComStripeComKeyParams): Promise<ThothPayProcessorStripeComStripeComKeyResponse>;
-    /** Updates a `Stripe` Payment Intent. */
-    paymentIntentUpdate(params?: ThothPayProcessorStripeComPaymentIntentUpdateParams): Promise<ThothPayProcessorStripeComPaymentIntentUpdateResponse>;
-    /** Initializes a `Stripe` payment. */
-    stripeComPayInit(params?: ThothPayProcessorStripeComStripeComPayInitParams): Promise<ThothPayProcessorStripeComStripeComPayInitResponse>;
-    /** Cancels a `Stripe` Payment Intent. */
-    stripeComPaymentIntentCancel(params?: ThothPayProcessorStripeComStripeComPaymentIntentCancelParams): Promise<ThothPayProcessorStripeComStripeComPaymentIntentCancelResponse>;
-}
 export declare class ThothPayProcessorNuveiNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -26949,161 +26143,15 @@ export declare class ThothPayProcessorNuveiNamespace {
     /** Cancels the `Nuvei` transaction. */
     nuveiTransactionCancel(params?: ThothPayProcessorNuveiNuveiTransactionCancelParams): Promise<ThothPayProcessorNuveiNuveiTransactionCancelResponse>;
 }
-export declare class ThothPayProcessorCyberSourceNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Checks `CyberSource` Payer Authentication enrollment. */
-    csPaEnrollment(params?: ThothPayProcessorCyberSourceCsPaEnrollmentParams): Promise<ThothPayProcessorCyberSourceCsPaEnrollmentResponse>;
-    /** Validates the `CyberSource` Payer Authentication result. */
-    csPaValidate(params?: ThothPayProcessorCyberSourceCsPaValidateParams): Promise<ThothPayProcessorCyberSourceCsPaValidateResponse>;
-    /** Generates a capture context for `CyberSource` Flex Microform. */
-    csCaptureContext(params?: ThothPayProcessorCyberSourceCsCaptureContextParams): Promise<ThothPayProcessorCyberSourceCsCaptureContextResponse>;
-    /** Starts `CyberSource` Payer Authentication setup. */
-    csPaSetup(params?: ThothPayProcessorCyberSourceCsPaSetupParams): Promise<ThothPayProcessorCyberSourceCsPaSetupResponse>;
-}
 export declare class ThothPayProcessorNamespace {
     private readonly _client;
-    readonly stripeCom: ThothPayProcessorStripeComNamespace;
     readonly nuvei: ThothPayProcessorNuveiNamespace;
-    readonly cyberSource: ThothPayProcessorCyberSourceNamespace;
-    constructor(_client: WlClient);
-}
-export declare class ThothReportCoreGeneratorNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns contents of a report as a table. */
-    query(params?: ThothReportCoreGeneratorQueryParams): Promise<ThothReportCoreGeneratorQueryResponse>;
-}
-export declare class ThothReportCoreNamespace {
-    private readonly _client;
-    readonly generator: ThothReportCoreGeneratorNamespace;
-    constructor(_client: WlClient);
-}
-export declare class ThothWlPayAccountChargeNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Refills the user account balance by the specified payment amount or adjusts it manually. */
-    charge(params?: ThothWlPayAccountChargeChargeParams): Promise<ThothWlPayAccountChargeChargeResponse>;
-}
-export declare class ThothWlPayAccountNamespace {
-    private readonly _client;
-    readonly charge: ThothWlPayAccountChargeNamespace;
-    constructor(_client: WlClient);
-    /** Retrieves information about accounts of given user in given business. */
-    account(params?: ThothWlPayAccountAccountParams): Promise<ThothWlPayAccountAccountResponse>;
-}
-export declare class ThothWlPayFormNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns information about payment environment. */
-    environmentUser(params?: ThothWlPayFormEnvironmentUserParams): Promise<ThothWlPayFormEnvironmentUserResponse>;
-    /** Returns information about payment environment. */
-    /** @deprecated */
-    environment(params?: ThothWlPayFormEnvironmentParams): Promise<ThothWlPayFormEnvironmentResponse>;
-}
-export declare class ThothWlPayMethodNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns list of active payment methods data. */
-    list(params?: ThothWlPayMethodListParams): Promise<ThothWlPayMethodListResponse>;
-}
-export declare class ThothWlPayOwnerNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns information about payment owner. */
-    owner(params?: ThothWlPayOwnerOwnerParams): Promise<ThothWlPayOwnerOwnerResponse>;
-}
-export declare class ThothWlPayAddressWidgetNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets data for "edit payment address" widget. */
-    widgetEdit(params?: ThothWlPayAddressWidgetWidgetEditParams): Promise<ThothWlPayAddressWidgetWidgetEditResponse>;
-}
-export declare class ThothWlPayAddressNamespace {
-    private readonly _client;
-    readonly widget: ThothWlPayAddressWidgetNamespace;
-    constructor(_client: WlClient);
-    /** Gets user's payment addresses information. */
-    address(params?: ThothWlPayAddressAddressParams): Promise<ThothWlPayAddressAddressResponse>;
-    /** Returns default payment address data that is retrieved from user profile. */
-    profile(params?: ThothWlPayAddressProfileParams): Promise<ThothWlPayAddressProfileResponse>;
-}
-export declare class ThothWlPayTransactionReportNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns All Transactions Report data for the specified date range. */
-    transactionAllPayment(params?: ThothWlPayTransactionReportTransactionAllPaymentParams): Promise<ThothWlPayTransactionReportTransactionAllPaymentResponse>;
-}
-export declare class ThothWlPayTransactionNamespace {
-    private readonly _client;
-    readonly report: ThothWlPayTransactionReportNamespace;
-    constructor(_client: WlClient);
-}
-export declare class ThothWlPayBankAchAddNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Deletes saved ACH. */
-    addDelete(params?: ThothWlPayBankAchAddAddDeleteParams): Promise<ThothWlPayBankAchAddAddDeleteResponse>;
-    /** Gets widget for ACH account add. */
-    addGet(params?: ThothWlPayBankAchAddAddGetParams): Promise<ThothWlPayBankAchAddAddGetResponse>;
-    /** Saves new ACH pay method. */
-    addPost(params?: ThothWlPayBankAchAddAddPostParams): Promise<ThothWlPayBankAchAddAddPostResponse>;
-}
-export declare class ThothWlPayBankAchNamespace {
-    private readonly _client;
-    readonly add: ThothWlPayBankAchAddNamespace;
-    constructor(_client: WlClient);
-    /** Retrieves information about user's ACH accounts. */
-    list(params?: ThothWlPayBankAchListParams): Promise<ThothWlPayBankAchListResponse>;
-}
-export declare class ThothWlPayBankCardAddNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Deletes saved card. */
-    addDelete(params?: ThothWlPayBankCardAddAddDeleteParams): Promise<ThothWlPayBankCardAddAddDeleteResponse>;
-    /** Gets code of bank card widget. */
-    /** @deprecated */
-    addGet(params?: ThothWlPayBankCardAddAddGetParams): Promise<ThothWlPayBankCardAddAddGetResponse>;
-    /** Saves new bank card. */
-    addPost(params?: ThothWlPayBankCardAddAddPostParams): Promise<ThothWlPayBankCardAddAddPostResponse>;
-}
-export declare class ThothWlPayBankCardWidgetNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets a list of saved bank cards. */
-    widgetSelect(params?: ThothWlPayBankCardWidgetWidgetSelectParams): Promise<ThothWlPayBankCardWidgetWidgetSelectResponse>;
-}
-export declare class ThothWlPayBankCardNamespace {
-    private readonly _client;
-    readonly add: ThothWlPayBankCardAddNamespace;
-    readonly widget: ThothWlPayBankCardWidgetNamespace;
-    constructor(_client: WlClient);
-    /** Retrieves information about user's bank cards. */
-    list(params?: ThothWlPayBankCardListParams): Promise<ThothWlPayBankCardListResponse>;
-}
-export declare class ThothWlPayBankNamespace {
-    private readonly _client;
-    readonly ach: ThothWlPayBankAchNamespace;
-    readonly card: ThothWlPayBankCardNamespace;
-    constructor(_client: WlClient);
-}
-export declare class ThothWlPayNamespace {
-    private readonly _client;
-    readonly account: ThothWlPayAccountNamespace;
-    readonly form: ThothWlPayFormNamespace;
-    readonly method: ThothWlPayMethodNamespace;
-    readonly owner: ThothWlPayOwnerNamespace;
-    readonly address: ThothWlPayAddressNamespace;
-    readonly transaction: ThothWlPayTransactionNamespace;
-    readonly bank: ThothWlPayBankNamespace;
     constructor(_client: WlClient);
 }
 export declare class ThothNamespace {
     private readonly _client;
     readonly explorerSearch: ThothExplorerSearchNamespace;
     readonly payProcessor: ThothPayProcessorNamespace;
-    readonly reportCore: ThothReportCoreNamespace;
-    readonly wlPay: ThothWlPayNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlPayProcessorStripeComNamespace {
