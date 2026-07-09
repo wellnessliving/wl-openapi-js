@@ -25407,6 +25407,41 @@ export interface WlDiscountCodeEditDiscountCodeEditPutResponse {
     /** Key of the discount code. Empty, if this is creation of a new code. */
     k_discount_code: string;
 }
+export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetParams {
+    /** Report page CID. */
+    cid_page: number;
+    /** Page CID. */
+    cid_report: number;
+    /** Business primary key in RsBusinessSql table. */
+    k_business: string;
+    /** Report CID list to that page customization form must be converted. String separated with `,`. */
+    s_report: string;
+    /** Current user's primary key in PassportLoginAr table. */
+    uid_actor: string;
+    /** SQL query primary key. Primary key in ReportQuerySql. */
+    k_report_query?: string | null;
+    /** Primary key of a saved report in RsReportSaveSql table. */
+    k_report_save?: string | null;
+}
+export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetResponse {
+    /** Customization form data. */
+    a_customization_form: Array<unknown>;
+}
+export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostParams {
+    /** Report page CID. */
+    cid_page: number;
+    /** Page CID. */
+    cid_report: number;
+    /** Business primary key in RsBusinessSql table. */
+    k_business: string;
+    /** Current user's primary key in PassportLoginAr table. */
+    uid_actor: string;
+    /** SQL query primary key. Primary key in ReportQuerySql. */
+    k_report_query?: string | null;
+    /** Primary key of a saved report in RsReportSaveSql table. */
+    k_report_save?: string | null;
+}
+export type ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostResponse = Record<string, unknown>;
 export interface WlPayBankCardAddAddDeleteParams {
     /** The business key number used internally by WellnessLiving. */
     k_business: string;
@@ -28780,10 +28815,32 @@ export declare class ThothPayProcessorNamespace {
     readonly nuvei: ThothPayProcessorNuveiNamespace;
     constructor(_client: WlClient);
 }
+export declare class ThothReportCoreQueryEngineReportCustomizationNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    reportQueryCustomizationFormGet(params?: ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetParams): Promise<ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetResponse>;
+    reportQueryCustomizationFormPost(params?: ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostParams): Promise<ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostResponse>;
+}
+export declare class ThothReportCoreQueryEngineReportNamespace {
+    private readonly _client;
+    readonly customization: ThothReportCoreQueryEngineReportCustomizationNamespace;
+    constructor(_client: WlClient);
+}
+export declare class ThothReportCoreQueryEngineNamespace {
+    private readonly _client;
+    readonly report: ThothReportCoreQueryEngineReportNamespace;
+    constructor(_client: WlClient);
+}
+export declare class ThothReportCoreNamespace {
+    private readonly _client;
+    readonly queryEngine: ThothReportCoreQueryEngineNamespace;
+    constructor(_client: WlClient);
+}
 export declare class ThothNamespace {
     private readonly _client;
     readonly explorerSearch: ThothExplorerSearchNamespace;
     readonly payProcessor: ThothPayProcessorNamespace;
+    readonly reportCore: ThothReportCoreNamespace;
     constructor(_client: WlClient);
 }
 /** WellnessLiving API client. */
