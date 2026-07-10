@@ -5863,140 +5863,9 @@ export interface WlLocationListBulkParams {
 }
 export interface WlLocationListBulkResponse {
     /** Short-form information about locations. */
-    a_location: {
-        /** The latitude coordinate. */
-        f_latitude: number;
-        /** The longitude coordinate. */
-        f_longitude: number;
-        /** The location rate. */
-        f_rate: number;
-        /** The order number. */
-        i_order: number;
-        /** The business's primary key. */
-        k_business: string;
-        /** The location's primary key. */
-        k_location: string;
-        /** The location title. */
-        s_title: string;
-        /** The full location address. */
-        text_address: string;
-        /** The location logo. */
-        url_logo?: string;
-    };
+    a_location: Record<string, unknown>;
     /** A list of models with full information about each location. */
-    a_location_full: Array<{
-        /** A list of ages that are permitted for visiting this location. */
-        a_age: Array<number>;
-        /** A list of facilities that are available in this location. */
-        a_amenities: Array<number>;
-        /** A list of levels that are suitable for visiting this location. */
-        a_level: Array<string>;
-        /** Information about the location logo used in WellnessLiving: */
-        a_logo: {
-            /** The image height. */
-            i_height: number;
-            /** The image width. */
-            i_width: number;
-            /** The URL to the image. */
-            s_url: string;
-        };
-        /** A list of the location images. */
-        a_slide: {
-            /** Height. */
-            i_height: number;
-            /** Width. */
-            i_width: number;
-            /** URL to image preview. */
-            url_preview: string;
-            /** URL to full image. */
-            url_slide: string;
-        };
-        /** The hours of operation for the location. */
-        a_work: {
-            /** The time of day end in MySQL format. */
-            s_end: string;
-            /** The time of day start in MySQL format. */
-            s_start: string;
-        };
-        /** The date when the location actuality was last checked. `null` if the location has never been chec... */
-        dtu_check?: string | null;
-        /** The date when the location was created. */
-        dtu_create: string;
-        /** The latitude coordinate of the location. */
-        f_latitude: number;
-        /** The longitude coordinate of the location. */
-        f_longitude: number;
-        /** The full description of the location. */
-        html_description_full: string;
-        /** A shorter description of the location. A preview of {@link WlLocationViewViewResponse.html_descri... */
-        html_description_preview: string;
-        /** Maximum location image height. */
-        i_logo_height: number;
-        /** Maximum location image width. */
-        i_logo_width: number;
-        /** List of different types for landing pages based on business types. @see RsHomeTourSid */
-        id_industry?: RsHomeTourSid;
-        /** `true` if to display phone number on location page. `false` otherwise. */
-        is_phone: boolean;
-        /** `true` if WellnessLiving identifies this is a top choice location, `false` otherwise. */
-        is_top_choice: boolean;
-        /** The key of the business this location belongs to. */
-        k_business: string;
-        /** The key of the business type this location belongs to. */
-        k_business_type: string;
-        /** The location key. */
-        k_location: string;
-        /** The timezone. */
-        k_timezone: string;
-        /** The physical address of the location. */
-        s_address: string;
-        /** A string that can be used in navigator programs. */
-        s_map: string;
-        /** The phone number for the location. */
-        s_phone: string;
-        /** The system name of the time zone. */
-        s_timezone: string;
-        /** The title of the location. */
-        s_title: string;
-        /** The address of the location. */
-        text_address_individual: string;
-        /** The special system name, which can be used in custom location links. */
-        text_alias: string;
-        /** The name of the business type. */
-        text_business_type: string;
-        /** The city name of the location. */
-        text_city: string;
-        /** The country name of the location. */
-        text_country: string;
-        /** The name of the industry of the business. */
-        text_industry: string;
-        /** The email address. */
-        text_mail: string;
-        /** Postal code of the location. */
-        text_postal: string;
-        /** The region name of the location. */
-        text_region: string;
-        /** Region 2 or 3 letters abbreviation of the location. Can be empty, if abbreviation for region is n... */
-        text_region_code: string;
-        /** The Facebook URL of the location. */
-        url_facebook: string;
-        /** The Instagram URL of the location. */
-        url_instagram: string;
-        /** The Linked In URL of the location. */
-        url_linkedin: string;
-        /** The URL of the location in Google Maps. */
-        url_map: string;
-        /** The URL to the location entry in the WellnessLiving Explorer listing. */
-        url_microsite: string;
-        /** The website URL of the location. */
-        url_site: string;
-        /** The URL of the location's Twitter account. */
-        url_twitter: string;
-        /** The URL to the business's Client Web App. */
-        url_web: string;
-        /** The YouTube URL of the location. */
-        url_youtube: string;
-    }>;
+    a_location_full: Record<string, unknown>;
 }
 export type WlLocationLocationParams = Record<string, unknown>;
 export interface WlLocationLocationResponse {
@@ -6015,45 +5884,7 @@ export interface WlLocationListParams {
 }
 export interface WlLocationListResponse {
     /** Information about the business's location(s). If you've specified multiple businesses for this en... */
-    a_location: Array<{
-        /** List of directories from {@link RsProjectSid}, where location is published. */
-        a_directories: Array<number>;
-        /** Information about location timezone: */
-        a_timezone: {
-            /** Timezone key. */
-            k_timezone: string;
-            /** User-friendly short timezone abbreviation, for example 'EST' or 'PST'. */
-            text_abbr: string;
-            /** Full timezone name, for example 'America/New_York'. */
-            text_name: string;
-        };
-        /** The location latitude. */
-        f_latitude: number;
-        /** The location longitude. */
-        f_longitude: number;
-        /** Timezone shift in hours. */
-        i_shift: number;
-        /** The business key. */
-        k_business: string;
-        /** Country key. */
-        k_country: string;
-        /** The location key. */
-        k_location: string;
-        /** Region key. */
-        k_region: string;
-        /** The location email address. */
-        s_mail: string;
-        /** The location phone number. */
-        s_phone: string;
-        /** The location title. */
-        s_title: string;
-        /** The location's full address. */
-        text_address: string;
-        /** The location logo's URL. This will only be set if the location has a logo and contains small thum... */
-        url_logo?: string;
-        /** The location logo's URL. This will only be set if the location has a logo and contains full uploa... */
-        url_logo_source?: string;
-    }>;
+    a_location: Record<string, unknown>;
 }
 export type WlProfileProfileCreateParams = Record<string, unknown>;
 export interface WlProfileProfileCreateResponse {
@@ -6870,7 +6701,7 @@ export interface WlLoginLoginGetResponse {
     /** Whether photo is uploaded. */
     is_photo_empty: boolean;
     /** The user's staff key for the specified business. */
-    k_staff: string;
+    k_staff: string | null;
     /** The first name of the user. */
     s_first_name: string;
     /** The surname of the user. */
@@ -6908,7 +6739,7 @@ export interface WlLoginLoginPostResponse {
         /** String identifiers for gender. @see AGenderSid */
         id_gender: AGenderSid;
         /** User's key as staff member. */
-        k_staff: string;
+        k_staff?: string;
         /** User first name. */
         s_first_name: string;
         /** First letter of user last name. */
@@ -9222,7 +9053,7 @@ export type SocialGooglePlusLoginResponse = Record<string, unknown>;
 export type WlScheduleClassListClassList68Params = Record<string, unknown>;
 export interface WlScheduleClassListClassList68Response {
     /** Keys are dates of the days inside requested date range, when there is at least one class in the b... */
-    a_calendar: Array<Array<unknown>>;
+    a_calendar: Record<string, unknown>;
     /** Information about classes/events for quick filter. */
     a_quick: {
         /** Type of class ("class" || "event") */
@@ -9339,7 +9170,7 @@ export interface WlScheduleClassListClassListParams {
 }
 export interface WlScheduleClassListClassListResponse {
     /** Keys are dates of the days inside requested date range, when there is at least one class in the b... */
-    a_calendar: Array<Array<unknown>>;
+    a_calendar: Record<string, unknown>;
     /** A list of classes sessions starting with the date {@link WlScheduleClassListNamespace#classList} */
     a_session: Array<{
         /** Keys of class tab. */
@@ -13995,7 +13826,7 @@ export interface WlLoginAttendanceAttendanceInfoResponse {
             url_logo: string;
         };
         /** deprecated Legacy staff key. Returned only for applications from allow-list. */
-        k_staff: string;
+        k_staff?: string;
         /** Staff user key. */
         uid_staff: string;
         /** Staff member's first name. */
@@ -14918,7 +14749,7 @@ export interface WlLoginAttendanceAttendanceInfoByTokenResponse {
             url_logo: string;
         };
         /** deprecated Legacy staff key. Returned only for applications from allow-list. */
-        k_staff: string;
+        k_staff?: string;
         /** Staff user key. */
         uid_staff: string;
         /** Staff member's first name. */
@@ -17386,7 +17217,7 @@ export interface WlStaffPrivilegePrivilegeListParams {
 }
 export interface WlStaffPrivilegePrivilegeListResponse {
     /** List of privileges, if user is administrator. */
-    a_privilege_passport: Array<string>;
+    a_privilege_passport: Record<string, unknown>;
     /** List of privileges, if the given user is a staff member in the give business. */
     a_privilege_staff: Array<WlPrivilegePrivilegeSid>;
     /** Whether this user is a super-administrator because he is a studio staff member. */
@@ -21142,7 +20973,7 @@ export interface WlAppointmentBookAssetAssetListResponse {
         sid_deny_reason: string | null;
     }>;
     /** A list of reserved assets. */
-    a_asset_busy: Array<Array<string | boolean>>;
+    a_asset_busy: Record<string, unknown>;
     /** The asset layout key. */
     k_resource_layout: string;
 }
@@ -24309,7 +24140,7 @@ export interface WlBusinessConfigOptionBusinessConfigOptionParams {
 }
 export interface WlBusinessConfigOptionBusinessConfigOptionResponse {
     /** List of config option values. */
-    a_option: Array<string>;
+    a_option: Record<string, unknown>;
 }
 export interface WlBusinessRewardConfigRewardConfigGetParams {
     /** Business key. */
@@ -25159,8 +24990,6 @@ export interface WlRewardBoardBoardListListResponse {
     }> | null;
 }
 export interface WlPassportLoginEnterPassportOtpGetParams {
-    /** Type of delivery strategy from {@link WlPassportLoginEnterOtpDeliveryStrategyEnum}. */
-    id_delivery_strategy: WlPassportLoginEnterOtpDeliveryStrategyEnum;
     /** Whether OTP code will be sending to user via email. */
     is_mail: boolean;
     /** Whether OTP code will be sending to user via email. */
@@ -25171,6 +25000,8 @@ export interface WlPassportLoginEnterPassportOtpGetParams {
     text_delivery_priority: string;
     /** User key. */
     uid: string;
+    /** Type of delivery strategy from {@link WlPassportLoginEnterOtpDeliveryStrategyEnum}. */
+    id_delivery_strategy?: WlPassportLoginEnterOtpDeliveryStrategyEnum | null;
 }
 export interface WlPassportLoginEnterPassportOtpGetResponse {
     /** Delivery channel that was selected based on the given priorities and user data. */
@@ -25541,7 +25372,7 @@ export interface WlAppointmentBookAssetServiceServiceParams {
 }
 export interface WlAppointmentBookAssetServiceServiceResponse {
     /** A list of reserved assets. */
-    a_resource_busy: Array<Array<string>>;
+    a_resource_busy: Record<string, unknown>;
     /** A list of assets required for the service booking. */
     a_resource_type: {
         /** A list of resources. Every element has the following keys: */
@@ -26067,9 +25898,9 @@ export interface WlMemberProgressGoalEditGoalPostResponse {
 }
 export interface WlShopProductOptionInventoryCountInventoryCountGetParams {
     /** The list of notes for product options in the store. */
-    a_note: Array<string>;
+    a_note: Record<string, unknown>;
     /** The list of product option quantities in the store. */
-    a_quantity: Array<number>;
+    a_quantity: Record<string, unknown>;
     /** The current business. */
     k_business: string;
     /** The product barcode, used for the search. */
@@ -26113,9 +25944,9 @@ export interface WlShopProductOptionInventoryCountInventoryCountGetResponse {
 }
 export interface WlShopProductOptionInventoryCountInventoryCountPostParams {
     /** The list of notes for product options in the store. */
-    a_note: Array<string>;
+    a_note: Record<string, unknown>;
     /** The list of product option quantities in the store. */
-    a_quantity: Array<number>;
+    a_quantity: Record<string, unknown>;
     /** The current business. */
     k_business: string;
 }
