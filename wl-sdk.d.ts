@@ -24254,6 +24254,8 @@ export interface WlLoginPromotionGuestPassGuestPassListParams {
     k_business: string;
     /** User key. */
     uid: string;
+    /** Local calendar date for which guest pass availability should be calculated. */
+    dl_date?: string | null;
     /** Class key to filter guest passes by. */
     k_class?: string | null;
     /** Location key to filter guest passes by. */
