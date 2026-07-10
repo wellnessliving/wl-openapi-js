@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260710063445
+ * Spec version: 1.1.20260710102407
  * Build date:   2026-07-10
  * Endpoints:    501
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260710063445';
+  WlClient.SPEC_VERSION = '1.1.20260710102407';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (501 total)
@@ -636,7 +636,7 @@
    *  `can_send_message` {boolean} Whether this user can send SMS. If `true` - user can send SMS, otherwise - `f...
    *  `id_gender` {number} String identifiers for gender. See {@link WlClient.AGenderSid}.
    *  `is_photo_empty` {boolean} Whether photo is uploaded.
-   *  `k_staff` {string} The user's staff key for the specified business.
+   *  `k_staff` {?string} The user's staff key for the specified business.
    *  `s_first_name` {string} The first name of the user.
    *  `s_last_name` {string} The surname of the user.
    *  `text_mail_client` {string} The client`s mailing address.
@@ -1092,7 +1092,7 @@
    * @param {string} params.s_location A list of locations. Location primary keys are serialized with JSON.
    * @returns {Promise<Object>} Response data.
    *  `a_location` {Object} Short-form information about locations.
-   *  `a_location_full` {Object[]} A list of models with full information about each location.
+   *  `a_location_full` {Object} A list of models with full information about each location.
    */
   WlClient.prototype.wlLocationListBulk = function(params)
   {
@@ -1129,7 +1129,7 @@
    * @param {string} params.s_business The primary keys of the selected businesses.
    * @param {boolean} params.show_remove Determines whether removed locations should be returned.
    * @returns {Promise<Object>} Response data.
-   *  `a_location` {Object[]} Information about the business's location(s). If you've specified multiple bu...
+   *  `a_location` {Object} Information about the business's location(s). If you've specified multiple bu...
    */
   WlClient.prototype.wlLocationList = function(params)
   {
@@ -3989,7 +3989,7 @@
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
-   *  `a_calendar` {*[][]} Keys are dates of the days inside requested date range, when there is at leas...
+   *  `a_calendar` {Object} Keys are dates of the days inside requested date range, when there is at leas...
    *  `a_quick` {Object} Information about classes/events for quick filter.
    *  `a_session` {Object[]} A list of classes sessions starting with the date {@link WlClient#wlScheduleC...
    *  `is_timezone_different` {boolean} If `true`, the list of sessions contains sessions from different time zones. ...
@@ -4029,7 +4029,7 @@
    * @param {boolean} params.show_event If `true`, events are also returned. If `false`, only classes are returned.
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
-   *  `a_calendar` {*[][]} Keys are dates of the days inside requested date range, when there is at leas...
+   *  `a_calendar` {Object} Keys are dates of the days inside requested date range, when there is at leas...
    *  `a_session` {Object[]} A list of classes sessions starting with the date {@link WlClient#wlScheduleC...
    *  `is_timezone_different` {boolean} If `true`, the list of sessions contains sessions from different time zones. ...
    *  `is_virtual_service` {boolean} If `true`, there exists at least one virtual service by a specified
@@ -5182,7 +5182,7 @@
    * @param {string} params.k_business Key of business to get privileges for.
    * @param {string} params.uid User key to get privileges for.
    * @returns {Promise<Object>} Response data.
-   *  `a_privilege_passport` {string[]} List of privileges, if user is administrator.
+   *  `a_privilege_passport` {Object} List of privileges, if user is administrator.
    *  `a_privilege_staff` {number[]} List of privileges, if the given user is a staff member in the give business.
    *  `is_admin` {boolean} Whether this user is a super-administrator because he is a studio staff member.
    */
@@ -7740,7 +7740,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Key of business.
    * @returns {Promise<Object>} Response data.
-   *  `a_option` {string[]} List of config option values.
+   *  `a_option` {Object} List of config option values.
    */
   WlClient.prototype.wlBusinessConfigOptionBusinessConfigOption = function(params)
   {
@@ -9941,7 +9941,7 @@
    * @param {?string} [params.uid] Client to get information for.
    * @returns {Promise<Object>} Response data.
    *  `a_asset` {Object[]} A list of information about assets:
-   *  `a_asset_busy` {string|boolean[][]} A list of reserved assets.
+   *  `a_asset_busy` {Object} A list of reserved assets.
    *  `k_resource_layout` {string} The asset layout key.
    */
   WlClient.prototype.wlAppointmentBookAssetAssetList = function(params)
@@ -9981,7 +9981,7 @@
    * ...
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_delivery_strategy Type of delivery strategy from {@link WlClient.WlPassportLoginEnterOtpDeliveryStrategyEnum}.
+   * @param {?number} [params.id_delivery_strategy] Type of delivery strategy from {@link WlClient.WlPassportLoginEnterOtpDeliveryStrategyEnum}.
    * @param {boolean} params.is_mail Whether OTP code will be sending to user via email.
    * @param {boolean} params.is_phone Whether OTP code will be sending to user via email.
    * @param {string} params.k_business Business key.
@@ -10957,7 +10957,7 @@
    * @param {string} params.k_timezone Timezone of date and time of service start.
    * @param {string} params.uid User to get information for.
    * @returns {Promise<Object>} Response data.
-   *  `a_resource_busy` {string[][]} A list of reserved assets.
+   *  `a_resource_busy` {Object} A list of reserved assets.
    *  `a_resource_type` {Object} A list of assets required for the service booking.
    *  `can_book_unavailable_assets` {boolean} Can the staff members book reserved assets.
    */
@@ -10977,8 +10977,8 @@
    * options whose inventory or notes have been modified via the pending quantity or note maps.
    *
    * @param {Object} [params] Request parameters.
-   * @param {string[]} params.a_note The list of notes for product options in the store.
-   * @param {number[]} params.a_quantity The list of product option quantities in the store.
+   * @param {Object} params.a_note The list of notes for product options in the store.
+   * @param {Object} params.a_quantity The list of product option quantities in the store.
    * @param {string} params.k_business The current business.
    * @param {string} params.text_barcode The product barcode, used for the search.
    * @returns {Promise<Object>} Response data.
@@ -10998,8 +10998,8 @@
    * transaction record for audit trail purposes.
    *
    * @param {Object} [params] Request parameters.
-   * @param {string[]} params.a_note The list of notes for product options in the store.
-   * @param {number[]} params.a_quantity The list of product option quantities in the store.
+   * @param {Object} params.a_note The list of notes for product options in the store.
+   * @param {Object} params.a_quantity The list of product option quantities in the store.
    * @param {string} params.k_business The current business.
    * @returns {Promise<Object>} Response data.
    */
