@@ -20113,6 +20113,8 @@ export interface WlScheduleScheduleListStaffAppScheduleListResponse {
         id_service: RsServiceSid;
         /** For appointments: `true` if user has checked-in; `false` otherwise. */
         is_arrive: boolean;
+        /** `true` if this class session is visible only through the "View other staff schedules" */
+        is_class_view: boolean;
         /** For appointments: `true` if appointment is paid; `false` otherwise. */
         is_pay: boolean;
         /** For appointments: `true` if appointment is recurring; `false` otherwise. */
