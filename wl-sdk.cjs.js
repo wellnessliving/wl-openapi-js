@@ -2,7 +2,7 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
 // OpenAPI spec version: 1.1.20260710095522
-// Build date: 2026-07-10
+// Build date: 2026-07-11
 // Endpoints: 497
 // Enums: 187
 Object.defineProperty(exports, "__esModule", { value: true });
