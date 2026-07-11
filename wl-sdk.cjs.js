@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260710095522
+// OpenAPI spec version: 1.1.20260711154550
 // Build date: 2026-07-11
-// Endpoints: 497
+// Endpoints: 498
 // Enums: 187
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ADurationSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlAnnouncementSortFieldSid = exports.CoreSidSortOrderSid = exports.WlAnnouncementAnnouncementStatusEnum = exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.AFlagSid = exports.RsScheduleTimeSid = exports.CoreDriveDriveTypeSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.RsProjectSid = exports.WlModeModeSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.WlImportCustomCustomSid = exports.WlVisitVisitSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.WlPayBankCardCardTypeEnum = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.RsReportSid = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.WlTaskTaskStatusSid = exports.WlGenderGenderSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.RsPayOwnerSid = exports.CoreLocaleLocaleSid = exports.ThothPayProcessorPayProcessorSid = exports.ACardSystemSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.RsPayMethodSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorStripeComPaymentIntentStatusSid = exports.CoreLocaleCurrencySid = exports.RsPayActorSid = exports.RsHomeTourSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.WlApiError = void 0;
@@ -8814,6 +8814,10 @@ class WlTuitionEnrollmentNamespace {
     /** Allows canceling certain event enrollments within tuition. */
     tuitionEnrollmentCancel(params) {
         return this._client._request('/Wl/Tuition/Enrollment/TuitionEnrollmentCancel.json', params, 'PUT');
+    }
+    /** Returns summary of clients and events enrolled for the given tuitions. */
+    tuitionClientsSummary(params) {
+        return this._client._request('/Wl/Tuition/Enrollment/TuitionClientsSummary.json', params, 'GET');
     }
 }
 exports.WlTuitionEnrollmentNamespace = WlTuitionEnrollmentNamespace;

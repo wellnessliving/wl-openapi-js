@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260710095522
+ * Spec version: 1.1.20260711154550
  * Build date:   2026-07-11
- * Endpoints:    497
+ * Endpoints:    498
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260710095522';
+  WlClient.SPEC_VERSION = '1.1.20260711154550';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (497 total)
+  // Generated API methods (498 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -7305,6 +7305,24 @@
   WlClient.prototype.wlTuitionEnrollmentTuitionEnrollmentCancel = function(params)
   {
     return this.request('/Wl/Tuition/Enrollment/TuitionEnrollmentCancel.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Returns summary of clients and events enrolled for the given tuitions.
+   *
+   * For each requested tuition, returns the number of unique clients enrolled in at least one not cancelled
+   * event, the number of unique events with at least one not cancelled enrollment, and the total number of
+   * not cancelled event enrollments.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_tuition_id Keys of the tuitions in the tuition microservice to get summary for.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_summary` {Object[]} Summary of clients and events enrolled, per tuition.
+   */
+  WlClient.prototype.wlTuitionEnrollmentTuitionClientsSummary = function(params)
+  {
+    return this.request('/Wl/Tuition/Enrollment/TuitionClientsSummary.json', params || {}, 'GET');
   };
 
   /**
