@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
  * Spec version: 1.1.20260711154550
- * Build date:   2026-07-12
+ * Build date:   2026-07-13
  * Endpoints:    498
  *
  * Auto-generated from:
