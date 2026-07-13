@@ -18848,6 +18848,23 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
 }
 export type WlTuitionEnrollmentTuitionEnrollmentCancelParams = Record<string, unknown>;
 export type WlTuitionEnrollmentTuitionEnrollmentCancelResponse = Record<string, unknown>;
+export interface WlTuitionEnrollmentTuitionClientsSummaryParams {
+    /** Keys of the tuitions in the tuition microservice to get summary for. */
+    a_tuition_id: Array<string>;
+    /** Business key. */
+    k_business: string;
+}
+export interface WlTuitionEnrollmentTuitionClientsSummaryResponse {
+    /** Summary of clients and events enrolled, per tuition. */
+    a_summary: Array<{
+        /** Number of unique clients having at least one not cancelled enrolled event. */
+        i_clients_enrolled: number;
+        /** Total number of not cancelled event enrollments. */
+        i_enrolled_total: number;
+        /** Number of unique events having at least one not cancelled enrollment. */
+        i_events_unique: number;
+    }>;
+}
 export interface WlPayAccountChargeChargeParams {
     /** The account charge mode. @see RsPayAccountChargeSid */
     id_pay_account_charge: RsPayAccountChargeSid;
@@ -25695,6 +25712,8 @@ export interface WlMailPatternAutomatedMarketingCustomTemplatePatternGetParams {
     sid_mail_form: string;
     /** Business key. */
     k_business?: string | null;
+    /** Key of the service being booked. */
+    k_service?: string | null;
 }
 export interface WlMailPatternAutomatedMarketingCustomTemplatePatternGetResponse {
     /** Business data. */
@@ -28556,6 +28575,8 @@ export declare class WlTuitionEnrollmentNamespace {
     tuitionEnrollmentList(params?: WlTuitionEnrollmentTuitionEnrollmentListParams): Promise<WlTuitionEnrollmentTuitionEnrollmentListResponse>;
     /** Allows canceling certain event enrollments within tuition. */
     tuitionEnrollmentCancel(params?: WlTuitionEnrollmentTuitionEnrollmentCancelParams): Promise<WlTuitionEnrollmentTuitionEnrollmentCancelResponse>;
+    /** Returns summary of clients and events enrolled for the given tuitions. */
+    tuitionClientsSummary(params?: WlTuitionEnrollmentTuitionClientsSummaryParams): Promise<WlTuitionEnrollmentTuitionClientsSummaryResponse>;
 }
 export declare class WlTuitionNamespace {
     private readonly _client;

@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260710163005
- * Build date:   2026-07-12
- * Endpoints:    501
+ * Spec version: 1.1.20260713045344
+ * Build date:   2026-07-13
+ * Endpoints:    502
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260710163005';
+  WlClient.SPEC_VERSION = '1.1.20260713045344';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (501 total)
+  // Generated API methods (502 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -7235,6 +7235,24 @@
   };
 
   /**
+   * Returns summary of clients and events enrolled for the given tuitions.
+   *
+   * For each requested tuition, returns the number of unique clients enrolled in at least one not cancelled
+   * event, the number of unique events with at least one not cancelled enrollment, and the total number of
+   * not cancelled event enrollments.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_tuition_id Keys of the tuitions in the tuition microservice to get summary for.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_summary` {Object[]} Summary of clients and events enrolled, per tuition.
+   */
+  WlClient.prototype.wlTuitionEnrollmentTuitionClientsSummary = function(params)
+  {
+    return this.request('/Wl/Tuition/Enrollment/TuitionClientsSummary.json', params || {}, 'GET');
+  };
+
+  /**
    * Refills the user account balance by the specified payment amount or adjusts it manually.
    *
    * Accepts the payment amount, account key or user-and-business identifiers, charge mode, and payment form
@@ -10788,6 +10806,7 @@
    * @param {boolean} params.is_custom_list Whether to get a list of custom template data. `true` - to get a list, `false` - otherwise.
    * @param {?string} [params.k_business] Business key.
    * @param {string} params.k_mail_pattern Mail pattern key.
+   * @param {?string} [params.k_service] Key of the service being booked.
    * @param {string} params.sid_mail_form SID of the mail form. String representation of one from RsMailFormSid class constants.
    * @returns {Promise<Object>} Response data.
    *  `a_business_data` {Object} Business data.

@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260710163005
-// Build date: 2026-07-12
-// Endpoints: 501
+// OpenAPI spec version: 1.1.20260713045344
+// Build date: 2026-07-13
+// Endpoints: 502
 // Enums: 187
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -8878,6 +8878,10 @@ export class WlTuitionEnrollmentNamespace {
     /** Allows canceling certain event enrollments within tuition. */
     tuitionEnrollmentCancel(params) {
         return this._client._request('/Wl/Tuition/Enrollment/TuitionEnrollmentCancel.json', params, 'PUT');
+    }
+    /** Returns summary of clients and events enrolled for the given tuitions. */
+    tuitionClientsSummary(params) {
+        return this._client._request('/Wl/Tuition/Enrollment/TuitionClientsSummary.json', params, 'GET');
     }
 }
 export class WlTuitionNamespace {
