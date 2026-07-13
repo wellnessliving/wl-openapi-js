@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260713131204
+// OpenAPI spec version: 1.1.20260713155150
 // Build date: 2026-07-13
-// Endpoints: 502
+// Endpoints: 503
 // Enums: 187
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -7927,8 +7927,12 @@ export class WlBillingBulkNamespace {
         this._client = _client;
     }
     /** Gets the list of promotions and products available at the location. */
-    purchaseItemList(params) {
+    purchaseItemListGet(params) {
         return this._client._request('/Wl/Billing/Bulk/PurchaseItemList.json', params, 'GET');
+    }
+    /** Prepares the bulk billing review: the per-client totals and the list of clients that will be billed. */
+    purchaseItemListPost(params) {
+        return this._client._request('/Wl/Billing/Bulk/PurchaseItemList.json', params, 'POST');
     }
 }
 export class WlBillingNamespace {

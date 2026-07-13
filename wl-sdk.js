@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260713131204
+ * Spec version: 1.1.20260713155150
  * Build date:   2026-07-13
- * Endpoints:    502
+ * Endpoints:    503
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260713131204';
+  WlClient.SPEC_VERSION = '1.1.20260713155150';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (502 total)
+  // Generated API methods (503 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -4441,9 +4441,32 @@
    *  `a_product` {Object[]} The list of products available at the location. Each element has the followin...
    *  `a_promotion` {Object[]} The list of promotions available at the location. Each element has the follow...
    */
-  WlClient.prototype.wlBillingBulkPurchaseItemList = function(params)
+  WlClient.prototype.wlBillingBulkPurchaseItemListGet = function(params)
   {
     return this.request('/Wl/Billing/Bulk/PurchaseItemList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Prepares the bulk billing review: the per-client totals and the list of clients that will be billed.
+   *
+   * Validates access to the business, calculates the per-client subtotal, tax and total for the selected purchase
+   *  items, and collects each client contact data and payment method label. The list of clients skipped due to
+   *  restrictions is returned separately and is empty for now.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business The business key.
+   * @param {string} params.k_location The location key to filter available items by.
+   * @returns {Promise<Object>} Response data.
+   *  `a_client_bill` {Object[]} The list of clients that will be billed. Each element has the following struc...
+   *  `a_client_ignore` {*[][]} The list of clients that will be skipped due to restrictions. Each element ha...
+   *  `m_batch` {string} The total amount charged across every client that will be billed (per-client ...
+   *  `m_subtotal` {string} The subtotal per client (sum of the selected purchase item prices, excluding ...
+   *  `m_tax` {string} The tax amount per client. Always `0` when {@link WlClient#wlBillingBulkPurch...
+   *  `m_total` {string} The total per client (subtotal plus tax).
+   */
+  WlClient.prototype.wlBillingBulkPurchaseItemListPost = function(params)
+  {
+    return this.request('/Wl/Billing/Bulk/PurchaseItemList.json', params || {}, 'POST');
   };
 
   /**

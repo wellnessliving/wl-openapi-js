@@ -13752,13 +13752,13 @@ export interface WlClassesInfoInfoResponse {
     /** Title of the class. */
     text_title: string;
 }
-export interface WlBillingBulkPurchaseItemListParams {
+export interface WlBillingBulkPurchaseItemListGetParams {
     /** The business key. */
     k_business: string;
     /** The location key to filter available items by. */
     k_location: string;
 }
-export interface WlBillingBulkPurchaseItemListResponse {
+export interface WlBillingBulkPurchaseItemListGetResponse {
     /** The list of products available at the location. Each element has the following structure: */
     a_product: Array<{
         /** The list of product options available at the location. Each element has the following structure: */
@@ -13772,6 +13772,8 @@ export interface WlBillingBulkPurchaseItemListResponse {
             /** The product option title. */
             text_title: string;
         };
+        /** `true` if no taxes should be applied to the product, `false` otherwise. */
+        is_tax_free: boolean;
         /** The product key. */
         k_shop_product: string;
         /** The product title. */
@@ -13783,13 +13785,48 @@ export interface WlBillingBulkPurchaseItemListResponse {
         id_program: RsProgramSid;
         /** Program types. @see RsProgramTypeSid */
         id_program_type: RsProgramTypeSid;
+        /** `true` if no taxes should be applied to the promotion, `false` otherwise. */
+        is_tax_free: boolean;
         /** The promotion key. */
         k_promotion: string;
         /** The promotion price, excluding taxes. */
         m_price: string;
         /** The promotion title. */
         text_title: string;
+        /** Payment period of the promotion. */
+        text_payment_period: string;
     }>;
+}
+export interface WlBillingBulkPurchaseItemListPostParams {
+    /** The business key. */
+    k_business: string;
+    /** The location key to filter available items by. */
+    k_location: string;
+}
+export interface WlBillingBulkPurchaseItemListPostResponse {
+    /** The list of clients that will be billed. Each element has the following structure: */
+    a_client_bill: Array<{
+        /** The client email address. Empty string if the client has no email. */
+        text_mail: string;
+        /** The client full name. */
+        text_name: string;
+        /** The payment method label for this client. `Account` when billing to the client account; otherwise... */
+        text_pay_method: string;
+        /** The client cell phone number. Empty string if the client has no cell phone. */
+        text_phone: string;
+        /** The client user key. */
+        uid: string;
+    }>;
+    /** The list of clients that will be skipped due to restrictions. Each element has the same structure... */
+    a_client_ignore: Array<Array<unknown>>;
+    /** The total amount charged across every client that will be billed (per-client total multiplied by ... */
+    m_batch: string;
+    /** The subtotal per client (sum of the selected purchase item prices, excluding taxes). */
+    m_subtotal: string;
+    /** The tax amount per client. Always `0` when {@link WlBillingBulkNamespace#purchaseItemListGet} is ... */
+    m_tax: string;
+    /** The total per client (subtotal plus tax). */
+    m_total: string;
 }
 export interface WlProfilePurchasePurchaseElementParams {
     /** The key of the redemption code used to obtain some goods. */
@@ -27931,7 +27968,9 @@ export declare class WlBillingBulkNamespace {
     private readonly _client;
     constructor(_client: WlClient);
     /** Gets the list of promotions and products available at the location. */
-    purchaseItemList(params?: WlBillingBulkPurchaseItemListParams): Promise<WlBillingBulkPurchaseItemListResponse>;
+    purchaseItemListGet(params?: WlBillingBulkPurchaseItemListGetParams): Promise<WlBillingBulkPurchaseItemListGetResponse>;
+    /** Prepares the bulk billing review: the per-client totals and the list of clients that will be billed. */
+    purchaseItemListPost(params?: WlBillingBulkPurchaseItemListPostParams): Promise<WlBillingBulkPurchaseItemListPostResponse>;
 }
 export declare class WlBillingNamespace {
     private readonly _client;
