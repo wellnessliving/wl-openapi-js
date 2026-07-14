@@ -7718,6 +7718,8 @@ export interface WlSessionEnvironmentGetResponse {
     dtl_now: string;
     /** Whether exists form to confirm during registration process. */
     has_form_quiz: boolean;
+    /** `true` if the "home" page is turned on for the current business; `false` otherwise. */
+    has_home: boolean;
     /** Whether the merchant is configured for the client's home location or for business {@link WlSessio... */
     has_merchant: boolean;
     /** A list of currency codes. @see RsCurrencySid */

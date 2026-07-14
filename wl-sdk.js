@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260714060132
+ * Spec version: 1.1.20260714102448
  * Build date:   2026-07-14
  * Endpoints:    503
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260714060132';
+  WlClient.SPEC_VERSION = '1.1.20260714102448';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (503 total)
@@ -1577,6 +1577,7 @@
    *  `a_splash_screen` {?Object} Settings of splash screen customization for business:
    *  `dtl_now` {string} Local date with time now in current location {@link WlClient#wlSessionEnviron...
    *  `has_form_quiz` {boolean} Whether exists form to confirm during registration process.
+   *  `has_home` {boolean} `true` if the "home" page is turned on for the current business; `false` othe...
    *  `has_merchant` {boolean} Whether the merchant is configured for the client's home location or for busi...
    *  `id_currency` {number} A list of currency codes. See {@link WlClient.RsCurrencySid}.
    *  `id_locale` {number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
@@ -1589,7 +1590,6 @@
    *  `is_application_custom` {boolean} Determines current business has custom application. If `true` application has...
    *  `is_billing_required` {boolean} `true` if user must be redirected to billing page to enter credit card; `fals...
    *  `is_booking_appointment_authorize` {boolean} `true` if clients must sign in to book an appointment; `false` otherwise.
-   *  `is_booking_required_billing` {boolean} `true` if user must be redirected from booking page to billing page to enter ...
    *  `...` {*}
    */
   WlClient.prototype.wlSessionEnvironmentGet = function(params)
