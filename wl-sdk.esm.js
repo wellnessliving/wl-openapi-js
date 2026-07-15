@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260715070117
+// OpenAPI spec version: 1.1.20260715075934
 // Build date: 2026-07-15
-// Endpoints: 503
+// Endpoints: 505
 // Enums: 187
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -6509,6 +6509,25 @@ export class WlProfileContractNamespace {
         return this._client._request('/Wl/Profile/Contract/Contract.json', params, 'POST');
     }
 }
+export class WlProfileAccountSelectNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves information about user specified in {@link WlProfileAccountSelectNamespace#selectGet} and his relationship with sub accounts. */
+    selectGet(params) {
+        return this._client._request('/Wl/Profile/Account/Select/Select.json', params, 'GET');
+    }
+    /** Signs in user specified in {@link WlProfileAccountSelectNamespace#selectGet}. */
+    selectPost(params) {
+        return this._client._request('/Wl/Profile/Account/Select/Select.json', params, 'POST');
+    }
+}
+export class WlProfileAccountNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.select = new WlProfileAccountSelectNamespace(this._client);
+    }
+}
 export class WlProfileFormResponseNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6538,6 +6557,7 @@ export class WlProfileNamespace {
         this.timezone = new WlProfileTimezoneNamespace(this._client);
         this.attendance = new WlProfileAttendanceNamespace(this._client);
         this.contract = new WlProfileContractNamespace(this._client);
+        this.account = new WlProfileAccountNamespace(this._client);
         this.form = new WlProfileFormNamespace(this._client);
     }
     /** Creates a new client profile with the provided personal details in the specified business. */
