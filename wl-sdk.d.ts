@@ -18974,7 +18974,7 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
         /** Number of payments total at the moment of enrollment. */
         i_payments_total: number;
         /** Installment plan status. */
-        id_installment_status: number;
+        id_installment_status?: number | null;
         /** Key of the tuition purchase item. This is enrollment key, which can be used to modify and cancel ... */
         k_purchase_item_tuition: string;
         /** One payment amount. */
