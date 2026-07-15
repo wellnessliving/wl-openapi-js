@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260715173907
+ * Spec version: 1.1.20260715205813
  * Build date:   2026-07-15
- * Endpoints:    507
+ * Endpoints:    508
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260715173907';
+  WlClient.SPEC_VERSION = '1.1.20260715205813';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (507 total)
+  // Generated API methods (508 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2537,6 +2537,19 @@
   WlClient.prototype.coreDriveImageUploadImageUploadTemporary = function(params)
   {
     return this.request('/Core/Drive/ImageUpload/ImageUploadTemporary.json', params || {}, 'POST');
+  };
+
+  /**
+   * Flushes all application caches.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.s_action Name of the action to perform within this endpoint.
+   * @param {string} params.s_token Request authentication token.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.coreTestingAutomationCacheFlush = function(params)
+  {
+    return this.request('/Core/Testing/Automation/CacheFlush.json', params || {}, 'GET');
   };
 
   /**
@@ -7228,6 +7241,8 @@
 
   /**
    * Accepts a Widget analytics event.
+   *
+   * Validates the event envelope and payload, stores the event, and schedules asynchronous processing.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.

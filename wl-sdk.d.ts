@@ -8766,6 +8766,13 @@ export interface CoreDriveImageUploadImageUploadTemporaryResponse {
     /** The URL to the original image in file storage. */
     url_view: string;
 }
+export interface CoreTestingAutomationCacheFlushParams {
+    /** Name of the action to perform within this endpoint. */
+    s_action: string;
+    /** Request authentication token. */
+    s_token: string;
+}
+export type CoreTestingAutomationCacheFlushResponse = Record<string, unknown>;
 export interface CoreGeoRegionRegionParams {
     /** The locale ID to find regions for. One of the {@link CoreLocaleLocaleSid} constants. */
     id_locale: CoreLocaleLocaleSid;
@@ -26339,6 +26346,17 @@ export declare class CoreDriveNamespace {
     readonly imageUpload: CoreDriveImageUploadNamespace;
     constructor(_client: WlClient);
 }
+export declare class CoreTestingAutomationNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Flushes all application caches. */
+    cacheFlush(params?: CoreTestingAutomationCacheFlushParams): Promise<CoreTestingAutomationCacheFlushResponse>;
+}
+export declare class CoreTestingNamespace {
+    private readonly _client;
+    readonly automation: CoreTestingAutomationNamespace;
+    constructor(_client: WlClient);
+}
 export declare class CoreSpaApplicationNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -26360,6 +26378,7 @@ export declare class CoreNamespace {
     readonly captcha: CoreCaptchaNamespace;
     readonly passport: CorePassportNamespace;
     readonly drive: CoreDriveNamespace;
+    readonly testing: CoreTestingNamespace;
     readonly spa: CoreSpaNamespace;
     constructor(_client: WlClient);
 }
