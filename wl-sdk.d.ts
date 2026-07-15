@@ -23333,6 +23333,23 @@ export interface WlProfileEditEmailEditEmailPostResponse {
     /** Shows, whether client was registered in the business: `true` if user was added to the business, */
     is_added: boolean;
 }
+export interface WlProfileAccountSelectSelectGetParams {
+    /** Business to retrieve relationship information. */
+    k_business: string;
+    /** UID to retrieve relationship information. */
+    uid: string;
+}
+export interface WlProfileAccountSelectSelectGetResponse {
+    /** Array with information about current user and his relationship with sub accounts. */
+    a_user: Array<unknown>;
+}
+export interface WlProfileAccountSelectSelectPostParams {
+    /** Business to retrieve relationship information. */
+    k_business: string;
+    /** UID to retrieve relationship information. */
+    uid: string;
+}
+export type WlProfileAccountSelectSelectPostResponse = Record<string, unknown>;
 export interface WlProfileAttendanceSchedulePaymentMultipleGetParams {
     /** List of appointment keys for which to load unpaid data. */
     a_appointment: Array<string>;
@@ -26429,6 +26446,19 @@ export declare class WlProfileContractNamespace {
     /** Completes a sale of a Purchase Option requiring a contract by submitting the signed contract. */
     contractPost(params?: WlProfileContractContractPostParams): Promise<WlProfileContractContractPostResponse>;
 }
+export declare class WlProfileAccountSelectNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Retrieves information about user specified in {@link WlProfileAccountSelectNamespace#selectGet} and his relationship with sub accounts. */
+    selectGet(params?: WlProfileAccountSelectSelectGetParams): Promise<WlProfileAccountSelectSelectGetResponse>;
+    /** Signs in user specified in {@link WlProfileAccountSelectNamespace#selectGet}. */
+    selectPost(params?: WlProfileAccountSelectSelectPostParams): Promise<WlProfileAccountSelectSelectPostResponse>;
+}
+export declare class WlProfileAccountNamespace {
+    private readonly _client;
+    readonly select: WlProfileAccountSelectNamespace;
+    constructor(_client: WlClient);
+}
 export declare class WlProfileFormResponseNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -26453,6 +26483,7 @@ export declare class WlProfileNamespace {
     readonly setting: WlProfileSettingNamespace;
     readonly activity: WlProfileActivityNamespace;
     readonly contract: WlProfileContractNamespace;
+    readonly account: WlProfileAccountNamespace;
     readonly form: WlProfileFormNamespace;
     constructor(_client: WlClient);
     /** Creates a new client profile with the provided personal details in the specified business. */

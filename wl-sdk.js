@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260714094335
+ * Spec version: 1.1.20260715042445
  * Build date:   2026-07-15
- * Endpoints:    498
+ * Endpoints:    500
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260714094335';
+  WlClient.SPEC_VERSION = '1.1.20260715042445';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (498 total)
+  // Generated API methods (500 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -9272,6 +9272,41 @@
   WlClient.prototype.wlProfileEditEmailEditEmailPost = function(params)
   {
     return this.request('/Wl/Profile/Edit/Email/EditEmail.json', params || {}, 'POST');
+  };
+
+  /**
+   * Retrieves information about user specified in {@link WlClient#wlProfileAccountSelectSelectGet}
+  and his relationship with sub accounts.
+   *
+   * Returns all user's relatives and type of relationship, which are allowed to sign in with.
+   * So, you can use this list to sign in user as hist relative, but this is not the best way to get full family.
+   * Business can set that parent can sign in as his child, but child cannot sign in as his parent. So, this method
+   * will return children for parent, but will not return parents for child.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business to retrieve relationship information.
+   * @param {string} params.uid UID to retrieve relationship information.
+   * @returns {Promise<Object>} Response data.
+   *  `a_user` {*[]} Array with information about current user and his relationship with sub accou...
+   */
+  WlClient.prototype.wlProfileAccountSelectSelectGet = function(params)
+  {
+    return this.request('/Wl/Profile/Account/Select/Select.json', params || {}, 'GET');
+  };
+
+  /**
+   * Signs in user specified in {@link WlClient#wlProfileAccountSelectSelectGet}.
+   *
+   * Returns an error if you try to sign in user not according to the business permissions.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business to retrieve relationship information.
+   * @param {string} params.uid UID to retrieve relationship information.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlProfileAccountSelectSelectPost = function(params)
+  {
+    return this.request('/Wl/Profile/Account/Select/Select.json', params || {}, 'POST');
   };
 
   /**
