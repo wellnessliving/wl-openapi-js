@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260715092006
+ * Spec version: 1.1.20260715183543
  * Build date:   2026-07-15
- * Endpoints:    500
+ * Endpoints:    501
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260715092006';
+  WlClient.SPEC_VERSION = '1.1.20260715183543';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (500 total)
+  // Generated API methods (501 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2555,6 +2555,19 @@
   WlClient.prototype.coreDriveImageUploadImageUploadTemporary = function(params)
   {
     return this.request('/Core/Drive/ImageUpload/ImageUploadTemporary.json', params || {}, 'POST');
+  };
+
+  /**
+   * Flushes all application caches.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.s_action Name of the action to perform within this endpoint.
+   * @param {string} params.s_token Request authentication token.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.coreTestingAutomationCacheFlush = function(params)
+  {
+    return this.request('/Core/Testing/Automation/CacheFlush.json', params || {}, 'GET');
   };
 
   /**

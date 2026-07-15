@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260715092006
+// OpenAPI spec version: 1.1.20260715183543
 // Build date: 2026-07-15
-// Endpoints: 500
+// Endpoints: 501
 // Enums: 187
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -8791,6 +8791,21 @@ export class CoreDriveNamespace {
         this.imageUpload = new CoreDriveImageUploadNamespace(this._client);
     }
 }
+export class CoreTestingAutomationNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Flushes all application caches. */
+    cacheFlush(params) {
+        return this._client._request('/Core/Testing/Automation/CacheFlush.json', params, 'GET');
+    }
+}
+export class CoreTestingNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.automation = new CoreTestingAutomationNamespace(this._client);
+    }
+}
 export class CoreSpaApplicationNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8915,6 +8930,7 @@ export class CoreNamespace {
         this.sid = new CoreSidNamespace(this._client);
         this.captcha = new CoreCaptchaNamespace(this._client);
         this.drive = new CoreDriveNamespace(this._client);
+        this.testing = new CoreTestingNamespace(this._client);
         this.spa = new CoreSpaNamespace(this._client);
         this.passport = new CorePassportNamespace(this._client);
     }
