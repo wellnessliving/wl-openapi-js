@@ -18839,6 +18839,11 @@ export interface WlSocialShareSocialShareResponse {
 }
 export type WlFacebookLoginFacebookLoginParams = Record<string, unknown>;
 export type WlFacebookLoginFacebookLoginResponse = Record<string, unknown>;
+export type WlWidgetAnalyticsWidgetAnalyticsEventParams = Record<string, unknown>;
+export interface WlWidgetAnalyticsWidgetAnalyticsEventResponse {
+    /** Whether the event was durably accepted for asynchronous processing. */
+    is_accepted: boolean;
+}
 export interface WlTuitionEnrollmentTuitionEnrollmentListParams {
     /** Filters. */
     a_filter: {
@@ -18872,7 +18877,7 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
         /** Number of payments total at the moment of enrollment. */
         i_payments_total: number;
         /** Installment plan status. */
-        id_installment_status: number;
+        id_installment_status?: number | null;
         /** Key of the tuition purchase item. This is enrollment key, which can be used to modify and cancel ... */
         k_purchase_item_tuition: string;
         /** One payment amount. */
@@ -18937,6 +18942,8 @@ export interface WlPayBankCardListResponse {
         i_year: number;
         /** A class for a list of card systems. @see ACardSystemSid */
         id_card_system: ACardSystemSid | null;
+        /** If `true`, this card backs at least one active autopay membership or package. */
+        is_autopay: boolean;
         /** If `true`, then this card is the user default card. */
         is_default: boolean;
         /** The payment address ID. This refers to a physical address associated with a payment card. */
@@ -18958,6 +18965,8 @@ export interface WlPayBankCardListResponse {
         i_year: number;
         /** A class for a list of card systems. @see ACardSystemSid */
         id_card_system: ACardSystemSid | null;
+        /** If `true`, this card backs at least one active autopay membership or package. */
+        is_autopay: boolean;
         /** If `true`, then this card is the user default card. */
         is_default: boolean;
         /** The payment address ID. This refers to a physical address associated with a payment card. */
@@ -18973,6 +18982,8 @@ export interface WlPayBankCardListResponse {
     }>;
     /** Whether new card can be added. */
     can_add: boolean;
+    /** Whether the client is allowed to remove their own saved credit cards. */
+    can_remove_self: boolean;
 }
 export interface WlPayBankAchListParams {
     /** ID of current business. */
@@ -25443,6 +25454,13 @@ export interface WlPayBankCardWidgetWidgetSelectResponse {
         text_street_2: string;
     };
 }
+export interface WlPayBankCardRemoveRemoveParams {
+    /** Key of the business the card is being removed for. The card must belong to this business, see */
+    k_business: string;
+    /** Key of the card to remove. */
+    k_pay_bank: string;
+}
+export type WlPayBankCardRemoveRemoveResponse = Record<string, unknown>;
 export interface WlPayBankAchAddAddDeleteParams {
     /** Business key. */
     k_business: string;
@@ -27575,10 +27593,17 @@ export declare class WlPayBankCardWidgetNamespace {
     /** Gets a list of saved bank cards. */
     widgetSelect(params?: WlPayBankCardWidgetWidgetSelectParams): Promise<WlPayBankCardWidgetWidgetSelectResponse>;
 }
+export declare class WlPayBankCardRemoveNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Removes the card. */
+    remove(params?: WlPayBankCardRemoveRemoveParams): Promise<WlPayBankCardRemoveRemoveResponse>;
+}
 export declare class WlPayBankCardNamespace {
     private readonly _client;
     readonly add: WlPayBankCardAddNamespace;
     readonly widget: WlPayBankCardWidgetNamespace;
+    readonly remove: WlPayBankCardRemoveNamespace;
     constructor(_client: WlClient);
     /** Retrieves information about user's bank cards. */
     list(params?: WlPayBankCardListParams): Promise<WlPayBankCardListResponse>;
@@ -28640,6 +28665,17 @@ export declare class WlFacebookNamespace {
     readonly login: WlFacebookLoginNamespace;
     constructor(_client: WlClient);
 }
+export declare class WlWidgetAnalyticsNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Accepts a Widget analytics event. */
+    widgetAnalyticsEvent(params?: WlWidgetAnalyticsWidgetAnalyticsEventParams): Promise<WlWidgetAnalyticsWidgetAnalyticsEventResponse>;
+}
+export declare class WlWidgetNamespace {
+    private readonly _client;
+    readonly analytics: WlWidgetAnalyticsNamespace;
+    constructor(_client: WlClient);
+}
 export declare class WlTuitionEnrollmentNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -28712,6 +28748,7 @@ export declare class WlNamespace {
     readonly gym: WlGymNamespace;
     readonly social: WlSocialNamespace;
     readonly facebook: WlFacebookNamespace;
+    readonly widget: WlWidgetNamespace;
     readonly tuition: WlTuitionNamespace;
     constructor(_client: WlClient);
 }

@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260715104031
+ * Spec version: 1.1.20260715173907
  * Build date:   2026-07-15
- * Endpoints:    505
+ * Endpoints:    507
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260715104031';
+  WlClient.SPEC_VERSION = '1.1.20260715173907';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (505 total)
+  // Generated API methods (507 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -7227,6 +7227,18 @@
   };
 
   /**
+   * Accepts a Widget analytics event.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `is_accepted` {boolean} Whether the event was durably accepted for asynchronous processing.
+   */
+  WlClient.prototype.wlWidgetAnalyticsWidgetAnalyticsEvent = function(params)
+  {
+    return this.request('/Wl/Widget/Analytics/WidgetAnalyticsEvent.json', params || {}, 'POST');
+  };
+
+  /**
    * Returns list of enrollments for the tuition.
    *
    * Get a full list of users who purchased the tuition. For each enrollment, returns the list of events
@@ -7310,6 +7322,7 @@
    *  `a_bank_card` {Object} A list of bank cards.
    *  `a_list` {Object[]} List of bank cards.
    *  `can_add` {boolean} Whether new card can be added.
+   *  `can_remove_self` {boolean} Whether the client is allowed to remove their own saved credit cards.
    */
   WlClient.prototype.wlPayBankCardList = function(params)
   {
@@ -10543,6 +10556,19 @@
   WlClient.prototype.wlPayBankCardWidgetWidgetSelect = function(params)
   {
     return this.request('/Wl/Pay/Bank/Card/Widget/WidgetSelect.json', params || {}, 'GET');
+  };
+
+  /**
+   * Removes the card.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the business the card is being removed for. The card must belong to this business, see
+   * @param {string} params.k_pay_bank Key of the card to remove.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlPayBankCardRemoveRemove = function(params)
+  {
+    return this.request('/Wl/Pay/Bank/Card/Remove/Remove.json', params || {}, 'DELETE');
   };
 
   /**

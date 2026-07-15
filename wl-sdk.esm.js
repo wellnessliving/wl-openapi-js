@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260715104031
+// OpenAPI spec version: 1.1.20260715173907
 // Build date: 2026-07-15
-// Endpoints: 505
+// Endpoints: 507
 // Enums: 187
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -7308,11 +7308,21 @@ export class WlPayBankCardWidgetNamespace {
         return this._client._request('/Wl/Pay/Bank/Card/Widget/WidgetSelect.json', params, 'GET');
     }
 }
+export class WlPayBankCardRemoveNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes the card. */
+    remove(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Remove/Remove.json', params, 'DELETE');
+    }
+}
 export class WlPayBankCardNamespace {
     constructor(_client) {
         this._client = _client;
         this.add = new WlPayBankCardAddNamespace(this._client);
         this.widget = new WlPayBankCardWidgetNamespace(this._client);
+        this.remove = new WlPayBankCardRemoveNamespace(this._client);
     }
     /** Retrieves information about user's bank cards. */
     list(params) {
@@ -8891,6 +8901,21 @@ export class WlFacebookNamespace {
         this.login = new WlFacebookLoginNamespace(this._client);
     }
 }
+export class WlWidgetAnalyticsNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Accepts a Widget analytics event. */
+    widgetAnalyticsEvent(params) {
+        return this._client._request('/Wl/Widget/Analytics/WidgetAnalyticsEvent.json', params, 'POST');
+    }
+}
+export class WlWidgetNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.analytics = new WlWidgetAnalyticsNamespace(this._client);
+    }
+}
 export class WlTuitionEnrollmentNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8972,6 +8997,7 @@ export class WlNamespace {
         this.gym = new WlGymNamespace(this._client);
         this.social = new WlSocialNamespace(this._client);
         this.facebook = new WlFacebookNamespace(this._client);
+        this.widget = new WlWidgetNamespace(this._client);
         this.tuition = new WlTuitionNamespace(this._client);
     }
 }
