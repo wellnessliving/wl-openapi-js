@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260715212530
+ * Spec version: 1.1.20260716065522
  * Build date:   2026-07-16
  * Endpoints:    501
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260715212530';
+  WlClient.SPEC_VERSION = '1.1.20260716065522';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (501 total)
@@ -9300,7 +9300,7 @@
    * @param {string} params.k_business Business to retrieve relationship information.
    * @param {string} params.uid UID to retrieve relationship information.
    * @returns {Promise<Object>} Response data.
-   *  `a_user` {*[]} Array with information about current user and his relationship with sub accou...
+   *  `a_user` {Object} Array with information about current user and his relationship with sub accou...
    */
   WlClient.prototype.wlProfileAccountSelectSelectGet = function(params)
   {

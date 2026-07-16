@@ -18955,6 +18955,8 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListParams {
         a_event: Array<string>;
         /** List of tuition statuses. */
         a_statuses: Array<number>;
+        /** List of tuition enrollments ids to leave only. */
+        a_purchase_item_tuition: Array<string>;
         /** Leave only enrollments with the given payers or enrolled clients. */
         a_uid_any: Array<string>;
         /** Leave only enrollments with the given enrolled clients. */
@@ -23348,7 +23350,14 @@ export interface WlProfileAccountSelectSelectGetParams {
 }
 export interface WlProfileAccountSelectSelectGetResponse {
     /** Array with information about current user and his relationship with sub accounts. */
-    a_user: Array<unknown>;
+    a_user: {
+        /** ID of relationship between current user and sub account. */
+        id_family_relation: string;
+        /** Name of sub account. */
+        s_name: string;
+        /** UID of sub account. */
+        uid: string;
+    };
 }
 export interface WlProfileAccountSelectSelectPostParams {
     /** Business to retrieve relationship information. */
