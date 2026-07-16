@@ -4308,6 +4308,15 @@ export declare enum WlSocialShareShareObjectSid {
     /** Review */
     REVIEW = 2
 }
+/** Widget analytics checkout types. */
+export declare enum WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid {
+    /** Any checkout type */
+    ANY = 1,
+    /** Booking checkout type */
+    BOOKING = 3,
+    /** Store purchase checkout type */
+    STORE_PURCHASE = 2
+}
 /** List of page transaction type. */
 export declare enum RsPayAccountChargeSid {
     /** Account charging using payment form */
@@ -18858,6 +18867,8 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListParams {
         a_event: Array<string>;
         /** List of tuition statuses. */
         a_statuses: Array<number>;
+        /** List of tuition enrollments ids to leave only. */
+        a_purchase_item_tuition: Array<string>;
         /** Leave only enrollments with the given payers or enrolled clients. */
         a_uid_any: Array<string>;
         /** Leave only enrollments with the given enrolled clients. */
@@ -22435,7 +22446,14 @@ export interface WlProfileAccountSelectSelectGetParams {
 }
 export interface WlProfileAccountSelectSelectGetResponse {
     /** Array with information about current user and his relationship with sub accounts. */
-    a_user: Array<unknown>;
+    a_user: {
+        /** ID of relationship between current user and sub account. */
+        id_family_relation: string;
+        /** Name of sub account. */
+        s_name: string;
+        /** UID of sub account. */
+        uid: string;
+    };
 }
 export interface WlProfileAccountSelectSelectPostParams {
     /** Business to retrieve relationship information. */
@@ -25461,13 +25479,6 @@ export interface WlPayBankCardWidgetWidgetSelectResponse {
         text_street_2: string;
     };
 }
-export interface WlPayBankCardRemoveRemoveParams {
-    /** Key of the business the card is being removed for. The card must belong to this business, see */
-    k_business: string;
-    /** Key of the card to remove. */
-    k_pay_bank: string;
-}
-export type WlPayBankCardRemoveRemoveResponse = Record<string, unknown>;
 export interface WlPayBankAchAddAddDeleteParams {
     /** Business key. */
     k_business: string;
@@ -27612,17 +27623,10 @@ export declare class WlPayBankCardWidgetNamespace {
     /** Gets a list of saved bank cards. */
     widgetSelect(params?: WlPayBankCardWidgetWidgetSelectParams): Promise<WlPayBankCardWidgetWidgetSelectResponse>;
 }
-export declare class WlPayBankCardRemoveNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Removes the card. */
-    remove(params?: WlPayBankCardRemoveRemoveParams): Promise<WlPayBankCardRemoveRemoveResponse>;
-}
 export declare class WlPayBankCardNamespace {
     private readonly _client;
     readonly add: WlPayBankCardAddNamespace;
     readonly widget: WlPayBankCardWidgetNamespace;
-    readonly remove: WlPayBankCardRemoveNamespace;
     constructor(_client: WlClient);
     /** Retrieves information about user's bank cards. */
     list(params?: WlPayBankCardListParams): Promise<WlPayBankCardListResponse>;

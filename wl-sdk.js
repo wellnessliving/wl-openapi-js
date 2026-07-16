@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260715233938
+ * Spec version: 1.1.20260716120927
  * Build date:   2026-07-16
- * Endpoints:    508
+ * Endpoints:    507
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260715233938';
+  WlClient.SPEC_VERSION = '1.1.20260716120927';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (508 total)
+  // Generated API methods (507 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -9185,7 +9185,7 @@
    * @param {string} params.k_business Business to retrieve relationship information.
    * @param {string} params.uid UID to retrieve relationship information.
    * @returns {Promise<Object>} Response data.
-   *  `a_user` {*[]} Array with information about current user and his relationship with sub accou...
+   *  `a_user` {Object} Array with information about current user and his relationship with sub accou...
    */
   WlClient.prototype.wlProfileAccountSelectSelectGet = function(params)
   {
@@ -10574,19 +10574,6 @@
   };
 
   /**
-   * Removes the card.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Key of the business the card is being removed for. The card must belong to this business, see
-   * @param {string} params.k_pay_bank Key of the card to remove.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlPayBankCardRemoveRemove = function(params)
-  {
-    return this.request('/Wl/Pay/Bank/Card/Remove/Remove.json', params || {}, 'DELETE');
-  };
-
-  /**
    * Deletes saved ACH.
    *
    * Removes the ACH bank account identified by `k_pay_bank` from the pay owner's saved payment methods
@@ -11128,7 +11115,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (200 total)
+  // Enum constants (201 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -16083,6 +16070,20 @@
     PURCHASE: 1,
     /** Review */
     REVIEW: 2,
+  });
+
+  /**
+   * Widget analytics checkout types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = Object.freeze({
+    /** Any checkout type */
+    ANY: 1,
+    /** Booking checkout type */
+    BOOKING: 3,
+    /** Store purchase checkout type */
+    STORE_PURCHASE: 2,
   });
 
   /**

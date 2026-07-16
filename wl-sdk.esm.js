@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260715233938
+// OpenAPI spec version: 1.1.20260716120927
 // Build date: 2026-07-16
-// Endpoints: 508
-// Enums: 187
+// Endpoints: 507
+// Enums: 188
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (187 total) ---
+// --- Enum types (188 total) ---
 /** A list of locales. */
 export var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -4436,6 +4436,16 @@ export var WlSocialShareShareObjectSid;
     /** Review */
     WlSocialShareShareObjectSid[WlSocialShareShareObjectSid["REVIEW"] = 2] = "REVIEW";
 })(WlSocialShareShareObjectSid || (WlSocialShareShareObjectSid = {}));
+/** Widget analytics checkout types. */
+export var WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid;
+(function (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid) {
+    /** Any checkout type */
+    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["ANY"] = 1] = "ANY";
+    /** Booking checkout type */
+    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["BOOKING"] = 3] = "BOOKING";
+    /** Store purchase checkout type */
+    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["STORE_PURCHASE"] = 2] = "STORE_PURCHASE";
+})(WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid || (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = {}));
 /** List of page transaction type. */
 export var RsPayAccountChargeSid;
 (function (RsPayAccountChargeSid) {
@@ -7324,21 +7334,11 @@ export class WlPayBankCardWidgetNamespace {
         return this._client._request('/Wl/Pay/Bank/Card/Widget/WidgetSelect.json', params, 'GET');
     }
 }
-export class WlPayBankCardRemoveNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Removes the card. */
-    remove(params) {
-        return this._client._request('/Wl/Pay/Bank/Card/Remove/Remove.json', params, 'DELETE');
-    }
-}
 export class WlPayBankCardNamespace {
     constructor(_client) {
         this._client = _client;
         this.add = new WlPayBankCardAddNamespace(this._client);
         this.widget = new WlPayBankCardWidgetNamespace(this._client);
-        this.remove = new WlPayBankCardRemoveNamespace(this._client);
     }
     /** Retrieves information about user's bank cards. */
     list(params) {
