@@ -22448,7 +22448,7 @@ export interface WlProfileAccountSelectSelectGetResponse {
     /** Array with information about current user and his relationship with sub accounts. */
     a_user: {
         /** ID of relationship between current user and sub account. */
-        id_family_relation: string;
+        id_family_relation: number;
         /** Name of sub account. */
         s_name: string;
         /** UID of sub account. */
@@ -22849,6 +22849,8 @@ export interface WlAppointmentBookServiceServiceList52Response {
         is_question: boolean;
         /** `true` if the service is virtual. Otherwise, this will be `false`. */
         is_virtual: boolean;
+        /** Off-site location if service requires such type of asset. */
+        k_resource_location: string;
         /** The appointment primary key. */
         k_service: string;
         /** The service category primary key. */
@@ -22999,6 +23001,8 @@ export interface WlAppointmentBookServiceServiceListResponse {
         is_question: boolean;
         /** `true` if the service is virtual. Otherwise, this will be `false`. */
         is_virtual: boolean;
+        /** Off-site location if service requires such type of asset. */
+        k_resource_location: string;
         /** The appointment primary key. */
         k_service: string;
         /** The service category primary key. */
