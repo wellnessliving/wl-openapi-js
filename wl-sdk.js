@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260717101825
+ * Spec version: 1.1.20260717104501
  * Build date:   2026-07-17
  * Endpoints:    507
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260717101825';
+  WlClient.SPEC_VERSION = '1.1.20260717104501';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (507 total)
@@ -4463,15 +4463,18 @@
    * Prepares the bulk billing review: the per-client totals and the list of clients that will be billed.
    *
    * Validates access to the business, calculates the per-client subtotal, tax and total for the selected purchase
-   *  items, and collects each client contact data and payment method label. The list of clients skipped due to
-   *  restrictions is returned separately and is empty for now.
+   *  items, and collects each client contact data and payment method label. Clients that a selected item is not
+   *  available to (by their client type or member group) are removed from billing and returned in
+   *  {@link WlClient#wlBillingBulkPurchaseItemListGet}. Clients that are not eligible for the selected introductory
+   *  items are flagged with `is_warning` and described in {@link WlClient#wlBillingBulkPurchaseItemListGet} (`a_warning`
+   *  key).
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_location The location key to filter available items by.
    * @returns {Promise<Object>} Response data.
-   *  `a_client_bill` {Object[]} The list of clients that will be billed. Each element has the following struc...
-   *  `a_client_ignore` {*[][]} The list of clients that will be skipped due to restrictions. Each element ha...
+   *  `a_client_bill` {Object} The result of preparing the clients to bill. Has the following structure:
+   *  `a_client_restrict` {Object} The clients removed from the bulk billing because a selected item is not avai...
    *  `m_batch` {string} The total amount charged across every client that will be billed (per-client ...
    *  `m_subtotal` {string} The subtotal per client (sum of the selected purchase item prices, excluding ...
    *  `m_tax` {string} The tax amount per client. Always `0` when {@link WlClient#wlBillingBulkPurch...

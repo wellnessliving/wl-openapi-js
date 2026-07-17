@@ -13781,10 +13781,8 @@ export interface WlBillingBulkPurchaseItemListGetParams {
 export interface WlBillingBulkPurchaseItemListGetResponse {
     /** The list of products available at the location. Each element has the following structure: */
     a_product: Array<{
-        /** The list of product options available at the location. Each element has the following structure: */
+        /** The options of the product available at the location. Each element has the following structure: */
         a_option: {
-            /** `true` if the product tracks inventory, `false` otherwise. */
-            is_inventory: boolean;
             /** The product option key. */
             k_shop_product_option: string;
             /** The regular price of the option. */
@@ -13824,21 +13822,54 @@ export interface WlBillingBulkPurchaseItemListPostParams {
     k_location: string;
 }
 export interface WlBillingBulkPurchaseItemListPostResponse {
-    /** The list of clients that will be billed. Each element has the following structure: */
-    a_client_bill: Array<{
-        /** The client email address. Empty string if the client has no email. */
-        text_mail: string;
-        /** The client full name. */
-        text_name: string;
-        /** The payment method label for this client. `Account` when billing to the client account; otherwise... */
-        text_pay_method: string;
-        /** The client cell phone number. Empty string if the client has no cell phone. */
-        text_phone: string;
-        /** The client user key. */
-        uid: string;
-    }>;
-    /** The list of clients that will be skipped due to restrictions. Each element has the same structure... */
-    a_client_ignore: Array<Array<unknown>>;
+    /** The result of preparing the clients to bill. Has the following structure: */
+    a_client_bill: {
+        /** The inventory and introductory-eligibility warnings produced while preparing the bill. Each */
+        a_warning: {
+            /** The user-facing warning message. */
+            text_message: string;
+        };
+        /** The list of clients that will be billed. Each element has the following structure: */
+        a_client: {
+            /** `true` if the client has no default payment method on file, has no email on file while a receipt is */
+            is_warning: boolean;
+            /** The client email address. Empty string if the client has no email. */
+            text_mail: string;
+            /** The client full name. */
+            text_name: string;
+            /** The payment method label for this client. `Account` when billing to the client account; otherwise... */
+            text_pay_method: string;
+            /** The client cell phone number. Empty string if the client has no cell phone. */
+            text_phone: string;
+            /** The client user key. */
+            uid: string;
+        };
+    };
+    /** The clients removed from the bulk billing because a selected item is not available to their clien... */
+    a_client_restrict: {
+        /** The clients that fail at least one restriction. Each element has the following structure: */
+        a_client: {
+            /** The client login type title. */
+            text_login_type: string;
+            /** The client email address. Empty string if the client has no email. */
+            text_mail: string;
+            /** Comma-separated titles of the member groups the client belongs to. */
+            text_member_group: string;
+            /** The client full name. */
+            text_name: string;
+            /** The client user key. */
+            uid: string;
+        };
+        /** One warning per restricted item that at least one client fails to satisfy. Each element has the */
+        a_warning: {
+            /** The user-facing warning message. */
+            text_message: string;
+        };
+        /** `true` if at least one client fails a member group restriction, `false` otherwise. */
+        has_client_group_restrict: boolean;
+        /** `true` if at least one client fails a login type restriction, `false` otherwise. */
+        has_client_type_restrict: boolean;
+    };
     /** The total amount charged across every client that will be billed (per-client total multiplied by ... */
     m_batch: string;
     /** The subtotal per client (sum of the selected purchase item prices, excluding taxes). */
