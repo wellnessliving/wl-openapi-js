@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260717121718
+// OpenAPI spec version: 1.1.20260717124617
 // Build date: 2026-07-17
-// Endpoints: 507
-// Enums: 195
+// Endpoints: 517
+// Enums: 196
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (195 total) ---
+// --- Enum types (196 total) ---
 /** A list of locales. */
 export var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -2432,6 +2432,28 @@ export var CoreGoogleCaptchaCaptchaResponseSid;
     /** Token is valid but score is risky */
     CoreGoogleCaptchaCaptchaResponseSid[CoreGoogleCaptchaCaptchaResponseSid["VALID_BLOCK"] = 4] = "VALID_BLOCK";
 })(CoreGoogleCaptchaCaptchaResponseSid || (CoreGoogleCaptchaCaptchaResponseSid = {}));
+/** A list of report categories. */
+export var RsReportCategorySid;
+(function (RsReportCategorySid) {
+    /** Category reports on attendance */
+    RsReportCategorySid[RsReportCategorySid["ATTENDANCE"] = 2] = "ATTENDANCE";
+    /** Category reports on clients */
+    RsReportCategorySid[RsReportCategorySid["CLIENT"] = 1] = "CLIENT";
+    /** Category on dashboards */
+    RsReportCategorySid[RsReportCategorySid["DASHBOARD"] = 9] = "DASHBOARD";
+    /** Corporate reports */
+    RsReportCategorySid[RsReportCategorySid["FRANCHISE"] = 6] = "FRANCHISE";
+    /** Insurance and reimbursements reports */
+    RsReportCategorySid[RsReportCategorySid["INSURANCE"] = 7] = "INSURANCE";
+    /** Category reports on mail */
+    RsReportCategorySid[RsReportCategorySid["MAIL"] = 5] = "MAIL";
+    /** Metrics category */
+    RsReportCategorySid[RsReportCategorySid["METRIC"] = 8] = "METRIC";
+    /** Category reports on sales */
+    RsReportCategorySid[RsReportCategorySid["SALE"] = 4] = "SALE";
+    /** Category reports on staff */
+    RsReportCategorySid[RsReportCategorySid["STAFF"] = 3] = "STAFF";
+})(RsReportCategorySid || (RsReportCategorySid = {}));
 /** Defines if client has "Late cancel" or "No shows" sessions. */
 export var WlBusinessPolicyBlameSid;
 (function (WlBusinessPolicyBlameSid) {
@@ -5647,10 +5669,74 @@ export class WlReportGeneratorNamespace {
         return this._client._request('/Wl/Report/Generator/Query.json', params, 'POST');
     }
 }
+export class WlReportDashboardNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Adds new report to a dashboard. */
+    reportDashboardPost(params) {
+        return this._client._request('/Wl/Report/Dashboard/ReportDashboard.json', params, 'POST');
+    }
+    /** Updates added report to a dashboard. */
+    reportDashboardPut(params) {
+        return this._client._request('/Wl/Report/Dashboard/ReportDashboard.json', params, 'PUT');
+    }
+}
+export class WlReportSaveNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns information about saved report. */
+    reportSaveGet(params) {
+        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'GET');
+    }
+    /** Saves new saved report. */
+    reportSavePost(params) {
+        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'POST');
+    }
+    /** Updates existing saved report. */
+    reportSavePut(params) {
+        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'PUT');
+    }
+}
+export class WlReportCustomizationNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Loads customization data of the customization form that corresponds to specified report / report page. */
+    customizationFormGet(params) {
+        return this._client._request('/Wl/Report/Customization/CustomizationForm.json', params, 'GET');
+    }
+    /** Saves given data of a customization form into database. */
+    customizationFormPost(params) {
+        return this._client._request('/Wl/Report/Customization/CustomizationForm.json', params, 'POST');
+    }
+}
+export class WlReportFavoriteNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes report controller from favorites. */
+    reportFavoriteDelete(params) {
+        return this._client._request('/Wl/Report/Favorite/ReportFavorite.json', params, 'DELETE');
+    }
+    /** Returns information whether passed report controller (saved report controller) is favorite for the specified user   within specified business. */
+    reportFavoriteGet(params) {
+        return this._client._request('/Wl/Report/Favorite/ReportFavorite.json', params, 'GET');
+    }
+    /** Adds report controller to favorites. */
+    reportFavoritePost(params) {
+        return this._client._request('/Wl/Report/Favorite/ReportFavorite.json', params, 'POST');
+    }
+}
 export class WlReportNamespace {
     constructor(_client) {
         this._client = _client;
         this.generator = new WlReportGeneratorNamespace(this._client);
+        this.dashboard = new WlReportDashboardNamespace(this._client);
+        this.save = new WlReportSaveNamespace(this._client);
+        this.customization = new WlReportCustomizationNamespace(this._client);
+        this.favorite = new WlReportFavoriteNamespace(this._client);
     }
     /** Gets data of required report. */
     data(params) {

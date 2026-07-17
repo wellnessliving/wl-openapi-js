@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260717121718
+ * Spec version: 1.1.20260717124617
  * Build date:   2026-07-17
- * Endpoints:    507
+ * Endpoints:    517
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260717121718';
+  WlClient.SPEC_VERSION = '1.1.20260717124617';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (507 total)
+  // Generated API methods (517 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2837,6 +2837,189 @@
   WlClient.prototype.wlMemberPurchaseMemberByPromotion = function(params)
   {
     return this.request('/Wl/Member/Purchase/MemberByPromotion.json', params || {}, 'GET');
+  };
+
+  /**
+   * Adds new report to a dashboard.
+   *
+   * Creates a saved report from the specified title, description, filters and view widget settings and
+   * attaches it as a widget to the dashboard identified by {@link WlClient#wlReportDashboardReportDashboardPost}.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key of the report.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportDashboardReportDashboardPost = function(params)
+  {
+    return this.request('/Wl/Report/Dashboard/ReportDashboard.json', params || {}, 'POST');
+  };
+
+  /**
+   * Updates added report to a dashboard.
+   *
+   * Rewrites the title, description, filters and view widget settings of the dashboard report identified by
+   * {@link WlClient#wlReportDashboardReportDashboardPost} within the current business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key of the report.
+   * @param {string} params.k_report_save Report save key.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportDashboardReportDashboardPut = function(params)
+  {
+    return this.request('/Wl/Report/Dashboard/ReportDashboard.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Returns information about saved report.
+   *
+   * Loads the title, description, category and stored filters of the saved report identified by
+   * {@link WlClient#wlReportSaveReportSaveGet} within the current business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key of the saved report.
+   * @param {string} params.k_report_save Report save key.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   *  `a_filter` {Object} Filter raw data of the saved report.
+   *  `id_report_category` {number} A list of report categories. See {@link WlClient.RsReportCategorySid}.
+   *  `text_description` {string} Description of the saved report.
+   *  `text_title` {string} Title of the saved report.
+   */
+  WlClient.prototype.wlReportSaveReportSaveGet = function(params)
+  {
+    return this.request('/Wl/Report/Save/ReportSave.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves new saved report.
+   *
+   * Creates a new saved report for the current business from the specified title, description, category,
+   * filters and view widget settings, and stores the related customization for the report controller.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key of the saved report.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportSaveReportSavePost = function(params)
+  {
+    return this.request('/Wl/Report/Save/ReportSave.json', params || {}, 'POST');
+  };
+
+  /**
+   * Updates existing saved report.
+   *
+   * Rewrites the title, description, category, filters and view widget settings of the saved report
+   * identified by {@link WlClient#wlReportSaveReportSaveGet} within the current business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key of the saved report.
+   * @param {string} params.k_report_save Report save key.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportSaveReportSavePut = function(params)
+  {
+    return this.request('/Wl/Report/Save/ReportSave.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Loads customization data of the customization form that corresponds to specified report / report page.
+   *
+   * Populates {@link WlClient#wlReportCustomizationCustomizationFormGet} with the customization data of the requested
+   * report or report page, optionally converted to the reports listed in {@link WlClient#wlReportCustomizationCustomizationFormGet}.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_page Report page CID.
+   * @param {number} params.cid_report Report CID.
+   * @param {string} params.k_business Business primary key.
+   * @param {?string} [params.k_report_save] Primary key of a saved report.
+   * @param {string} params.s_report Report CID list to that page customization form must be converted. String separated with `,`.
+   * @param {string} params.uid_actor Current user's primary key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_customization_form` {Object} Customization form data keyed by report or page CID. Each value has the follo...
+   */
+  WlClient.prototype.wlReportCustomizationCustomizationFormGet = function(params)
+  {
+    return this.request('/Wl/Report/Customization/CustomizationForm.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves given data of a customization form into database.
+   *
+   * Stores the customization data supplied in {@link WlClient#wlReportCustomizationCustomizationFormGet} for the
+   * requested report or report page and resets the related report configuration cache.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_page Report page CID.
+   * @param {number} params.cid_report Report CID.
+   * @param {string} params.k_business Business primary key.
+   * @param {?string} [params.k_report_save] Primary key of a saved report.
+   * @param {string} params.uid_actor Current user's primary key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportCustomizationCustomizationFormPost = function(params)
+  {
+    return this.request('/Wl/Report/Customization/CustomizationForm.json', params || {}, 'POST');
+  };
+
+  /**
+   * Removes report controller from favorites.
+   *
+   * Deletes the favorite record for the current user that matches either the specified saved report
+   * or the report controller within the current business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_controller CID of the controller.
+   * @param {string} params.k_business Business key within which request is performed.
+   * @param {string} params.k_report_save Saved report key to manage.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportFavoriteReportFavoriteDelete = function(params)
+  {
+    return this.request('/Wl/Report/Favorite/ReportFavorite.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Returns information whether passed report controller (saved report controller) is favorite for the specified user
+    within specified business.
+   *
+   * Populates {@link WlClient#wlReportFavoriteReportFavoriteGet} with the current favorite state for the specified saved
+   * report or report controller.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_controller CID of the controller.
+   * @param {string} params.k_business Business key within which request is performed.
+   * @param {string} params.k_report_save Saved report key to manage.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   *  `is_favorite` {boolean} Whether report is favorite.
+   */
+  WlClient.prototype.wlReportFavoriteReportFavoriteGet = function(params)
+  {
+    return this.request('/Wl/Report/Favorite/ReportFavorite.json', params || {}, 'GET');
+  };
+
+  /**
+   * Adds report controller to favorites.
+   *
+   * Creates a favorite record for the current user that references either the specified saved report
+   * or the report controller within the current business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_controller CID of the controller.
+   * @param {string} params.k_business Business key within which request is performed.
+   * @param {string} params.k_report_save Saved report key to manage.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportFavoriteReportFavoritePost = function(params)
+  {
+    return this.request('/Wl/Report/Favorite/ReportFavorite.json', params || {}, 'POST');
   };
 
   /**
@@ -10471,14 +10654,14 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.cid_page Report page CID.
-   * @param {number} params.cid_report Page CID.
-   * @param {string} params.k_business Business primary key in RsBusinessSql table.
+   * @param {number} params.cid_report Report CID.
+   * @param {string} params.k_business Business primary key.
    * @param {?string} [params.k_report_query] SQL query primary key. Primary key in ReportQuerySql.
-   * @param {?string} [params.k_report_save] Primary key of a saved report in RsReportSaveSql table.
+   * @param {?string} [params.k_report_save] Primary key of a saved report.
    * @param {string} params.s_report Report CID list to that page customization form must be converted. String separated with `,`.
-   * @param {string} params.uid_actor Current user's primary key in PassportLoginAr table.
+   * @param {string} params.uid_actor Current user's primary key.
    * @returns {Promise<Object>} Response data.
-   *  `a_customization_form` {*[]} Customization form data.
+   *  `a_customization_form` {Object} Customization form data keyed by report or page CID. Each value has the follo...
    */
   WlClient.prototype.thothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGet = function(params)
   {
@@ -10489,11 +10672,11 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.cid_page Report page CID.
-   * @param {number} params.cid_report Page CID.
-   * @param {string} params.k_business Business primary key in RsBusinessSql table.
+   * @param {number} params.cid_report Report CID.
+   * @param {string} params.k_business Business primary key.
    * @param {?string} [params.k_report_query] SQL query primary key. Primary key in ReportQuerySql.
-   * @param {?string} [params.k_report_save] Primary key of a saved report in RsReportSaveSql table.
-   * @param {string} params.uid_actor Current user's primary key in PassportLoginAr table.
+   * @param {?string} [params.k_report_save] Primary key of a saved report.
+   * @param {string} params.uid_actor Current user's primary key.
    * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.thothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPost = function(params)
@@ -11118,7 +11301,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (210 total)
+  // Enum constants (211 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -13841,6 +14024,32 @@
     VALID: 3,
     /** Token is valid but score is risky */
     VALID_BLOCK: 4,
+  });
+
+  /**
+   * A list of report categories.
+   *
+   * @enum {number}
+   */
+  WlClient.RsReportCategorySid = Object.freeze({
+    /** Category reports on attendance */
+    ATTENDANCE: 2,
+    /** Category reports on clients */
+    CLIENT: 1,
+    /** Category on dashboards */
+    DASHBOARD: 9,
+    /** Corporate reports */
+    FRANCHISE: 6,
+    /** Insurance and reimbursements reports */
+    INSURANCE: 7,
+    /** Category reports on mail */
+    MAIL: 5,
+    /** Metrics category */
+    METRIC: 8,
+    /** Category reports on sales */
+    SALE: 4,
+    /** Category reports on staff */
+    STAFF: 3,
   });
 
   /**

@@ -2361,6 +2361,27 @@ export declare enum CoreGoogleCaptchaCaptchaResponseSid {
     /** Token is valid but score is risky */
     VALID_BLOCK = 4
 }
+/** A list of report categories. */
+export declare enum RsReportCategorySid {
+    /** Category reports on attendance */
+    ATTENDANCE = 2,
+    /** Category reports on clients */
+    CLIENT = 1,
+    /** Category on dashboards */
+    DASHBOARD = 9,
+    /** Corporate reports */
+    FRANCHISE = 6,
+    /** Insurance and reimbursements reports */
+    INSURANCE = 7,
+    /** Category reports on mail */
+    MAIL = 5,
+    /** Metrics category */
+    METRIC = 8,
+    /** Category reports on sales */
+    SALE = 4,
+    /** Category reports on staff */
+    STAFF = 3
+}
 /** Defines if client has "Late cancel" or "No shows" sessions. */
 export declare enum WlBusinessPolicyBlameSid {
     /** If client has "Late cancel" and "No shows" sessions */
@@ -9392,6 +9413,142 @@ export interface WlMemberPurchaseMemberByPromotionResponse {
         uid: string;
     }>;
 }
+export interface WlReportDashboardReportDashboardPostParams {
+    /** Business key of the report. */
+    k_business: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export type WlReportDashboardReportDashboardPostResponse = Record<string, unknown>;
+export interface WlReportDashboardReportDashboardPutParams {
+    /** Business key of the report. */
+    k_business: string;
+    /** Report save key. */
+    k_report_save: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export type WlReportDashboardReportDashboardPutResponse = Record<string, unknown>;
+export interface WlReportSaveReportSaveGetParams {
+    /** Business key of the saved report. */
+    k_business: string;
+    /** Report save key. */
+    k_report_save: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export interface WlReportSaveReportSaveGetResponse {
+    /** Filter raw data of the saved report. */
+    a_filter: Record<string, unknown>;
+    /** A list of report categories. @see RsReportCategorySid */
+    id_report_category: RsReportCategorySid;
+    /** Description of the saved report. */
+    text_description: string;
+    /** Title of the saved report. */
+    text_title: string;
+}
+export interface WlReportSaveReportSavePostParams {
+    /** Business key of the saved report. */
+    k_business: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export type WlReportSaveReportSavePostResponse = Record<string, unknown>;
+export interface WlReportSaveReportSavePutParams {
+    /** Business key of the saved report. */
+    k_business: string;
+    /** Report save key. */
+    k_report_save: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export type WlReportSaveReportSavePutResponse = Record<string, unknown>;
+export interface WlReportCustomizationCustomizationFormGetParams {
+    /** Report page CID. */
+    cid_page: number;
+    /** Report CID. */
+    cid_report: number;
+    /** Business primary key. */
+    k_business: string;
+    /** Report CID list to that page customization form must be converted. String separated with `,`. */
+    s_report: string;
+    /** Current user's primary key. */
+    uid_actor: string;
+    /** Primary key of a saved report. */
+    k_report_save?: string | null;
+}
+export interface WlReportCustomizationCustomizationFormGetResponse {
+    /** Customization form data keyed by report or page CID. Each value has the following structure: */
+    a_customization_form: {
+        /** Form elements keyed by element name. Each element has the following structure: */
+        a_element: {
+            /** Element fields keyed by field alias. Each field has the following structure: */
+            a_field: {
+                /** Localized field title. */
+                text_title: string;
+                /** Current field value. */
+                x_value: string;
+            };
+            /** Report CID list the element applies to. */
+            a_report: Array<number>;
+            /** Localized element title. */
+            html_title: string;
+            /** Localized element tooltip. */
+            html_title_tooltip: string;
+        };
+        /** Form class identifier. */
+        s_form: string;
+    };
+}
+export interface WlReportCustomizationCustomizationFormPostParams {
+    /** Report page CID. */
+    cid_page: number;
+    /** Report CID. */
+    cid_report: number;
+    /** Business primary key. */
+    k_business: string;
+    /** Current user's primary key. */
+    uid_actor: string;
+    /** Primary key of a saved report. */
+    k_report_save?: string | null;
+}
+export type WlReportCustomizationCustomizationFormPostResponse = Record<string, unknown>;
+export interface WlReportFavoriteReportFavoriteDeleteParams {
+    /** CID of the controller. */
+    cid_controller: number;
+    /** Business key within which request is performed. */
+    k_business: string;
+    /** Saved report key to manage. */
+    k_report_save: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export type WlReportFavoriteReportFavoriteDeleteResponse = Record<string, unknown>;
+export interface WlReportFavoriteReportFavoriteGetParams {
+    /** CID of the controller. */
+    cid_controller: number;
+    /** Business key within which request is performed. */
+    k_business: string;
+    /** Saved report key to manage. */
+    k_report_save: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export interface WlReportFavoriteReportFavoriteGetResponse {
+    /** Whether report is favorite. */
+    is_favorite: boolean;
+}
+export interface WlReportFavoriteReportFavoritePostParams {
+    /** CID of the controller. */
+    cid_controller: number;
+    /** Business key within which request is performed. */
+    k_business: string;
+    /** Saved report key to manage. */
+    k_report_save: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export type WlReportFavoriteReportFavoritePostResponse = Record<string, unknown>;
 export interface WlBusinessAccountBusinessAccountParams {
     /** `true` returns WellnessLiving customers. */
     is_prospects: boolean;
@@ -25610,35 +25767,54 @@ export interface WlDiscountCodeEditDiscountCodeEditPutResponse {
 export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetParams {
     /** Report page CID. */
     cid_page: number;
-    /** Page CID. */
+    /** Report CID. */
     cid_report: number;
-    /** Business primary key in RsBusinessSql table. */
+    /** Business primary key. */
     k_business: string;
     /** Report CID list to that page customization form must be converted. String separated with `,`. */
     s_report: string;
-    /** Current user's primary key in PassportLoginAr table. */
+    /** Current user's primary key. */
     uid_actor: string;
     /** SQL query primary key. Primary key in ReportQuerySql. */
     k_report_query?: string | null;
-    /** Primary key of a saved report in RsReportSaveSql table. */
+    /** Primary key of a saved report. */
     k_report_save?: string | null;
 }
 export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetResponse {
-    /** Customization form data. */
-    a_customization_form: Array<unknown>;
+    /** Customization form data keyed by report or page CID. Each value has the following structure: */
+    a_customization_form: {
+        /** Form elements keyed by element name. Each element has the following structure: */
+        a_element: {
+            /** Element fields keyed by field alias. Each field has the following structure: */
+            a_field: {
+                /** Localized field title. */
+                text_title: string;
+                /** Current field value. */
+                x_value: string;
+            };
+            /** Report CID list the element applies to. */
+            a_report: Array<number>;
+            /** Localized element title. */
+            html_title: string;
+            /** Localized element tooltip. */
+            html_title_tooltip: string;
+        };
+        /** Form class identifier. */
+        s_form: string;
+    };
 }
 export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostParams {
     /** Report page CID. */
     cid_page: number;
-    /** Page CID. */
+    /** Report CID. */
     cid_report: number;
-    /** Business primary key in RsBusinessSql table. */
+    /** Business primary key. */
     k_business: string;
-    /** Current user's primary key in PassportLoginAr table. */
+    /** Current user's primary key. */
     uid_actor: string;
     /** SQL query primary key. Primary key in ReportQuerySql. */
     k_report_query?: string | null;
-    /** Primary key of a saved report in RsReportSaveSql table. */
+    /** Primary key of a saved report. */
     k_report_save?: string | null;
 }
 export type ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostResponse = Record<string, unknown>;
@@ -26732,9 +26908,49 @@ export declare class WlReportGeneratorNamespace {
     /** Returns contents of a report as a table. */
     query(params?: WlReportGeneratorQueryParams): Promise<WlReportGeneratorQueryResponse>;
 }
+export declare class WlReportDashboardNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Adds new report to a dashboard. */
+    reportDashboardPost(params?: WlReportDashboardReportDashboardPostParams): Promise<WlReportDashboardReportDashboardPostResponse>;
+    /** Updates added report to a dashboard. */
+    reportDashboardPut(params?: WlReportDashboardReportDashboardPutParams): Promise<WlReportDashboardReportDashboardPutResponse>;
+}
+export declare class WlReportSaveNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns information about saved report. */
+    reportSaveGet(params?: WlReportSaveReportSaveGetParams): Promise<WlReportSaveReportSaveGetResponse>;
+    /** Saves new saved report. */
+    reportSavePost(params?: WlReportSaveReportSavePostParams): Promise<WlReportSaveReportSavePostResponse>;
+    /** Updates existing saved report. */
+    reportSavePut(params?: WlReportSaveReportSavePutParams): Promise<WlReportSaveReportSavePutResponse>;
+}
+export declare class WlReportCustomizationNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Loads customization data of the customization form that corresponds to specified report / report page. */
+    customizationFormGet(params?: WlReportCustomizationCustomizationFormGetParams): Promise<WlReportCustomizationCustomizationFormGetResponse>;
+    /** Saves given data of a customization form into database. */
+    customizationFormPost(params?: WlReportCustomizationCustomizationFormPostParams): Promise<WlReportCustomizationCustomizationFormPostResponse>;
+}
+export declare class WlReportFavoriteNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Removes report controller from favorites. */
+    reportFavoriteDelete(params?: WlReportFavoriteReportFavoriteDeleteParams): Promise<WlReportFavoriteReportFavoriteDeleteResponse>;
+    /** Returns information whether passed report controller (saved report controller) is favorite for the specified user   within specified business. */
+    reportFavoriteGet(params?: WlReportFavoriteReportFavoriteGetParams): Promise<WlReportFavoriteReportFavoriteGetResponse>;
+    /** Adds report controller to favorites. */
+    reportFavoritePost(params?: WlReportFavoriteReportFavoritePostParams): Promise<WlReportFavoriteReportFavoritePostResponse>;
+}
 export declare class WlReportNamespace {
     private readonly _client;
     readonly generator: WlReportGeneratorNamespace;
+    readonly dashboard: WlReportDashboardNamespace;
+    readonly save: WlReportSaveNamespace;
+    readonly customization: WlReportCustomizationNamespace;
+    readonly favorite: WlReportFavoriteNamespace;
     constructor(_client: WlClient);
     /** Gets data of required report. */
     data(params?: WlReportDataParams): Promise<WlReportDataResponse>;
