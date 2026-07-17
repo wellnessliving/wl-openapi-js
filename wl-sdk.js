@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260717071437
+ * Spec version: 1.1.20260717084756
  * Build date:   2026-07-17
  * Endpoints:    507
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260717071437';
+  WlClient.SPEC_VERSION = '1.1.20260717084756';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (507 total)
@@ -15052,6 +15052,8 @@
     ENROLLMENT_FOREIGN: 53,
     /** Lock search bar on enrollment attendance list */
     ENROLLMENT_LOCK_SEARCH: 153,
+    /** Allows a staff member to see other staff members' event sessions on the schedule in read-only mode */
+    ENROLLMENT_SCHEDULE_VIEW: 247,
     /** Manage Enterprise Cloud Fees */
     ENTERPRISE_CLOUD_FEES: 207,
     /** Allows to manage leaderboard in the `FitBuilder` addon */

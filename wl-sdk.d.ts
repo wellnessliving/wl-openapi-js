@@ -3419,6 +3419,8 @@ export declare enum WlPrivilegePrivilegeSid {
     ENROLLMENT_FOREIGN = 53,
     /** Lock search bar on enrollment attendance list */
     ENROLLMENT_LOCK_SEARCH = 153,
+    /** Allows a staff member to see other staff members' event sessions on the schedule in read-only mode */
+    ENROLLMENT_SCHEDULE_VIEW = 247,
     /** Manage Enterprise Cloud Fees */
     ENTERPRISE_CLOUD_FEES = 207,
     /** Allows to manage leaderboard in the `FitBuilder` addon */
@@ -20031,7 +20033,7 @@ export interface WlScheduleScheduleListStaffAppScheduleListResponse {
         id_service: RsServiceSid;
         /** For appointments: `true` if user has checked-in; `false` otherwise. */
         is_arrive: boolean;
-        /** `true` if this class session is visible only through the "View other staff schedules" */
+        /** `true` if this class or event session is visible only through the "View other staff schedules" */
         is_class_view: boolean;
         /** For appointments: `true` if appointment is paid; `false` otherwise. */
         is_pay: boolean;

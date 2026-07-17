@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260717071437
+// OpenAPI spec version: 1.1.20260717084756
 // Build date: 2026-07-17
 // Endpoints: 507
 // Enums: 188
@@ -3535,6 +3535,8 @@ var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["ENROLLMENT_FOREIGN"] = 53] = "ENROLLMENT_FOREIGN";
     /** Lock search bar on enrollment attendance list */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["ENROLLMENT_LOCK_SEARCH"] = 153] = "ENROLLMENT_LOCK_SEARCH";
+    /** Allows a staff member to see other staff members' event sessions on the schedule in read-only mode */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["ENROLLMENT_SCHEDULE_VIEW"] = 247] = "ENROLLMENT_SCHEDULE_VIEW";
     /** Manage Enterprise Cloud Fees */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["ENTERPRISE_CLOUD_FEES"] = 207] = "ENTERPRISE_CLOUD_FEES";
     /** Allows to manage leaderboard in the `FitBuilder` addon */
