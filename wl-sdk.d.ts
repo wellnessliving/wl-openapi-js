@@ -2227,6 +2227,99 @@ export declare enum ThothWlPayBankCardCardTypeEnum {
     /** Debit Card */
     DEBIT = 2
 }
+/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
+export declare enum ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid {
+    /** Card terminals that work via OMNI Channel API */
+    OMNICHANNEL = 2,
+    /** Magtek USB */
+    MAGTEK_USB = 1
+}
+/** List of possible status of readers. */
+export declare enum ThothPayProcessorTerminalTerminalStatusSid {
+    /** Status active */
+    ACTIVE = 1,
+    /** Status inactive */
+    INACTIVE = 2,
+    /** Status setup, reader is active but not added to stripe yet */
+    SETUP = 3
+}
+/** Stripe device type of reader. */
+export declare enum ThothPayProcessorStripeComTerminalStripeReaderModelSid {
+    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
+    BBPOS_WISEPAD3 = 1,
+    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
+    BBPOS_WISEPOS_E = 4,
+    /** SIMULATED Wise POS E */
+    SIMULATED_WISEPOS_E = 6,
+    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
+    STRIPE_M2 = 2
+}
+/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
+export declare enum ThothPayProcessorStripeComTerminalStripeTerminalTypeSid {
+    /** Terminals that work via Stripe javascript SDK */
+    JS_SDK = 2,
+    /** Magtek USB */
+    MAGTEK_USB = 1
+}
+/** Paragon device type of reader. */
+export declare enum ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid {
+    /** Verifone e285 reader */
+    E285 = 1,
+    /** Verifone P200 reader */
+    P200 = 2,
+    /** Verifone P400 plus reader */
+    P400_PLUS = 3,
+    /** Verifone V200c reader */
+    V200_C = 4,
+    /** Verifone V200c plus reader */
+    V200_C_PLUS = 5,
+    /** Verifone V400c plus reader */
+    V400_C_PLUS = 7,
+    /** Verifone V400m reader */
+    V400_M = 6
+}
+/** List of supported terminal interaction types. */
+export declare enum ThothPayProcessorTerminalTerminalTypeSid {
+    /** Magtek USB */
+    MAGTEK_USB = 1
+}
+/** A list of devices supported by credit card reader plugin. */
+export declare enum ThothWlPayCordovaCordovaCcrDeviceSid {
+    /** Payment processor: Direct Connect */
+    DC_IDT_AUGUSTA = 4,
+    /** Payment processor: Direct Connect */
+    DC_IDT_BT_MAG = 5,
+    /** Payment processor: Direct Connect */
+    DC_IDT_UNI_MAG = 6,
+    /** Payment processor: Direct Connect */
+    DC_IDT_UNI_PAY = 7,
+    /** Payment processor: Direct Connect */
+    DC_MAGTEK_AUDIO = 11,
+    /** Payment processor: Paragon (ex. Direct Connect) */
+    DC_MAGTEK_BLUETOOTH = 13,
+    /** Payment processor: Direct Connect */
+    DC_MAGTEK_LIGHTNING = 12,
+    /** Payment processor: Direct Connect */
+    DC_MIURA = 8,
+    /** Payment processor: Direct Connect */
+    DC_PAX = 9,
+    /** Payment processor: NMI */
+    NMI_ENTERPRISE = 3,
+    /** Payment processor: NMI */
+    NMI_IPS = 2,
+    /** Payment processor: NMI */
+    NMI_UNIMAG = 1,
+    /** Payment processor: Stripe */
+    STRIPE_BBPOS_SIMULATED_WISEPOS_E = 17,
+    /** Payment processor: Stripe */
+    STRIPE_BBPOS_WISEPAD_3_BLUETOOTH = 14,
+    /** Payment processor: Stripe */
+    STRIPE_BBPOS_WISEPOS_E_INTERNET = 15,
+    /** Payment processor: Stripe */
+    STRIPE_READER_M2_BLUETOOTH = 16,
+    /** Virtual device for testing purposes */
+    VIRTUAL = 10
+}
 /** A list of payment gateways or processors. */
 export declare enum ThothPayProcessorPayProcessorSid {
     /** Payment gateway for `cybersource.com` */
@@ -8311,13 +8404,76 @@ export interface WlPayFormEnvironmentResponse {
         s_method?: string;
     }>;
     /** The configuration array that's sent to mobile card reader plugin. */
-    a_mobile_config: Array<unknown> | null;
+    a_mobile_config: {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location?: {
+            /** Terminal lists grouped by connection type. */
+            a_terminal: Record<string, unknown>;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether card swipe can be cancelled from the POS terminal. */
+        can_cancel_swipe_from_pos: boolean;
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location: {
+            /** Terminal lists grouped by connection type: */
+            a_terminal: Record<string, unknown>;
+            /** Stripe location ID assigned by the gateway. */
+            s_location_id: string;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location: {
+            /** Terminal lists grouped by connection type: */
+            a_terminal: Record<string, unknown>;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether card swipe can be cancelled from the POS terminal. */
+        can_cancel_swipe_from_pos: boolean;
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
+        id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | {
+        /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
+        id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
+        /** NMI SDK key for the card reader plugin. */
+        s_key: string;
+    } | null;
     /** Represents information about payment processors. */
     a_pay_processor: Array<{
         /** Public keys configured for this payment processor. */
-        a_public_keys: Array<unknown> | null;
+        a_public_keys: {
+            /** Checkout SDK public key. `null` if 3DS is disabled for this merchant. */
+            s_checkout: string | null;
+        } | null;
         /** Public info configured for this payment processor. */
-        a_public_info: Array<unknown> | null;
+        a_public_info: {
+            /** Merchant site identifier assigned by Nuvei. */
+            s_merchant_site: string;
+            /** Nuvei merchant identifier. */
+            s_nuvei_id: string;
+        } | null;
         /** Whether `save payment method` option should be hidden. `true` if hidden, `false` - otherwise. */
         hide_save_source: boolean;
         /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
@@ -8375,13 +8531,76 @@ export interface WlPayFormEnvironmentUserResponse {
         s_method?: string;
     }>;
     /** The configuration array that's sent to mobile card reader plugin. */
-    a_mobile_config: Array<unknown> | null;
+    a_mobile_config: {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location?: {
+            /** Terminal lists grouped by connection type. */
+            a_terminal: Record<string, unknown>;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether card swipe can be cancelled from the POS terminal. */
+        can_cancel_swipe_from_pos: boolean;
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location: {
+            /** Terminal lists grouped by connection type: */
+            a_terminal: Record<string, unknown>;
+            /** Stripe location ID assigned by the gateway. */
+            s_location_id: string;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location: {
+            /** Terminal lists grouped by connection type: */
+            a_terminal: Record<string, unknown>;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether card swipe can be cancelled from the POS terminal. */
+        can_cancel_swipe_from_pos: boolean;
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
+        id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | {
+        /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
+        id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
+        /** NMI SDK key for the card reader plugin. */
+        s_key: string;
+    } | null;
     /** Represents information about payment processors. */
     a_pay_processor: Array<{
         /** Public keys configured for this payment processor. */
-        a_public_keys: Array<unknown> | null;
+        a_public_keys: {
+            /** Checkout SDK public key. `null` if 3DS is disabled for this merchant. */
+            s_checkout: string | null;
+        } | null;
         /** Public info configured for this payment processor. */
-        a_public_info: Array<unknown> | null;
+        a_public_info: {
+            /** Merchant site identifier assigned by Nuvei. */
+            s_merchant_site: string;
+            /** Nuvei merchant identifier. */
+            s_nuvei_id: string;
+        } | null;
         /** Whether `save payment method` option should be hidden. `true` if hidden, `false` - otherwise. */
         hide_save_source: boolean;
         /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */

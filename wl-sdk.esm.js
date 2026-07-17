@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260717104501
+// OpenAPI spec version: 1.1.20260717121718
 // Build date: 2026-07-17
 // Endpoints: 507
-// Enums: 188
+// Enums: 195
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (188 total) ---
+// --- Enum types (195 total) ---
 /** A list of locales. */
 export var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -2288,6 +2288,106 @@ export var ThothWlPayBankCardCardTypeEnum;
     /** Debit Card */
     ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
 })(ThothWlPayBankCardCardTypeEnum || (ThothWlPayBankCardCardTypeEnum = {}));
+/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
+export var ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid;
+(function (ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid) {
+    /** Card terminals that work via OMNI Channel API */
+    ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid[ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid["OMNICHANNEL"] = 2] = "OMNICHANNEL";
+    /** Magtek USB */
+    ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid[ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
+})(ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid || (ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = {}));
+/** List of possible status of readers. */
+export var ThothPayProcessorTerminalTerminalStatusSid;
+(function (ThothPayProcessorTerminalTerminalStatusSid) {
+    /** Status active */
+    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["ACTIVE"] = 1] = "ACTIVE";
+    /** Status inactive */
+    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["INACTIVE"] = 2] = "INACTIVE";
+    /** Status setup, reader is active but not added to stripe yet */
+    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["SETUP"] = 3] = "SETUP";
+})(ThothPayProcessorTerminalTerminalStatusSid || (ThothPayProcessorTerminalTerminalStatusSid = {}));
+/** Stripe device type of reader. */
+export var ThothPayProcessorStripeComTerminalStripeReaderModelSid;
+(function (ThothPayProcessorStripeComTerminalStripeReaderModelSid) {
+    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPAD3"] = 1] = "BBPOS_WISEPAD3";
+    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPOS_E"] = 4] = "BBPOS_WISEPOS_E";
+    /** SIMULATED Wise POS E */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["SIMULATED_WISEPOS_E"] = 6] = "SIMULATED_WISEPOS_E";
+    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["STRIPE_M2"] = 2] = "STRIPE_M2";
+})(ThothPayProcessorStripeComTerminalStripeReaderModelSid || (ThothPayProcessorStripeComTerminalStripeReaderModelSid = {}));
+/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
+export var ThothPayProcessorStripeComTerminalStripeTerminalTypeSid;
+(function (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid) {
+    /** Terminals that work via Stripe javascript SDK */
+    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["JS_SDK"] = 2] = "JS_SDK";
+    /** Magtek USB */
+    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
+})(ThothPayProcessorStripeComTerminalStripeTerminalTypeSid || (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = {}));
+/** Paragon device type of reader. */
+export var ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid;
+(function (ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid) {
+    /** Verifone e285 reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["E285"] = 1] = "E285";
+    /** Verifone P200 reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["P200"] = 2] = "P200";
+    /** Verifone P400 plus reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["P400_PLUS"] = 3] = "P400_PLUS";
+    /** Verifone V200c reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V200_C"] = 4] = "V200_C";
+    /** Verifone V200c plus reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V200_C_PLUS"] = 5] = "V200_C_PLUS";
+    /** Verifone V400c plus reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V400_C_PLUS"] = 7] = "V400_C_PLUS";
+    /** Verifone V400m reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V400_M"] = 6] = "V400_M";
+})(ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid || (ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = {}));
+/** List of supported terminal interaction types. */
+export var ThothPayProcessorTerminalTerminalTypeSid;
+(function (ThothPayProcessorTerminalTerminalTypeSid) {
+    /** Magtek USB */
+    ThothPayProcessorTerminalTerminalTypeSid[ThothPayProcessorTerminalTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
+})(ThothPayProcessorTerminalTerminalTypeSid || (ThothPayProcessorTerminalTerminalTypeSid = {}));
+/** A list of devices supported by credit card reader plugin. */
+export var ThothWlPayCordovaCordovaCcrDeviceSid;
+(function (ThothWlPayCordovaCordovaCcrDeviceSid) {
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_IDT_AUGUSTA"] = 4] = "DC_IDT_AUGUSTA";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_IDT_BT_MAG"] = 5] = "DC_IDT_BT_MAG";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_IDT_UNI_MAG"] = 6] = "DC_IDT_UNI_MAG";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_IDT_UNI_PAY"] = 7] = "DC_IDT_UNI_PAY";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_MAGTEK_AUDIO"] = 11] = "DC_MAGTEK_AUDIO";
+    /** Payment processor: Paragon (ex. Direct Connect) */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_MAGTEK_BLUETOOTH"] = 13] = "DC_MAGTEK_BLUETOOTH";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_MAGTEK_LIGHTNING"] = 12] = "DC_MAGTEK_LIGHTNING";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_MIURA"] = 8] = "DC_MIURA";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_PAX"] = 9] = "DC_PAX";
+    /** Payment processor: NMI */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["NMI_ENTERPRISE"] = 3] = "NMI_ENTERPRISE";
+    /** Payment processor: NMI */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["NMI_IPS"] = 2] = "NMI_IPS";
+    /** Payment processor: NMI */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["NMI_UNIMAG"] = 1] = "NMI_UNIMAG";
+    /** Payment processor: Stripe */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["STRIPE_BBPOS_SIMULATED_WISEPOS_E"] = 17] = "STRIPE_BBPOS_SIMULATED_WISEPOS_E";
+    /** Payment processor: Stripe */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["STRIPE_BBPOS_WISEPAD_3_BLUETOOTH"] = 14] = "STRIPE_BBPOS_WISEPAD_3_BLUETOOTH";
+    /** Payment processor: Stripe */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["STRIPE_BBPOS_WISEPOS_E_INTERNET"] = 15] = "STRIPE_BBPOS_WISEPOS_E_INTERNET";
+    /** Payment processor: Stripe */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["STRIPE_READER_M2_BLUETOOTH"] = 16] = "STRIPE_READER_M2_BLUETOOTH";
+    /** Virtual device for testing purposes */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["VIRTUAL"] = 10] = "VIRTUAL";
+})(ThothWlPayCordovaCordovaCcrDeviceSid || (ThothWlPayCordovaCordovaCcrDeviceSid = {}));
 /** A list of payment gateways or processors. */
 export var ThothPayProcessorPayProcessorSid;
 (function (ThothPayProcessorPayProcessorSid) {
