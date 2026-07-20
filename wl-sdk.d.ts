@@ -16638,8 +16638,6 @@ export interface WlServiceServiceListListResponse {
     a_service: Array<{
         /** Whether service will be hidden in the White Label mobile application. */
         hide_application: boolean;
-        /** Whether appointment type is active. */
-        is_active: boolean;
         /** Appointment type identifier, primary key. */
         k_service: string;
         /** Appointment type category identifier, primary key. */
