@@ -18325,6 +18325,8 @@ export interface WlDiscountCodeDiscountCodeResponse {
         is_remove: boolean;
         /** Discount code key. */
         k_discount_code: string;
+        /** Actual discount code string. */
+        s_code: string;
         /** Discount code title. */
         text_discount_code: string;
     }>;
