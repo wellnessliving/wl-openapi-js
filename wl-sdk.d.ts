@@ -17450,6 +17450,8 @@ export interface WlPromotionIndexPromotionIndexParams {
     id_program_type: RsProgramTypeSid;
     /** The location key. */
     k_location: string;
+    /** The business key. */
+    k_business?: string | null;
 }
 export interface WlPromotionIndexPromotionIndexResponse {
     /** A list of introductory promotion offers available at the location. */

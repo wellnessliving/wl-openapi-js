@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260720183718
- * Build date:   2026-07-20
+ * Spec version: 1.1.20260721060518
+ * Build date:   2026-07-21
  * Endpoints:    517
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260720183718';
+  WlClient.SPEC_VERSION = '1.1.20260721060518';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (517 total)
@@ -6326,6 +6326,7 @@
    * @param {number} params.i_image_height Image height in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {number} params.i_image_width Image width in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {number} params.id_program_type The program type ID, which will be one of the {@link WlClient.RsProgramTypeSid} constants.
+   * @param {?string} [params.k_business] The business key.
    * @param {string} params.k_location The location key.
    * @returns {Promise<Object>} Response data.
    *  `a_promotion` {Object[]} A list of introductory promotion offers available at the location.
