@@ -1610,6 +1610,8 @@ export declare enum WlModeModeSid {
     MICROSOFT = 24,
     /** Client booked session on My Presence Site */
     MY_PRESENCE_SITE = 13,
+    /** Visit has been created by `Passport Door Access` */
+    PASSPORT_DOOR_ACCESS = 32,
     /** Action made via SMS */
     SMS = 17,
     /** Staff booked session from spa backend */

@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260721140744
+ * Spec version: 1.1.20260721142623
  * Build date:   2026-07-21
  * Endpoints:    517
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260721140744';
+  WlClient.SPEC_VERSION = '1.1.20260721142623';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (517 total)
@@ -13065,6 +13065,8 @@
     MICROSOFT: 24,
     /** Client booked session on My Presence Site */
     MY_PRESENCE_SITE: 13,
+    /** Visit has been created by `Passport Door Access` */
+    PASSPORT_DOOR_ACCESS: 32,
     /** Action made via SMS */
     SMS: 17,
     /** Staff booked session from spa backend */

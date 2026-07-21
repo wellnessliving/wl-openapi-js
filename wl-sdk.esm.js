@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260721140744
+// OpenAPI spec version: 1.1.20260721142623
 // Build date: 2026-07-21
 // Endpoints: 517
 // Enums: 196
@@ -1639,6 +1639,8 @@ export var WlModeModeSid;
     WlModeModeSid[WlModeModeSid["MICROSOFT"] = 24] = "MICROSOFT";
     /** Client booked session on My Presence Site */
     WlModeModeSid[WlModeModeSid["MY_PRESENCE_SITE"] = 13] = "MY_PRESENCE_SITE";
+    /** Visit has been created by `Passport Door Access` */
+    WlModeModeSid[WlModeModeSid["PASSPORT_DOOR_ACCESS"] = 32] = "PASSPORT_DOOR_ACCESS";
     /** Action made via SMS */
     WlModeModeSid[WlModeModeSid["SMS"] = 17] = "SMS";
     /** Staff booked session from spa backend */
