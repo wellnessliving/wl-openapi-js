@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260720104508
+// OpenAPI spec version: 1.1.20260721082553
 // Build date: 2026-07-21
 // Endpoints: 501
 // Enums: 187
@@ -4635,16 +4635,18 @@ var RsClassModifyModeSid;
 /** List of possible plans for AiAgentSubscription subscription. */
 var WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid;
 (function (WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid) {
-    /** Chat Agent */
-    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["CHAT_AGENT"] = 4] = "CHAT_AGENT";
     /** Dental Phone Agent */
     WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["DENTAL_PHONE_AGENT"] = 5] = "DENTAL_PHONE_AGENT";
     /** None */
     WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["FREE"] = 1] = "FREE";
     /** Professional */
     WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+    /** Professional subscription, which will be automatically converted to {@link WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid} after the 5th lead */
+    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["PROFESSIONAL_TRIAL"] = 6] = "PROFESSIONAL_TRIAL";
     /** Assistant */
     WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["STANDARD"] = 3] = "STANDARD";
+    /** Standard subscription, which will be automatically converted to {@link WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid} after the 5th lead */
+    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["STANDARD_TRIAL"] = 7] = "STANDARD_TRIAL";
 })(WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid || (exports.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = {}));
 /** List of possible plans for SmsSubscription subscription. */
 var WlBusinessAccountSubscriptionSmsSmsSubscriptionSid;

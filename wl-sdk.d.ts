@@ -4476,16 +4476,18 @@ export declare enum RsClassModifyModeSid {
 }
 /** List of possible plans for AiAgentSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid {
-    /** Chat Agent */
-    CHAT_AGENT = 4,
     /** Dental Phone Agent */
     DENTAL_PHONE_AGENT = 5,
     /** None */
     FREE = 1,
     /** Professional */
     PROFESSIONAL = 2,
+    /** Professional subscription, which will be automatically converted to {@link WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid} after the 5th lead */
+    PROFESSIONAL_TRIAL = 6,
     /** Assistant */
-    STANDARD = 3
+    STANDARD = 3,
+    /** Standard subscription, which will be automatically converted to {@link WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid} after the 5th lead */
+    STANDARD_TRIAL = 7
 }
 /** List of possible plans for SmsSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionSmsSmsSubscriptionSid {
