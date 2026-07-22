@@ -5912,6 +5912,8 @@ export interface WlEventEventListGetResponse {
         is_bookable: boolean;
         /** Whether event is already booked. */
         is_booked: boolean;
+        /** `true` if clients can cancel this event. Otherwise, this will be `false`. */
+        is_cancellation_enabled: boolean;
         /** Whether booking of the event is closed already. */
         is_closed: boolean;
         /** Whether event is full already. */
@@ -12746,6 +12748,8 @@ export interface WlScheduleClassListClassList68Response {
         is_book_for_guest: boolean;
         /** If `true`, this class period was canceled. Otherwise, this will be `false`. */
         is_cancel: boolean;
+        /** `true` if clients can cancel this session. Otherwise, this will be `false`. */
+        is_cancellation_enabled: boolean;
         /** If `true`, this is an event. Otherwise, this will be `false`. */
         is_event: boolean;
         /** If `true`, this class is virtual. Otherwise, this will be `false`. */
@@ -12854,6 +12858,8 @@ export interface WlScheduleClassListClassListResponse {
         is_book_for_guest: boolean;
         /** If `true`, this class period was canceled. Otherwise, this will be `false`. */
         is_cancel: boolean;
+        /** `true` if clients can cancel this session. Otherwise, this will be `false`. */
+        is_cancellation_enabled: boolean;
         /** If `true`, this is an event. Otherwise, this will be `false`. */
         is_event: boolean;
         /** If `true`, this class is virtual. Otherwise, this will be `false`. */
@@ -13004,6 +13010,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
         is_book_for_guest: boolean;
         /** `true` if class period was cancelled; `false` otherwise. */
         is_cancel: boolean;
+        /** `true` if clients can cancel this session. Otherwise, this will be `false`. */
+        is_cancellation_enabled: boolean;
         /** `true` if it is event; `false` if it is class. */
         is_event: boolean;
         /** `true` if this class can be paid with promotion only; `false` otherwise. */
@@ -13117,6 +13125,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
             is_book_for_guest: boolean;
             /** `true` if class period was cancelled; `false` otherwise. */
             is_cancel: boolean;
+            /** `true` if clients can cancel this session. Otherwise, this will be `false`. */
+            is_cancellation_enabled: boolean;
             /** `true` if it is event; `false` if it is class. */
             is_event: boolean;
             /** `true` if this class can be paid with promotion only; `false` otherwise. */
@@ -13329,6 +13339,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
         is_book_for_guest: boolean;
         /** `true` if class period was cancelled; `false` otherwise. */
         is_cancel: boolean;
+        /** `true` if clients can cancel this session. Otherwise, this will be `false`. */
+        is_cancellation_enabled: boolean;
         /** `true` if it is event; `false` if it is class. */
         is_event: boolean;
         /** `true` if this class can be paid with promotion only; `false` otherwise. */
@@ -13442,6 +13454,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
             is_book_for_guest: boolean;
             /** `true` if class period was cancelled; `false` otherwise. */
             is_cancel: boolean;
+            /** `true` if clients can cancel this session. Otherwise, this will be `false`. */
+            is_cancellation_enabled: boolean;
             /** `true` if it is event; `false` if it is class. */
             is_event: boolean;
             /** `true` if this class can be paid with promotion only; `false` otherwise. */
