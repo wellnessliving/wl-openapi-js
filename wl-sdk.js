@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260722133436
+ * Spec version: 1.1.20260722143647
  * Build date:   2026-07-22
- * Endpoints:    517
+ * Endpoints:    518
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260722133436';
+  WlClient.SPEC_VERSION = '1.1.20260722143647';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (517 total)
+  // Generated API methods (518 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -4662,10 +4662,26 @@
    *  `m_subtotal` {string} The subtotal per client (sum of the selected purchase item prices, excluding ...
    *  `m_tax` {string} The tax amount per client. Always `0` when {@link WlClient#wlBillingBulkPurch...
    *  `m_total` {string} The total per client (subtotal plus tax).
+   *  `s_id` {string} The review id that identifies this prepared bulk billing. Pass it to {@link W...
    */
   WlClient.prototype.wlBillingBulkPurchaseItemListPost = function(params)
   {
     return this.request('/Wl/Billing/Bulk/PurchaseItemList.json', params || {}, 'POST');
+  };
+
+  /**
+   * Schedules the bulk billing.
+   *
+   * Reads the prepared data from the temporary session by the review id and schedules the billing. The eligibility
+   * and restriction checks were already done during preparation, so they are not repeated here.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `k_purchase_batch` {string} The key of the created purchase batch.
+   */
+  WlClient.prototype.wlBillingBulkBulkBilling = function(params)
+  {
+    return this.request('/Wl/Billing/Bulk/BulkBilling.json', params || {}, 'POST');
   };
 
   /**

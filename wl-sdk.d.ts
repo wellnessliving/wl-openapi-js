@@ -14272,6 +14272,13 @@ export interface WlBillingBulkPurchaseItemListPostResponse {
     m_tax: string;
     /** The total per client (subtotal plus tax). */
     m_total: string;
+    /** The review id that identifies this prepared bulk billing. Pass it to {@link WlBillingBulkNamespac... */
+    s_id: string;
+}
+export type WlBillingBulkBulkBillingParams = Record<string, unknown>;
+export interface WlBillingBulkBulkBillingResponse {
+    /** The key of the created purchase batch. */
+    k_purchase_batch: string;
 }
 export interface WlProfilePurchasePurchaseElementParams {
     /** The key of the redemption code used to obtain some goods. */
@@ -28544,6 +28551,8 @@ export declare class WlBillingBulkNamespace {
     purchaseItemListGet(params?: WlBillingBulkPurchaseItemListGetParams): Promise<WlBillingBulkPurchaseItemListGetResponse>;
     /** Prepares the bulk billing review: the per-client totals and the list of clients that will be billed. */
     purchaseItemListPost(params?: WlBillingBulkPurchaseItemListPostParams): Promise<WlBillingBulkPurchaseItemListPostResponse>;
+    /** Schedules the bulk billing. */
+    bulkBilling(params?: WlBillingBulkBulkBillingParams): Promise<WlBillingBulkBulkBillingResponse>;
 }
 export declare class WlBillingNamespace {
     private readonly _client;
