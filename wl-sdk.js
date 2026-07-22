@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260722052225
+ * Spec version: 1.1.20260722065007
  * Build date:   2026-07-22
  * Endpoints:    501
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260722052225';
+  WlClient.SPEC_VERSION = '1.1.20260722065007';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (501 total)
@@ -507,7 +507,7 @@
    *  `a_card_system` {number[]} A list of supported bank card systems.
    *  `a_method_staff` {?number[]} A list of payment methods enabled for staff members.
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
-   *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
+   *  `a_mobile_config` {Object|Object|Object|Object} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
    *  `dl_now` {string} Current local date in current location EnvironmentApi::$k_location
    *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
@@ -542,7 +542,7 @@
    *  `a_card_system` {number[]} A list of supported bank card systems.
    *  `a_method_staff` {?number[]} A list of payment methods enabled for staff members.
    *  `a_method_support` {Object[]} A list of all payment methods that can be used within this business.
-   *  `a_mobile_config` {?*[]} The configuration array that's sent to mobile card reader plugin.
+   *  `a_mobile_config` {Object|Object|Object|Object} The configuration array that's sent to mobile card reader plugin.
    *  `a_pay_processor` {?Object[]} Represents information about payment processors.
    *  `dl_now` {string} Current local date in current location EnvironmentApi::$k_location
    *  `f_surcharge` {?string} Surcharge amount for payment with card represented as a percent of transactio...
@@ -11006,7 +11006,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (202 total)
+  // Enum constants (211 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -11269,6 +11269,134 @@
     UNION_PAY: 14,
     /** Visa */
     VISA: 12,
+  });
+
+  /**
+   * Stripe device type of reader.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothPayProcessorStripeComTerminalStripeReaderModelSid = Object.freeze({
+    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
+    BBPOS_WISEPAD3: 1,
+    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
+    BBPOS_WISEPOS_E: 4,
+    /** SIMULATED Wise POS E */
+    SIMULATED_WISEPOS_E: 6,
+    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
+    STRIPE_M2: 2,
+  });
+
+  /**
+   * List of possible status of readers.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothPayProcessorTerminalTerminalStatusSid = Object.freeze({
+    /** Status active */
+    ACTIVE: 1,
+    /** Status inactive */
+    INACTIVE: 2,
+    /** Status setup, reader is active but not added to stripe yet */
+    SETUP: 3,
+  });
+
+  /**
+   * List of {@link WlClient.ThothPayProcessorPayProcessorSid} supported terminal types.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = Object.freeze({
+    /** Terminals that work via Stripe javascript SDK */
+    JS_SDK: 2,
+    /** Magtek USB */
+    MAGTEK_USB: 1,
+  });
+
+  /**
+   * List of {@link WlClient.ThothPayProcessorPayProcessorSid} supported terminal types.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = Object.freeze({
+    /** Card terminals that work via OMNI Channel API */
+    OMNICHANNEL: 2,
+    /** Magtek USB */
+    MAGTEK_USB: 1,
+  });
+
+  /**
+   * Paragon device type of reader.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = Object.freeze({
+    /** Verifone e285 reader */
+    E285: 1,
+    /** Verifone P200 reader */
+    P200: 2,
+    /** Verifone P400 plus reader */
+    P400_PLUS: 3,
+    /** Verifone V200c reader */
+    V200_C: 4,
+    /** Verifone V200c plus reader */
+    V200_C_PLUS: 5,
+    /** Verifone V400c plus reader */
+    V400_C_PLUS: 7,
+    /** Verifone V400m reader */
+    V400_M: 6,
+  });
+
+  /**
+   * List of supported terminal interaction types.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothPayProcessorTerminalTerminalTypeSid = Object.freeze({
+    /** Magtek USB */
+    MAGTEK_USB: 1,
+  });
+
+  /**
+   * A list of devices supported by credit card reader plugin.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothWlPayCordovaCordovaCcrDeviceSid = Object.freeze({
+    /** Payment processor: Direct Connect */
+    DC_IDT_AUGUSTA: 4,
+    /** Payment processor: Direct Connect */
+    DC_IDT_BT_MAG: 5,
+    /** Payment processor: Direct Connect */
+    DC_IDT_UNI_MAG: 6,
+    /** Payment processor: Direct Connect */
+    DC_IDT_UNI_PAY: 7,
+    /** Payment processor: Direct Connect */
+    DC_MAGTEK_AUDIO: 11,
+    /** Payment processor: Paragon (ex. Direct Connect) */
+    DC_MAGTEK_BLUETOOTH: 13,
+    /** Payment processor: Direct Connect */
+    DC_MAGTEK_LIGHTNING: 12,
+    /** Payment processor: Direct Connect */
+    DC_MIURA: 8,
+    /** Payment processor: Direct Connect */
+    DC_PAX: 9,
+    /** Payment processor: NMI */
+    NMI_ENTERPRISE: 3,
+    /** Payment processor: NMI */
+    NMI_IPS: 2,
+    /** Payment processor: NMI */
+    NMI_UNIMAG: 1,
+    /** Payment processor: Stripe */
+    STRIPE_BBPOS_SIMULATED_WISEPOS_E: 17,
+    /** Payment processor: Stripe */
+    STRIPE_BBPOS_WISEPAD_3_BLUETOOTH: 14,
+    /** Payment processor: Stripe */
+    STRIPE_BBPOS_WISEPOS_E_INTERNET: 15,
+    /** Payment processor: Stripe */
+    STRIPE_READER_M2_BLUETOOTH: 16,
+    /** Virtual device for testing purposes */
+    VIRTUAL: 10,
   });
 
   /**
