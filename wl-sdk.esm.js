@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260723053106
+// OpenAPI spec version: 1.1.20260723074726
 // Build date: 2026-07-23
-// Endpoints: 501
+// Endpoints: 502
 // Enums: 194
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -6387,6 +6387,15 @@ export class WlLoginMailNamespace {
         return this._client._request('/Wl/Login/Mail/MailUse.json', params, 'GET');
     }
 }
+export class WlLoginRankNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes a rank record for a user. */
+    loginRankElement(params) {
+        return this._client._request('/Wl/Login/Rank/LoginRankElement.json', params, 'DELETE');
+    }
+}
 export class WlLoginPromotionConvertNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6646,6 +6655,7 @@ export class WlLoginNamespace {
     constructor(_client) {
         this._client = _client;
         this.mail = new WlLoginMailNamespace(this._client);
+        this.rank = new WlLoginRankNamespace(this._client);
         this.promotion = new WlLoginPromotionNamespace(this._client);
         this.member = new WlLoginMemberNamespace(this._client);
         this.add = new WlLoginAddNamespace(this._client);

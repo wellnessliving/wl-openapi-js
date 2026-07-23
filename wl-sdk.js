@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260723053106
+ * Spec version: 1.1.20260723074726
  * Build date:   2026-07-23
- * Endpoints:    501
+ * Endpoints:    502
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260723053106';
+  WlClient.SPEC_VERSION = '1.1.20260723074726';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (501 total)
+  // Generated API methods (502 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -4636,6 +4636,20 @@
   WlClient.prototype.wlLoginMailMailUse = function(params)
   {
     return this.request('/Wl/Login/Mail/MailUse.json', params || {}, 'GET');
+  };
+
+  /**
+   * Deletes a rank record for a user.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_rank_category To delete entire rank category from this user.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_login_rank Login rank key. Primary key in RsLoginRankSql table.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlLoginRankLoginRankElement = function(params)
+  {
+    return this.request('/Wl/Login/Rank/LoginRankElement.json', params || {}, 'DELETE');
   };
 
   /**

@@ -12937,6 +12937,15 @@ export interface WlLoginMailMailUseResponse {
     /** Key of the user who using email within the business. */
     uid_use: string | null;
 }
+export interface WlLoginRankLoginRankElementParams {
+    /** To delete entire rank category from this user. */
+    is_rank_category: boolean;
+    /** Business key. */
+    k_business: string;
+    /** Login rank key. Primary key in RsLoginRankSql table. */
+    k_login_rank: string;
+}
+export type WlLoginRankLoginRankElementResponse = Record<string, unknown>;
 export interface WlLoginPromotionPromotionPayPauseDeleteParams {
     /** Key of business to which currently handled pause period or login promotion belongs. */
     k_business?: string | null;
@@ -27016,6 +27025,12 @@ export declare class WlLoginMailNamespace {
     /** Checks if specified user exists in specified business. */
     mailUse(params?: WlLoginMailMailUseParams): Promise<WlLoginMailMailUseResponse>;
 }
+export declare class WlLoginRankNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Deletes a rank record for a user. */
+    loginRankElement(params?: WlLoginRankLoginRankElementParams): Promise<WlLoginRankLoginRankElementResponse>;
+}
 export declare class WlLoginPromotionConvertNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -27178,6 +27193,7 @@ export declare class WlLoginProductNamespace {
 export declare class WlLoginNamespace {
     private readonly _client;
     readonly mail: WlLoginMailNamespace;
+    readonly rank: WlLoginRankNamespace;
     readonly promotion: WlLoginPromotionNamespace;
     readonly member: WlLoginMemberNamespace;
     readonly add: WlLoginAddNamespace;
