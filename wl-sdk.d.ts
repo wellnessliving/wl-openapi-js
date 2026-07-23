@@ -4426,14 +4426,15 @@ export declare enum WlSocialShareShareObjectSid {
     /** Review */
     REVIEW = 2
 }
-/** Widget analytics checkout types. */
-export declare enum WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid {
-    /** Any checkout type */
-    ANY = 1,
-    /** Booking checkout type */
-    BOOKING = 3,
-    /** Store purchase checkout type */
-    STORE_PURCHASE = 2
+/** Widget analytics event schema versions. */
+export declare enum WlWidgetAnalyticsWidgetAnalyticsEventVersionSid {
+    /** Initial event schema */
+    V1 = 1
+}
+/** Widget analytics event types. */
+export declare enum WlWidgetAnalyticsWidgetAnalyticsEventSid {
+    /** Checkout abandonment event */
+    ABANDONED_CHECKOUT = 1
 }
 /** List of page transaction type. */
 export declare enum RsPayAccountChargeSid {
@@ -11945,6 +11946,15 @@ export interface WlLoginSearchConcertoResponse {
     /** User's primary key. */
     uid: string;
 }
+export interface WlLoginRankLoginRankElementParams {
+    /** To delete entire rank category from this user. */
+    is_rank_category: boolean;
+    /** Business key. */
+    k_business: string;
+    /** Login rank key. Primary key in RsLoginRankSql table. */
+    k_login_rank: string;
+}
+export type WlLoginRankLoginRankElementResponse = Record<string, unknown>;
 export interface WlLoginPromotionPromotionPayPauseDeleteParams {
     /** Key of business to which currently handled pause period or login promotion belongs. */
     k_business?: string | null;
@@ -19292,10 +19302,7 @@ export interface WlSocialShareSocialShareResponse {
 export type WlFacebookLoginFacebookLoginParams = Record<string, unknown>;
 export type WlFacebookLoginFacebookLoginResponse = Record<string, unknown>;
 export type WlWidgetAnalyticsWidgetAnalyticsEventParams = Record<string, unknown>;
-export interface WlWidgetAnalyticsWidgetAnalyticsEventResponse {
-    /** Whether the event was durably accepted for asynchronous processing. */
-    is_accepted: boolean;
-}
+export type WlWidgetAnalyticsWidgetAnalyticsEventResponse = Record<string, unknown>;
 export interface WlTuitionEnrollmentTuitionEnrollmentListParams {
     /** Filters. */
     a_filter: {
@@ -27267,6 +27274,12 @@ export declare class WlLoginSearchNamespace {
     /** Finds a user by their email or phone within the specified business. */
     concerto(params?: WlLoginSearchConcertoParams): Promise<WlLoginSearchConcertoResponse>;
 }
+export declare class WlLoginRankNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Deletes a rank record for a user. */
+    loginRankElement(params?: WlLoginRankLoginRankElementParams): Promise<WlLoginRankLoginRankElementResponse>;
+}
 export declare class WlLoginPromotionConvertNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -27372,6 +27385,7 @@ export declare class WlLoginNamespace {
     readonly attendance: WlLoginAttendanceNamespace;
     readonly member: WlLoginMemberNamespace;
     readonly search: WlLoginSearchNamespace;
+    readonly rank: WlLoginRankNamespace;
     readonly promotion: WlLoginPromotionNamespace;
     readonly agree: WlLoginAgreeNamespace;
     readonly add: WlLoginAddNamespace;

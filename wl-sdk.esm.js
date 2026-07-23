@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260723091322
+// OpenAPI spec version: 1.1.20260723114116
 // Build date: 2026-07-23
-// Endpoints: 518
-// Enums: 196
+// Endpoints: 519
+// Enums: 197
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (196 total) ---
+// --- Enum types (197 total) ---
 /** A list of locales. */
 export var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -4562,16 +4562,18 @@ export var WlSocialShareShareObjectSid;
     /** Review */
     WlSocialShareShareObjectSid[WlSocialShareShareObjectSid["REVIEW"] = 2] = "REVIEW";
 })(WlSocialShareShareObjectSid || (WlSocialShareShareObjectSid = {}));
-/** Widget analytics checkout types. */
-export var WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid;
-(function (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid) {
-    /** Any checkout type */
-    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["ANY"] = 1] = "ANY";
-    /** Booking checkout type */
-    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["BOOKING"] = 3] = "BOOKING";
-    /** Store purchase checkout type */
-    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["STORE_PURCHASE"] = 2] = "STORE_PURCHASE";
-})(WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid || (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = {}));
+/** Widget analytics event schema versions. */
+export var WlWidgetAnalyticsWidgetAnalyticsEventVersionSid;
+(function (WlWidgetAnalyticsWidgetAnalyticsEventVersionSid) {
+    /** Initial event schema */
+    WlWidgetAnalyticsWidgetAnalyticsEventVersionSid[WlWidgetAnalyticsWidgetAnalyticsEventVersionSid["V1"] = 1] = "V1";
+})(WlWidgetAnalyticsWidgetAnalyticsEventVersionSid || (WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = {}));
+/** Widget analytics event types. */
+export var WlWidgetAnalyticsWidgetAnalyticsEventSid;
+(function (WlWidgetAnalyticsWidgetAnalyticsEventSid) {
+    /** Checkout abandonment event */
+    WlWidgetAnalyticsWidgetAnalyticsEventSid[WlWidgetAnalyticsWidgetAnalyticsEventSid["ABANDONED_CHECKOUT"] = 1] = "ABANDONED_CHECKOUT";
+})(WlWidgetAnalyticsWidgetAnalyticsEventSid || (WlWidgetAnalyticsWidgetAnalyticsEventSid = {}));
 /** List of page transaction type. */
 export var RsPayAccountChargeSid;
 (function (RsPayAccountChargeSid) {
@@ -6178,6 +6180,15 @@ export class WlLoginSearchNamespace {
         return this._client._request('/Wl/Login/Search/Concerto.json', params, 'GET');
     }
 }
+export class WlLoginRankNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes a rank record for a user. */
+    loginRankElement(params) {
+        return this._client._request('/Wl/Login/Rank/LoginRankElement.json', params, 'DELETE');
+    }
+}
 export class WlLoginPromotionConvertNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6342,6 +6353,7 @@ export class WlLoginNamespace {
         this.attendance = new WlLoginAttendanceNamespace(this._client);
         this.member = new WlLoginMemberNamespace(this._client);
         this.search = new WlLoginSearchNamespace(this._client);
+        this.rank = new WlLoginRankNamespace(this._client);
         this.promotion = new WlLoginPromotionNamespace(this._client);
         this.agree = new WlLoginAgreeNamespace(this._client);
         this.add = new WlLoginAddNamespace(this._client);

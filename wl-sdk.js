@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260723091322
+ * Spec version: 1.1.20260723114116
  * Build date:   2026-07-23
- * Endpoints:    518
+ * Endpoints:    519
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260723091322';
+  WlClient.SPEC_VERSION = '1.1.20260723114116';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (518 total)
+  // Generated API methods (519 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -3685,6 +3685,20 @@
   WlClient.prototype.wlLoginSearchConcerto = function(params)
   {
     return this.request('/Wl/Login/Search/Concerto.json', params || {}, 'GET');
+  };
+
+  /**
+   * Deletes a rank record for a user.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_rank_category To delete entire rank category from this user.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_login_rank Login rank key. Primary key in RsLoginRankSql table.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlLoginRankLoginRankElement = function(params)
+  {
+    return this.request('/Wl/Login/Rank/LoginRankElement.json', params || {}, 'DELETE');
   };
 
   /**
@@ -7449,7 +7463,6 @@
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
-   *  `is_accepted` {boolean} Whether the event was durably accepted for asynchronous processing.
    */
   WlClient.prototype.wlWidgetAnalyticsWidgetAnalyticsEvent = function(params)
   {
@@ -11318,7 +11331,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (213 total)
+  // Enum constants (214 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -16434,17 +16447,23 @@
   });
 
   /**
-   * Widget analytics checkout types.
+   * Widget analytics event schema versions.
    *
    * @enum {number}
    */
-  WlClient.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = Object.freeze({
-    /** Any checkout type */
-    ANY: 1,
-    /** Booking checkout type */
-    BOOKING: 3,
-    /** Store purchase checkout type */
-    STORE_PURCHASE: 2,
+  WlClient.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = Object.freeze({
+    /** Initial event schema */
+    V1: 1,
+  });
+
+  /**
+   * Widget analytics event types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlWidgetAnalyticsWidgetAnalyticsEventSid = Object.freeze({
+    /** Checkout abandonment event */
+    ABANDONED_CHECKOUT: 1,
   });
 
   /**
