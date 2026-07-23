@@ -4426,6 +4426,15 @@ export declare enum WlSocialShareShareObjectSid {
     /** Review */
     REVIEW = 2
 }
+/** Widget analytics checkout types. */
+export declare enum WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid {
+    /** Any checkout type */
+    ANY = 1,
+    /** Booking checkout type */
+    BOOKING = 3,
+    /** Store purchase checkout type */
+    STORE_PURCHASE = 2
+}
 /** Widget analytics event schema versions. */
 export declare enum WlWidgetAnalyticsWidgetAnalyticsEventVersionSid {
     /** Initial event schema */
