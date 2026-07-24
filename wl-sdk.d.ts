@@ -4428,15 +4428,15 @@ export declare enum WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid {
     /** Store purchase checkout type */
     STORE_PURCHASE = 2
 }
-/** Widget analytics event schema versions. */
-export declare enum WlWidgetAnalyticsWidgetAnalyticsEventVersionSid {
-    /** Initial event schema */
-    V1 = 1
-}
 /** Widget analytics event types. */
 export declare enum WlWidgetAnalyticsWidgetAnalyticsEventSid {
     /** Checkout abandonment event */
     ABANDONED_CHECKOUT = 1
+}
+/** Widget analytics event schema versions. */
+export declare enum WlWidgetAnalyticsWidgetAnalyticsEventVersionSid {
+    /** Initial event schema */
+    V1 = 1
 }
 /** List of page transaction type. */
 export declare enum RsPayAccountChargeSid {

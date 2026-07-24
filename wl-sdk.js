@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260724082844
+ * Spec version: 1.1.20260724090919
  * Build date:   2026-07-24
  * Endpoints:    519
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260724082844';
+  WlClient.SPEC_VERSION = '1.1.20260724090919';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (519 total)
@@ -16451,16 +16451,6 @@
   });
 
   /**
-   * Widget analytics event schema versions.
-   *
-   * @enum {number}
-   */
-  WlClient.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = Object.freeze({
-    /** Initial event schema */
-    V1: 1,
-  });
-
-  /**
    * Widget analytics event types.
    *
    * @enum {number}
@@ -16468,6 +16458,16 @@
   WlClient.WlWidgetAnalyticsWidgetAnalyticsEventSid = Object.freeze({
     /** Checkout abandonment event */
     ABANDONED_CHECKOUT: 1,
+  });
+
+  /**
+   * Widget analytics event schema versions.
+   *
+   * @enum {number}
+   */
+  WlClient.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = Object.freeze({
+    /** Initial event schema */
+    V1: 1,
   });
 
   /**

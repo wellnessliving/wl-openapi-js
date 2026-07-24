@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260724082844
+// OpenAPI spec version: 1.1.20260724090919
 // Build date: 2026-07-24
 // Endpoints: 519
 // Enums: 197
@@ -4564,18 +4564,18 @@ export var WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid;
     /** Store purchase checkout type */
     WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["STORE_PURCHASE"] = 2] = "STORE_PURCHASE";
 })(WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid || (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = {}));
-/** Widget analytics event schema versions. */
-export var WlWidgetAnalyticsWidgetAnalyticsEventVersionSid;
-(function (WlWidgetAnalyticsWidgetAnalyticsEventVersionSid) {
-    /** Initial event schema */
-    WlWidgetAnalyticsWidgetAnalyticsEventVersionSid[WlWidgetAnalyticsWidgetAnalyticsEventVersionSid["V1"] = 1] = "V1";
-})(WlWidgetAnalyticsWidgetAnalyticsEventVersionSid || (WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = {}));
 /** Widget analytics event types. */
 export var WlWidgetAnalyticsWidgetAnalyticsEventSid;
 (function (WlWidgetAnalyticsWidgetAnalyticsEventSid) {
     /** Checkout abandonment event */
     WlWidgetAnalyticsWidgetAnalyticsEventSid[WlWidgetAnalyticsWidgetAnalyticsEventSid["ABANDONED_CHECKOUT"] = 1] = "ABANDONED_CHECKOUT";
 })(WlWidgetAnalyticsWidgetAnalyticsEventSid || (WlWidgetAnalyticsWidgetAnalyticsEventSid = {}));
+/** Widget analytics event schema versions. */
+export var WlWidgetAnalyticsWidgetAnalyticsEventVersionSid;
+(function (WlWidgetAnalyticsWidgetAnalyticsEventVersionSid) {
+    /** Initial event schema */
+    WlWidgetAnalyticsWidgetAnalyticsEventVersionSid[WlWidgetAnalyticsWidgetAnalyticsEventVersionSid["V1"] = 1] = "V1";
+})(WlWidgetAnalyticsWidgetAnalyticsEventVersionSid || (WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = {}));
 /** List of page transaction type. */
 export var RsPayAccountChargeSid;
 (function (RsPayAccountChargeSid) {
