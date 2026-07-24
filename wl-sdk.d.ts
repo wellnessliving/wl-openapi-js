@@ -16951,12 +16951,22 @@ export interface WlCatalogCatalogListElementParams {
 export interface WlCatalogCatalogListElementResponse {
     /** The age restriction configuration. */
     a_age_restriction: {
-        /** The minimum age permitted for the event. This will be `null` if a minimum age isn't set or availa... */
-        i_age_from: number | null;
-        /** The maximum age permitted for the event. This will be `null` if a maximum age isn't set or availa... */
-        i_age_to: number | null;
-        /** If `true`, age restrictions are public and available. Otherwise, this will be `false` if they're ... */
+        /** Minimum age for service (years part). */
+        i_age_from: number;
+        /** Minimum age for service (months part). */
+        i_age_from_month: number;
+        /** Minimum age for service (years part). */
+        i_age_from_year: number;
+        /** Maximum age for service (years part). */
+        i_age_to: number;
+        /** Maximum age for service (months part). */
+        i_age_to_month: number;
+        /** Maximum age for service (years part). */
+        i_age_to_year: number;
+        /** Is service public even if user does not meet age requirements or not? */
         is_age_public: boolean;
+        /** Whether months are enabled for age restrictions. */
+        is_month_enabled: boolean;
     };
     /** Additional information specific for the item. */
     a_data: {
@@ -22363,12 +22373,22 @@ export interface WlEventBookEventViewElementParams {
 export interface WlEventBookEventViewElementResponse {
     /** Displays information about age restrictions for this event. */
     a_age_restrictions: {
-        /** The minimum age for participation in the event. */
-        i_age_from: number | null;
-        /** The age limit for participation in the event. */
-        i_age_to: number | null;
-        /** `true` if age restrictions are public and available, `false` if they're hidden. */
+        /** Minimum age for service (years part). */
+        i_age_from: number;
+        /** Minimum age for service (months part). */
+        i_age_from_month: number;
+        /** Minimum age for service (years part). */
+        i_age_from_year: number;
+        /** Maximum age for service (years part). */
+        i_age_to: number;
+        /** Maximum age for service (months part). */
+        i_age_to_month: number;
+        /** Maximum age for service (years part). */
+        i_age_to_year: number;
+        /** Is service public even if user does not meet age requirements or not? */
         is_age_public: boolean;
+        /** Whether months are enabled for age restrictions. */
+        is_month_enabled: boolean;
     };
     /** Retrieves information about an event item. */
     a_book_available: Array<{
@@ -23252,10 +23272,14 @@ export interface WlAppointmentBookServiceServiceList52Response {
         hide_application: boolean;
         /** Human-readable reason why the client cannot book this service. Empty string if there is no deny r... */
         html_deny_reason: string;
-        /** The required minimum client age to book an appointment. */
+        /** The required minimum client age to book an appointment (years part). */
         i_age_from: number;
-        /** The required maximum client age to book an appointment. */
+        /** The required minimum client age to book an appointment (months part). */
+        i_age_from_month: number;
+        /** The required maximum client age to book an appointment (years part). */
         i_age_to: number;
+        /** The required maximum client age to book an appointment (months part). */
+        i_age_to_month: number;
         /** The price type ID. One of {@link RsServicePriceSid} constants. */
         i_price: number;
         /** The appointment duration in minutes. */
@@ -23404,10 +23428,14 @@ export interface WlAppointmentBookServiceServiceListResponse {
         hide_application: boolean;
         /** Human-readable reason why the client cannot book this service. Empty string if there is no deny r... */
         html_deny_reason: string;
-        /** The required minimum client age to book an appointment. */
+        /** The required minimum client age to book an appointment (years part). */
         i_age_from: number;
-        /** The required maximum client age to book an appointment. */
+        /** The required minimum client age to book an appointment (months part). */
+        i_age_from_month: number;
+        /** The required maximum client age to book an appointment (years part). */
         i_age_to: number;
+        /** The required maximum client age to book an appointment (months part). */
+        i_age_to_month: number;
         /** The price type ID. One of {@link RsServicePriceSid} constants. */
         i_price: number;
         /** The appointment duration in minutes. */
@@ -25133,10 +25161,14 @@ export interface WlAppointmentBookAssetAssetListResponse {
     a_asset: Array<{
         /** Information about age restrictions for this event. */
         a_age_restrictions: {
-            /** The minimum age permitted for the event. This will be `null` if a minimum age isn't set or availa... */
+            /** The minimum age permitted for the event (years part). This will be `null` if a minimum age isn't ... */
             i_age_from: number | null;
-            /** The maximum age permitted for the event. This will be `null` if a maximum age isn't set or availa... */
+            /** The minimum age permitted for the event (month part). This will be `null` if a minimum age isn't ... */
+            i_age_from_month: number | null;
+            /** The maximum age permitted for the event (years part). This will be `null` if a maximum age isn't ... */
             i_age_to: number | null;
+            /** The maximum age permitted for the event (month part). This will be `null` if a maximum age isn't ... */
+            i_age_to_month: number | null;
             /** This will be `true` if age restrictions are public and available. Otherwise, this will be `false`... */
             is_age_public: boolean;
         };
