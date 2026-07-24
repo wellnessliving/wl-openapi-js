@@ -12942,7 +12942,7 @@ export interface WlLoginRankLoginRankElementParams {
     is_rank_category: boolean;
     /** Business key. */
     k_business: string;
-    /** Login rank key. Primary key in RsLoginRankSql table. */
+    /** Login rank key. */
     k_login_rank: string;
 }
 export type WlLoginRankLoginRankElementResponse = Record<string, unknown>;
