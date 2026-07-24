@@ -1171,7 +1171,7 @@ export declare enum ThothPayProcessorDirectConnectTicketDirectConnectTicketStatu
     REVERSED = 7
 }
 /** An enum of credit card types. */
-export declare enum WlPayBankCardCardTypeEnum {
+export declare enum ThothWlPayBankCardCardTypeEnum {
     /** Credit Card */
     CREDIT = 1,
     /** Debit Card */
@@ -2221,13 +2221,6 @@ export declare enum ThothPayProcessorStripeComPaymentIntentStatusSid {
     REQUIRES_PAYMENT_METHOD = 1,
     /** A Payment Intent with a status of succeeded means that the payment flow it is driving is complete */
     SUCCEEDED = 5
-}
-/** An enum of credit card types. */
-export declare enum ThothWlPayBankCardCardTypeEnum {
-    /** Credit Card */
-    CREDIT = 1,
-    /** Debit Card */
-    DEBIT = 2
 }
 /** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
 export declare enum ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid {
@@ -5243,8 +5236,8 @@ export interface CoreWebSocketSubscribeResponse {
     } | {
         /** A class for a list of card systems. @see ACardSystemSid */
         id_card_system: ACardSystemSid | null;
-        /** An enum of credit card types. @see WlPayBankCardCardTypeEnum */
-        id_card_type: WlPayBankCardCardTypeEnum | null;
+        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
+        id_card_type: ThothWlPayBankCardCardTypeEnum | null;
         /** An exception that is thrown in a case of a payment error. @see RsPayException */
         id_pay_exception: RsPayException | null;
         /** CS Response code class. @see ThothPayProcessorNuveiCodeCSResponseSid */
@@ -25909,7 +25902,7 @@ export interface WlPayBankCardWidgetWidgetSelectResponse {
     /** List of saved bank cards. */
     a_pay_card: {
         /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
-        eid_card_type: ThothWlPayBankCardCardTypeEnum;
+        eid_card_type: ThothWlPayBankCardCardTypeEnum | null;
         /** Card expiration month. */
         i_month: number;
         /** Card expiration year. */
@@ -25917,7 +25910,7 @@ export interface WlPayBankCardWidgetWidgetSelectResponse {
         /** A list of card types. @see WlCardCardSystemSid */
         id_card_system: WlCardCardSystemSid;
         /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
-        id_card_type: ThothWlPayBankCardCardTypeEnum;
+        id_card_type: ThothWlPayBankCardCardTypeEnum | null;
         /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
         id_pay_processor: ThothPayProcessorPayProcessorSid;
         /** `true` if this card is the default payment method; `false` otherwise. */

@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260723165341
- * Build date:   2026-07-23
+ * Spec version: 1.1.20260724020704
+ * Build date:   2026-07-24
  * Endpoints:    519
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260723165341';
+  WlClient.SPEC_VERSION = '1.1.20260724020704';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (519 total)
@@ -11333,7 +11333,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (215 total)
+  // Enum constants (214 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -12547,7 +12547,7 @@
    *
    * @enum {number}
    */
-  WlClient.WlPayBankCardCardTypeEnum = Object.freeze({
+  WlClient.ThothWlPayBankCardCardTypeEnum = Object.freeze({
     /** Credit Card */
     CREDIT: 1,
     /** Debit Card */
@@ -13862,18 +13862,6 @@
     REQUIRES_PAYMENT_METHOD: 1,
     /** A Payment Intent with a status of succeeded means that the payment flow it is driving is complete */
     SUCCEEDED: 5,
-  });
-
-  /**
-   * An enum of credit card types.
-   *
-   * @enum {number}
-   */
-  WlClient.ThothWlPayBankCardCardTypeEnum = Object.freeze({
-    /** Credit Card */
-    CREDIT: 1,
-    /** Debit Card */
-    DEBIT: 2,
   });
 
   /**

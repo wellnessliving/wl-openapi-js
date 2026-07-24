@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260723165341
-// Build date: 2026-07-23
+// OpenAPI spec version: 1.1.20260724020704
+// Build date: 2026-07-24
 // Endpoints: 519
-// Enums: 198
+// Enums: 197
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (198 total) ---
+// --- Enum types (197 total) ---
 /** A list of locales. */
 export var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -1177,13 +1177,13 @@ export var ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid;
     ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["REVERSED"] = 7] = "REVERSED";
 })(ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid || (ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = {}));
 /** An enum of credit card types. */
-export var WlPayBankCardCardTypeEnum;
-(function (WlPayBankCardCardTypeEnum) {
+export var ThothWlPayBankCardCardTypeEnum;
+(function (ThothWlPayBankCardCardTypeEnum) {
     /** Credit Card */
-    WlPayBankCardCardTypeEnum[WlPayBankCardCardTypeEnum["CREDIT"] = 1] = "CREDIT";
+    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["CREDIT"] = 1] = "CREDIT";
     /** Debit Card */
-    WlPayBankCardCardTypeEnum[WlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
-})(WlPayBankCardCardTypeEnum || (WlPayBankCardCardTypeEnum = {}));
+    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
+})(ThothWlPayBankCardCardTypeEnum || (ThothWlPayBankCardCardTypeEnum = {}));
 /** CS Response code class. */
 export var ThothPayProcessorNuveiCodeCSResponseSid;
 (function (ThothPayProcessorNuveiCodeCSResponseSid) {
@@ -2282,14 +2282,6 @@ export var ThothPayProcessorStripeComPaymentIntentStatusSid;
     /** A Payment Intent with a status of succeeded means that the payment flow it is driving is complete */
     ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["SUCCEEDED"] = 5] = "SUCCEEDED";
 })(ThothPayProcessorStripeComPaymentIntentStatusSid || (ThothPayProcessorStripeComPaymentIntentStatusSid = {}));
-/** An enum of credit card types. */
-export var ThothWlPayBankCardCardTypeEnum;
-(function (ThothWlPayBankCardCardTypeEnum) {
-    /** Credit Card */
-    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["CREDIT"] = 1] = "CREDIT";
-    /** Debit Card */
-    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
-})(ThothWlPayBankCardCardTypeEnum || (ThothWlPayBankCardCardTypeEnum = {}));
 /** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
 export var ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid;
 (function (ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid) {
