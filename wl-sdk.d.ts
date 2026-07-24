@@ -12385,6 +12385,8 @@ export interface WlClassesInfoInfoResponse {
     };
     /** `true` means event, `false` means class. */
     is_event: boolean;
+    /** Key of the group of events, which are different instances of the same event. */
+    k_enrollment_block: string;
     /** Title of the class. */
     text_title: string;
 }

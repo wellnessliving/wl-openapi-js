@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260724041845
+ * Spec version: 1.1.20260724065930
  * Build date:   2026-07-24
  * Endpoints:    502
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260724041845';
+  WlClient.SPEC_VERSION = '1.1.20260724065930';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (502 total)
@@ -4179,6 +4179,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_logo` {Object} Service logo information:
    *  `is_event` {boolean} `true` means event, `false` means class.
+   *  `k_enrollment_block` {string} Key of the group of events, which are different instances of the same event.
    *  `text_title` {string} Title of the class.
    */
   WlClient.prototype.wlClassesInfoInfo = function(params)
