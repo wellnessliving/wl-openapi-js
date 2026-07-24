@@ -23771,6 +23771,29 @@ export interface WlAppointmentBookScheduleNextAvailableDayResponse {
     /** Location to show available appointment booking schedule. */
     k_location: string;
 }
+export interface WlAppointmentBookScheduleServiceAvailabilityParams {
+    /** End date of search period in MySQL format, in location time zone. */
+    dl_end: string;
+    /** Start date of search period in MySQL format, in location time zone. */
+    dl_start: string;
+    /** Business key. */
+    k_business: string;
+    /** Location key. */
+    k_location: string;
+    /** Service key. */
+    k_service: string;
+}
+export interface WlAppointmentBookScheduleServiceAvailabilityResponse {
+    /** An array with a schedule of available appointment booking times. */
+    a_time: {
+        /** Availability data of the staff. Keys are dates and values are lists of available appointment star... */
+        a_availability: Array<Array<unknown>>;
+        /** Staff name. */
+        text_name: string;
+        /** Staff user key. */
+        uid_staff: string;
+    };
+}
 export interface WlAppointmentBookFinishFinishMultipleParams {
     /** The payment type ID for each provider. */
     a_pay: Array<RsAppointmentPaySid>;
@@ -28653,6 +28676,8 @@ export declare class WlAppointmentBookScheduleNamespace {
     calendar(params?: WlAppointmentBookScheduleCalendarParams): Promise<WlAppointmentBookScheduleCalendarResponse>;
     /** Finds and returns the next available date for appointment booking starting from the given date. */
     nextAvailableDay(params?: WlAppointmentBookScheduleNextAvailableDayParams): Promise<WlAppointmentBookScheduleNextAvailableDayResponse>;
+    /** Retrieves a list of available appointment booking schedule. */
+    serviceAvailability(params?: WlAppointmentBookScheduleServiceAvailabilityParams): Promise<WlAppointmentBookScheduleServiceAvailabilityResponse>;
 }
 export declare class WlAppointmentBookFinishNamespace {
     private readonly _client;

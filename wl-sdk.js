@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260724163532
+ * Spec version: 1.1.20260724184142
  * Build date:   2026-07-24
- * Endpoints:    519
+ * Endpoints:    520
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260724163532';
+  WlClient.SPEC_VERSION = '1.1.20260724184142';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (519 total)
+  // Generated API methods (520 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -9750,6 +9750,23 @@
   WlClient.prototype.wlAppointmentBookScheduleNextAvailableDay = function(params)
   {
     return this.request('/Wl/Appointment/Book/Schedule/NextAvailableDay.json', params || {}, 'GET');
+  };
+
+  /**
+   * Retrieves a list of available appointment booking schedule.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.dl_end End date of search period in MySQL format, in location time zone.
+   * @param {string} params.dl_start Start date of search period in MySQL format, in location time zone.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_location Location key.
+   * @param {string} params.k_service Service key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_time` {Object} An array with a schedule of available appointment booking times.
+   */
+  WlClient.prototype.wlAppointmentBookScheduleServiceAvailability = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Schedule/ServiceAvailability.json', params || {}, 'GET');
   };
 
   /**
