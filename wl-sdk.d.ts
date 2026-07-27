@@ -19843,6 +19843,8 @@ export interface WlAppointmentBookServiceServiceList52Response {
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
         /** A list of client booking flow types. @see RsServiceRequireSid */
         id_service_require: RsServiceRequireSid;
+        /** List of possible value of virtual integrations. @see WlVirtualVirtualProviderSid */
+        id_virtual_provider: WlVirtualVirtualProviderSid | null;
         /** `true` if age restrictions are public. Otherwise, `false` if they should be hidden from clients. */
         is_age_public: boolean;
         /** Determines whether this service can't be booked due to age restrictions. */
@@ -20030,6 +20032,8 @@ export interface WlAppointmentBookServiceServiceListResponse {
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
         /** A list of client booking flow types. @see RsServiceRequireSid */
         id_service_require: RsServiceRequireSid;
+        /** List of possible value of virtual integrations. @see WlVirtualVirtualProviderSid */
+        id_virtual_provider: WlVirtualVirtualProviderSid | null;
         /** `true` if age restrictions are public. Otherwise, `false` if they should be hidden from clients. */
         is_age_public: boolean;
         /** Determines whether this service can't be booked due to age restrictions. */
