@@ -23589,8 +23589,8 @@ export interface WlProfileAccountSelectSelectGetParams {
 export interface WlProfileAccountSelectSelectGetResponse {
     /** Array with information about current user and his relationship with sub accounts. */
     a_user: {
-        /** ID of relationship between current user and sub account. */
-        id_family_relation: number;
+        /** Relation type between two relatives. @see RsFamilyRelationSid */
+        id_family_relation: RsFamilyRelationSid;
         /** Name of sub account. */
         s_name: string;
         /** UID of sub account. */
