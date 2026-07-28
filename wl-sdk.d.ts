@@ -10477,7 +10477,7 @@ export interface WlAppointmentInfoInfoResponse {
         /** End date for range edit in location timezone in MySQL date format. */
         dl_edit_to: string;
         /** Current appointment local start time in MySQL time format. */
-        tl_time: string;
+        s_time: string;
     };
     /** List of assets used by this appointment. Each element contains: */
     a_resource: Array<{
@@ -24002,6 +24002,8 @@ export interface WlEventBookEventViewElementResponse {
             /** The title of the installment plan. */
             s_duration: string;
         };
+        /** Classes selected for make-up sessions. See {@link WlEventBookEventViewElementResponse.a_makeup_cl... */
+        a_makeup_class: Array<Array<unknown>>;
         /** Schedule of event sessions. See {@link WlEventBookEventViewElementResponse.a_schedule}. */
         a_schedule: {
             /** Days of the week when the session occurs. */
@@ -24070,6 +24072,8 @@ export interface WlEventBookEventViewElementResponse {
         hide_application: boolean;
         /** Special instruction for event. */
         html_special: string;
+        /** Number of allowed make-up sessions for event. */
+        i_makeup_cap: number;
         /** Session count in event. */
         i_session: number;
         /** Remaining session count in event. */
@@ -24119,6 +24123,13 @@ export interface WlEventBookEventViewElementResponse {
         m_amount: string;
         /** The title of the installment plan. */
         s_duration: string;
+    }>;
+    /** Class selected for make-up sessions. */
+    a_makeup_class: Array<{
+        /** Class key. Primary key in table RsClassSql. */
+        k_class: string;
+        /** Class title. `null` if title is unavailable for the selected language. */
+        s_title: string | null;
     }>;
     /** A list of event sessions. Every element has the following next keys: */
     a_schedule: Array<{
@@ -24224,6 +24235,8 @@ export interface WlEventBookEventViewElementResponse {
     html_special: string;
     /** Class capacity. */
     i_capacity: number | null;
+    /** Number of allowed make-up sessions for event. */
+    i_makeup_cap: number;
     /** The session count. */
     i_session: number;
     /** The remaining session count. */

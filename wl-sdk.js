@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260728080850
+ * Spec version: 1.1.20260728101418
  * Build date:   2026-07-28
  * Endpoints:    502
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260728080850';
+  WlClient.SPEC_VERSION = '1.1.20260728101418';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (502 total)
@@ -9461,6 +9461,7 @@
    *  `a_class_tab` {string[]} The list of keys from class tab.
    *  `a_event` {Object[]} Information for a large number of events.
    *  `a_installment_template` {Object[]} A list of installment plans. Each element has the following next keys:
+   *  `a_makeup_class` {Object[]} Class selected for make-up sessions.
    *  `a_schedule` {Object[]} A list of event sessions. Every element has the following next keys:
    *  `a_shop_category` {string[]} IDs of online store category.
    *  `a_staff_logo` {Object} Photos of staff members. Keys are the keys of staff members. The values are t...
@@ -9473,7 +9474,6 @@
    *  `hide_application` {boolean} Whether event will be hidden in the White Label mobile application.
    *  `html_description` {?string} The description of the event.
    *  `html_special` {string} Special instruction for the event.
-   *  `i_capacity` {?number} Class capacity.
    *  `...` {*}
    */
   WlClient.prototype.wlEventBookEventViewElement = function(params)
