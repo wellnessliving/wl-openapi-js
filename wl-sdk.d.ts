@@ -17444,6 +17444,8 @@ export interface WlAiAgentLinkSendMailParams {
     k_id: string;
     /** Action type. Must be 'purchase' or 'booking'. */
     text_action: string;
+    /** URL suffix for the link. Optional. */
+    text_url_suffix: string;
     /** User ID. Required. */
     uid: string;
 }

@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260728022907
+ * Spec version: 1.1.20260728045411
  * Build date:   2026-07-28
  * Endpoints:    502
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260728022907';
+  WlClient.SPEC_VERSION = '1.1.20260728045411';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (502 total)
@@ -6177,6 +6177,7 @@
    * @param {string} params.k_business Business key. Required.
    * @param {string} params.k_id Unique identifier for the link.
    * @param {string} params.text_action Action type. Must be 'purchase' or 'booking'.
+   * @param {string} params.text_url_suffix URL suffix for the link. Optional.
    * @param {string} params.uid User ID. Required.
    * @returns {Promise<Object>} Response data.
    */
