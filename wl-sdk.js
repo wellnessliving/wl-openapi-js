@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260728060352
+ * Spec version: 1.1.20260728080850
  * Build date:   2026-07-28
  * Endpoints:    502
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260728060352';
+  WlClient.SPEC_VERSION = '1.1.20260728080850';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (502 total)
@@ -3070,11 +3070,12 @@
    *  assets or add-ons. Access is validated against the current user's permissions.
    *
    * @param {Object} [params] Request parameters.
-   * @param {string} params.k_appointment Class identifier to get information for.
+   * @param {string} params.k_appointment Appointment key to get information for.
    * @returns {Promise<Object>} Response data.
    *  `a_next` {Object} Next appointment data, or empty array if there are no appointments in the fut...
    *  `a_previous` {Object} Previous appointment data, or empty array if there are no appointments in the...
    *  `a_question` {Object[]} List of questions and answers:
+   *  `a_repeat` {Object} Repeat settings for appointment reschedule.
    *  `a_resource` {Object[]} List of assets used by this appointment. Each element contains:
    *  `a_shop_product_option` {Object[]} List of appointment add-ons. Every element has next keys:
    *  `dt_date_local` {string} Date/time of appointment in location timezone.
@@ -3091,7 +3092,7 @@
    *  `k_staff` {string} Staff member who conducts this appointment.
    *  `text_title` {string} Title of the appointment.
    *  `uid_appointment` {string} User for whom this appointment was booked.
-   *  `uid_staff` {?string} Staff member who conducts this appointment.
+   *  `...` {*}
    */
   WlClient.prototype.wlAppointmentInfoInfo = function(params)
   {

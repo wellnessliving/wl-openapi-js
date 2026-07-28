@@ -10411,7 +10411,7 @@ export interface WlAppointmentEditAddonUpdatePutParams {
 }
 export type WlAppointmentEditAddonUpdatePutResponse = Record<string, unknown>;
 export interface WlAppointmentInfoInfoParams {
-    /** Class identifier to get information for. */
+    /** Appointment key to get information for. */
     k_appointment: string;
 }
 export interface WlAppointmentInfoInfoResponse {
@@ -10466,6 +10466,19 @@ export interface WlAppointmentInfoInfoResponse {
         /** Question. */
         s_question: string;
     }>;
+    /** Repeat settings for appointment reschedule. */
+    a_repeat: {
+        /** Days of week to repeat appointment. Constants from {@link ADateWeekSid}. */
+        a_day: Array<number>;
+        /** Current appointment date in location timezone in MySQL date format. */
+        dl_date: string;
+        /** Start date for range edit in location timezone in MySQL date format. */
+        dl_edit_from: string;
+        /** End date for range edit in location timezone in MySQL date format. */
+        dl_edit_to: string;
+        /** Current appointment local start time in MySQL time format. */
+        tl_time: string;
+    };
     /** List of assets used by this appointment. Each element contains: */
     a_resource: Array<{
         /** Background color of the asset as an integer (RGB). */
