@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20260725043937
+ * Spec version: 1.1.20260728064232
  * Build date:   2026-07-28
- * Endpoints:    501
+ * Endpoints:    502
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/production/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260725043937';
+  WlClient.SPEC_VERSION = '1.1.20260728064232';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (501 total)
+  // Generated API methods (502 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -3962,6 +3962,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_logo` {Object} Service logo information:
    *  `is_event` {boolean} `true` means event, `false` means class.
+   *  `k_enrollment_block` {string} Key of the group of events, which are different instances of the same event.
    *  `text_title` {string} Title of the class.
    */
   WlClient.prototype.wlClassesInfoInfo = function(params)
@@ -5070,6 +5071,22 @@
   WlClient.prototype.wlLoginTypeLoginType = function(params)
   {
     return this.request('/Wl/Login/Type/LoginType.json', params || {}, 'GET');
+  };
+
+  /**
+   * Deletes a rank record for a user.
+   *
+   * Removes the rank record from the database and logs the action in the belt history.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_rank_category To delete entire rank category from this user.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_login_rank Login rank key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlLoginRankLoginRankElement = function(params)
+  {
+    return this.request('/Wl/Login/Rank/LoginRankElement.json', params || {}, 'DELETE');
   };
 
   /**
@@ -11006,7 +11023,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (209 total)
+  // Enum constants (211 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -16429,16 +16446,18 @@
    * @enum {number}
    */
   WlClient.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = Object.freeze({
-    /** Chat Agent */
-    CHAT_AGENT: 4,
     /** Dental Phone Agent */
     DENTAL_PHONE_AGENT: 5,
     /** None */
     FREE: 1,
     /** Professional */
     PROFESSIONAL: 2,
+    /** Professional subscription, which will be automatically converted to {@link WlClient.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid} after the 5th lead */
+    PROFESSIONAL_TRIAL: 6,
     /** Assistant */
     STANDARD: 3,
+    /** Standard subscription, which will be automatically converted to {@link WlClient.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid} after the 5th lead */
+    STANDARD_TRIAL: 7,
   });
 
   /**

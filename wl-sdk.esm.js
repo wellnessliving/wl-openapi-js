@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — production channel
-// OpenAPI spec version: 1.1.20260725043937
+// OpenAPI spec version: 1.1.20260728064232
 // Build date: 2026-07-28
-// Endpoints: 501
+// Endpoints: 502
 // Enums: 194
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -4779,16 +4779,18 @@ export var WlBusinessAccountSubscriptionDoorDoorSubscriptionSid;
 /** List of possible plans for AiAgentSubscription subscription. */
 export var WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid;
 (function (WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid) {
-    /** Chat Agent */
-    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["CHAT_AGENT"] = 4] = "CHAT_AGENT";
     /** Dental Phone Agent */
     WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["DENTAL_PHONE_AGENT"] = 5] = "DENTAL_PHONE_AGENT";
     /** None */
     WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["FREE"] = 1] = "FREE";
     /** Professional */
     WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+    /** Professional subscription, which will be automatically converted to {@link WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid} after the 5th lead */
+    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["PROFESSIONAL_TRIAL"] = 6] = "PROFESSIONAL_TRIAL";
     /** Assistant */
     WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["STANDARD"] = 3] = "STANDARD";
+    /** Standard subscription, which will be automatically converted to {@link WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid} after the 5th lead */
+    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["STANDARD_TRIAL"] = 7] = "STANDARD_TRIAL";
 })(WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid || (WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = {}));
 /** List of possible plans for SmsSubscription subscription. */
 export var WlBusinessAccountSubscriptionSmsSmsSubscriptionSid;
@@ -6539,6 +6541,15 @@ export class WlLoginTypeNamespace {
         return this._client._request('/Wl/Login/Type/LoginType.json', params, 'GET');
     }
 }
+export class WlLoginRankNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes a rank record for a user. */
+    loginRankElement(params) {
+        return this._client._request('/Wl/Login/Rank/LoginRankElement.json', params, 'DELETE');
+    }
+}
 export class WlLoginMailNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6620,6 +6631,7 @@ export class WlLoginNamespace {
         this.agree = new WlLoginAgreeNamespace(this._client);
         this.add = new WlLoginAddNamespace(this._client);
         this.type = new WlLoginTypeNamespace(this._client);
+        this.rank = new WlLoginRankNamespace(this._client);
         this.mail = new WlLoginMailNamespace(this._client);
         this.member = new WlLoginMemberNamespace(this._client);
         this.permission = new WlLoginPermissionNamespace(this._client);

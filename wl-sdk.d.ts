@@ -4620,16 +4620,18 @@ export declare enum WlBusinessAccountSubscriptionDoorDoorSubscriptionSid {
 }
 /** List of possible plans for AiAgentSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid {
-    /** Chat Agent */
-    CHAT_AGENT = 4,
     /** Dental Phone Agent */
     DENTAL_PHONE_AGENT = 5,
     /** None */
     FREE = 1,
     /** Professional */
     PROFESSIONAL = 2,
+    /** Professional subscription, which will be automatically converted to {@link WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid} after the 5th lead */
+    PROFESSIONAL_TRIAL = 6,
     /** Assistant */
-    STANDARD = 3
+    STANDARD = 3,
+    /** Standard subscription, which will be automatically converted to {@link WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid} after the 5th lead */
+    STANDARD_TRIAL = 7
 }
 /** List of possible plans for SmsSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionSmsSmsSubscriptionSid {
@@ -11022,6 +11024,8 @@ export interface WlClassesInfoInfoResponse {
     };
     /** `true` means event, `false` means class. */
     is_event: boolean;
+    /** Key of the group of events, which are different instances of the same event. */
+    k_enrollment_block: string;
     /** Title of the class. */
     text_title: string;
 }
@@ -14769,6 +14773,15 @@ export interface WlLoginTypeLoginTypeResponse {
         text_title: string;
     }>;
 }
+export interface WlLoginRankLoginRankElementParams {
+    /** To delete entire rank category from this user. */
+    is_rank_category: boolean;
+    /** Business key. */
+    k_business: string;
+    /** Login rank key. */
+    k_login_rank: string;
+}
+export type WlLoginRankLoginRankElementResponse = Record<string, unknown>;
 export interface WlLoginMailMailUseParams {
     /** The business for which the email address search is being performed. */
     k_business: string;
@@ -19708,8 +19721,8 @@ export interface WlProfileAccountSelectSelectGetParams {
 export interface WlProfileAccountSelectSelectGetResponse {
     /** Array with information about current user and his relationship with sub accounts. */
     a_user: {
-        /** ID of relationship between current user and sub account. */
-        id_family_relation: number;
+        /** Relation type between two relatives. @see RsFamilyRelationSid */
+        id_family_relation: RsFamilyRelationSid;
         /** Name of sub account. */
         s_name: string;
         /** UID of sub account. */
@@ -20887,6 +20900,8 @@ export interface WlAppointmentBookServiceServiceListResponse {
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
         /** A list of client booking flow types. @see RsServiceRequireSid */
         id_service_require: RsServiceRequireSid;
+        /** List of possible value of virtual integrations. @see WlVirtualVirtualProviderSid */
+        id_virtual_provider: WlVirtualVirtualProviderSid | null;
         /** `true` if age restrictions are public. Otherwise, `false` if they should be hidden from clients. */
         is_age_public: boolean;
         /** Determines whether this service can't be booked due to age restrictions. */
@@ -21072,6 +21087,8 @@ export interface WlAppointmentBookServiceServiceList52Response {
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
         /** A list of client booking flow types. @see RsServiceRequireSid */
         id_service_require: RsServiceRequireSid;
+        /** List of possible value of virtual integrations. @see WlVirtualVirtualProviderSid */
+        id_virtual_provider: WlVirtualVirtualProviderSid | null;
         /** `true` if age restrictions are public. Otherwise, `false` if they should be hidden from clients. */
         is_age_public: boolean;
         /** Determines whether this service can't be booked due to age restrictions. */
@@ -27102,6 +27119,12 @@ export declare class WlLoginTypeNamespace {
     /** Gets a login types list of a business. */
     loginType(params?: WlLoginTypeLoginTypeParams): Promise<WlLoginTypeLoginTypeResponse>;
 }
+export declare class WlLoginRankNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Deletes a rank record for a user. */
+    loginRankElement(params?: WlLoginRankLoginRankElementParams): Promise<WlLoginRankLoginRankElementResponse>;
+}
 export declare class WlLoginMailNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -27155,6 +27178,7 @@ export declare class WlLoginNamespace {
     readonly agree: WlLoginAgreeNamespace;
     readonly add: WlLoginAddNamespace;
     readonly type: WlLoginTypeNamespace;
+    readonly rank: WlLoginRankNamespace;
     readonly mail: WlLoginMailNamespace;
     readonly member: WlLoginMemberNamespace;
     readonly permission: WlLoginPermissionNamespace;
