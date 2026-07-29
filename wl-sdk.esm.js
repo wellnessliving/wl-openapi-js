@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — production channel
-// OpenAPI spec version: 1.1.20260728124823
+// OpenAPI spec version: 1.1.20260729084944
 // Build date: 2026-07-29
-// Endpoints: 502
+// Endpoints: 504
 // Enums: 194
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -5235,11 +5235,41 @@ export class ThothPayProcessorNamespace {
         this.nuvei = new ThothPayProcessorNuveiNamespace(this._client);
     }
 }
+export class ThothReportCoreQueryEngineReportCustomizationNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    reportQueryCustomizationFormGet(params) {
+        return this._client._request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params, 'GET');
+    }
+    reportQueryCustomizationFormPost(params) {
+        return this._client._request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params, 'POST');
+    }
+}
+export class ThothReportCoreQueryEngineReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.customization = new ThothReportCoreQueryEngineReportCustomizationNamespace(this._client);
+    }
+}
+export class ThothReportCoreQueryEngineNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.report = new ThothReportCoreQueryEngineReportNamespace(this._client);
+    }
+}
+export class ThothReportCoreNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.queryEngine = new ThothReportCoreQueryEngineNamespace(this._client);
+    }
+}
 export class ThothNamespace {
     constructor(_client) {
         this._client = _client;
         this.explorerSearch = new ThothExplorerSearchNamespace(this._client);
         this.payProcessor = new ThothPayProcessorNamespace(this._client);
+        this.reportCore = new ThothReportCoreNamespace(this._client);
     }
 }
 export class WlPayProcessorStripeComNamespace {

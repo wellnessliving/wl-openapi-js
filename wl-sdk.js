@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20260728124823
+ * Spec version: 1.1.20260729084944
  * Build date:   2026-07-29
- * Endpoints:    502
+ * Endpoints:    504
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/production/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260728124823';
+  WlClient.SPEC_VERSION = '1.1.20260729084944';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (502 total)
+  // Generated API methods (504 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2417,6 +2417,7 @@
    *  `a_bank_card` {Object} A list of bank cards.
    *  `a_list` {Object[]} List of bank cards.
    *  `can_add` {boolean} Whether new card can be added.
+   *  `can_remove_self` {boolean} Whether the client is allowed to remove their own saved credit cards.
    */
   WlClient.prototype.wlPayBankCardList = function(params)
   {
@@ -7353,6 +7354,40 @@
   WlClient.prototype.wlTuitionEnrollmentTuitionEnrollmentList = function(params)
   {
     return this.request('/Wl/Tuition/Enrollment/TuitionEnrollmentList.json', params || {}, 'GET');
+  };
+
+  /**
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_page Report page CID.
+   * @param {number} params.cid_report Page CID.
+   * @param {string} params.k_business Business primary key in RsBusinessSql table.
+   * @param {?string} [params.k_report_query] SQL query primary key. Primary key in ReportQuerySql.
+   * @param {?string} [params.k_report_save] Primary key of a saved report in RsReportSaveSql table.
+   * @param {string} params.s_report Report CID list to that page customization form must be converted. String separated with `,`.
+   * @param {string} params.uid_actor Current user's primary key in PassportLoginAr table.
+   * @returns {Promise<Object>} Response data.
+   *  `a_customization_form` {*[]} Customization form data.
+   */
+  WlClient.prototype.thothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGet = function(params)
+  {
+    return this.request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params || {}, 'GET');
+  };
+
+  /**
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_page Report page CID.
+   * @param {number} params.cid_report Page CID.
+   * @param {string} params.k_business Business primary key in RsBusinessSql table.
+   * @param {?string} [params.k_report_query] SQL query primary key. Primary key in ReportQuerySql.
+   * @param {?string} [params.k_report_save] Primary key of a saved report in RsReportSaveSql table.
+   * @param {string} params.uid_actor Current user's primary key in PassportLoginAr table.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.thothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPost = function(params)
+  {
+    return this.request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params || {}, 'POST');
   };
 
   /**
