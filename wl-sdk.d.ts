@@ -21423,6 +21423,8 @@ export interface WlAppointmentBookScheduleDayTimeResponse {
     a_time: {
         /** Date of the calendar. */
         dt_date: string;
+        /** Same moment as `dt_date`, converted to real UTC date and time, in MySQL format. */
+        dtu_date: string;
         /** The count of clients that have already booked this appointment. */
         i_count: number;
         /** Integer representation of appointment schedule time. */
@@ -21521,6 +21523,8 @@ export interface WlAppointmentBookScheduleCalendarResponse {
     a_time: {
         /** Date of the calendar. */
         dt_date: string;
+        /** Same moment as `dt_date`, converted to real UTC date and time, in MySQL format. */
+        dtu_date: string;
         /** The count of clients that have already booked this appointment. */
         i_count: number;
         /** Integer representation of appointment schedule time. */
