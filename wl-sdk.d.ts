@@ -1462,13 +1462,6 @@ export declare enum WlMailVerifyMailVerifyStatusSid {
     /** Verification in progress */
     WAIT_FOR_VERIFY = 2
 }
-/** An enum of credit card types. */
-export declare enum WlPayBankCardCardTypeEnum {
-    /** Credit Card */
-    CREDIT = 1,
-    /** Debit Card */
-    DEBIT = 2
-}
 /** CS Response code class. */
 export declare enum ThothPayProcessorNuveiCodeCSResponseSid {
     /** Service has been successfully provided */
@@ -1608,6 +1601,8 @@ export declare enum WlModeModeSid {
     API = 28,
     /** Registered through `Azure` */
     AZURE = 21,
+    /** Visit has been checked-in by Brivo Door Access */
+    BRIVO_DOOR_ACCESS = 31,
     /** Visit has been created by `CENTRED` */
     CENTRED = 23,
     /** Visit has been created by `ClassPass` */
@@ -1638,6 +1633,8 @@ export declare enum WlModeModeSid {
     MICROSOFT = 24,
     /** Client booked session on My Presence Site */
     MY_PRESENCE_SITE = 13,
+    /** Visit has been created by `Passport Door Access` */
+    PASSPORT_DOOR_ACCESS = 32,
     /** Action made via SMS */
     SMS = 17,
     /** Staff booked session from spa backend */
@@ -3081,6 +3078,27 @@ export declare enum WlBusinessPolicyChargeSid {
     /** Mark account as has "Late cancel" and "No shows" sessions */
     FLAG_ACCOUNT = 2
 }
+/** A list of report categories. */
+export declare enum RsReportCategorySid {
+    /** Category reports on attendance */
+    ATTENDANCE = 2,
+    /** Category reports on clients */
+    CLIENT = 1,
+    /** Category on dashboards */
+    DASHBOARD = 9,
+    /** Corporate reports */
+    FRANCHISE = 6,
+    /** Insurance and reimbursements reports */
+    INSURANCE = 7,
+    /** Category reports on mail */
+    MAIL = 5,
+    /** Metrics category */
+    METRIC = 8,
+    /** Category reports on sales */
+    SALE = 4,
+    /** Category reports on staff */
+    STAFF = 3
+}
 /** Attendance Restriction cycle type. */
 export declare enum WlPromotionEditLimitCycleSid {
     /** Attendance Restriction is applied at the start of the calendar cycle */
@@ -3463,6 +3481,8 @@ export declare enum WlPrivilegePrivilegeSid {
     CLASS_LOCK_SEARCH = 152,
     /** Edit class schedule */
     CLASS_PERIOD = 5,
+    /** Allows a staff member to see other staff members' class sessions on the schedule in read-only mode */
+    CLASS_SCHEDULE_VIEW = 246,
     /** Add and view client's contact logs */
     CONTACT_LOG_MANAGE = 135,
     /** Add, remove, and edit gift cards */
@@ -3495,6 +3515,8 @@ export declare enum WlPrivilegePrivilegeSid {
     ENROLLMENT_FOREIGN = 53,
     /** Lock search bar on enrollment attendance list */
     ENROLLMENT_LOCK_SEARCH = 153,
+    /** Allows a staff member to see other staff members' event sessions on the schedule in read-only mode */
+    ENROLLMENT_SCHEDULE_VIEW = 247,
     /** Manage Enterprise Cloud Fees */
     ENTERPRISE_CLOUD_FEES = 207,
     /** Allows to manage leaderboard in the `FitBuilder` addon */
@@ -3645,6 +3667,8 @@ export declare enum WlPrivilegePrivilegeSid {
     PARTNER_PROGRAM_MANAGE = 94,
     /** Access to Payment Processing */
     PAYMENT_PROCESSING = 166,
+    /** Allows the staff member to initiate bulk billing of multiple clients in one batch */
+    PERFORM_BULK_BILLING = 245,
     /** Permission to perform Physical Inventory Count */
     PHYSICAL_INVENTORY_COUNT = 156,
     /** Staff member with this role will be able to send postcards */
@@ -3898,6 +3922,8 @@ export declare enum RsRewardScoreSid {
 }
 /** Mail types. */
 export declare enum RsMailSid {
+    /** Sent when a client abandons a checkout (used in automations) */
+    ABANDONED_CHECKOUT = 220,
     /** Sent by CASSI phone agent, when client requests a booking url */
     AI_LINK_BOOK = 206,
     /** Sent by CASSI phone agent, when client requests a purchase url */
@@ -4417,6 +4443,29 @@ export declare enum WlSocialShareShareObjectSid {
     PURCHASE = 1,
     /** Review */
     REVIEW = 2
+}
+/** Widget analytics checkout types. */
+export declare enum WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid {
+    /** Any checkout type */
+    ANY = 1,
+    /** Booking checkout type */
+    BOOKING = 3,
+    /** Store purchase checkout type */
+    STORE_PURCHASE = 2
+}
+/** Widget analytics event types. */
+export declare enum WlWidgetAnalyticsWidgetAnalyticsEventSid {
+    /** Checkout abandonment event */
+    ABANDONED_CHECKOUT = 1,
+    /** Begin checkout event */
+    BEGIN_CHECKOUT = 2,
+    /** Purchase event */
+    PURCHASE = 3
+}
+/** Widget analytics event schema versions. */
+export declare enum WlWidgetAnalyticsWidgetAnalyticsEventVersionSid {
+    /** Initial event schema */
+    V1 = 1
 }
 /** A list of bank account types. */
 export declare enum RsPayBankSid {
@@ -5767,8 +5816,8 @@ export interface CoreWebSocketSubscribeResponse {
     } | {
         /** A class for a list of card systems. @see ACardSystemSid */
         id_card_system: ACardSystemSid;
-        /** An enum of credit card types. @see WlPayBankCardCardTypeEnum */
-        id_card_type: WlPayBankCardCardTypeEnum | null;
+        /** Card type ID. */
+        id_card_type: number | null;
         /** An exception that is thrown in a case of a payment error. @see RsPayException */
         id_pay_exception: RsPayException | null;
         /** CS Response code class. @see ThothPayProcessorNuveiCodeCSResponseSid */
@@ -6214,6 +6263,8 @@ export interface WlEventEventListGetResponse {
         is_bookable: boolean;
         /** Whether event is already booked. */
         is_booked: boolean;
+        /** `true` if clients can cancel this event. Otherwise, this will be `false`. */
+        is_cancellation_enabled: boolean;
         /** Whether booking of the event is closed already. */
         is_closed: boolean;
         /** Whether event is full already. */
@@ -6778,6 +6829,8 @@ export interface WlPromotionPromotionListResponse {
         id_program_type: RsProgramTypeSid;
         /** Whether the promotion is active. */
         is_active: boolean;
+        /** Whether the promotion is a component. */
+        is_component: boolean;
         /** The key of the promotion. */
         k_promotion: string;
         /** The title of the promotion. */
@@ -8327,6 +8380,8 @@ export interface WlSessionEnvironmentGetResponse {
     dtl_now: string;
     /** Whether exists form to confirm during registration process. */
     has_form_quiz: boolean;
+    /** `true` if the "home" page is turned on for the current business; `false` otherwise. */
+    has_home: boolean;
     /** Whether the merchant is configured for the client's home location or for business {@link WlSessio... */
     has_merchant: boolean;
     /** A list of currency codes. @see RsCurrencySid */
@@ -8906,6 +8961,8 @@ export interface WlPayBankCardListResponse {
         i_year: number;
         /** A class for a list of card systems. @see ACardSystemSid */
         id_card_system: ACardSystemSid;
+        /** If `true`, this card backs at least one active autopay membership or package. */
+        is_autopay: boolean;
         /** If `true`, then this card is the user default card. */
         is_default: boolean;
         /** The payment address ID. This refers to a physical address associated with a payment card. */
@@ -8927,6 +8984,8 @@ export interface WlPayBankCardListResponse {
         i_year: number;
         /** A class for a list of card systems. @see ACardSystemSid */
         id_card_system: ACardSystemSid;
+        /** If `true`, this card backs at least one active autopay membership or package. */
+        is_autopay: boolean;
         /** If `true`, then this card is the user default card. */
         is_default: boolean;
         /** The payment address ID. This refers to a physical address associated with a payment card. */
@@ -8942,6 +9001,8 @@ export interface WlPayBankCardListResponse {
     }>;
     /** Whether new card can be added. */
     can_add: boolean;
+    /** Whether the client is allowed to remove their own saved credit cards. */
+    can_remove_self: boolean;
 }
 export interface WlPayAddressWidgetWidgetEditParams {
     /** Business key. */
@@ -9331,6 +9392,8 @@ export interface WlScheduleClassListClassList68Response {
         is_book_for_guest: boolean;
         /** If `true`, this class period was canceled. Otherwise, this will be `false`. */
         is_cancel: boolean;
+        /** `true` if clients can cancel this session. Otherwise, this will be `false`. */
+        is_cancellation_enabled: boolean;
         /** If `true`, this is an event. Otherwise, this will be `false`. */
         is_event: boolean;
         /** If `true`, this class is virtual. Otherwise, this will be `false`. */
@@ -9395,6 +9458,8 @@ export interface WlScheduleClassListClassListParams {
     uid: string;
     /** Class filter by type. */
     is_virtual?: boolean | null;
+    /** Key of timezone. */
+    k_timezone?: string | null;
 }
 export interface WlScheduleClassListClassListResponse {
     /** Keys are dates of the days inside requested date range, when there is at least one class in the b... */
@@ -9437,6 +9502,8 @@ export interface WlScheduleClassListClassListResponse {
         is_book_for_guest: boolean;
         /** If `true`, this class period was canceled. Otherwise, this will be `false`. */
         is_cancel: boolean;
+        /** `true` if clients can cancel this session. Otherwise, this will be `false`. */
+        is_cancellation_enabled: boolean;
         /** If `true`, this is an event. Otherwise, this will be `false`. */
         is_event: boolean;
         /** If `true`, this class is virtual. Otherwise, this will be `false`. */
@@ -9563,10 +9630,18 @@ export interface WlScheduleClassViewClassViewGetResponse {
         html_special: string;
         /** Timezone title. */
         text_timezone: string;
-        /** Age from that class is allowed. `null` if information is not available. */
-        i_age_from: number | null;
-        /** Age to that class is allowed. `null` if information is not available. */
-        i_age_to: number | null;
+        /** The minimum age restriction. Deprecated and is left only for back compatibility. */
+        i_age_from: number;
+        /** The minimum age restriction (months). */
+        i_age_from_month: number;
+        /** The minimum age restriction (years). */
+        i_age_from_year: number;
+        /** The maximum age restriction. Deprecated and is left only for back compatibility. */
+        i_age_to: number;
+        /** The maximum age restriction (months). */
+        i_age_to_month: number;
+        /** The maximum age restriction (years). */
+        i_age_to_year: number;
         /** A total number of booked visits in the class, including all lists: active and waitlist. */
         i_book: number;
         /** A total number of booked active visits in the class. */
@@ -9587,6 +9662,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
         is_book_for_guest: boolean;
         /** `true` if class period was cancelled; `false` otherwise. */
         is_cancel: boolean;
+        /** `true` if clients can cancel this session. Otherwise, this will be `false`. */
+        is_cancellation_enabled: boolean;
         /** `true` if it is event; `false` if it is class. */
         is_event: boolean;
         /** `true` if this class can be paid with promotion only; `false` otherwise. */
@@ -9676,10 +9753,18 @@ export interface WlScheduleClassViewClassViewGetResponse {
             html_special: string;
             /** Timezone title. */
             text_timezone: string;
-            /** Age from that class is allowed. `null` if information is not available. */
-            i_age_from: number | null;
-            /** Age to that class is allowed. `null` if information is not available. */
-            i_age_to: number | null;
+            /** The minimum age restriction. Deprecated and is left only for back compatibility. */
+            i_age_from: number;
+            /** The minimum age restriction (months). */
+            i_age_from_month: number;
+            /** The minimum age restriction (years). */
+            i_age_from_year: number;
+            /** The maximum age restriction. Deprecated and is left only for back compatibility. */
+            i_age_to: number;
+            /** The maximum age restriction (months). */
+            i_age_to_month: number;
+            /** The maximum age restriction (years). */
+            i_age_to_year: number;
             /** A total number of booked visits in the class, including all lists: active and waitlist. */
             i_book: number;
             /** A total number of booked active visits in the class. */
@@ -9700,6 +9785,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
             is_book_for_guest: boolean;
             /** `true` if class period was cancelled; `false` otherwise. */
             is_cancel: boolean;
+            /** `true` if clients can cancel this session. Otherwise, this will be `false`. */
+            is_cancellation_enabled: boolean;
             /** `true` if it is event; `false` if it is class. */
             is_event: boolean;
             /** `true` if this class can be paid with promotion only; `false` otherwise. */
@@ -9888,10 +9975,18 @@ export interface WlScheduleClassViewClassViewPostResponse {
         html_special: string;
         /** Timezone title. */
         text_timezone: string;
-        /** Age from that class is allowed. `null` if information is not available. */
-        i_age_from: number | null;
-        /** Age to that class is allowed. `null` if information is not available. */
-        i_age_to: number | null;
+        /** The minimum age restriction. Deprecated and is left only for back compatibility. */
+        i_age_from: number;
+        /** The minimum age restriction (months). */
+        i_age_from_month: number;
+        /** The minimum age restriction (years). */
+        i_age_from_year: number;
+        /** The maximum age restriction. Deprecated and is left only for back compatibility. */
+        i_age_to: number;
+        /** The maximum age restriction (months). */
+        i_age_to_month: number;
+        /** The maximum age restriction (years). */
+        i_age_to_year: number;
         /** A total number of booked visits in the class, including all lists: active and waitlist. */
         i_book: number;
         /** A total number of booked active visits in the class. */
@@ -9912,6 +10007,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
         is_book_for_guest: boolean;
         /** `true` if class period was cancelled; `false` otherwise. */
         is_cancel: boolean;
+        /** `true` if clients can cancel this session. Otherwise, this will be `false`. */
+        is_cancellation_enabled: boolean;
         /** `true` if it is event; `false` if it is class. */
         is_event: boolean;
         /** `true` if this class can be paid with promotion only; `false` otherwise. */
@@ -10001,10 +10098,18 @@ export interface WlScheduleClassViewClassViewPostResponse {
             html_special: string;
             /** Timezone title. */
             text_timezone: string;
-            /** Age from that class is allowed. `null` if information is not available. */
-            i_age_from: number | null;
-            /** Age to that class is allowed. `null` if information is not available. */
-            i_age_to: number | null;
+            /** The minimum age restriction. Deprecated and is left only for back compatibility. */
+            i_age_from: number;
+            /** The minimum age restriction (months). */
+            i_age_from_month: number;
+            /** The minimum age restriction (years). */
+            i_age_from_year: number;
+            /** The maximum age restriction. Deprecated and is left only for back compatibility. */
+            i_age_to: number;
+            /** The maximum age restriction (months). */
+            i_age_to_month: number;
+            /** The maximum age restriction (years). */
+            i_age_to_year: number;
             /** A total number of booked visits in the class, including all lists: active and waitlist. */
             i_book: number;
             /** A total number of booked active visits in the class. */
@@ -10025,6 +10130,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
             is_book_for_guest: boolean;
             /** `true` if class period was cancelled; `false` otherwise. */
             is_cancel: boolean;
+            /** `true` if clients can cancel this session. Otherwise, this will be `false`. */
+            is_cancellation_enabled: boolean;
             /** `true` if it is event; `false` if it is class. */
             is_event: boolean;
             /** `true` if this class can be paid with promotion only; `false` otherwise. */
@@ -12317,10 +12424,18 @@ export interface WlClassesClassViewElementResponse {
         html_description: string;
         /** Special instructions safe to be inserted to a browser. */
         html_special_instruction: string;
-        /** The minimum age restriction. */
+        /** The minimum age restriction. Deprecated and is left only for back compatibility. */
         i_age_from: number;
-        /** The maximum age restriction. */
+        /** The minimum age restriction (months). */
+        i_age_from_month: number;
+        /** The minimum age restriction (years). */
+        i_age_from_year: number;
+        /** The maximum age restriction. Deprecated and is left only for back compatibility. */
         i_age_to: number;
+        /** The maximum age restriction (months). */
+        i_age_to_month: number;
+        /** The maximum age restriction (years). */
+        i_age_to_year: number;
         /** Determines whether age restriction exist and should be taken into account prior to booking this c... */
         is_age_public: boolean;
         /** Determines whether clients can book the class or event online. */
@@ -12792,6 +12907,142 @@ export interface WlBusinessWaiverWaiverResponse {
     /** Text of the current waiver with the substituted variables. */
     html_waiver: string;
 }
+export interface WlReportDashboardReportDashboardPostParams {
+    /** Business key of the report. */
+    k_business: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export type WlReportDashboardReportDashboardPostResponse = Record<string, unknown>;
+export interface WlReportDashboardReportDashboardPutParams {
+    /** Business key of the report. */
+    k_business: string;
+    /** Report save key. */
+    k_report_save: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export type WlReportDashboardReportDashboardPutResponse = Record<string, unknown>;
+export interface WlReportSaveReportSaveGetParams {
+    /** Business key of the saved report. */
+    k_business: string;
+    /** Report save key. */
+    k_report_save: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export interface WlReportSaveReportSaveGetResponse {
+    /** Filter raw data of the saved report. */
+    a_filter: Record<string, unknown>;
+    /** A list of report categories. @see RsReportCategorySid */
+    id_report_category: RsReportCategorySid;
+    /** Description of the saved report. */
+    text_description: string;
+    /** Title of the saved report. */
+    text_title: string;
+}
+export interface WlReportSaveReportSavePostParams {
+    /** Business key of the saved report. */
+    k_business: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export type WlReportSaveReportSavePostResponse = Record<string, unknown>;
+export interface WlReportSaveReportSavePutParams {
+    /** Business key of the saved report. */
+    k_business: string;
+    /** Report save key. */
+    k_report_save: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export type WlReportSaveReportSavePutResponse = Record<string, unknown>;
+export interface WlReportCustomizationCustomizationFormGetParams {
+    /** Report page CID. */
+    cid_page: number;
+    /** Report CID. */
+    cid_report: number;
+    /** Business primary key. */
+    k_business: string;
+    /** Report CID list to that page customization form must be converted. String separated with `,`. */
+    s_report: string;
+    /** Current user's primary key. */
+    uid_actor: string;
+    /** Primary key of a saved report. */
+    k_report_save?: string | null;
+}
+export interface WlReportCustomizationCustomizationFormGetResponse {
+    /** Customization form data keyed by report or page CID. Each value has the following structure: */
+    a_customization_form: {
+        /** Form elements keyed by element name. Each element has the following structure: */
+        a_element: {
+            /** Element fields keyed by field alias. Each field has the following structure: */
+            a_field: {
+                /** Localized field title. */
+                text_title: string;
+                /** Current field value. */
+                x_value: string;
+            };
+            /** Report CID list the element applies to. */
+            a_report: Array<number>;
+            /** Localized element title. */
+            html_title: string;
+            /** Localized element tooltip. */
+            html_title_tooltip: string;
+        };
+        /** Form class identifier. */
+        s_form: string;
+    };
+}
+export interface WlReportCustomizationCustomizationFormPostParams {
+    /** Report page CID. */
+    cid_page: number;
+    /** Report CID. */
+    cid_report: number;
+    /** Business primary key. */
+    k_business: string;
+    /** Current user's primary key. */
+    uid_actor: string;
+    /** Primary key of a saved report. */
+    k_report_save?: string | null;
+}
+export type WlReportCustomizationCustomizationFormPostResponse = Record<string, unknown>;
+export interface WlReportFavoriteReportFavoriteDeleteParams {
+    /** CID of the controller. */
+    cid_controller: number;
+    /** Business key within which request is performed. */
+    k_business: string;
+    /** Saved report key to manage. */
+    k_report_save: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export type WlReportFavoriteReportFavoriteDeleteResponse = Record<string, unknown>;
+export interface WlReportFavoriteReportFavoriteGetParams {
+    /** CID of the controller. */
+    cid_controller: number;
+    /** Business key within which request is performed. */
+    k_business: string;
+    /** Saved report key to manage. */
+    k_report_save: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export interface WlReportFavoriteReportFavoriteGetResponse {
+    /** Whether report is favorite. */
+    is_favorite: boolean;
+}
+export interface WlReportFavoriteReportFavoritePostParams {
+    /** CID of the controller. */
+    cid_controller: number;
+    /** Business key within which request is performed. */
+    k_business: string;
+    /** Saved report key to manage. */
+    k_report_save: string;
+    /** UID user's key of the actor. */
+    uid_actor: string;
+}
+export type WlReportFavoriteReportFavoritePostResponse = Record<string, unknown>;
 export interface WlLeadSourceLeadSourceListParams {
     /** Business key. */
     k_business: string;
@@ -12836,6 +13087,8 @@ export interface WlPromotionIndexPromotionIndexParams {
     id_program_type: RsProgramTypeSid;
     /** The location key. */
     k_location: string;
+    /** The business key. */
+    k_business?: string | null;
 }
 export interface WlPromotionIndexPromotionIndexResponse {
     /** A list of introductory promotion offers available at the location. */
@@ -15997,12 +16250,22 @@ export interface WlCatalogCatalogListElementParams {
 export interface WlCatalogCatalogListElementResponse {
     /** The age restriction configuration. */
     a_age_restriction: {
-        /** The minimum age permitted for the event. This will be `null` if a minimum age isn't set or availa... */
-        i_age_from: number | null;
-        /** The maximum age permitted for the event. This will be `null` if a maximum age isn't set or availa... */
-        i_age_to: number | null;
-        /** If `true`, age restrictions are public and available. Otherwise, this will be `false` if they're ... */
+        /** Minimum age for service (years part). */
+        i_age_from: number;
+        /** Minimum age for service (months part). */
+        i_age_from_month: number;
+        /** Minimum age for service (years part). */
+        i_age_from_year: number;
+        /** Maximum age for service (years part). */
+        i_age_to: number;
+        /** Maximum age for service (months part). */
+        i_age_to_month: number;
+        /** Maximum age for service (years part). */
+        i_age_to_year: number;
+        /** Is service public even if user does not meet age requirements or not? */
         is_age_public: boolean;
+        /** Whether months are enabled for age restrictions. */
+        is_month_enabled: boolean;
     };
     /** Additional information specific for the item. */
     a_data: {
@@ -17428,6 +17691,29 @@ export interface WlServiceServiceListListResponse {
     a_service: Array<{
         /** Whether service will be hidden in the White Label mobile application. */
         hide_application: boolean;
+        /** Appointment type identifier, primary key. */
+        k_service: string;
+        /** Appointment type category identifier, primary key. */
+        k_service_category: string;
+        /** Appointment type category name. */
+        text_category: string;
+        /** Appointment type name. */
+        text_service: string;
+    }>;
+}
+export interface WlServiceServiceListList75Params {
+    /** Whether to return franchisee-created appointment types (if business is franchisor). */
+    is_franchise: boolean;
+    /** Business key, primary key. */
+    k_business: string;
+}
+export interface WlServiceServiceListList75Response {
+    /** Appointment types list: */
+    a_service: Array<{
+        /** Whether service will be hidden in the White Label mobile application. */
+        hide_application: boolean;
+        /** Whether appointment type is active. */
+        is_active: boolean;
         /** Appointment type identifier, primary key. */
         k_service: string;
         /** Appointment type category identifier, primary key. */
@@ -19197,6 +19483,135 @@ export interface WlSocialShareSocialShareResponse {
 }
 export type WlFacebookLoginFacebookLoginParams = Record<string, unknown>;
 export type WlFacebookLoginFacebookLoginResponse = Record<string, unknown>;
+export type WlBillingBulkBulkBillingDeleteParams = Record<string, unknown>;
+export type WlBillingBulkBulkBillingDeleteResponse = Record<string, unknown>;
+export type WlBillingBulkBulkBillingPostParams = Record<string, unknown>;
+export interface WlBillingBulkBulkBillingPostResponse {
+    /** The purchase batch key. */
+    k_purchase_batch: string;
+}
+export type WlBillingBulkBulkBillingPutParams = Record<string, unknown>;
+export type WlBillingBulkBulkBillingPutResponse = Record<string, unknown>;
+export interface WlBillingBulkBulkBillingUserParams {
+    /** The business key. */
+    k_business: string;
+    /** The purchase batch key. */
+    k_purchase_batch: string;
+    /** The user key of the client to remove from the batch. */
+    uid: string;
+}
+export type WlBillingBulkBulkBillingUserResponse = Record<string, unknown>;
+export interface WlBillingBulkPurchaseItemListGetParams {
+    /** The business key. */
+    k_business: string;
+    /** The location key to filter available items by. */
+    k_location: string;
+}
+export interface WlBillingBulkPurchaseItemListGetResponse {
+    /** The list of products available at the location. Each element has the following structure: */
+    a_product: Array<{
+        /** The options of the product available at the location. Each element has the following structure: */
+        a_option: {
+            /** The product option key. */
+            k_shop_product_option: string;
+            /** The regular price of the option. */
+            m_price: string;
+            /** The product option title. */
+            text_title: string;
+        };
+        /** `true` if no taxes should be applied to the product, `false` otherwise. */
+        is_tax_free: boolean;
+        /** The product key. */
+        k_shop_product: string;
+        /** The product title. */
+        text_title: string;
+    }>;
+    /** The list of promotions available at the location. Each element has the following structure: */
+    a_promotion: Array<{
+        /** Program types. @see RsProgramSid */
+        id_program: RsProgramSid;
+        /** Program types. @see RsProgramTypeSid */
+        id_program_type: RsProgramTypeSid;
+        /** `true` if no taxes should be applied to the promotion, `false` otherwise. */
+        is_tax_free: boolean;
+        /** The promotion key. */
+        k_promotion: string;
+        /** The promotion price, excluding taxes. */
+        m_price: string;
+        /** The promotion title. */
+        text_title: string;
+        /** Payment period of the promotion. */
+        text_payment_period: string;
+    }>;
+}
+export interface WlBillingBulkPurchaseItemListPostParams {
+    /** The business key. */
+    k_business: string;
+    /** The location key to filter available items by. */
+    k_location: string;
+}
+export interface WlBillingBulkPurchaseItemListPostResponse {
+    /** The result of preparing the clients to bill. Has the following structure: */
+    a_client_bill: {
+        /** The inventory and introductory-eligibility warnings produced while preparing the bill. Each */
+        a_warning: {
+            /** The user-facing warning message. */
+            text_message: string;
+        };
+        /** The list of clients that will be billed. Each element has the following structure: */
+        a_client: {
+            /** `true` if the client has no default payment method on file, has no email on file while a receipt is */
+            is_warning: boolean;
+            /** The client email address. Empty string if the client has no email. */
+            text_mail: string;
+            /** The client full name. */
+            text_name: string;
+            /** The payment method label for this client. `Account` when billing to the client account; otherwise... */
+            text_pay_method: string;
+            /** The client cell phone number. Empty string if the client has no cell phone. */
+            text_phone: string;
+            /** The client user key. */
+            uid: string;
+        };
+    };
+    /** The clients removed from the bulk billing because a selected item is not available to their clien... */
+    a_client_restrict: {
+        /** The clients that fail at least one restriction. Each element has the following structure: */
+        a_client: {
+            /** The client login type title. */
+            text_login_type: string;
+            /** The client email address. Empty string if the client has no email. */
+            text_mail: string;
+            /** Comma-separated titles of the member groups the client belongs to. */
+            text_member_group: string;
+            /** The client full name. */
+            text_name: string;
+            /** The client user key. */
+            uid: string;
+        };
+        /** One warning per restricted item that at least one client fails to satisfy. Each element has the */
+        a_warning: {
+            /** The user-facing warning message. */
+            text_message: string;
+        };
+        /** `true` if at least one client fails a member group restriction, `false` otherwise. */
+        has_client_group_restrict: boolean;
+        /** `true` if at least one client fails a login type restriction, `false` otherwise. */
+        has_client_type_restrict: boolean;
+    };
+    /** The total amount charged across every client that will be billed (per-client total multiplied by ... */
+    m_batch: string;
+    /** The subtotal per client (sum of the selected purchase item prices, excluding taxes). */
+    m_subtotal: string;
+    /** The tax amount per client. Always `0` when {@link WlBillingBulkNamespace#purchaseItemListGet} is ... */
+    m_tax: string;
+    /** The total per client (subtotal plus tax). */
+    m_total: string;
+    /** The review id that identifies this prepared bulk billing. Pass it to {@link WlBillingBulkNamespac... */
+    s_id: string;
+}
+export type WlWidgetAnalyticsWidgetAnalyticsEventParams = Record<string, unknown>;
+export type WlWidgetAnalyticsWidgetAnalyticsEventResponse = Record<string, unknown>;
 export interface WlTuitionEnrollmentTuitionEnrollmentListParams {
     /** Filters. */
     a_filter: {
@@ -19264,6 +19679,60 @@ export interface WlTuitionEnrollmentTuitionClientsSummaryResponse {
         i_events_unique: number;
     }>;
 }
+export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetParams {
+    /** Report page CID. */
+    cid_page: number;
+    /** Report CID. */
+    cid_report: number;
+    /** Business primary key. */
+    k_business: string;
+    /** Report CID list to that page customization form must be converted. String separated with `,`. */
+    s_report: string;
+    /** Current user's primary key. */
+    uid_actor: string;
+    /** SQL query primary key. Primary key in ReportQuerySql. */
+    k_report_query?: string | null;
+    /** Primary key of a saved report. */
+    k_report_save?: string | null;
+}
+export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetResponse {
+    /** Customization form data keyed by report or page CID. Each value has the following structure: */
+    a_customization_form: {
+        /** Form elements keyed by element name. Each element has the following structure: */
+        a_element: {
+            /** Element fields keyed by field alias. Each field has the following structure: */
+            a_field: {
+                /** Localized field title. */
+                text_title: string;
+                /** Current field value. */
+                x_value: string;
+            };
+            /** Report CID list the element applies to. */
+            a_report: Array<number>;
+            /** Localized element title. */
+            html_title: string;
+            /** Localized element tooltip. */
+            html_title_tooltip: string;
+        };
+        /** Form class identifier. */
+        s_form: string;
+    };
+}
+export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostParams {
+    /** Report page CID. */
+    cid_page: number;
+    /** Report CID. */
+    cid_report: number;
+    /** Business primary key. */
+    k_business: string;
+    /** Current user's primary key. */
+    uid_actor: string;
+    /** SQL query primary key. Primary key in ReportQuerySql. */
+    k_report_query?: string | null;
+    /** Primary key of a saved report. */
+    k_report_save?: string | null;
+}
+export type ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostResponse = Record<string, unknown>;
 export interface WlPayBankAchAddAddDeleteParams {
     /** Business key. */
     k_business: string;
@@ -19606,6 +20075,8 @@ export interface WlScheduleScheduleListStaffAppScheduleListResponse {
         id_service: RsServiceSid;
         /** For appointments: `true` if user has checked-in; `false` otherwise. */
         is_arrive: boolean;
+        /** `true` if this class or event session is visible only through the "View other staff schedules" */
+        is_class_view: boolean;
         /** For appointments: `true` if appointment is paid; `false` otherwise. */
         is_pay: boolean;
         /** For appointments: `true` if appointment is recurring; `false` otherwise. */
@@ -19844,10 +20315,14 @@ export interface WlAppointmentBookServiceServiceList52Response {
         hide_application: boolean;
         /** Human-readable reason why the client cannot book this service. Empty string if there is no deny r... */
         html_deny_reason: string;
-        /** The required minimum client age to book an appointment. */
+        /** The required minimum client age to book an appointment (years part). */
         i_age_from: number;
-        /** The required maximum client age to book an appointment. */
+        /** The required minimum client age to book an appointment (months part). */
+        i_age_from_month: number;
+        /** The required maximum client age to book an appointment (years part). */
         i_age_to: number;
+        /** The required maximum client age to book an appointment (months part). */
+        i_age_to_month: number;
         /** The price type ID. One of {@link RsServicePriceSid} constants. */
         i_price: number;
         /** The appointment duration in minutes. */
@@ -20033,10 +20508,14 @@ export interface WlAppointmentBookServiceServiceListResponse {
         hide_application: boolean;
         /** Human-readable reason why the client cannot book this service. Empty string if there is no deny r... */
         html_deny_reason: string;
-        /** The required minimum client age to book an appointment. */
+        /** The required minimum client age to book an appointment (years part). */
         i_age_from: number;
-        /** The required maximum client age to book an appointment. */
+        /** The required minimum client age to book an appointment (months part). */
+        i_age_from_month: number;
+        /** The required maximum client age to book an appointment (years part). */
         i_age_to: number;
+        /** The required maximum client age to book an appointment (months part). */
+        i_age_to_month: number;
         /** The price type ID. One of {@link RsServicePriceSid} constants. */
         i_price: number;
         /** The appointment duration in minutes. */
@@ -20119,7 +20598,7 @@ export interface WlAppointmentBookServiceServiceCheckParams {
 }
 export type WlAppointmentBookServiceServiceCheckResponse = Record<string, unknown>;
 export interface WlAppointmentBookFinishFinishMultipleParams {
-    /** The payment type for the appointment. One of the {@link RsAppointmentPaySid} constants. */
+    /** The payment type ID for each provider. */
     a_pay: Array<RsAppointmentPaySid>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
@@ -20260,8 +20739,6 @@ export interface WlAppointmentBookFinishFinishPostParams {
         k_staff?: string;
         /** The staff member conducting the appointment. */
         k_staff_date?: string;
-        /** The amount of selected tips. */
-        m_tip_appointment?: string;
     };
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
@@ -20278,7 +20755,7 @@ export interface WlAppointmentBookFinishFinishPostParams {
         /** Phone. */
         text_phone: string;
     };
-    /** The payment type ID for the appointment. One of the {@link RsAppointmentPaySid} constants. */
+    /** The payment type ID for the service. @see RsAppointmentPaySid */
     id_pay: RsAppointmentPaySid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
     is_walk_in: boolean;
@@ -20360,7 +20837,7 @@ export interface WlAppointmentBookFinishFinish47PostParams {
         /** Phone. */
         text_phone: string;
     };
-    /** The payment type ID for the appointment. One of the {@link RsAppointmentPaySid} constants. */
+    /** The payment type ID for the service. @see RsAppointmentPaySid */
     id_pay: RsAppointmentPaySid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
     is_walk_in: boolean;
@@ -21155,6 +21632,29 @@ export interface WlAppointmentBookScheduleNextAvailableDayResponse {
     /** Location to show available appointment booking schedule. */
     k_location: string;
 }
+export interface WlAppointmentBookScheduleServiceAvailabilityParams {
+    /** End date of search period in MySQL format, in location time zone. */
+    dl_end: string;
+    /** Start date of search period in MySQL format, in location time zone. */
+    dl_start: string;
+    /** Business key. */
+    k_business: string;
+    /** Location key. */
+    k_location: string;
+    /** Service key. */
+    k_service: string;
+}
+export interface WlAppointmentBookScheduleServiceAvailabilityResponse {
+    /** An array with a schedule of available appointment booking times. */
+    a_time: {
+        /** Availability data of the staff. Keys are dates and values are lists of available appointment star... */
+        a_availability: Array<Array<string>>;
+        /** Staff name. */
+        text_name: string;
+        /** Staff user key. */
+        uid_staff: string;
+    };
+}
 export interface WlAppointmentBookAssetAssetListParams {
     /** The selected date and time of the asset booking. It is used in cases when the business booking po... */
     dtl_date: string;
@@ -21188,10 +21688,14 @@ export interface WlAppointmentBookAssetAssetListResponse {
     a_asset: Array<{
         /** Information about age restrictions for this event. */
         a_age_restrictions: {
-            /** The minimum age permitted for the event. This will be `null` if a minimum age isn't set or availa... */
+            /** The minimum age permitted for the event (years part). This will be `null` if a minimum age isn't ... */
             i_age_from: number | null;
-            /** The maximum age permitted for the event. This will be `null` if a maximum age isn't set or availa... */
+            /** The minimum age permitted for the event (month part). This will be `null` if a minimum age isn't ... */
+            i_age_from_month: number | null;
+            /** The maximum age permitted for the event (years part). This will be `null` if a maximum age isn't ... */
             i_age_to: number | null;
+            /** The maximum age permitted for the event (month part). This will be `null` if a maximum age isn't ... */
+            i_age_to_month: number | null;
             /** This will be `true` if age restrictions are public and available. Otherwise, this will be `false`... */
             is_age_public: boolean;
         };
@@ -23702,8 +24206,6 @@ export interface WlProfileAttendanceSchedulePaymentMultipleGetResponse {
             is_required: boolean;
             /** Appointment key. */
             k_appointment: string;
-            /** Appointment staff key. */
-            k_staff: string;
             /** Appointment date. */
             text_date: string;
             /** Appointment title. */
@@ -23714,6 +24216,8 @@ export interface WlProfileAttendanceSchedulePaymentMultipleGetResponse {
             text_time: string;
             /** Appointment timezone abbreviation. */
             text_timezone_abbr: string;
+            /** Appointment user key. */
+            uid_staff: string;
         };
         /** The user for whom the appointment is booked. */
         uid: string;
@@ -23724,6 +24228,11 @@ export interface WlProfileAttendanceSchedulePaymentMultipleGetResponse {
         k_staff: string;
         /** Name of the staff. */
         text_name: string;
+    } | {
+        /** Staff full name. */
+        text_name: string;
+        /** Staff user key. */
+        uid_staff: string;
     };
     /** Total number of unpaid appointments. */
     i_unpaid_number: number;
@@ -23879,12 +24388,22 @@ export interface WlEventBookEventViewElementParams {
 export interface WlEventBookEventViewElementResponse {
     /** Displays information about age restrictions for this event. */
     a_age_restrictions: {
-        /** The minimum age for participation in the event. */
-        i_age_from: number | null;
-        /** The age limit for participation in the event. */
-        i_age_to: number | null;
-        /** `true` if age restrictions are public and available, `false` if they're hidden. */
+        /** Minimum age for service (years part). */
+        i_age_from: number;
+        /** Minimum age for service (months part). */
+        i_age_from_month: number;
+        /** Minimum age for service (years part). */
+        i_age_from_year: number;
+        /** Maximum age for service (years part). */
+        i_age_to: number;
+        /** Maximum age for service (months part). */
+        i_age_to_month: number;
+        /** Maximum age for service (years part). */
+        i_age_to_year: number;
+        /** Is service public even if user does not meet age requirements or not? */
         is_age_public: boolean;
+        /** Whether months are enabled for age restrictions. */
+        is_month_enabled: boolean;
     };
     /** Retrieves information about an event item. */
     a_book_available: Array<{
@@ -25436,6 +25955,8 @@ export interface WlMemberGroupEditEditGetResponse {
     id_member_group_shape: WlMemberGroupShapeSid;
     /** Whether Facility Access enabled for group. */
     is_brivo_active: boolean;
+    /** Whether automatic check-in on Brivo access granted is enabled for the group. */
+    is_brivo_checkin_active: boolean;
     /** Whether Brivo invitation feature enabled for the group. */
     is_brivo_invitation_active: boolean;
     /** `true` to enable group icon. `false` to disable. */
@@ -25891,6 +26412,8 @@ export interface WlMailPatternAutomatedMarketingCustomTemplatePatternGetParams {
     sid_mail_form: string;
     /** Business key. */
     k_business?: string | null;
+    /** Key of the service being booked. */
+    k_service?: string | null;
 }
 export interface WlMailPatternAutomatedMarketingCustomTemplatePatternGetResponse {
     /** Business data. */
@@ -26301,10 +26824,32 @@ export declare class ThothPayProcessorNamespace {
     readonly nuvei: ThothPayProcessorNuveiNamespace;
     constructor(_client: WlClient);
 }
+export declare class ThothReportCoreQueryEngineReportCustomizationNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    reportQueryCustomizationFormGet(params?: ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetParams): Promise<ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetResponse>;
+    reportQueryCustomizationFormPost(params?: ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostParams): Promise<ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostResponse>;
+}
+export declare class ThothReportCoreQueryEngineReportNamespace {
+    private readonly _client;
+    readonly customization: ThothReportCoreQueryEngineReportCustomizationNamespace;
+    constructor(_client: WlClient);
+}
+export declare class ThothReportCoreQueryEngineNamespace {
+    private readonly _client;
+    readonly report: ThothReportCoreQueryEngineReportNamespace;
+    constructor(_client: WlClient);
+}
+export declare class ThothReportCoreNamespace {
+    private readonly _client;
+    readonly queryEngine: ThothReportCoreQueryEngineNamespace;
+    constructor(_client: WlClient);
+}
 export declare class ThothNamespace {
     private readonly _client;
     readonly explorerSearch: ThothExplorerSearchNamespace;
     readonly payProcessor: ThothPayProcessorNamespace;
+    readonly reportCore: ThothReportCoreNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlPayProcessorStripeComNamespace {
@@ -26463,9 +27008,49 @@ export declare class WlReportGeneratorNamespace {
     /** Returns contents of a report as a table. */
     query(params?: WlReportGeneratorQueryParams): Promise<WlReportGeneratorQueryResponse>;
 }
+export declare class WlReportDashboardNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Adds new report to a dashboard. */
+    reportDashboardPost(params?: WlReportDashboardReportDashboardPostParams): Promise<WlReportDashboardReportDashboardPostResponse>;
+    /** Updates added report to a dashboard. */
+    reportDashboardPut(params?: WlReportDashboardReportDashboardPutParams): Promise<WlReportDashboardReportDashboardPutResponse>;
+}
+export declare class WlReportSaveNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns information about saved report. */
+    reportSaveGet(params?: WlReportSaveReportSaveGetParams): Promise<WlReportSaveReportSaveGetResponse>;
+    /** Saves new saved report. */
+    reportSavePost(params?: WlReportSaveReportSavePostParams): Promise<WlReportSaveReportSavePostResponse>;
+    /** Updates existing saved report. */
+    reportSavePut(params?: WlReportSaveReportSavePutParams): Promise<WlReportSaveReportSavePutResponse>;
+}
+export declare class WlReportCustomizationNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Loads customization data of the customization form that corresponds to specified report / report page. */
+    customizationFormGet(params?: WlReportCustomizationCustomizationFormGetParams): Promise<WlReportCustomizationCustomizationFormGetResponse>;
+    /** Saves given data of a customization form into database. */
+    customizationFormPost(params?: WlReportCustomizationCustomizationFormPostParams): Promise<WlReportCustomizationCustomizationFormPostResponse>;
+}
+export declare class WlReportFavoriteNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Removes report controller from favorites. */
+    reportFavoriteDelete(params?: WlReportFavoriteReportFavoriteDeleteParams): Promise<WlReportFavoriteReportFavoriteDeleteResponse>;
+    /** Returns information whether passed report controller (saved report controller) is favorite for the specified user   within specified business. */
+    reportFavoriteGet(params?: WlReportFavoriteReportFavoriteGetParams): Promise<WlReportFavoriteReportFavoriteGetResponse>;
+    /** Adds report controller to favorites. */
+    reportFavoritePost(params?: WlReportFavoriteReportFavoritePostParams): Promise<WlReportFavoriteReportFavoritePostResponse>;
+}
 export declare class WlReportNamespace {
     private readonly _client;
     readonly generator: WlReportGeneratorNamespace;
+    readonly dashboard: WlReportDashboardNamespace;
+    readonly save: WlReportSaveNamespace;
+    readonly customization: WlReportCustomizationNamespace;
+    readonly favorite: WlReportFavoriteNamespace;
     constructor(_client: WlClient);
     /** Gets data of required report. */
     data(params?: WlReportDataParams): Promise<WlReportDataResponse>;
@@ -27614,6 +28199,8 @@ export declare class WlAppointmentBookScheduleNamespace {
     calendar(params?: WlAppointmentBookScheduleCalendarParams): Promise<WlAppointmentBookScheduleCalendarResponse>;
     /** Finds and returns the next available date for appointment booking starting from the given date. */
     nextAvailableDay(params?: WlAppointmentBookScheduleNextAvailableDayParams): Promise<WlAppointmentBookScheduleNextAvailableDayResponse>;
+    /** Retrieves a list of available appointment booking schedule. */
+    serviceAvailability(params?: WlAppointmentBookScheduleServiceAvailabilityParams): Promise<WlAppointmentBookScheduleServiceAvailabilityResponse>;
 }
 export declare class WlAppointmentBookAssetServiceNamespace {
     private readonly _client;
@@ -28040,6 +28627,8 @@ export declare class WlServiceServiceListNamespace {
     constructor(_client: WlClient);
     /** Returns list of appointment type in the business. */
     list(params?: WlServiceServiceListListParams): Promise<WlServiceServiceListListResponse>;
+    /** Returns list of appointment type in the business. */
+    list75(params?: WlServiceServiceListList75Params): Promise<WlServiceServiceListList75Response>;
 }
 export declare class WlServiceNamespace {
     private readonly _client;
@@ -28541,6 +29130,38 @@ export declare class WlFacebookNamespace {
     readonly login: WlFacebookLoginNamespace;
     constructor(_client: WlClient);
 }
+export declare class WlBillingBulkNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Cancels a scheduled bulk billing so that it is never billed. */
+    bulkBillingDelete(params?: WlBillingBulkBulkBillingDeleteParams): Promise<WlBillingBulkBulkBillingDeleteResponse>;
+    /** Schedules the bulk billing. */
+    bulkBillingPost(params?: WlBillingBulkBulkBillingPostParams): Promise<WlBillingBulkBulkBillingPostResponse>;
+    /** Reschedules a previously scheduled bulk billing to a new date and time. */
+    bulkBillingPut(params?: WlBillingBulkBulkBillingPutParams): Promise<WlBillingBulkBulkBillingPutResponse>;
+    /** Removes the client from the batch so that they are not billed. */
+    bulkBillingUser(params?: WlBillingBulkBulkBillingUserParams): Promise<WlBillingBulkBulkBillingUserResponse>;
+    /** Gets the list of promotions and products available at the location. */
+    purchaseItemListGet(params?: WlBillingBulkPurchaseItemListGetParams): Promise<WlBillingBulkPurchaseItemListGetResponse>;
+    /** Prepares the bulk billing review: the per-client totals and the list of clients that will be billed. */
+    purchaseItemListPost(params?: WlBillingBulkPurchaseItemListPostParams): Promise<WlBillingBulkPurchaseItemListPostResponse>;
+}
+export declare class WlBillingNamespace {
+    private readonly _client;
+    readonly bulk: WlBillingBulkNamespace;
+    constructor(_client: WlClient);
+}
+export declare class WlWidgetAnalyticsNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Accepts a Widget analytics event. */
+    widgetAnalyticsEvent(params?: WlWidgetAnalyticsWidgetAnalyticsEventParams): Promise<WlWidgetAnalyticsWidgetAnalyticsEventResponse>;
+}
+export declare class WlWidgetNamespace {
+    private readonly _client;
+    readonly analytics: WlWidgetAnalyticsNamespace;
+    constructor(_client: WlClient);
+}
 export declare class WlTuitionEnrollmentNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -28612,6 +29233,8 @@ export declare class WlNamespace {
     readonly gym: WlGymNamespace;
     readonly social: WlSocialNamespace;
     readonly facebook: WlFacebookNamespace;
+    readonly billing: WlBillingNamespace;
+    readonly widget: WlWidgetNamespace;
     readonly tuition: WlTuitionNamespace;
     constructor(_client: WlClient);
 }

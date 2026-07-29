@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260728121049
+// OpenAPI spec version: 1.1.20260729064930
 // Build date: 2026-07-29
-// Endpoints: 502
-// Enums: 194
+// Endpoints: 523
+// Enums: 197
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (194 total) ---
+// --- Enum types (197 total) ---
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
 (function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
@@ -1484,14 +1484,6 @@ export var WlMailVerifyMailVerifyStatusSid;
     /** Verification in progress */
     WlMailVerifyMailVerifyStatusSid[WlMailVerifyMailVerifyStatusSid["WAIT_FOR_VERIFY"] = 2] = "WAIT_FOR_VERIFY";
 })(WlMailVerifyMailVerifyStatusSid || (WlMailVerifyMailVerifyStatusSid = {}));
-/** An enum of credit card types. */
-export var WlPayBankCardCardTypeEnum;
-(function (WlPayBankCardCardTypeEnum) {
-    /** Credit Card */
-    WlPayBankCardCardTypeEnum[WlPayBankCardCardTypeEnum["CREDIT"] = 1] = "CREDIT";
-    /** Debit Card */
-    WlPayBankCardCardTypeEnum[WlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
-})(WlPayBankCardCardTypeEnum || (WlPayBankCardCardTypeEnum = {}));
 /** CS Response code class. */
 export var ThothPayProcessorNuveiCodeCSResponseSid;
 (function (ThothPayProcessorNuveiCodeCSResponseSid) {
@@ -1637,6 +1629,8 @@ export var WlModeModeSid;
     WlModeModeSid[WlModeModeSid["API"] = 28] = "API";
     /** Registered through `Azure` */
     WlModeModeSid[WlModeModeSid["AZURE"] = 21] = "AZURE";
+    /** Visit has been checked-in by Brivo Door Access */
+    WlModeModeSid[WlModeModeSid["BRIVO_DOOR_ACCESS"] = 31] = "BRIVO_DOOR_ACCESS";
     /** Visit has been created by `CENTRED` */
     WlModeModeSid[WlModeModeSid["CENTRED"] = 23] = "CENTRED";
     /** Visit has been created by `ClassPass` */
@@ -1667,6 +1661,8 @@ export var WlModeModeSid;
     WlModeModeSid[WlModeModeSid["MICROSOFT"] = 24] = "MICROSOFT";
     /** Client booked session on My Presence Site */
     WlModeModeSid[WlModeModeSid["MY_PRESENCE_SITE"] = 13] = "MY_PRESENCE_SITE";
+    /** Visit has been created by `Passport Door Access` */
+    WlModeModeSid[WlModeModeSid["PASSPORT_DOOR_ACCESS"] = 32] = "PASSPORT_DOOR_ACCESS";
     /** Action made via SMS */
     WlModeModeSid[WlModeModeSid["SMS"] = 17] = "SMS";
     /** Staff booked session from spa backend */
@@ -3184,6 +3180,28 @@ export var WlBusinessPolicyChargeSid;
     /** Mark account as has "Late cancel" and "No shows" sessions */
     WlBusinessPolicyChargeSid[WlBusinessPolicyChargeSid["FLAG_ACCOUNT"] = 2] = "FLAG_ACCOUNT";
 })(WlBusinessPolicyChargeSid || (WlBusinessPolicyChargeSid = {}));
+/** A list of report categories. */
+export var RsReportCategorySid;
+(function (RsReportCategorySid) {
+    /** Category reports on attendance */
+    RsReportCategorySid[RsReportCategorySid["ATTENDANCE"] = 2] = "ATTENDANCE";
+    /** Category reports on clients */
+    RsReportCategorySid[RsReportCategorySid["CLIENT"] = 1] = "CLIENT";
+    /** Category on dashboards */
+    RsReportCategorySid[RsReportCategorySid["DASHBOARD"] = 9] = "DASHBOARD";
+    /** Corporate reports */
+    RsReportCategorySid[RsReportCategorySid["FRANCHISE"] = 6] = "FRANCHISE";
+    /** Insurance and reimbursements reports */
+    RsReportCategorySid[RsReportCategorySid["INSURANCE"] = 7] = "INSURANCE";
+    /** Category reports on mail */
+    RsReportCategorySid[RsReportCategorySid["MAIL"] = 5] = "MAIL";
+    /** Metrics category */
+    RsReportCategorySid[RsReportCategorySid["METRIC"] = 8] = "METRIC";
+    /** Category reports on sales */
+    RsReportCategorySid[RsReportCategorySid["SALE"] = 4] = "SALE";
+    /** Category reports on staff */
+    RsReportCategorySid[RsReportCategorySid["STAFF"] = 3] = "STAFF";
+})(RsReportCategorySid || (RsReportCategorySid = {}));
 /** Attendance Restriction cycle type. */
 export var WlPromotionEditLimitCycleSid;
 (function (WlPromotionEditLimitCycleSid) {
@@ -3589,6 +3607,8 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["CLASS_LOCK_SEARCH"] = 152] = "CLASS_LOCK_SEARCH";
     /** Edit class schedule */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["CLASS_PERIOD"] = 5] = "CLASS_PERIOD";
+    /** Allows a staff member to see other staff members' class sessions on the schedule in read-only mode */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["CLASS_SCHEDULE_VIEW"] = 246] = "CLASS_SCHEDULE_VIEW";
     /** Add and view client's contact logs */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["CONTACT_LOG_MANAGE"] = 135] = "CONTACT_LOG_MANAGE";
     /** Add, remove, and edit gift cards */
@@ -3621,6 +3641,8 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["ENROLLMENT_FOREIGN"] = 53] = "ENROLLMENT_FOREIGN";
     /** Lock search bar on enrollment attendance list */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["ENROLLMENT_LOCK_SEARCH"] = 153] = "ENROLLMENT_LOCK_SEARCH";
+    /** Allows a staff member to see other staff members' event sessions on the schedule in read-only mode */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["ENROLLMENT_SCHEDULE_VIEW"] = 247] = "ENROLLMENT_SCHEDULE_VIEW";
     /** Manage Enterprise Cloud Fees */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["ENTERPRISE_CLOUD_FEES"] = 207] = "ENTERPRISE_CLOUD_FEES";
     /** Allows to manage leaderboard in the `FitBuilder` addon */
@@ -3771,6 +3793,8 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PARTNER_PROGRAM_MANAGE"] = 94] = "PARTNER_PROGRAM_MANAGE";
     /** Access to Payment Processing */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PAYMENT_PROCESSING"] = 166] = "PAYMENT_PROCESSING";
+    /** Allows the staff member to initiate bulk billing of multiple clients in one batch */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PERFORM_BULK_BILLING"] = 245] = "PERFORM_BULK_BILLING";
     /** Permission to perform Physical Inventory Count */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PHYSICAL_INVENTORY_COUNT"] = 156] = "PHYSICAL_INVENTORY_COUNT";
     /** Staff member with this role will be able to send postcards */
@@ -4027,6 +4051,8 @@ export var RsRewardScoreSid;
 /** Mail types. */
 export var RsMailSid;
 (function (RsMailSid) {
+    /** Sent when a client abandons a checkout (used in automations) */
+    RsMailSid[RsMailSid["ABANDONED_CHECKOUT"] = 220] = "ABANDONED_CHECKOUT";
     /** Sent by CASSI phone agent, when client requests a booking url */
     RsMailSid[RsMailSid["AI_LINK_BOOK"] = 206] = "AI_LINK_BOOK";
     /** Sent by CASSI phone agent, when client requests a purchase url */
@@ -4556,6 +4582,32 @@ export var WlSocialShareShareObjectSid;
     /** Review */
     WlSocialShareShareObjectSid[WlSocialShareShareObjectSid["REVIEW"] = 2] = "REVIEW";
 })(WlSocialShareShareObjectSid || (WlSocialShareShareObjectSid = {}));
+/** Widget analytics checkout types. */
+export var WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid;
+(function (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid) {
+    /** Any checkout type */
+    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["ANY"] = 1] = "ANY";
+    /** Booking checkout type */
+    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["BOOKING"] = 3] = "BOOKING";
+    /** Store purchase checkout type */
+    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["STORE_PURCHASE"] = 2] = "STORE_PURCHASE";
+})(WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid || (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = {}));
+/** Widget analytics event types. */
+export var WlWidgetAnalyticsWidgetAnalyticsEventSid;
+(function (WlWidgetAnalyticsWidgetAnalyticsEventSid) {
+    /** Checkout abandonment event */
+    WlWidgetAnalyticsWidgetAnalyticsEventSid[WlWidgetAnalyticsWidgetAnalyticsEventSid["ABANDONED_CHECKOUT"] = 1] = "ABANDONED_CHECKOUT";
+    /** Begin checkout event */
+    WlWidgetAnalyticsWidgetAnalyticsEventSid[WlWidgetAnalyticsWidgetAnalyticsEventSid["BEGIN_CHECKOUT"] = 2] = "BEGIN_CHECKOUT";
+    /** Purchase event */
+    WlWidgetAnalyticsWidgetAnalyticsEventSid[WlWidgetAnalyticsWidgetAnalyticsEventSid["PURCHASE"] = 3] = "PURCHASE";
+})(WlWidgetAnalyticsWidgetAnalyticsEventSid || (WlWidgetAnalyticsWidgetAnalyticsEventSid = {}));
+/** Widget analytics event schema versions. */
+export var WlWidgetAnalyticsWidgetAnalyticsEventVersionSid;
+(function (WlWidgetAnalyticsWidgetAnalyticsEventVersionSid) {
+    /** Initial event schema */
+    WlWidgetAnalyticsWidgetAnalyticsEventVersionSid[WlWidgetAnalyticsWidgetAnalyticsEventVersionSid["V1"] = 1] = "V1";
+})(WlWidgetAnalyticsWidgetAnalyticsEventVersionSid || (WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = {}));
 /** A list of bank account types. */
 export var RsPayBankSid;
 (function (RsPayBankSid) {
@@ -5235,11 +5287,41 @@ export class ThothPayProcessorNamespace {
         this.nuvei = new ThothPayProcessorNuveiNamespace(this._client);
     }
 }
+export class ThothReportCoreQueryEngineReportCustomizationNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    reportQueryCustomizationFormGet(params) {
+        return this._client._request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params, 'GET');
+    }
+    reportQueryCustomizationFormPost(params) {
+        return this._client._request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params, 'POST');
+    }
+}
+export class ThothReportCoreQueryEngineReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.customization = new ThothReportCoreQueryEngineReportCustomizationNamespace(this._client);
+    }
+}
+export class ThothReportCoreQueryEngineNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.report = new ThothReportCoreQueryEngineReportNamespace(this._client);
+    }
+}
+export class ThothReportCoreNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.queryEngine = new ThothReportCoreQueryEngineNamespace(this._client);
+    }
+}
 export class ThothNamespace {
     constructor(_client) {
         this._client = _client;
         this.explorerSearch = new ThothExplorerSearchNamespace(this._client);
         this.payProcessor = new ThothPayProcessorNamespace(this._client);
+        this.reportCore = new ThothReportCoreNamespace(this._client);
     }
 }
 export class WlPayProcessorStripeComNamespace {
@@ -5474,10 +5556,74 @@ export class WlReportGeneratorNamespace {
         return this._client._request('/Wl/Report/Generator/Query.json', params, 'POST');
     }
 }
+export class WlReportDashboardNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Adds new report to a dashboard. */
+    reportDashboardPost(params) {
+        return this._client._request('/Wl/Report/Dashboard/ReportDashboard.json', params, 'POST');
+    }
+    /** Updates added report to a dashboard. */
+    reportDashboardPut(params) {
+        return this._client._request('/Wl/Report/Dashboard/ReportDashboard.json', params, 'PUT');
+    }
+}
+export class WlReportSaveNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns information about saved report. */
+    reportSaveGet(params) {
+        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'GET');
+    }
+    /** Saves new saved report. */
+    reportSavePost(params) {
+        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'POST');
+    }
+    /** Updates existing saved report. */
+    reportSavePut(params) {
+        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'PUT');
+    }
+}
+export class WlReportCustomizationNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Loads customization data of the customization form that corresponds to specified report / report page. */
+    customizationFormGet(params) {
+        return this._client._request('/Wl/Report/Customization/CustomizationForm.json', params, 'GET');
+    }
+    /** Saves given data of a customization form into database. */
+    customizationFormPost(params) {
+        return this._client._request('/Wl/Report/Customization/CustomizationForm.json', params, 'POST');
+    }
+}
+export class WlReportFavoriteNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes report controller from favorites. */
+    reportFavoriteDelete(params) {
+        return this._client._request('/Wl/Report/Favorite/ReportFavorite.json', params, 'DELETE');
+    }
+    /** Returns information whether passed report controller (saved report controller) is favorite for the specified user   within specified business. */
+    reportFavoriteGet(params) {
+        return this._client._request('/Wl/Report/Favorite/ReportFavorite.json', params, 'GET');
+    }
+    /** Adds report controller to favorites. */
+    reportFavoritePost(params) {
+        return this._client._request('/Wl/Report/Favorite/ReportFavorite.json', params, 'POST');
+    }
+}
 export class WlReportNamespace {
     constructor(_client) {
         this._client = _client;
         this.generator = new WlReportGeneratorNamespace(this._client);
+        this.dashboard = new WlReportDashboardNamespace(this._client);
+        this.save = new WlReportSaveNamespace(this._client);
+        this.customization = new WlReportCustomizationNamespace(this._client);
+        this.favorite = new WlReportFavoriteNamespace(this._client);
     }
     /** Gets data of required report. */
     data(params) {
@@ -7275,6 +7421,10 @@ export class WlAppointmentBookScheduleNamespace {
     nextAvailableDay(params) {
         return this._client._request('/Wl/Appointment/Book/Schedule/NextAvailableDay.json', params, 'GET');
     }
+    /** Retrieves a list of available appointment booking schedule. */
+    serviceAvailability(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/ServiceAvailability.json', params, 'GET');
+    }
 }
 export class WlAppointmentBookAssetServiceNamespace {
     constructor(_client) {
@@ -7910,6 +8060,10 @@ export class WlServiceServiceListNamespace {
     /** Returns list of appointment type in the business. */
     list(params) {
         return this._client._request('/Wl/Service/ServiceList/List.json', params, 'GET');
+    }
+    /** Returns list of appointment type in the business. */
+    list75(params) {
+        return this._client._request('/Wl/Service/ServiceList/List75.json', params, 'GET');
     }
 }
 export class WlServiceNamespace {
@@ -8650,6 +8804,56 @@ export class WlFacebookNamespace {
         this.login = new WlFacebookLoginNamespace(this._client);
     }
 }
+export class WlBillingBulkNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Cancels a scheduled bulk billing so that it is never billed. */
+    bulkBillingDelete(params) {
+        return this._client._request('/Wl/Billing/Bulk/BulkBilling.json', params, 'DELETE');
+    }
+    /** Schedules the bulk billing. */
+    bulkBillingPost(params) {
+        return this._client._request('/Wl/Billing/Bulk/BulkBilling.json', params, 'POST');
+    }
+    /** Reschedules a previously scheduled bulk billing to a new date and time. */
+    bulkBillingPut(params) {
+        return this._client._request('/Wl/Billing/Bulk/BulkBilling.json', params, 'PUT');
+    }
+    /** Removes the client from the batch so that they are not billed. */
+    bulkBillingUser(params) {
+        return this._client._request('/Wl/Billing/Bulk/BulkBillingUser.json', params, 'DELETE');
+    }
+    /** Gets the list of promotions and products available at the location. */
+    purchaseItemListGet(params) {
+        return this._client._request('/Wl/Billing/Bulk/PurchaseItemList.json', params, 'GET');
+    }
+    /** Prepares the bulk billing review: the per-client totals and the list of clients that will be billed. */
+    purchaseItemListPost(params) {
+        return this._client._request('/Wl/Billing/Bulk/PurchaseItemList.json', params, 'POST');
+    }
+}
+export class WlBillingNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.bulk = new WlBillingBulkNamespace(this._client);
+    }
+}
+export class WlWidgetAnalyticsNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Accepts a Widget analytics event. */
+    widgetAnalyticsEvent(params) {
+        return this._client._request('/Wl/Widget/Analytics/WidgetAnalyticsEvent.json', params, 'POST');
+    }
+}
+export class WlWidgetNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.analytics = new WlWidgetAnalyticsNamespace(this._client);
+    }
+}
 export class WlTuitionEnrollmentNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8730,6 +8934,8 @@ export class WlNamespace {
         this.gym = new WlGymNamespace(this._client);
         this.social = new WlSocialNamespace(this._client);
         this.facebook = new WlFacebookNamespace(this._client);
+        this.billing = new WlBillingNamespace(this._client);
+        this.widget = new WlWidgetNamespace(this._client);
         this.tuition = new WlTuitionNamespace(this._client);
     }
 }

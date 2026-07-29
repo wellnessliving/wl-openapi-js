@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260728121049
+ * Spec version: 1.1.20260729064930
  * Build date:   2026-07-29
- * Endpoints:    502
+ * Endpoints:    523
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260728121049';
+  WlClient.SPEC_VERSION = '1.1.20260729064930';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (502 total)
+  // Generated API methods (523 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -1932,6 +1932,7 @@
    *  `a_splash_screen` {?Object} Settings of splash screen customization for business:
    *  `dtl_now` {string} Local date with time now in current location {@link WlClient#wlSessionEnviron...
    *  `has_form_quiz` {boolean} Whether exists form to confirm during registration process.
+   *  `has_home` {boolean} `true` if the "home" page is turned on for the current business; `false` othe...
    *  `has_merchant` {boolean} Whether the merchant is configured for the client's home location or for busi...
    *  `id_currency` {number} A list of currency codes. See {@link WlClient.RsCurrencySid}.
    *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
@@ -1944,7 +1945,6 @@
    *  `is_application_custom` {boolean} Determines current business has custom application. If `true` application has...
    *  `is_billing_required` {boolean} `true` if user must be redirected to billing page to enter credit card; `fals...
    *  `is_booking_appointment_authorize` {boolean} `true` if clients must sign in to book an appointment; `false` otherwise.
-   *  `is_booking_required_billing` {boolean} `true` if user must be redirected from booking page to billing page to enter ...
    *  `...` {*}
    */
   WlClient.prototype.wlSessionEnvironmentGet = function(params)
@@ -2418,6 +2418,7 @@
    *  `a_bank_card` {Object} A list of bank cards.
    *  `a_list` {Object[]} List of bank cards.
    *  `can_add` {boolean} Whether new card can be added.
+   *  `can_remove_self` {boolean} Whether the client is allowed to remove their own saved credit cards.
    */
   WlClient.prototype.wlPayBankCardList = function(params)
   {
@@ -2876,6 +2877,7 @@
    * @param {?boolean} [params.is_virtual] Class filter by type.
    * @param {string} params.k_business The business key.
    * @param {string} params.k_class_tab The category tab key.
+   * @param {?string} [params.k_timezone] Key of timezone.
    * @param {string} params.s_staff The list of staff members to filter.
    * @param {string} params.s_staff_uid The list of staff user keys to filter.
    * @param {boolean} params.show_cancel If `true`, canceled sessions will be returned. If `false`, canceled sessions won't be returned.
@@ -4541,6 +4543,189 @@
   };
 
   /**
+   * Adds new report to a dashboard.
+   *
+   * Creates a saved report from the specified title, description, filters and view widget settings and
+   * attaches it as a widget to the dashboard identified by {@link WlClient#wlReportDashboardReportDashboardPost}.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key of the report.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportDashboardReportDashboardPost = function(params)
+  {
+    return this.request('/Wl/Report/Dashboard/ReportDashboard.json', params || {}, 'POST');
+  };
+
+  /**
+   * Updates added report to a dashboard.
+   *
+   * Rewrites the title, description, filters and view widget settings of the dashboard report identified by
+   * {@link WlClient#wlReportDashboardReportDashboardPost} within the current business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key of the report.
+   * @param {string} params.k_report_save Report save key.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportDashboardReportDashboardPut = function(params)
+  {
+    return this.request('/Wl/Report/Dashboard/ReportDashboard.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Returns information about saved report.
+   *
+   * Loads the title, description, category and stored filters of the saved report identified by
+   * {@link WlClient#wlReportSaveReportSaveGet} within the current business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key of the saved report.
+   * @param {string} params.k_report_save Report save key.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   *  `a_filter` {Object} Filter raw data of the saved report.
+   *  `id_report_category` {number} A list of report categories. See {@link WlClient.RsReportCategorySid}.
+   *  `text_description` {string} Description of the saved report.
+   *  `text_title` {string} Title of the saved report.
+   */
+  WlClient.prototype.wlReportSaveReportSaveGet = function(params)
+  {
+    return this.request('/Wl/Report/Save/ReportSave.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves new saved report.
+   *
+   * Creates a new saved report for the current business from the specified title, description, category,
+   * filters and view widget settings, and stores the related customization for the report controller.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key of the saved report.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportSaveReportSavePost = function(params)
+  {
+    return this.request('/Wl/Report/Save/ReportSave.json', params || {}, 'POST');
+  };
+
+  /**
+   * Updates existing saved report.
+   *
+   * Rewrites the title, description, category, filters and view widget settings of the saved report
+   * identified by {@link WlClient#wlReportSaveReportSaveGet} within the current business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key of the saved report.
+   * @param {string} params.k_report_save Report save key.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportSaveReportSavePut = function(params)
+  {
+    return this.request('/Wl/Report/Save/ReportSave.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Loads customization data of the customization form that corresponds to specified report / report page.
+   *
+   * Populates {@link WlClient#wlReportCustomizationCustomizationFormGet} with the customization data of the requested
+   * report or report page, optionally converted to the reports listed in {@link WlClient#wlReportCustomizationCustomizationFormGet}.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_page Report page CID.
+   * @param {number} params.cid_report Report CID.
+   * @param {string} params.k_business Business primary key.
+   * @param {?string} [params.k_report_save] Primary key of a saved report.
+   * @param {string} params.s_report Report CID list to that page customization form must be converted. String separated with `,`.
+   * @param {string} params.uid_actor Current user's primary key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_customization_form` {Object} Customization form data keyed by report or page CID. Each value has the follo...
+   */
+  WlClient.prototype.wlReportCustomizationCustomizationFormGet = function(params)
+  {
+    return this.request('/Wl/Report/Customization/CustomizationForm.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves given data of a customization form into database.
+   *
+   * Stores the customization data supplied in {@link WlClient#wlReportCustomizationCustomizationFormGet} for the
+   * requested report or report page and resets the related report configuration cache.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_page Report page CID.
+   * @param {number} params.cid_report Report CID.
+   * @param {string} params.k_business Business primary key.
+   * @param {?string} [params.k_report_save] Primary key of a saved report.
+   * @param {string} params.uid_actor Current user's primary key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportCustomizationCustomizationFormPost = function(params)
+  {
+    return this.request('/Wl/Report/Customization/CustomizationForm.json', params || {}, 'POST');
+  };
+
+  /**
+   * Removes report controller from favorites.
+   *
+   * Deletes the favorite record for the current user that matches either the specified saved report
+   * or the report controller within the current business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_controller CID of the controller.
+   * @param {string} params.k_business Business key within which request is performed.
+   * @param {string} params.k_report_save Saved report key to manage.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportFavoriteReportFavoriteDelete = function(params)
+  {
+    return this.request('/Wl/Report/Favorite/ReportFavorite.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Returns information whether passed report controller (saved report controller) is favorite for the specified user
+    within specified business.
+   *
+   * Populates {@link WlClient#wlReportFavoriteReportFavoriteGet} with the current favorite state for the specified saved
+   * report or report controller.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_controller CID of the controller.
+   * @param {string} params.k_business Business key within which request is performed.
+   * @param {string} params.k_report_save Saved report key to manage.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   *  `is_favorite` {boolean} Whether report is favorite.
+   */
+  WlClient.prototype.wlReportFavoriteReportFavoriteGet = function(params)
+  {
+    return this.request('/Wl/Report/Favorite/ReportFavorite.json', params || {}, 'GET');
+  };
+
+  /**
+   * Adds report controller to favorites.
+   *
+   * Creates a favorite record for the current user that references either the specified saved report
+   * or the report controller within the current business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_controller CID of the controller.
+   * @param {string} params.k_business Business key within which request is performed.
+   * @param {string} params.k_report_save Saved report key to manage.
+   * @param {string} params.uid_actor UID user's key of the actor.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlReportFavoriteReportFavoritePost = function(params)
+  {
+    return this.request('/Wl/Report/Favorite/ReportFavorite.json', params || {}, 'POST');
+  };
+
+  /**
    * Gets list of Lead Sources.
    *
    * Returns all lead sources configured for the specified business, including system-defined and custom sources,
@@ -4613,6 +4798,7 @@
    * @param {number} params.i_image_height Image height in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {number} params.i_image_width Image width in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {number} params.id_program_type The program type ID, which will be one of the {@link WlClient.RsProgramTypeSid} constants.
+   * @param {?string} [params.k_business] The business key.
    * @param {string} params.k_location The location key.
    * @returns {Promise<Object>} Response data.
    *  `a_promotion` {Object[]} A list of introductory promotion offers available at the location.
@@ -6148,6 +6334,22 @@
   };
 
   /**
+   * Returns list of appointment type in the business.
+   *
+   * Gets key of the business and returns all available appointment types with their names and categories.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_franchise Whether to return franchisee-created appointment types (if business is franchisor).
+   * @param {string} params.k_business Business key, primary key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_service` {Object[]} Appointment types list:
+   */
+  WlClient.prototype.wlServiceServiceListList75 = function(params)
+  {
+    return this.request('/Wl/Service/ServiceList/List75.json', params || {}, 'GET');
+  };
+
+  /**
    * Gets the phone number associated with a specific business.
    *
    * Returns the dedicated sender phone number configured for the business's 2-Way SMS feature.
@@ -7309,6 +7511,124 @@
   };
 
   /**
+   * Cancels a scheduled bulk billing so that it is never billed.
+   *
+   * Only a batch that has not started billing yet can be cancelled.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlBillingBulkBulkBillingDelete = function(params)
+  {
+    return this.request('/Wl/Billing/Bulk/BulkBilling.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Schedules the bulk billing.
+   *
+   * Reads the prepared data from the temporary session by the review id and schedules the billing. The eligibility
+   * and restriction checks were already done during preparation, so they are not repeated here.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `k_purchase_batch` {string} The purchase batch key.
+   */
+  WlClient.prototype.wlBillingBulkBulkBillingPost = function(params)
+  {
+    return this.request('/Wl/Billing/Bulk/BulkBilling.json', params || {}, 'POST');
+  };
+
+  /**
+   * Reschedules a previously scheduled bulk billing to a new date and time.
+   *
+   * A reschedule always targets an explicit date and time.
+   * Only a batch that has not started billing yet can be rescheduled.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlBillingBulkBulkBillingPut = function(params)
+  {
+    return this.request('/Wl/Billing/Bulk/BulkBilling.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Removes the client from the batch so that they are not billed.
+   *
+   * Only a client that has not been billed yet can be removed; a client that was already charged or failed keeps
+   * their result. The client is not deleted from the batch - they are marked cancelled and skipped when the billing
+   * runs, together with the moment of the change and the acting user.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business The business key.
+   * @param {string} params.k_purchase_batch The purchase batch key.
+   * @param {string} params.uid The user key of the client to remove from the batch.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlBillingBulkBulkBillingUser = function(params)
+  {
+    return this.request('/Wl/Billing/Bulk/BulkBillingUser.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Gets the list of promotions and products available at the location.
+   *
+   * Validates access to the business, then loads promotions with their prices and products expanded into
+   *  their options, keeping only the items available at the requested location.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business The business key.
+   * @param {string} params.k_location The location key to filter available items by.
+   * @returns {Promise<Object>} Response data.
+   *  `a_product` {Object[]} The list of products available at the location. Each element has the followin...
+   *  `a_promotion` {Object[]} The list of promotions available at the location. Each element has the follow...
+   */
+  WlClient.prototype.wlBillingBulkPurchaseItemListGet = function(params)
+  {
+    return this.request('/Wl/Billing/Bulk/PurchaseItemList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Prepares the bulk billing review: the per-client totals and the list of clients that will be billed.
+   *
+   * Validates access to the business, calculates the per-client subtotal, tax and total for the selected purchase
+   *  items, and collects each client contact data and payment method label. Clients that a selected item is not
+   *  available to (by their client type or member group) are removed from billing and returned in
+   *  {@link WlClient#wlBillingBulkPurchaseItemListGet}. Clients that are not eligible for the selected introductory
+   *  items are flagged with `is_warning` and described in {@link WlClient#wlBillingBulkPurchaseItemListGet} (`a_warning`
+   *  key).
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business The business key.
+   * @param {string} params.k_location The location key to filter available items by.
+   * @returns {Promise<Object>} Response data.
+   *  `a_client_bill` {Object} The result of preparing the clients to bill. Has the following structure:
+   *  `a_client_restrict` {Object} The clients removed from the bulk billing because a selected item is not avai...
+   *  `m_batch` {string} The total amount charged across every client that will be billed (per-client ...
+   *  `m_subtotal` {string} The subtotal per client (sum of the selected purchase item prices, excluding ...
+   *  `m_tax` {string} The tax amount per client. Always `0` when {@link WlClient#wlBillingBulkPurch...
+   *  `m_total` {string} The total per client (subtotal plus tax).
+   *  `s_id` {string} The review id that identifies this prepared bulk billing. Pass it to {@link W...
+   */
+  WlClient.prototype.wlBillingBulkPurchaseItemListPost = function(params)
+  {
+    return this.request('/Wl/Billing/Bulk/PurchaseItemList.json', params || {}, 'POST');
+  };
+
+  /**
+   * Accepts a Widget analytics event.
+   *
+   * Validates the event envelope and payload, stores the event, and schedules asynchronous processing.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlWidgetAnalyticsWidgetAnalyticsEvent = function(params)
+  {
+    return this.request('/Wl/Widget/Analytics/WidgetAnalyticsEvent.json', params || {}, 'POST');
+  };
+
+  /**
    * Returns list of enrollments for the tuition.
    *
    * Get a full list of users who purchased the tuition. For each enrollment, returns the list of events
@@ -7355,6 +7675,40 @@
   WlClient.prototype.wlTuitionEnrollmentTuitionClientsSummary = function(params)
   {
     return this.request('/Wl/Tuition/Enrollment/TuitionClientsSummary.json', params || {}, 'GET');
+  };
+
+  /**
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_page Report page CID.
+   * @param {number} params.cid_report Report CID.
+   * @param {string} params.k_business Business primary key.
+   * @param {?string} [params.k_report_query] SQL query primary key. Primary key in ReportQuerySql.
+   * @param {?string} [params.k_report_save] Primary key of a saved report.
+   * @param {string} params.s_report Report CID list to that page customization form must be converted. String separated with `,`.
+   * @param {string} params.uid_actor Current user's primary key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_customization_form` {Object} Customization form data keyed by report or page CID. Each value has the follo...
+   */
+  WlClient.prototype.thothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGet = function(params)
+  {
+    return this.request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params || {}, 'GET');
+  };
+
+  /**
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.cid_page Report page CID.
+   * @param {number} params.cid_report Report CID.
+   * @param {string} params.k_business Business primary key.
+   * @param {?string} [params.k_report_query] SQL query primary key. Primary key in ReportQuerySql.
+   * @param {?string} [params.k_report_save] Primary key of a saved report.
+   * @param {string} params.uid_actor Current user's primary key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.thothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPost = function(params)
+  {
+    return this.request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params || {}, 'POST');
   };
 
   /**
@@ -7813,7 +8167,7 @@
    *  details in {@link WlClient#wlAppointmentBookFinishFinishMultiple} when no UID is provided.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number[]} params.a_pay The payment type for the appointment. One of the {@link WlClient.RsAppointmentPaySid} constants.
+   * @param {number[]} params.a_pay The payment type ID for each provider.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {Object} params.a_user Data to create new users.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
@@ -7866,7 +8220,7 @@
    * @param {Object} params.a_book_data All data from the provider model `Wl_Appointment_Book_ProviderModel`:
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {Object} params.a_user Data to create new user.
-   * @param {number} params.id_pay The payment type ID for the appointment. One of the {@link WlClient.RsAppointmentPaySid} constants.
+   * @param {number} params.id_pay The payment type ID for the service. See {@link WlClient.RsAppointmentPaySid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_appointment The appointment key.
    * @param {string} params.k_business The business key.
@@ -7915,7 +8269,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {Object} params.a_user Data to create new user.
-   * @param {number} params.id_pay The payment type ID for the appointment. One of the {@link WlClient.RsAppointmentPaySid} constants.
+   * @param {number} params.id_pay The payment type ID for the service. See {@link WlClient.RsAppointmentPaySid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_appointment The appointment key.
    * @param {string} params.k_business The business key.
@@ -8145,6 +8499,26 @@
   WlClient.prototype.wlAppointmentBookScheduleNextAvailableDay = function(params)
   {
     return this.request('/Wl/Appointment/Book/Schedule/NextAvailableDay.json', params || {}, 'GET');
+  };
+
+  /**
+   * Retrieves a list of available appointment booking schedule.
+   *
+   * Returns list of staff that can provide selected appointment. Each staff data contains list of dates from
+   * selected period when appointment can be booked. Each date contains list of available appointment start times.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.dl_end End date of search period in MySQL format, in location time zone.
+   * @param {string} params.dl_start Start date of search period in MySQL format, in location time zone.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_location Location key.
+   * @param {string} params.k_service Service key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_time` {Object} An array with a schedule of available appointment booking times.
+   */
+  WlClient.prototype.wlAppointmentBookScheduleServiceAvailability = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Schedule/ServiceAvailability.json', params || {}, 'GET');
   };
 
   /**
@@ -9359,7 +9733,7 @@
    * @param {string} params.uid The user's key.
    * @returns {Promise<Object>} Response data.
    *  `a_client` {Object} Clients' data.
-   *  `a_staff_list` {Object} List of available staff members for tips.
+   *  `a_staff_list` {Object|Object} List of available staff members for tips.
    *  `i_unpaid_number` {number} Total number of unpaid appointments.
    *  `is_tip` {boolean} Whether tips are accepted.
    */
@@ -10277,6 +10651,7 @@
    *  `id_conversion_type` {?number} Lead conversion type. See {@link WlClient.WlLeadConversionLeadConversionTypeSid}.
    *  `id_member_group_shape` {number} Shapes of client group icons. See {@link WlClient.WlMemberGroupShapeSid}.
    *  `is_brivo_active` {boolean} Whether Facility Access enabled for group.
+   *  `is_brivo_checkin_active` {boolean} Whether automatic check-in on Brivo access granted is enabled for the group.
    *  `is_brivo_invitation_active` {boolean} Whether Brivo invitation feature enabled for the group.
    *  `is_icon` {boolean} `true` to enable group icon. `false` to disable.
    *  `is_update` {boolean} Whether auto-update enabled for group.
@@ -10762,6 +11137,7 @@
    * @param {boolean} params.is_custom_list Whether to get a list of custom template data. `true` - to get a list, `false` - otherwise.
    * @param {?string} [params.k_business] Business key.
    * @param {string} params.k_mail_pattern Mail pattern key.
+   * @param {?string} [params.k_service] Key of the service being booked.
    * @param {string} params.sid_mail_form SID of the mail form. String representation of one from RsMailFormSid class constants.
    * @returns {Promise<Object>} Response data.
    *  `a_business_data` {Object} Business data.
@@ -11025,7 +11401,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (211 total)
+  // Enum constants (214 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -12607,18 +12983,6 @@
   });
 
   /**
-   * An enum of credit card types.
-   *
-   * @enum {number}
-   */
-  WlClient.WlPayBankCardCardTypeEnum = Object.freeze({
-    /** Credit Card */
-    CREDIT: 1,
-    /** Debit Card */
-    DEBIT: 2,
-  });
-
-  /**
    * CS Response code class.
    *
    * @enum {number}
@@ -12786,6 +13150,8 @@
     API: 28,
     /** Registered through `Azure` */
     AZURE: 21,
+    /** Visit has been checked-in by Brivo Door Access */
+    BRIVO_DOOR_ACCESS: 31,
     /** Visit has been created by `CENTRED` */
     CENTRED: 23,
     /** Visit has been created by `ClassPass` */
@@ -12816,6 +13182,8 @@
     MICROSOFT: 24,
     /** Client booked session on My Presence Site */
     MY_PRESENCE_SITE: 13,
+    /** Visit has been created by `Passport Door Access` */
+    PASSPORT_DOOR_ACCESS: 32,
     /** Action made via SMS */
     SMS: 17,
     /** Staff booked session from spa backend */
@@ -14631,6 +14999,32 @@
   });
 
   /**
+   * A list of report categories.
+   *
+   * @enum {number}
+   */
+  WlClient.RsReportCategorySid = Object.freeze({
+    /** Category reports on attendance */
+    ATTENDANCE: 2,
+    /** Category reports on clients */
+    CLIENT: 1,
+    /** Category on dashboards */
+    DASHBOARD: 9,
+    /** Corporate reports */
+    FRANCHISE: 6,
+    /** Insurance and reimbursements reports */
+    INSURANCE: 7,
+    /** Category reports on mail */
+    MAIL: 5,
+    /** Metrics category */
+    METRIC: 8,
+    /** Category reports on sales */
+    SALE: 4,
+    /** Category reports on staff */
+    STAFF: 3,
+  });
+
+  /**
    * Attendance Restriction cycle type.
    *
    * @enum {number}
@@ -15126,6 +15520,8 @@
     CLASS_LOCK_SEARCH: 152,
     /** Edit class schedule */
     CLASS_PERIOD: 5,
+    /** Allows a staff member to see other staff members' class sessions on the schedule in read-only mode */
+    CLASS_SCHEDULE_VIEW: 246,
     /** Add and view client's contact logs */
     CONTACT_LOG_MANAGE: 135,
     /** Add, remove, and edit gift cards */
@@ -15158,6 +15554,8 @@
     ENROLLMENT_FOREIGN: 53,
     /** Lock search bar on enrollment attendance list */
     ENROLLMENT_LOCK_SEARCH: 153,
+    /** Allows a staff member to see other staff members' event sessions on the schedule in read-only mode */
+    ENROLLMENT_SCHEDULE_VIEW: 247,
     /** Manage Enterprise Cloud Fees */
     ENTERPRISE_CLOUD_FEES: 207,
     /** Allows to manage leaderboard in the `FitBuilder` addon */
@@ -15308,6 +15706,8 @@
     PARTNER_PROGRAM_MANAGE: 94,
     /** Access to Payment Processing */
     PAYMENT_PROCESSING: 166,
+    /** Allows the staff member to initiate bulk billing of multiple clients in one batch */
+    PERFORM_BULK_BILLING: 245,
     /** Permission to perform Physical Inventory Count */
     PHYSICAL_INVENTORY_COUNT: 156,
     /** Staff member with this role will be able to send postcards */
@@ -15576,6 +15976,8 @@
    * @enum {number}
    */
   WlClient.RsMailSid = Object.freeze({
+    /** Sent when a client abandons a checkout (used in automations) */
+    ABANDONED_CHECKOUT: 220,
     /** Sent by CASSI phone agent, when client requests a booking url */
     AI_LINK_BOOK: 206,
     /** Sent by CASSI phone agent, when client requests a purchase url */
@@ -16140,6 +16542,44 @@
     PURCHASE: 1,
     /** Review */
     REVIEW: 2,
+  });
+
+  /**
+   * Widget analytics checkout types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = Object.freeze({
+    /** Any checkout type */
+    ANY: 1,
+    /** Booking checkout type */
+    BOOKING: 3,
+    /** Store purchase checkout type */
+    STORE_PURCHASE: 2,
+  });
+
+  /**
+   * Widget analytics event types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlWidgetAnalyticsWidgetAnalyticsEventSid = Object.freeze({
+    /** Checkout abandonment event */
+    ABANDONED_CHECKOUT: 1,
+    /** Begin checkout event */
+    BEGIN_CHECKOUT: 2,
+    /** Purchase event */
+    PURCHASE: 3,
+  });
+
+  /**
+   * Widget analytics event schema versions.
+   *
+   * @enum {number}
+   */
+  WlClient.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = Object.freeze({
+    /** Initial event schema */
+    V1: 1,
   });
 
   /**
