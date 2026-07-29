@@ -10365,7 +10365,7 @@ export interface WlSchedulePagePageElementResponse {
     k_service: string | null;
     /** The name of class or service. */
     s_title: string;
-    /** Location title. */
+    /** Location title. If the visit is assigned a resource whose category is {@link WlResourceResourceCa... */
     text_location: string;
     /** Room where session takes place. */
     text_room: string;
