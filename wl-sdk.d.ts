@@ -24521,8 +24521,13 @@ export interface WlEventBookEventViewElementResponse {
             /** The title of the installment plan. */
             s_duration: string;
         };
-        /** Classes selected for make-up sessions. See {@link WlEventBookEventViewElementResponse.a_makeup_cl... */
-        a_makeup_class: Array<Array<unknown>>;
+        /** Classes selected for make-up sessions. Every element has the following keys: */
+        a_makeup_class: {
+            /** Class key. */
+            k_class: string;
+            /** Class title. `null` if title is unavailable for the selected language. */
+            s_title: string | null;
+        };
         /** Schedule of event sessions. See {@link WlEventBookEventViewElementResponse.a_schedule}. */
         a_schedule: {
             /** Days of the week when the session occurs. */
@@ -24645,7 +24650,7 @@ export interface WlEventBookEventViewElementResponse {
     }>;
     /** Class selected for make-up sessions. */
     a_makeup_class: Array<{
-        /** Class key. Primary key in table RsClassSql. */
+        /** Class key. */
         k_class: string;
         /** Class title. `null` if title is unavailable for the selected language. */
         s_title: string | null;
