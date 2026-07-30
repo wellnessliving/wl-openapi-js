@@ -19543,6 +19543,10 @@ export interface WlBillingBulkPurchaseItemListGetResponse {
         /** Payment period of the promotion. */
         text_payment_period: string;
     }>;
+    /** Whether to apply the ACH surcharge. */
+    is_surcharge_ach: boolean;
+    /** Whether to apply the e-commerce surcharge. */
+    is_surcharge_ecommerce: boolean;
 }
 export interface WlBillingBulkPurchaseItemListPostParams {
     /** The business key. */
@@ -19560,6 +19564,8 @@ export interface WlBillingBulkPurchaseItemListPostResponse {
         };
         /** The list of clients that will be billed. Each element has the following structure: */
         a_client: {
+            /** A list of payment methods. @see RsPayMethodSid */
+            id_pay_method: RsPayMethodSid | null;
             /** `true` if the client has no default payment method on file, has no email on file while a receipt is */
             is_warning: boolean;
             /** The client email address. Empty string if the client has no email. */
@@ -19599,14 +19605,32 @@ export interface WlBillingBulkPurchaseItemListPostResponse {
         /** `true` if at least one client fails a login type restriction, `false` otherwise. */
         has_client_type_restrict: boolean;
     };
-    /** The total amount charged across every client that will be billed (per-client total multiplied by ... */
-    m_batch: string;
-    /** The subtotal per client (sum of the selected purchase item prices, excluding taxes). */
-    m_subtotal: string;
-    /** The tax amount per client. Always `0` when {@link WlBillingBulkNamespace#purchaseItemListGet} is ... */
-    m_tax: string;
-    /** The total per client (subtotal plus tax). */
-    m_total: string;
+    /** The totals of the bulk billing: the price of the selected items for a single client, and what the... */
+    a_total: {
+        /** One entry per client type that discounts at least one of the selected items for at least one of the */
+        a_discount_list: {
+            /** The number of clients that get this discount. */
+            i_user: number;
+            /** The client type that gives the discount. */
+            k_login_type: string;
+            /** The discount this client type gives, summed over all its clients and all the selected items. */
+            m_discount: string;
+            /** The client type title. */
+            text_title: string;
+        };
+        /** The price of the selected items for all the clients, with the client type discounts applied. */
+        m_subtotal_after_discount: string;
+        /** The price of the selected items for all the clients, before any discount. */
+        m_subtotal_before_discount: string;
+        /** The price of the selected items for one client, before any discount. It is the same for every cli... */
+        m_subtotal_per_client: string;
+        /** The amount the whole batch charges, with the client type discounts applied, the taxes accounted and */
+        m_total_batch: string;
+        /** The surcharges of all the clients, each derived from the amount that single client is charged. On... */
+        m_total_surcharge: string;
+        /** The taxes of the selected items for all the clients. Zero when `is_tax` is `false`. */
+        m_total_tax: string;
+    };
     /** The review id that identifies this prepared bulk billing. Pass it to {@link WlBillingBulkNamespac... */
     s_id: string;
 }

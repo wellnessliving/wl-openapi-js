@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260730055933
+ * Spec version: 1.1.20260730104424
  * Build date:   2026-07-30
  * Endpoints:    523
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260730055933';
+  WlClient.SPEC_VERSION = '1.1.20260730104424';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (523 total)
@@ -7582,6 +7582,8 @@
    * @returns {Promise<Object>} Response data.
    *  `a_product` {Object[]} The list of products available at the location. Each element has the followin...
    *  `a_promotion` {Object[]} The list of promotions available at the location. Each element has the follow...
+   *  `is_surcharge_ach` {boolean} Whether to apply the ACH surcharge.
+   *  `is_surcharge_ecommerce` {boolean} Whether to apply the e-commerce surcharge.
    */
   WlClient.prototype.wlBillingBulkPurchaseItemListGet = function(params)
   {
@@ -7604,10 +7606,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_client_bill` {Object} The result of preparing the clients to bill. Has the following structure:
    *  `a_client_restrict` {Object} The clients removed from the bulk billing because a selected item is not avai...
-   *  `m_batch` {string} The total amount charged across every client that will be billed (per-client ...
-   *  `m_subtotal` {string} The subtotal per client (sum of the selected purchase item prices, excluding ...
-   *  `m_tax` {string} The tax amount per client. Always `0` when {@link WlClient#wlBillingBulkPurch...
-   *  `m_total` {string} The total per client (subtotal plus tax).
+   *  `a_total` {Object} The totals of the bulk billing: the price of the selected items for a single ...
    *  `s_id` {string} The review id that identifies this prepared bulk billing. Pass it to {@link W...
    */
   WlClient.prototype.wlBillingBulkPurchaseItemListPost = function(params)
