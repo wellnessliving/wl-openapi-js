@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260730111440
+ * Spec version: 1.1.20260730150819
  * Build date:   2026-07-30
  * Endpoints:    523
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260730111440';
+  WlClient.SPEC_VERSION = '1.1.20260730150819';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (523 total)
@@ -14272,6 +14272,20 @@
   });
 
   /**
+   * Possible ways to stop repeatable events.
+   *
+   * @enum {number}
+   */
+  WlClient.RsRepeatEndSid = Object.freeze({
+    /** Stop after a certain number of repeats */
+    COUNT: 2,
+    /** Stop after a certain date. Including this date */
+    DATE: 3,
+    /** Eternal appointments. Such appointments are scheduled for one year */
+    ETERNAL: 1,
+  });
+
+  /**
    * The possible payment types an appointment can have.
    *
    * @enum {number}
@@ -14285,20 +14299,6 @@
     FULL: 3,
     /** Nothing was paid */
     NONE: 1,
-  });
-
-  /**
-   * Possible ways to stop repeatable events.
-   *
-   * @enum {number}
-   */
-  WlClient.RsRepeatEndSid = Object.freeze({
-    /** Stop after a certain number of repeats */
-    COUNT: 2,
-    /** Stop after a certain date. Including this date */
-    DATE: 3,
-    /** Eternal appointments. Such appointments are scheduled for one year */
-    ETERNAL: 1,
   });
 
   /**

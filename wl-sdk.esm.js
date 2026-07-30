@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260730111440
+// OpenAPI spec version: 1.1.20260730150819
 // Build date: 2026-07-30
 // Endpoints: 523
 // Enums: 197
@@ -2550,6 +2550,16 @@ export var WlVirtualVirtualProviderSid;
     /** Virtual Zoom service integration */
     WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
 })(WlVirtualVirtualProviderSid || (WlVirtualVirtualProviderSid = {}));
+/** Possible ways to stop repeatable events. */
+export var RsRepeatEndSid;
+(function (RsRepeatEndSid) {
+    /** Stop after a certain number of repeats */
+    RsRepeatEndSid[RsRepeatEndSid["COUNT"] = 2] = "COUNT";
+    /** Stop after a certain date. Including this date */
+    RsRepeatEndSid[RsRepeatEndSid["DATE"] = 3] = "DATE";
+    /** Eternal appointments. Such appointments are scheduled for one year */
+    RsRepeatEndSid[RsRepeatEndSid["ETERNAL"] = 1] = "ETERNAL";
+})(RsRepeatEndSid || (RsRepeatEndSid = {}));
 /** The possible payment types an appointment can have. */
 export var RsAppointmentPaySid;
 (function (RsAppointmentPaySid) {
@@ -2562,16 +2572,6 @@ export var RsAppointmentPaySid;
     /** Nothing was paid */
     RsAppointmentPaySid[RsAppointmentPaySid["NONE"] = 1] = "NONE";
 })(RsAppointmentPaySid || (RsAppointmentPaySid = {}));
-/** Possible ways to stop repeatable events. */
-export var RsRepeatEndSid;
-(function (RsRepeatEndSid) {
-    /** Stop after a certain number of repeats */
-    RsRepeatEndSid[RsRepeatEndSid["COUNT"] = 2] = "COUNT";
-    /** Stop after a certain date. Including this date */
-    RsRepeatEndSid[RsRepeatEndSid["DATE"] = 3] = "DATE";
-    /** Eternal appointments. Such appointments are scheduled for one year */
-    RsRepeatEndSid[RsRepeatEndSid["ETERNAL"] = 1] = "ETERNAL";
-})(RsRepeatEndSid || (RsRepeatEndSid = {}));
 /** Relation type between two relatives. */
 export var RsFamilyRelationSid;
 (function (RsFamilyRelationSid) {

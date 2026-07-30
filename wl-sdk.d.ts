@@ -2472,6 +2472,15 @@ export declare enum WlVirtualVirtualProviderSid {
     /** Virtual Zoom service integration */
     ZOOM = 1
 }
+/** Possible ways to stop repeatable events. */
+export declare enum RsRepeatEndSid {
+    /** Stop after a certain number of repeats */
+    COUNT = 2,
+    /** Stop after a certain date. Including this date */
+    DATE = 3,
+    /** Eternal appointments. Such appointments are scheduled for one year */
+    ETERNAL = 1
+}
 /** The possible payment types an appointment can have. */
 export declare enum RsAppointmentPaySid {
     /** A deposit was paid */
@@ -2482,15 +2491,6 @@ export declare enum RsAppointmentPaySid {
     FULL = 3,
     /** Nothing was paid */
     NONE = 1
-}
-/** Possible ways to stop repeatable events. */
-export declare enum RsRepeatEndSid {
-    /** Stop after a certain number of repeats */
-    COUNT = 2,
-    /** Stop after a certain date. Including this date */
-    DATE = 3,
-    /** Eternal appointments. Such appointments are scheduled for one year */
-    ETERNAL = 1
 }
 /** Relation type between two relatives. */
 export declare enum RsFamilyRelationSid {
@@ -10579,12 +10579,22 @@ export interface WlAppointmentInfoInfoResponse {
     a_repeat: {
         /** Days of week to repeat appointment. Constants from {@link ADateWeekSid}. */
         a_day: Array<number>;
-        /** Current appointment date in location timezone in MySQL date format. */
-        dl_date: string;
-        /** Start date for range edit in location timezone in MySQL date format. */
+        /** Start date for range edit in location timezone. */
         dl_edit_from: string;
-        /** End date for range edit in location timezone in MySQL date format. */
+        /** End date for range edit in location timezone. */
         dl_edit_to: string;
+        /** Date when the repeat cycle stops, in location timezone. */
+        dl_repeat_end: string;
+        /** Number of occurrences after that the repeat cycle stops. */
+        i_repeat_count: number;
+        /** Frequency of the repeats. For example, `2` for every second week. */
+        i_repeat_period: number;
+        /** A class for managing time intervals. @see ADurationSid */
+        id_repeat_duration: ADurationSid;
+        /** Possible ways to stop repeatable events. @see RsRepeatEndSid */
+        id_repeat_end: RsRepeatEndSid;
+        /** `true` if the appointment repeats monthly at the same date. */
+        is_month: boolean;
         /** Current appointment local start time in MySQL time format. */
         s_time: string;
     };
