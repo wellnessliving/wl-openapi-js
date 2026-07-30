@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260730104424
+// OpenAPI spec version: 1.1.20260730111440
 // Build date: 2026-07-30
 // Endpoints: 523
 // Enums: 197
@@ -2181,6 +2181,8 @@ export var RsPurchaseItemSid;
     RsPurchaseItemSid[RsPurchaseItemSid["TUITION"] = 26] = "TUITION";
     /** Tuition fee purchase item */
     RsPurchaseItemSid[RsPurchaseItemSid["TUITION_FEE"] = 27] = "TUITION_FEE";
+    /** Tuition prorate purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TUITION_PRORATE"] = 28] = "TUITION_PRORATE";
 })(RsPurchaseItemSid || (RsPurchaseItemSid = {}));
 /** List of embed video sources. */
 export var WlVideoVideoEmbedSourceSid;

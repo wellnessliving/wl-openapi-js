@@ -2124,7 +2124,9 @@ export declare enum RsPurchaseItemSid {
     /** Tuition purchase item */
     TUITION = 26,
     /** Tuition fee purchase item */
-    TUITION_FEE = 27
+    TUITION_FEE = 27,
+    /** Tuition prorate purchase item */
+    TUITION_PRORATE = 28
 }
 /** List of embed video sources. */
 export declare enum WlVideoVideoEmbedSourceSid {
@@ -16669,6 +16671,8 @@ export interface WlCatalogCartCartParams {
             a_event_list?: Record<string, unknown>;
             /** Registration fees for tuition participants. */
             a_registration_fee_list?: Record<string, unknown>;
+            /** The total amount that will be charged for the tuition item when during purchase. */
+            m_checkout?: string;
         };
         /** Key of login prize used on item. */
         k_login_prize?: string;
@@ -16705,6 +16709,8 @@ export interface WlCatalogCartCartResponse {
             a_event_list?: Record<string, unknown>;
             /** Registration fees for tuition participants. */
             a_registration_fee_list?: Record<string, unknown>;
+            /** The total amount that will be charged for the tuition item when during purchase. */
+            m_checkout?: string;
         };
         /** Key of login prize used on item. */
         k_login_prize?: string;
@@ -25430,6 +25436,8 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartParams {
             a_event_list?: Record<string, unknown>;
             /** Registration fees for tuition participants. */
             a_registration_fee_list?: Record<string, unknown>;
+            /** The total amount that will be charged for the tuition item during purchase. */
+            m_checkout?: string;
             /** The custom price. */
             f_price?: string;
             /** The prorate date. This should be passed when `is_prorate`=`true`. */
@@ -25524,6 +25532,8 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartResponse {
             a_event_list?: Record<string, unknown>;
             /** Registration fees for tuition participants. */
             a_registration_fee_list?: Record<string, unknown>;
+            /** The total amount that will be charged for the tuition item during purchase. */
+            m_checkout?: string;
             /** The custom price. */
             f_price?: string;
             /** The prorate date. This should be passed when `is_prorate`=`true`. */
