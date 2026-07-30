@@ -10578,21 +10578,21 @@ export interface WlAppointmentInfoInfoResponse {
     /** Repeat settings for appointment reschedule. */
     a_repeat: {
         /** Days of week to repeat appointment. Constants from {@link ADateWeekSid}. */
-        a_day: Array<number>;
+        a_week: Array<number>;
         /** Start date for range edit in location timezone. */
         dl_edit_from: string;
         /** End date for range edit in location timezone. */
         dl_edit_to: string;
         /** Date when the repeat cycle stops, in location timezone. */
-        dl_repeat_end: string;
+        dl_end: string;
         /** Number of occurrences after that the repeat cycle stops. */
-        i_repeat_count: number;
+        i_occurrence: number;
         /** Frequency of the repeats. For example, `2` for every second week. */
-        i_repeat_period: number;
-        /** A class for managing time intervals. @see ADurationSid */
-        id_repeat_duration: ADurationSid;
+        i_period: number;
         /** Possible ways to stop repeatable events. @see RsRepeatEndSid */
-        id_repeat_end: RsRepeatEndSid;
+        id_end: RsRepeatEndSid;
+        /** A class for managing time intervals. @see ADurationSid */
+        id_period: ADurationSid;
         /** `true` if the appointment repeats monthly at the same date. */
         is_month: boolean;
         /** Current appointment local start time in MySQL time format. */
