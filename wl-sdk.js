@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260730154139
- * Build date:   2026-07-30
+ * Spec version: 1.1.20260731035621
+ * Build date:   2026-07-31
  * Endpoints:    523
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260730154139';
+  WlClient.SPEC_VERSION = '1.1.20260731035621';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (523 total)
@@ -2560,6 +2560,9 @@
 
   /**
    * Flushes all application caches.
+   *
+   * Clears every cache layer used by the application via `CoreCache::flush_all()`. Intended for use by
+   * automation tests that need a clean cache state before or between test runs.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.s_action Name of the action to perform within this endpoint.
