@@ -19679,23 +19679,27 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
         /** Events for this enrollment. */
         a_events: Array<Record<string, unknown>>;
         /** Next payment date in local business timezone and MySQL format. */
-        dl_next: string;
+        dl_next?: string | null;
         /** Date and time of the enrollment in local business timezone. */
         dtl_enrollment: string;
+        /** Number of payments done. */
+        i_payments_done: number;
         /** Number of payments left. */
-        i_payments_left: number;
+        i_payments_left?: number | null;
         /** Number of payments total at the moment of enrollment. */
         i_payments_total: number;
         /** Installment plan status. */
         id_installment_status?: number | null;
         /** Key of the tuition purchase item. This is enrollment key, which can be used to modify and cancel ... */
         k_purchase_item_tuition: string;
+        /** Rest amount has been already paid. */
+        m_paid: string;
         /** One payment amount. */
         m_payment: string;
         /** Rest amount to be paid. */
-        m_rest: string;
+        m_rest?: string | null;
         /** Total initial amount to be paid. */
-        m_total: string;
+        m_total?: string | null;
         /** Payer for this enrollment. */
         uid_payer: string;
     }>;
