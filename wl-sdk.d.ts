@@ -10597,7 +10597,7 @@ export interface WlAppointmentInfoInfoResponse {
         id_period: ADurationSid;
         /** `true` if the appointment repeats monthly at the same date. */
         is_month: boolean;
-        /** Current appointment local start time in MySQL time format. */
+        /** Current appointment local start time in MySQL time format (`HH:MM:SS`). */
         s_time: string;
     };
     /** List of assets used by this appointment. Each element contains: */
@@ -20700,12 +20700,30 @@ export interface WlAppointmentBookFinishFinishGetParams {
 export interface WlAppointmentBookFinishFinishGetResponse {
     /** Information for sending an appointment notification. */
     a_notification: {
+        /** `true` to attach calendar file, `false` to not attach calendar file. */
+        is_attach?: boolean;
+        /** Whether mail should track as a part of campaign. `true` if yes, `false` if no. */
+        is_campaign?: boolean;
         /** `true` to send mail; `false` to not send. */
         is_mail?: boolean;
-        /** `true` to send SMS; `false` to not send. */
-        is_sms?: boolean;
         /** `true` to send push notification; `false` to not send. */
         is_push?: boolean;
+        /** `true` to send SMS; `false` to not send. */
+        is_sms?: boolean;
+        /** Business name. */
+        text_business_name?: string;
+        /** Reply email address. */
+        text_business_reply?: string;
+        /** Campaign name. */
+        text_campaign?: string;
+        /** Email content. */
+        text_content_mail?: string;
+        /** Push notification content. */
+        text_push?: string;
+        /** SMS content. */
+        text_sms?: string;
+        /** Email subject. */
+        text_subject?: string;
     };
     /** Location to show available appointment booking schedule. */
     k_location: string;
@@ -20857,12 +20875,30 @@ export interface WlAppointmentBookFinishFinish47GetParams {
 export interface WlAppointmentBookFinishFinish47GetResponse {
     /** Information for sending an appointment notification. */
     a_notification: {
+        /** `true` to attach calendar file, `false` to not attach calendar file. */
+        is_attach?: boolean;
+        /** Whether mail should track as a part of campaign. `true` if yes, `false` if no. */
+        is_campaign?: boolean;
         /** `true` to send mail; `false` to not send. */
         is_mail?: boolean;
-        /** `true` to send SMS; `false` to not send. */
-        is_sms?: boolean;
         /** `true` to send push notification; `false` to not send. */
         is_push?: boolean;
+        /** `true` to send SMS; `false` to not send. */
+        is_sms?: boolean;
+        /** Business name. */
+        text_business_name?: string;
+        /** Reply email address. */
+        text_business_reply?: string;
+        /** Campaign name. */
+        text_campaign?: string;
+        /** Email content. */
+        text_content_mail?: string;
+        /** Push notification content. */
+        text_push?: string;
+        /** SMS content. */
+        text_sms?: string;
+        /** Email subject. */
+        text_subject?: string;
     };
     /** Location to show available appointment booking schedule. */
     k_location: string;
