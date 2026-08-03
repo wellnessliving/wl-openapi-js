@@ -6865,6 +6865,8 @@ export interface WlPromotionPromotionGetResponse {
             a_resource: Record<string, unknown>;
             /** A list of available appointment types. */
             a_service: Record<string, unknown>;
+            /** A class for filter states for flagged fields. @see AFlagSid */
+            id_class_access: AFlagSid;
             /** This will be `true` if any class in the business can be visited with this Purchase Option. */
             is_class_all: boolean;
             /** This will be `true` if any event in the business can be visited with this Purchase Option. */
