@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260803195956
+ * Spec version: 1.1.20260803205845
  * Build date:   2026-08-03
  * Endpoints:    524
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260803195956';
+  WlClient.SPEC_VERSION = '1.1.20260803205845';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (524 total)
@@ -2671,15 +2671,15 @@
   };
 
   /**
-   * Returns a fixed connection value and, when requested, selected log findings.
+   * Returns a fixed connection value and, when requested, selected findings.
    *
    * @param {Object} [params] Request parameters.
-   * @param {boolean} params.is_log Whether log findings must be returned.
+   * @param {number[]} params.a_id_source IDs of finding sources from {@link WlClient.CoreAILogTriageTriageSourceSid}.
+   * @param {boolean} params.is_finding Whether findings must be returned.
    * @param {string} params.s_date_mask Date/time mask accepted by LogSearchQuery.
-   * @param {string} params.s_search Optional case-insensitive message substring.
-   * @param {string} params.s_source Log source: `all`, `error`, or `slow`.
+   * @param {string} params.text_search Optional case-insensitive message substring.
    * @returns {Promise<Object>} Response data.
-   *  `a_log` {Object[]} Grouped log findings.
+   *  `a_finding` {Object[]} Grouped findings.
    *  `i_result` {number} Connection check value.
    */
   WlClient.prototype.coreAILogTriageConnectionCheck = function(params)
@@ -11426,7 +11426,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (214 total)
+  // Enum constants (215 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -14141,6 +14141,20 @@
     VALID: 3,
     /** Token is valid but score is risky */
     VALID_BLOCK: 4,
+  });
+
+  /**
+   * Sources from which log triage findings can be collected.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreAILogTriageTriageSourceSid = Object.freeze({
+    /** PHP error log represented by DebugPhpLog */
+    ERROR_LOG: 1,
+    /** Slow-operation log represented by DebugSlowLog */
+    SLOW_LOG: 2,
+    /** Aggregated usage statistics stored by WatchUsageStat */
+    WATCH_USAGE_STAT: 3,
   });
 
   /**

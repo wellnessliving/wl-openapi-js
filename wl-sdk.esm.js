@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260803195956
+// OpenAPI spec version: 1.1.20260803205845
 // Build date: 2026-08-03
 // Endpoints: 524
-// Enums: 197
+// Enums: 198
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (197 total) ---
+// --- Enum types (198 total) ---
 /** A list of locales. */
 export var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -2428,6 +2428,16 @@ export var CoreGoogleCaptchaCaptchaResponseSid;
     /** Token is valid but score is risky */
     CoreGoogleCaptchaCaptchaResponseSid[CoreGoogleCaptchaCaptchaResponseSid["VALID_BLOCK"] = 4] = "VALID_BLOCK";
 })(CoreGoogleCaptchaCaptchaResponseSid || (CoreGoogleCaptchaCaptchaResponseSid = {}));
+/** Sources from which log triage findings can be collected. */
+export var CoreAILogTriageTriageSourceSid;
+(function (CoreAILogTriageTriageSourceSid) {
+    /** PHP error log represented by DebugPhpLog */
+    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ERROR_LOG"] = 1] = "ERROR_LOG";
+    /** Slow-operation log represented by DebugSlowLog */
+    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["SLOW_LOG"] = 2] = "SLOW_LOG";
+    /** Aggregated usage statistics stored by WatchUsageStat */
+    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["WATCH_USAGE_STAT"] = 3] = "WATCH_USAGE_STAT";
+})(CoreAILogTriageTriageSourceSid || (CoreAILogTriageTriageSourceSid = {}));
 /** A list of report categories. */
 export var RsReportCategorySid;
 (function (RsReportCategorySid) {
@@ -5550,7 +5560,7 @@ export class CoreAILogTriageNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns a fixed connection value and, when requested, selected log findings. */
+    /** Returns a fixed connection value and, when requested, selected findings. */
     connectionCheck(params) {
         return this._client._request('/Core/AI/LogTriage/ConnectionCheck.json', params, 'GET');
     }

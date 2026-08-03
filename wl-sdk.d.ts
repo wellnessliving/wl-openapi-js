@@ -2358,6 +2358,15 @@ export declare enum CoreGoogleCaptchaCaptchaResponseSid {
     /** Token is valid but score is risky */
     VALID_BLOCK = 4
 }
+/** Sources from which log triage findings can be collected. */
+export declare enum CoreAILogTriageTriageSourceSid {
+    /** PHP error log represented by DebugPhpLog */
+    ERROR_LOG = 1,
+    /** Slow-operation log represented by DebugSlowLog */
+    SLOW_LOG = 2,
+    /** Aggregated usage statistics stored by WatchUsageStat */
+    WATCH_USAGE_STAT = 3
+}
 /** A list of report categories. */
 export declare enum RsReportCategorySid {
     /** Category reports on attendance */
@@ -9142,28 +9151,34 @@ export interface CoreSpaApplicationSpaApplicationResponse {
     url_tjx: string;
 }
 export interface CoreAILogTriageConnectionCheckParams {
-    /** Whether log findings must be returned. */
-    is_log: boolean;
+    /** IDs of finding sources from {@link CoreAILogTriageTriageSourceSid}. */
+    a_id_source: Array<CoreAILogTriageTriageSourceSid>;
+    /** Whether findings must be returned. */
+    is_finding: boolean;
     /** Date/time mask accepted by LogSearchQuery. */
     s_date_mask: string;
     /** Optional case-insensitive message substring. */
-    s_search: string;
-    /** Log source: `all`, `error`, or `slow`. */
-    s_source: string;
+    text_search: string;
 }
 export interface CoreAILogTriageConnectionCheckResponse {
-    /** Grouped log findings. */
-    a_log: Array<{
+    /** Grouped findings. */
+    a_finding: Array<{
         /** Number of matching records. */
         i_occurrence_count: number;
-        /** Date of the first matching record. */
-        s_first_seen: string;
-        /** Date of the last matching record. */
-        s_last_seen: string;
-        /** Log message. */
-        s_message: string;
-        /** Log source: `error` or `slow`. */
-        s_source: string;
+        /** Sources from which log triage findings can be collected. @see CoreAILogTriageTriageSourceSid */
+        id_source: CoreAILogTriageTriageSourceSid;
+        /** Log message. Present for log sources. */
+        text_message: string;
+        /** UTC date/time of the first matching log record. */
+        dtu_first_seen: string;
+        /** UTC date/time of the last matching log record. */
+        dtu_last_seen: string;
+        /** WatchUsageStat object. Present for this source. */
+        s_object: string;
+        /** Local date of the first WatchUsageStat record. */
+        dl_first_seen: string;
+        /** Local date of the last WatchUsageStat record. */
+        dl_last_seen: string;
     }>;
     /** Connection check value. */
     i_result: number;
@@ -27147,7 +27162,7 @@ export declare class CoreSpaNamespace {
 export declare class CoreAILogTriageNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Returns a fixed connection value and, when requested, selected log findings. */
+    /** Returns a fixed connection value and, when requested, selected findings. */
     connectionCheck(params?: CoreAILogTriageConnectionCheckParams): Promise<CoreAILogTriageConnectionCheckResponse>;
 }
 export declare class CoreAINamespace {
