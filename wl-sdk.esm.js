@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260804032035
+// OpenAPI spec version: 1.1.20260804223521
 // Build date: 2026-08-04
-// Endpoints: 524
-// Enums: 198
+// Endpoints: 530
+// Enums: 200
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (198 total) ---
+// --- Enum types (200 total) ---
 /** A list of locales. */
 export var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -1544,6 +1544,28 @@ export var CoreDriveDriveTypeSid;
     /** Png image */
     CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["PNG"] = 3] = "PNG";
 })(CoreDriveDriveTypeSid || (CoreDriveDriveTypeSid = {}));
+/** A class for managing time intervals. */
+export var ADurationSid;
+(function (ADurationSid) {
+    /** Days */
+    ADurationSid[ADurationSid["DAY"] = 4] = "DAY";
+    /** Hours */
+    ADurationSid[ADurationSid["HOUR"] = 3] = "HOUR";
+    /** Minutes */
+    ADurationSid[ADurationSid["MINUTE"] = 2] = "MINUTE";
+    /** Months */
+    ADurationSid[ADurationSid["MONTH"] = 5] = "MONTH";
+    /** Seconds */
+    ADurationSid[ADurationSid["SECOND"] = 1] = "SECOND";
+    /** Weeks (7 days) */
+    ADurationSid[ADurationSid["WEEK"] = 7] = "WEEK";
+    /** Two weeks (14 days) */
+    ADurationSid[ADurationSid["WEEK2"] = 9] = "WEEK2";
+    /** Foursome of weeks (28 days) */
+    ADurationSid[ADurationSid["WEEK4"] = 8] = "WEEK4";
+    /** Years */
+    ADurationSid[ADurationSid["YEAR"] = 6] = "YEAR";
+})(ADurationSid || (ADurationSid = {}));
 /** Day time periods. */
 export var RsScheduleTimeSid;
 (function (RsScheduleTimeSid) {
@@ -1940,28 +1962,6 @@ export var RsProgramTypeSid;
     /** Special WellnessLiving promote passes that allow to visit specific classes to get acquainted with the business */
     RsProgramTypeSid[RsProgramTypeSid["PROSPECT"] = 5] = "PROSPECT";
 })(RsProgramTypeSid || (RsProgramTypeSid = {}));
-/** A class for managing time intervals. */
-export var ADurationSid;
-(function (ADurationSid) {
-    /** Days */
-    ADurationSid[ADurationSid["DAY"] = 4] = "DAY";
-    /** Hours */
-    ADurationSid[ADurationSid["HOUR"] = 3] = "HOUR";
-    /** Minutes */
-    ADurationSid[ADurationSid["MINUTE"] = 2] = "MINUTE";
-    /** Months */
-    ADurationSid[ADurationSid["MONTH"] = 5] = "MONTH";
-    /** Seconds */
-    ADurationSid[ADurationSid["SECOND"] = 1] = "SECOND";
-    /** Weeks (7 days) */
-    ADurationSid[ADurationSid["WEEK"] = 7] = "WEEK";
-    /** Two weeks (14 days) */
-    ADurationSid[ADurationSid["WEEK2"] = 9] = "WEEK2";
-    /** Foursome of weeks (28 days) */
-    ADurationSid[ADurationSid["WEEK4"] = 8] = "WEEK4";
-    /** Years */
-    ADurationSid[ADurationSid["YEAR"] = 6] = "YEAR";
-})(ADurationSid || (ADurationSid = {}));
 /** Class to process string identifiers for duration types */
 export var RsDurationTypeSid;
 (function (RsDurationTypeSid) {
@@ -2414,6 +2414,22 @@ export var RsPayOwnerSid;
     /** System user */
     RsPayOwnerSid[RsPayOwnerSid["USER"] = 1] = "USER";
 })(RsPayOwnerSid || (RsPayOwnerSid = {}));
+/** `WebAuthn` `credentialDeviceType` values, per the `WebAuthn` specification. */
+export var CorePassportPasskeyPasskeyDeviceTypeEnum;
+(function (CorePassportPasskeyPasskeyDeviceTypeEnum) {
+    /** The credential is bound to a single physical authenticator and cannot be backed up or */
+    CorePassportPasskeyPasskeyDeviceTypeEnum[CorePassportPasskeyPasskeyDeviceTypeEnum["SINGLE_DEVICE"] = 1] = "SINGLE_DEVICE";
+    /** The credential can be backed up and synced across multiple devices, for example through */
+    CorePassportPasskeyPasskeyDeviceTypeEnum[CorePassportPasskeyPasskeyDeviceTypeEnum["MULTI_DEVICE"] = 2] = "MULTI_DEVICE";
+})(CorePassportPasskeyPasskeyDeviceTypeEnum || (CorePassportPasskeyPasskeyDeviceTypeEnum = {}));
+/** Statuses of a registered passkey credential. */
+export var CorePassportPasskeyPasskeyCredentialStatusEnum;
+(function (CorePassportPasskeyPasskeyCredentialStatusEnum) {
+    /** The credential is active and may be used to sign in */
+    CorePassportPasskeyPasskeyCredentialStatusEnum[CorePassportPasskeyPasskeyCredentialStatusEnum["ACTIVE"] = 1] = "ACTIVE";
+    /** The credential was revoked by its owner and may no longer be used to sign in */
+    CorePassportPasskeyPasskeyCredentialStatusEnum[CorePassportPasskeyPasskeyCredentialStatusEnum["REVOKED"] = 2] = "REVOKED";
+})(CorePassportPasskeyPasskeyCredentialStatusEnum || (CorePassportPasskeyPasskeyCredentialStatusEnum = {}));
 /** List of responses for Google Captcha token. */
 export var CoreGoogleCaptchaCaptchaResponseSid;
 (function (CoreGoogleCaptchaCaptchaResponseSid) {
@@ -5460,6 +5476,35 @@ export class CorePassportChangePasswordNamespace {
         return this._client._request('/Core/Passport/ChangePassword/ChangePasswordBegin.json', params, 'POST');
     }
 }
+export class CorePassportPasskeyNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Revokes one of the signed-in user's passkey credentials. */
+    passkeyCredentialDelete(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'DELETE');
+    }
+    /** Lists the signed-in user's registered passkey credentials. */
+    passkeyCredentialGet(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'GET');
+    }
+    /** Starts the authentication ceremony. */
+    passkeyEnterGet(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyEnter.json', params, 'GET');
+    }
+    /** Finishes the authentication ceremony. */
+    passkeyEnterPost(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyEnter.json', params, 'POST');
+    }
+    /** Starts the registration ceremony. */
+    passkeyRegisterGet(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyRegister.json', params, 'GET');
+    }
+    /** Finishes the registration ceremony. */
+    passkeyRegisterPost(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyRegister.json', params, 'POST');
+    }
+}
 export class CorePassportEnterJwtNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5495,6 +5540,7 @@ export class CorePassportNamespace {
         this._client = _client;
         this.login = new CorePassportLoginNamespace(this._client);
         this.changePassword = new CorePassportChangePasswordNamespace(this._client);
+        this.passkey = new CorePassportPasskeyNamespace(this._client);
         this.enter = new CorePassportEnterNamespace(this._client);
         this.user = new CorePassportUserNamespace(this._client);
     }

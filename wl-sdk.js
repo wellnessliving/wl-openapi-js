@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260804032035
+ * Spec version: 1.1.20260804223521
  * Build date:   2026-08-04
- * Endpoints:    524
+ * Endpoints:    530
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260804032035';
+  WlClient.SPEC_VERSION = '1.1.20260804223521';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (524 total)
+  // Generated API methods (530 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2426,6 +2426,104 @@
   WlClient.prototype.corePassportChangePasswordChangePasswordBegin = function(params)
   {
     return this.request('/Core/Passport/ChangePassword/ChangePasswordBegin.json', params || {}, 'POST');
+  };
+
+  /**
+   * Revokes one of the signed-in user's passkey credentials.
+   *
+   * Marks the credential as revoked rather than deleting the row, so its immutable identity data
+   * remains available for audit purposes. Only a credential owned by the signed-in user can be
+   * revoked - specifying another user's credential key has no effect.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_passkey_credential Key of the credential to revoke.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.corePassportPasskeyPasskeyCredentialDelete = function(params)
+  {
+    return this.request('/Core/Passport/Passkey/PasskeyCredential.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Lists the signed-in user's registered passkey credentials.
+   *
+   * Returns each credential's own metadata (label, device type, backup state, timestamps) for the account-settings
+   * management. Does not reveal the raw credential ID or public key.
+   *
+   * @param {Object} [params] Request parameters.
+   * @returns {Promise<Object>} Response data.
+   *  `a_credential` {Object} List of the signed-in user's registered passkey credentials. Structure of eac...
+   */
+  WlClient.prototype.corePassportPasskeyPasskeyCredentialGet = function(params)
+  {
+    return this.request('/Core/Passport/Passkey/PasskeyCredential.json', params || {}, 'GET');
+  };
+
+  /**
+   * Starts the authentication ceremony.
+   *
+   * Issues a PublicKeyCredentialRequestOptions challenge with an empty `allowCredentials` list,
+   * so the browser or OS surfaces a picker of every passkey registered for this `rpId` without the
+   * caller identifying a user first.
+   *
+   * @param {Object} [params] Request parameters.
+   * @returns {Promise<Object>} Response data.
+   *  `json_options` {string} JSON-encoded `PublicKeyCredentialRequestOptions` to pass to `navigator.creden...
+   */
+  WlClient.prototype.corePassportPasskeyPasskeyEnterGet = function(params)
+  {
+    return this.request('/Core/Passport/Passkey/PasskeyEnter.json', params || {}, 'GET');
+  };
+
+  /**
+   * Finishes the authentication ceremony.
+   *
+   * Looks up the credential by the ID carried in the assertion, verifies the assertion against it
+   * and the challenge issued by `get()`, then signs the credential's owner
+   * in the same way a successful password login would. Fails if the caller is already signed in,
+   * the credential is unknown or revoked, or the assertion does not verify.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `url_redirect` {?string} An optional URL for redirection after the user has signed in.
+   */
+  WlClient.prototype.corePassportPasskeyPasskeyEnterPost = function(params)
+  {
+    return this.request('/Core/Passport/Passkey/PasskeyEnter.json', params || {}, 'POST');
+  };
+
+  /**
+   * Starts the registration ceremony.
+   *
+   * Issues a PublicKeyCredentialCreationOptions challenge for `navigator.credentials.create()`,
+   * scoped to the signed-in user and excluding their already-registered active credentials so the
+   * same authenticator cannot register a duplicate one.
+   * The options are also stashed in session so `post()` can verify the same
+   * challenge when finishing the ceremony.</i>
+   *
+   * @param {Object} [params] Request parameters.
+   * @returns {Promise<Object>} Response data.
+   *  `json_options` {string} JSON-encoded `PublicKeyCredentialCreationOptions` to pass to `navigator.crede...
+   */
+  WlClient.prototype.corePassportPasskeyPasskeyRegisterGet = function(params)
+  {
+    return this.request('/Core/Passport/Passkey/PasskeyRegister.json', params || {}, 'GET');
+  };
+
+  /**
+   * Finishes the registration ceremony.
+   *
+   * Verifies the attestation response against the challenge issued by
+   * `get()`, then stores the new credential under the signed-in user.
+   * Fails if the ceremony was never started or has expired, or if the response does not match the
+   * expected origin, `rpId`, or challenge.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.corePassportPasskeyPasskeyRegisterPost = function(params)
+  {
+    return this.request('/Core/Passport/Passkey/PasskeyRegister.json', params || {}, 'POST');
   };
 
   /**
@@ -11426,7 +11524,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (215 total)
+  // Enum constants (217 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -13080,6 +13178,32 @@
   });
 
   /**
+   * A class for managing time intervals.
+   *
+   * @enum {number}
+   */
+  WlClient.ADurationSid = Object.freeze({
+    /** Days */
+    DAY: 4,
+    /** Hours */
+    HOUR: 3,
+    /** Minutes */
+    MINUTE: 2,
+    /** Months */
+    MONTH: 5,
+    /** Seconds */
+    SECOND: 1,
+    /** Weeks (7 days) */
+    WEEK: 7,
+    /** Two weeks (14 days) */
+    WEEK2: 9,
+    /** Foursome of weeks (28 days) */
+    WEEK4: 8,
+    /** Years */
+    YEAR: 6,
+  });
+
+  /**
    * Day time periods.
    *
    * @enum {number}
@@ -13545,32 +13669,6 @@
     PASS: 2,
     /** Special WellnessLiving promote passes that allow to visit specific classes to get acquainted with the business */
     PROSPECT: 5,
-  });
-
-  /**
-   * A class for managing time intervals.
-   *
-   * @enum {number}
-   */
-  WlClient.ADurationSid = Object.freeze({
-    /** Days */
-    DAY: 4,
-    /** Hours */
-    HOUR: 3,
-    /** Minutes */
-    MINUTE: 2,
-    /** Months */
-    MONTH: 5,
-    /** Seconds */
-    SECOND: 1,
-    /** Weeks (7 days) */
-    WEEK: 7,
-    /** Two weeks (14 days) */
-    WEEK2: 9,
-    /** Foursome of weeks (28 days) */
-    WEEK4: 8,
-    /** Years */
-    YEAR: 6,
   });
 
   /**
@@ -14123,6 +14221,30 @@
     BUSINESS: 2,
     /** System user */
     USER: 1,
+  });
+
+  /**
+   * `WebAuthn` `credentialDeviceType` values, per the `WebAuthn` specification.
+   *
+   * @enum {number}
+   */
+  WlClient.CorePassportPasskeyPasskeyDeviceTypeEnum = Object.freeze({
+    /** The credential is bound to a single physical authenticator and cannot be backed up or */
+    SINGLE_DEVICE: 1,
+    /** The credential can be backed up and synced across multiple devices, for example through */
+    MULTI_DEVICE: 2,
+  });
+
+  /**
+   * Statuses of a registered passkey credential.
+   *
+   * @enum {number}
+   */
+  WlClient.CorePassportPasskeyPasskeyCredentialStatusEnum = Object.freeze({
+    /** The credential is active and may be used to sign in */
+    ACTIVE: 1,
+    /** The credential was revoked by its owner and may no longer be used to sign in */
+    REVOKED: 2,
   });
 
   /**
