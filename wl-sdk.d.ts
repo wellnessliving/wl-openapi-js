@@ -20373,6 +20373,10 @@ export interface WlAppointmentBookServiceServiceList52Response {
         i_price: number;
         /** The appointment duration in minutes. */
         i_duration: number;
+        /** Padding time after the end of the appointment, in minutes. Used to detect when a staff member is */
+        i_padding_after: number;
+        /** Padding time before the beginning of the appointment, in minutes. Used to detect when a staff mem... */
+        i_padding_before: number;
         /** A list of client booking flow types. @see WlServiceServiceBookFlowSid */
         id_book_flow: WlServiceServiceBookFlowSid;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
@@ -20566,6 +20570,10 @@ export interface WlAppointmentBookServiceServiceListResponse {
         i_price: number;
         /** The appointment duration in minutes. */
         i_duration: number;
+        /** Padding time after the end of the appointment, in minutes. Used to detect when a staff member is */
+        i_padding_after: number;
+        /** Padding time before the beginning of the appointment, in minutes. Used to detect when a staff mem... */
+        i_padding_before: number;
         /** A list of client booking flow types. @see WlServiceServiceBookFlowSid */
         id_book_flow: WlServiceServiceBookFlowSid;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
