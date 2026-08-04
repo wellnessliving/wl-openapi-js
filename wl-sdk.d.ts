@@ -1720,6 +1720,27 @@ export declare enum CoreDriveDriveTypeSid {
     /** Png image */
     PNG = 3
 }
+/** A class for managing time intervals. */
+export declare enum ADurationSid {
+    /** Days */
+    DAY = 4,
+    /** Hours */
+    HOUR = 3,
+    /** Minutes */
+    MINUTE = 2,
+    /** Months */
+    MONTH = 5,
+    /** Seconds */
+    SECOND = 1,
+    /** Weeks (7 days) */
+    WEEK = 7,
+    /** Two weeks (14 days) */
+    WEEK2 = 9,
+    /** Foursome of weeks (28 days) */
+    WEEK4 = 8,
+    /** Years */
+    YEAR = 6
+}
 /** Day time periods. */
 export declare enum RsScheduleTimeSid {
     /** Afternoon */
@@ -1994,27 +2015,6 @@ export declare enum RsProgramTypeSid {
     PASS = 2,
     /** Special WellnessLiving promote passes that allow to visit specific classes to get acquainted with the business */
     PROSPECT = 5
-}
-/** A class for managing time intervals. */
-export declare enum ADurationSid {
-    /** Days */
-    DAY = 4,
-    /** Hours */
-    HOUR = 3,
-    /** Minutes */
-    MINUTE = 2,
-    /** Months */
-    MONTH = 5,
-    /** Seconds */
-    SECOND = 1,
-    /** Weeks (7 days) */
-    WEEK = 7,
-    /** Two weeks (14 days) */
-    WEEK2 = 9,
-    /** Foursome of weeks (28 days) */
-    WEEK4 = 8,
-    /** Years */
-    YEAR = 6
 }
 /** Class to process string identifiers for duration types */
 export declare enum RsDurationTypeSid {

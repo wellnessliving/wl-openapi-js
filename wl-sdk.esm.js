@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260804105207
+// OpenAPI spec version: 1.1.20260804150354
 // Build date: 2026-08-04
 // Endpoints: 523
 // Enums: 197
@@ -1752,6 +1752,28 @@ export var CoreDriveDriveTypeSid;
     /** Png image */
     CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["PNG"] = 3] = "PNG";
 })(CoreDriveDriveTypeSid || (CoreDriveDriveTypeSid = {}));
+/** A class for managing time intervals. */
+export var ADurationSid;
+(function (ADurationSid) {
+    /** Days */
+    ADurationSid[ADurationSid["DAY"] = 4] = "DAY";
+    /** Hours */
+    ADurationSid[ADurationSid["HOUR"] = 3] = "HOUR";
+    /** Minutes */
+    ADurationSid[ADurationSid["MINUTE"] = 2] = "MINUTE";
+    /** Months */
+    ADurationSid[ADurationSid["MONTH"] = 5] = "MONTH";
+    /** Seconds */
+    ADurationSid[ADurationSid["SECOND"] = 1] = "SECOND";
+    /** Weeks (7 days) */
+    ADurationSid[ADurationSid["WEEK"] = 7] = "WEEK";
+    /** Two weeks (14 days) */
+    ADurationSid[ADurationSid["WEEK2"] = 9] = "WEEK2";
+    /** Foursome of weeks (28 days) */
+    ADurationSid[ADurationSid["WEEK4"] = 8] = "WEEK4";
+    /** Years */
+    ADurationSid[ADurationSid["YEAR"] = 6] = "YEAR";
+})(ADurationSid || (ADurationSid = {}));
 /** Day time periods. */
 export var RsScheduleTimeSid;
 (function (RsScheduleTimeSid) {
@@ -2044,28 +2066,6 @@ export var RsProgramTypeSid;
     /** Special WellnessLiving promote passes that allow to visit specific classes to get acquainted with the business */
     RsProgramTypeSid[RsProgramTypeSid["PROSPECT"] = 5] = "PROSPECT";
 })(RsProgramTypeSid || (RsProgramTypeSid = {}));
-/** A class for managing time intervals. */
-export var ADurationSid;
-(function (ADurationSid) {
-    /** Days */
-    ADurationSid[ADurationSid["DAY"] = 4] = "DAY";
-    /** Hours */
-    ADurationSid[ADurationSid["HOUR"] = 3] = "HOUR";
-    /** Minutes */
-    ADurationSid[ADurationSid["MINUTE"] = 2] = "MINUTE";
-    /** Months */
-    ADurationSid[ADurationSid["MONTH"] = 5] = "MONTH";
-    /** Seconds */
-    ADurationSid[ADurationSid["SECOND"] = 1] = "SECOND";
-    /** Weeks (7 days) */
-    ADurationSid[ADurationSid["WEEK"] = 7] = "WEEK";
-    /** Two weeks (14 days) */
-    ADurationSid[ADurationSid["WEEK2"] = 9] = "WEEK2";
-    /** Foursome of weeks (28 days) */
-    ADurationSid[ADurationSid["WEEK4"] = 8] = "WEEK4";
-    /** Years */
-    ADurationSid[ADurationSid["YEAR"] = 6] = "YEAR";
-})(ADurationSid || (ADurationSid = {}));
 /** Class to process string identifiers for duration types */
 export var RsDurationTypeSid;
 (function (RsDurationTypeSid) {

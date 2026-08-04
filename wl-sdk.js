@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260804105207
+ * Spec version: 1.1.20260804150354
  * Build date:   2026-08-04
  * Endpoints:    523
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260804105207';
+  WlClient.SPEC_VERSION = '1.1.20260804150354';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (523 total)
@@ -13295,6 +13295,32 @@
   });
 
   /**
+   * A class for managing time intervals.
+   *
+   * @enum {number}
+   */
+  WlClient.ADurationSid = Object.freeze({
+    /** Days */
+    DAY: 4,
+    /** Hours */
+    HOUR: 3,
+    /** Minutes */
+    MINUTE: 2,
+    /** Months */
+    MONTH: 5,
+    /** Seconds */
+    SECOND: 1,
+    /** Weeks (7 days) */
+    WEEK: 7,
+    /** Two weeks (14 days) */
+    WEEK2: 9,
+    /** Foursome of weeks (28 days) */
+    WEEK4: 8,
+    /** Years */
+    YEAR: 6,
+  });
+
+  /**
    * Day time periods.
    *
    * @enum {number}
@@ -13652,32 +13678,6 @@
     PASS: 2,
     /** Special WellnessLiving promote passes that allow to visit specific classes to get acquainted with the business */
     PROSPECT: 5,
-  });
-
-  /**
-   * A class for managing time intervals.
-   *
-   * @enum {number}
-   */
-  WlClient.ADurationSid = Object.freeze({
-    /** Days */
-    DAY: 4,
-    /** Hours */
-    HOUR: 3,
-    /** Minutes */
-    MINUTE: 2,
-    /** Months */
-    MONTH: 5,
-    /** Seconds */
-    SECOND: 1,
-    /** Weeks (7 days) */
-    WEEK: 7,
-    /** Two weeks (14 days) */
-    WEEK2: 9,
-    /** Foursome of weeks (28 days) */
-    WEEK4: 8,
-    /** Years */
-    YEAR: 6,
   });
 
   /**
