@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260805053740
+// OpenAPI spec version: 1.1.20260805061442
 // Build date: 2026-08-05
-// Endpoints: 523
+// Endpoints: 524
 // Enums: 197
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -7391,6 +7391,15 @@ export class WlAppointmentBookFinishNamespace {
         return this._client._request('/Wl/Appointment/Book/Finish/Finish47.json', params, 'POST');
     }
 }
+export class WlAppointmentBookQuizNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a list of required quizzes. */
+    quiz(params) {
+        return this._client._request('/Wl/Appointment/Book/Quiz/Quiz.json', params, 'GET');
+    }
+}
 export class WlAppointmentBookPurchaseNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7518,6 +7527,7 @@ export class WlAppointmentBookNamespace {
         this._client = _client;
         this.service = new WlAppointmentBookServiceNamespace(this._client);
         this.finish = new WlAppointmentBookFinishNamespace(this._client);
+        this.quiz = new WlAppointmentBookQuizNamespace(this._client);
         this.purchase = new WlAppointmentBookPurchaseNamespace(this._client);
         this.schedule = new WlAppointmentBookScheduleNamespace(this._client);
         this.asset = new WlAppointmentBookAssetNamespace(this._client);

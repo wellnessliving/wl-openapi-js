@@ -20968,6 +20968,35 @@ export interface WlAppointmentBookFinishFinish47PostResponse {
         text_promotion: string;
     }>;
 }
+export interface WlAppointmentBookQuizQuizParams {
+    /** `true` to return both optional and required forms; `false` to return only required forms. */
+    is_all: boolean;
+    /** List of add-ons keys. */
+    json_shop_product_option: string;
+    /** Business key. */
+    k_business: string;
+    /** Purchase item ID. @see RsPurchaseItemSid */
+    id_purchase_item?: RsPurchaseItemSid;
+    /** Promotion key or appointment key. Depends on {@link WlAppointmentBookQuizNamespace#quiz}. */
+    k_id?: string | null;
+    /** Resource key. */
+    k_resource?: string | null;
+    /** Service key. */
+    k_service?: string | null;
+    /** User key. */
+    uid?: string | null;
+}
+export interface WlAppointmentBookQuizQuizResponse {
+    /** List of required quizzes. */
+    a_quiz: Array<{
+        /** Whether the quiz is required. */
+        is_require: boolean;
+        /** Quiz key. */
+        k_quiz: string;
+        /** Quiz title. */
+        text_title: string;
+    }>;
+}
 export interface WlAppointmentBookPurchasePurchaseParams {
     /** List of selected services without current {@link WlAppointmentBookPurchaseNamespace#purchase}. */
     a_service: Array<{
@@ -28282,6 +28311,12 @@ export declare class WlAppointmentBookFinishNamespace {
     /** Completes the appointment booking and logs variable counts for diagnostic purposes. */
     finish47Post(params?: WlAppointmentBookFinishFinish47PostParams): Promise<WlAppointmentBookFinishFinish47PostResponse>;
 }
+export declare class WlAppointmentBookQuizNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets a list of required quizzes. */
+    quiz(params?: WlAppointmentBookQuizQuizParams): Promise<WlAppointmentBookQuizQuizResponse>;
+}
 export declare class WlAppointmentBookPurchaseNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -28362,6 +28397,7 @@ export declare class WlAppointmentBookNamespace {
     private readonly _client;
     readonly service: WlAppointmentBookServiceNamespace;
     readonly finish: WlAppointmentBookFinishNamespace;
+    readonly quiz: WlAppointmentBookQuizNamespace;
     readonly purchase: WlAppointmentBookPurchaseNamespace;
     readonly schedule: WlAppointmentBookScheduleNamespace;
     readonly asset: WlAppointmentBookAssetNamespace;
