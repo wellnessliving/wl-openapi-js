@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260805081431
+ * Spec version: 1.1.20260805101548
  * Build date:   2026-08-05
- * Endpoints:    530
+ * Endpoints:    531
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260805081431';
+  WlClient.SPEC_VERSION = '1.1.20260805101548';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (530 total)
+  // Generated API methods (531 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -10430,6 +10430,28 @@
   WlClient.prototype.wlAppointmentBookProductProduct62 = function(params)
   {
     return this.request('/Wl/Appointment/Book/Product/Product62.json', params || {}, 'GET');
+  };
+
+  /**
+   * Gets a list of required quizzes.
+   *
+   * Gets a list of required quizzes which associated with requested service/resourse.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} [params.id_purchase_item] Purchase item ID. See {@link WlClient.RsPurchaseItemSid}.
+   * @param {boolean} params.is_all `true` to return both optional and required forms; `false` to return only required forms.
+   * @param {string} params.json_shop_product_option List of add-ons keys.
+   * @param {string} params.k_business Business key.
+   * @param {?string} [params.k_id] Promotion key or appointment key. Depends on {@link WlClient#wlAppointmentBookQuizQuiz}.
+   * @param {?string} [params.k_resource] Resource key.
+   * @param {?string} [params.k_service] Service key.
+   * @param {?string} [params.uid] User key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_quiz` {Object[]} List of required quizzes.
+   */
+  WlClient.prototype.wlAppointmentBookQuizQuiz = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Quiz/Quiz.json', params || {}, 'GET');
   };
 
   /**

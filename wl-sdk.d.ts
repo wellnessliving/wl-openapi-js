@@ -13813,12 +13813,16 @@ export interface WlSchedulePagePageElementResponse {
     } | null;
     /** A list of staff members involved in the visit. */
     a_staff: Array<{
-        /** The staff member key. */
+        /** The staff user key. */
+        uid_staff: string;
+        /** Deprecated staff key. Returned only to applications in `APPS_USE_OLD_K_STAFF`. */
         k_staff: string;
         /** The surname of the staff member. */
         s_family: string;
         /** The first name of the staff member. */
         s_name: string;
+        /** The full name of the staff member. */
+        s_name_full: string;
     }>;
     /** The latest date and time for when the visit can be canceled without penalty. */
     dt_cancel: string;
@@ -25466,6 +25470,35 @@ export interface WlAppointmentBookProductProduct62Response {
         text_title: string;
     }>;
 }
+export interface WlAppointmentBookQuizQuizParams {
+    /** `true` to return both optional and required forms; `false` to return only required forms. */
+    is_all: boolean;
+    /** List of add-ons keys. */
+    json_shop_product_option: string;
+    /** Business key. */
+    k_business: string;
+    /** Purchase item ID. @see RsPurchaseItemSid */
+    id_purchase_item?: RsPurchaseItemSid;
+    /** Promotion key or appointment key. Depends on {@link WlAppointmentBookQuizNamespace#quiz}. */
+    k_id?: string | null;
+    /** Resource key. */
+    k_resource?: string | null;
+    /** Service key. */
+    k_service?: string | null;
+    /** User key. */
+    uid?: string | null;
+}
+export interface WlAppointmentBookQuizQuizResponse {
+    /** List of required quizzes. */
+    a_quiz: Array<{
+        /** Whether the quiz is required. */
+        is_require: boolean;
+        /** Quiz key. */
+        k_quiz: string;
+        /** Quiz title. */
+        text_title: string;
+    }>;
+}
 export interface WlAppointmentBookAssetAssetListParams {
     /** The selected date and time of the asset booking. It is used in cases when the business booking po... */
     dtl_date: string;
@@ -29096,6 +29129,12 @@ export declare class WlAppointmentBookProductNamespace {
     /** Retrieves list of available service add-ons. */
     product62(params?: WlAppointmentBookProductProduct62Params): Promise<WlAppointmentBookProductProduct62Response>;
 }
+export declare class WlAppointmentBookQuizNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets a list of required quizzes. */
+    quiz(params?: WlAppointmentBookQuizQuizParams): Promise<WlAppointmentBookQuizQuizResponse>;
+}
 export declare class WlAppointmentBookAssetServiceNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -29121,6 +29160,7 @@ export declare class WlAppointmentBookNamespace {
     readonly purchase: WlAppointmentBookPurchaseNamespace;
     readonly question: WlAppointmentBookQuestionNamespace;
     readonly product: WlAppointmentBookProductNamespace;
+    readonly quiz: WlAppointmentBookQuizNamespace;
     readonly asset: WlAppointmentBookAssetNamespace;
     constructor(_client: WlClient);
 }
