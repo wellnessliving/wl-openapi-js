@@ -2345,20 +2345,6 @@ export declare enum RsPayOwnerSid {
     /** System user */
     USER = 1
 }
-/** `WebAuthn` `credentialDeviceType` values, per the `WebAuthn` specification. */
-export declare enum CorePassportPasskeyPasskeyDeviceTypeEnum {
-    /** The credential is bound to a single physical authenticator and cannot be backed up or */
-    SINGLE_DEVICE = 1,
-    /** The credential can be backed up and synced across multiple devices, for example through */
-    MULTI_DEVICE = 2
-}
-/** Statuses of a registered passkey credential. */
-export declare enum CorePassportPasskeyPasskeyCredentialStatusEnum {
-    /** The credential is active and may be used to sign in */
-    ACTIVE = 1,
-    /** The credential was revoked by its owner and may no longer be used to sign in */
-    REVOKED = 2
-}
 /** List of responses for Google Captcha token. */
 export declare enum CoreGoogleCaptchaCaptchaResponseSid {
     /** Token can be verified due to error from Google Captcha */
@@ -8916,48 +8902,6 @@ export interface CorePassportChangePasswordChangePasswordBeginResponse {
     /** The error code. This will be an empty string if the email has been sent successfully. */
     text_error: string;
 }
-export interface CorePassportPasskeyPasskeyCredentialDeleteParams {
-    /** Key of the credential to revoke. */
-    k_passkey_credential: string;
-}
-export type CorePassportPasskeyPasskeyCredentialDeleteResponse = Record<string, unknown>;
-export type CorePassportPasskeyPasskeyCredentialGetParams = Record<string, unknown>;
-export interface CorePassportPasskeyPasskeyCredentialGetResponse {
-    /** List of the signed-in user's registered passkey credentials. Structure of each element: */
-    a_credential: {
-        /** Date and time when this credential was registered. */
-        dtu_create: string;
-        /** Date and time when this credential was last used to sign in, or `null` if never used. */
-        dtu_last_use: string | null;
-        /** `WebAuthn` `credentialDeviceType` values, per the `WebAuthn` specification. @see CorePassportPasskeyPasskeyDeviceTypeEnum */
-        id_device_type: CorePassportPasskeyPasskeyDeviceTypeEnum;
-        /** Statuses of a registered passkey credential. @see CorePassportPasskeyPasskeyCredentialStatusEnum */
-        id_status: CorePassportPasskeyPasskeyCredentialStatusEnum;
-        /** `true` if the credential is currently backed up. */
-        is_backed_up: boolean;
-        /** Credential key. */
-        k_passkey_credential: string;
-        /** User-supplied friendly label of this credential. */
-        text_device: string;
-    };
-}
-export type CorePassportPasskeyPasskeyEnterGetParams = Record<string, unknown>;
-export interface CorePassportPasskeyPasskeyEnterGetResponse {
-    /** JSON-encoded `PublicKeyCredentialRequestOptions` to pass to `navigator.credentials.get()`. */
-    json_options: string;
-}
-export type CorePassportPasskeyPasskeyEnterPostParams = Record<string, unknown>;
-export interface CorePassportPasskeyPasskeyEnterPostResponse {
-    /** An optional URL for redirection after the user has signed in. */
-    url_redirect: string | null;
-}
-export type CorePassportPasskeyPasskeyRegisterGetParams = Record<string, unknown>;
-export interface CorePassportPasskeyPasskeyRegisterGetResponse {
-    /** JSON-encoded `PublicKeyCredentialCreationOptions` to pass to `navigator.credentials.create()`. */
-    json_options: string;
-}
-export type CorePassportPasskeyPasskeyRegisterPostParams = Record<string, unknown>;
-export type CorePassportPasskeyPasskeyRegisterPostResponse = Record<string, unknown>;
 export interface CoreDriveImageUploadImageUploadGetParams {
     /** Allows to give custom parameters which can be required for different types of images. */
     a_config: Array<unknown>;
@@ -27187,22 +27131,6 @@ export declare class CorePassportChangePasswordNamespace {
     /** Sends to user "password recovery" mail. */
     changePasswordBegin(params?: CorePassportChangePasswordChangePasswordBeginParams): Promise<CorePassportChangePasswordChangePasswordBeginResponse>;
 }
-export declare class CorePassportPasskeyNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Revokes one of the signed-in user's passkey credentials. */
-    passkeyCredentialDelete(params?: CorePassportPasskeyPasskeyCredentialDeleteParams): Promise<CorePassportPasskeyPasskeyCredentialDeleteResponse>;
-    /** Lists the signed-in user's registered passkey credentials. */
-    passkeyCredentialGet(params?: CorePassportPasskeyPasskeyCredentialGetParams): Promise<CorePassportPasskeyPasskeyCredentialGetResponse>;
-    /** Starts the authentication ceremony. */
-    passkeyEnterGet(params?: CorePassportPasskeyPasskeyEnterGetParams): Promise<CorePassportPasskeyPasskeyEnterGetResponse>;
-    /** Finishes the authentication ceremony. */
-    passkeyEnterPost(params?: CorePassportPasskeyPasskeyEnterPostParams): Promise<CorePassportPasskeyPasskeyEnterPostResponse>;
-    /** Starts the registration ceremony. */
-    passkeyRegisterGet(params?: CorePassportPasskeyPasskeyRegisterGetParams): Promise<CorePassportPasskeyPasskeyRegisterGetResponse>;
-    /** Finishes the registration ceremony. */
-    passkeyRegisterPost(params?: CorePassportPasskeyPasskeyRegisterPostParams): Promise<CorePassportPasskeyPasskeyRegisterPostResponse>;
-}
 export declare class CorePassportEnterJwtNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -27229,7 +27157,6 @@ export declare class CorePassportNamespace {
     private readonly _client;
     readonly login: CorePassportLoginNamespace;
     readonly changePassword: CorePassportChangePasswordNamespace;
-    readonly passkey: CorePassportPasskeyNamespace;
     readonly enter: CorePassportEnterNamespace;
     readonly user: CorePassportUserNamespace;
     constructor(_client: WlClient);
