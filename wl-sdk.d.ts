@@ -6683,6 +6683,8 @@ export interface WlPromotionPromotionListResponse {
         is_active: boolean;
         /** Whether the promotion is a component. */
         is_component: boolean;
+        /** Whether the promotion is expired. */
+        is_expired: boolean;
         /** The key of the promotion. */
         k_promotion: string;
         /** The title of the promotion. */
