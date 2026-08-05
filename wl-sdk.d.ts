@@ -23315,7 +23315,7 @@ export interface WlProfileAttendanceSchedulePaymentMultiplePostParams {
         a_shop_product_option: Array<string>;
         /** The visit key. */
         k_visit: string;
-        /** Selected pay option to apply. The key has structure PayChangeApi::$text_key. */
+        /** Selected pay option to apply. The key has structure PayChangeApi::$text_key, plus an */
         text_key: string;
         /** The user key. */
         uid: string;
