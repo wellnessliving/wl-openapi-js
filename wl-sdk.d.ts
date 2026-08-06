@@ -4368,21 +4368,6 @@ export declare enum WlIntegrationAutymateAutymateAccessModeSid {
     /** Access Autymate to view the dashboard */
     VIEW = 2
 }
-/** Lists statuses of reports from point of view of its generation. */
-export declare enum WlReportGeneratorReportGeneratorStatusSid {
-    /** Report is in an inconsistent state */
-    ABORTED = 6,
-    /** Current operation is being aborted now */
-    ABORTING = 5,
-    /** This report is being deleted now */
-    DELETING = 4,
-    /** This report is being generated now */
-    GENERATING = 2,
-    /** Generation of this report is queued */
-    QUEUED = 1,
-    /** Generation of this report is now completed */
-    READY = 3
-}
 /** Types of the location. */
 export declare enum WlBusinessFranchiseLocationBusinessFranchiseLocationSid {
     /** All locations */
@@ -18996,8 +18981,8 @@ export interface WlIntegrationAutymateReportResponse {
     dtu_queue: string | null;
     /** The date and time when generation of this report was started. */
     dtu_start: string | null;
-    /** Lists statuses of reports from point of view of its generation. @see WlReportGeneratorReportGeneratorStatusSid */
-    id_report_status: WlReportGeneratorReportGeneratorStatusSid;
+    /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
+    id_report_status: ThothReportCoreGeneratorReportGeneratorStatusSid;
     /** If `true` then there are more report rows to get. Otherwise, `false` if all rows have been sent. */
     is_more: boolean;
     /** Determines whether this report is complete. If this report is accessed on the current day, or is ... */
@@ -19759,8 +19744,8 @@ export interface WlPayTransactionReportTransactionAllPaymentResponse {
     dtu_queue: string | null;
     /** The date and time if generation of this report has started. Otherwise, this will be `null`. */
     dtu_start: string | null;
-    /** Lists statuses of reports from point of view of its generation. @see WlReportGeneratorReportGeneratorStatusSid */
-    id_report_status: WlReportGeneratorReportGeneratorStatusSid;
+    /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
+    id_report_status: ThothReportCoreGeneratorReportGeneratorStatusSid;
     /** Determines whether to show more rows in the report. */
     is_more: boolean;
     /** Determines whether the report is complete. */

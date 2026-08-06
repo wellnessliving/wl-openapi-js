@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260806121140
+// OpenAPI spec version: 1.1.20260806145723
 // Build date: 2026-08-06
 // Endpoints: 525
-// Enums: 198
+// Enums: 197
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (198 total) ---
+// --- Enum types (197 total) ---
 /** A list of locales. */
 export var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -4498,22 +4498,6 @@ export var WlIntegrationAutymateAutymateAccessModeSid;
     /** Access Autymate to view the dashboard */
     WlIntegrationAutymateAutymateAccessModeSid[WlIntegrationAutymateAutymateAccessModeSid["VIEW"] = 2] = "VIEW";
 })(WlIntegrationAutymateAutymateAccessModeSid || (WlIntegrationAutymateAutymateAccessModeSid = {}));
-/** Lists statuses of reports from point of view of its generation. */
-export var WlReportGeneratorReportGeneratorStatusSid;
-(function (WlReportGeneratorReportGeneratorStatusSid) {
-    /** Report is in an inconsistent state */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["ABORTED"] = 6] = "ABORTED";
-    /** Current operation is being aborted now */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["ABORTING"] = 5] = "ABORTING";
-    /** This report is being deleted now */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["DELETING"] = 4] = "DELETING";
-    /** This report is being generated now */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["GENERATING"] = 2] = "GENERATING";
-    /** Generation of this report is queued */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["QUEUED"] = 1] = "QUEUED";
-    /** Generation of this report is now completed */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["READY"] = 3] = "READY";
-})(WlReportGeneratorReportGeneratorStatusSid || (WlReportGeneratorReportGeneratorStatusSid = {}));
 /** Types of the location. */
 export var WlBusinessFranchiseLocationBusinessFranchiseLocationSid;
 (function (WlBusinessFranchiseLocationBusinessFranchiseLocationSid) {
