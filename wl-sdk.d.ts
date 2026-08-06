@@ -6759,6 +6759,8 @@ export interface WlPromotionPromotionListResponse {
         id_program_type: RsProgramTypeSid;
         /** Whether the promotion is active. */
         is_active: boolean;
+        /** Whether the promotion is expired. */
+        is_expired: boolean;
         /** The key of the promotion. */
         k_promotion: string;
         /** The title of the promotion. */
@@ -11655,7 +11657,7 @@ export interface WlSchedulePagePageElementResponse {
     k_service: string | null;
     /** The name of class or service. */
     s_title: string;
-    /** Location title. */
+    /** Location title. If the visit is assigned a resource whose category is {@link WlResourceResourceCa... */
     text_location: string;
     /** Room where session takes place. */
     text_room: string;
@@ -12628,7 +12630,7 @@ export interface WlAppointmentEditAddonUpdatePutParams {
 }
 export type WlAppointmentEditAddonUpdatePutResponse = Record<string, unknown>;
 export interface WlAppointmentInfoInfoParams {
-    /** Class identifier to get information for. */
+    /** Appointment key to get information for. */
     k_appointment: string;
 }
 export interface WlAppointmentInfoInfoResponse {
@@ -12683,6 +12685,19 @@ export interface WlAppointmentInfoInfoResponse {
         /** Question. */
         s_question: string;
     }>;
+    /** Repeat settings for appointment reschedule. */
+    a_repeat: {
+        /** Days of week to repeat appointment. Constants from {@link ADateWeekSid}. */
+        a_day: Array<number>;
+        /** Current appointment date in location timezone in MySQL date format. */
+        dl_date: string;
+        /** Start date for range edit in location timezone in MySQL date format. */
+        dl_edit_from: string;
+        /** End date for range edit in location timezone in MySQL date format. */
+        dl_edit_to: string;
+        /** Current appointment local start time in MySQL time format. */
+        s_time: string;
+    };
     /** List of assets used by this appointment. Each element contains: */
     a_resource: Array<{
         /** Background color of the asset as an integer (RGB). */
@@ -19184,6 +19199,8 @@ export interface WlAiAgentLinkSendMailParams {
     k_id: string;
     /** Action type. Must be 'purchase' or 'booking'. */
     text_action: string;
+    /** URL suffix for the link. Optional. */
+    text_url_suffix: string;
     /** User ID. Required. */
     uid: string;
 }
@@ -25156,6 +25173,8 @@ export interface WlEventBookEventViewElementResponse {
             /** The title of the installment plan. */
             s_duration: string;
         };
+        /** Classes selected for make-up sessions. See {@link WlEventBookEventViewElementResponse.a_makeup_cl... */
+        a_makeup_class: Array<Array<unknown>>;
         /** Schedule of event sessions. See {@link WlEventBookEventViewElementResponse.a_schedule}. */
         a_schedule: {
             /** Days of the week when the session occurs. */
@@ -25224,6 +25243,8 @@ export interface WlEventBookEventViewElementResponse {
         hide_application: boolean;
         /** Special instruction for event. */
         html_special: string;
+        /** Number of allowed make-up sessions for event. */
+        i_makeup_cap: number;
         /** Session count in event. */
         i_session: number;
         /** Remaining session count in event. */
@@ -25273,6 +25294,13 @@ export interface WlEventBookEventViewElementResponse {
         m_amount: string;
         /** The title of the installment plan. */
         s_duration: string;
+    }>;
+    /** Class selected for make-up sessions. */
+    a_makeup_class: Array<{
+        /** Class key. Primary key in table RsClassSql. */
+        k_class: string;
+        /** Class title. `null` if title is unavailable for the selected language. */
+        s_title: string | null;
     }>;
     /** A list of event sessions. Every element has the following next keys: */
     a_schedule: Array<{
@@ -25378,6 +25406,8 @@ export interface WlEventBookEventViewElementResponse {
     html_special: string;
     /** Class capacity. */
     i_capacity: number | null;
+    /** Number of allowed make-up sessions for event. */
+    i_makeup_cap: number;
     /** The session count. */
     i_session: number;
     /** The remaining session count. */

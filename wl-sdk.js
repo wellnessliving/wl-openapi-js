@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20260805061717
+ * Spec version: 1.1.20260806072241
  * Build date:   2026-08-06
  * Endpoints:    504
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260805061717';
+  WlClient.SPEC_VERSION = '1.1.20260806072241';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (504 total)
@@ -4690,11 +4690,12 @@
    *  assets or add-ons. Access is validated against the current user's permissions.
    *
    * @param {Object} [params] Request parameters.
-   * @param {string} params.k_appointment Class identifier to get information for.
+   * @param {string} params.k_appointment Appointment key to get information for.
    * @returns {Promise<Object>} Response data.
    *  `a_next` {Object} Next appointment data, or empty array if there are no appointments in the fut...
    *  `a_previous` {Object} Previous appointment data, or empty array if there are no appointments in the...
    *  `a_question` {Object[]} List of questions and answers:
+   *  `a_repeat` {Object} Repeat settings for appointment reschedule.
    *  `a_resource` {Object[]} List of assets used by this appointment. Each element contains:
    *  `a_shop_product_option` {Object[]} List of appointment add-ons. Every element has next keys:
    *  `dt_date_local` {string} Date/time of appointment in location timezone.
@@ -4711,7 +4712,7 @@
    *  `k_staff` {string} Staff member who conducts this appointment.
    *  `text_title` {string} Title of the appointment.
    *  `uid_appointment` {string} User for whom this appointment was booked.
-   *  `uid_staff` {?string} Staff member who conducts this appointment.
+   *  `...` {*}
    */
   WlClient.prototype.wlAppointmentInfoInfo = function(params)
   {
@@ -7299,6 +7300,7 @@
    * @param {string} params.k_business Business key. Required.
    * @param {string} params.k_id Unique identifier for the link.
    * @param {string} params.text_action Action type. Must be 'purchase' or 'booking'.
+   * @param {string} params.text_url_suffix URL suffix for the link. Optional.
    * @param {string} params.uid User ID. Required.
    * @returns {Promise<Object>} Response data.
    */
@@ -10318,6 +10320,7 @@
    *  `a_class_tab` {string[]} The list of keys from class tab.
    *  `a_event` {Object[]} Information for a large number of events.
    *  `a_installment_template` {Object[]} A list of installment plans. Each element has the following next keys:
+   *  `a_makeup_class` {Object[]} Class selected for make-up sessions.
    *  `a_schedule` {Object[]} A list of event sessions. Every element has the following next keys:
    *  `a_shop_category` {string[]} IDs of online store category.
    *  `a_staff_logo` {Object} Photos of staff members. Keys are the keys of staff members. The values are t...
@@ -10330,7 +10333,6 @@
    *  `hide_application` {boolean} Whether event will be hidden in the White Label mobile application.
    *  `html_description` {?string} The description of the event.
    *  `html_special` {string} Special instruction for the event.
-   *  `i_capacity` {?number} Class capacity.
    *  `...` {*}
    */
   WlClient.prototype.wlEventBookEventViewElement = function(params)
