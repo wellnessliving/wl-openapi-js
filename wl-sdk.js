@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260807091810
+ * Spec version: 1.1.20260807103003
  * Build date:   2026-08-07
- * Endpoints:    524
+ * Endpoints:    525
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260807091810';
+  WlClient.SPEC_VERSION = '1.1.20260807103003';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (524 total)
+  // Generated API methods (525 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -8817,6 +8817,7 @@
    * Returns the list of staff members who can perform the specified service at the given location
    *  on the specified date and time. Each entry includes the staff member's name, image, gender,
    *  and availability. An 'any staff' option is included when the service allows random staff assignment.
+   * @deprecated Use {@link \Wl\Appointment\Book\Staff\StaffListApi} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date The date/time of the appointment selected by user, in the location's time zone.
@@ -8838,6 +8839,36 @@
   WlClient.prototype.wlAppointmentBookStaffList = function(params)
   {
     return this.request('/Wl/Appointment/Book/Staff/List.json', params || {}, 'GET');
+  };
+
+  /**
+   * Retrieves an information about staff members for the current service.
+   *
+   * Returns the list of staff members who can perform the specified service at the given location
+   *  on the specified date and time. Each entry includes the staff member's name, image, gender,
+   *  and availability. An 'any staff' option is included when the service allows random staff assignment.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.dt_date The date/time of the appointment selected by user, in the location's time zone.
+   * @param {number} params.i_client Count of clients on the appointment.
+   * @param {?number} [params.i_duration_custom] Custom appointment duration in minutes.
+   * @param {number} params.id_role User role by whom this api called. See {@link WlClient.WlLoginLoginRoleSid}.
+   * @param {boolean} params.is_unavailable `true` - returns service categories that have no staff members available to conduct them.
+   * @param {string} params.k_appointment_ignore Key of appointment which must be ignored when searches available staff.
+   * @param {string} params.k_location The key of the location.
+   * @param {string} params.k_service The key of a service for which to show information.
+   * @param {?string} [params.k_timezone] User's timezone.
+   * @param {?string} [params.uid] The user key for whom the service is booking.
+   * @returns {Promise<Object>} Response data.
+   *  `a_staff` {Object[]} A list of staff members with information about them.
+   *  `can_book_unavailable_staff` {boolean} Can staff booked unavailable staff.
+   *  `has_gender` {boolean} Determines whether to select the staff member's gender for the appointment.
+   *  `has_staff` {boolean} Determines whether to select staff member(s) for the appointment.
+   *  `is_gender_different` {boolean} Determines if the staff list has male and female members.
+   */
+  WlClient.prototype.wlAppointmentBookStaffStaffList = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Staff/StaffList.json', params || {}, 'GET');
   };
 
   /**

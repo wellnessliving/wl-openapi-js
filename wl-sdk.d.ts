@@ -22398,6 +22398,59 @@ export interface WlAppointmentBookStaffListResponse {
     /** Determines if the staff list has male and female members. */
     is_gender_different: boolean;
 }
+export interface WlAppointmentBookStaffStaffListParams {
+    /** The date/time of the appointment selected by user, in the location's time zone. */
+    dt_date: string;
+    /** Count of clients on the appointment. */
+    i_client: number;
+    /** User role by whom this api called. @see WlLoginLoginRoleSid */
+    id_role: WlLoginLoginRoleSid;
+    /** `true` - returns service categories that have no staff members available to conduct them. */
+    is_unavailable: boolean;
+    /** Key of appointment which must be ignored when searches available staff. */
+    k_appointment_ignore: string;
+    /** The key of the location. */
+    k_location: string;
+    /** The key of a service for which to show information. */
+    k_service: string;
+    /** Custom appointment duration in minutes. */
+    i_duration_custom?: number | null;
+    /** User's timezone. */
+    k_timezone?: string | null;
+    /** The user key for whom the service is booking. */
+    uid?: string | null;
+}
+export interface WlAppointmentBookStaffStaffListResponse {
+    /** A list of staff members with information about them. */
+    a_staff: Array<{
+        /** String identifiers for gender. @see AGenderSid */
+        id_gender: AGenderSid;
+        /** Whether staff member is available for booking. Note, if staff member reached daily limits, this f... */
+        is_available: boolean;
+        /** Whether staff member reached daily limits on number or total duration of the appointments for one... */
+        is_daily_limit: boolean;
+        /** Whether staff member available only for wait list booking. */
+        is_wait_list: boolean;
+        /** @deprecated Legacy staff key.  Returned only for allow-listed apps. */
+        k_staff: string;
+        /** Position of the staff member in the business. */
+        s_position: string;
+        /** Name of the staff member. */
+        s_staff: string;
+        /** UID of the staff member. */
+        uid: string;
+        /** Biography of the staff member. */
+        xml_biography: string;
+    }>;
+    /** Can staff booked unavailable staff. */
+    can_book_unavailable_staff: boolean;
+    /** Determines whether to select the staff member's gender for the appointment. */
+    has_gender: boolean;
+    /** Determines whether to select staff member(s) for the appointment. */
+    has_staff: boolean;
+    /** Determines if the staff list has male and female members. */
+    is_gender_different: boolean;
+}
 export interface WlAppointmentBookProductProduct62Params {
     /** The key of a location where appointment is going to be booked. */
     k_location: string;
@@ -28385,7 +28438,10 @@ export declare class WlAppointmentBookStaffNamespace {
     private readonly _client;
     constructor(_client: WlClient);
     /** Retrieves an information about staff members for the current service. */
+    /** @deprecated */
     list(params?: WlAppointmentBookStaffListParams): Promise<WlAppointmentBookStaffListResponse>;
+    /** Retrieves an information about staff members for the current service. */
+    staffList(params?: WlAppointmentBookStaffStaffListParams): Promise<WlAppointmentBookStaffStaffListResponse>;
 }
 export declare class WlAppointmentBookProductNamespace {
     private readonly _client;
