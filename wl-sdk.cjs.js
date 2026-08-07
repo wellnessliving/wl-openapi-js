@@ -1,8 +1,8 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260806145723
-// Build date: 2026-08-06
+// OpenAPI spec version: 1.1.20260806175327
+// Build date: 2026-08-07
 // Endpoints: 525
 // Enums: 197
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -2445,6 +2445,10 @@ var CoreGoogleCaptchaCaptchaResponseSid;
 /** Sources from which log triage findings can be collected. */
 var CoreAILogTriageTriageSourceSid;
 (function (CoreAILogTriageTriageSourceSid) {
+    /** Erroneous asynchronous tasks stored by AsyncErrorSql */
+    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ASYNC_TASK"] = 5] = "ASYNC_TASK";
+    /** Erroneous background tasks stored by CmsTaskQueueSql */
+    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["BACKGROUND_TASK"] = 4] = "BACKGROUND_TASK";
     /** PHP error log represented by DebugPhpLog */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ERROR_LOG"] = 1] = "ERROR_LOG";
     /** Slow-operation log represented by DebugSlowLog */
