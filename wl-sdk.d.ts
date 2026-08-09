@@ -2850,6 +2850,8 @@ export declare enum RsMailSid {
     CLASSES_STAFF_SUBSTITUTION_REMIND = 117,
     /** Sent to the client after a video uploaded to an attendance list is published */
     CLASSES_VIDEO_PUBLISH = 161,
+    /** Automated marketing email sent on the client's birthday */
+    CLIENT_BIRTHDAY = 221,
     /** Send a copy of contract */
     CONTRACT_COPY = 98,
     /** Sent after purchase of coupon */

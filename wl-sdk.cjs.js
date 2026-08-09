@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260807170445
+// OpenAPI spec version: 1.1.20260809115823
 // Build date: 2026-08-09
 // Endpoints: 526
 // Enums: 197
@@ -2955,6 +2955,8 @@ var RsMailSid;
     RsMailSid[RsMailSid["CLASSES_STAFF_SUBSTITUTION_REMIND"] = 117] = "CLASSES_STAFF_SUBSTITUTION_REMIND";
     /** Sent to the client after a video uploaded to an attendance list is published */
     RsMailSid[RsMailSid["CLASSES_VIDEO_PUBLISH"] = 161] = "CLASSES_VIDEO_PUBLISH";
+    /** Automated marketing email sent on the client's birthday */
+    RsMailSid[RsMailSid["CLIENT_BIRTHDAY"] = 221] = "CLIENT_BIRTHDAY";
     /** Send a copy of contract */
     RsMailSid[RsMailSid["CONTRACT_COPY"] = 98] = "CONTRACT_COPY";
     /** Sent after purchase of coupon */

@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260807170445
+ * Spec version: 1.1.20260809115823
  * Build date:   2026-08-09
  * Endpoints:    526
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260807170445';
+  WlClient.SPEC_VERSION = '1.1.20260809115823';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (526 total)
@@ -14792,6 +14792,8 @@
     CLASSES_STAFF_SUBSTITUTION_REMIND: 117,
     /** Sent to the client after a video uploaded to an attendance list is published */
     CLASSES_VIDEO_PUBLISH: 161,
+    /** Automated marketing email sent on the client's birthday */
+    CLIENT_BIRTHDAY: 221,
     /** Send a copy of contract */
     CONTRACT_COPY: 98,
     /** Sent after purchase of coupon */
