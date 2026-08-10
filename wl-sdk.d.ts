@@ -19640,6 +19640,14 @@ export interface WlBillingBulkPurchaseItemListPostResponse {
             /** The client type title. */
             text_title: string;
         };
+        /** The number of clients that paid by account. */
+        i_pay_account: number;
+        /** The number of clients that paid by card or ACH. */
+        i_pay_card: number;
+        /** The total amount paid by account. */
+        m_pay_account: string;
+        /** The total amount paid by card or ACH. */
+        m_pay_card: string;
         /** The price of the selected items for all the clients, with the client type discounts applied. */
         m_subtotal_after_discount: string;
         /** The price of the selected items for all the clients, before any discount. */
