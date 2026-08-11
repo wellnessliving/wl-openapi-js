@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260811150249
+ * Spec version: 1.1.20260811185509
  * Build date:   2026-08-11
  * Endpoints:    526
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260811150249';
+  WlClient.SPEC_VERSION = '1.1.20260811185509';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (526 total)
@@ -14203,15 +14203,15 @@
    * @enum {number}
    */
   WlClient.CoreAILogTriageTriageSourceSid = Object.freeze({
-    /** Erroneous asynchronous tasks stored by AsyncErrorSql */
+    /** Erroneous asynchronous tasks */
     ASYNC_TASK: 5,
-    /** Erroneous background tasks stored by CmsTaskQueueSql */
+    /** Erroneous background tasks */
     BACKGROUND_TASK: 4,
     /** PHP error log represented by DebugPhpLog */
     ERROR_LOG: 1,
     /** Slow-operation log represented by DebugSlowLog */
     SLOW_LOG: 2,
-    /** Aggregated usage statistics stored by WatchUsageStat */
+    /** Aggregated usage statistics */
     WATCH_USAGE_STAT: 3,
   });
 

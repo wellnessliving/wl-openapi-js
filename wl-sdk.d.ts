@@ -2360,15 +2360,15 @@ export declare enum CoreGoogleCaptchaCaptchaResponseSid {
 }
 /** Sources from which log triage findings can be collected. */
 export declare enum CoreAILogTriageTriageSourceSid {
-    /** Erroneous asynchronous tasks stored by AsyncErrorSql */
+    /** Erroneous asynchronous tasks */
     ASYNC_TASK = 5,
-    /** Erroneous background tasks stored by CmsTaskQueueSql */
+    /** Erroneous background tasks */
     BACKGROUND_TASK = 4,
     /** PHP error log represented by DebugPhpLog */
     ERROR_LOG = 1,
     /** Slow-operation log represented by DebugSlowLog */
     SLOW_LOG = 2,
-    /** Aggregated usage statistics stored by WatchUsageStat */
+    /** Aggregated usage statistics */
     WATCH_USAGE_STAT = 3
 }
 /** A list of report categories. */
@@ -9166,11 +9166,11 @@ export interface CoreAILogTriageConnectionCheckResponse {
         dtu_first_seen: string;
         /** UTC date/time of the last matching log or async-task record. Empty for background tasks. */
         dtu_last_seen: string;
-        /** WatchUsageStat object. Present for this source. */
+        /** Usage-statistics object. Present for the usage-statistics source. */
         s_object: string;
-        /** Local date of the first WatchUsageStat record. */
+        /** Local date of the first usage-statistics record. */
         dl_first_seen: string;
-        /** Local date of the last WatchUsageStat record. */
+        /** Local date of the last usage-statistics record. */
         dl_last_seen: string;
     }>;
     /** Connection check value. */

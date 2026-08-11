@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260811150249
+// OpenAPI spec version: 1.1.20260811185509
 // Build date: 2026-08-11
 // Endpoints: 526
 // Enums: 197
@@ -2431,15 +2431,15 @@ export var CoreGoogleCaptchaCaptchaResponseSid;
 /** Sources from which log triage findings can be collected. */
 export var CoreAILogTriageTriageSourceSid;
 (function (CoreAILogTriageTriageSourceSid) {
-    /** Erroneous asynchronous tasks stored by AsyncErrorSql */
+    /** Erroneous asynchronous tasks */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ASYNC_TASK"] = 5] = "ASYNC_TASK";
-    /** Erroneous background tasks stored by CmsTaskQueueSql */
+    /** Erroneous background tasks */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["BACKGROUND_TASK"] = 4] = "BACKGROUND_TASK";
     /** PHP error log represented by DebugPhpLog */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ERROR_LOG"] = 1] = "ERROR_LOG";
     /** Slow-operation log represented by DebugSlowLog */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["SLOW_LOG"] = 2] = "SLOW_LOG";
-    /** Aggregated usage statistics stored by WatchUsageStat */
+    /** Aggregated usage statistics */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["WATCH_USAGE_STAT"] = 3] = "WATCH_USAGE_STAT";
 })(CoreAILogTriageTriageSourceSid || (CoreAILogTriageTriageSourceSid = {}));
 /** A list of report categories. */
