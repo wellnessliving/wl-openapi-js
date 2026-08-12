@@ -4843,6 +4843,21 @@ export declare enum WlBookProcessProcessCheckSid {
     /** Check a client has no unsigned waiver */
     WAIVER = 2
 }
+/** Discount types. */
+export declare enum WlDiscountDiscountRuleSid {
+    /** Discount for catalog cart */
+    CART = 5,
+    /** Discount by discount code */
+    CODE = 4,
+    /** Group of custom discounts applied individually to a purchase item */
+    CUSTOM = 6,
+    /** Discount by login type */
+    LOGIN_TYPE = 1,
+    /** Manual discount for element of purchase */
+    MANUAL = 3,
+    /** Discount by reward prize */
+    PRIZE = 2
+}
 /** The list of possible actions for class modify wizard. */
 export declare enum RsClassModifyActionSid {
     /** Cancel class schedule */
@@ -17527,6 +17542,8 @@ export interface WlCatalogCartCartParams {
             a_registration_fee_list?: Record<string, unknown>;
             /** The total amount that will be charged for the tuition item when during purchase. */
             m_checkout?: string;
+            /** The part of the tuition cost that is not charged during purchase. */
+            m_deferred?: string;
         };
         /** Key of login prize used on item. */
         k_login_prize?: string;
@@ -17565,6 +17582,8 @@ export interface WlCatalogCartCartResponse {
             a_registration_fee_list?: Record<string, unknown>;
             /** The total amount that will be charged for the tuition item when during purchase. */
             m_checkout?: string;
+            /** The part of the tuition cost that is not charged during purchase. */
+            m_deferred?: string;
         };
         /** Key of login prize used on item. */
         k_login_prize?: string;
@@ -17612,6 +17631,8 @@ export interface WlCatalogCartCartResponse {
     a_tax_list: Array<string>;
     /** Amount of client's reward points. */
     i_score: number | null;
+    /** The amount that has to be charged right now for the cart. */
+    m_checkout: string;
     /** The full discount of the cart. */
     m_discount: string | null;
     /** The total discount amount. */
@@ -21147,8 +21168,14 @@ export interface WlBookProcessPurchasePurchaseElementGroupParams {
     a_purchase_item: Array<{
         /** Additional item configurations. */
         a_config?: {
-            /** List of tuition events. */
+            /** List of tuition events, one entry per participant and event class. */
             a_event_list?: Record<string, unknown>;
+            /** Registration fees, keyed by participant key. */
+            a_registration_fee_list: Record<string, unknown>;
+            /** The amount charged for this tuition right now, including tax. The sum of */
+            m_checkout: string;
+            /** The amount that is not charged right now, including tax. Together with */
+            m_deferred: string;
         };
         /** Number of sessions which are booked simultaneously. */
         i_session?: number;
@@ -21177,8 +21204,38 @@ export interface WlBookProcessPurchasePurchaseElementGroupParams {
     dtu_date?: string | null;
 }
 export interface WlBookProcessPurchasePurchaseElementGroupResponse {
+    /** A list of purchase items. Each item is an associative array with the following keys: */
+    a_purchase_item: Array<{
+        /** Additional item configurations. */
+        a_config?: {
+            /** List of tuition events, one entry per participant and event class. */
+            a_event_list?: Record<string, unknown>;
+            /** Registration fees, keyed by participant key. */
+            a_registration_fee_list: Record<string, unknown>;
+            /** The amount charged for this tuition right now, including tax. The sum of */
+            m_checkout: string;
+            /** The amount that is not charged right now, including tax. Together with */
+            m_deferred: string;
+        };
+        /** Number of sessions which are booked simultaneously. */
+        i_session?: number;
+        /** A list of purchase types. @see RsPurchaseItemSid */
+        id_purchase_item: RsPurchaseItemSid;
+        /** The key of the purchase item in the database. */
+        k_id: string;
+        /** The key of the user's prize. */
+        k_login_prize?: string;
+        /** Installment template key. */
+        k_pay_installment_template?: string | null;
+        /** The key of the reward prize. */
+        k_reward_prize?: string;
+        /** The key of the user for whom the purchase item is being bought. */
+        uid: string;
+    }>;
     /** A list of taxes for the given purchase options. */
     a_tax: Array<string>;
+    /** The amount that has to be charged right now for the given purchase options. */
+    m_checkout: string;
     /** The total cost of the given purchase options. */
     m_cost: string;
     /** The amount of the whole discount for the given purchase options. */
@@ -21434,13 +21491,49 @@ export interface WlBookProcessPurchasePurchase56Response {
 export interface WlBookProcessPurchasePurchaseElementParams {
     /** Additional configuration for the purchase item. */
     a_config: {
-        /** List of tuition events. */
+        /** List of tuition events, one entry per participant and event class. */
         a_event_list?: {
+            /** Discounts applied to the event, `null` if there are none. Every row has the next keys: */
+            a_discount: {
+                /** Discount types. @see WlDiscountDiscountRuleSid */
+                id_discount_rule: WlDiscountDiscountRuleSid;
+                /** Discount amount of this rule. */
+                m_discount: string;
+                /** Discount title. Only for {@link WlDiscountDiscountRuleSid}. */
+                text_discount?: string;
+            } | null;
+            /** Taxes of the event. Keys are tax keys, values are tax amounts. */
+            a_tax: Array<string> | null;
             /** Key of the event class. */
             k_class: string;
+            /** The amount charged for this event right now, including tax. `0.00` when every */
+            m_checkout: string | null;
+            /** The part of the event cost that is not charged right now, including tax. Goes to the */
+            m_deferred: string;
+            /** Total discount amount applied to the event, `0.00` if there is none. */
+            m_discount: string;
+            /** Price of the event within the tuition, before discount and tax. */
+            m_price: string | null;
             /** Key of the tuition participant. */
             uid: string;
         };
+        /** Registration fees, keyed by participant key. */
+        a_registration_fee_list: {
+            /** Discounts applied to the fee, `null` if there are none. Rows have the same keys as in */
+            a_discount: Array<Array<unknown>> | null;
+            /** Taxes of the fee. Keys are tax keys, values are tax amounts. */
+            a_tax: Array<string>;
+            /** Registration fee amount for the participant, before discount and tax. */
+            m_amount: string;
+            /** The amount charged for this fee right now, including tax. A fee is either charged in */
+            m_checkout: string | null;
+            /** The whole fee amount if the fee is deferred, `0.00` if it is charged right now. */
+            m_deferred: string;
+        };
+        /** The total amount charged for the tuition right now, including tax. The sum of `m_checkout` */
+        m_checkout: string;
+        /** The total amount that is not charged right now, including tax. Together with `m_checkout` */
+        m_deferred: string;
     };
     /** The number of sessions which are booked simultaneously. @see RsPurchaseItemSid */
     i_session: RsPurchaseItemSid;
@@ -21466,8 +21559,56 @@ export interface WlBookProcessPurchasePurchaseElementParams {
     k_pay_installment_template?: string | null;
 }
 export interface WlBookProcessPurchasePurchaseElementResponse {
+    /** Additional configuration for the purchase item. */
+    a_config: {
+        /** List of tuition events, one entry per participant and event class. */
+        a_event_list?: {
+            /** Discounts applied to the event, `null` if there are none. Every row has the next keys: */
+            a_discount: {
+                /** Discount types. @see WlDiscountDiscountRuleSid */
+                id_discount_rule: WlDiscountDiscountRuleSid;
+                /** Discount amount of this rule. */
+                m_discount: string;
+                /** Discount title. Only for {@link WlDiscountDiscountRuleSid}. */
+                text_discount?: string;
+            } | null;
+            /** Taxes of the event. Keys are tax keys, values are tax amounts. */
+            a_tax: Array<string> | null;
+            /** Key of the event class. */
+            k_class: string;
+            /** The amount charged for this event right now, including tax. `0.00` when every */
+            m_checkout: string | null;
+            /** The part of the event cost that is not charged right now, including tax. Goes to the */
+            m_deferred: string;
+            /** Total discount amount applied to the event, `0.00` if there is none. */
+            m_discount: string;
+            /** Price of the event within the tuition, before discount and tax. */
+            m_price: string | null;
+            /** Key of the tuition participant. */
+            uid: string;
+        };
+        /** Registration fees, keyed by participant key. */
+        a_registration_fee_list: {
+            /** Discounts applied to the fee, `null` if there are none. Rows have the same keys as in */
+            a_discount: Array<Array<unknown>> | null;
+            /** Taxes of the fee. Keys are tax keys, values are tax amounts. */
+            a_tax: Array<string>;
+            /** Registration fee amount for the participant, before discount and tax. */
+            m_amount: string;
+            /** The amount charged for this fee right now, including tax. A fee is either charged in */
+            m_checkout: string | null;
+            /** The whole fee amount if the fee is deferred, `0.00` if it is charged right now. */
+            m_deferred: string;
+        };
+        /** The total amount charged for the tuition right now, including tax. The sum of `m_checkout` */
+        m_checkout: string;
+        /** The total amount that is not charged right now, including tax. Together with `m_checkout` */
+        m_deferred: string;
+    };
     /** A list of taxes for the given purchase options. */
     a_tax: Array<string>;
+    /** The amount that has to be charged right now for the given purchase options. */
+    m_checkout: string;
     /** The total cost of the given purchase options. */
     m_cost: string;
     /** The amount of the whole discount for the given purchase options. */
@@ -21512,12 +21653,20 @@ export interface WlBookProcessPurchasePurchaseElementListParams {
 export interface WlBookProcessPurchasePurchaseElementListResponse {
     /** Detailed information about the amounts for the purchase item list. */
     a_purchase_item_result: Array<{
+        /** Tuition events with calculated amounts. */
+        a_event_list?: Array<Array<unknown>>;
+        /** Registration fees with calculated amounts, keyed by participant key. */
+        a_registration_fee_list?: Array<Array<unknown>>;
         /** Information about taxes. The key refers to the tax key, and the value refers to the tax amount. */
         a_tax: Array<string>;
         /** A list of purchase types. @see RsPurchaseItemSid */
         id_purchase_item: RsPurchaseItemSid;
         /** The key of the purchase item in the database. */
         k_id: string;
+        /** The amount that has to be charged for the tuition right now, including tax. The other */
+        m_checkout?: string;
+        /** The part of the tuition cost that is not charged right now, including tax. Equals */
+        m_deferred?: string;
         /** The cost of the purchase item (with taxes). */
         m_cost: string;
         /** The amount of the whole discount. */
@@ -25715,6 +25864,8 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartParams {
             a_registration_fee_list?: Record<string, unknown>;
             /** The total amount that will be charged for the tuition item during purchase. */
             m_checkout?: string;
+            /** The part of the tuition cost that is not charged during purchase. */
+            m_deferred?: string;
             /** The custom price. */
             f_price?: string;
             /** The prorate date. This should be passed when `is_prorate`=`true`. */
@@ -25811,6 +25962,8 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartResponse {
             a_registration_fee_list?: Record<string, unknown>;
             /** The total amount that will be charged for the tuition item during purchase. */
             m_checkout?: string;
+            /** The part of the tuition cost that is not charged during purchase. */
+            m_deferred?: string;
             /** The custom price. */
             f_price?: string;
             /** The prorate date. This should be passed when `is_prorate`=`true`. */
@@ -25872,6 +26025,8 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartResponse {
     is_discount_code_mode_select: boolean;
     /** Determines whether to display custom receipt notes at checkout. */
     is_receipt_note: boolean;
+    /** The amount that has to be charged right now for the cart. */
+    m_checkout: string;
     /** The discount amount in dollars, excluding tax. */
     m_discount: string;
     /** The discount amount applied to the cart's total amount, including taxes. */
