@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260812132605
+ * Spec version: 1.1.20260812143529
  * Build date:   2026-08-12
- * Endpoints:    526
+ * Endpoints:    527
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260812132605';
+  WlClient.SPEC_VERSION = '1.1.20260812143529';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (526 total)
+  // Generated API methods (527 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -1938,6 +1938,19 @@
   WlClient.prototype.thothExplorerSearchClassSessionClassSessionSearch = function(params)
   {
     return this.request('/Thoth/ExplorerSearch/ClassSession/ClassSessionSearch.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns the data required to render the site footer for the given business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key to get footer data for.
+   * @returns {Promise<Object>} Response data.
+   *  `show_term` {boolean} `true` to show the "Powered by WellnessLiving" branding and Terms & Condition...
+   */
+  WlClient.prototype.thothLayoutBeFooterFooter = function(params)
+  {
+    return this.request('/Thoth/LayoutBe/Footer/Footer.json', params || {}, 'GET');
   };
 
   /**

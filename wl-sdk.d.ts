@@ -8305,6 +8305,14 @@ export interface ThothExplorerSearchClassSessionClassSessionSearchResponse {
         k_class_period_session: string;
     };
 }
+export interface ThothLayoutBeFooterFooterParams {
+    /** Business key to get footer data for. */
+    k_business: string;
+}
+export interface ThothLayoutBeFooterFooterResponse {
+    /** `true` to show the "Powered by WellnessLiving" branding and Terms & Conditions links in the footer; */
+    show_term: boolean;
+}
 export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiUpdateOrderParams = Record<string, unknown>;
@@ -29915,6 +29923,17 @@ export declare class ThothExplorerSearchNamespace {
     readonly classSession: ThothExplorerSearchClassSessionNamespace;
     constructor(_client: WlClient);
 }
+export declare class ThothLayoutBeFooterNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the data required to render the site footer for the given business. */
+    footer(params?: ThothLayoutBeFooterFooterParams): Promise<ThothLayoutBeFooterFooterResponse>;
+}
+export declare class ThothLayoutBeNamespace {
+    private readonly _client;
+    readonly footer: ThothLayoutBeFooterNamespace;
+    constructor(_client: WlClient);
+}
 export declare class ThothPayProcessorNuveiNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -29956,6 +29975,7 @@ export declare class ThothReportCoreNamespace {
 export declare class ThothNamespace {
     private readonly _client;
     readonly explorerSearch: ThothExplorerSearchNamespace;
+    readonly layoutBe: ThothLayoutBeNamespace;
     readonly payProcessor: ThothPayProcessorNamespace;
     readonly reportCore: ThothReportCoreNamespace;
     constructor(_client: WlClient);
