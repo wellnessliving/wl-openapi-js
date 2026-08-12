@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260812031553
+// OpenAPI spec version: 1.1.20260812050049
 // Build date: 2026-08-12
 // Endpoints: 525
-// Enums: 197
+// Enums: 198
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (197 total) ---
+// --- Enum types (198 total) ---
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
 (function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
@@ -4744,6 +4744,22 @@ export var WlLoginLoginRoleSid;
     /** Staff member role */
     WlLoginLoginRoleSid[WlLoginLoginRoleSid["STAFF"] = 4] = "STAFF";
 })(WlLoginLoginRoleSid || (WlLoginLoginRoleSid = {}));
+/** Discount types. */
+export var WlDiscountDiscountRuleSid;
+(function (WlDiscountDiscountRuleSid) {
+    /** Discount for catalog cart */
+    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["CART"] = 5] = "CART";
+    /** Discount by discount code */
+    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["CODE"] = 4] = "CODE";
+    /** Group of custom discounts applied individually to a purchase item */
+    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["CUSTOM"] = 6] = "CUSTOM";
+    /** Discount by login type */
+    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["LOGIN_TYPE"] = 1] = "LOGIN_TYPE";
+    /** Manual discount for element of purchase */
+    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["MANUAL"] = 3] = "MANUAL";
+    /** Discount by reward prize */
+    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["PRIZE"] = 2] = "PRIZE";
+})(WlDiscountDiscountRuleSid || (WlDiscountDiscountRuleSid = {}));
 /** List of checks that are performed before session book. */
 export var WlBookProcessProcessCheckSid;
 (function (WlBookProcessProcessCheckSid) {

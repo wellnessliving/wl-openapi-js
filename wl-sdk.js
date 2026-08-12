@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260812031553
+ * Spec version: 1.1.20260812050049
  * Build date:   2026-08-12
  * Endpoints:    525
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260812031553';
+  WlClient.SPEC_VERSION = '1.1.20260812050049';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (525 total)
@@ -5699,6 +5699,7 @@
    *  `a_reward_propose` {Object[]} List of login prizes that can be applied to items in the cart.
    *  `a_tax_list` {string[]} Values derived for individual tax rates.
    *  `i_score` {?number} Amount of client's reward points.
+   *  `m_checkout` {string} The amount that has to be charged right now for the cart.
    *  `m_discount` {?string} The full discount of the cart.
    *  `m_discount_total` {string} The total discount amount.
    *  `m_subtotal` {?string} The total amount in the catalog cart without tax.
@@ -8950,7 +8951,10 @@
    *
    * Validates each item in `a_purchase_item` (type, key, installment eligibility, and prize applicability),
    * applies discount codes, login-type discounts, and installment adjustments, then accumulates price, subtotal,
-   * discount, tax, and cost totals across all items and returns them as result fields.
+   * discount, tax, and cost totals across all items and returns them as result fields. For tuition
+   * items the totals cover the full cost, so the amount that has to be charged right now is
+   * reported separately in {@link WlClient#wlBookProcessPurchasePurchaseElementGroup}, and its per-component
+   * split is written back into `a_config` of the item it belongs to.
    *
    * @param {Object} [params] Request parameters.
    * @param {Object[]} params.a_purchase_item A list of purchase items. Each item is an associative array with the following keys:
@@ -8960,7 +8964,9 @@
    * @param {string} params.text_discount_code The discount code.
    * @param {string} params.uid The key of the current user.
    * @returns {Promise<Object>} Response data.
+   *  `a_purchase_item` {Object[]} A list of purchase items. Each item is an associative array with the followin...
    *  `a_tax` {string[]} A list of taxes for the given purchase options.
+   *  `m_checkout` {string} The amount that has to be charged right now for the given purchase options.
    *  `m_cost` {string} The total cost of the given purchase options.
    *  `m_discount` {string} The amount of the whole discount for the given purchase options.
    *  `m_discount_code` {string} The discount amount provided by a discount code for the given purchase options.
@@ -9032,7 +9038,9 @@
    * @param {string} params.text_discount_code The discount code.
    * @param {string} params.uid The key of the current user.
    * @returns {Promise<Object>} Response data.
+   *  `a_config` {Object} Additional configuration for the purchase item.
    *  `a_tax` {string[]} A list of taxes for the given purchase options.
+   *  `m_checkout` {string} The amount that has to be charged right now for the given purchase options.
    *  `m_cost` {string} The total cost of the given purchase options.
    *  `m_discount` {string} The amount of the whole discount for the given purchase options.
    *  `m_discount_code` {string} The discount amount provided by a discount code for the given purchase options.
@@ -9051,7 +9059,9 @@
    *
    * Validates the business, location, and user, then for each item in `a_purchase_item_request` computes the price,
    * applicable discount code reduction, login-type discount, and taxes, and returns per-item cost, discount,
-   * price, tax, and subtotal amounts in `a_purchase_item_result`.
+   * price, tax, and subtotal amounts in `a_purchase_item_result`. For a tuition the amounts cover the
+   * full cost, and the split between what is charged right now and what is deferred is added to the
+   * same row.
    *
    * @param {Object} [params] Request parameters.
    * @param {Object[]} params.a_purchase_item_request A list of purchase items to get information for. Every element has the next keys:
@@ -10370,6 +10380,7 @@
    *  `is_commission` {boolean} Determines whether the business applied a commission at checkout.
    *  `is_discount_code_mode_select` {boolean} Determines, how staff sees discount codes in Store.
    *  `is_receipt_note` {boolean} Determines whether to display custom receipt notes at checkout.
+   *  `m_checkout` {string} The amount that has to be charged right now for the cart.
    *  `m_discount` {string} The discount amount in dollars, excluding tax.
    *  `m_discount_total` {string} The discount amount applied to the cart's total amount, including taxes.
    *  `m_subtotal` {string} The subtotal amount.
@@ -11459,7 +11470,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (214 total)
+  // Enum constants (215 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -16814,6 +16825,26 @@
     GUEST: 3,
     /** Staff member role */
     STAFF: 4,
+  });
+
+  /**
+   * Discount types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlDiscountDiscountRuleSid = Object.freeze({
+    /** Discount for catalog cart */
+    CART: 5,
+    /** Discount by discount code */
+    CODE: 4,
+    /** Group of custom discounts applied individually to a purchase item */
+    CUSTOM: 6,
+    /** Discount by login type */
+    LOGIN_TYPE: 1,
+    /** Manual discount for element of purchase */
+    MANUAL: 3,
+    /** Discount by reward prize */
+    PRIZE: 2,
   });
 
   /**
