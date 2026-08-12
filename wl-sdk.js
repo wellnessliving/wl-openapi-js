@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260812050049
+ * Spec version: 1.1.20260812053054
  * Build date:   2026-08-12
  * Endpoints:    525
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260812050049';
+  WlClient.SPEC_VERSION = '1.1.20260812053054';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (525 total)
@@ -7621,9 +7621,9 @@
   /**
    * Accepts a Widget analytics event.
    *
-   * Validates the event envelope and payload. An `abandoned_checkout` event is stored and scheduled for
-   * asynchronous processing. A `purchase` event marks any pending abandoned checkout event for the same client
-   * and checkout type as checkout-complete, so the "Abandoned checkout" trigger stops enrolling the client for it.
+   * Validates the event envelope and payload. `begin_checkout` and `abandoned_checkout` events are stored and
+   * scheduled for asynchronous processing. A `purchase` event marks pending checkout events for the same client
+   * and checkout type as checkout-complete, so the "Abandoned checkout" trigger stops enrolling the client for them.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
