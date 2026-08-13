@@ -12807,10 +12807,10 @@ export interface WlBusinessConfigBusinessConfigResponse {
         id_cancel_period: ADurationSid;
         /** Client's charge if he has "Late cancel" or "No shows" sessions. @see WlBusinessPolicyChargeSid */
         id_charge: WlBusinessPolicyChargeSid;
-        /** Charge measure type. `0` for percent, `1` for money amount. */
-        id_charge_measure: number;
         /** `1` if all classes are selected, `0` - otherwise. */
         is_appointment_all: boolean;
+        /** `true` for a fixed money amount, `false` for a percentage. */
+        is_charge_measure_money: boolean;
         /** `1` if all classes are selected, `0` - otherwise. */
         is_class_all: boolean;
         /** `true` if promotion penalties is enable, `false` otherwise. */
