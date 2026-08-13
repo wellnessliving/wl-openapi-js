@@ -20748,7 +20748,7 @@ export interface WlAppointmentBookPaymentPaymentMultipleGetResponse {
         /** The title of the promotion. */
         s_title: string;
     };
-    /** Fields refer to strings in the format `id_purchase_item-k_id`. Values refer to an array with the ... */
+    /** List of purchase options to be purchased. */
     a_purchase: {
         /** A list of taxes to apply containing information about taxes. */
         a_tax: {
@@ -20768,6 +20768,26 @@ export interface WlAppointmentBookPaymentPaymentMultipleGetResponse {
         /** The price of the promotion (or single visit). */
         m_price: string;
     };
+    /** A list of purchase options grouped by provider. */
+    a_purchase_provider: Array<{
+        /** A list of taxes to apply containing information about taxes. */
+        a_tax: {
+            /** The tax rate. */
+            m_tax: string;
+            /** The name of the tax. */
+            text_title: string;
+        };
+        /** A list of purchase types. @see RsPurchaseItemSid */
+        id_purchase_item: RsPurchaseItemSid;
+        /** The value of the discount used for the purchase. */
+        k_id: string;
+        /** The value of the discount used for the purchase. */
+        m_discount: string;
+        /** The payment for the promotion (or single visit) without taxes. */
+        m_pay: string;
+        /** The price of the promotion (or single visit). */
+        m_price: string;
+    }>;
     /** The list of amounts to pay for appointments from the batch, with taxes and without surcharges. */
     a_total: Array<string>;
     /** Location to show available appointment booking schedule. */

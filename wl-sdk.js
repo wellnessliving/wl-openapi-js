@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20260807060256
+ * Spec version: 1.1.20260813054105
  * Build date:   2026-08-13
  * Endpoints:    504
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260807060256';
+  WlClient.SPEC_VERSION = '1.1.20260813054105';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (504 total)
@@ -8372,7 +8372,8 @@
    * @param {string} params.uid The user key.
    * @returns {Promise<Object>} Response data.
    *  `a_promotion_data` {Object} Information about the selected login promotion.
-   *  `a_purchase` {Object} Fields refer to strings in the format `id_purchase_item-k_id`. Values refer t...
+   *  `a_purchase` {Object} List of purchase options to be purchased.
+   *  `a_purchase_provider` {Object[]} A list of purchase options grouped by provider.
    *  `a_total` {string[]} The list of amounts to pay for appointments from the batch, with taxes and wi...
    *  `k_location` {string} Location to show available appointment booking schedule.
    *  `m_coupon` {string} The gift card amount.
