@@ -6150,11 +6150,11 @@ export interface WlVideoVideoElementGetParams {
 export interface WlVideoVideoElementGetResponse {
     /** The keys of the locations where this video is available. */
     a_location: Array<string>;
-    /** The keys of the user staff members who are on the video. */
+    /** The legacy staff keys associated with the video. */
     a_staff: Array<string>;
     /** A list of staff members associated with the video. Every item has the following structure: */
     a_staff_info: {
-        /** <b>Deprecated</b> The staff member key. */
+        /** <b>Deprecated</b> The optional staff member key returned only to legacy applications. */
         k_staff: string;
         /** The staff member's full name. */
         text_name: string;

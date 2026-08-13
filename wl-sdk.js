@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260813115229
+ * Spec version: 1.1.20260813120635
  * Build date:   2026-08-13
  * Endpoints:    527
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260813115229';
+  WlClient.SPEC_VERSION = '1.1.20260813120635';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (527 total)
@@ -959,7 +959,7 @@
    * @param {string} params.k_video The video key.
    * @returns {Promise<Object>} Response data.
    *  `a_location` {string[]} The keys of the locations where this video is available.
-   *  `a_staff` {string[]} The keys of the user staff members who are on the video.
+   *  `a_staff` {string[]} The legacy staff keys associated with the video.
    *  `a_staff_info` {Object} A list of staff members associated with the video. Every item has the followi...
    *  `a_staff_uid` {string[]} The user IDs of the staff members who are on the video (authoritative list fo...
    *  `a_video_category` {string[]} The video category keys where this video can be found.
