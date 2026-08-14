@@ -1603,6 +1603,8 @@ export declare enum WlModeModeSid {
     AZURE = 21,
     /** Visit has been checked-in by Brivo Door Access */
     BRIVO_DOOR_ACCESS = 31,
+    /** Purchase created by a bulk billing batch charge */
+    BULK_BILLING = 33,
     /** Visit has been created by `CENTRED` */
     CENTRED = 23,
     /** Visit has been created by `ClassPass` */
