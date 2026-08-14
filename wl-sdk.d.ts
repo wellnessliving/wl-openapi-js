@@ -12941,6 +12941,8 @@ export interface WlBusinessWaiverWaiverResponse {
     has_waiver: boolean;
     /** Text of the current waiver with the substituted variables. */
     html_waiver: string;
+    /** URL to the waiver page. */
+    url_waiver: string;
 }
 export interface WlReportDashboardReportDashboardPostParams {
     /** Business key of the report. */
