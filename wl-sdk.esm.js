@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260813144549
+// OpenAPI spec version: 1.1.20260814073656
 // Build date: 2026-08-14
 // Endpoints: 527
 // Enums: 198
@@ -1631,6 +1631,8 @@ export var WlModeModeSid;
     WlModeModeSid[WlModeModeSid["AZURE"] = 21] = "AZURE";
     /** Visit has been checked-in by Brivo Door Access */
     WlModeModeSid[WlModeModeSid["BRIVO_DOOR_ACCESS"] = 31] = "BRIVO_DOOR_ACCESS";
+    /** Purchase created by a bulk billing batch charge */
+    WlModeModeSid[WlModeModeSid["BULK_BILLING"] = 33] = "BULK_BILLING";
     /** Visit has been created by `CENTRED` */
     WlModeModeSid[WlModeModeSid["CENTRED"] = 23] = "CENTRED";
     /** Visit has been created by `ClassPass` */
