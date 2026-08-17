@@ -4427,8 +4427,6 @@ export declare enum WlSocialShareShareObjectSid {
 }
 /** Widget analytics checkout types. */
 export declare enum WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid {
-    /** Any checkout type */
-    ANY = 1,
     /** Booking checkout type */
     BOOKING = 3,
     /** Store purchase checkout type */
