@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260817110335
+ * Spec version: 1.1.20260817143202
  * Build date:   2026-08-17
  * Endpoints:    526
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260817110335';
+  WlClient.SPEC_VERSION = '1.1.20260817143202';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (526 total)
@@ -7665,6 +7665,7 @@
    * @param {string} params.s_tuition_id Key of the tuition in tuition microservice.
    * @returns {Promise<Object>} Response data.
    *  `a_enrollment` {Object[]} List of tuition enrollments.
+   *  `a_enrollment_fee` {Object} List of users who has paid or are scheduled to pay tuition fee.
    */
   WlClient.prototype.wlTuitionEnrollmentTuitionEnrollmentList = function(params)
   {
