@@ -6012,7 +6012,7 @@ export interface WlEventEventEnrollmentResponse {
     a_enrollments: Array<{
         /** `true` if the client has a block event enrollment record set for this class */
         is_enrolled_full: boolean;
-        /** Key of the client who attended or will attend the event. Primary key in PassportLoginSql table. */
+        /** Key of the client who attended or will attend the event. */
         uid: string;
     }>;
 }
@@ -19608,6 +19608,11 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
         /** Payer for this enrollment. */
         uid_payer: string;
     }>;
+    /** List of users who has paid or are scheduled to pay tuition fee. */
+    a_enrollment_fee: {
+        /** If `true`, user has paid tuition fee. If `false`, user is scheduled to pay tuition fee. */
+        is_paid: string;
+    };
 }
 export type WlTuitionEnrollmentTuitionEnrollmentCancelParams = Record<string, unknown>;
 export type WlTuitionEnrollmentTuitionEnrollmentCancelResponse = Record<string, unknown>;
