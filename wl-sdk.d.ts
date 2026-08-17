@@ -6001,6 +6001,21 @@ export interface WlEventEventListPutParams {
 export type WlEventEventListPutResponse = Record<string, unknown>;
 export type WlEventEventCancelWholeParams = Record<string, unknown>;
 export type WlEventEventCancelWholeResponse = Record<string, unknown>;
+export interface WlEventEventEnrollmentParams {
+    /** List of event classes for which enrollment must be retrieved. */
+    a_class: Array<string>;
+    /** Key of the business to which the event classes belong. */
+    k_business: string;
+}
+export interface WlEventEventEnrollmentResponse {
+    /** A list of clients enrolled in the specified event classes. */
+    a_enrollments: Array<{
+        /** `true` if the client has a block event enrollment record set for this class */
+        is_enrolled_full: boolean;
+        /** Key of the client who attended or will attend the event. Primary key in PassportLoginSql table. */
+        uid: string;
+    }>;
+}
 export type WlProfileProfileCreateParams = Record<string, unknown>;
 export interface WlProfileProfileCreateResponse {
     /** The key of the user. */
@@ -28096,6 +28111,8 @@ export declare class WlEventNamespace {
     eventListPut(params?: WlEventEventListPutParams): Promise<WlEventEventListPutResponse>;
     /** Cancels book of event {@link WlEventNamespace#eventCancelWhole}. */
     eventCancelWhole(params?: WlEventEventCancelWholeParams): Promise<WlEventEventCancelWholeResponse>;
+    /** Returns a list of clients enrolled in the specified event classes. */
+    eventEnrollment(params?: WlEventEventEnrollmentParams): Promise<WlEventEventEnrollmentResponse>;
 }
 export declare class WlProfilePurchaseNamespace {
     private readonly _client;

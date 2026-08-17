@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260817100136
+// OpenAPI spec version: 1.1.20260817114611
 // Build date: 2026-08-17
-// Endpoints: 527
+// Endpoints: 528
 // Enums: 198
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -6544,6 +6544,10 @@ export class WlEventNamespace {
     /** Cancels book of event {@link WlEventNamespace#eventCancelWhole}. */
     eventCancelWhole(params) {
         return this._client._request('/Wl/Event/EventCancelWhole.json', params, 'POST');
+    }
+    /** Returns a list of clients enrolled in the specified event classes. */
+    eventEnrollment(params) {
+        return this._client._request('/Wl/Event/EventEnrollment.json', params, 'GET');
     }
 }
 export class WlProfilePurchaseNamespace {

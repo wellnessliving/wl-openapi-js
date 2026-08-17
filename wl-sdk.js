@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260817100136
+ * Spec version: 1.1.20260817114611
  * Build date:   2026-08-17
- * Endpoints:    527
+ * Endpoints:    528
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260817100136';
+  WlClient.SPEC_VERSION = '1.1.20260817114611';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (527 total)
+  // Generated API methods (528 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -815,6 +815,23 @@
   WlClient.prototype.wlEventEventCancelWhole = function(params)
   {
     return this.request('/Wl/Event/EventCancelWhole.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns a list of clients enrolled in the specified event classes.
+   *
+   * An enrollment is considered to exist for any client that has an active (not canceled, not missed) visit,
+   * past or future, for one of the specified classes.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_class List of event classes for which enrollment must be retrieved.
+   * @param {string} params.k_business Key of the business to which the event classes belong.
+   * @returns {Promise<Object>} Response data.
+   *  `a_enrollments` {Object[]} A list of clients enrolled in the specified event classes.
+   */
+  WlClient.prototype.wlEventEventEnrollment = function(params)
+  {
+    return this.request('/Wl/Event/EventEnrollment.json', params || {}, 'GET');
   };
 
   /**
