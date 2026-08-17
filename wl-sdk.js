@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260815092701
- * Build date:   2026-08-16
+ * Spec version: 1.1.20260817052456
+ * Build date:   2026-08-17
  * Endpoints:    527
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260815092701';
+  WlClient.SPEC_VERSION = '1.1.20260817052456';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (527 total)
@@ -8428,6 +8428,8 @@
    * Retrieves guest passes for a specific client.
    *
    * Returns all guest passes assigned to the given user, optionally filtered by class and location.
+   * 
+   * Guest passes are not applicable to events, so an empty list is returned when the specified class is an event.
    *
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.dl_date] Local calendar date for which guest pass availability should be calculated.
