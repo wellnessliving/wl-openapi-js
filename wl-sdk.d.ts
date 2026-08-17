@@ -6356,7 +6356,7 @@ export interface WlEventEventEnrollmentResponse {
     a_enrollments: Array<{
         /** `true` if the client has a block event enrollment record set for this class */
         is_enrolled_full: boolean;
-        /** Key of the client who attended or will attend the event. Primary key in PassportLoginSql table. */
+        /** Key of the client who attended or will attend the event. */
         uid: string;
     }>;
 }
