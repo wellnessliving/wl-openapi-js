@@ -5841,6 +5841,8 @@ export interface WlEventEventListGetParams {
     id_flag: AFlagSid;
     /** Determines whether the endpoint is used for backend mode. */
     is_backend: boolean;
+    /** Model cache reset flag. */
+    is_cache_reset: boolean;
     /** `true` to show even event restricted by booking policies; `false` to show available events only. */
     is_ignore_requirement: boolean;
     /** Determines whether you need to retrieve a list of event sessions regardless of the tab specified ... */
@@ -5989,6 +5991,8 @@ export interface WlEventEventListGetResponse {
     }>;
 }
 export interface WlEventEventListPutParams {
+    /** Model cache reset flag. */
+    is_cache_reset: boolean;
     /** The event business key to retrieve a list of all event sessions in business. */
     k_business?: string | null;
     /** The user key. */

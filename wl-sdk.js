@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260817084551
+ * Spec version: 1.1.20260817100136
  * Build date:   2026-08-17
  * Endpoints:    527
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260817084551';
+  WlClient.SPEC_VERSION = '1.1.20260817100136';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (527 total)
@@ -766,6 +766,7 @@
    * @param {?string} [params.dl_start] The start date of the range from which a list of events should be retrieved.
    * @param {number} params.id_flag Defines how the event availability flag filter should be applied. See {@link WlClient.AFlagSid}.
    * @param {boolean} params.is_backend Determines whether the endpoint is used for backend mode.
+   * @param {boolean} params.is_cache_reset Model cache reset flag.
    * @param {boolean} params.is_ignore_requirement `true` to show even event restricted by booking policies; `false` to show available events only.
    * @param {boolean} params.is_tab_all Determines whether you need to retrieve a list of event sessions regardless of the tab specified ...
    * @param {?string} [params.k_business] The event business key to retrieve a list of all event sessions in business.
@@ -791,6 +792,7 @@
    * database. Can also conditionally reset without parameters if the caller determines a reset is needed.
    *
    * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_cache_reset Model cache reset flag.
    * @param {?string} [params.k_business] The event business key to retrieve a list of all event sessions in business.
    * @param {?string} [params.uid] The user key.
    * @returns {Promise<Object>} Response data.
