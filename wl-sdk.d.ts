@@ -19764,7 +19764,7 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
     /** List of users who has paid or are scheduled to pay tuition fee. */
     a_enrollment_fee: {
         /** If `true`, user has paid tuition fee. If `false`, user is scheduled to pay tuition fee. */
-        is_paid: string;
+        is_paid: boolean;
     };
 }
 export type WlTuitionEnrollmentTuitionEnrollmentCancelParams = Record<string, unknown>;
