@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260818080559
+// OpenAPI spec version: 1.1.20260818092431
 // Build date: 2026-08-18
 // Endpoints: 528
 // Enums: 198
@@ -3793,6 +3793,8 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["NOTIFICATION_MEMBERSHIP_CANCEL"] = 214] = "NOTIFICATION_MEMBERSHIP_CANCEL";
     /** Receive Membership or Purchase Options Query notification */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["NOTIFICATION_MEMBERSHIP_QUERY"] = 223] = "NOTIFICATION_MEMBERSHIP_QUERY";
+    /** Receive CAASI Phone Call Received (AI Agent) notification */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["NOTIFICATION_PHONE_AGENT_CALL_RECEIVED"] = 248] = "NOTIFICATION_PHONE_AGENT_CALL_RECEIVED";
     /** Staff with this role will receive emails about reward prizes */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["NOTIFICATION_PRIZE_REDEMPTION"] = 90] = "NOTIFICATION_PRIZE_REDEMPTION";
     /** Staff with this role will receive the inventory mails */

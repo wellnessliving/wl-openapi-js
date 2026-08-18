@@ -3683,6 +3683,8 @@ export declare enum WlPrivilegePrivilegeSid {
     NOTIFICATION_MEMBERSHIP_CANCEL = 214,
     /** Receive Membership or Purchase Options Query notification */
     NOTIFICATION_MEMBERSHIP_QUERY = 223,
+    /** Receive CAASI Phone Call Received (AI Agent) notification */
+    NOTIFICATION_PHONE_AGENT_CALL_RECEIVED = 248,
     /** Staff with this role will receive emails about reward prizes */
     NOTIFICATION_PRIZE_REDEMPTION = 90,
     /** Staff with this role will receive the inventory mails */
@@ -19611,7 +19613,7 @@ export interface WlTuitionEnrollmentTuitionEnrollmentListResponse {
     /** List of users who has paid or are scheduled to pay tuition fee. */
     a_enrollment_fee: {
         /** If `true`, user has paid tuition fee. If `false`, user is scheduled to pay tuition fee. */
-        is_paid: string;
+        is_paid: boolean;
     };
 }
 export type WlTuitionEnrollmentTuitionEnrollmentCancelParams = Record<string, unknown>;

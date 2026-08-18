@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260818080559
+ * Spec version: 1.1.20260818092431
  * Build date:   2026-08-18
  * Endpoints:    528
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260818080559';
+  WlClient.SPEC_VERSION = '1.1.20260818092431';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (528 total)
@@ -15768,6 +15768,8 @@
     NOTIFICATION_MEMBERSHIP_CANCEL: 214,
     /** Receive Membership or Purchase Options Query notification */
     NOTIFICATION_MEMBERSHIP_QUERY: 223,
+    /** Receive CAASI Phone Call Received (AI Agent) notification */
+    NOTIFICATION_PHONE_AGENT_CALL_RECEIVED: 248,
     /** Staff with this role will receive emails about reward prizes */
     NOTIFICATION_PRIZE_REDEMPTION: 90,
     /** Staff with this role will receive the inventory mails */
