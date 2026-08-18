@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260818115546
+ * Spec version: 1.1.20260818163443
  * Build date:   2026-08-18
  * Endpoints:    528
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260818115546';
+  WlClient.SPEC_VERSION = '1.1.20260818163443';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (528 total)
@@ -14934,6 +14934,8 @@
     PAY_AUTOMATIC_SUCCESS: 116,
     /** Transaction failed */
     PAY_TRANSACTION_FAIL: 181,
+    /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
+    PHONE_AGENT_CALL_RECEIVED: 222,
     /** Request a custom website subscription */
     PRESENCE_ACTIVATE: 137,
     /** Sent after purchase of product */
@@ -15033,18 +15035,6 @@
   });
 
   /**
-   * List of resource categories.
-   *
-   * @enum {number}
-   */
-  WlClient.WlResourceResourceCategoryEnum = Object.freeze({
-    /** Asset resource category */
-    ASSET: 1,
-    /** Off-site location resource category */
-    LOCATION: 2,
-  });
-
-  /**
    * Reasons why the client can't book this class.
    *
    * @enum {number}
@@ -15102,6 +15092,18 @@
     WAIT_LIST_LIMIT_MAX: 21,
     /** Client has unsigned waiver */
     WAIVER_NX: 23,
+  });
+
+  /**
+   * List of resource categories.
+   *
+   * @enum {number}
+   */
+  WlClient.WlResourceResourceCategoryEnum = Object.freeze({
+    /** Asset resource category */
+    ASSET: 1,
+    /** Off-site location resource category */
+    LOCATION: 2,
   });
 
   /**
