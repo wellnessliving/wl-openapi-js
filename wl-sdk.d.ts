@@ -22493,6 +22493,8 @@ export interface WlAppointmentBookStaffListResponse {
     a_staff: Array<{
         /** String identifiers for gender. @see AGenderSid */
         id_gender: AGenderSid;
+        /** How many clients can still be booked with the staff member at the requested time. */
+        i_free_spot: number | null;
         /** Whether staff member is available for booking. Note, if staff member reached daily limits, this f... */
         is_available: boolean;
         /** Whether staff member reached daily limits on number or total duration of the appointments for one... */
@@ -22546,6 +22548,8 @@ export interface WlAppointmentBookStaffStaffListResponse {
     a_staff: Array<{
         /** String identifiers for gender. @see AGenderSid */
         id_gender: AGenderSid;
+        /** How many clients can still be booked with the staff member at the requested time. */
+        i_free_spot: number | null;
         /** Whether staff member is available for booking. Note, if staff member reached daily limits, this f... */
         is_available: boolean;
         /** Whether staff member reached daily limits on number or total duration of the appointments for one... */
