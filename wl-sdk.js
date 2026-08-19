@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260818074606
+ * Spec version: 1.1.20260819044559
  * Build date:   2026-08-19
  * Endpoints:    526
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260818074606';
+  WlClient.SPEC_VERSION = '1.1.20260819044559';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (526 total)
@@ -14271,18 +14271,6 @@
   });
 
   /**
-   * List of resource categories.
-   *
-   * @enum {number}
-   */
-  WlClient.WlResourceResourceCategoryEnum = Object.freeze({
-    /** Asset resource category */
-    ASSET: 1,
-    /** Off-site location resource category */
-    LOCATION: 2,
-  });
-
-  /**
    * Reasons why the client can't book this class.
    *
    * @enum {number}
@@ -14340,6 +14328,18 @@
     WAIT_LIST_LIMIT_MAX: 21,
     /** Client has unsigned waiver */
     WAIVER_NX: 23,
+  });
+
+  /**
+   * List of resource categories.
+   *
+   * @enum {number}
+   */
+  WlClient.WlResourceResourceCategoryEnum = Object.freeze({
+    /** Asset resource category */
+    ASSET: 1,
+    /** Off-site location resource category */
+    LOCATION: 2,
   });
 
   /**

@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260818074606
+// OpenAPI spec version: 1.1.20260819044559
 // Build date: 2026-08-19
 // Endpoints: 526
 // Enums: 198
@@ -2472,14 +2472,6 @@ export var CoreGoogleCaptchaCaptchaResponseSid;
     /** Token is valid but score is risky */
     CoreGoogleCaptchaCaptchaResponseSid[CoreGoogleCaptchaCaptchaResponseSid["VALID_BLOCK"] = 4] = "VALID_BLOCK";
 })(CoreGoogleCaptchaCaptchaResponseSid || (CoreGoogleCaptchaCaptchaResponseSid = {}));
-/** List of resource categories. */
-export var WlResourceResourceCategoryEnum;
-(function (WlResourceResourceCategoryEnum) {
-    /** Asset resource category */
-    WlResourceResourceCategoryEnum[WlResourceResourceCategoryEnum["ASSET"] = 1] = "ASSET";
-    /** Off-site location resource category */
-    WlResourceResourceCategoryEnum[WlResourceResourceCategoryEnum["LOCATION"] = 2] = "LOCATION";
-})(WlResourceResourceCategoryEnum || (WlResourceResourceCategoryEnum = {}));
 /** Reasons why the client can't book this class. */
 export var WlScheduleClassViewDenyReasonSid;
 (function (WlScheduleClassViewDenyReasonSid) {
@@ -2536,6 +2528,14 @@ export var WlScheduleClassViewDenyReasonSid;
     /** Client has unsigned waiver */
     WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["WAIVER_NX"] = 23] = "WAIVER_NX";
 })(WlScheduleClassViewDenyReasonSid || (WlScheduleClassViewDenyReasonSid = {}));
+/** List of resource categories. */
+export var WlResourceResourceCategoryEnum;
+(function (WlResourceResourceCategoryEnum) {
+    /** Asset resource category */
+    WlResourceResourceCategoryEnum[WlResourceResourceCategoryEnum["ASSET"] = 1] = "ASSET";
+    /** Off-site location resource category */
+    WlResourceResourceCategoryEnum[WlResourceResourceCategoryEnum["LOCATION"] = 2] = "LOCATION";
+})(WlResourceResourceCategoryEnum || (WlResourceResourceCategoryEnum = {}));
 /** A list of types of visit note. */
 export var WlVisitNoteSidNoteSid;
 (function (WlVisitNoteSidNoteSid) {

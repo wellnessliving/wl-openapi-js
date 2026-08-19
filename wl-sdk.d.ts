@@ -2398,13 +2398,6 @@ export declare enum CoreGoogleCaptchaCaptchaResponseSid {
     /** Token is valid but score is risky */
     VALID_BLOCK = 4
 }
-/** List of resource categories. */
-export declare enum WlResourceResourceCategoryEnum {
-    /** Asset resource category */
-    ASSET = 1,
-    /** Off-site location resource category */
-    LOCATION = 2
-}
 /** Reasons why the client can't book this class. */
 export declare enum WlScheduleClassViewDenyReasonSid {
     /** User is trying to book on behalf of another client, but does not have permission to do so */
@@ -2459,6 +2452,13 @@ export declare enum WlScheduleClassViewDenyReasonSid {
     WAIT_LIST_LIMIT_MAX = 21,
     /** Client has unsigned waiver */
     WAIVER_NX = 23
+}
+/** List of resource categories. */
+export declare enum WlResourceResourceCategoryEnum {
+    /** Asset resource category */
+    ASSET = 1,
+    /** Off-site location resource category */
+    LOCATION = 2
 }
 /** A list of types of visit note. */
 export declare enum WlVisitNoteSidNoteSid {
@@ -9408,10 +9408,14 @@ export interface WlScheduleClassListClassList68Response {
         a_search_tag: Array<string>;
         /** The list of staff keys for the staff member conducting the session. */
         a_staff: Array<string>;
+        /** Whether staff or pay rate changed due quick substitution, for each staff member. */
+        a_staff_quick_substitute: Array<boolean>;
         /** The list of staff user keys for the staff member conducting the session. */
         a_staff_uid: Array<string>;
         /** The list of virtual locations keys. Each value is a location key. */
         a_virtual_location: Array<string>;
+        /** Whether current client can book class. Only present if {@link WlScheduleClassListNamespace#classL... */
+        can_book: boolean | null;
         /** The date/time of the session start in UTC. */
         dt_date: string;
         /** The time of the session start in the local time zone. */
@@ -9422,6 +9426,18 @@ export interface WlScheduleClassListClassList68Response {
         hide_application: boolean;
         /** The class description. */
         html_description: string;
+        /** The minimum age restriction. Deprecated and is left only for back compatibility. `null` if */
+        i_age_from: number | null;
+        /** The minimum age restriction (months). `null` if `is_age_public` is `false` or age is not restricted. */
+        i_age_from_month: number | null;
+        /** The minimum age restriction (years). `null` if `is_age_public` is `false` or age is not restricted. */
+        i_age_from_year: number | null;
+        /** The maximum age restriction. Deprecated and is left only for back compatibility. `null` if */
+        i_age_to: number | null;
+        /** The maximum age restriction (months). `null` if `is_age_public` is `false` or age is not restricted. */
+        i_age_to_month: number | null;
+        /** The maximum age restriction (years). `null` if `is_age_public` is `false` or age is not restricted. */
+        i_age_to_year: number | null;
         /** Count of visits on this class. */
         i_book: number;
         /** The capacity of the service. 'null' indicates that the capacity is not set. */
@@ -9432,6 +9448,16 @@ export interface WlScheduleClassListClassList68Response {
         i_duration: number;
         /** Number of clients in wait list. */
         i_wait: number;
+        /** Limit of wait list. `null` if limit is not set. */
+        i_wait_limit: number | null;
+        /** Position of the current client (`uid`) in the wait list for this session. `0` if the client is not */
+        i_wait_spot: number;
+        /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
+        id_deny_reason: WlScheduleClassViewDenyReasonSid | null;
+        /** Whether current class was booked by current client. Only present if */
+        is_book: boolean | null;
+        /** Whether the age restriction of the class is shown to clients. */
+        is_age_public: boolean;
         /** Allow clients to book on behalf of a guest. */
         is_book_for_guest: boolean;
         /** If `true`, this class period was canceled. Otherwise, this will be `false`. */
@@ -9440,8 +9466,14 @@ export interface WlScheduleClassListClassList68Response {
         is_cancellation_enabled: boolean;
         /** If `true`, this is an event. Otherwise, this will be `false`. */
         is_event: boolean;
+        /** Whether special instructions are configured for this session and are visible to the current client. */
+        is_special_instructions: boolean;
         /** If `true`, this class is virtual. Otherwise, this will be `false`. */
         is_virtual: boolean;
+        /** `true` if the current client (`uid`) is on the wait list for this session; `false` otherwise. */
+        is_wait: boolean;
+        /** `true` if the current client can only take a place on the wait list; `false` otherwise. Only pres... */
+        is_wait_list: boolean | null;
         /** This will be `true` if user is only on the wait-list. Otherwise, this will be `false`. */
         is_wait_list_enabled: boolean;
         /** The class key. */
@@ -9454,8 +9486,12 @@ export interface WlScheduleClassListClassList68Response {
         k_resource_location: string;
         /** The title of the session. */
         s_title: string;
+        /** Class room. Empty string if not set. */
+        text_room: string;
         /** The direct link to start booking on the WellnessLiving website. */
         url_book: string;
+        /** Link to virtual service. Empty string if the class isn't virtual, or if the current client */
+        url_virtual_join: string;
     }>;
     /** If `true`, the list of sessions contains sessions from different time zones. Otherwise, this will... */
     is_timezone_different: boolean;
@@ -9699,7 +9735,7 @@ export interface WlScheduleClassViewClassViewGetResponse {
         /** Limit of wait list. `null` if limit is not set. */
         i_wait_limit: number | null;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
-        id_deny_reason: WlScheduleClassViewDenyReasonSid;
+        id_deny_reason: WlScheduleClassViewDenyReasonSid | null;
         /** Whether current class was booked by current client. */
         is_book: boolean;
         /** Allow clients to book on behalf of a guest. */
@@ -9822,7 +9858,7 @@ export interface WlScheduleClassViewClassViewGetResponse {
             /** Limit of wait list. `null` if limit is not set. */
             i_wait_limit: number | null;
             /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
-            id_deny_reason: WlScheduleClassViewDenyReasonSid;
+            id_deny_reason: WlScheduleClassViewDenyReasonSid | null;
             /** Whether current class was booked by current client. */
             is_book: boolean;
             /** Allow clients to book on behalf of a guest. */
@@ -10044,7 +10080,7 @@ export interface WlScheduleClassViewClassViewPostResponse {
         /** Limit of wait list. `null` if limit is not set. */
         i_wait_limit: number | null;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
-        id_deny_reason: WlScheduleClassViewDenyReasonSid;
+        id_deny_reason: WlScheduleClassViewDenyReasonSid | null;
         /** Whether current class was booked by current client. */
         is_book: boolean;
         /** Allow clients to book on behalf of a guest. */
@@ -10167,7 +10203,7 @@ export interface WlScheduleClassViewClassViewPostResponse {
             /** Limit of wait list. `null` if limit is not set. */
             i_wait_limit: number | null;
             /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
-            id_deny_reason: WlScheduleClassViewDenyReasonSid;
+            id_deny_reason: WlScheduleClassViewDenyReasonSid | null;
             /** Whether current class was booked by current client. */
             is_book: boolean;
             /** Allow clients to book on behalf of a guest. */
@@ -12199,6 +12235,10 @@ export interface WlProfileAttendanceAttendanceOverlapResponse {
         k_enrollment_book: string;
         /** Location key. */
         k_location: string;
+        /** Local end time of the visit, formatted according to the business locale. */
+        text_time_end?: string;
+        /** Local start time of the visit, formatted according to the business locale. */
+        text_time_start?: string;
         /** Title of a service */
         text_title: string;
     }>;
@@ -20441,7 +20481,7 @@ export interface WlAppointmentBookServiceServiceList52Response {
         /** A list of client booking flow types. @see WlServiceServiceBookFlowSid */
         id_book_flow: WlServiceServiceBookFlowSid;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
-        id_deny_reason: WlScheduleClassViewDenyReasonSid;
+        id_deny_reason: WlScheduleClassViewDenyReasonSid | null;
         /** A list of client booking flow types. @see RsServiceRequireSid */
         id_service_require: RsServiceRequireSid;
         /** List of possible value of virtual integrations. @see WlVirtualVirtualProviderSid */
@@ -20638,7 +20678,7 @@ export interface WlAppointmentBookServiceServiceListResponse {
         /** A list of client booking flow types. @see WlServiceServiceBookFlowSid */
         id_book_flow: WlServiceServiceBookFlowSid;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
-        id_deny_reason: WlScheduleClassViewDenyReasonSid;
+        id_deny_reason: WlScheduleClassViewDenyReasonSid | null;
         /** A list of client booking flow types. @see RsServiceRequireSid */
         id_service_require: RsServiceRequireSid;
         /** List of possible value of virtual integrations. @see WlVirtualVirtualProviderSid */
@@ -21929,7 +21969,7 @@ export interface WlAppointmentBookAssetAssetListResponse {
         /** The resource name. */
         html_title: string;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
-        id_deny_reason: WlScheduleClassViewDenyReasonSid;
+        id_deny_reason: WlScheduleClassViewDenyReasonSid | null;
         /** A list of client booking flow types. @see RsServiceRequireSid */
         id_service_require: RsServiceRequireSid;
         /** Determines whether this service can't be booked due to age restrictions. */
