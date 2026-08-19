@@ -23850,6 +23850,8 @@ export interface WlBookProcessInfoInfoGetResponse {
     i_book: number | null;
     /** The duration of the session in minutes. */
     i_duration: number;
+    /** Total number of sessions including both past and future sessions. */
+    i_session_all: number;
     /** Total number of clients on the wait list. */
     i_wait: number;
     /** Total capacity the wait list. */
@@ -24045,6 +24047,8 @@ export interface WlBookProcessInfoInfo54GetResponse {
     i_book: number | null;
     /** The duration of the session in minutes. */
     i_duration: number;
+    /** Total number of sessions including both past and future sessions. */
+    i_session_all: number;
     /** Total number of clients on the wait list. */
     i_wait: number;
     /** Total capacity the wait list. */
@@ -25031,6 +25035,8 @@ export interface WlEventBookEventViewElementResponse {
         i_makeup_cap: number;
         /** Session count in event. */
         i_session: number;
+        /** Total number of sessions including both past and future sessions. */
+        i_session_all: number;
         /** Remaining session count in event. */
         i_session_remain: number;
         /** Whether event availability was checked. */
@@ -25194,6 +25200,8 @@ export interface WlEventBookEventViewElementResponse {
     i_makeup_cap: number;
     /** The session count. */
     i_session: number;
+    /** Total number of sessions including both past and future sessions. */
+    i_session_all: number;
     /** The remaining session count. */
     i_session_remain: number;
     /** List of possible modes to require amount while booking a class. @see WlClassesRequirePaySid */
