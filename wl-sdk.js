@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260819135733
+ * Spec version: 1.1.20260819161630
  * Build date:   2026-08-19
  * Endpoints:    527
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260819135733';
+  WlClient.SPEC_VERSION = '1.1.20260819161630';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (527 total)
@@ -4822,6 +4822,7 @@
    * @param {number} params.i_image_height Image height in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {number} params.i_image_width Image width in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {number} params.id_program_type The program type ID, which will be one of the {@link WlClient.RsProgramTypeSid} constants.
+   * @param {boolean} params.is_backend If `true`, purchase options are loaded for backend mode. Otherwise, this will be `false` if purch...
    * @param {?string} [params.k_business] The business key.
    * @param {string} params.k_location The location key.
    * @returns {Promise<Object>} Response data.

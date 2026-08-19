@@ -13183,6 +13183,8 @@ export interface WlPromotionIndexPromotionIndexParams {
     i_image_width: number;
     /** The program type ID, which will be one of the {@link RsProgramTypeSid} constants. */
     id_program_type: RsProgramTypeSid;
+    /** If `true`, purchase options are loaded for backend mode. Otherwise, this will be `false` if purch... */
+    is_backend: boolean;
     /** The location key. */
     k_location: string;
     /** The business key. */
