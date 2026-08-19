@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260819094836
+ * Spec version: 1.1.20260819095852
  * Build date:   2026-08-19
  * Endpoints:    526
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260819094836';
+  WlClient.SPEC_VERSION = '1.1.20260819095852';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (526 total)
@@ -9350,7 +9350,7 @@
    *  `i_available` {?number} Number of available spots.
    *  `i_book` {?number} Number of booked spots.
    *  `i_duration` {number} The duration of the session in minutes.
-   *  `i_session_all` {number} Total number of sessions including both past and future sessions.
+   *  `i_session_all` {number} Total number of sessions.
    *  `i_wait` {number} Total number of clients on the wait list.
    *  `i_wait_limit` {?number} Total capacity the wait list.
    *  `i_wait_spot` {number} Estimated place of reservation on the waiting list.
@@ -9422,7 +9422,7 @@
    *  `i_available` {?number} Number of available spots.
    *  `i_book` {?number} Number of booked spots.
    *  `i_duration` {number} The duration of the session in minutes.
-   *  `i_session_all` {number} Total number of sessions including both past and future sessions.
+   *  `i_session_all` {number} Total number of sessions.
    *  `i_wait` {number} Total number of clients on the wait list.
    *  `i_wait_limit` {?number} Total capacity the wait list.
    *  `i_wait_spot` {number} Estimated place of reservation on the waiting list.

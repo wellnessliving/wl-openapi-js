@@ -23850,7 +23850,7 @@ export interface WlBookProcessInfoInfoGetResponse {
     i_book: number | null;
     /** The duration of the session in minutes. */
     i_duration: number;
-    /** Total number of sessions including both past and future sessions. */
+    /** Total number of sessions. */
     i_session_all: number;
     /** Total number of clients on the wait list. */
     i_wait: number;
@@ -24047,7 +24047,7 @@ export interface WlBookProcessInfoInfo54GetResponse {
     i_book: number | null;
     /** The duration of the session in minutes. */
     i_duration: number;
-    /** Total number of sessions including both past and future sessions. */
+    /** Total number of sessions. */
     i_session_all: number;
     /** Total number of clients on the wait list. */
     i_wait: number;
