@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260819125156
+ * Spec version: 1.1.20260819135702
  * Build date:   2026-08-19
  * Endpoints:    528
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260819125156';
+  WlClient.SPEC_VERSION = '1.1.20260819135702';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (528 total)
@@ -9009,12 +9009,12 @@
    *  `i_available` {?number} Number of available spots.
    *  `i_book` {?number} Number of booked spots.
    *  `i_duration` {number} The duration of the session in minutes.
+   *  `i_session_all` {number} Total number of sessions.
    *  `i_wait` {number} Total number of clients on the wait list.
    *  `i_wait_limit` {?number} Total capacity the wait list.
    *  `i_wait_spot` {number} Estimated place of reservation on the waiting list.
    *  `is_book_repeat_client` {boolean} `true` if recurring booking is available, `false` otherwise.
    *  `is_book_repeat_no_end_date` {boolean} `true` if the setting for frequency during class recurring booking will be `n...
-   *  `is_event_session` {boolean} Can client chooses several session per booking.
    *  `...` {*}
    */
   WlClient.prototype.wlBookProcessInfoInfoGet = function(params)
@@ -9081,12 +9081,12 @@
    *  `i_available` {?number} Number of available spots.
    *  `i_book` {?number} Number of booked spots.
    *  `i_duration` {number} The duration of the session in minutes.
+   *  `i_session_all` {number} Total number of sessions.
    *  `i_wait` {number} Total number of clients on the wait list.
    *  `i_wait_limit` {?number} Total capacity the wait list.
    *  `i_wait_spot` {number} Estimated place of reservation on the waiting list.
    *  `is_book_repeat_client` {boolean} `true` if recurring booking is available, `false` otherwise.
    *  `is_book_repeat_no_end_date` {boolean} `true` if the setting for frequency during class recurring booking will be `n...
-   *  `is_event_session` {boolean} Can client chooses several session per booking.
    *  `...` {*}
    */
   WlClient.prototype.wlBookProcessInfoInfo54Get = function(params)
