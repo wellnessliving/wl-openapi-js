@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260819112709
+ * Spec version: 1.1.20260819134207
  * Build date:   2026-08-19
- * Endpoints:    526
+ * Endpoints:    527
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260819112709';
+  WlClient.SPEC_VERSION = '1.1.20260819134207';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (526 total)
+  // Generated API methods (527 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -10668,6 +10668,19 @@
   WlClient.prototype.wlPassportLoginRegisterRegisterOtpPost = function(params)
   {
     return this.request('/Wl/Passport/Login/Register/RegisterOtp.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns public key material for OTP registration JWT verification.
+   *
+   * @param {Object} [params] Request parameters.
+   * @returns {Promise<Object>} Response data.
+   *  `a_keys` {*[][]} Public key in JWK format.
+   *  `s_public_key` {string} Public key in PEM format.
+   */
+  WlClient.prototype.wlPassportLoginRegisterRegisterOtpJwtPublicKey = function(params)
+  {
+    return this.request('/Wl/Passport/Login/Register/RegisterOtpJwtPublicKey.json', params || {}, 'GET');
   };
 
   /**

@@ -26343,6 +26343,13 @@ export interface WlPassportLoginRegisterRegisterOtpPostResponse {
     /** Redirect url after successful authorization. */
     url_redirect: string;
 }
+export type WlPassportLoginRegisterRegisterOtpJwtPublicKeyParams = Record<string, unknown>;
+export interface WlPassportLoginRegisterRegisterOtpJwtPublicKeyResponse {
+    /** Public key in JWK format. */
+    a_keys: Array<Array<unknown>>;
+    /** Public key in PEM format. */
+    s_public_key: string;
+}
 export type WlSkinApplicationConnectApplicationConnectParams = Record<string, unknown>;
 export interface WlSkinApplicationConnectApplicationConnectResponse {
     /** Key of the created or updated application. */
@@ -29235,6 +29242,8 @@ export declare class WlPassportLoginRegisterNamespace {
     registerOtpGet(params?: WlPassportLoginRegisterRegisterOtpGetParams): Promise<WlPassportLoginRegisterRegisterOtpGetResponse>;
     /** Verifies the submitted OTP code and establishes an authorized session for the user. */
     registerOtpPost(params?: WlPassportLoginRegisterRegisterOtpPostParams): Promise<WlPassportLoginRegisterRegisterOtpPostResponse>;
+    /** Returns public key material for OTP registration JWT verification. */
+    registerOtpJwtPublicKey(params?: WlPassportLoginRegisterRegisterOtpJwtPublicKeyParams): Promise<WlPassportLoginRegisterRegisterOtpJwtPublicKeyResponse>;
 }
 export declare class WlPassportLoginNamespace {
     private readonly _client;

@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260819112709
+// OpenAPI spec version: 1.1.20260819134207
 // Build date: 2026-08-19
-// Endpoints: 526
+// Endpoints: 527
 // Enums: 198
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -8311,6 +8311,10 @@ export class WlPassportLoginRegisterNamespace {
     /** Verifies the submitted OTP code and establishes an authorized session for the user. */
     registerOtpPost(params) {
         return this._client._request('/Wl/Passport/Login/Register/RegisterOtp.json', params, 'POST');
+    }
+    /** Returns public key material for OTP registration JWT verification. */
+    registerOtpJwtPublicKey(params) {
+        return this._client._request('/Wl/Passport/Login/Register/RegisterOtpJwtPublicKey.json', params, 'GET');
     }
 }
 export class WlPassportLoginNamespace {
