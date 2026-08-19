@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260819111327
+ * Spec version: 1.1.20260819114007
  * Build date:   2026-08-19
  * Endpoints:    528
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260819111327';
+  WlClient.SPEC_VERSION = '1.1.20260819114007';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (528 total)
@@ -8672,9 +8672,10 @@
    * Validates each item in `a_purchase_item` (type, key, installment eligibility, and prize applicability),
    * applies discount codes, login-type discounts, and installment adjustments, then accumulates price, subtotal,
    * discount, tax, and cost totals across all items and returns them as result fields. For tuition
-   * items the totals cover the full cost, so the amount that has to be charged right now is
-   * reported separately in {@link WlClient#wlBookProcessPurchasePurchaseElementGroup}, and its per-component
-   * split is written back into `a_config` of the item it belongs to.
+   * items the totals cover the full cost, so the amount that has to be charged right now, and the
+   * tax portion of it, are reported separately in {@link WlClient#wlBookProcessPurchasePurchaseElementGroup} and
+   * {@link WlClient#wlBookProcessPurchasePurchaseElementGroup}, and the per-component split is written back
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {Object[]} params.a_purchase_item A list of purchase items. Each item is an associative array with the following keys:
@@ -8687,6 +8688,7 @@
    *  `a_purchase_item` {Object[]} A list of purchase items. Each item is an associative array with the followin...
    *  `a_tax` {string[]} A list of taxes for the given purchase options.
    *  `m_checkout` {string} The amount that has to be charged right now for the given purchase options.
+   *  `m_checkout_tax` {string} The tax portion of {@link WlClient#wlBookProcessPurchasePurchaseElementGroup}.
    *  `m_cost` {string} The total cost of the given purchase options.
    *  `m_discount` {string} The amount of the whole discount for the given purchase options.
    *  `m_discount_code` {string} The discount amount provided by a discount code for the given purchase options.
@@ -8761,6 +8763,7 @@
    *  `a_config` {Object} Additional configuration for the purchase item.
    *  `a_tax` {string[]} A list of taxes for the given purchase options.
    *  `m_checkout` {string} The amount that has to be charged right now for the given purchase options.
+   *  `m_checkout_tax` {string} The tax portion of {@link WlClient#wlBookProcessPurchasePurchaseElementGroup}.
    *  `m_cost` {string} The total cost of the given purchase options.
    *  `m_discount` {string} The amount of the whole discount for the given purchase options.
    *  `m_discount_code` {string} The discount amount provided by a discount code for the given purchase options.

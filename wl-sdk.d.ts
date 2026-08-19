@@ -21318,6 +21318,8 @@ export interface WlBookProcessPurchasePurchaseElementGroupResponse {
     a_tax: Array<string>;
     /** The amount that has to be charged right now for the given purchase options. */
     m_checkout: string;
+    /** The tax portion of {@link WlBookProcessPurchasePurchaseElementGroupResponse.m_checkout}. */
+    m_checkout_tax: string;
     /** The total cost of the given purchase options. */
     m_cost: string;
     /** The amount of the whole discount for the given purchase options. */
@@ -21691,6 +21693,8 @@ export interface WlBookProcessPurchasePurchaseElementResponse {
     a_tax: Array<string>;
     /** The amount that has to be charged right now for the given purchase options. */
     m_checkout: string;
+    /** The tax portion of {@link WlBookProcessPurchasePurchaseElementGroupResponse.m_checkout}. */
+    m_checkout_tax: string;
     /** The total cost of the given purchase options. */
     m_cost: string;
     /** The amount of the whole discount for the given purchase options. */
