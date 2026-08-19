@@ -9047,6 +9047,8 @@ export interface WlPayBankCardListResponse {
     can_add: boolean;
     /** Whether the client is allowed to remove their own saved credit cards. */
     can_remove_self: boolean;
+    /** Whether the feature "client is allowed to remove their own saved credit cards" has been released. */
+    has_remove_self: boolean;
 }
 export interface WlPayAddressWidgetWidgetEditParams {
     /** Business key. */
