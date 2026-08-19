@@ -2926,6 +2926,8 @@ export declare enum RsMailSid {
     LOGIN_STATEMENT_NEW = 213,
     /** Sent to all new users after they create an account for the first time */
     LOGIN_WELCOME = 9,
+    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
+    MARKETING_AUTOMATION_NOTIFY_STAFF = 223,
     /** Client added to a member group */
     MEMBER_GROUP_USER_ADD = 214,
     /** Client removed from a member group */

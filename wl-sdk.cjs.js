@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260819092121
+// OpenAPI spec version: 1.1.20260819095422
 // Build date: 2026-08-19
 // Endpoints: 528
 // Enums: 198
@@ -3031,6 +3031,8 @@ var RsMailSid;
     RsMailSid[RsMailSid["LOGIN_STATEMENT_NEW"] = 213] = "LOGIN_STATEMENT_NEW";
     /** Sent to all new users after they create an account for the first time */
     RsMailSid[RsMailSid["LOGIN_WELCOME"] = 9] = "LOGIN_WELCOME";
+    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
+    RsMailSid[RsMailSid["MARKETING_AUTOMATION_NOTIFY_STAFF"] = 223] = "MARKETING_AUTOMATION_NOTIFY_STAFF";
     /** Client added to a member group */
     RsMailSid[RsMailSid["MEMBER_GROUP_USER_ADD"] = 214] = "MEMBER_GROUP_USER_ADD";
     /** Client removed from a member group */
