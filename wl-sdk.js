@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260819063815
+ * Spec version: 1.1.20260819070439
  * Build date:   2026-08-19
  * Endpoints:    526
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260819063815';
+  WlClient.SPEC_VERSION = '1.1.20260819070439';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (526 total)
