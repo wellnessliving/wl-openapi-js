@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260819135702
+// OpenAPI spec version: 1.1.20260819201630
 // Build date: 2026-08-19
-// Endpoints: 528
+// Endpoints: 529
 // Enums: 198
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsPayMethodSid = exports.WlAnnouncementSortFieldSid = exports.WlAnnouncementAnnouncementStatusEnum = exports.RsProjectSid = exports.RsHomeTourSid = exports.WlVideoCatalogFilterSortFilterSortSid = exports.CoreSidSortOrderSid = exports.WlVideoVideoSourceSid = exports.CoreSidYesNoSid = exports.WlVideoVideoEmbedSourceSid = exports.RsPrivilegeRoleSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AFlagSid = exports.RsScheduleTimeSid = exports.ADurationSid = exports.CoreDriveDriveTypeSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.AGenderSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlImportCustomCustomSid = exports.WlVisitVisitSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.RsReportSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlGenderGenderSid = exports.WlTaskTaskStatusSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.CoreLocaleLocaleSid = exports.WlApiError = void 0;
@@ -8905,6 +8905,10 @@ class WlPassportLoginRegisterNamespace {
     /** Verifies the submitted OTP code and establishes an authorized session for the user. */
     registerOtpPost(params) {
         return this._client._request('/Wl/Passport/Login/Register/RegisterOtp.json', params, 'POST');
+    }
+    /** Returns public key material for OTP registration JWT verification. */
+    registerOtpJwtPublicKey(params) {
+        return this._client._request('/Wl/Passport/Login/Register/RegisterOtpJwtPublicKey.json', params, 'GET');
     }
 }
 exports.WlPassportLoginRegisterNamespace = WlPassportLoginRegisterNamespace;

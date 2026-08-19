@@ -17781,6 +17781,8 @@ export interface WlPromotionIndexPromotionIndexParams {
     i_image_width: number;
     /** The program type ID, which will be one of the {@link RsProgramTypeSid} constants. */
     id_program_type: RsProgramTypeSid;
+    /** If `true`, purchase options are loaded for backend mode. Otherwise, this will be `false` if purch... */
+    is_backend: boolean;
     /** The location key. */
     k_location: string;
     /** The business key. */
@@ -20321,6 +20323,10 @@ export interface WlLoginMemberDynamicIdDynamicIdParams {
 export interface WlLoginMemberDynamicIdDynamicIdResponse {
     /** Number of seconds left until the dynamic ID expires. */
     i_expire: number;
+    /** Unix time in seconds at which {@link WlLoginMemberDynamicIdDynamicIdResponse.text_barcode} was is... */
+    i_qr_issued: number;
+    /** `true` if the business uses QR code as the client check-in scan format, `false` if it uses the cl... */
+    is_qr: boolean;
     /** Barcode of the member. */
     text_barcode: string;
     /** URL of the barcode image. */
@@ -25947,6 +25953,13 @@ export interface WlPassportLoginRegisterRegisterOtpPostResponse {
     /** Redirect url after successful authorization. */
     url_redirect: string;
 }
+export type WlPassportLoginRegisterRegisterOtpJwtPublicKeyParams = Record<string, unknown>;
+export interface WlPassportLoginRegisterRegisterOtpJwtPublicKeyResponse {
+    /** Public key in JWK format. */
+    a_keys: Array<Array<unknown>>;
+    /** Public key in PEM format. */
+    s_public_key: string;
+}
 export interface WlCatalogStaffAppCatalogCartCatalogCartParams {
     /** The list of cart items with the next structure: */
     a_item: Array<{
@@ -29520,6 +29533,8 @@ export declare class WlPassportLoginRegisterNamespace {
     registerOtpGet(params?: WlPassportLoginRegisterRegisterOtpGetParams): Promise<WlPassportLoginRegisterRegisterOtpGetResponse>;
     /** Verifies the submitted OTP code and establishes an authorized session for the user. */
     registerOtpPost(params?: WlPassportLoginRegisterRegisterOtpPostParams): Promise<WlPassportLoginRegisterRegisterOtpPostResponse>;
+    /** Returns public key material for OTP registration JWT verification. */
+    registerOtpJwtPublicKey(params?: WlPassportLoginRegisterRegisterOtpJwtPublicKeyParams): Promise<WlPassportLoginRegisterRegisterOtpJwtPublicKeyResponse>;
 }
 export declare class WlPassportLoginNamespace {
     private readonly _client;

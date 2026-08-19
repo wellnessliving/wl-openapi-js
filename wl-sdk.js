@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260819135702
+ * Spec version: 1.1.20260819201630
  * Build date:   2026-08-19
- * Endpoints:    528
+ * Endpoints:    529
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260819135702';
+  WlClient.SPEC_VERSION = '1.1.20260819201630';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (528 total)
+  // Generated API methods (529 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -6462,6 +6462,7 @@
    * @param {number} params.i_image_height Image height in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {number} params.i_image_width Image width in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {number} params.id_program_type The program type ID, which will be one of the {@link WlClient.RsProgramTypeSid} constants.
+   * @param {boolean} params.is_backend If `true`, purchase options are loaded for backend mode. Otherwise, this will be `false` if purch...
    * @param {?string} [params.k_business] The business key.
    * @param {string} params.k_location The location key.
    * @returns {Promise<Object>} Response data.
@@ -8309,6 +8310,10 @@
    * If the business uses dynamic barcodes, generates or refreshes a time-limited barcode and returns its value,
    * expiry countdown, and an image URL. If the business uses static barcodes, returns the member's static ID
    * with a zero expiry.
+   * 
+   * If the business uses QR code as the scan format ({@link WlClient#wlLoginMemberDynamicIdDynamicId}), also returns the issue
+   * timestamp ({@link WlClient#wlLoginMemberDynamicIdDynamicId}) that the Achieve app uses to build and locally refresh the QR
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_refresh `true` if a new dynamic ID should be generated.
@@ -8316,6 +8321,8 @@
    * @param {string} params.uid User unique identifier.
    * @returns {Promise<Object>} Response data.
    *  `i_expire` {number} Number of seconds left until the dynamic ID expires.
+   *  `i_qr_issued` {number} Unix time in seconds at which {@link WlClient#wlLoginMemberDynamicIdDynamicId...
+   *  `is_qr` {boolean} `true` if the business uses QR code as the client check-in scan format, `fals...
    *  `text_barcode` {string} Barcode of the member.
    *  `url_barcode` {string} URL of the barcode image.
    */
@@ -10568,6 +10575,19 @@
   WlClient.prototype.wlPassportLoginRegisterRegisterOtpPost = function(params)
   {
     return this.request('/Wl/Passport/Login/Register/RegisterOtp.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns public key material for OTP registration JWT verification.
+   *
+   * @param {Object} [params] Request parameters.
+   * @returns {Promise<Object>} Response data.
+   *  `a_keys` {*[][]} Public key in JWK format.
+   *  `s_public_key` {string} Public key in PEM format.
+   */
+  WlClient.prototype.wlPassportLoginRegisterRegisterOtpJwtPublicKey = function(params)
+  {
+    return this.request('/Wl/Passport/Login/Register/RegisterOtpJwtPublicKey.json', params || {}, 'GET');
   };
 
   /**
