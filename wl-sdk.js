@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260819080725
+ * Spec version: 1.1.20260819092121
  * Build date:   2026-08-19
  * Endpoints:    528
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260819080725';
+  WlClient.SPEC_VERSION = '1.1.20260819092121';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (528 total)
@@ -7664,6 +7664,7 @@
    *  `a_list` {Object[]} List of bank cards.
    *  `can_add` {boolean} Whether new card can be added.
    *  `can_remove_self` {boolean} Whether the client is allowed to remove their own saved credit cards.
+   *  `has_remove_self` {boolean} Whether the feature "client is allowed to remove their own saved credit cards...
    */
   WlClient.prototype.wlPayBankCardList = function(params)
   {
