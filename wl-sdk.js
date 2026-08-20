@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260820082404
+ * Spec version: 1.1.20260820085631
  * Build date:   2026-08-20
  * Endpoints:    527
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260820082404';
+  WlClient.SPEC_VERSION = '1.1.20260820085631';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (527 total)
@@ -10676,7 +10676,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @returns {Promise<Object>} Response data.
-   *  `a_keys` {*[][]} Public key in JWK format.
+   *  `a_keys` {Object[]} Public key in JWK format.
    *  `s_public_key` {string} Public key in PEM format.
    */
   WlClient.prototype.wlPassportLoginRegisterRegisterOtpJwtPublicKey = function(params)
