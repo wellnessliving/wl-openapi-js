@@ -25960,7 +25960,7 @@ export interface WlPassportLoginRegisterRegisterOtpPostResponse {
 export type WlPassportLoginRegisterRegisterOtpJwtPublicKeyParams = Record<string, unknown>;
 export interface WlPassportLoginRegisterRegisterOtpJwtPublicKeyResponse {
     /** Public key in JWK format. */
-    a_keys: Array<Array<unknown>>;
+    a_keys: Array<Record<string, unknown>>;
     /** Public key in PEM format. */
     s_public_key: string;
 }
