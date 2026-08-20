@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260820150253
+// OpenAPI spec version: 1.1.20260820173838
 // Build date: 2026-08-20
-// Endpoints: 529
-// Enums: 198
+// Endpoints: 530
+// Enums: 200
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (198 total) ---
+// --- Enum types (200 total) ---
 /** A list of locales. */
 export var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -2444,6 +2444,40 @@ export var CoreAILogTriageTriageSourceSid;
     /** Aggregated usage statistics */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["WATCH_USAGE_STAT"] = 3] = "WATCH_USAGE_STAT";
 })(CoreAILogTriageTriageSourceSid || (CoreAILogTriageTriageSourceSid = {}));
+/** Shapes of lead stage icons. */
+export var WlLeadStageLeadStageShapeSid;
+(function (WlLeadStageLeadStageShapeSid) {
+    /** Circle */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["CIRCLE"] = 1] = "CIRCLE";
+    /** Hexagon */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["HEXAGON"] = 2] = "HEXAGON";
+    /** Oval */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["OVAL"] = 3] = "OVAL";
+    /** Pentagon */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["PENTAGON"] = 4] = "PENTAGON";
+    /** Rectangle */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["RECTANGLE"] = 5] = "RECTANGLE";
+    /** Square */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["SQUARE"] = 6] = "SQUARE";
+    /** Star */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["STAR"] = 7] = "STAR";
+})(WlLeadStageLeadStageShapeSid || (WlLeadStageLeadStageShapeSid = {}));
+/** System-defined lead stages. */
+export var WlLeadStageLeadStageSystemSid;
+(function (WlLeadStageLeadStageSystemSid) {
+    /** A lead which was contacted by a staff member */
+    WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["CONTACTED"] = 6] = "CONTACTED";
+    /** A lead which is being actively worked with and is close to a purchase */
+    WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["HOT"] = 2] = "HOT";
+    /** A lead which was lost */
+    WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["LOST"] = 5] = "LOST";
+    /** A newly captured lead. This stage is set to a client when they are added as a lead */
+    WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["NEW"] = 1] = "NEW";
+    /** A lead which has shown some interest, but is not ready to purchase yet */
+    WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["WARM"] = 3] = "WARM";
+    /** A lead which was successfully converted into a client */
+    WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["WON"] = 4] = "WON";
+})(WlLeadStageLeadStageSystemSid || (WlLeadStageLeadStageSystemSid = {}));
 /** A list of report categories. */
 export var RsReportCategorySid;
 (function (RsReportCategorySid) {
@@ -5696,10 +5730,20 @@ export class WlLeadSourceNamespace {
         return this._client._request('/Wl/Lead/Source/LeadSourceElement.json', params, 'PUT');
     }
 }
+export class WlLeadStageNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a list of lead stages of the business. */
+    leadStageList(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageList.json', params, 'GET');
+    }
+}
 export class WlLeadNamespace {
     constructor(_client) {
         this._client = _client;
         this.source = new WlLeadSourceNamespace(this._client);
+        this.stage = new WlLeadStageNamespace(this._client);
     }
     /** Gets information necessary to display "Lead capture" widget. */
     leadGet(params) {

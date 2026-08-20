@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260820150253
+ * Spec version: 1.1.20260820173838
  * Build date:   2026-08-20
- * Endpoints:    529
+ * Endpoints:    530
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260820150253';
+  WlClient.SPEC_VERSION = '1.1.20260820173838';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (529 total)
+  // Generated API methods (530 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2839,6 +2839,24 @@
   WlClient.prototype.wlLeadSourceLeadSourceElementPut = function(params)
   {
     return this.request('/Wl/Lead/Source/LeadSourceElement.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Gets a list of lead stages of the business.
+   *
+   * Returns all lead stages configured for the specified business, both system-defined and custom ones,
+   * with their order, name and icon. In a case {@link WlClient#wlLeadStageLeadStageList} is `true`,
+   * the number of clients of every stage is returned too.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_statistic Determines whether statistics of the stages must be returned.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_lead_stage` {Object[]} List of lead stages of the business. Ordered by `i_order`.
+   */
+  WlClient.prototype.wlLeadStageLeadStageList = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageList.json', params || {}, 'GET');
   };
 
   /**
@@ -11551,7 +11569,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (215 total)
+  // Enum constants (217 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -14286,6 +14304,48 @@
     SLOW_LOG: 2,
     /** Aggregated usage statistics */
     WATCH_USAGE_STAT: 3,
+  });
+
+  /**
+   * Shapes of lead stage icons.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLeadStageLeadStageShapeSid = Object.freeze({
+    /** Circle */
+    CIRCLE: 1,
+    /** Hexagon */
+    HEXAGON: 2,
+    /** Oval */
+    OVAL: 3,
+    /** Pentagon */
+    PENTAGON: 4,
+    /** Rectangle */
+    RECTANGLE: 5,
+    /** Square */
+    SQUARE: 6,
+    /** Star */
+    STAR: 7,
+  });
+
+  /**
+   * System-defined lead stages.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLeadStageLeadStageSystemSid = Object.freeze({
+    /** A lead which was contacted by a staff member */
+    CONTACTED: 6,
+    /** A lead which is being actively worked with and is close to a purchase */
+    HOT: 2,
+    /** A lead which was lost */
+    LOST: 5,
+    /** A newly captured lead. This stage is set to a client when they are added as a lead */
+    NEW: 1,
+    /** A lead which has shown some interest, but is not ready to purchase yet */
+    WARM: 3,
+    /** A lead which was successfully converted into a client */
+    WON: 4,
   });
 
   /**

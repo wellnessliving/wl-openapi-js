@@ -2373,6 +2373,38 @@ export declare enum CoreAILogTriageTriageSourceSid {
     /** Aggregated usage statistics */
     WATCH_USAGE_STAT = 3
 }
+/** Shapes of lead stage icons. */
+export declare enum WlLeadStageLeadStageShapeSid {
+    /** Circle */
+    CIRCLE = 1,
+    /** Hexagon */
+    HEXAGON = 2,
+    /** Oval */
+    OVAL = 3,
+    /** Pentagon */
+    PENTAGON = 4,
+    /** Rectangle */
+    RECTANGLE = 5,
+    /** Square */
+    SQUARE = 6,
+    /** Star */
+    STAR = 7
+}
+/** System-defined lead stages. */
+export declare enum WlLeadStageLeadStageSystemSid {
+    /** A lead which was contacted by a staff member */
+    CONTACTED = 6,
+    /** A lead which is being actively worked with and is close to a purchase */
+    HOT = 2,
+    /** A lead which was lost */
+    LOST = 5,
+    /** A newly captured lead. This stage is set to a client when they are added as a lead */
+    NEW = 1,
+    /** A lead which has shown some interest, but is not ready to purchase yet */
+    WARM = 3,
+    /** A lead which was successfully converted into a client */
+    WON = 4
+}
 /** A list of report categories. */
 export declare enum RsReportCategorySid {
     /** Category reports on attendance */
@@ -9266,6 +9298,35 @@ export type WlLeadSourceLeadSourceElementPutParams = Record<string, unknown>;
 export interface WlLeadSourceLeadSourceElementPutResponse {
     /** Key of the lead source. */
     k_lead_source: string;
+}
+export interface WlLeadStageLeadStageListParams {
+    /** Determines whether statistics of the stages must be returned. */
+    is_statistic: boolean;
+    /** Business key. */
+    k_business: string;
+}
+export interface WlLeadStageLeadStageListResponse {
+    /** List of lead stages of the business. Ordered by `i_order`. */
+    a_lead_stage: Array<{
+        /** Sequence number of the stage in the list. */
+        i_order: number;
+        /** Number of clients who are in this stage. */
+        i_user?: number;
+        /** Shapes of lead stage icons. @see WlLeadStageLeadStageShapeSid */
+        id_lead_stage_shape: WlLeadStageLeadStageShapeSid;
+        /** System-defined lead stages. @see WlLeadStageLeadStageSystemSid */
+        id_lead_stage_system: WlLeadStageLeadStageSystemSid | null;
+        /** Key of the stage. */
+        k_lead_stage: string;
+        /** Background color of the icon. Hexadecimal color. */
+        s_color_background: string;
+        /** Color of characters on the icon. Hexadecimal color. */
+        s_color_foreground: string;
+        /** Characters on the icon. */
+        s_icon: string;
+        /** Name of the stage. */
+        text_title: string;
+    }>;
 }
 export interface WlMemberInfoInfoParams {
     /** Date of the session, if we show it on the appointment info window or on the attendance list. */
@@ -27632,9 +27693,16 @@ export declare class WlLeadSourceNamespace {
     /** Adds one lead source. */
     leadSourceElementPut(params?: WlLeadSourceLeadSourceElementPutParams): Promise<WlLeadSourceLeadSourceElementPutResponse>;
 }
+export declare class WlLeadStageNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets a list of lead stages of the business. */
+    leadStageList(params?: WlLeadStageLeadStageListParams): Promise<WlLeadStageLeadStageListResponse>;
+}
 export declare class WlLeadNamespace {
     private readonly _client;
     readonly source: WlLeadSourceNamespace;
+    readonly stage: WlLeadStageNamespace;
     constructor(_client: WlClient);
     /** Gets information necessary to display "Lead capture" widget. */
     leadGet(params?: WlLeadLeadGetParams): Promise<WlLeadLeadGetResponse>;
