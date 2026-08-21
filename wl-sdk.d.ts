@@ -29257,7 +29257,7 @@ export declare class WlPassportLoginRegisterNamespace {
     registerOtpGet(params?: WlPassportLoginRegisterRegisterOtpGetParams): Promise<WlPassportLoginRegisterRegisterOtpGetResponse>;
     /** Verifies the submitted OTP code and establishes an authorized session for the user. */
     registerOtpPost(params?: WlPassportLoginRegisterRegisterOtpPostParams): Promise<WlPassportLoginRegisterRegisterOtpPostResponse>;
-    /** Returns public key material for OTP registration JWT verification. */
+    /** Gets the public key material for OTP registration JWT verification. */
     registerOtpJwtPublicKey(params?: WlPassportLoginRegisterRegisterOtpJwtPublicKeyParams): Promise<WlPassportLoginRegisterRegisterOtpJwtPublicKeyResponse>;
 }
 export declare class WlPassportLoginNamespace {
