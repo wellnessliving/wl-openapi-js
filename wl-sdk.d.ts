@@ -26348,7 +26348,20 @@ export interface WlPassportLoginRegisterRegisterOtpPostResponse {
 export type WlPassportLoginRegisterRegisterOtpJwtPublicKeyParams = Record<string, unknown>;
 export interface WlPassportLoginRegisterRegisterOtpJwtPublicKeyResponse {
     /** Public key in JWK format. */
-    a_keys: Array<Record<string, unknown>>;
+    a_keys: Array<{
+        /** Signing algorithm. Always 'RS256'. */
+        alg: string;
+        /** RSA public exponent in base64url format. */
+        e: string;
+        /** Key identifier for JWT header matching. */
+        kid: string;
+        /** Key type. Always 'RSA'. */
+        kty: string;
+        /** RSA modulus in base64url format. */
+        n: string;
+        /** Public key usage. Always 'sig'. */
+        use: string;
+    }>;
     /** Public key in PEM format. */
     s_public_key: string;
 }
