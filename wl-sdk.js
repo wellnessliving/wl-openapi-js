@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260820193944
+ * Spec version: 1.1.20260821075156
  * Build date:   2026-08-21
  * Endpoints:    530
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260820193944';
+  WlClient.SPEC_VERSION = '1.1.20260821075156';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (530 total)
@@ -10596,7 +10596,9 @@
   };
 
   /**
-   * Returns public key material for OTP registration JWT verification.
+   * Gets the public key material for OTP registration JWT verification.
+   *
+   * The public key is used to verify a JWT token.
    *
    * @param {Object} [params] Request parameters.
    * @returns {Promise<Object>} Response data.

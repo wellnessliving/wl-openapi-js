@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260820193944
+// OpenAPI spec version: 1.1.20260821075156
 // Build date: 2026-08-21
 // Endpoints: 530
 // Enums: 200
@@ -8677,7 +8677,7 @@ export class WlPassportLoginRegisterNamespace {
     registerOtpPost(params) {
         return this._client._request('/Wl/Passport/Login/Register/RegisterOtp.json', params, 'POST');
     }
-    /** Returns public key material for OTP registration JWT verification. */
+    /** Gets the public key material for OTP registration JWT verification. */
     registerOtpJwtPublicKey(params) {
         return this._client._request('/Wl/Passport/Login/Register/RegisterOtpJwtPublicKey.json', params, 'GET');
     }

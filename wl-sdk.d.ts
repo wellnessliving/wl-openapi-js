@@ -26021,7 +26021,20 @@ export interface WlPassportLoginRegisterRegisterOtpPostResponse {
 export type WlPassportLoginRegisterRegisterOtpJwtPublicKeyParams = Record<string, unknown>;
 export interface WlPassportLoginRegisterRegisterOtpJwtPublicKeyResponse {
     /** Public key in JWK format. */
-    a_keys: Array<Record<string, unknown>>;
+    a_keys: Array<{
+        /** Signing algorithm. Always 'RS256'. */
+        alg: string;
+        /** RSA public exponent in base64url format. */
+        e: string;
+        /** Key identifier for JWT header matching. */
+        kid: string;
+        /** Key type. Always 'RSA'. */
+        kty: string;
+        /** RSA modulus in base64url format. */
+        n: string;
+        /** Public key usage. Always 'sig'. */
+        use: string;
+    }>;
     /** Public key in PEM format. */
     s_public_key: string;
 }
@@ -29605,7 +29618,7 @@ export declare class WlPassportLoginRegisterNamespace {
     registerOtpGet(params?: WlPassportLoginRegisterRegisterOtpGetParams): Promise<WlPassportLoginRegisterRegisterOtpGetResponse>;
     /** Verifies the submitted OTP code and establishes an authorized session for the user. */
     registerOtpPost(params?: WlPassportLoginRegisterRegisterOtpPostParams): Promise<WlPassportLoginRegisterRegisterOtpPostResponse>;
-    /** Returns public key material for OTP registration JWT verification. */
+    /** Gets the public key material for OTP registration JWT verification. */
     registerOtpJwtPublicKey(params?: WlPassportLoginRegisterRegisterOtpJwtPublicKeyParams): Promise<WlPassportLoginRegisterRegisterOtpJwtPublicKeyResponse>;
 }
 export declare class WlPassportLoginNamespace {
