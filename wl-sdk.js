@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260821081039
+ * Spec version: 1.1.20260821084846
  * Build date:   2026-08-21
  * Endpoints:    527
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260821081039';
+  WlClient.SPEC_VERSION = '1.1.20260821084846';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (527 total)
@@ -15822,7 +15822,7 @@
     PARTNER_PROGRAM_MANAGE: 94,
     /** Access to Payment Processing */
     PAYMENT_PROCESSING: 166,
-    /** Allows the staff member to initiate bulk billing of multiple clients in one batch */
+    /** Allows staff to select multiple clients and post a single bulk transaction for a store item */
     PERFORM_BULK_BILLING: 245,
     /** Permission to perform Physical Inventory Count */
     PHYSICAL_INVENTORY_COUNT: 156,

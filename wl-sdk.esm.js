@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260821081039
+// OpenAPI spec version: 1.1.20260821084846
 // Build date: 2026-08-21
 // Endpoints: 527
 // Enums: 198
@@ -3797,7 +3797,7 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PARTNER_PROGRAM_MANAGE"] = 94] = "PARTNER_PROGRAM_MANAGE";
     /** Access to Payment Processing */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PAYMENT_PROCESSING"] = 166] = "PAYMENT_PROCESSING";
-    /** Allows the staff member to initiate bulk billing of multiple clients in one batch */
+    /** Allows staff to select multiple clients and post a single bulk transaction for a store item */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PERFORM_BULK_BILLING"] = 245] = "PERFORM_BULK_BILLING";
     /** Permission to perform Physical Inventory Count */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PHYSICAL_INVENTORY_COUNT"] = 156] = "PHYSICAL_INVENTORY_COUNT";

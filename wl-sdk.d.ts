@@ -3671,7 +3671,7 @@ export declare enum WlPrivilegePrivilegeSid {
     PARTNER_PROGRAM_MANAGE = 94,
     /** Access to Payment Processing */
     PAYMENT_PROCESSING = 166,
-    /** Allows the staff member to initiate bulk billing of multiple clients in one batch */
+    /** Allows staff to select multiple clients and post a single bulk transaction for a store item */
     PERFORM_BULK_BILLING = 245,
     /** Permission to perform Physical Inventory Count */
     PHYSICAL_INVENTORY_COUNT = 156,
