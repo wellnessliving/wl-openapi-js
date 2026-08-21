@@ -20384,12 +20384,12 @@ export interface WlLoginMemberDynamicIdDynamicIdParams {
 export interface WlLoginMemberDynamicIdDynamicIdResponse {
     /** Number of seconds left until the dynamic ID expires. */
     i_expire: number;
-    /** Unix time in seconds at which {@link WlLoginMemberDynamicIdDynamicIdResponse.text_barcode} was is... */
-    i_qr_issued: number;
     /** `true` if the business uses QR code as the client check-in scan format, `false` if it uses the cl... */
     is_qr: boolean;
     /** Barcode of the member. */
     text_barcode: string;
+    /** Unix time in seconds at which {@link WlLoginMemberDynamicIdDynamicIdResponse.text_barcode} was is... */
+    tu_qr_issued: number;
     /** URL of the barcode image. */
     url_barcode: string;
 }

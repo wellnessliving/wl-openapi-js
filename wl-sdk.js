@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260821075156
+ * Spec version: 1.1.20260821093002
  * Build date:   2026-08-21
  * Endpoints:    530
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260821075156';
+  WlClient.SPEC_VERSION = '1.1.20260821093002';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (530 total)
@@ -8339,9 +8339,9 @@
    * @param {string} params.uid User unique identifier.
    * @returns {Promise<Object>} Response data.
    *  `i_expire` {number} Number of seconds left until the dynamic ID expires.
-   *  `i_qr_issued` {number} Unix time in seconds at which {@link WlClient#wlLoginMemberDynamicIdDynamicId...
    *  `is_qr` {boolean} `true` if the business uses QR code as the client check-in scan format, `fals...
    *  `text_barcode` {string} Barcode of the member.
+   *  `tu_qr_issued` {number} Unix time in seconds at which {@link WlClient#wlLoginMemberDynamicIdDynamicId...
    *  `url_barcode` {string} URL of the barcode image.
    */
   WlClient.prototype.wlLoginMemberDynamicIdDynamicId = function(params)
