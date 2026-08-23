@@ -6787,6 +6787,8 @@ export interface WlPromotionPromotionGetResponse {
             /** This will be `true` if any event in the business can be visited with this Purchase Option. */
             is_event_all: boolean;
         };
+        /** A list of franchise regions where a guest may redeem this Guest Pass, in addition to the location... */
+        a_franchise_region: Array<string>;
         /** Information about Purchase Option image. */
         a_image: {
             /** The height of the image. */
@@ -6832,6 +6834,12 @@ export interface WlPromotionPromotionGetResponse {
         is_online: boolean;
         /** Whether clients who purchase this item excluded from payroll calculations. */
         is_payroll: boolean;
+        /** Whether a guest may redeem this Guest Pass at other locations within the regions listed in */
+        is_regional: boolean;
+        /** Whether the regional access setting can be configured for this promotion and business at all. */
+        is_regional_access: boolean;
+        /** Whether the regional access setting is read-only for this business. `true` for a franchisee locat... */
+        is_regional_access_readonly: boolean;
         /** If `true` need to add approximate revenue per session value. */
         is_revenue_single: boolean;
         /** Whether promotion can be used for booking. `null` if there is no termination. */
