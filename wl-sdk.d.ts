@@ -6939,6 +6939,8 @@ export interface WlPromotionPromotionGetResponse {
         i_duration: number;
         /** The number of visits that the owner can use for the Purchase Option. */
         i_limit: number;
+        /** The number of `id_duration` periods between payments for memberships. */
+        i_payment_period: number;
         /** A class for managing time intervals. @see ADurationSid */
         id_duration: ADurationSid;
         /** Class to process string identifiers for duration types @see RsDurationTypeSid */
@@ -13261,6 +13263,8 @@ export interface WlPromotionIndexPromotionIndexResponse {
         i_limit: number;
         /** The maximum number of minutes or hours depending on `id_limit_duration` that the current promotio... */
         i_limit_duration: number;
+        /** The number of `id_duration` periods between payments for memberships. */
+        i_payment_period: number;
         /** A class for managing time intervals. @see ADurationSid */
         id_limit_duration: ADurationSid;
         /** A class for managing time intervals. @see ADurationSid */
