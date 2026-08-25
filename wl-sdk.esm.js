@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260825131104
+// OpenAPI spec version: 1.1.20260825171342
 // Build date: 2026-08-25
 // Endpoints: 527
 // Enums: 199
@@ -3848,7 +3848,7 @@ export var WlPrivilegePrivilegeSid;
     /** Access to view client purchases (passes and memberships) */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PURCHASE_VIEW"] = 92] = "PURCHASE_VIEW";
     /** Access to set up and change quickbooks integration */
-    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["QUICKBOOKS"] = 248] = "QUICKBOOKS";
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["QUICKBOOKS"] = 249] = "QUICKBOOKS";
     /** Allow to see alerts */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["RECEIVE_ALERT"] = 193] = "RECEIVE_ALERT";
     /** Access to view reports for all staff */

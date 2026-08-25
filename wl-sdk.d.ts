@@ -3722,7 +3722,7 @@ export declare enum WlPrivilegePrivilegeSid {
     /** Access to view client purchases (passes and memberships) */
     PURCHASE_VIEW = 92,
     /** Access to set up and change quickbooks integration */
-    QUICKBOOKS = 248,
+    QUICKBOOKS = 249,
     /** Allow to see alerts */
     RECEIVE_ALERT = 193,
     /** Access to view reports for all staff */

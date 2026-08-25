@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260825131104
+ * Spec version: 1.1.20260825171342
  * Build date:   2026-08-25
  * Endpoints:    527
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260825131104';
+  WlClient.SPEC_VERSION = '1.1.20260825171342';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (527 total)
@@ -15873,7 +15873,7 @@
     /** Access to view client purchases (passes and memberships) */
     PURCHASE_VIEW: 92,
     /** Access to set up and change quickbooks integration */
-    QUICKBOOKS: 248,
+    QUICKBOOKS: 249,
     /** Allow to see alerts */
     RECEIVE_ALERT: 193,
     /** Access to view reports for all staff */
