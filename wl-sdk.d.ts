@@ -2347,6 +2347,25 @@ export declare enum RsPayOwnerSid {
     /** System user */
     USER = 1
 }
+/** A list of all languages. */
+export declare enum CoreLocaleLanguageLocaleLanguageSid {
+    /** German */
+    DE = 6,
+    /** English */
+    EN = 2,
+    /** Spanish */
+    ES = 9,
+    /** French */
+    FR = 4,
+    /** Portuguese */
+    PT = 5,
+    /** Russian */
+    RU = 1,
+    /** Turkish */
+    TR = 8,
+    /** Ukrainian */
+    UK = 3
+}
 /** List of responses for Google Captcha token. */
 export declare enum CoreGoogleCaptchaCaptchaResponseSid {
     /** Token can be verified due to error from Google Captcha */
@@ -9188,6 +9207,8 @@ export interface CoreGeoRegionRegionResponse {
         s_title: string;
     }>;
 }
+export type CoreLocaleLanguageLanguageSwitchParams = Record<string, unknown>;
+export type CoreLocaleLanguageLanguageSwitchResponse = Record<string, unknown>;
 export type CoreGoogleCaptchaGoogleCaptchaParams = Record<string, unknown>;
 export type CoreGoogleCaptchaGoogleCaptchaResponse = Record<string, unknown>;
 export type CoreGoogleCaptchaCaptchaScoreGetParams = Record<string, unknown>;
@@ -27615,6 +27636,17 @@ export declare class CoreTestingNamespace {
     readonly automation: CoreTestingAutomationNamespace;
     constructor(_client: WlClient);
 }
+export declare class CoreLocaleLanguageNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Switches the language. */
+    languageSwitch(params?: CoreLocaleLanguageLanguageSwitchParams): Promise<CoreLocaleLanguageLanguageSwitchResponse>;
+}
+export declare class CoreLocaleNamespace {
+    private readonly _client;
+    readonly language: CoreLocaleLanguageNamespace;
+    constructor(_client: WlClient);
+}
 export declare class CoreSpaApplicationNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -27648,6 +27680,7 @@ export declare class CoreNamespace {
     readonly passport: CorePassportNamespace;
     readonly drive: CoreDriveNamespace;
     readonly testing: CoreTestingNamespace;
+    readonly locale: CoreLocaleNamespace;
     readonly spa: CoreSpaNamespace;
     readonly aI: CoreAINamespace;
     constructor(_client: WlClient);

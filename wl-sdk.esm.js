@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260825084131
+// OpenAPI spec version: 1.1.20260825121307
 // Build date: 2026-08-25
-// Endpoints: 530
-// Enums: 200
+// Endpoints: 531
+// Enums: 201
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (200 total) ---
+// --- Enum types (201 total) ---
 /** A list of locales. */
 export var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -2416,6 +2416,26 @@ export var RsPayOwnerSid;
     /** System user */
     RsPayOwnerSid[RsPayOwnerSid["USER"] = 1] = "USER";
 })(RsPayOwnerSid || (RsPayOwnerSid = {}));
+/** A list of all languages. */
+export var CoreLocaleLanguageLocaleLanguageSid;
+(function (CoreLocaleLanguageLocaleLanguageSid) {
+    /** German */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["DE"] = 6] = "DE";
+    /** English */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["EN"] = 2] = "EN";
+    /** Spanish */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["ES"] = 9] = "ES";
+    /** French */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["FR"] = 4] = "FR";
+    /** Portuguese */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["PT"] = 5] = "PT";
+    /** Russian */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["RU"] = 1] = "RU";
+    /** Turkish */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["TR"] = 8] = "TR";
+    /** Ukrainian */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["UK"] = 3] = "UK";
+})(CoreLocaleLanguageLocaleLanguageSid || (CoreLocaleLanguageLocaleLanguageSid = {}));
 /** List of responses for Google Captcha token. */
 export var CoreGoogleCaptchaCaptchaResponseSid;
 (function (CoreGoogleCaptchaCaptchaResponseSid) {
@@ -5587,6 +5607,21 @@ export class CoreTestingNamespace {
         this.automation = new CoreTestingAutomationNamespace(this._client);
     }
 }
+export class CoreLocaleLanguageNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Switches the language. */
+    languageSwitch(params) {
+        return this._client._request('/Core/Locale/Language/LanguageSwitch.json', params, 'POST');
+    }
+}
+export class CoreLocaleNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.language = new CoreLocaleLanguageNamespace(this._client);
+    }
+}
 export class CoreSpaApplicationNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5629,6 +5664,7 @@ export class CoreNamespace {
         this.passport = new CorePassportNamespace(this._client);
         this.drive = new CoreDriveNamespace(this._client);
         this.testing = new CoreTestingNamespace(this._client);
+        this.locale = new CoreLocaleNamespace(this._client);
         this.spa = new CoreSpaNamespace(this._client);
         this.aI = new CoreAINamespace(this._client);
     }

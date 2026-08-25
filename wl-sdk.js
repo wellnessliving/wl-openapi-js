@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260825084131
+ * Spec version: 1.1.20260825121307
  * Build date:   2026-08-25
- * Endpoints:    530
+ * Endpoints:    531
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260825084131';
+  WlClient.SPEC_VERSION = '1.1.20260825121307';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (530 total)
+  // Generated API methods (531 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2607,6 +2607,17 @@
   WlClient.prototype.coreGeoRegionRegion = function(params)
   {
     return this.request('/Core/Geo/Region/Region.json', params || {}, 'GET');
+  };
+
+  /**
+   * Switches the language.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.coreLocaleLanguageLanguageSwitch = function(params)
+  {
+    return this.request('/Core/Locale/Language/LanguageSwitch.json', params || {}, 'POST');
   };
 
   /**
@@ -11571,7 +11582,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (217 total)
+  // Enum constants (218 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -14270,6 +14281,30 @@
     BUSINESS: 2,
     /** System user */
     USER: 1,
+  });
+
+  /**
+   * A list of all languages.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreLocaleLanguageLocaleLanguageSid = Object.freeze({
+    /** German */
+    DE: 6,
+    /** English */
+    EN: 2,
+    /** Spanish */
+    ES: 9,
+    /** French */
+    FR: 4,
+    /** Portuguese */
+    PT: 5,
+    /** Russian */
+    RU: 1,
+    /** Turkish */
+    TR: 8,
+    /** Ukrainian */
+    UK: 3,
   });
 
   /**
