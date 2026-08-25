@@ -3721,6 +3721,8 @@ export declare enum WlPrivilegePrivilegeSid {
     PURCHASE_EDIT = 93,
     /** Access to view client purchases (passes and memberships) */
     PURCHASE_VIEW = 92,
+    /** Access to set up and change quickbooks integration */
+    QUICKBOOKS = 248,
     /** Allow to see alerts */
     RECEIVE_ALERT = 193,
     /** Access to view reports for all staff */
@@ -4852,6 +4854,13 @@ export declare enum WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubsc
     /** Business Success Coaching */
     BUSINESS_SUCCESS_COACHING = 2,
     /** No subscription */
+    FREE = 1
+}
+/** List of possible plans for QuickBooksSubscription subscription. */
+export declare enum WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid {
+    /** Standard */
+    BASIC = 2,
+    /** Free */
     FREE = 1
 }
 /** List of options to convert promotion. */
@@ -25351,7 +25360,7 @@ export interface WlBusinessAccountSubscriptionSubscriptionInfoResponse {
     /** A list of locales. @see CoreLocaleLocaleSid */
     id_locale: CoreLocaleLocaleSid | null;
     /** Currently active plan ID for requested subscription. */
-    id_plan: WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid | WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid | WlBusinessAccountSubscriptionBaseBaseSubscriptionSid | WlBusinessAccountSubscriptionSmsSmsSubscriptionSid | WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid | WlBusinessAccountSubscriptionZoomZoomSubscriptionSid | WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid | WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid | WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid | WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid | WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid | WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid | WlBusinessAccountSubscriptionQuizQuizSubscriptionSid | WlBusinessAccountSubscriptionReviewReviewSubscriptionSid | WlBusinessAccountSubscriptionRewardRewardSubscriptionSid | WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid | WlBusinessAccountSubscriptionAssetAssetSubscriptionSid | WlBusinessAccountSubscriptionDoorDoorSubscriptionSid | WlBusinessAccountSubscriptionApiApiSubscriptionSid | WlBusinessAccountSubscriptionZapierZapierSubscriptionSid | WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid | WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid | WlBusinessAccountSubscriptionEmailEmailSubscriptionSid | WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid | WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid | WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid;
+    id_plan: WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid | WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid | WlBusinessAccountSubscriptionBaseBaseSubscriptionSid | WlBusinessAccountSubscriptionSmsSmsSubscriptionSid | WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid | WlBusinessAccountSubscriptionZoomZoomSubscriptionSid | WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid | WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid | WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid | WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid | WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid | WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid | WlBusinessAccountSubscriptionQuizQuizSubscriptionSid | WlBusinessAccountSubscriptionReviewReviewSubscriptionSid | WlBusinessAccountSubscriptionRewardRewardSubscriptionSid | WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid | WlBusinessAccountSubscriptionAssetAssetSubscriptionSid | WlBusinessAccountSubscriptionDoorDoorSubscriptionSid | WlBusinessAccountSubscriptionApiApiSubscriptionSid | WlBusinessAccountSubscriptionZapierZapierSubscriptionSid | WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid | WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid | WlBusinessAccountSubscriptionEmailEmailSubscriptionSid | WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid | WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid | WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid | WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid;
     /** Whether subscription is active. */
     is_active: boolean;
 }
