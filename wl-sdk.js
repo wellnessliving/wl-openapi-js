@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260825121307
+ * Spec version: 1.1.20260825140011
  * Build date:   2026-08-25
  * Endpoints:    531
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260825121307';
+  WlClient.SPEC_VERSION = '1.1.20260825140011';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (531 total)
@@ -2611,6 +2611,10 @@
 
   /**
    * Switches the language.
+   *
+   * Remembers the requested language for the user who makes this request, within the context this user is currently
+   * in, and stores it in the session and in the cookie so that the very next request is served in this language too.
+   * The language must be active in this installation, otherwise the request is rejected and nothing is stored.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
