@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260825164019
+// OpenAPI spec version: 1.1.20260825175527
 // Build date: 2026-08-25
 // Endpoints: 531
-// Enums: 201
+// Enums: 202
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (201 total) ---
+// --- Enum types (202 total) ---
 /** A list of locales. */
 export var CoreLocaleLocaleSid;
 (function (CoreLocaleLocaleSid) {
@@ -3921,6 +3921,8 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PURCHASE_EDIT"] = 93] = "PURCHASE_EDIT";
     /** Access to view client purchases (passes and memberships) */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PURCHASE_VIEW"] = 92] = "PURCHASE_VIEW";
+    /** Access to set up and change quickbooks integration */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["QUICKBOOKS"] = 249] = "QUICKBOOKS";
     /** Allow to see alerts */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["RECEIVE_ALERT"] = 193] = "RECEIVE_ALERT";
     /** Access to view reports for all staff */
@@ -5012,6 +5014,14 @@ export var WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSi
     /** No subscription */
     WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid[WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid["FREE"] = 1] = "FREE";
 })(WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid || (WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = {}));
+/** List of possible plans for QuickBooksSubscription subscription. */
+export var WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid;
+(function (WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid) {
+    /** Standard */
+    WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid[WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** Free */
+    WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid[WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid["FREE"] = 1] = "FREE";
+})(WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid || (WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid = {}));
 /** List of options to add client to attendance list. */
 export var WlLoginAttendanceAddOptionSid;
 (function (WlLoginAttendanceAddOptionSid) {

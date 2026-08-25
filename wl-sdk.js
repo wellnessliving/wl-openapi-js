@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260825164019
+ * Spec version: 1.1.20260825175527
  * Build date:   2026-08-25
  * Endpoints:    531
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260825164019';
+  WlClient.SPEC_VERSION = '1.1.20260825175527';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (531 total)
@@ -11586,7 +11586,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (218 total)
+  // Enum constants (219 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -15967,6 +15967,8 @@
     PURCHASE_EDIT: 93,
     /** Access to view client purchases (passes and memberships) */
     PURCHASE_VIEW: 92,
+    /** Access to set up and change quickbooks integration */
+    QUICKBOOKS: 249,
     /** Allow to see alerts */
     RECEIVE_ALERT: 193,
     /** Access to view reports for all staff */
@@ -17288,6 +17290,18 @@
     /** Business Success Coaching */
     BUSINESS_SUCCESS_COACHING: 2,
     /** No subscription */
+    FREE: 1,
+  });
+
+  /**
+   * List of possible plans for QuickBooksSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid = Object.freeze({
+    /** Standard */
+    BASIC: 2,
+    /** Free */
     FREE: 1,
   });
 
