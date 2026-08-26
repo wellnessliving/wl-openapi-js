@@ -2424,6 +2424,15 @@ export declare enum WlLeadStageLeadStageSystemSid {
     /** A lead which was successfully converted into a client */
     WON = 4
 }
+/** Types of lead stages. */
+export declare enum WlLeadStageLeadStageTypeSid {
+    /** A lead is lost - the client will not make a purchase */
+    LOST = 3,
+    /** A lead is still in the funnel - the business is working with the client */
+    OPEN = 1,
+    /** A lead is won - the client is converted into a member */
+    WON = 2
+}
 /** A list of report categories. */
 export declare enum RsReportCategorySid {
     /** Category reports on attendance */
@@ -9362,6 +9371,8 @@ export interface WlLeadStageLeadStageListResponse {
         id_lead_stage_shape: WlLeadStageLeadStageShapeSid;
         /** System-defined lead stages. @see WlLeadStageLeadStageSystemSid */
         id_lead_stage_system: WlLeadStageLeadStageSystemSid | null;
+        /** Types of lead stages. @see WlLeadStageLeadStageTypeSid */
+        id_lead_stage_type: WlLeadStageLeadStageTypeSid;
         /** Key of the stage. */
         k_lead_stage: string;
         /** Background color of the icon. Hexadecimal color. */
@@ -9373,6 +9384,18 @@ export interface WlLeadStageLeadStageListResponse {
         /** Name of the stage. */
         text_title: string;
     }>;
+}
+export interface WlLeadStageLeadStageElementDeleteParams {
+    /** Key of the lead stage to move leads and clients of the deleted stage to. */
+    k_lead_stage_replace: string;
+}
+export type WlLeadStageLeadStageElementDeleteResponse = Record<string, unknown>;
+export type WlLeadStageLeadStageElementPostParams = Record<string, unknown>;
+export type WlLeadStageLeadStageElementPostResponse = Record<string, unknown>;
+export type WlLeadStageLeadStageElementPutParams = Record<string, unknown>;
+export interface WlLeadStageLeadStageElementPutResponse {
+    /** Key of the lead stage. */
+    k_lead_stage: string;
 }
 export interface WlMemberInfoInfoParams {
     /** Date of the session, if we show it on the appointment info window or on the attendance list. */
@@ -21718,8 +21741,15 @@ export interface WlBookProcessPurchasePurchaseElementParams {
         };
         /** Registration fees, keyed by participant key. */
         a_registration_fee_list: {
-            /** Discounts applied to the fee, `null` if there are none. Rows have the same keys as in */
-            a_discount: Array<Array<unknown>> | null;
+            /** Discounts applied to the fee, `null` if there are none. Every row has the next keys: */
+            a_discount: {
+                /** Discount types. @see WlDiscountDiscountRuleSid */
+                id_discount_rule: WlDiscountDiscountRuleSid;
+                /** Discount amount of this rule. */
+                m_discount: string;
+                /** Discount title. Only for {@link WlDiscountDiscountRuleSid}. */
+                text_discount?: string;
+            } | null;
             /** Taxes of the fee. Keys are tax keys, values are tax amounts. */
             a_tax: Array<string>;
             /** Registration fee amount for the participant, before discount and tax. */
@@ -21788,8 +21818,15 @@ export interface WlBookProcessPurchasePurchaseElementResponse {
         };
         /** Registration fees, keyed by participant key. */
         a_registration_fee_list: {
-            /** Discounts applied to the fee, `null` if there are none. Rows have the same keys as in */
-            a_discount: Array<Array<unknown>> | null;
+            /** Discounts applied to the fee, `null` if there are none. Every row has the next keys: */
+            a_discount: {
+                /** Discount types. @see WlDiscountDiscountRuleSid */
+                id_discount_rule: WlDiscountDiscountRuleSid;
+                /** Discount amount of this rule. */
+                m_discount: string;
+                /** Discount title. Only for {@link WlDiscountDiscountRuleSid}. */
+                text_discount?: string;
+            } | null;
             /** Taxes of the fee. Keys are tax keys, values are tax amounts. */
             a_tax: Array<string>;
             /** Registration fee amount for the participant, before discount and tax. */
@@ -21855,9 +21892,37 @@ export interface WlBookProcessPurchasePurchaseElementListResponse {
     /** Detailed information about the amounts for the purchase item list. */
     a_purchase_item_result: Array<{
         /** Tuition events with calculated amounts. */
-        a_event_list?: Array<Array<unknown>>;
+        a_event_list?: {
+            /** Discounts applied to the event, `null` if there are none. Every row has the next keys: */
+            a_discount: Record<string, unknown> | null;
+            /** Taxes of the event. Keys are tax keys, values are tax amounts. */
+            a_tax: Array<string> | null;
+            /** Key of the event class. */
+            k_class: string;
+            /** The amount charged for this event right now, including tax. `0.00` when every */
+            m_checkout: string | null;
+            /** The part of the event cost that is not charged right now, including tax. Goes to the */
+            m_deferred: string;
+            /** Total discount amount applied to the event, `0.00` if there is none. */
+            m_discount: string;
+            /** Price of the event within the tuition, before discount and tax. */
+            m_price: string | null;
+            /** Key of the tuition participant. */
+            uid: string;
+        };
         /** Registration fees with calculated amounts, keyed by participant key. */
-        a_registration_fee_list?: Array<Array<unknown>>;
+        a_registration_fee_list?: {
+            /** Discounts applied to the fee, `null` if there are none. Every row has the next keys: */
+            a_discount: Record<string, unknown> | null;
+            /** Taxes of the fee. Keys are tax keys, values are tax amounts. */
+            a_tax: Array<string>;
+            /** Registration fee amount for the participant, before discount and tax. */
+            m_amount: string;
+            /** The amount charged for this fee right now, including tax. A fee is either charged in */
+            m_checkout: string | null;
+            /** The whole fee amount if the fee is deferred, `0.00` if it is charged right now. */
+            m_deferred: string;
+        };
         /** Information about taxes. The key refers to the tax key, and the value refers to the tax amount. */
         a_tax: Array<string>;
         /** A list of purchase types. @see RsPurchaseItemSid */
@@ -27771,6 +27836,12 @@ export declare class WlLeadStageNamespace {
     constructor(_client: WlClient);
     /** Gets a list of lead stages of the business. */
     leadStageList(params?: WlLeadStageLeadStageListParams): Promise<WlLeadStageLeadStageListResponse>;
+    /** Deletes a lead stage. */
+    leadStageElementDelete(params?: WlLeadStageLeadStageElementDeleteParams): Promise<WlLeadStageLeadStageElementDeleteResponse>;
+    /** Edits name and icon of a lead stage. */
+    leadStageElementPost(params?: WlLeadStageLeadStageElementPostParams): Promise<WlLeadStageLeadStageElementPostResponse>;
+    /** Creates a new custom lead stage. */
+    leadStageElementPut(params?: WlLeadStageLeadStageElementPutParams): Promise<WlLeadStageLeadStageElementPutResponse>;
 }
 export declare class WlLeadNamespace {
     private readonly _client;

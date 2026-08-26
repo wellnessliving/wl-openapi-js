@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260826123342
+ * Spec version: 1.1.20260826165425
  * Build date:   2026-08-26
- * Endpoints:    531
+ * Endpoints:    534
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260826123342';
+  WlClient.SPEC_VERSION = '1.1.20260826165425';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (531 total)
+  // Generated API methods (534 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2872,6 +2872,52 @@
   WlClient.prototype.wlLeadStageLeadStageList = function(params)
   {
     return this.request('/Wl/Lead/Stage/LeadStageList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Deletes a lead stage.
+   *
+   * The last remaining stage of a type ({@link WlClient.WlLeadStageLeadStageTypeSid}) can not be deleted - a business must always have
+   * at least one stage of every type. If the stage has leads or clients assigned,
+   * {@link WlClient#wlLeadStageLeadStageElementPost} must be given - they are moved to the replacement stage,
+   * which must be of the same type.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_lead_stage_replace Key of the lead stage to move leads and clients of the deleted stage to.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlLeadStageLeadStageElementDelete = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageElement.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Edits name and icon of a lead stage.
+   *
+   * Type of the stage ({@link WlClient.WlLeadStageLeadStageTypeSid}) is read-only and can not be changed.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlLeadStageLeadStageElementPost = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageElement.json', params || {}, 'POST');
+  };
+
+  /**
+   * Creates a new custom lead stage.
+   *
+   * The name must be unique within the business and no longer than `TITLE_LENGTH_MAX`
+   * characters. {@link WlClient#wlLeadStageLeadStageElementPost} is required and can not be changed afterwards.
+   * A business may have no more than `STAGE_LIMIT` stages.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `k_lead_stage` {string} Key of the lead stage.
+   */
+  WlClient.prototype.wlLeadStageLeadStageElementPut = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageElement.json', params || {}, 'PUT');
   };
 
   /**
@@ -11586,7 +11632,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (219 total)
+  // Enum constants (220 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -14387,6 +14433,20 @@
     WARM: 3,
     /** A lead which was successfully converted into a client */
     WON: 4,
+  });
+
+  /**
+   * Types of lead stages.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLeadStageLeadStageTypeSid = Object.freeze({
+    /** A lead is lost - the client will not make a purchase */
+    LOST: 3,
+    /** A lead is still in the funnel - the business is working with the client */
+    OPEN: 1,
+    /** A lead is won - the client is converted into a member */
+    WON: 2,
   });
 
   /**
