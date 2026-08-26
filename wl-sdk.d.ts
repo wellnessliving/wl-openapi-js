@@ -9296,7 +9296,7 @@ export interface CoreAILogTriageConnectionCheckResponse {
         i_variant_count: number;
         /** Bounded original usage-statistics object examples. */
         a_object_example: Array<string>;
-        /** Whether the object reached the WatchUsageStat storage limit and was therefore kept exact. */
+        /** Whether the stored object reached its length limit and was therefore kept exact. */
         is_identity_incomplete: boolean;
     }>;
     /** Connection check value. */

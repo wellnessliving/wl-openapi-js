@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260825175527
+// OpenAPI spec version: 1.1.20260826123342
 // Build date: 2026-08-26
 // Endpoints: 531
 // Enums: 202
