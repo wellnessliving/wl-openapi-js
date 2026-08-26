@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20260825095715
+ * Spec version: 1.1.20260826064555
  * Build date:   2026-08-26
  * Endpoints:    527
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260825095715';
+  WlClient.SPEC_VERSION = '1.1.20260826064555';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (527 total)
@@ -2395,7 +2395,7 @@
    *  `dtu_complete` {?string} The date and time if the report has completed generation. Otherwise, this wil...
    *  `dtu_queue` {?string} The date and time if this report has been put in the generation queue. Otherw...
    *  `dtu_start` {?string} The date and time if generation of this report has started. Otherwise, this w...
-   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation. See {@link WlClient.WlReportGeneratorReportGeneratorStatusSid}.
+   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation. See {@link WlClient.ThothReportCoreGeneratorReportGeneratorStatusSid}.
    *  `is_more` {boolean} Determines whether to show more rows in the report.
    *  `is_report_complete` {boolean} Determines whether the report is complete.
    */
@@ -14229,26 +14229,6 @@
   });
 
   /**
-   * Lists statuses of reports from point of view of its generation.
-   *
-   * @enum {number}
-   */
-  WlClient.WlReportGeneratorReportGeneratorStatusSid = Object.freeze({
-    /** Report is in an inconsistent state */
-    ABORTED: 6,
-    /** Current operation is being aborted now */
-    ABORTING: 5,
-    /** This report is being deleted now */
-    DELETING: 4,
-    /** This report is being generated now */
-    GENERATING: 2,
-    /** Generation of this report is queued */
-    QUEUED: 1,
-    /** Generation of this report is now completed */
-    READY: 3,
-  });
-
-  /**
    * A list of account holder types which can be chosen.
    *
    * @enum {number}
@@ -14742,6 +14722,26 @@
     REGION_NO: 2,
     /** Location with the region */
     REGION_YES: 3,
+  });
+
+  /**
+   * Lists statuses of reports from point of view of its generation.
+   *
+   * @enum {number}
+   */
+  WlClient.WlReportGeneratorReportGeneratorStatusSid = Object.freeze({
+    /** Report is in an inconsistent state */
+    ABORTED: 6,
+    /** Current operation is being aborted now */
+    ABORTING: 5,
+    /** This report is being deleted now */
+    DELETING: 4,
+    /** This report is being generated now */
+    GENERATING: 2,
+    /** Generation of this report is queued */
+    QUEUED: 1,
+    /** Generation of this report is now completed */
+    READY: 3,
   });
 
   /**

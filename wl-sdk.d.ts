@@ -2356,21 +2356,6 @@ export declare enum RsPayAccountChargeSid {
     /** Manual account withdrawal by admin */
     DEBIT = 2
 }
-/** Lists statuses of reports from point of view of its generation. */
-export declare enum WlReportGeneratorReportGeneratorStatusSid {
-    /** Report is in an inconsistent state */
-    ABORTED = 6,
-    /** Current operation is being aborted now */
-    ABORTING = 5,
-    /** This report is being deleted now */
-    DELETING = 4,
-    /** This report is being generated now */
-    GENERATING = 2,
-    /** Generation of this report is queued */
-    QUEUED = 1,
-    /** Generation of this report is now completed */
-    READY = 3
-}
 /** A list of account holder types which can be chosen. */
 export declare enum RsPayBankAchHolderSid {
     /** Account holder is a business */
@@ -2756,6 +2741,21 @@ export declare enum WlBusinessFranchiseLocationBusinessFranchiseLocationSid {
     REGION_NO = 2,
     /** Location with the region */
     REGION_YES = 3
+}
+/** Lists statuses of reports from point of view of its generation. */
+export declare enum WlReportGeneratorReportGeneratorStatusSid {
+    /** Report is in an inconsistent state */
+    ABORTED = 6,
+    /** Current operation is being aborted now */
+    ABORTING = 5,
+    /** This report is being deleted now */
+    DELETING = 4,
+    /** This report is being generated now */
+    GENERATING = 2,
+    /** Generation of this report is queued */
+    QUEUED = 1,
+    /** Generation of this report is now completed */
+    READY = 3
 }
 /** List of statuses of an Autymate enrollment notification. */
 export declare enum WlIntegrationAutymateAutymateStatusSid {
@@ -5810,8 +5810,8 @@ export interface CoreWebSocketSubscribeResponse {
     } | {
         /** A class for a list of card systems. @see ACardSystemSid */
         id_card_system: ACardSystemSid;
-        /** Card type ID. */
-        id_card_type: number | null;
+        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
+        id_card_type: ThothWlPayBankCardCardTypeEnum;
         /** An exception that is thrown in a case of a payment error. @see RsPayException */
         id_pay_exception: RsPayException | null;
         /** CS Response code class. @see ThothPayProcessorNuveiCodeCSResponseSid */
@@ -8954,8 +8954,8 @@ export interface WlPayTransactionReportTransactionAllPaymentResponse {
     dtu_queue: string | null;
     /** The date and time if generation of this report has started. Otherwise, this will be `null`. */
     dtu_start: string | null;
-    /** Lists statuses of reports from point of view of its generation. @see WlReportGeneratorReportGeneratorStatusSid */
-    id_report_status: WlReportGeneratorReportGeneratorStatusSid;
+    /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
+    id_report_status: ThothReportCoreGeneratorReportGeneratorStatusSid;
     /** Determines whether to show more rows in the report. */
     is_more: boolean;
     /** Determines whether the report is complete. */
