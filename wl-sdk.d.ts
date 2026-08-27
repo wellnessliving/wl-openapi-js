@@ -9365,6 +9365,8 @@ export interface WlLeadStageLeadStageListResponse {
     a_lead_stage: Array<{
         /** Sequence number of the stage in the list. */
         i_order: number;
+        /** Number of automations used this stage. */
+        i_automation?: number;
         /** Number of clients who are in this stage. */
         i_user?: number;
         /** Shapes of lead stage icons. @see WlLeadStageLeadStageShapeSid */
