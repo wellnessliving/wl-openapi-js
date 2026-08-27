@@ -3341,6 +3341,8 @@ export declare enum WlPrivilegePrivilegeSid {
     PURCHASE_EDIT = 93,
     /** Access to view client purchases (passes and memberships) */
     PURCHASE_VIEW = 92,
+    /** Access to set up and change quickbooks integration */
+    QUICKBOOKS = 249,
     /** Allow to see alerts */
     RECEIVE_ALERT = 193,
     /** Access to view reports for all staff */
@@ -4546,6 +4548,13 @@ export declare enum WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid {
     FREE = 1,
     /** Standard */
     STANDARD = 2
+}
+/** List of possible plans for QuickBooksSubscription subscription. */
+export declare enum WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid {
+    /** Standard */
+    BASIC = 2,
+    /** Free */
+    FREE = 1
 }
 /** List of possible plans for EmailSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionEmailEmailSubscriptionSid {
@@ -20483,7 +20492,7 @@ export interface WlBusinessAccountSubscriptionSubscriptionInfoResponse {
     /** A list of locales. @see CoreLocaleLocaleSid */
     id_locale: CoreLocaleLocaleSid | null;
     /** Currently active plan ID for requested subscription. */
-    id_plan: WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid | WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid | WlBusinessAccountSubscriptionEmailEmailSubscriptionSid | WlBusinessAccountSubscriptionBaseBaseSubscriptionSid | WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid | WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid | WlBusinessAccountSubscriptionReviewReviewSubscriptionSid | WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid | WlBusinessAccountSubscriptionRewardRewardSubscriptionSid | WlBusinessAccountSubscriptionApiApiSubscriptionSid | WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid | WlBusinessAccountSubscriptionZoomZoomSubscriptionSid | WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid | WlBusinessAccountSubscriptionQuizQuizSubscriptionSid | WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid | WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid | WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid | WlBusinessAccountSubscriptionDoorDoorSubscriptionSid | WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid | WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid | WlBusinessAccountSubscriptionSmsSmsSubscriptionSid | WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid | WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid | WlBusinessAccountSubscriptionAssetAssetSubscriptionSid | WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid | WlBusinessAccountSubscriptionZapierZapierSubscriptionSid;
+    id_plan: WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid | WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid | WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid | WlBusinessAccountSubscriptionEmailEmailSubscriptionSid | WlBusinessAccountSubscriptionBaseBaseSubscriptionSid | WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid | WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid | WlBusinessAccountSubscriptionReviewReviewSubscriptionSid | WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid | WlBusinessAccountSubscriptionRewardRewardSubscriptionSid | WlBusinessAccountSubscriptionApiApiSubscriptionSid | WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid | WlBusinessAccountSubscriptionZoomZoomSubscriptionSid | WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid | WlBusinessAccountSubscriptionQuizQuizSubscriptionSid | WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid | WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid | WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid | WlBusinessAccountSubscriptionDoorDoorSubscriptionSid | WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid | WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid | WlBusinessAccountSubscriptionSmsSmsSubscriptionSid | WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid | WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid | WlBusinessAccountSubscriptionAssetAssetSubscriptionSid | WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid | WlBusinessAccountSubscriptionZapierZapierSubscriptionSid;
     /** Whether subscription is active. */
     is_active: boolean;
 }
@@ -24591,9 +24600,37 @@ export interface WlBookProcessPurchasePurchaseElementListResponse {
     /** Detailed information about the amounts for the purchase item list. */
     a_purchase_item_result: Array<{
         /** Tuition events with calculated amounts. */
-        a_event_list?: Array<Array<unknown>>;
+        a_event_list?: {
+            /** Discounts applied to the event, `null` if there are none. Every row has the next keys: */
+            a_discount: Record<string, unknown> | null;
+            /** Taxes of the event. Keys are tax keys, values are tax amounts. */
+            a_tax: Array<string> | null;
+            /** Key of the event class. */
+            k_class: string;
+            /** The amount charged for this event right now, including tax. `0.00` when every */
+            m_checkout: string | null;
+            /** The part of the event cost that is not charged right now, including tax. Goes to the */
+            m_deferred: string;
+            /** Total discount amount applied to the event, `0.00` if there is none. */
+            m_discount: string;
+            /** Price of the event within the tuition, before discount and tax. */
+            m_price: string | null;
+            /** Key of the tuition participant. */
+            uid: string;
+        };
         /** Registration fees with calculated amounts, keyed by participant key. */
-        a_registration_fee_list?: Array<Array<unknown>>;
+        a_registration_fee_list?: {
+            /** Discounts applied to the fee, `null` if there are none. Every row has the next keys: */
+            a_discount: Record<string, unknown> | null;
+            /** Taxes of the fee. Keys are tax keys, values are tax amounts. */
+            a_tax: Array<string>;
+            /** Registration fee amount for the participant, before discount and tax. */
+            m_amount: string;
+            /** The amount charged for this fee right now, including tax. A fee is either charged in */
+            m_checkout: string | null;
+            /** The whole fee amount if the fee is deferred, `0.00` if it is charged right now. */
+            m_deferred: string;
+        };
         /** Information about taxes. The key refers to the tax key, and the value refers to the tax amount. */
         a_tax: Array<string>;
         /** A list of purchase types. @see RsPurchaseItemSid */
@@ -24880,8 +24917,15 @@ export interface WlBookProcessPurchasePurchaseElementParams {
         };
         /** Registration fees, keyed by participant key. */
         a_registration_fee_list: {
-            /** Discounts applied to the fee, `null` if there are none. Rows have the same keys as in */
-            a_discount: Array<Array<unknown>> | null;
+            /** Discounts applied to the fee, `null` if there are none. Every row has the next keys: */
+            a_discount: {
+                /** Discount types. @see WlDiscountDiscountRuleSid */
+                id_discount_rule: WlDiscountDiscountRuleSid;
+                /** Discount amount of this rule. */
+                m_discount: string;
+                /** Discount title. Only for {@link WlDiscountDiscountRuleSid}. */
+                text_discount?: string;
+            } | null;
             /** Taxes of the fee. Keys are tax keys, values are tax amounts. */
             a_tax: Array<string>;
             /** Registration fee amount for the participant, before discount and tax. */
@@ -24950,8 +24994,15 @@ export interface WlBookProcessPurchasePurchaseElementResponse {
         };
         /** Registration fees, keyed by participant key. */
         a_registration_fee_list: {
-            /** Discounts applied to the fee, `null` if there are none. Rows have the same keys as in */
-            a_discount: Array<Array<unknown>> | null;
+            /** Discounts applied to the fee, `null` if there are none. Every row has the next keys: */
+            a_discount: {
+                /** Discount types. @see WlDiscountDiscountRuleSid */
+                id_discount_rule: WlDiscountDiscountRuleSid;
+                /** Discount amount of this rule. */
+                m_discount: string;
+                /** Discount title. Only for {@link WlDiscountDiscountRuleSid}. */
+                text_discount?: string;
+            } | null;
             /** Taxes of the fee. Keys are tax keys, values are tax amounts. */
             a_tax: Array<string>;
             /** Registration fee amount for the participant, before discount and tax. */

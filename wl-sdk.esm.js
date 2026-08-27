@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — production channel
-// OpenAPI spec version: 1.1.20260826090213
+// OpenAPI spec version: 1.1.20260827063308
 // Build date: 2026-08-27
 // Endpoints: 527
-// Enums: 198
+// Enums: 199
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (198 total) ---
+// --- Enum types (199 total) ---
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
 (function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
@@ -3453,6 +3453,8 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PURCHASE_EDIT"] = 93] = "PURCHASE_EDIT";
     /** Access to view client purchases (passes and memberships) */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PURCHASE_VIEW"] = 92] = "PURCHASE_VIEW";
+    /** Access to set up and change quickbooks integration */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["QUICKBOOKS"] = 249] = "QUICKBOOKS";
     /** Allow to see alerts */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["RECEIVE_ALERT"] = 193] = "RECEIVE_ALERT";
     /** Access to view reports for all staff */
@@ -4694,6 +4696,14 @@ export var WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid;
     /** Standard */
     WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid[WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid["STANDARD"] = 2] = "STANDARD";
 })(WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid || (WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = {}));
+/** List of possible plans for QuickBooksSubscription subscription. */
+export var WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid;
+(function (WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid) {
+    /** Standard */
+    WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid[WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** Free */
+    WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid[WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid["FREE"] = 1] = "FREE";
+})(WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid || (WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid = {}));
 /** List of possible plans for EmailSubscription subscription. */
 export var WlBusinessAccountSubscriptionEmailEmailSubscriptionSid;
 (function (WlBusinessAccountSubscriptionEmailEmailSubscriptionSid) {
