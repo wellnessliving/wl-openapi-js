@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260826165425
- * Build date:   2026-08-26
- * Endpoints:    534
+ * Spec version: 1.1.20260827095533
+ * Build date:   2026-08-27
+ * Endpoints:    535
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260826165425';
+  WlClient.SPEC_VERSION = '1.1.20260827095533';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (534 total)
+  // Generated API methods (535 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2879,10 +2879,12 @@
    *
    * The last remaining stage of a type ({@link WlClient.WlLeadStageLeadStageTypeSid}) can not be deleted - a business must always have
    * at least one stage of every type. If the stage has leads or clients assigned,
-   * {@link WlClient#wlLeadStageLeadStageElementPost} must be given - they are moved to the replacement stage,
+   * {@link WlClient#wlLeadStageLeadStageElementGet} must be given - they are moved to the replacement stage,
    * which must be of the same type.
    *
    * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_lead_stage Key of the lead stage.
    * @param {string} params.k_lead_stage_replace Key of the lead stage to move leads and clients of the deleted stage to.
    * @returns {Promise<Object>} Response data.
    */
@@ -2892,11 +2894,34 @@
   };
 
   /**
+   * Returns information about a lead stage.
+   *
+   * The information includes the name, icon and type of the lead stage.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_lead_stage Key of the lead stage.
+   * @returns {Promise<Object>} Response data.
+   *  `id_lead_stage_shape` {number} Shapes of lead stage icons. See {@link WlClient.WlLeadStageLeadStageShapeSid}.
+   *  `id_lead_stage_type` {number} Types of lead stages. See {@link WlClient.WlLeadStageLeadStageTypeSid}.
+   *  `s_color_background` {string} Background color of the icon. Hexadecimal color.
+   *  `s_color_foreground` {string} Color of characters on the icon. Hexadecimal color.
+   *  `s_icon` {string} Characters on the icon.
+   *  `text_title` {string} Name of the stage.
+   */
+  WlClient.prototype.wlLeadStageLeadStageElementGet = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageElement.json', params || {}, 'GET');
+  };
+
+  /**
    * Edits name and icon of a lead stage.
    *
    * Type of the stage ({@link WlClient.WlLeadStageLeadStageTypeSid}) is read-only and can not be changed.
    *
-   * @param {Object} [params] Request body fields.
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_lead_stage Key of the lead stage.
    * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlLeadStageLeadStageElementPost = function(params)
@@ -2908,10 +2933,11 @@
    * Creates a new custom lead stage.
    *
    * The name must be unique within the business and no longer than `TITLE_LENGTH_MAX`
-   * characters. {@link WlClient#wlLeadStageLeadStageElementPost} is required and can not be changed afterwards.
+   * characters. {@link WlClient#wlLeadStageLeadStageElementGet} is required and can not be changed afterwards.
    * A business may have no more than `STAGE_LIMIT` stages.
    *
-   * @param {Object} [params] Request body fields.
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
    * @returns {Promise<Object>} Response data.
    *  `k_lead_stage` {string} Key of the lead stage.
    */

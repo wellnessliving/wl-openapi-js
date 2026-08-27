@@ -9386,13 +9386,45 @@ export interface WlLeadStageLeadStageListResponse {
     }>;
 }
 export interface WlLeadStageLeadStageElementDeleteParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the lead stage. */
+    k_lead_stage: string;
     /** Key of the lead stage to move leads and clients of the deleted stage to. */
     k_lead_stage_replace: string;
 }
 export type WlLeadStageLeadStageElementDeleteResponse = Record<string, unknown>;
-export type WlLeadStageLeadStageElementPostParams = Record<string, unknown>;
+export interface WlLeadStageLeadStageElementGetParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the lead stage. */
+    k_lead_stage: string;
+}
+export interface WlLeadStageLeadStageElementGetResponse {
+    /** Shapes of lead stage icons. @see WlLeadStageLeadStageShapeSid */
+    id_lead_stage_shape: WlLeadStageLeadStageShapeSid;
+    /** Types of lead stages. @see WlLeadStageLeadStageTypeSid */
+    id_lead_stage_type: WlLeadStageLeadStageTypeSid;
+    /** Background color of the icon. Hexadecimal color. */
+    s_color_background: string;
+    /** Color of characters on the icon. Hexadecimal color. */
+    s_color_foreground: string;
+    /** Characters on the icon. */
+    s_icon: string;
+    /** Name of the stage. */
+    text_title: string;
+}
+export interface WlLeadStageLeadStageElementPostParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the lead stage. */
+    k_lead_stage: string;
+}
 export type WlLeadStageLeadStageElementPostResponse = Record<string, unknown>;
-export type WlLeadStageLeadStageElementPutParams = Record<string, unknown>;
+export interface WlLeadStageLeadStageElementPutParams {
+    /** Business key. */
+    k_business: string;
+}
 export interface WlLeadStageLeadStageElementPutResponse {
     /** Key of the lead stage. */
     k_lead_stage: string;
@@ -27838,6 +27870,8 @@ export declare class WlLeadStageNamespace {
     leadStageList(params?: WlLeadStageLeadStageListParams): Promise<WlLeadStageLeadStageListResponse>;
     /** Deletes a lead stage. */
     leadStageElementDelete(params?: WlLeadStageLeadStageElementDeleteParams): Promise<WlLeadStageLeadStageElementDeleteResponse>;
+    /** Returns information about a lead stage. */
+    leadStageElementGet(params?: WlLeadStageLeadStageElementGetParams): Promise<WlLeadStageLeadStageElementGetResponse>;
     /** Edits name and icon of a lead stage. */
     leadStageElementPost(params?: WlLeadStageLeadStageElementPostParams): Promise<WlLeadStageLeadStageElementPostResponse>;
     /** Creates a new custom lead stage. */
