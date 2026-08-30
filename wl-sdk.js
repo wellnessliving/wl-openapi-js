@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260828124300
+ * Spec version: 1.1.20260830062927
  * Build date:   2026-08-30
- * Endpoints:    527
+ * Endpoints:    529
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260828124300';
+  WlClient.SPEC_VERSION = '1.1.20260830062927';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (527 total)
+  // Generated API methods (529 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2247,6 +2247,42 @@
   WlClient.prototype.wlDriveProductImageUploadPut = function(params)
   {
     return this.request('/Wl/Drive/ProductImageUpload.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Removes the tag.
+   *
+   * Deletes the revenue category from the business. The deletion fails if the tag is currently
+   * set as the primary revenue category for any linked asset, class, coupon, promotion, service,
+   * or product (promotions that have already been removed are ignored). On success, notifies
+   * listeners about the affected linked objects and invalidates the cached tag list of the
+   * business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business The business key of the tags.
+   * @param {string} params.k_tag The tag key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlTagTagDelete = function(params)
+  {
+    return this.request('/Wl/Tag/Tag.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Returns revenue categories (tags) of the business.
+   *
+   * Returns tags along with the bookable assets, classes, coupons, promotions, services, and
+   * products assigned to each one.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business The business key of the tags.
+   * @param {string} params.k_tag The tag key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_tag` {Object[]} The revenue categories (tags) of the business.
+   */
+  WlClient.prototype.wlTagTagGet = function(params)
+  {
+    return this.request('/Wl/Tag/Tag.json', params || {}, 'GET');
   };
 
   /**

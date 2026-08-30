@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260828124300
+// OpenAPI spec version: 1.1.20260830062927
 // Build date: 2026-08-30
-// Endpoints: 527
+// Endpoints: 529
 // Enums: 199
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -7260,6 +7260,14 @@ export class WlDriveNamespace {
 export class WlTagNamespace {
     constructor(_client) {
         this._client = _client;
+    }
+    /** Removes the tag. */
+    tagDelete(params) {
+        return this._client._request('/Wl/Tag/Tag.json', params, 'DELETE');
+    }
+    /** Returns revenue categories (tags) of the business. */
+    tagGet(params) {
+        return this._client._request('/Wl/Tag/Tag.json', params, 'GET');
     }
     /** Returns tags of the specified business. */
     tagListGet(params) {

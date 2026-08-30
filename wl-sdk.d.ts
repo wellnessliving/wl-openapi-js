@@ -8716,6 +8716,70 @@ export interface WlDriveProductImageUploadPutResponse {
     /** The URL of the full image. */
     url_view: string | null;
 }
+export interface WlTagTagDeleteParams {
+    /** The business key of the tags. */
+    k_business: string;
+    /** The tag key. */
+    k_tag: string;
+}
+export type WlTagTagDeleteResponse = Record<string, unknown>;
+export interface WlTagTagGetParams {
+    /** The business key of the tags. */
+    k_business: string;
+    /** The tag key. */
+    k_tag: string;
+}
+export interface WlTagTagGetResponse {
+    /** The revenue categories (tags) of the business. */
+    a_tag: Array<{
+        /** Bookable assets assigned to the tag. Each element has the next structure: */
+        a_asset: {
+            /** The resource key. */
+            k_id: string;
+            /** Whether the tag is the primary revenue category for the resource. */
+            is_primary: boolean;
+        };
+        /** Classes and events assigned to the tag. Each element has the next structure: */
+        a_class: {
+            /** The class key. */
+            k_id: string;
+            /** Whether the tag is the primary revenue category for the class. */
+            is_primary: boolean;
+        };
+        /** Gift cards assigned to the tag. Each element has the next structure: */
+        a_coupon: {
+            /** The coupon key. */
+            k_id: string;
+            /** Whether the tag is the primary revenue category for the coupon. */
+            is_primary: boolean;
+        };
+        /** Purchase options (passes and memberships) assigned to the tag. Each element has the next structure: */
+        a_promotion: {
+            /** The promotion key. */
+            k_id: string;
+            /** Whether the tag is the primary revenue category for the promotion. */
+            is_primary: boolean;
+        };
+        /** Appointment types assigned to the tag. Each element has the next structure: */
+        a_service: {
+            /** The service key. */
+            k_id: string;
+            /** Whether the tag is the primary revenue category for the service. */
+            is_primary: boolean;
+        };
+        /** Store products assigned to the tag. Each element has the next structure: */
+        a_product: {
+            /** The product key. */
+            k_id: string;
+            /** Whether the tag is the primary revenue category for the product. */
+            is_primary: boolean;
+        };
+        /** The sort order of the tag. */
+        i_sort: number;
+        /** The tag title. */
+        text_title: string;
+    }>;
+}
 export interface WlTagTagListGetParams {
     /** The business key of the tags. */
     k_business: string;
@@ -28600,6 +28664,10 @@ export declare class WlDriveNamespace {
 export declare class WlTagNamespace {
     private readonly _client;
     constructor(_client: WlClient);
+    /** Removes the tag. */
+    tagDelete(params?: WlTagTagDeleteParams): Promise<WlTagTagDeleteResponse>;
+    /** Returns revenue categories (tags) of the business. */
+    tagGet(params?: WlTagTagGetParams): Promise<WlTagTagGetResponse>;
     /** Returns tags of the specified business. */
     tagListGet(params?: WlTagTagListGetParams): Promise<WlTagTagListGetResponse>;
     /** Saves the list of tags. Can be used to create new tags or update existing ones. */
