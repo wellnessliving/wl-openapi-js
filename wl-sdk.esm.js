@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260831160634
+// OpenAPI spec version: 1.1.20260831212706
 // Build date: 2026-08-31
-// Endpoints: 537
-// Enums: 203
+// Endpoints: 538
+// Enums: 204
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (203 total) ---
+// --- Enum types (204 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -3600,6 +3600,16 @@ export var WlWidgetAnalyticsWidgetAnalyticsEventVersionSid;
     /** Initial event schema */
     WlWidgetAnalyticsWidgetAnalyticsEventVersionSid[WlWidgetAnalyticsWidgetAnalyticsEventVersionSid["V1"] = 1] = "V1";
 })(WlWidgetAnalyticsWidgetAnalyticsEventVersionSid || (WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = {}));
+/** List of outcomes of a CAASI Phone Agent call. */
+export var WlAiAgentPhoneCallOutcomeEnum;
+(function (WlAiAgentPhoneCallOutcomeEnum) {
+    /** The call was resolved by CAASI without staff involvement */
+    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["RESOLVED"] = 1] = "RESOLVED";
+    /** The call was transferred to a live staff member */
+    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["TRANSFERRED"] = 2] = "TRANSFERRED";
+    /** The caller requested a callback from staff */
+    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["CALLBACK_REQUESTED"] = 3] = "CALLBACK_REQUESTED";
+})(WlAiAgentPhoneCallOutcomeEnum || (WlAiAgentPhoneCallOutcomeEnum = {}));
 /** Coupon date start rule. */
 export var WlCouponEditActivationSid;
 (function (WlCouponEditActivationSid) {
@@ -8479,6 +8489,15 @@ export class WlWidgetNamespace {
         this.analytics = new WlWidgetAnalyticsNamespace(this._client);
     }
 }
+export class WlAiAgentPhoneNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Sends the "Phone Agent Call Received" staff notification to every active staff member of the business who has the {@link WlPrivilegePrivilegeSid} permission. */
+    callReceived(params) {
+        return this._client._request('/Wl/AiAgent/Phone/CallReceived.json', params, 'POST');
+    }
+}
 export class WlAiAgentLinkNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8491,6 +8510,7 @@ export class WlAiAgentLinkNamespace {
 export class WlAiAgentNamespace {
     constructor(_client) {
         this._client = _client;
+        this.phone = new WlAiAgentPhoneNamespace(this._client);
         this.link = new WlAiAgentLinkNamespace(this._client);
     }
 }
