@@ -22907,6 +22907,8 @@ export interface WlLoginPromotionGuestPassGuestPassListResponse {
         dl_reset: string | null;
         /** `true` if the guest pass is service-type (not invite-type). Inverse of `can_invite`. */
         has_service: boolean;
+        /** `true` if regional access is enabled for the guest pass, i.e. it may be redeemed at other */
+        is_regional: boolean;
         /** Maximum guest passes that can be sent per day. `null` if there is no daily cap. */
         i_cap_day: number | null;
         /** Total number of guest passes initially granted. `null` if the supply is unlimited. */
@@ -22999,6 +23001,8 @@ export interface WlLoginPromotionGuestPassGuestPassGetResponse {
         dl_reset: string | null;
         /** `true` if the guest pass is service-type (not invite-type). Inverse of `can_invite`. */
         has_service: boolean;
+        /** `true` if regional access is enabled for the guest pass, i.e. it may be redeemed at other */
+        is_regional: boolean;
         /** Maximum guest passes that can be sent per day. `null` if there is no daily cap. */
         i_cap_day: number | null;
         /** Total number of guest passes initially granted. `null` if the supply is unlimited. */
@@ -27112,6 +27116,8 @@ export interface WlLoginPromotionGuestPassInviteInviteListGetResponse {
         id_status: WlLoginPromotionGuestPassInviteInviteStatusEnum;
         /** `true` if the guest may only enter when the inviting member is checked in. */
         is_checkin: boolean | null;
+        /** `true` if the visit was redeemed at a sibling franchisee business rather than the business that */
+        is_visit_business_other: boolean;
         /** `true` if associated visit in future, `false` otherwise. */
         is_visit_future: boolean;
         /** Login promotion key granted to the guest upon acceptance. */
@@ -27130,6 +27136,8 @@ export interface WlLoginPromotionGuestPassInviteInviteListGetResponse {
         text_promotion_guest: string;
         /** Title of the host promotion. */
         text_promotion_host: string;
+        /** Title of the location the visit was redeemed at - may be a sibling franchisee's location when the */
+        text_location: string | null;
         /** Title of the service booked with the guest pass. */
         text_service_title: string | null;
         /** Name of the business timezone used for all `dtl_*` fields (e.g. "America/New_York"). */
