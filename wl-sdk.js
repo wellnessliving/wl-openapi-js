@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260831113511
+ * Spec version: 1.1.20260831185719
  * Build date:   2026-08-31
- * Endpoints:    529
+ * Endpoints:    530
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260831113511';
+  WlClient.SPEC_VERSION = '1.1.20260831185719';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (529 total)
+  // Generated API methods (530 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2911,10 +2911,23 @@
    * @param {string} params.uid UID of a user.
    * @returns {Promise<Object>} Response data.
    *  `a_visit_list` {Object[]} List of visits that overlap with the specified data.
+   *  `is_overlap` {boolean} Whether at least one overlap exists.
    */
   WlClient.prototype.wlProfileAttendanceAttendanceOverlap = function(params)
   {
     return this.request('/Wl/Profile/Attendance/AttendanceOverlap.json', params || {}, 'GET');
+  };
+
+  /**
+   * Checks a batch of candidate visits for booking overlaps.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `a_date_overlap` {Object[]} Overlap result for every checked session. Key is `i` from {@link WlClient#wlP...
+   */
+  WlClient.prototype.wlProfileAttendanceAttendanceOverlapList = function(params)
+  {
+    return this.request('/Wl/Profile/Attendance/AttendanceOverlapList.json', params || {}, 'POST');
   };
 
   /**

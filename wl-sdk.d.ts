@@ -9472,6 +9472,18 @@ export interface WlProfileAttendanceAttendanceOverlapResponse {
         /** Title of a service */
         text_title: string;
     }>;
+    /** Whether at least one overlap exists. */
+    is_overlap: boolean;
+}
+export type WlProfileAttendanceAttendanceOverlapListParams = Record<string, unknown>;
+export interface WlProfileAttendanceAttendanceOverlapListResponse {
+    /** Overlap result for every checked session. Key is `i` from {@link WlProfileAttendanceNamespace#att... */
+    a_date_overlap: Array<{
+        /** List of visits that overlap with the checked session. Same structure as */
+        a_visit_list: Array<Array<unknown>>;
+        /** `true` if the checked session overlaps with an already booked visit, `false` otherwise. */
+        is_overlap: boolean;
+    }>;
 }
 export interface WlProfilePurchasePurchaseElementParams {
     /** The key of the redemption code used to obtain some goods. */
@@ -27645,6 +27657,8 @@ export declare class WlProfileAttendanceNamespace {
     constructor(_client: WlClient);
     /** Returns a list of visits that overlap with the specified service, class, resource, or time data. */
     attendanceOverlap(params?: WlProfileAttendanceAttendanceOverlapParams): Promise<WlProfileAttendanceAttendanceOverlapResponse>;
+    /** Checks a batch of candidate visits for booking overlaps. */
+    attendanceOverlapList(params?: WlProfileAttendanceAttendanceOverlapListParams): Promise<WlProfileAttendanceAttendanceOverlapListResponse>;
 }
 export declare class WlProfilePurchaseNamespace {
     private readonly _client;
