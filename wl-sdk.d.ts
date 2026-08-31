@@ -6870,7 +6870,7 @@ export interface WlPromotionPromotionGetResponse {
         is_payroll: boolean;
         /** Whether a guest may redeem this Guest Pass at other locations within the regions listed in */
         is_regional: boolean;
-        /** Whether the regional access setting can be configured for this promotion and business at all. */
+        /** Whether the regional access setting can be configured for this Guest Pass promotion and business ... */
         is_regional_access: boolean;
         /** Whether the regional access setting is read-only for this business. `true` for a franchisee locat... */
         is_regional_access_readonly: boolean;
