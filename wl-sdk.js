@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260830221307
+ * Spec version: 1.1.20260831090238
  * Build date:   2026-08-31
  * Endpoints:    537
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260830221307';
+  WlClient.SPEC_VERSION = '1.1.20260831090238';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (537 total)
@@ -4858,6 +4858,8 @@
    * so the staff member can select one to view or edit.
    *
    * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_event_filter List of event keys to filter the discount codes by.
+   * @param {string[]} params.a_promotion_filter List of membership and passes keys to filter the discount codes by.
    * @param {string} params.k_business Business key of the discount codes.
    * @returns {Promise<Object>} Response data.
    *  `a_list` {Object[]} Discount codes list. Each element has the following structure:
@@ -16308,6 +16310,8 @@
     INTEGRATION_AUTYMATE: 163,
     /** Set up and modify Brivo integration */
     INTEGRATION_BRIVO: 179,
+    /** Access to set up and change quickbooks integration */
+    INTEGRATION_QUICKBOOKS: 249,
     /** Enroll into and manage the WellnessLiving Achieve App. These settings are located under Setup > Achieve Client App */
     INTERFACE_ACHIEVE_APP: 87,
     /** Modify the look and functionality business’s widgets. These settings are located within Setup > Widgets */
@@ -16468,8 +16472,6 @@
     PURCHASE_EDIT: 93,
     /** Access to view client purchases (passes and memberships) */
     PURCHASE_VIEW: 92,
-    /** Access to set up and change quickbooks integration */
-    QUICKBOOKS: 249,
     /** Allow to see alerts */
     RECEIVE_ALERT: 193,
     /** Access to view reports for all staff */
