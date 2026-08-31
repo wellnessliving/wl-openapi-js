@@ -17790,6 +17790,10 @@ export interface WlTuitionEnrollmentTuitionClientsSummaryResponse {
     a_summary: Array<{
         /** Number of unique clients having at least one not cancelled enrolled event. */
         i_clients_enrolled: number;
+        /** Total number of group enrollments with at least one not cancelled enrolled client in the group. */
+        i_enrollments_active: number;
+        /** Total number of group enrollments. */
+        i_enrollments_total: number;
         /** Total number of not cancelled event enrollments. */
         i_enrolled_total: number;
         /** Number of unique events having at least one not cancelled enrollment. */
