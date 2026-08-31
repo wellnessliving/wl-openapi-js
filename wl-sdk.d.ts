@@ -3682,6 +3682,8 @@ export declare enum WlPrivilegePrivilegeSid {
     INTEGRATION_AUTYMATE = 163,
     /** Set up and modify Brivo integration */
     INTEGRATION_BRIVO = 179,
+    /** Access to set up and change quickbooks integration */
+    INTEGRATION_QUICKBOOKS = 249,
     /** Enroll into and manage the WellnessLiving Achieve App. These settings are located under Setup > Achieve Client App */
     INTERFACE_ACHIEVE_APP = 87,
     /** Modify the look and functionality business’s widgets. These settings are located within Setup > Widgets */
@@ -3840,8 +3842,6 @@ export declare enum WlPrivilegePrivilegeSid {
     PURCHASE_EDIT = 93,
     /** Access to view client purchases (passes and memberships) */
     PURCHASE_VIEW = 92,
-    /** Access to set up and change quickbooks integration */
-    QUICKBOOKS = 249,
     /** Allow to see alerts */
     RECEIVE_ALERT = 193,
     /** Access to view reports for all staff */

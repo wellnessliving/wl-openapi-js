@@ -1,7 +1,7 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260830062927
-// Build date: 2026-08-30
+// OpenAPI spec version: 1.1.20260831032428
+// Build date: 2026-08-31
 // Endpoints: 529
 // Enums: 199
 export class WlApiError extends Error {
@@ -3807,6 +3807,8 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_AUTYMATE"] = 163] = "INTEGRATION_AUTYMATE";
     /** Set up and modify Brivo integration */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_BRIVO"] = 179] = "INTEGRATION_BRIVO";
+    /** Access to set up and change quickbooks integration */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_QUICKBOOKS"] = 249] = "INTEGRATION_QUICKBOOKS";
     /** Enroll into and manage the WellnessLiving Achieve App. These settings are located under Setup > Achieve Client App */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTERFACE_ACHIEVE_APP"] = 87] = "INTERFACE_ACHIEVE_APP";
     /** Modify the look and functionality business’s widgets. These settings are located within Setup > Widgets */
@@ -3965,8 +3967,6 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PURCHASE_EDIT"] = 93] = "PURCHASE_EDIT";
     /** Access to view client purchases (passes and memberships) */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PURCHASE_VIEW"] = 92] = "PURCHASE_VIEW";
-    /** Access to set up and change quickbooks integration */
-    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["QUICKBOOKS"] = 249] = "QUICKBOOKS";
     /** Allow to see alerts */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["RECEIVE_ALERT"] = 193] = "RECEIVE_ALERT";
     /** Access to view reports for all staff */

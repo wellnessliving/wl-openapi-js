@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260830062927
- * Build date:   2026-08-30
+ * Spec version: 1.1.20260831032428
+ * Build date:   2026-08-31
  * Endpoints:    529
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260830062927';
+  WlClient.SPEC_VERSION = '1.1.20260831032428';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (529 total)
@@ -15865,6 +15865,8 @@
     INTEGRATION_AUTYMATE: 163,
     /** Set up and modify Brivo integration */
     INTEGRATION_BRIVO: 179,
+    /** Access to set up and change quickbooks integration */
+    INTEGRATION_QUICKBOOKS: 249,
     /** Enroll into and manage the WellnessLiving Achieve App. These settings are located under Setup > Achieve Client App */
     INTERFACE_ACHIEVE_APP: 87,
     /** Modify the look and functionality business’s widgets. These settings are located within Setup > Widgets */
@@ -16023,8 +16025,6 @@
     PURCHASE_EDIT: 93,
     /** Access to view client purchases (passes and memberships) */
     PURCHASE_VIEW: 92,
-    /** Access to set up and change quickbooks integration */
-    QUICKBOOKS: 249,
     /** Allow to see alerts */
     RECEIVE_ALERT: 193,
     /** Access to view reports for all staff */
