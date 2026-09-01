@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260901171529
+ * Spec version: 1.1.20260901224231
  * Build date:   2026-09-01
  * Endpoints:    540
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260901171529';
+  WlClient.SPEC_VERSION = '1.1.20260901224231';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (540 total)
@@ -1998,6 +1998,9 @@
 
   /**
    * Returns the data required to render the site footer for the given business.
+   *
+   * Loads the business's white-label status and derives whether the "Powered by WellnessLiving"
+   * branding and the Terms and Conditions link should be shown in the footer.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key to get footer data for.
