@@ -9131,7 +9131,7 @@ export interface CoreAILogTriageConnectionCheckResponse {
         dtu_last_seen: string;
         /** Number of matching records. */
         i_occurrence_count: number;
-        /** WatchUsageStat priority multiplier. Present for the usage-statistics source. */
+        /** Usage-statistics priority multiplier. Present for the usage-statistics source. */
         i_priority_multiplier: number;
         /** Sources from which log triage findings can be collected. @see CoreAILogTriageTriageSourceSid */
         id_source: CoreAILogTriageTriageSourceSid;
