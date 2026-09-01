@@ -15122,6 +15122,8 @@ export interface WlLeadStageLeadStageListResponse {
         s_icon: string;
         /** Name of the stage. */
         text_title: string;
+        /** URL of the report of clients who are in this stage. */
+        url_member_report?: string;
     }>;
 }
 export interface WlLeadStageLeadStageElementDeleteParams {
