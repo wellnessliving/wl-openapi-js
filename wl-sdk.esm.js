@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260901113653
+// OpenAPI spec version: 1.1.20260901142452
 // Build date: 2026-09-01
-// Endpoints: 539
+// Endpoints: 540
 // Enums: 204
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -2443,9 +2443,9 @@ export var CoreAILogTriageTriageSourceSid;
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ASYNC_TASK"] = 5] = "ASYNC_TASK";
     /** Erroneous background tasks */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["BACKGROUND_TASK"] = 4] = "BACKGROUND_TASK";
-    /** PHP error log represented by DebugPhpLog */
+    /** PHP error log represented by {@link \Core\Debug\DebugPhpLog} */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ERROR_LOG"] = 1] = "ERROR_LOG";
-    /** Slow-operation log represented by DebugSlowLog */
+    /** Slow-operation log represented by {@link \Core\Debug\DebugSlowLog} */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["SLOW_LOG"] = 2] = "SLOW_LOG";
     /** Aggregated usage statistics */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["WATCH_USAGE_STAT"] = 3] = "WATCH_USAGE_STAT";
@@ -8511,11 +8511,21 @@ export class WlAiAgentLinkNamespace {
         return this._client._request('/Wl/AiAgent/Link/SendMail.json', params, 'POST');
     }
 }
+export class WlAiAgentAlertNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Fires an in-app alert for the specified event. */
+    alert(params) {
+        return this._client._request('/Wl/AiAgent/Alert/Alert.json', params, 'POST');
+    }
+}
 export class WlAiAgentNamespace {
     constructor(_client) {
         this._client = _client;
         this.phone = new WlAiAgentPhoneNamespace(this._client);
         this.link = new WlAiAgentLinkNamespace(this._client);
+        this.alert = new WlAiAgentAlertNamespace(this._client);
     }
 }
 export class WlCatalogCartNamespace {

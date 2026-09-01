@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260901113653
+ * Spec version: 1.1.20260901142452
  * Build date:   2026-09-01
- * Endpoints:    539
+ * Endpoints:    540
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260901113653';
+  WlClient.SPEC_VERSION = '1.1.20260901142452';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (539 total)
+  // Generated API methods (540 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2537,7 +2537,7 @@
    * @param {string} params.s_date_mask Date/time mask accepted by LogSearchQuery.
    * @param {string} params.text_search Optional case-insensitive message substring.
    * @returns {Promise<Object>} Response data.
-   *  `a_finding` {Object[]} Grouped findings.
+   *  `a_finding` {Object} Grouped findings.
    *  `i_result` {number} Connection check value.
    */
   WlClient.prototype.coreAILogTriageConnectionCheck = function(params)
@@ -5680,6 +5680,21 @@
   WlClient.prototype.wlAiAgentLinkSendMail = function(params)
   {
     return this.request('/Wl/AiAgent/Link/SendMail.json', params || {}, 'POST');
+  };
+
+  /**
+   * Fires an in-app alert for the specified event.
+   *
+   * Triggers the alert that appears in the business `Alert Center` for staff members with appropriate access.
+   * Requires the business to have an active `AI Agent` subscription.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlAiAgentAlertAlert = function(params)
+  {
+    return this.request('/Wl/AiAgent/Alert/Alert.json', params || {}, 'POST');
   };
 
   /**
@@ -14467,9 +14482,9 @@
     ASYNC_TASK: 5,
     /** Erroneous background tasks */
     BACKGROUND_TASK: 4,
-    /** PHP error log represented by DebugPhpLog */
+    /** PHP error log represented by {@link \Core\Debug\DebugPhpLog} */
     ERROR_LOG: 1,
-    /** Slow-operation log represented by DebugSlowLog */
+    /** Slow-operation log represented by {@link \Core\Debug\DebugSlowLog} */
     SLOW_LOG: 2,
     /** Aggregated usage statistics */
     WATCH_USAGE_STAT: 3,

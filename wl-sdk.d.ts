@@ -2372,9 +2372,9 @@ export declare enum CoreAILogTriageTriageSourceSid {
     ASYNC_TASK = 5,
     /** Erroneous background tasks */
     BACKGROUND_TASK = 4,
-    /** PHP error log represented by DebugPhpLog */
+    /** PHP error log represented by {@link \Core\Debug\DebugPhpLog} */
     ERROR_LOG = 1,
-    /** Slow-operation log represented by DebugSlowLog */
+    /** Slow-operation log represented by {@link \Core\Debug\DebugSlowLog} */
     SLOW_LOG = 2,
     /** Aggregated usage statistics */
     WATCH_USAGE_STAT = 3
@@ -9120,30 +9120,7 @@ export interface CoreAILogTriageConnectionCheckParams {
 }
 export interface CoreAILogTriageConnectionCheckResponse {
     /** Grouped findings. */
-    a_finding: Array<{
-        /** Local date of the first usage-statistics record. */
-        dl_first_seen: string;
-        /** Local date of the last usage-statistics record. */
-        dl_last_seen: string;
-        /** UTC date/time of the first matching log or async-task record. Empty for background tasks. */
-        dtu_first_seen: string;
-        /** UTC date/time of the last matching log or async-task record. Empty for background tasks. */
-        dtu_last_seen: string;
-        /** Number of matching records. */
-        i_occurrence_count: number;
-        /** WatchUsageStat priority multiplier. Present for the usage-statistics source. */
-        i_priority_multiplier: number;
-        /** Sources from which log triage findings can be collected. @see CoreAILogTriageTriageSourceSid */
-        id_source: CoreAILogTriageTriageSourceSid;
-        /** Usage-statistics object. Present for the usage-statistics source. */
-        s_object: string;
-        /** Usage-statistics aggregation period. Present for the usage-statistics source. */
-        s_period: string;
-        /** Usage-statistics priority. Present for the usage-statistics source. */
-        s_priority: string;
-        /** Log message or task description. Present for log and task sources. */
-        text_message: string;
-    }>;
+    a_finding: Record<string, unknown>;
     /** Connection check value. */
     i_result: number;
 }
@@ -15415,6 +15392,11 @@ export interface WlAiAgentLinkSendMailParams {
     uid: string;
 }
 export type WlAiAgentLinkSendMailResponse = Record<string, unknown>;
+export interface WlAiAgentAlertAlertParams {
+    /** Business key. */
+    k_business: string;
+}
+export type WlAiAgentAlertAlertResponse = Record<string, unknown>;
 export interface WlCatalogCartCartParams {
     /** The list of items in the cart. */
     a_item: Array<{
@@ -29740,10 +29722,17 @@ export declare class WlAiAgentLinkNamespace {
     /** Sends an AI agent link action email (booking or purchase) to the specified user. */
     sendMail(params?: WlAiAgentLinkSendMailParams): Promise<WlAiAgentLinkSendMailResponse>;
 }
+export declare class WlAiAgentAlertNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Fires an in-app alert for the specified event. */
+    alert(params?: WlAiAgentAlertAlertParams): Promise<WlAiAgentAlertAlertResponse>;
+}
 export declare class WlAiAgentNamespace {
     private readonly _client;
     readonly phone: WlAiAgentPhoneNamespace;
     readonly link: WlAiAgentLinkNamespace;
+    readonly alert: WlAiAgentAlertNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlCatalogCartNamespace {
