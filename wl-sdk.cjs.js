@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260901145106
+// OpenAPI spec version: 1.1.20260901153419
 // Build date: 2026-09-01
 // Endpoints: 540
 // Enums: 204
@@ -2457,9 +2457,9 @@ var CoreAILogTriageTriageSourceSid;
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ASYNC_TASK"] = 5] = "ASYNC_TASK";
     /** Erroneous background tasks */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["BACKGROUND_TASK"] = 4] = "BACKGROUND_TASK";
-    /** PHP error log represented by {@link \Core\Debug\DebugPhpLog} */
+    /** PHP error log represented by DebugPhpLog */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ERROR_LOG"] = 1] = "ERROR_LOG";
-    /** Slow-operation log represented by {@link \Core\Debug\DebugSlowLog} */
+    /** Slow-operation log represented by DebugSlowLog */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["SLOW_LOG"] = 2] = "SLOW_LOG";
     /** Aggregated usage statistics */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["WATCH_USAGE_STAT"] = 3] = "WATCH_USAGE_STAT";

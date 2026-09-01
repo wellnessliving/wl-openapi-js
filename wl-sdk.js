@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260901145106
+ * Spec version: 1.1.20260901153419
  * Build date:   2026-09-01
  * Endpoints:    540
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260901145106';
+  WlClient.SPEC_VERSION = '1.1.20260901153419';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (540 total)
@@ -2537,7 +2537,7 @@
    * @param {string} params.s_date_mask Date/time mask accepted by LogSearchQuery.
    * @param {string} params.text_search Optional case-insensitive message substring.
    * @returns {Promise<Object>} Response data.
-   *  `a_finding` {Object} Grouped findings.
+   *  `a_finding` {Object[]} Grouped findings.
    *  `i_result` {number} Connection check value.
    */
   WlClient.prototype.coreAILogTriageConnectionCheck = function(params)
@@ -14482,9 +14482,9 @@
     ASYNC_TASK: 5,
     /** Erroneous background tasks */
     BACKGROUND_TASK: 4,
-    /** PHP error log represented by {@link \Core\Debug\DebugPhpLog} */
+    /** PHP error log represented by DebugPhpLog */
     ERROR_LOG: 1,
-    /** Slow-operation log represented by {@link \Core\Debug\DebugSlowLog} */
+    /** Slow-operation log represented by DebugSlowLog */
     SLOW_LOG: 2,
     /** Aggregated usage statistics */
     WATCH_USAGE_STAT: 3,
