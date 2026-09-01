@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260831223100
-// Build date: 2026-08-31
-// Endpoints: 538
+// OpenAPI spec version: 1.1.20260901003147
+// Build date: 2026-09-01
+// Endpoints: 539
 // Enums: 204
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.RsRankTypeSid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsPayMethodSid = exports.CoreLocaleCurrencySid = exports.AGenderSid = exports.RsProgramTypeSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsProgramSid = exports.RsDurationTypeSid = exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsPurchaseItemSid = exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.WlBusinessFranchiseTravelTravelModeSid = exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = exports.RsPlaceSid = exports.RsCurrencySid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AFlagSid = exports.RsScheduleTimeSid = exports.ADateWeekSid = exports.ADurationSid = exports.CoreDriveDriveTypeSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.WlVisitVisitSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.RsReportSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlTaskTaskStatusSid = exports.WlGenderGenderSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlApiError = void 0;
@@ -5915,6 +5915,10 @@ class WlProfileAttendanceNamespace {
     /** Returns a list of visits that overlap with the specified service, class, resource, or time data. */
     attendanceOverlap(params) {
         return this._client._request('/Wl/Profile/Attendance/AttendanceOverlap.json', params, 'GET');
+    }
+    /** Checks a batch of candidate visits for booking overlaps. */
+    attendanceOverlapList(params) {
+        return this._client._request('/Wl/Profile/Attendance/AttendanceOverlapList.json', params, 'POST');
     }
 }
 exports.WlProfileAttendanceNamespace = WlProfileAttendanceNamespace;
