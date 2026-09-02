@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260902082731
+ * Spec version: 1.1.20260902132559
  * Build date:   2026-09-02
  * Endpoints:    540
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260902082731';
+  WlClient.SPEC_VERSION = '1.1.20260902132559';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (540 total)
@@ -3014,7 +3014,9 @@
   };
 
   /**
-   * Checks a batch of candidate visits for booking overlaps.
+   * Checks whether the specified user has any existing bookings that overlap with a given time range or service.
+   *
+   * Used before scheduling to detect conflicts and prompt staff or the client with a warning.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.

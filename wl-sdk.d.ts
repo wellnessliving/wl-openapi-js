@@ -9668,7 +9668,36 @@ export interface WlProfileAttendanceAttendanceOverlapListResponse {
     /** Overlap result for every checked session. Key is `i` from {@link WlProfileAttendanceNamespace#att... */
     a_date_overlap: Array<{
         /** List of visits that overlap with the checked session. Same structure as */
-        a_visit_list: Array<Array<unknown>>;
+        a_visit_list: {
+            /** Date and time of the visit. */
+            dtu_date: string;
+            /** Duration of a service. */
+            i_duration?: number;
+            /** End datetime of the visit in unix format. */
+            i_end: number;
+            /** Local end datetime of the visit in unix format. */
+            i_end_local?: number;
+            /** Start datetime of the visit in unix format. */
+            i_start: number;
+            /** Local start datetime of the visit in unix format. */
+            i_start_local?: number;
+            /** Appointment key. */
+            k_appointment: string;
+            /** Business key. */
+            k_business: string;
+            /** Class period key. */
+            k_class_period: string;
+            /** Enrollment book key. */
+            k_enrollment_book: string;
+            /** Location key. */
+            k_location: string;
+            /** Local end time of the visit, formatted according to the business locale. */
+            text_time_end?: string;
+            /** Local start time of the visit, formatted according to the business locale. */
+            text_time_start?: string;
+            /** Title of a service */
+            text_title: string;
+        };
         /** `true` if the checked session overlaps with an already booked visit, `false` otherwise. */
         is_overlap: boolean;
     }>;
@@ -28047,7 +28076,7 @@ export declare class WlProfileAttendanceNamespace {
     constructor(_client: WlClient);
     /** Returns a list of visits that overlap with the specified service, class, resource, or time data. */
     attendanceOverlap(params?: WlProfileAttendanceAttendanceOverlapParams): Promise<WlProfileAttendanceAttendanceOverlapResponse>;
-    /** Checks a batch of candidate visits for booking overlaps. */
+    /** Checks whether the specified user has any existing bookings that overlap with a given time range or service. */
     attendanceOverlapList(params?: WlProfileAttendanceAttendanceOverlapListParams): Promise<WlProfileAttendanceAttendanceOverlapListResponse>;
 }
 export declare class WlProfilePurchaseNamespace {
