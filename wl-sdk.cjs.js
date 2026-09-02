@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260902032656
+// OpenAPI spec version: 1.1.20260902064038
 // Build date: 2026-09-02
 // Endpoints: 530
 // Enums: 199
@@ -5708,7 +5708,7 @@ class WlProfileAttendanceNamespace {
     attendanceOverlap(params) {
         return this._client._request('/Wl/Profile/Attendance/AttendanceOverlap.json', params, 'GET');
     }
-    /** Checks a batch of candidate visits for booking overlaps. */
+    /** Checks whether the specified user has any existing bookings that overlap with a given time range or service. */
     attendanceOverlapList(params) {
         return this._client._request('/Wl/Profile/Attendance/AttendanceOverlapList.json', params, 'POST');
     }
