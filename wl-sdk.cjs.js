@@ -1,22 +1,22 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — production channel
-// OpenAPI spec version: 1.1.20260901060307
+// OpenAPI spec version: 1.1.20260902062532
 // Build date: 2026-09-02
 // Endpoints: 527
 // Enums: 199
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.WlVideoCatalogFilterSortFilterSortSid = exports.CoreSidSortOrderSid = exports.WlVideoVideoSourceSid = exports.CoreSidYesNoSid = exports.WlVideoVideoEmbedSourceSid = exports.RsSkinSid = exports.RsRankTypeSid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.CoreAmazonRegionAmazonRegionSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlImportCustomCustomSid = exports.WlVisitVisitSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.WlMailDomainDomainVerifyStatusSid = exports.WlMailVerifyMailVerifyStatusSid = exports.RsReportSid = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.WlGenderGenderSid = exports.WlTaskTaskStatusSid = exports.RsPayOwnerSid = exports.CoreLocaleLocaleSid = exports.ThothPayProcessorPayProcessorSid = exports.ThothWlPayCordovaCordovaCcrDeviceSid = exports.ThothPayProcessorTerminalTerminalTypeSid = exports.ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = exports.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = exports.ThothPayProcessorStripeComTerminalStripeReaderModelSid = exports.ThothPayProcessorTerminalTerminalStatusSid = exports.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = exports.ACardSystemSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorStripeComPaymentIntentStatusSid = exports.RsPayMethodSid = exports.RsPayActorSid = exports.CoreLocaleCurrencySid = exports.RsHomeTourSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.WlApiError = void 0;
-exports.WlIntegrationAutymateAutymateStatusSid = exports.WlReportGeneratorReportGeneratorStatusSid = exports.WlBusinessFranchiseLocationBusinessFranchiseLocationSid = exports.WlServiceBookableSid = exports.RsBusinessDesignLogoStyleSid = exports.RsBusinessDesignLogoPositionSid = exports.RsPageFrontendHeaderLayoutSid = exports.WlBusinessPolicyChargeSid = exports.WlBusinessPolicyBlameSid = exports.WlLocationFlagFlagSourceEnum = exports.RsLoginNoteFlagSid = exports.RsLoginNoteAccessSid = exports.RsProfileNoteSid = exports.WlProfileAttachAttachPreviewSid = exports.RsFamilyRelationSid = exports.WlProfileRegisterSourceSid = exports.RsSaleSid = exports.RsCommissionTypeSid = exports.RsActivationSid = exports.RsLoginActivityTypeSid = exports.WlDesignIconSid = exports.CoreGoogleCaptchaCaptchaResponseSid = exports.RsPayBankAchTypeSid = exports.RsPayBankAchHolderSid = exports.RsPayAccountChargeSid = exports.WlAnnouncementSortFieldSid = exports.WlAnnouncementAnnouncementStatusEnum = exports.RsPurchaseItemSid = exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.RsReviewStatusSid = exports.RsProjectSid = exports.RsScheduleTimeSid = exports.CoreDriveDriveTypeSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.AFlagSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.WlBusinessFranchiseTravelTravelModeSid = exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = exports.RsPlaceSid = exports.RsCurrencySid = exports.RsPrivilegeRoleSid = exports.AGenderSid = void 0;
-exports.RsPayBankSid = exports.RsPayModeSid = exports.WlCardCardSystemSid = exports.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = exports.WlWidgetAnalyticsWidgetAnalyticsEventSid = exports.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = exports.WlCatalogQuickPurchaseTypeSid = exports.WlQuizResponseSourceSid = exports.WlSocialShareShareObjectSid = exports.WlReviewReviewListReviewOrderSid = exports.WlUserTrackingFlowSid = exports.WlCouponTypeSid = exports.WlReceptionApplicationMemberInfoIconSid = exports.WlReceptionApplicationMemberInfoColorSid = exports.WlReceptionDesignCheckInSoundSid = exports.RsRewardScoreSid = exports.RsRewardActionCategorySid = exports.WlResourceImageImageIconSid = exports.WlResourceLayoutShapeLayoutShapeSid = exports.RsFacilitySid = exports.RsAgeSid = exports.RsProgramCategorySid = exports.WlPromotionEditLimitCycleSid = exports.WlClassesRequirePaySid = exports.WlBookProcessProcessSpaSid = exports.RsMailSid = exports.WlCatalogPurchaseOptionViewSid = exports.RsTaxSid = exports.WlCouponEditDurationTypeSid = exports.WlCouponEditActivationSid = exports.WlShopCategoryShopCategorySortSid = exports.ASocialSid = exports.WlPrivilegePrivilegeSid = exports.WlLoginTypeClientTypeSid = exports.WlVisitPassProspectSid = exports.WlProfileSensorSensorTypesSid = exports.CoreQuizResponseResponseStatusSid = exports.WlMemberProgressFieldTypeSid = exports.WlMemberProgressFieldMeasurementSid = exports.WlMemberProgressFieldProgressFieldSid = exports.RsServiceSid = exports.RsAppointmentPaySid = exports.RsRepeatEndSid = exports.WlResourceResourceCategoryEnum = exports.WlScheduleClassViewDenyReasonSid = exports.WlVirtualVirtualProviderSid = exports.WlVisitNoteSidNoteSid = exports.RsReportCategorySid = exports.WlVideoWatchWatchSourceSid = exports.WlIntegrationAutymateAutymateAccessModeSid = void 0;
-exports.ThothExplorerSearchClassSessionNamespace = exports.WlLoginPromotionGuestPassInviteInviteStatusEnum = exports.WlReceptionRosterDirectSid = exports.WlPassportLoginEnterOtpDeliveryStrategyEnum = exports.WlBookProcessProcessCheckSid = exports.WlDiscountDiscountRuleSid = exports.WlShareShareSid = exports.WlSearchSearchOperationSid = exports.WlMemberGroupShapeSid = exports.WlLeadConversionLeadConversionTypeSid = exports.WlShopProductPurchaseRestrictionSid = exports.WlPromotionGuestPassGuestPassResetTypeSid = exports.WlLoginPromotionConvertConvertWhenSid = exports.WlPromotionConvertPromotionConvertSid = exports.WlLoginAttendanceAddOptionSid = exports.RsServicePriceSid = exports.RsAppointmentEditConflictSid = exports.RsServiceRequireSid = exports.WlServiceServiceBookFlowSid = exports.WlLoginLoginRoleSid = exports.WlScheduleDesignOptionSid = exports.WlSkinApplicationUpgradeAppUpdateTypeEnum = exports.WlSkinApplicationResourceApplicationCategorySid = exports.RsClassModifyModeSid = exports.RsClassModifyActionSid = exports.WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = exports.WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = exports.WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = exports.WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid = exports.WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid = exports.WlBusinessAccountSubscriptionSmsSmsSubscriptionSid = exports.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = exports.WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = exports.WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = exports.WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = exports.WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = exports.WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = exports.WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = exports.WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = exports.WlBusinessAccountSubscriptionApiApiSubscriptionSid = exports.WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = exports.WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = exports.WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = exports.WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = exports.WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = exports.RsPayBankAchSecSid = void 0;
-exports.WlProfileAccountNamespace = exports.WlProfileAccountSelectNamespace = exports.WlProfileContractNamespace = exports.WlProfileContractContractAllNamespace = exports.WlProfileSettingNamespace = exports.WlProfileAlertNamespace = exports.WlProfileAttachNamespace = exports.WlProfileTimezoneNamespace = exports.WlProfileEditNamespace = exports.WlProfileEditEmailNamespace = exports.WlProfileTermNamespace = exports.WlProfileAttendanceNamespace = exports.WlProfileAttendanceScheduleNamespace = exports.WlProfileAttendanceScheduleFrontendNamespace = exports.WlProfilePurchaseListNamespace = exports.WlProfilePurchaseNamespace = exports.WlProfileActivityNamespace = exports.WlReportNamespace = exports.WlReportFavoriteNamespace = exports.WlReportSaveNamespace = exports.WlReportCustomizationNamespace = exports.WlReportDashboardNamespace = exports.WlReportGeneratorNamespace = exports.WlPayNamespace = exports.WlPayBankNamespace = exports.WlPayBankAchNamespace = exports.WlPayBankAchAddNamespace = exports.WlPayBankCardNamespace = exports.WlPayBankCardWidgetNamespace = exports.WlPayBankCardAddNamespace = exports.WlPayTransactionNamespace = exports.WlPayTransactionReportNamespace = exports.WlPayAddressNamespace = exports.WlPayAddressWidgetNamespace = exports.WlPayOwnerNamespace = exports.WlPayMethodNamespace = exports.WlPayFormNamespace = exports.WlPayAccountNamespace = exports.WlPayAccountChargeNamespace = exports.WlPayProcessorNamespace = exports.WlPayProcessorCyberSourceNamespace = exports.WlPayProcessorStripeComNamespace = exports.ThothNamespace = exports.ThothReportCoreNamespace = exports.ThothReportCoreQueryEngineNamespace = exports.ThothReportCoreQueryEngineReportNamespace = exports.ThothReportCoreQueryEngineReportCustomizationNamespace = exports.ThothPayProcessorNamespace = exports.ThothPayProcessorNuveiNamespace = exports.ThothExplorerSearchNamespace = void 0;
-exports.WlLoginPromotionGuestPassInviteNamespace = exports.WlLoginPromotionConvertNamespace = exports.WlLoginCouponNamespace = exports.WlLoginAttendanceNamespace = exports.WlLoginAttendanceAddNamespace = exports.WlScheduleNamespace = exports.WlScheduleScheduleListNamespace = exports.WlScheduleScheduleListStaffAppNamespace = exports.WlScheduleClassViewNamespace = exports.WlScheduleClassListNamespace = exports.WlSchedulePageNamespace = exports.WlScheduleTabNamespace = exports.WlVideoNamespace = exports.WlVideoLevelNamespace = exports.WlVideoTagNamespace = exports.WlVideoWatchNamespace = exports.WlVideoCategoryNamespace = exports.WlSkinNamespace = exports.WlSkinWidgetNamespace = exports.WlSkinApplicationNamespace = exports.WlSkinApplicationResourceNamespace = exports.WlSkinApplicationConnectNamespace = exports.WlBusinessNamespace = exports.WlBusinessUserNamespace = exports.WlBusinessUserSubscribeNamespace = exports.WlBusinessRewardNamespace = exports.WlBusinessRewardConfigNamespace = exports.WlBusinessFranchiseNamespace = exports.WlBusinessFranchiseLocationNamespace = exports.WlBusinessAuthorizeSupportNamespace = exports.WlBusinessAuthorizeSupportResponseNamespace = exports.WlBusinessClaimNamespace = exports.WlBusinessSearchNamespace = exports.WlBusinessAuthorizePartnerNamespace = exports.WlBusinessWaiverNamespace = exports.WlBusinessLeadNamespace = exports.WlBusinessPhoneNamespace = exports.WlBusinessDesignNamespace = exports.WlBusinessTypeNamespace = exports.WlBusinessSelectNamespace = exports.WlBusinessConfigNamespace = exports.WlBusinessConfigOptionNamespace = exports.WlBusinessAmazonRegionNamespace = exports.WlBusinessPartnerNamespace = exports.WlBusinessAccountNamespace = exports.WlBusinessAccountSubscriptionNamespace = exports.WlBusinessAccountSubscriptionAchieveNamespace = exports.WlProfileNamespace = exports.WlProfileFormNamespace = exports.WlProfileFormResponseNamespace = void 0;
-exports.WlCollectorNamespace = exports.WlQuizNamespace = exports.WlQuizResponseNamespace = exports.WlReviewNamespace = exports.WlReviewReviewListNamespace = exports.WlRankNamespace = exports.WlCurrencyNamespace = exports.WlTaxNamespace = exports.WlTagNamespace = exports.WlHolidayNamespace = exports.WlLocationNamespace = exports.WlLocationFacilityNamespace = exports.WlLocationFlagNamespace = exports.WlLocationLocationRateNamespace = exports.WlLocationViewNamespace = exports.WlLocationWorkTimeNamespace = exports.WlEventNamespace = exports.WlEventBookNamespace = exports.WlEventBookEventViewNamespace = exports.WlEventBookEventListNamespace = exports.WlMailNamespace = exports.WlMailPatternNamespace = exports.WlMailPatternAutomatedMarketingNamespace = exports.WlMailPatternAutomatedMarketingCustomTemplateNamespace = exports.WlLeadNamespace = exports.WlLeadSourceNamespace = exports.WlVisitNamespace = exports.WlPromotionNamespace = exports.WlPromotionIndexNamespace = exports.WlSessionNamespace = exports.WlStaffNamespace = exports.WlStaffPrivilegeNamespace = exports.WlStaffStaffViewNamespace = exports.WlStaffStaffListNamespace = exports.WlLoginNamespace = exports.WlLoginProductNamespace = exports.WlLoginPermissionNamespace = exports.WlLoginMemberNamespace = exports.WlLoginMemberDynamicIdNamespace = exports.WlLoginMailNamespace = exports.WlLoginRankNamespace = exports.WlLoginTypeNamespace = exports.WlLoginAddNamespace = exports.WlLoginAgreeNamespace = exports.WlLoginSearchNamespace = exports.WlLoginSearchStaffAppNamespace = exports.WlLoginPromotionNamespace = exports.WlLoginPromotionGuestPassNamespace = exports.WlLoginPromotionGuestPassApplyNamespace = exports.WlLoginPromotionGuestPassClaimNamespace = void 0;
-exports.WlNotificationOtpNamespace = exports.WlNotificationSendNamespace = exports.WlCatalogNamespace = exports.WlCatalogStaffAppNamespace = exports.WlCatalogStaffAppCatalogViewNamespace = exports.WlCatalogStaffAppCatalogListNamespace = exports.WlCatalogStaffAppCatalogCartNamespace = exports.WlCatalogQuizNamespace = exports.WlCatalogCatalogListNamespace = exports.WlCatalogPaymentNamespace = exports.WlCatalogCartNamespace = exports.WlPurchaseNamespace = exports.WlPurchaseShareNamespace = exports.WlPurchaseReceiptNamespace = exports.WlPurchaseMailNamespace = exports.WlSmsNamespace = exports.WlSmsPhoneNamespace = exports.WlAppointmentNamespace = exports.WlAppointmentBookNamespace = exports.WlAppointmentBookQuizNamespace = exports.WlAppointmentBookScheduleNamespace = exports.WlAppointmentBookPurchaseNamespace = exports.WlAppointmentBookProductNamespace = exports.WlAppointmentBookQuestionNamespace = exports.WlAppointmentBookAssetNamespace = exports.WlAppointmentBookAssetServiceNamespace = exports.WlAppointmentBookFinishNamespace = exports.WlAppointmentBookServiceNamespace = exports.WlAppointmentBookStaffNamespace = exports.WlAppointmentBookPaymentNamespace = exports.WlAppointmentRecentNamespace = exports.WlAppointmentInfoNamespace = exports.WlAppointmentEditNamespace = exports.WlServiceNamespace = exports.WlServiceServiceListNamespace = exports.WlIntegrationNamespace = exports.WlIntegrationDragonFlyNamespace = exports.WlIntegrationAutymateNamespace = exports.WlIntegrationSamlNamespace = exports.WlIntegrationCurvesNamespace = exports.WlClassesNamespace = exports.WlClassesPeriodNamespace = exports.WlClassesPeriodModifyNamespace = exports.WlClassesClassViewNamespace = exports.WlClassesInfoNamespace = exports.WlClassesClassListNamespace = exports.WlClassesPromotionNamespace = exports.WlDriveNamespace = exports.WlAnnouncementNamespace = exports.WlFitbuilderNamespace = void 0;
-exports.WlRewardActionNamespace = exports.WlRewardActionCategoryListNamespace = exports.WlRewardBoardNamespace = exports.WlRewardBoardBoardListNamespace = exports.WlRewardPrizeNamespace = exports.WlRewardScoreNamespace = exports.WlRewardScoreCurrentNamespace = exports.WlResourceNamespace = exports.WlResourceResourceListNamespace = exports.WlResourceLayoutNamespace = exports.WlGoogleNamespace = exports.WlGoogleLoginNamespace = exports.WlDiscountNamespace = exports.WlDiscountCodeNamespace = exports.WlDiscountCodeEditNamespace = exports.WlInsuranceNamespace = exports.WlInsuranceEnrollmentNamespace = exports.WlInsuranceEnrollmentFieldNamespace = exports.WlInsuranceCatalogNamespace = exports.WlBookNamespace = exports.WlBookCancelNamespace = exports.WlBookProcessNamespace = exports.WlBookProcessGuestNamespace = exports.WlBookProcessRelationNamespace = exports.WlBookProcessFrequencyNamespace = exports.WlBookProcessQuizNamespace = exports.WlBookProcessStoreNamespace = exports.WlBookProcessResourceNamespace = exports.WlBookProcessPurchaseNamespace = exports.WlBookProcessInfoNamespace = exports.WlBookProcessPaymentNamespace = exports.WlSearchNamespace = exports.WlSearchTagNamespace = exports.WlMemberNamespace = exports.WlMemberProgressNamespace = exports.WlMemberProgressGoalNamespace = exports.WlMemberProgressGoalEditNamespace = exports.WlMemberProgressFieldNamespace = exports.WlMemberProgressFieldEditNamespace = exports.WlMemberProgressLogNamespace = exports.WlMemberProgressLogCompareNamespace = exports.WlMemberProgressLogImageNamespace = exports.WlMemberProgressLogEditNamespace = exports.WlMemberGroupNamespace = exports.WlMemberGroupUserNamespace = exports.WlMemberGroupEditNamespace = exports.WlMemberGroupGroupListNamespace = exports.WlMemberPurchaseNamespace = exports.WlMemberInfoNamespace = exports.WlNotificationNamespace = void 0;
-exports.CoreGeoNamespace = exports.CoreGeoRegionNamespace = exports.CoreGoogleNamespace = exports.CoreGoogleCaptchaNamespace = exports.CoreRequestNamespace = exports.CoreRequestTokenNamespace = exports.CoreRequestApiNamespace = exports.CoreRequestApiApplicationNamespace = exports.CoreRequestApiApplicationCredentialNamespace = exports.CoreWebSocketNamespace = exports.WlNamespace = exports.WlTuitionNamespace = exports.WlTuitionEnrollmentNamespace = exports.WlWidgetNamespace = exports.WlWidgetAnalyticsNamespace = exports.WlBillingNamespace = exports.WlBillingBulkNamespace = exports.WlAiAgentNamespace = exports.WlAiAgentLinkNamespace = exports.WlMicrosoftNamespace = exports.WlMicrosoftLoginNamespace = exports.WlSocialNamespace = exports.WlSocialShareNamespace = exports.WlGymNamespace = exports.WlGymVisitNamespace = exports.WlFacebookNamespace = exports.WlFacebookLoginNamespace = exports.WlFamilyNamespace = exports.WlFamilyRelationNamespace = exports.WlCouponNamespace = exports.WlCouponCouponListNamespace = exports.WlReceptionNamespace = exports.WlReceptionApplicationNamespace = exports.WlReceptionDesignNamespace = exports.WlReceptionRosterNamespace = exports.WlReceptionRosterDesignNamespace = exports.WlPassportNamespace = exports.WlPassportLoginNamespace = exports.WlPassportLoginRegisterNamespace = exports.WlPassportLoginEnterNamespace = exports.WlUserNamespace = exports.WlUserReferrerNamespace = exports.WlUserInfoNamespace = exports.WlShopNamespace = exports.WlShopProductNamespace = exports.WlShopProductOptionNamespace = exports.WlShopProductOptionInventoryNamespace = exports.WlShopProductOptionInventoryCountNamespace = exports.WlShopCategoryNamespace = exports.WlRewardNamespace = void 0;
-exports.WlClient = exports.SocialNamespace = exports.SocialFacebookNamespace = exports.SocialFacebookLoginNamespace = exports.SocialGoogleNamespace = exports.SocialGooglePlusNamespace = exports.SocialAppleNamespace = exports.SocialAppleLoginNamespace = exports.SocialMicrosoftNamespace = exports.CoreNamespace = exports.CoreTestingNamespace = exports.CoreTestingAutomationNamespace = exports.CoreDriveNamespace = exports.CoreDriveImageUploadNamespace = exports.CoreSpaNamespace = exports.CoreSpaApplicationNamespace = exports.CorePassportNamespace = exports.CorePassportUserNamespace = exports.CorePassportUserEmailNamespace = exports.CorePassportEnterNamespace = exports.CorePassportEnterJwtNamespace = exports.CorePassportChangePasswordNamespace = exports.CorePassportLoginNamespace = exports.CorePassportLoginSignOutNamespace = exports.CorePassportLoginRegisterNamespace = exports.CorePassportLoginEnterNamespace = exports.CoreCaptchaNamespace = exports.CoreSidNamespace = void 0;
+exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsRankTypeSid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.CoreAmazonRegionAmazonRegionSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.RsProgramTypeSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsProgramSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.AFlagSid = exports.RsPrivilegeRoleSid = exports.AGenderSid = exports.WlImportCustomCustomSid = exports.WlVisitVisitSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.WlTaskTaskStatusSid = exports.WlGenderGenderSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.RsPayOwnerSid = exports.CoreLocaleLocaleSid = exports.ThothPayProcessorPayProcessorSid = exports.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = exports.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = exports.ThothPayProcessorStripeComTerminalStripeReaderModelSid = exports.ThothWlPayCordovaCordovaCcrDeviceSid = exports.ThothPayProcessorTerminalTerminalTypeSid = exports.ThothPayProcessorTerminalTerminalStatusSid = exports.ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = exports.ACardSystemSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.RsPayMethodSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorStripeComPaymentIntentStatusSid = exports.CoreLocaleCurrencySid = exports.RsPayActorSid = exports.RsHomeTourSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.WlApiError = void 0;
+exports.RsFamilyRelationSid = exports.RsRepeatEndSid = exports.ASocialSid = exports.WlLoginTypeClientTypeSid = exports.WlVisitPassProspectSid = exports.WlProfileSensorSensorTypesSid = exports.CoreQuizResponseResponseStatusSid = exports.WlMemberProgressFieldTypeSid = exports.WlMemberProgressFieldMeasurementSid = exports.WlMemberProgressFieldProgressFieldSid = exports.RsServiceSid = exports.WlVisitNoteSidNoteSid = exports.RsSaleSid = exports.WlBusinessFranchiseLocationBusinessFranchiseLocationSid = exports.WlIntegrationAutymateAutymateAccessModeSid = exports.WlIntegrationAutymateAutymateStatusSid = exports.WlReportGeneratorReportGeneratorStatusSid = exports.RsMailSid = exports.RsProgramCategorySid = exports.WlPromotionEditLimitCycleSid = exports.WlPrivilegePrivilegeSid = exports.CoreGoogleCaptchaCaptchaResponseSid = exports.RsPayBankAchTypeSid = exports.RsPayBankAchHolderSid = exports.RsPayAccountChargeSid = exports.RsReviewStatusSid = exports.WlAnnouncementSortFieldSid = exports.WlAnnouncementAnnouncementStatusEnum = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlVideoCatalogFilterSortFilterSortSid = exports.CoreSidSortOrderSid = exports.WlVideoVideoSourceSid = exports.CoreSidYesNoSid = exports.WlVideoVideoEmbedSourceSid = exports.RsProjectSid = exports.WlClassesTabTabSid = exports.RsSkinSid = exports.RsPurchaseItemSid = exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.WlBusinessFranchiseTravelTravelModeSid = exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = exports.RsPlaceSid = exports.RsCurrencySid = exports.RsScheduleTimeSid = exports.ADateWeekSid = exports.CoreDriveDriveTypeSid = void 0;
+exports.RsPayBankSid = exports.RsPayModeSid = exports.WlCardCardSystemSid = exports.WlSocialShareShareObjectSid = exports.WlReceptionDesignCheckInSoundSid = exports.WlReceptionApplicationMemberInfoIconSid = exports.WlReceptionApplicationMemberInfoColorSid = exports.WlReviewReviewListReviewOrderSid = exports.WlCouponTypeSid = exports.WlResourceImageImageIconSid = exports.WlResourceLayoutShapeLayoutShapeSid = exports.RsRewardActionCategorySid = exports.RsRewardScoreSid = exports.WlVideoWatchWatchSourceSid = exports.RsFacilitySid = exports.RsAgeSid = exports.WlVirtualVirtualProviderSid = exports.WlScheduleClassViewDenyReasonSid = exports.WlResourceResourceCategoryEnum = exports.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = exports.WlWidgetAnalyticsWidgetAnalyticsEventSid = exports.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = exports.WlCatalogQuickPurchaseTypeSid = exports.WlQuizResponseSourceSid = exports.WlServiceBookableSid = exports.RsReportCategorySid = exports.RsAppointmentPaySid = exports.RsBusinessDesignLogoStyleSid = exports.RsBusinessDesignLogoPositionSid = exports.RsPageFrontendHeaderLayoutSid = exports.WlBusinessPolicyChargeSid = exports.WlBusinessPolicyBlameSid = exports.WlUserTrackingFlowSid = exports.WlShopCategoryShopCategorySortSid = exports.WlCatalogPurchaseOptionViewSid = exports.RsTaxSid = exports.WlCouponEditDurationTypeSid = exports.WlCouponEditActivationSid = exports.WlProfileRegisterSourceSid = exports.WlLocationFlagFlagSourceEnum = exports.RsLoginNoteFlagSid = exports.RsLoginNoteAccessSid = exports.RsProfileNoteSid = exports.RsLoginActivityTypeSid = exports.WlDesignIconSid = exports.WlProfileAttachAttachPreviewSid = exports.RsCommissionTypeSid = exports.RsActivationSid = exports.WlClassesRequirePaySid = exports.WlBookProcessProcessSpaSid = void 0;
+exports.ThothExplorerSearchClassSessionNamespace = exports.WlLoginPromotionGuestPassInviteInviteStatusEnum = exports.WlReceptionRosterDirectSid = exports.WlScheduleDesignOptionSid = exports.WlSkinApplicationUpgradeAppUpdateTypeEnum = exports.WlSkinApplicationResourceApplicationCategorySid = exports.WlShareShareSid = exports.WlSearchSearchOperationSid = exports.WlMemberGroupShapeSid = exports.WlLeadConversionLeadConversionTypeSid = exports.RsClassModifyModeSid = exports.RsClassModifyActionSid = exports.RsServicePriceSid = exports.RsServiceRequireSid = exports.WlServiceServiceBookFlowSid = exports.RsAppointmentEditConflictSid = exports.WlLoginLoginRoleSid = exports.WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = exports.WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = exports.WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = exports.WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = exports.WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = exports.WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.WlBusinessAccountSubscriptionApiApiSubscriptionSid = exports.WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = exports.WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = exports.WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = exports.WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = exports.WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid = exports.WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = exports.WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = exports.WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = exports.WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid = exports.WlBusinessAccountSubscriptionSmsSmsSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = exports.WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = exports.WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = exports.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = exports.WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid = exports.WlShopProductPurchaseRestrictionSid = exports.WlBookProcessProcessCheckSid = exports.WlDiscountDiscountRuleSid = exports.WlLoginAttendanceAddOptionSid = exports.WlLoginPromotionConvertConvertWhenSid = exports.WlPromotionConvertPromotionConvertSid = exports.WlPromotionGuestPassGuestPassResetTypeSid = exports.WlPassportLoginEnterOtpDeliveryStrategyEnum = exports.RsPayBankAchSecSid = void 0;
+exports.WlLoginPromotionNamespace = exports.WlLoginPromotionConvertNamespace = exports.WlLoginPromotionGuestPassNamespace = exports.WlLoginPromotionGuestPassClaimNamespace = exports.WlLoginPromotionGuestPassApplyNamespace = exports.WlLoginPromotionGuestPassInviteNamespace = exports.WlCollectorNamespace = exports.WlPromotionNamespace = exports.WlPromotionIndexNamespace = exports.WlStaffNamespace = exports.WlStaffStaffListNamespace = exports.WlStaffStaffViewNamespace = exports.WlStaffPrivilegeNamespace = exports.WlMailNamespace = exports.WlMailPatternNamespace = exports.WlMailPatternAutomatedMarketingNamespace = exports.WlMailPatternAutomatedMarketingCustomTemplateNamespace = exports.WlReportNamespace = exports.WlReportSaveNamespace = exports.WlReportFavoriteNamespace = exports.WlReportCustomizationNamespace = exports.WlReportDashboardNamespace = exports.WlReportGeneratorNamespace = exports.WlPayNamespace = exports.WlPayTransactionNamespace = exports.WlPayTransactionReportNamespace = exports.WlPayBankNamespace = exports.WlPayBankAchNamespace = exports.WlPayBankAchAddNamespace = exports.WlPayBankCardNamespace = exports.WlPayBankCardWidgetNamespace = exports.WlPayBankCardAddNamespace = exports.WlPayAddressNamespace = exports.WlPayAddressWidgetNamespace = exports.WlPayMethodNamespace = exports.WlPayOwnerNamespace = exports.WlPayFormNamespace = exports.WlPayAccountNamespace = exports.WlPayAccountChargeNamespace = exports.WlPayProcessorNamespace = exports.WlPayProcessorCyberSourceNamespace = exports.WlPayProcessorStripeComNamespace = exports.ThothNamespace = exports.ThothReportCoreNamespace = exports.ThothReportCoreQueryEngineNamespace = exports.ThothReportCoreQueryEngineReportNamespace = exports.ThothReportCoreQueryEngineReportCustomizationNamespace = exports.ThothPayProcessorNamespace = exports.ThothPayProcessorNuveiNamespace = exports.ThothExplorerSearchNamespace = void 0;
+exports.WlBusinessPhoneNamespace = exports.WlBusinessLeadNamespace = exports.WlBusinessClaimNamespace = exports.WlBusinessAuthorizePartnerNamespace = exports.WlBusinessAmazonRegionNamespace = exports.WlBusinessTypeNamespace = exports.WlBusinessDesignNamespace = exports.WlBusinessSearchNamespace = exports.WlBusinessWaiverNamespace = exports.WlBusinessPartnerNamespace = exports.WlBusinessConfigNamespace = exports.WlBusinessConfigOptionNamespace = exports.WlBusinessAccountNamespace = exports.WlBusinessAccountSubscriptionNamespace = exports.WlBusinessAccountSubscriptionAchieveNamespace = exports.WlProfileNamespace = exports.WlProfileFormNamespace = exports.WlProfileFormResponseNamespace = exports.WlProfileAccountNamespace = exports.WlProfileAccountSelectNamespace = exports.WlProfileTimezoneNamespace = exports.WlProfileContractNamespace = exports.WlProfileContractContractAllNamespace = exports.WlProfileEditNamespace = exports.WlProfileEditEmailNamespace = exports.WlProfileAlertNamespace = exports.WlProfileSettingNamespace = exports.WlProfileActivityNamespace = exports.WlProfileAttachNamespace = exports.WlProfilePurchaseListNamespace = exports.WlProfileAttendanceNamespace = exports.WlProfileAttendanceScheduleNamespace = exports.WlProfileAttendanceScheduleFrontendNamespace = exports.WlProfileTermNamespace = exports.WlProfilePurchaseNamespace = exports.WlLoginNamespace = exports.WlLoginAgreeNamespace = exports.WlLoginPermissionNamespace = exports.WlLoginProductNamespace = exports.WlLoginSearchNamespace = exports.WlLoginSearchStaffAppNamespace = exports.WlLoginCouponNamespace = exports.WlLoginRankNamespace = exports.WlLoginTypeNamespace = exports.WlLoginAttendanceNamespace = exports.WlLoginAttendanceAddNamespace = exports.WlLoginMailNamespace = exports.WlLoginAddNamespace = exports.WlLoginMemberNamespace = exports.WlLoginMemberDynamicIdNamespace = void 0;
+exports.WlTagNamespace = exports.WlDriveNamespace = exports.WlReviewNamespace = exports.WlReviewReviewListNamespace = exports.WlAnnouncementNamespace = exports.WlFitbuilderNamespace = exports.WlVisitNamespace = exports.WlLeadNamespace = exports.WlLeadSourceNamespace = exports.WlVideoNamespace = exports.WlVideoTagNamespace = exports.WlVideoWatchNamespace = exports.WlVideoCategoryNamespace = exports.WlVideoLevelNamespace = exports.WlLocationNamespace = exports.WlLocationWorkTimeNamespace = exports.WlLocationFlagNamespace = exports.WlLocationFacilityNamespace = exports.WlLocationLocationRateNamespace = exports.WlLocationViewNamespace = exports.WlScheduleNamespace = exports.WlScheduleScheduleListNamespace = exports.WlScheduleScheduleListStaffAppNamespace = exports.WlScheduleTabNamespace = exports.WlSchedulePageNamespace = exports.WlScheduleClassListNamespace = exports.WlScheduleClassViewNamespace = exports.WlSkinNamespace = exports.WlSkinWidgetNamespace = exports.WlSkinApplicationNamespace = exports.WlSkinApplicationConnectNamespace = exports.WlSkinApplicationResourceNamespace = exports.WlTaxNamespace = exports.WlQuizNamespace = exports.WlQuizResponseNamespace = exports.WlSessionNamespace = exports.WlEventNamespace = exports.WlEventBookNamespace = exports.WlEventBookEventListNamespace = exports.WlEventBookEventViewNamespace = exports.WlBusinessNamespace = exports.WlBusinessUserNamespace = exports.WlBusinessUserSubscribeNamespace = exports.WlBusinessRewardNamespace = exports.WlBusinessRewardConfigNamespace = exports.WlBusinessAuthorizeSupportNamespace = exports.WlBusinessAuthorizeSupportResponseNamespace = exports.WlBusinessFranchiseNamespace = exports.WlBusinessFranchiseLocationNamespace = exports.WlBusinessSelectNamespace = void 0;
+exports.WlAppointmentRecentNamespace = exports.WlAppointmentInfoNamespace = exports.WlAppointmentEditNamespace = exports.WlFamilyNamespace = exports.WlFamilyRelationNamespace = exports.WlTuitionNamespace = exports.WlTuitionEnrollmentNamespace = exports.WlCatalogNamespace = exports.WlCatalogStaffAppNamespace = exports.WlCatalogStaffAppCatalogViewNamespace = exports.WlCatalogStaffAppCatalogListNamespace = exports.WlCatalogStaffAppCatalogCartNamespace = exports.WlCatalogQuizNamespace = exports.WlCatalogCatalogListNamespace = exports.WlCatalogPaymentNamespace = exports.WlCatalogCartNamespace = exports.WlBookNamespace = exports.WlBookCancelNamespace = exports.WlBookProcessNamespace = exports.WlBookProcessGuestNamespace = exports.WlBookProcessResourceNamespace = exports.WlBookProcessRelationNamespace = exports.WlBookProcessQuizNamespace = exports.WlBookProcessFrequencyNamespace = exports.WlBookProcessStoreNamespace = exports.WlBookProcessPaymentNamespace = exports.WlBookProcessInfoNamespace = exports.WlBookProcessPurchaseNamespace = exports.WlPurchaseNamespace = exports.WlPurchaseShareNamespace = exports.WlPurchaseMailNamespace = exports.WlPurchaseReceiptNamespace = exports.WlIntegrationNamespace = exports.WlIntegrationDragonFlyNamespace = exports.WlIntegrationCurvesNamespace = exports.WlIntegrationAutymateNamespace = exports.WlIntegrationSamlNamespace = exports.WlDiscountNamespace = exports.WlDiscountCodeNamespace = exports.WlDiscountCodeEditNamespace = exports.WlPassportNamespace = exports.WlPassportLoginNamespace = exports.WlPassportLoginRegisterNamespace = exports.WlPassportLoginEnterNamespace = exports.WlNotificationNamespace = exports.WlNotificationOtpNamespace = exports.WlNotificationSendNamespace = exports.WlHolidayNamespace = exports.WlRankNamespace = exports.WlCurrencyNamespace = void 0;
+exports.WlAiAgentNamespace = exports.WlAiAgentLinkNamespace = exports.WlServiceNamespace = exports.WlServiceServiceListNamespace = exports.WlWidgetNamespace = exports.WlWidgetAnalyticsNamespace = exports.WlMemberNamespace = exports.WlMemberProgressNamespace = exports.WlMemberProgressGoalNamespace = exports.WlMemberProgressGoalEditNamespace = exports.WlMemberProgressFieldNamespace = exports.WlMemberProgressFieldEditNamespace = exports.WlMemberProgressLogNamespace = exports.WlMemberProgressLogCompareNamespace = exports.WlMemberProgressLogImageNamespace = exports.WlMemberProgressLogEditNamespace = exports.WlMemberGroupNamespace = exports.WlMemberGroupGroupListNamespace = exports.WlMemberGroupEditNamespace = exports.WlMemberGroupUserNamespace = exports.WlMemberInfoNamespace = exports.WlMemberPurchaseNamespace = exports.WlClassesNamespace = exports.WlClassesPeriodNamespace = exports.WlClassesPeriodModifyNamespace = exports.WlClassesPromotionNamespace = exports.WlClassesClassViewNamespace = exports.WlClassesInfoNamespace = exports.WlClassesClassListNamespace = exports.WlBillingNamespace = exports.WlBillingBulkNamespace = exports.WlShopNamespace = exports.WlShopProductNamespace = exports.WlShopProductOptionNamespace = exports.WlShopProductOptionInventoryNamespace = exports.WlShopProductOptionInventoryCountNamespace = exports.WlShopCategoryNamespace = exports.WlAppointmentNamespace = exports.WlAppointmentBookNamespace = exports.WlAppointmentBookQuestionNamespace = exports.WlAppointmentBookProductNamespace = exports.WlAppointmentBookPurchaseNamespace = exports.WlAppointmentBookAssetNamespace = exports.WlAppointmentBookAssetServiceNamespace = exports.WlAppointmentBookServiceNamespace = exports.WlAppointmentBookQuizNamespace = exports.WlAppointmentBookPaymentNamespace = exports.WlAppointmentBookScheduleNamespace = exports.WlAppointmentBookFinishNamespace = exports.WlAppointmentBookStaffNamespace = void 0;
+exports.CoreWebSocketNamespace = exports.CoreSidNamespace = exports.CoreGoogleNamespace = exports.CoreGoogleCaptchaNamespace = exports.CoreCaptchaNamespace = exports.CoreRequestNamespace = exports.CoreRequestTokenNamespace = exports.CoreRequestApiNamespace = exports.CoreRequestApiApplicationNamespace = exports.CoreRequestApiApplicationCredentialNamespace = exports.WlNamespace = exports.WlSocialNamespace = exports.WlSocialShareNamespace = exports.WlGoogleNamespace = exports.WlGoogleLoginNamespace = exports.WlFacebookNamespace = exports.WlFacebookLoginNamespace = exports.WlMicrosoftNamespace = exports.WlMicrosoftLoginNamespace = exports.WlGymNamespace = exports.WlGymVisitNamespace = exports.WlInsuranceNamespace = exports.WlInsuranceEnrollmentNamespace = exports.WlInsuranceEnrollmentFieldNamespace = exports.WlInsuranceCatalogNamespace = exports.WlReceptionNamespace = exports.WlReceptionDesignNamespace = exports.WlReceptionRosterNamespace = exports.WlReceptionRosterDesignNamespace = exports.WlReceptionApplicationNamespace = exports.WlSearchNamespace = exports.WlSearchTagNamespace = exports.WlSmsNamespace = exports.WlSmsPhoneNamespace = exports.WlCouponNamespace = exports.WlCouponCouponListNamespace = exports.WlResourceNamespace = exports.WlResourceLayoutNamespace = exports.WlResourceResourceListNamespace = exports.WlRewardNamespace = exports.WlRewardScoreNamespace = exports.WlRewardScoreCurrentNamespace = exports.WlRewardBoardNamespace = exports.WlRewardBoardBoardListNamespace = exports.WlRewardPrizeNamespace = exports.WlRewardActionNamespace = exports.WlRewardActionCategoryListNamespace = exports.WlUserNamespace = exports.WlUserReferrerNamespace = exports.WlUserInfoNamespace = void 0;
+exports.WlClient = exports.SocialNamespace = exports.SocialGoogleNamespace = exports.SocialGooglePlusNamespace = exports.SocialFacebookNamespace = exports.SocialFacebookLoginNamespace = exports.SocialAppleNamespace = exports.SocialAppleLoginNamespace = exports.SocialMicrosoftNamespace = exports.CoreNamespace = exports.CoreDriveNamespace = exports.CoreDriveImageUploadNamespace = exports.CoreSpaNamespace = exports.CoreSpaApplicationNamespace = exports.CorePassportNamespace = exports.CorePassportEnterNamespace = exports.CorePassportEnterJwtNamespace = exports.CorePassportUserNamespace = exports.CorePassportUserEmailNamespace = exports.CorePassportChangePasswordNamespace = exports.CorePassportLoginNamespace = exports.CorePassportLoginSignOutNamespace = exports.CorePassportLoginEnterNamespace = exports.CorePassportLoginRegisterNamespace = exports.CoreTestingNamespace = exports.CoreTestingAutomationNamespace = exports.CoreGeoNamespace = exports.CoreGeoRegionNamespace = void 0;
 class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -104,6 +104,16 @@ var RsHomeTourSid;
     /** Zumba */
     RsHomeTourSid[RsHomeTourSid["ZUMBA"] = 27] = "ZUMBA";
 })(RsHomeTourSid || (exports.RsHomeTourSid = RsHomeTourSid = {}));
+/** Payment actors (staff member, user or business owner). */
+var RsPayActorSid;
+(function (RsPayActorSid) {
+    /** Business owner */
+    RsPayActorSid[RsPayActorSid["BUSINESS"] = 3] = "BUSINESS";
+    /** Staff member */
+    RsPayActorSid[RsPayActorSid["STAFF"] = 1] = "STAFF";
+    /** User */
+    RsPayActorSid[RsPayActorSid["USER"] = 2] = "USER";
+})(RsPayActorSid || (exports.RsPayActorSid = RsPayActorSid = {}));
 /** A list of currencies. */
 var CoreLocaleCurrencySid;
 (function (CoreLocaleCurrencySid) {
@@ -146,40 +156,6 @@ var CoreLocaleCurrencySid;
     /** South African rand */
     CoreLocaleCurrencySid[CoreLocaleCurrencySid["ZAR"] = 7] = "ZAR";
 })(CoreLocaleCurrencySid || (exports.CoreLocaleCurrencySid = CoreLocaleCurrencySid = {}));
-/** Payment actors (staff member, user or business owner). */
-var RsPayActorSid;
-(function (RsPayActorSid) {
-    /** Business owner */
-    RsPayActorSid[RsPayActorSid["BUSINESS"] = 3] = "BUSINESS";
-    /** Staff member */
-    RsPayActorSid[RsPayActorSid["STAFF"] = 1] = "STAFF";
-    /** User */
-    RsPayActorSid[RsPayActorSid["USER"] = 2] = "USER";
-})(RsPayActorSid || (exports.RsPayActorSid = RsPayActorSid = {}));
-/** A list of payment methods. */
-var RsPayMethodSid;
-(function (RsPayMethodSid) {
-    /** Payment with personal user account (rs.pay.account) */
-    RsPayMethodSid[RsPayMethodSid["ACCOUNT"] = 7] = "ACCOUNT";
-    /** ACH system (USA-specific direct banking transactions) */
-    RsPayMethodSid[RsPayMethodSid["ACH"] = 9] = "ACH";
-    /** Payment with cash */
-    RsPayMethodSid[RsPayMethodSid["CASH"] = 4] = "CASH";
-    /** Payment with a cheque */
-    RsPayMethodSid[RsPayMethodSid["CHEQUE"] = 5] = "CHEQUE";
-    /** Payment with a coupon */
-    RsPayMethodSid[RsPayMethodSid["COUPON"] = 8] = "COUPON";
-    /** Direct Entry system (australian-specific direct banking transactions) */
-    RsPayMethodSid[RsPayMethodSid["DIRECT_ENTRY"] = 10] = "DIRECT_ENTRY";
-    /** Online payment. Card not present */
-    RsPayMethodSid[RsPayMethodSid["ECOMMERCE"] = 2] = "ECOMMERCE";
-    /** Payment with an external terminal */
-    RsPayMethodSid[RsPayMethodSid["EXTERNAL"] = 6] = "EXTERNAL";
-    /** Special method to be used for migration process */
-    RsPayMethodSid[RsPayMethodSid["IMPORT_ACCRUAL"] = 11] = "IMPORT_ACCRUAL";
-    /** Payment method at a Points of sale */
-    RsPayMethodSid[RsPayMethodSid["POS"] = 1] = "POS";
-})(RsPayMethodSid || (exports.RsPayMethodSid = RsPayMethodSid = {}));
 /** Statuses of payment intents. */
 var ThothPayProcessorStripeComPaymentIntentStatusSid;
 (function (ThothPayProcessorStripeComPaymentIntentStatusSid) {
@@ -206,6 +182,30 @@ var ThothWlPayBankCardCardTypeEnum;
     /** Debit Card */
     ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
 })(ThothWlPayBankCardCardTypeEnum || (exports.ThothWlPayBankCardCardTypeEnum = ThothWlPayBankCardCardTypeEnum = {}));
+/** A list of payment methods. */
+var RsPayMethodSid;
+(function (RsPayMethodSid) {
+    /** Payment with personal user account (rs.pay.account) */
+    RsPayMethodSid[RsPayMethodSid["ACCOUNT"] = 7] = "ACCOUNT";
+    /** ACH system (USA-specific direct banking transactions) */
+    RsPayMethodSid[RsPayMethodSid["ACH"] = 9] = "ACH";
+    /** Payment with cash */
+    RsPayMethodSid[RsPayMethodSid["CASH"] = 4] = "CASH";
+    /** Payment with a cheque */
+    RsPayMethodSid[RsPayMethodSid["CHEQUE"] = 5] = "CHEQUE";
+    /** Payment with a coupon */
+    RsPayMethodSid[RsPayMethodSid["COUPON"] = 8] = "COUPON";
+    /** Direct Entry system (australian-specific direct banking transactions) */
+    RsPayMethodSid[RsPayMethodSid["DIRECT_ENTRY"] = 10] = "DIRECT_ENTRY";
+    /** Online payment. Card not present */
+    RsPayMethodSid[RsPayMethodSid["ECOMMERCE"] = 2] = "ECOMMERCE";
+    /** Payment with an external terminal */
+    RsPayMethodSid[RsPayMethodSid["EXTERNAL"] = 6] = "EXTERNAL";
+    /** Special method to be used for migration process */
+    RsPayMethodSid[RsPayMethodSid["IMPORT_ACCRUAL"] = 11] = "IMPORT_ACCRUAL";
+    /** Payment method at a Points of sale */
+    RsPayMethodSid[RsPayMethodSid["POS"] = 1] = "POS";
+})(RsPayMethodSid || (exports.RsPayMethodSid = RsPayMethodSid = {}));
 /** Lists statuses of reports from point of view of its generation. */
 var ThothReportCoreGeneratorReportGeneratorStatusSid;
 (function (ThothReportCoreGeneratorReportGeneratorStatusSid) {
@@ -254,44 +254,6 @@ var ACardSystemSid;
     /** Visa */
     ACardSystemSid[ACardSystemSid["VISA"] = 12] = "VISA";
 })(ACardSystemSid || (exports.ACardSystemSid = ACardSystemSid = {}));
-/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
-var ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid;
-(function (ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid) {
-    /** Card terminals that work via OMNI Channel API */
-    ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid[ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid["OMNICHANNEL"] = 2] = "OMNICHANNEL";
-    /** Magtek USB */
-    ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid[ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
-})(ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid || (exports.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = {}));
-/** List of possible status of readers. */
-var ThothPayProcessorTerminalTerminalStatusSid;
-(function (ThothPayProcessorTerminalTerminalStatusSid) {
-    /** Status active */
-    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["ACTIVE"] = 1] = "ACTIVE";
-    /** Status inactive */
-    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["INACTIVE"] = 2] = "INACTIVE";
-    /** Status setup, reader is active but not added to stripe yet */
-    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["SETUP"] = 3] = "SETUP";
-})(ThothPayProcessorTerminalTerminalStatusSid || (exports.ThothPayProcessorTerminalTerminalStatusSid = ThothPayProcessorTerminalTerminalStatusSid = {}));
-/** Stripe device type of reader. */
-var ThothPayProcessorStripeComTerminalStripeReaderModelSid;
-(function (ThothPayProcessorStripeComTerminalStripeReaderModelSid) {
-    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
-    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPAD3"] = 1] = "BBPOS_WISEPAD3";
-    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
-    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPOS_E"] = 4] = "BBPOS_WISEPOS_E";
-    /** SIMULATED Wise POS E */
-    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["SIMULATED_WISEPOS_E"] = 6] = "SIMULATED_WISEPOS_E";
-    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
-    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["STRIPE_M2"] = 2] = "STRIPE_M2";
-})(ThothPayProcessorStripeComTerminalStripeReaderModelSid || (exports.ThothPayProcessorStripeComTerminalStripeReaderModelSid = ThothPayProcessorStripeComTerminalStripeReaderModelSid = {}));
-/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
-var ThothPayProcessorStripeComTerminalStripeTerminalTypeSid;
-(function (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid) {
-    /** Terminals that work via Stripe javascript SDK */
-    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["JS_SDK"] = 2] = "JS_SDK";
-    /** Magtek USB */
-    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
-})(ThothPayProcessorStripeComTerminalStripeTerminalTypeSid || (exports.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = {}));
 /** Paragon device type of reader. */
 var ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid;
 (function (ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid) {
@@ -310,6 +272,16 @@ var ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid;
     /** Verifone V400m reader */
     ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V400_M"] = 6] = "V400_M";
 })(ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid || (exports.ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = {}));
+/** List of possible status of readers. */
+var ThothPayProcessorTerminalTerminalStatusSid;
+(function (ThothPayProcessorTerminalTerminalStatusSid) {
+    /** Status active */
+    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["ACTIVE"] = 1] = "ACTIVE";
+    /** Status inactive */
+    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["INACTIVE"] = 2] = "INACTIVE";
+    /** Status setup, reader is active but not added to stripe yet */
+    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["SETUP"] = 3] = "SETUP";
+})(ThothPayProcessorTerminalTerminalStatusSid || (exports.ThothPayProcessorTerminalTerminalStatusSid = ThothPayProcessorTerminalTerminalStatusSid = {}));
 /** List of supported terminal interaction types. */
 var ThothPayProcessorTerminalTerminalTypeSid;
 (function (ThothPayProcessorTerminalTerminalTypeSid) {
@@ -354,6 +326,34 @@ var ThothWlPayCordovaCordovaCcrDeviceSid;
     /** Virtual device for testing purposes */
     ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["VIRTUAL"] = 10] = "VIRTUAL";
 })(ThothWlPayCordovaCordovaCcrDeviceSid || (exports.ThothWlPayCordovaCordovaCcrDeviceSid = ThothWlPayCordovaCordovaCcrDeviceSid = {}));
+/** Stripe device type of reader. */
+var ThothPayProcessorStripeComTerminalStripeReaderModelSid;
+(function (ThothPayProcessorStripeComTerminalStripeReaderModelSid) {
+    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPAD3"] = 1] = "BBPOS_WISEPAD3";
+    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPOS_E"] = 4] = "BBPOS_WISEPOS_E";
+    /** SIMULATED Wise POS E */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["SIMULATED_WISEPOS_E"] = 6] = "SIMULATED_WISEPOS_E";
+    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["STRIPE_M2"] = 2] = "STRIPE_M2";
+})(ThothPayProcessorStripeComTerminalStripeReaderModelSid || (exports.ThothPayProcessorStripeComTerminalStripeReaderModelSid = ThothPayProcessorStripeComTerminalStripeReaderModelSid = {}));
+/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
+var ThothPayProcessorStripeComTerminalStripeTerminalTypeSid;
+(function (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid) {
+    /** Terminals that work via Stripe javascript SDK */
+    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["JS_SDK"] = 2] = "JS_SDK";
+    /** Magtek USB */
+    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
+})(ThothPayProcessorStripeComTerminalStripeTerminalTypeSid || (exports.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = {}));
+/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
+var ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid;
+(function (ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid) {
+    /** Card terminals that work via OMNI Channel API */
+    ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid[ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid["OMNICHANNEL"] = 2] = "OMNICHANNEL";
+    /** Magtek USB */
+    ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid[ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
+})(ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid || (exports.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = {}));
 /** A list of payment gateways or processors. */
 var ThothPayProcessorPayProcessorSid;
 (function (ThothPayProcessorPayProcessorSid) {
@@ -428,16 +428,14 @@ var RsPayOwnerSid;
     /** System user */
     RsPayOwnerSid[RsPayOwnerSid["USER"] = 1] = "USER";
 })(RsPayOwnerSid || (exports.RsPayOwnerSid = RsPayOwnerSid = {}));
-/** A list of task statuses. */
-var WlTaskTaskStatusSid;
-(function (WlTaskTaskStatusSid) {
-    /** Task is not started */
-    WlTaskTaskStatusSid[WlTaskTaskStatusSid["BACKLOG"] = 1] = "BACKLOG";
-    /** Task completed */
-    WlTaskTaskStatusSid[WlTaskTaskStatusSid["COMPLETE"] = 3] = "COMPLETE";
-    /** Task in progress */
-    WlTaskTaskStatusSid[WlTaskTaskStatusSid["PROGRESS"] = 2] = "PROGRESS";
-})(WlTaskTaskStatusSid || (exports.WlTaskTaskStatusSid = WlTaskTaskStatusSid = {}));
+/** List of Google reCaptcha versions. */
+var CoreGoogleCaptchaCaptchaVersionSid;
+(function (CoreGoogleCaptchaCaptchaVersionSid) {
+    /** Version 2 (invisible) */
+    CoreGoogleCaptchaCaptchaVersionSid[CoreGoogleCaptchaCaptchaVersionSid["V2"] = 1] = "V2";
+    /** Version 3 */
+    CoreGoogleCaptchaCaptchaVersionSid[CoreGoogleCaptchaCaptchaVersionSid["V3"] = 2] = "V3";
+})(CoreGoogleCaptchaCaptchaVersionSid || (exports.CoreGoogleCaptchaCaptchaVersionSid = CoreGoogleCaptchaCaptchaVersionSid = {}));
 /** Class to work with gender string identifiers. */
 var WlGenderGenderSid;
 (function (WlGenderGenderSid) {
@@ -448,6 +446,16 @@ var WlGenderGenderSid;
     /** Gender is undefined in cases where the user preferred not to identify their gender */
     WlGenderGenderSid[WlGenderGenderSid["UNDEFINED"] = 3] = "UNDEFINED";
 })(WlGenderGenderSid || (exports.WlGenderGenderSid = WlGenderGenderSid = {}));
+/** A list of task statuses. */
+var WlTaskTaskStatusSid;
+(function (WlTaskTaskStatusSid) {
+    /** Task is not started */
+    WlTaskTaskStatusSid[WlTaskTaskStatusSid["BACKLOG"] = 1] = "BACKLOG";
+    /** Task completed */
+    WlTaskTaskStatusSid[WlTaskTaskStatusSid["COMPLETE"] = 3] = "COMPLETE";
+    /** Task in progress */
+    WlTaskTaskStatusSid[WlTaskTaskStatusSid["PROGRESS"] = 2] = "PROGRESS";
+})(WlTaskTaskStatusSid || (exports.WlTaskTaskStatusSid = WlTaskTaskStatusSid = {}));
 /** An exception that is thrown in a case of a payment error. */
 var RsPayException;
 (function (RsPayException) {
@@ -962,6 +970,28 @@ var ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid;
     /** Ticket was reversed */
     ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["REVERSED"] = 7] = "REVERSED";
 })(ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid || (exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = {}));
+/** Statuses of domain verification. */
+var WlMailDomainDomainVerifyStatusSid;
+(function (WlMailDomainDomainVerifyStatusSid) {
+    /** Domain is not verified */
+    WlMailDomainDomainVerifyStatusSid[WlMailDomainDomainVerifyStatusSid["FAIL"] = 2] = "FAIL";
+    /** Domain verification is pending */
+    WlMailDomainDomainVerifyStatusSid[WlMailDomainDomainVerifyStatusSid["PENDING"] = 1] = "PENDING";
+    /** Domain is verified */
+    WlMailDomainDomainVerifyStatusSid[WlMailDomainDomainVerifyStatusSid["SUCCESS"] = 3] = "SUCCESS";
+})(WlMailDomainDomainVerifyStatusSid || (exports.WlMailDomainDomainVerifyStatusSid = WlMailDomainDomainVerifyStatusSid = {}));
+/** Statuses of mail verification. Based on statuses that returns Amazon SES API. */
+var WlMailVerifyMailVerifyStatusSid;
+(function (WlMailVerifyMailVerifyStatusSid) {
+    /** Email is not verified */
+    WlMailVerifyMailVerifyStatusSid[WlMailVerifyMailVerifyStatusSid["FAIL"] = 4] = "FAIL";
+    /** Verification request is not running */
+    WlMailVerifyMailVerifyStatusSid[WlMailVerifyMailVerifyStatusSid["NONE"] = 1] = "NONE";
+    /** Email is verified */
+    WlMailVerifyMailVerifyStatusSid[WlMailVerifyMailVerifyStatusSid["VERIFY"] = 3] = "VERIFY";
+    /** Verification in progress */
+    WlMailVerifyMailVerifyStatusSid[WlMailVerifyMailVerifyStatusSid["WAIT_FOR_VERIFY"] = 2] = "WAIT_FOR_VERIFY";
+})(WlMailVerifyMailVerifyStatusSid || (exports.WlMailVerifyMailVerifyStatusSid = WlMailVerifyMailVerifyStatusSid = {}));
 /** A list of reports. */
 var RsReportSid;
 (function (RsReportSid) {
@@ -1468,28 +1498,6 @@ var RsReportSid;
     /** Report with list of businesses connected to FitLIVE */
     RsReportSid[RsReportSid["ZOOM_SYSTEM_COUNT"] = 259] = "ZOOM_SYSTEM_COUNT";
 })(RsReportSid || (exports.RsReportSid = RsReportSid = {}));
-/** Statuses of mail verification. Based on statuses that returns Amazon SES API. */
-var WlMailVerifyMailVerifyStatusSid;
-(function (WlMailVerifyMailVerifyStatusSid) {
-    /** Email is not verified */
-    WlMailVerifyMailVerifyStatusSid[WlMailVerifyMailVerifyStatusSid["FAIL"] = 4] = "FAIL";
-    /** Verification request is not running */
-    WlMailVerifyMailVerifyStatusSid[WlMailVerifyMailVerifyStatusSid["NONE"] = 1] = "NONE";
-    /** Email is verified */
-    WlMailVerifyMailVerifyStatusSid[WlMailVerifyMailVerifyStatusSid["VERIFY"] = 3] = "VERIFY";
-    /** Verification in progress */
-    WlMailVerifyMailVerifyStatusSid[WlMailVerifyMailVerifyStatusSid["WAIT_FOR_VERIFY"] = 2] = "WAIT_FOR_VERIFY";
-})(WlMailVerifyMailVerifyStatusSid || (exports.WlMailVerifyMailVerifyStatusSid = WlMailVerifyMailVerifyStatusSid = {}));
-/** Statuses of domain verification. */
-var WlMailDomainDomainVerifyStatusSid;
-(function (WlMailDomainDomainVerifyStatusSid) {
-    /** Domain is not verified */
-    WlMailDomainDomainVerifyStatusSid[WlMailDomainDomainVerifyStatusSid["FAIL"] = 2] = "FAIL";
-    /** Domain verification is pending */
-    WlMailDomainDomainVerifyStatusSid[WlMailDomainDomainVerifyStatusSid["PENDING"] = 1] = "PENDING";
-    /** Domain is verified */
-    WlMailDomainDomainVerifyStatusSid[WlMailDomainDomainVerifyStatusSid["SUCCESS"] = 3] = "SUCCESS";
-})(WlMailDomainDomainVerifyStatusSid || (exports.WlMailDomainDomainVerifyStatusSid = WlMailDomainDomainVerifyStatusSid = {}));
 /** CS Response code class. */
 var ThothPayProcessorNuveiCodeCSResponseSid;
 (function (ThothPayProcessorNuveiCodeCSResponseSid) {
@@ -1598,14 +1606,152 @@ var WlImportCustomCustomSid;
     /** Custom import which allows to import client reward balance */
     WlImportCustomCustomSid[WlImportCustomCustomSid["REWARD"] = 3] = "REWARD";
 })(WlImportCustomCustomSid || (exports.WlImportCustomCustomSid = WlImportCustomCustomSid = {}));
-/** List of Google reCaptcha versions. */
-var CoreGoogleCaptchaCaptchaVersionSid;
-(function (CoreGoogleCaptchaCaptchaVersionSid) {
-    /** Version 2 (invisible) */
-    CoreGoogleCaptchaCaptchaVersionSid[CoreGoogleCaptchaCaptchaVersionSid["V2"] = 1] = "V2";
-    /** Version 3 */
-    CoreGoogleCaptchaCaptchaVersionSid[CoreGoogleCaptchaCaptchaVersionSid["V3"] = 2] = "V3";
-})(CoreGoogleCaptchaCaptchaVersionSid || (exports.CoreGoogleCaptchaCaptchaVersionSid = CoreGoogleCaptchaCaptchaVersionSid = {}));
+/** String identifiers for gender. */
+var AGenderSid;
+(function (AGenderSid) {
+    /** Female gender */
+    AGenderSid[AGenderSid["FEMALE"] = 2] = "FEMALE";
+    /** Male gender */
+    AGenderSid[AGenderSid["MALE"] = 1] = "MALE";
+    /** Gender is undefined in cases where the user preferred not to identify their gender */
+    AGenderSid[AGenderSid["UNDEFINED"] = 3] = "UNDEFINED";
+})(AGenderSid || (exports.AGenderSid = AGenderSid = {}));
+/** String identifiers for rs.privilege.role. */
+var RsPrivilegeRoleSid;
+(function (RsPrivilegeRoleSid) {
+    /** Staff role business owner */
+    RsPrivilegeRoleSid[RsPrivilegeRoleSid["BUSINESS_OWNER"] = 1] = "BUSINESS_OWNER";
+    /** Staff role front desk */
+    RsPrivilegeRoleSid[RsPrivilegeRoleSid["FRONT_DESK"] = 4] = "FRONT_DESK";
+    /** Staff role instructor */
+    RsPrivilegeRoleSid[RsPrivilegeRoleSid["INSTRUCTOR"] = 3] = "INSTRUCTOR";
+    /** Staff role location owner */
+    RsPrivilegeRoleSid[RsPrivilegeRoleSid["LOCATION_OWNER"] = 2] = "LOCATION_OWNER";
+})(RsPrivilegeRoleSid || (exports.RsPrivilegeRoleSid = RsPrivilegeRoleSid = {}));
+/** A class for filter states for flagged fields. */
+var AFlagSid;
+(function (AFlagSid) {
+    /** All records */
+    AFlagSid[AFlagSid["ALL"] = 1] = "ALL";
+    /** Records with the flag turned off */
+    AFlagSid[AFlagSid["OFF"] = 2] = "OFF";
+    /** Records with the flag turned on */
+    AFlagSid[AFlagSid["ON"] = 3] = "ON";
+})(AFlagSid || (exports.AFlagSid = AFlagSid = {}));
+/** A class for managing time intervals. */
+var ADurationSid;
+(function (ADurationSid) {
+    /** Days */
+    ADurationSid[ADurationSid["DAY"] = 4] = "DAY";
+    /** Hours */
+    ADurationSid[ADurationSid["HOUR"] = 3] = "HOUR";
+    /** Minutes */
+    ADurationSid[ADurationSid["MINUTE"] = 2] = "MINUTE";
+    /** Months */
+    ADurationSid[ADurationSid["MONTH"] = 5] = "MONTH";
+    /** Seconds */
+    ADurationSid[ADurationSid["SECOND"] = 1] = "SECOND";
+    /** Weeks (7 days) */
+    ADurationSid[ADurationSid["WEEK"] = 7] = "WEEK";
+    /** Two weeks (14 days) */
+    ADurationSid[ADurationSid["WEEK2"] = 9] = "WEEK2";
+    /** Foursome of weeks (28 days) */
+    ADurationSid[ADurationSid["WEEK4"] = 8] = "WEEK4";
+    /** Years */
+    ADurationSid[ADurationSid["YEAR"] = 6] = "YEAR";
+})(ADurationSid || (exports.ADurationSid = ADurationSid = {}));
+/** Class to process string identifiers for duration types */
+var RsDurationTypeSid;
+(function (RsDurationTypeSid) {
+    /** Specific date. Example, 2013-12-24 */
+    RsDurationTypeSid[RsDurationTypeSid["DATE"] = 2] = "DATE";
+    /** No ending date */
+    RsDurationTypeSid[RsDurationTypeSid["ETERNAL"] = 3] = "ETERNAL";
+    /** Examples: 12 days, 2 months, 2 hours etc */
+    RsDurationTypeSid[RsDurationTypeSid["PERIOD"] = 1] = "PERIOD";
+})(RsDurationTypeSid || (exports.RsDurationTypeSid = RsDurationTypeSid = {}));
+/** Program types. */
+var RsProgramSid;
+(function (RsProgramSid) {
+    /** Special Membership that does not allow client to visit anything but fill client's account after purchase */
+    RsProgramSid[RsProgramSid["ACCOUNT_MEMBERSHIP"] = 21] = "ACCOUNT_MEMBERSHIP";
+    /** Special Time-Based pass that does not allow client to visit anything but fill client's account after purchase */
+    RsProgramSid[RsProgramSid["ACCOUNT_PASS"] = 20] = "ACCOUNT_PASS";
+    /** Class Guest pass */
+    RsProgramSid[RsProgramSid["CLASS_GUEST"] = 25] = "CLASS_GUEST";
+    /** Class Pass */
+    RsProgramSid[RsProgramSid["CLASS_LIMIT"] = 1] = "CLASS_LIMIT";
+    /** Class Membership */
+    RsProgramSid[RsProgramSid["CLASS_MEMBERSHIP"] = 5] = "CLASS_MEMBERSHIP";
+    /** Class Time-Based pass */
+    RsProgramSid[RsProgramSid["CLASS_PASS"] = 6] = "CLASS_PASS";
+    /** WellnessLiving Promotion */
+    RsProgramSid[RsProgramSid["CLASS_PROSPECT"] = 4] = "CLASS_PROSPECT";
+    /** Daily Deal Integration: not for sale, only redemption codes */
+    RsProgramSid[RsProgramSid["DEAL"] = 7] = "DEAL";
+    /** Enrollment */
+    RsProgramSid[RsProgramSid["ENROLLMENT"] = 14] = "ENROLLMENT";
+    /** "Wellness Program" membership */
+    RsProgramSid[RsProgramSid["INSURANCE_MEMBERSHIP"] = 22] = "INSURANCE_MEMBERSHIP";
+    /** Package */
+    RsProgramSid[RsProgramSid["PACKAGE"] = 3] = "PACKAGE";
+    /** Resource Duration Pass */
+    RsProgramSid[RsProgramSid["RESOURCE_DURATION"] = 19] = "RESOURCE_DURATION";
+    /** Resource Limit Pass */
+    RsProgramSid[RsProgramSid["RESOURCE_LIMIT"] = 15] = "RESOURCE_LIMIT";
+    /** Resource Membership */
+    RsProgramSid[RsProgramSid["RESOURCE_MEMBERSHIP"] = 16] = "RESOURCE_MEMBERSHIP";
+    /** Resource Time-Based pass */
+    RsProgramSid[RsProgramSid["RESOURCE_PASS"] = 17] = "RESOURCE_PASS";
+    /** Appointment Duration Pass */
+    RsProgramSid[RsProgramSid["SERVICE_DURATION"] = 18] = "SERVICE_DURATION";
+    /** Appointment session pass */
+    RsProgramSid[RsProgramSid["SERVICE_LIMIT"] = 11] = "SERVICE_LIMIT";
+    /** Appointment membership */
+    RsProgramSid[RsProgramSid["SERVICE_MEMBERSHIP"] = 12] = "SERVICE_MEMBERSHIP";
+    /** Appointment Time-Based pass */
+    RsProgramSid[RsProgramSid["SERVICE_PASS"] = 13] = "SERVICE_PASS";
+    /** Video Membership */
+    RsProgramSid[RsProgramSid["VIDEO_MEMBERSHIP"] = 23] = "VIDEO_MEMBERSHIP";
+    /** Gym Guest pass */
+    RsProgramSid[RsProgramSid["VISIT_GUEST"] = 24] = "VISIT_GUEST";
+    /** Gym Pass */
+    RsProgramSid[RsProgramSid["VISIT_LIMIT"] = 8] = "VISIT_LIMIT";
+    /** Gym Membership */
+    RsProgramSid[RsProgramSid["VISIT_MEMBERSHIP"] = 9] = "VISIT_MEMBERSHIP";
+    /** Gym Time-Based pass */
+    RsProgramSid[RsProgramSid["VISIT_PASS"] = 10] = "VISIT_PASS";
+})(RsProgramSid || (exports.RsProgramSid = RsProgramSid = {}));
+/** Purchase restrictions. */
+var WlPromotionPurchaseRestrictionSid;
+(function (WlPromotionPurchaseRestrictionSid) {
+    /** Purchase option available for all clients */
+    WlPromotionPurchaseRestrictionSid[WlPromotionPurchaseRestrictionSid["ALL"] = 1] = "ALL";
+    /** Purchase option introductory offer, available for new clients only */
+    WlPromotionPurchaseRestrictionSid[WlPromotionPurchaseRestrictionSid["INTRODUCTORY"] = 2] = "INTRODUCTORY";
+    /** Purchase option available for clients with special login type or member group */
+    WlPromotionPurchaseRestrictionSid[WlPromotionPurchaseRestrictionSid["TYPE"] = 3] = "TYPE";
+})(WlPromotionPurchaseRestrictionSid || (exports.WlPromotionPurchaseRestrictionSid = WlPromotionPurchaseRestrictionSid = {}));
+/** Program types. */
+var RsProgramTypeSid;
+(function (RsProgramTypeSid) {
+    /** Duration Pass */
+    RsProgramTypeSid[RsProgramTypeSid["DURATION"] = 7] = "DURATION";
+    /** Guest passes */
+    RsProgramTypeSid[RsProgramTypeSid["GUEST"] = 8] = "GUEST";
+    /** Class pass */
+    RsProgramTypeSid[RsProgramTypeSid["LIMIT"] = 1] = "LIMIT";
+    /** This promotion is a membership */
+    RsProgramTypeSid[RsProgramTypeSid["MEMBERSHIP"] = 3] = "MEMBERSHIP";
+    /** Type for programs that are not presented in {@link RsProgramSid} */
+    RsProgramTypeSid[RsProgramTypeSid["OTHER"] = 6] = "OTHER";
+    /** Packages and Daily deals */
+    RsProgramTypeSid[RsProgramTypeSid["PACKAGE"] = 4] = "PACKAGE";
+    /** Unlimited pass. Day/week/month pass */
+    RsProgramTypeSid[RsProgramTypeSid["PASS"] = 2] = "PASS";
+    /** Special WellnessLiving promote passes that allow to visit specific classes to get acquainted with the business */
+    RsProgramTypeSid[RsProgramTypeSid["PROSPECT"] = 5] = "PROSPECT";
+})(RsProgramTypeSid || (exports.RsProgramTypeSid = RsProgramTypeSid = {}));
 /** List of intents of the user in the business. */
 var WlLoginMemberIntentsMemberIntentsSid;
 (function (WlLoginMemberIntentsMemberIntentsSid) {
@@ -1774,92 +1920,6 @@ var RsRankTypeSid;
     /** Belts for Martial Arts */
     RsRankTypeSid[RsRankTypeSid["BELT"] = 1] = "BELT";
 })(RsRankTypeSid || (exports.RsRankTypeSid = RsRankTypeSid = {}));
-/** A list of skin types. */
-var RsSkinSid;
-(function (RsSkinSid) {
-    /** Ai Agent web-chat */
-    RsSkinSid[RsSkinSid["AI_AGENT"] = 19] = "AI_AGENT";
-    /** Application skin */
-    RsSkinSid[RsSkinSid["APPLICATION"] = 13] = "APPLICATION";
-    /** Appointment booking wizard */
-    RsSkinSid[RsSkinSid["APPOINTMENT"] = 7] = "APPOINTMENT";
-    /** Online store widget */
-    RsSkinSid[RsSkinSid["CATALOG_FOREIGN"] = 21] = "CATALOG_FOREIGN";
-    /** Event enrollment wizard widget */
-    RsSkinSid[RsSkinSid["ENROLLMENT"] = 8] = "ENROLLMENT";
-    /** Fitbuilder widget */
-    RsSkinSid[RsSkinSid["FITBUILDER"] = 17] = "FITBUILDER";
-    /** Skin for lead tracking form */
-    RsSkinSid[RsSkinSid["LEAD"] = 9] = "LEAD";
-    /** Skin for lead tracking form from microservice */
-    RsSkinSid[RsSkinSid["LEAD_FOREIGN"] = 20] = "LEAD_FOREIGN";
-    /** Mobile schedule version */
-    RsSkinSid[RsSkinSid["MOBILE_SCHEDULE"] = 10] = "MOBILE_SCHEDULE";
-    /** Asset booking wizard */
-    RsSkinSid[RsSkinSid["RESOURCE"] = 16] = "RESOURCE";
-    /** Review list widget */
-    RsSkinSid[RsSkinSid["REVIEW_LIST"] = 4] = "REVIEW_LIST";
-    /** General schedule design appearance */
-    RsSkinSid[RsSkinSid["SCHEDULE_DESIGN"] = 15] = "SCHEDULE_DESIGN";
-    /** Foreign schedule widget on react language */
-    RsSkinSid[RsSkinSid["SCHEDULE_FOREIGN"] = 18] = "SCHEDULE_FOREIGN";
-    /** Schedule list widget */
-    RsSkinSid[RsSkinSid["SCHEDULE_LIST"] = 1] = "SCHEDULE_LIST";
-    /** Standard version of schedule */
-    RsSkinSid[RsSkinSid["SCHEDULE_STANDARD"] = 14] = "SCHEDULE_STANDARD";
-    /** Staff widget */
-    RsSkinSid[RsSkinSid["STAFF"] = 12] = "STAFF";
-    /** Online store widget */
-    RsSkinSid[RsSkinSid["STORE"] = 11] = "STORE";
-})(RsSkinSid || (exports.RsSkinSid = RsSkinSid = {}));
-/** List of embed video sources. */
-var WlVideoVideoEmbedSourceSid;
-(function (WlVideoVideoEmbedSourceSid) {
-    /** Les Mills */
-    WlVideoVideoEmbedSourceSid[WlVideoVideoEmbedSourceSid["LES_MILLS"] = 4] = "LES_MILLS";
-    /** Vimeo */
-    WlVideoVideoEmbedSourceSid[WlVideoVideoEmbedSourceSid["VIMEO"] = 2] = "VIMEO";
-    /** Wistia */
-    WlVideoVideoEmbedSourceSid[WlVideoVideoEmbedSourceSid["WISTIA"] = 3] = "WISTIA";
-    /** YouTube */
-    WlVideoVideoEmbedSourceSid[WlVideoVideoEmbedSourceSid["YOUTUBE"] = 1] = "YOUTUBE";
-})(WlVideoVideoEmbedSourceSid || (exports.WlVideoVideoEmbedSourceSid = WlVideoVideoEmbedSourceSid = {}));
-/** A list of two answers for any question: Yes or No. */
-var CoreSidYesNoSid;
-(function (CoreSidYesNoSid) {
-    /** The answer is "no" */
-    CoreSidYesNoSid[CoreSidYesNoSid["NO"] = 2] = "NO";
-    /** The answer is "yes" */
-    CoreSidYesNoSid[CoreSidYesNoSid["YES"] = 1] = "YES";
-})(CoreSidYesNoSid || (exports.CoreSidYesNoSid = CoreSidYesNoSid = {}));
-/** List of video types. */
-var WlVideoVideoSourceSid;
-(function (WlVideoVideoSourceSid) {
-    /** Embedded video */
-    WlVideoVideoSourceSid[WlVideoVideoSourceSid["EMBED"] = 2] = "EMBED";
-    /** Uploaded video */
-    WlVideoVideoSourceSid[WlVideoVideoSourceSid["UPLOAD"] = 1] = "UPLOAD";
-})(WlVideoVideoSourceSid || (exports.WlVideoVideoSourceSid = WlVideoVideoSourceSid = {}));
-/** List of possible sort order. */
-var CoreSidSortOrderSid;
-(function (CoreSidSortOrderSid) {
-    /** Ascending order */
-    CoreSidSortOrderSid[CoreSidSortOrderSid["ASC"] = 2] = "ASC";
-    /** Descending order */
-    CoreSidSortOrderSid[CoreSidSortOrderSid["DESC"] = 1] = "DESC";
-})(CoreSidSortOrderSid || (exports.CoreSidSortOrderSid = CoreSidSortOrderSid = {}));
-/** List of video catalog sorting types. */
-var WlVideoCatalogFilterSortFilterSortSid;
-(function (WlVideoCatalogFilterSortFilterSortSid) {
-    /** Sort alphabetically */
-    WlVideoCatalogFilterSortFilterSortSid[WlVideoCatalogFilterSortFilterSortSid["ALPHABET"] = 1] = "ALPHABET";
-    /** Sort by custom */
-    WlVideoCatalogFilterSortFilterSortSid[WlVideoCatalogFilterSortFilterSortSid["CUSTOM"] = 4] = "CUSTOM";
-    /** Sort by most recently added */
-    WlVideoCatalogFilterSortFilterSortSid[WlVideoCatalogFilterSortFilterSortSid["RECENT"] = 2] = "RECENT";
-    /** Sorted by number of views */
-    WlVideoCatalogFilterSortFilterSortSid[WlVideoCatalogFilterSortFilterSortSid["VIEW"] = 3] = "VIEW";
-})(WlVideoCatalogFilterSortFilterSortSid || (exports.WlVideoCatalogFilterSortFilterSortSid = WlVideoCatalogFilterSortFilterSortSid = {}));
 /** Describes reports grouping dates ranges. */
 var RsReportGroupSid;
 (function (RsReportGroupSid) {
@@ -1914,6 +1974,18 @@ var RsReportChartViewSid;
     /** Year-by-year comparisons in the column chart */
     RsReportChartViewSid[RsReportChartViewSid["YEAR_COLUMN"] = 4] = "YEAR_COLUMN";
 })(RsReportChartViewSid || (exports.RsReportChartViewSid = RsReportChartViewSid = {}));
+/** List of image types. */
+var CoreDriveDriveTypeSid;
+(function (CoreDriveDriveTypeSid) {
+    /** Bmp image */
+    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["BMP"] = 4] = "BMP";
+    /** Gif image */
+    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["GIF"] = 1] = "GIF";
+    /** Jpeg image */
+    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["JPEG"] = 2] = "JPEG";
+    /** Png image */
+    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["PNG"] = 3] = "PNG";
+})(CoreDriveDriveTypeSid || (exports.CoreDriveDriveTypeSid = CoreDriveDriveTypeSid = {}));
 /** A class for the days of the week. */
 var ADateWeekSid;
 (function (ADateWeekSid) {
@@ -1932,40 +2004,16 @@ var ADateWeekSid;
     /** Wednesday */
     ADateWeekSid[ADateWeekSid["WEDNESDAY"] = 3] = "WEDNESDAY";
 })(ADateWeekSid || (exports.ADateWeekSid = ADateWeekSid = {}));
-/** List of class tab objects. */
-var WlClassesTabTabSid;
-(function (WlClassesTabTabSid) {
-    /** Enrolments */
-    WlClassesTabTabSid[WlClassesTabTabSid["ENROLLMENT"] = 2] = "ENROLLMENT";
-    /** Bookable Assets */
-    WlClassesTabTabSid[WlClassesTabTabSid["RESOURCE"] = 4] = "RESOURCE";
-    /** Appointments */
-    WlClassesTabTabSid[WlClassesTabTabSid["SERVICE"] = 3] = "SERVICE";
-    /** Classes */
-    WlClassesTabTabSid[WlClassesTabTabSid["TRAINING"] = 1] = "TRAINING";
-})(WlClassesTabTabSid || (exports.WlClassesTabTabSid = WlClassesTabTabSid = {}));
-/** String identifiers for gender. */
-var AGenderSid;
-(function (AGenderSid) {
-    /** Female gender */
-    AGenderSid[AGenderSid["FEMALE"] = 2] = "FEMALE";
-    /** Male gender */
-    AGenderSid[AGenderSid["MALE"] = 1] = "MALE";
-    /** Gender is undefined in cases where the user preferred not to identify their gender */
-    AGenderSid[AGenderSid["UNDEFINED"] = 3] = "UNDEFINED";
-})(AGenderSid || (exports.AGenderSid = AGenderSid = {}));
-/** String identifiers for rs.privilege.role. */
-var RsPrivilegeRoleSid;
-(function (RsPrivilegeRoleSid) {
-    /** Staff role business owner */
-    RsPrivilegeRoleSid[RsPrivilegeRoleSid["BUSINESS_OWNER"] = 1] = "BUSINESS_OWNER";
-    /** Staff role front desk */
-    RsPrivilegeRoleSid[RsPrivilegeRoleSid["FRONT_DESK"] = 4] = "FRONT_DESK";
-    /** Staff role instructor */
-    RsPrivilegeRoleSid[RsPrivilegeRoleSid["INSTRUCTOR"] = 3] = "INSTRUCTOR";
-    /** Staff role location owner */
-    RsPrivilegeRoleSid[RsPrivilegeRoleSid["LOCATION_OWNER"] = 2] = "LOCATION_OWNER";
-})(RsPrivilegeRoleSid || (exports.RsPrivilegeRoleSid = RsPrivilegeRoleSid = {}));
+/** Day time periods. */
+var RsScheduleTimeSid;
+(function (RsScheduleTimeSid) {
+    /** Afternoon */
+    RsScheduleTimeSid[RsScheduleTimeSid["AFTERNOON"] = 2] = "AFTERNOON";
+    /** Evening */
+    RsScheduleTimeSid[RsScheduleTimeSid["EVENING"] = 3] = "EVENING";
+    /** Morning */
+    RsScheduleTimeSid[RsScheduleTimeSid["MORNING"] = 1] = "MORNING";
+})(RsScheduleTimeSid || (exports.RsScheduleTimeSid = RsScheduleTimeSid = {}));
 /** A list of currency codes. */
 var RsCurrencySid;
 (function (RsCurrencySid) {
@@ -2096,218 +2144,6 @@ var WlBusinessFranchiseTravelTravelModeSid;
     /** Flexible travel mode */
     WlBusinessFranchiseTravelTravelModeSid[WlBusinessFranchiseTravelTravelModeSid["FLEXIBLE"] = 2] = "FLEXIBLE";
 })(WlBusinessFranchiseTravelTravelModeSid || (exports.WlBusinessFranchiseTravelTravelModeSid = WlBusinessFranchiseTravelTravelModeSid = {}));
-/** Program types. */
-var RsProgramSid;
-(function (RsProgramSid) {
-    /** Special Membership that does not allow client to visit anything but fill client's account after purchase */
-    RsProgramSid[RsProgramSid["ACCOUNT_MEMBERSHIP"] = 21] = "ACCOUNT_MEMBERSHIP";
-    /** Special Time-Based pass that does not allow client to visit anything but fill client's account after purchase */
-    RsProgramSid[RsProgramSid["ACCOUNT_PASS"] = 20] = "ACCOUNT_PASS";
-    /** Class Guest pass */
-    RsProgramSid[RsProgramSid["CLASS_GUEST"] = 25] = "CLASS_GUEST";
-    /** Class Pass */
-    RsProgramSid[RsProgramSid["CLASS_LIMIT"] = 1] = "CLASS_LIMIT";
-    /** Class Membership */
-    RsProgramSid[RsProgramSid["CLASS_MEMBERSHIP"] = 5] = "CLASS_MEMBERSHIP";
-    /** Class Time-Based pass */
-    RsProgramSid[RsProgramSid["CLASS_PASS"] = 6] = "CLASS_PASS";
-    /** WellnessLiving Promotion */
-    RsProgramSid[RsProgramSid["CLASS_PROSPECT"] = 4] = "CLASS_PROSPECT";
-    /** Daily Deal Integration: not for sale, only redemption codes */
-    RsProgramSid[RsProgramSid["DEAL"] = 7] = "DEAL";
-    /** Enrollment */
-    RsProgramSid[RsProgramSid["ENROLLMENT"] = 14] = "ENROLLMENT";
-    /** "Wellness Program" membership */
-    RsProgramSid[RsProgramSid["INSURANCE_MEMBERSHIP"] = 22] = "INSURANCE_MEMBERSHIP";
-    /** Package */
-    RsProgramSid[RsProgramSid["PACKAGE"] = 3] = "PACKAGE";
-    /** Resource Duration Pass */
-    RsProgramSid[RsProgramSid["RESOURCE_DURATION"] = 19] = "RESOURCE_DURATION";
-    /** Resource Limit Pass */
-    RsProgramSid[RsProgramSid["RESOURCE_LIMIT"] = 15] = "RESOURCE_LIMIT";
-    /** Resource Membership */
-    RsProgramSid[RsProgramSid["RESOURCE_MEMBERSHIP"] = 16] = "RESOURCE_MEMBERSHIP";
-    /** Resource Time-Based pass */
-    RsProgramSid[RsProgramSid["RESOURCE_PASS"] = 17] = "RESOURCE_PASS";
-    /** Appointment Duration Pass */
-    RsProgramSid[RsProgramSid["SERVICE_DURATION"] = 18] = "SERVICE_DURATION";
-    /** Appointment session pass */
-    RsProgramSid[RsProgramSid["SERVICE_LIMIT"] = 11] = "SERVICE_LIMIT";
-    /** Appointment membership */
-    RsProgramSid[RsProgramSid["SERVICE_MEMBERSHIP"] = 12] = "SERVICE_MEMBERSHIP";
-    /** Appointment Time-Based pass */
-    RsProgramSid[RsProgramSid["SERVICE_PASS"] = 13] = "SERVICE_PASS";
-    /** Video Membership */
-    RsProgramSid[RsProgramSid["VIDEO_MEMBERSHIP"] = 23] = "VIDEO_MEMBERSHIP";
-    /** Gym Guest pass */
-    RsProgramSid[RsProgramSid["VISIT_GUEST"] = 24] = "VISIT_GUEST";
-    /** Gym Pass */
-    RsProgramSid[RsProgramSid["VISIT_LIMIT"] = 8] = "VISIT_LIMIT";
-    /** Gym Membership */
-    RsProgramSid[RsProgramSid["VISIT_MEMBERSHIP"] = 9] = "VISIT_MEMBERSHIP";
-    /** Gym Time-Based pass */
-    RsProgramSid[RsProgramSid["VISIT_PASS"] = 10] = "VISIT_PASS";
-})(RsProgramSid || (exports.RsProgramSid = RsProgramSid = {}));
-/** Program types. */
-var RsProgramTypeSid;
-(function (RsProgramTypeSid) {
-    /** Duration Pass */
-    RsProgramTypeSid[RsProgramTypeSid["DURATION"] = 7] = "DURATION";
-    /** Guest passes */
-    RsProgramTypeSid[RsProgramTypeSid["GUEST"] = 8] = "GUEST";
-    /** Class pass */
-    RsProgramTypeSid[RsProgramTypeSid["LIMIT"] = 1] = "LIMIT";
-    /** This promotion is a membership */
-    RsProgramTypeSid[RsProgramTypeSid["MEMBERSHIP"] = 3] = "MEMBERSHIP";
-    /** Type for programs that are not presented in {@link RsProgramSid} */
-    RsProgramTypeSid[RsProgramTypeSid["OTHER"] = 6] = "OTHER";
-    /** Packages and Daily deals */
-    RsProgramTypeSid[RsProgramTypeSid["PACKAGE"] = 4] = "PACKAGE";
-    /** Unlimited pass. Day/week/month pass */
-    RsProgramTypeSid[RsProgramTypeSid["PASS"] = 2] = "PASS";
-    /** Special WellnessLiving promote passes that allow to visit specific classes to get acquainted with the business */
-    RsProgramTypeSid[RsProgramTypeSid["PROSPECT"] = 5] = "PROSPECT";
-})(RsProgramTypeSid || (exports.RsProgramTypeSid = RsProgramTypeSid = {}));
-/** A class for filter states for flagged fields. */
-var AFlagSid;
-(function (AFlagSid) {
-    /** All records */
-    AFlagSid[AFlagSid["ALL"] = 1] = "ALL";
-    /** Records with the flag turned off */
-    AFlagSid[AFlagSid["OFF"] = 2] = "OFF";
-    /** Records with the flag turned on */
-    AFlagSid[AFlagSid["ON"] = 3] = "ON";
-})(AFlagSid || (exports.AFlagSid = AFlagSid = {}));
-/** A class for managing time intervals. */
-var ADurationSid;
-(function (ADurationSid) {
-    /** Days */
-    ADurationSid[ADurationSid["DAY"] = 4] = "DAY";
-    /** Hours */
-    ADurationSid[ADurationSid["HOUR"] = 3] = "HOUR";
-    /** Minutes */
-    ADurationSid[ADurationSid["MINUTE"] = 2] = "MINUTE";
-    /** Months */
-    ADurationSid[ADurationSid["MONTH"] = 5] = "MONTH";
-    /** Seconds */
-    ADurationSid[ADurationSid["SECOND"] = 1] = "SECOND";
-    /** Weeks (7 days) */
-    ADurationSid[ADurationSid["WEEK"] = 7] = "WEEK";
-    /** Two weeks (14 days) */
-    ADurationSid[ADurationSid["WEEK2"] = 9] = "WEEK2";
-    /** Foursome of weeks (28 days) */
-    ADurationSid[ADurationSid["WEEK4"] = 8] = "WEEK4";
-    /** Years */
-    ADurationSid[ADurationSid["YEAR"] = 6] = "YEAR";
-})(ADurationSid || (exports.ADurationSid = ADurationSid = {}));
-/** Class to process string identifiers for duration types */
-var RsDurationTypeSid;
-(function (RsDurationTypeSid) {
-    /** Specific date. Example, 2013-12-24 */
-    RsDurationTypeSid[RsDurationTypeSid["DATE"] = 2] = "DATE";
-    /** No ending date */
-    RsDurationTypeSid[RsDurationTypeSid["ETERNAL"] = 3] = "ETERNAL";
-    /** Examples: 12 days, 2 months, 2 hours etc */
-    RsDurationTypeSid[RsDurationTypeSid["PERIOD"] = 1] = "PERIOD";
-})(RsDurationTypeSid || (exports.RsDurationTypeSid = RsDurationTypeSid = {}));
-/** Purchase restrictions. */
-var WlPromotionPurchaseRestrictionSid;
-(function (WlPromotionPurchaseRestrictionSid) {
-    /** Purchase option available for all clients */
-    WlPromotionPurchaseRestrictionSid[WlPromotionPurchaseRestrictionSid["ALL"] = 1] = "ALL";
-    /** Purchase option introductory offer, available for new clients only */
-    WlPromotionPurchaseRestrictionSid[WlPromotionPurchaseRestrictionSid["INTRODUCTORY"] = 2] = "INTRODUCTORY";
-    /** Purchase option available for clients with special login type or member group */
-    WlPromotionPurchaseRestrictionSid[WlPromotionPurchaseRestrictionSid["TYPE"] = 3] = "TYPE";
-})(WlPromotionPurchaseRestrictionSid || (exports.WlPromotionPurchaseRestrictionSid = WlPromotionPurchaseRestrictionSid = {}));
-/** List of general fields in user's profile. */
-var RsFieldGeneralSid;
-(function (RsFieldGeneralSid) {
-    /** Set of fields to choose address */
-    RsFieldGeneralSid[RsFieldGeneralSid["ADDRESS"] = 9] = "ADDRESS";
-    /** Set of fields to choose birthday date */
-    RsFieldGeneralSid[RsFieldGeneralSid["BIRTHDAY"] = 7] = "BIRTHDAY";
-    /** Gender field */
-    RsFieldGeneralSid[RsFieldGeneralSid["GENDER"] = 8] = "GENDER";
-    /** Image */
-    RsFieldGeneralSid[RsFieldGeneralSid["IMAGE"] = 13] = "IMAGE";
-    /** Home location */
-    RsFieldGeneralSid[RsFieldGeneralSid["LOCATION"] = 10] = "LOCATION";
-    /** Block with login information (email and password) */
-    RsFieldGeneralSid[RsFieldGeneralSid["LOGIN"] = 3] = "LOGIN";
-    /** Member ID */
-    RsFieldGeneralSid[RsFieldGeneralSid["MEMBER"] = 11] = "MEMBER";
-    /** First name */
-    RsFieldGeneralSid[RsFieldGeneralSid["NAME_FIRST"] = 2] = "NAME_FIRST";
-    /** Last name */
-    RsFieldGeneralSid[RsFieldGeneralSid["NAME_LAST"] = 1] = "NAME_LAST";
-    /** Cell phone number */
-    RsFieldGeneralSid[RsFieldGeneralSid["PHONE_CELL"] = 4] = "PHONE_CELL";
-    /** Home phone number */
-    RsFieldGeneralSid[RsFieldGeneralSid["PHONE_HOME"] = 5] = "PHONE_HOME";
-    /** Work phone number + ext */
-    RsFieldGeneralSid[RsFieldGeneralSid["PHONE_WORK"] = 6] = "PHONE_WORK";
-    /** Referred by */
-    RsFieldGeneralSid[RsFieldGeneralSid["REFERRER"] = 12] = "REFERRER";
-    /** Client status (client/member types). System default client/member types see SystemSid */
-    RsFieldGeneralSid[RsFieldGeneralSid["STATUS"] = 14] = "STATUS";
-    /** Timezone field */
-    RsFieldGeneralSid[RsFieldGeneralSid["TIMEZONE"] = 15] = "TIMEZONE";
-    /** Vaccination status. See {@link WlLoginMemberVaccinationStatusVaccinationStatusSid} */
-    RsFieldGeneralSid[RsFieldGeneralSid["VACCINATION_STATUS"] = 16] = "VACCINATION_STATUS";
-})(RsFieldGeneralSid || (exports.RsFieldGeneralSid = RsFieldGeneralSid = {}));
-/** Possible types of the custom fields: text, checkbox, radio buttons, etc. */
-var RsFieldTypeSid;
-(function (RsFieldTypeSid) {
-    /** Checkbox field. The `s_value` for this type of field can be 1 if checkbox is checked and 0 otherwise */
-    RsFieldTypeSid[RsFieldTypeSid["CHECKBOX"] = 2] = "CHECKBOX";
-    /** General field. Has its own format */
-    RsFieldTypeSid[RsFieldTypeSid["GENERAL"] = 5] = "GENERAL";
-    /** Radio buttons */
-    RsFieldTypeSid[RsFieldTypeSid["RADIO"] = 4] = "RADIO";
-    /** Drop-down menu */
-    RsFieldTypeSid[RsFieldTypeSid["SELECT"] = 3] = "SELECT";
-    /** One line text field */
-    RsFieldTypeSid[RsFieldTypeSid["TEXT"] = 1] = "TEXT";
-})(RsFieldTypeSid || (exports.RsFieldTypeSid = RsFieldTypeSid = {}));
-/** List of image types. */
-var CoreDriveDriveTypeSid;
-(function (CoreDriveDriveTypeSid) {
-    /** Bmp image */
-    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["BMP"] = 4] = "BMP";
-    /** Gif image */
-    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["GIF"] = 1] = "GIF";
-    /** Jpeg image */
-    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["JPEG"] = 2] = "JPEG";
-    /** Png image */
-    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["PNG"] = 3] = "PNG";
-})(CoreDriveDriveTypeSid || (exports.CoreDriveDriveTypeSid = CoreDriveDriveTypeSid = {}));
-/** Day time periods. */
-var RsScheduleTimeSid;
-(function (RsScheduleTimeSid) {
-    /** Afternoon */
-    RsScheduleTimeSid[RsScheduleTimeSid["AFTERNOON"] = 2] = "AFTERNOON";
-    /** Evening */
-    RsScheduleTimeSid[RsScheduleTimeSid["EVENING"] = 3] = "EVENING";
-    /** Morning */
-    RsScheduleTimeSid[RsScheduleTimeSid["MORNING"] = 1] = "MORNING";
-})(RsScheduleTimeSid || (exports.RsScheduleTimeSid = RsScheduleTimeSid = {}));
-/** List of different directories, which can use wellnessliving as a source of data. */
-var RsProjectSid;
-(function (RsProjectSid) {
-    /** WellnessLiving Explorer */
-    RsProjectSid[RsProjectSid["WELLNESSLIVING"] = 4] = "WELLNESSLIVING";
-})(RsProjectSid || (exports.RsProjectSid = RsProjectSid = {}));
-/** Review status identifiers. */
-var RsReviewStatusSid;
-(function (RsReviewStatusSid) {
-    /** Admin */
-    RsReviewStatusSid[RsReviewStatusSid["ADMIN"] = 1] = "ADMIN";
-    /** Hidden */
-    RsReviewStatusSid[RsReviewStatusSid["HIDDEN"] = 4] = "HIDDEN";
-    /** Publish */
-    RsReviewStatusSid[RsReviewStatusSid["PUBLISH"] = 3] = "PUBLISH";
-})(RsReviewStatusSid || (exports.RsReviewStatusSid = RsReviewStatusSid = {}));
 /** The status of form actions. */
 var WlQuizActivityActivitySid;
 (function (WlQuizActivityActivitySid) {
@@ -2396,6 +2232,160 @@ var RsPurchaseItemSid;
     /** Tuition prorate purchase item */
     RsPurchaseItemSid[RsPurchaseItemSid["TUITION_PRORATE"] = 28] = "TUITION_PRORATE";
 })(RsPurchaseItemSid || (exports.RsPurchaseItemSid = RsPurchaseItemSid = {}));
+/** A list of skin types. */
+var RsSkinSid;
+(function (RsSkinSid) {
+    /** Ai Agent web-chat */
+    RsSkinSid[RsSkinSid["AI_AGENT"] = 19] = "AI_AGENT";
+    /** Application skin */
+    RsSkinSid[RsSkinSid["APPLICATION"] = 13] = "APPLICATION";
+    /** Appointment booking wizard */
+    RsSkinSid[RsSkinSid["APPOINTMENT"] = 7] = "APPOINTMENT";
+    /** Online store widget */
+    RsSkinSid[RsSkinSid["CATALOG_FOREIGN"] = 21] = "CATALOG_FOREIGN";
+    /** Event enrollment wizard widget */
+    RsSkinSid[RsSkinSid["ENROLLMENT"] = 8] = "ENROLLMENT";
+    /** Fitbuilder widget */
+    RsSkinSid[RsSkinSid["FITBUILDER"] = 17] = "FITBUILDER";
+    /** Skin for lead tracking form */
+    RsSkinSid[RsSkinSid["LEAD"] = 9] = "LEAD";
+    /** Skin for lead tracking form from microservice */
+    RsSkinSid[RsSkinSid["LEAD_FOREIGN"] = 20] = "LEAD_FOREIGN";
+    /** Mobile schedule version */
+    RsSkinSid[RsSkinSid["MOBILE_SCHEDULE"] = 10] = "MOBILE_SCHEDULE";
+    /** Asset booking wizard */
+    RsSkinSid[RsSkinSid["RESOURCE"] = 16] = "RESOURCE";
+    /** Review list widget */
+    RsSkinSid[RsSkinSid["REVIEW_LIST"] = 4] = "REVIEW_LIST";
+    /** General schedule design appearance */
+    RsSkinSid[RsSkinSid["SCHEDULE_DESIGN"] = 15] = "SCHEDULE_DESIGN";
+    /** Foreign schedule widget on react language */
+    RsSkinSid[RsSkinSid["SCHEDULE_FOREIGN"] = 18] = "SCHEDULE_FOREIGN";
+    /** Schedule list widget */
+    RsSkinSid[RsSkinSid["SCHEDULE_LIST"] = 1] = "SCHEDULE_LIST";
+    /** Standard version of schedule */
+    RsSkinSid[RsSkinSid["SCHEDULE_STANDARD"] = 14] = "SCHEDULE_STANDARD";
+    /** Staff widget */
+    RsSkinSid[RsSkinSid["STAFF"] = 12] = "STAFF";
+    /** Online store widget */
+    RsSkinSid[RsSkinSid["STORE"] = 11] = "STORE";
+})(RsSkinSid || (exports.RsSkinSid = RsSkinSid = {}));
+/** List of class tab objects. */
+var WlClassesTabTabSid;
+(function (WlClassesTabTabSid) {
+    /** Enrolments */
+    WlClassesTabTabSid[WlClassesTabTabSid["ENROLLMENT"] = 2] = "ENROLLMENT";
+    /** Bookable Assets */
+    WlClassesTabTabSid[WlClassesTabTabSid["RESOURCE"] = 4] = "RESOURCE";
+    /** Appointments */
+    WlClassesTabTabSid[WlClassesTabTabSid["SERVICE"] = 3] = "SERVICE";
+    /** Classes */
+    WlClassesTabTabSid[WlClassesTabTabSid["TRAINING"] = 1] = "TRAINING";
+})(WlClassesTabTabSid || (exports.WlClassesTabTabSid = WlClassesTabTabSid = {}));
+/** List of different directories, which can use wellnessliving as a source of data. */
+var RsProjectSid;
+(function (RsProjectSid) {
+    /** WellnessLiving Explorer */
+    RsProjectSid[RsProjectSid["WELLNESSLIVING"] = 4] = "WELLNESSLIVING";
+})(RsProjectSid || (exports.RsProjectSid = RsProjectSid = {}));
+/** List of embed video sources. */
+var WlVideoVideoEmbedSourceSid;
+(function (WlVideoVideoEmbedSourceSid) {
+    /** Les Mills */
+    WlVideoVideoEmbedSourceSid[WlVideoVideoEmbedSourceSid["LES_MILLS"] = 4] = "LES_MILLS";
+    /** Vimeo */
+    WlVideoVideoEmbedSourceSid[WlVideoVideoEmbedSourceSid["VIMEO"] = 2] = "VIMEO";
+    /** Wistia */
+    WlVideoVideoEmbedSourceSid[WlVideoVideoEmbedSourceSid["WISTIA"] = 3] = "WISTIA";
+    /** YouTube */
+    WlVideoVideoEmbedSourceSid[WlVideoVideoEmbedSourceSid["YOUTUBE"] = 1] = "YOUTUBE";
+})(WlVideoVideoEmbedSourceSid || (exports.WlVideoVideoEmbedSourceSid = WlVideoVideoEmbedSourceSid = {}));
+/** A list of two answers for any question: Yes or No. */
+var CoreSidYesNoSid;
+(function (CoreSidYesNoSid) {
+    /** The answer is "no" */
+    CoreSidYesNoSid[CoreSidYesNoSid["NO"] = 2] = "NO";
+    /** The answer is "yes" */
+    CoreSidYesNoSid[CoreSidYesNoSid["YES"] = 1] = "YES";
+})(CoreSidYesNoSid || (exports.CoreSidYesNoSid = CoreSidYesNoSid = {}));
+/** List of video types. */
+var WlVideoVideoSourceSid;
+(function (WlVideoVideoSourceSid) {
+    /** Embedded video */
+    WlVideoVideoSourceSid[WlVideoVideoSourceSid["EMBED"] = 2] = "EMBED";
+    /** Uploaded video */
+    WlVideoVideoSourceSid[WlVideoVideoSourceSid["UPLOAD"] = 1] = "UPLOAD";
+})(WlVideoVideoSourceSid || (exports.WlVideoVideoSourceSid = WlVideoVideoSourceSid = {}));
+/** List of possible sort order. */
+var CoreSidSortOrderSid;
+(function (CoreSidSortOrderSid) {
+    /** Ascending order */
+    CoreSidSortOrderSid[CoreSidSortOrderSid["ASC"] = 2] = "ASC";
+    /** Descending order */
+    CoreSidSortOrderSid[CoreSidSortOrderSid["DESC"] = 1] = "DESC";
+})(CoreSidSortOrderSid || (exports.CoreSidSortOrderSid = CoreSidSortOrderSid = {}));
+/** List of video catalog sorting types. */
+var WlVideoCatalogFilterSortFilterSortSid;
+(function (WlVideoCatalogFilterSortFilterSortSid) {
+    /** Sort alphabetically */
+    WlVideoCatalogFilterSortFilterSortSid[WlVideoCatalogFilterSortFilterSortSid["ALPHABET"] = 1] = "ALPHABET";
+    /** Sort by custom */
+    WlVideoCatalogFilterSortFilterSortSid[WlVideoCatalogFilterSortFilterSortSid["CUSTOM"] = 4] = "CUSTOM";
+    /** Sort by most recently added */
+    WlVideoCatalogFilterSortFilterSortSid[WlVideoCatalogFilterSortFilterSortSid["RECENT"] = 2] = "RECENT";
+    /** Sorted by number of views */
+    WlVideoCatalogFilterSortFilterSortSid[WlVideoCatalogFilterSortFilterSortSid["VIEW"] = 3] = "VIEW";
+})(WlVideoCatalogFilterSortFilterSortSid || (exports.WlVideoCatalogFilterSortFilterSortSid = WlVideoCatalogFilterSortFilterSortSid = {}));
+/** List of general fields in user's profile. */
+var RsFieldGeneralSid;
+(function (RsFieldGeneralSid) {
+    /** Set of fields to choose address */
+    RsFieldGeneralSid[RsFieldGeneralSid["ADDRESS"] = 9] = "ADDRESS";
+    /** Set of fields to choose birthday date */
+    RsFieldGeneralSid[RsFieldGeneralSid["BIRTHDAY"] = 7] = "BIRTHDAY";
+    /** Gender field */
+    RsFieldGeneralSid[RsFieldGeneralSid["GENDER"] = 8] = "GENDER";
+    /** Image */
+    RsFieldGeneralSid[RsFieldGeneralSid["IMAGE"] = 13] = "IMAGE";
+    /** Home location */
+    RsFieldGeneralSid[RsFieldGeneralSid["LOCATION"] = 10] = "LOCATION";
+    /** Block with login information (email and password) */
+    RsFieldGeneralSid[RsFieldGeneralSid["LOGIN"] = 3] = "LOGIN";
+    /** Member ID */
+    RsFieldGeneralSid[RsFieldGeneralSid["MEMBER"] = 11] = "MEMBER";
+    /** First name */
+    RsFieldGeneralSid[RsFieldGeneralSid["NAME_FIRST"] = 2] = "NAME_FIRST";
+    /** Last name */
+    RsFieldGeneralSid[RsFieldGeneralSid["NAME_LAST"] = 1] = "NAME_LAST";
+    /** Cell phone number */
+    RsFieldGeneralSid[RsFieldGeneralSid["PHONE_CELL"] = 4] = "PHONE_CELL";
+    /** Home phone number */
+    RsFieldGeneralSid[RsFieldGeneralSid["PHONE_HOME"] = 5] = "PHONE_HOME";
+    /** Work phone number + ext */
+    RsFieldGeneralSid[RsFieldGeneralSid["PHONE_WORK"] = 6] = "PHONE_WORK";
+    /** Referred by */
+    RsFieldGeneralSid[RsFieldGeneralSid["REFERRER"] = 12] = "REFERRER";
+    /** Client status (client/member types). System default client/member types see SystemSid */
+    RsFieldGeneralSid[RsFieldGeneralSid["STATUS"] = 14] = "STATUS";
+    /** Timezone field */
+    RsFieldGeneralSid[RsFieldGeneralSid["TIMEZONE"] = 15] = "TIMEZONE";
+    /** Vaccination status. See {@link WlLoginMemberVaccinationStatusVaccinationStatusSid} */
+    RsFieldGeneralSid[RsFieldGeneralSid["VACCINATION_STATUS"] = 16] = "VACCINATION_STATUS";
+})(RsFieldGeneralSid || (exports.RsFieldGeneralSid = RsFieldGeneralSid = {}));
+/** Possible types of the custom fields: text, checkbox, radio buttons, etc. */
+var RsFieldTypeSid;
+(function (RsFieldTypeSid) {
+    /** Checkbox field. The `s_value` for this type of field can be 1 if checkbox is checked and 0 otherwise */
+    RsFieldTypeSid[RsFieldTypeSid["CHECKBOX"] = 2] = "CHECKBOX";
+    /** General field. Has its own format */
+    RsFieldTypeSid[RsFieldTypeSid["GENERAL"] = 5] = "GENERAL";
+    /** Radio buttons */
+    RsFieldTypeSid[RsFieldTypeSid["RADIO"] = 4] = "RADIO";
+    /** Drop-down menu */
+    RsFieldTypeSid[RsFieldTypeSid["SELECT"] = 3] = "SELECT";
+    /** One line text field */
+    RsFieldTypeSid[RsFieldTypeSid["TEXT"] = 1] = "TEXT";
+})(RsFieldTypeSid || (exports.RsFieldTypeSid = RsFieldTypeSid = {}));
 /** List of announcement statuses. */
 var WlAnnouncementAnnouncementStatusEnum;
 (function (WlAnnouncementAnnouncementStatusEnum) {
@@ -2430,6 +2420,16 @@ var WlAnnouncementSortFieldSid;
     /** Unpublish date field */
     WlAnnouncementSortFieldSid[WlAnnouncementSortFieldSid["UNPUBLISH_DATE"] = 9] = "UNPUBLISH_DATE";
 })(WlAnnouncementSortFieldSid || (exports.WlAnnouncementSortFieldSid = WlAnnouncementSortFieldSid = {}));
+/** Review status identifiers. */
+var RsReviewStatusSid;
+(function (RsReviewStatusSid) {
+    /** Admin */
+    RsReviewStatusSid[RsReviewStatusSid["ADMIN"] = 1] = "ADMIN";
+    /** Hidden */
+    RsReviewStatusSid[RsReviewStatusSid["HIDDEN"] = 4] = "HIDDEN";
+    /** Publish */
+    RsReviewStatusSid[RsReviewStatusSid["PUBLISH"] = 3] = "PUBLISH";
+})(RsReviewStatusSid || (exports.RsReviewStatusSid = RsReviewStatusSid = {}));
 /** List of page transaction type. */
 var RsPayAccountChargeSid;
 (function (RsPayAccountChargeSid) {
@@ -2470,678 +2470,6 @@ var CoreGoogleCaptchaCaptchaResponseSid;
     /** Token is valid but score is risky */
     CoreGoogleCaptchaCaptchaResponseSid[CoreGoogleCaptchaCaptchaResponseSid["VALID_BLOCK"] = 4] = "VALID_BLOCK";
 })(CoreGoogleCaptchaCaptchaResponseSid || (exports.CoreGoogleCaptchaCaptchaResponseSid = CoreGoogleCaptchaCaptchaResponseSid = {}));
-/** List of available design icons. */
-var WlDesignIconSid;
-(function (WlDesignIconSid) {
-    /** Signs that session or pass is an appointment connected */
-    WlDesignIconSid[WlDesignIconSid["APPOINTMENT"] = 4] = "APPOINTMENT";
-    /** Signs that session or pass is an asset connected */
-    WlDesignIconSid[WlDesignIconSid["ASSET"] = 7] = "ASSET";
-    /** Signs that session or pass is a class or event connected */
-    WlDesignIconSid[WlDesignIconSid["CLASSES"] = 5] = "CLASSES";
-    /** Cycle icon. Used, for example, to show transferred status of the promotion */
-    WlDesignIconSid[WlDesignIconSid["CYCLE"] = 3] = "CYCLE";
-    /** Early cancel activity list icon */
-    WlDesignIconSid[WlDesignIconSid["EARLY_CANCELED"] = 8] = "EARLY_CANCELED";
-    /** Signs that session or pass is a gym visit connected */
-    WlDesignIconSid[WlDesignIconSid["GYM_VISIT"] = 6] = "GYM_VISIT";
-    /** Late cancel activity list icon */
-    WlDesignIconSid[WlDesignIconSid["LATE_CANCELED"] = 9] = "LATE_CANCELED";
-    /** Piece of paper with the curved end for different text notes */
-    WlDesignIconSid[WlDesignIconSid["NOTE"] = 2] = "NOTE";
-    /** No show at visit activity list icon */
-    WlDesignIconSid[WlDesignIconSid["NO_SHOW"] = 10] = "NO_SHOW";
-    /** Paper with medical symbolic for medical notes */
-    WlDesignIconSid[WlDesignIconSid["SOAP"] = 1] = "SOAP";
-    /** Clock activity list icon in SPA application */
-    WlDesignIconSid[WlDesignIconSid["SPA_CLOCK"] = 11] = "SPA_CLOCK";
-})(WlDesignIconSid || (exports.WlDesignIconSid = WlDesignIconSid = {}));
-/** Manages identifiers of user activity. */
-var RsLoginActivityTypeSid;
-(function (RsLoginActivityTypeSid) {
-    /** Client books an appointment */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_BOOK"] = 27] = "APPOINTMENT_BOOK";
-    /** Client booked an appointment and shared on Facebook */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_BOOK_FACEBOOK"] = 47] = "APPOINTMENT_BOOK_FACEBOOK";
-    /** Client booked an appointment and shared on Twitter */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_BOOK_TWITTER"] = 48] = "APPOINTMENT_BOOK_TWITTER";
-    /** Client cancels an appointment */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_CANCEL"] = 28] = "APPOINTMENT_CANCEL";
-    /** Client attends an appointment */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_VISIT"] = 23] = "APPOINTMENT_VISIT";
-    /** Client books an appointment to wait list */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_WAIT"] = 52] = "APPOINTMENT_WAIT";
-    /** Client booked an asset and shared on Facebook */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ASSET_BOOK_FACEBOOK"] = 49] = "ASSET_BOOK_FACEBOOK";
-    /** Client booked an asset and shared on Twitter */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ASSET_BOOK_TWITTER"] = 50] = "ASSET_BOOK_TWITTER";
-    /** Client's birthday */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["BIRTHDAY"] = 1] = "BIRTHDAY";
-    /** Client booked a class */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CLASS_BOOK"] = 2] = "CLASS_BOOK";
-    /** Client booked a class and shared on Facebook */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CLASS_BOOK_FACEBOOK"] = 43] = "CLASS_BOOK_FACEBOOK";
-    /** Client booked a class and shared on Twitter */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CLASS_BOOK_TWITTER"] = 44] = "CLASS_BOOK_TWITTER";
-    /** Client cancelled a class */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CLASS_CANCEL"] = 3] = "CLASS_CANCEL";
-    /** Client attends a class */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CLASS_VISIT"] = 15] = "CLASS_VISIT";
-    /** Client booked a class */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CLASS_WAIT"] = 54] = "CLASS_WAIT";
-    /** Gift card transferred */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["COUPON_TRANSFER"] = 51] = "COUPON_TRANSFER";
-    /** Staff approved a custom reward for a client */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CUSTOM_REWARD"] = 31] = "CUSTOM_REWARD";
-    /** Client booked an enrollment */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ENROLLMENT_BOOK"] = 17] = "ENROLLMENT_BOOK";
-    /** Client booked an enrollment and shared on Facebook */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ENROLLMENT_BOOK_FACEBOOK"] = 45] = "ENROLLMENT_BOOK_FACEBOOK";
-    /** Client booked an enrollment and shared on Twitter */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ENROLLMENT_BOOK_TWITTER"] = 46] = "ENROLLMENT_BOOK_TWITTER";
-    /** Client cancels an enrollment */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ENROLLMENT_CANCEL"] = 18] = "ENROLLMENT_CANCEL";
-    /** Client attends an enrollment */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ENROLLMENT_VISIT"] = 16] = "ENROLLMENT_VISIT";
-    /** Client booked an enrollment */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ENROLLMENT_WAIT"] = 53] = "ENROLLMENT_WAIT";
-    /** Client connected his Facebook account */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FACEBOOK_CONNECT"] = 12] = "FACEBOOK_CONNECT";
-    /** Client disconnected his Facebook account */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FACEBOOK_DISCONNECT"] = 19] = "FACEBOOK_DISCONNECT";
-    /** Client added a class to favorites */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_ADD_CLASS"] = 4] = "FAVORITE_ADD_CLASS";
-    /** Client added a location to favorites */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_ADD_LOCATION"] = 5] = "FAVORITE_ADD_LOCATION";
-    /** Client added a staff member to favorites */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_ADD_STAFF"] = 6] = "FAVORITE_ADD_STAFF";
-    /** Client removed a class from favorites */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_REMOVE_CLASS"] = 7] = "FAVORITE_REMOVE_CLASS";
-    /** Client removed a location from favorites */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_REMOVE_LOCATION"] = 8] = "FAVORITE_REMOVE_LOCATION";
-    /** Client removed a staff member from favorites */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_REMOVE_STAFF"] = 9] = "FAVORITE_REMOVE_STAFF";
-    /** Client added a friend */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FRIEND_ADD"] = 10] = "FRIEND_ADD";
-    /** Client made a gym visit */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["GYM_VISIT"] = 32] = "GYM_VISIT";
-    /** Client sent an invite */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["INVITE_SEND"] = 14] = "INVITE_SEND";
-    /** The user shared location item into Facebook */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LOCATION_SHARE_FACEBOOK"] = 39] = "LOCATION_SHARE_FACEBOOK";
-    /** The user shared location item into Twitter */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LOCATION_SHARE_TWITTER"] = 40] = "LOCATION_SHARE_TWITTER";
-    /** The user spend money */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PAY"] = 22] = "PAY";
-    /** Client has bought prize */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PRIZE"] = 24] = "PRIZE";
-    /** Promotion transferred */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PROMOTION_TRANSFER"] = 34] = "PROMOTION_TRANSFER";
-    /** Customer bought the product */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PURCHASE_PRODUCT"] = 30] = "PURCHASE_PRODUCT";
-    /** Customer bought the promotion */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PURCHASE_PROMOTION"] = 29] = "PURCHASE_PROMOTION";
-    /** The user shared purchase item into Facebook */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PURCHASE_SHARE_FACEBOOK"] = 25] = "PURCHASE_SHARE_FACEBOOK";
-    /** The user shared purchase item into Twitter */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PURCHASE_SHARE_TWITTER"] = 26] = "PURCHASE_SHARE_TWITTER";
-    /** Referral made a purchase */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REFER_PURCHASE"] = 38] = "REFER_PURCHASE";
-    /** A referrer is set for the user */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REFER_REGISTER"] = 37] = "REFER_REGISTER";
-    /** The user has logged in */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REGISTRATION"] = 21] = "REGISTRATION";
-    /** Client wrote a review */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REVIEW"] = 11] = "REVIEW";
-    /** The user shared purchase item into Facebook */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REVIEW_SHARE_FACEBOOK"] = 41] = "REVIEW_SHARE_FACEBOOK";
-    /** The user shared purchase item into Twitter */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REVIEW_SHARE_TWITTER"] = 42] = "REVIEW_SHARE_TWITTER";
-    /** Reward points were changed manually */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REWARD_MANUAL"] = 55] = "REWARD_MANUAL";
-    /** All-time earned reward points have been reset */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REWARD_RESET"] = 36] = "REWARD_RESET";
-    /** Current available reward points have been reset */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REWARD_RESET_AVAILABLE"] = 56] = "REWARD_RESET_AVAILABLE";
-    /** Client attended several visits */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["SUMMARY_VISIT"] = 35] = "SUMMARY_VISIT";
-    /** Client connected his Twitter account */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["TWITTER_CONNECT"] = 13] = "TWITTER_CONNECT";
-    /** Client disconnected his Twitter account */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["TWITTER_DISCONNECT"] = 20] = "TWITTER_DISCONNECT";
-})(RsLoginActivityTypeSid || (exports.RsLoginActivityTypeSid = RsLoginActivityTypeSid = {}));
-/** Promotion or package date start rule. */
-var RsActivationSid;
-(function (RsActivationSid) {
-    /** Number of a day of the month or of the week */
-    RsActivationSid[RsActivationSid["DAY"] = 7] = "DAY";
-    /** Custom date */
-    RsActivationSid[RsActivationSid["FIXED"] = 3] = "FIXED";
-    /** The first day of month */
-    RsActivationSid[RsActivationSid["MONTH_FIRST"] = 4] = "MONTH_FIRST";
-    /** The 15th day of the month */
-    RsActivationSid[RsActivationSid["MONTH_HALF"] = 6] = "MONTH_HALF";
-    /** The last day of the month */
-    RsActivationSid[RsActivationSid["MONTH_LAST"] = 5] = "MONTH_LAST";
-    /** Date of the sale */
-    RsActivationSid[RsActivationSid["SALE"] = 1] = "SALE";
-    /** Date of the first visit */
-    RsActivationSid[RsActivationSid["VISIT"] = 2] = "VISIT";
-})(RsActivationSid || (exports.RsActivationSid = RsActivationSid = {}));
-/** String identifiers for tax type. */
-var RsCommissionTypeSid;
-(function (RsCommissionTypeSid) {
-    /** Fixed type */
-    RsCommissionTypeSid[RsCommissionTypeSid["FLAT"] = 1] = "FLAT";
-    /** Percent type */
-    RsCommissionTypeSid[RsCommissionTypeSid["PERCENT"] = 2] = "PERCENT";
-})(RsCommissionTypeSid || (exports.RsCommissionTypeSid = RsCommissionTypeSid = {}));
-/** List of sale categories on the store page. */
-var RsSaleSid;
-(function (RsSaleSid) {
-    /** Single appointment reservation */
-    RsSaleSid[RsSaleSid["APPOINTMENT"] = 8] = "APPOINTMENT";
-    /** Single appointment deposit reservation */
-    RsSaleSid[RsSaleSid["APPOINTMENT_DEPOSIT"] = 11] = "APPOINTMENT_DEPOSIT";
-    /** Tips for the appointment */
-    RsSaleSid[RsSaleSid["APPOINTMENT_TIP"] = 12] = "APPOINTMENT_TIP";
-    /** Single class visit */
-    RsSaleSid[RsSaleSid["CLASS_PERIOD"] = 6] = "CLASS_PERIOD";
-    /** Gift card */
-    RsSaleSid[RsSaleSid["COUPON"] = 7] = "COUPON";
-    /** Enrollments. Classes where flag event is `true` */
-    RsSaleSid[RsSaleSid["ENROLLMENT"] = 3] = "ENROLLMENT";
-    /** Promotions with program {@link RsProgramSid} */
-    RsSaleSid[RsSaleSid["PACKAGE"] = 5] = "PACKAGE";
-    /** Products: water, t-shirts, etc */
-    RsSaleSid[RsSaleSid["PRODUCT"] = 4] = "PRODUCT";
-    /** Promotions with program category {@link RsProgramCategorySid} and {@link RsProgramCategorySid} */
-    RsSaleSid[RsSaleSid["PROMOTION_CLASS"] = 1] = "PROMOTION_CLASS";
-    /** Promotions with program category {@link RsProgramCategorySid} */
-    RsSaleSid[RsSaleSid["PROMOTION_RESOURCE"] = 9] = "PROMOTION_RESOURCE";
-    /** Promotions with program category {@link RsProgramCategorySid} and {@link RsProgramCategorySid} */
-    RsSaleSid[RsSaleSid["PROMOTION_SERVICE"] = 2] = "PROMOTION_SERVICE";
-    /** Promotions with program category {@link RsProgramCategorySid} */
-    RsSaleSid[RsSaleSid["PROMOTION_VIDEO"] = 13] = "PROMOTION_VIDEO";
-    /** Products: water, t-shirts, etc. That is available for quick buy */
-    RsSaleSid[RsSaleSid["QUICK_BUY"] = 10] = "QUICK_BUY";
-    /** Tuition */
-    RsSaleSid[RsSaleSid["TUITION"] = 14] = "TUITION";
-    /** Tuition fees */
-    RsSaleSid[RsSaleSid["TUITION_FEE"] = 15] = "TUITION_FEE";
-})(RsSaleSid || (exports.RsSaleSid = RsSaleSid = {}));
-/** List of sources from where the user registers. */
-var WlProfileRegisterSourceSid;
-(function (WlProfileRegisterSourceSid) {
-    /** Source when a user registers during purchase or booking */
-    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["BOOKING_AND_PURCHASE"] = 1] = "BOOKING_AND_PURCHASE";
-    /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
-    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["SELF"] = 2] = "SELF";
-    /** This is a service value, which means to not choose any specific source */
-    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["UNSET_VALUE"] = 3] = "UNSET_VALUE";
-})(WlProfileRegisterSourceSid || (exports.WlProfileRegisterSourceSid = WlProfileRegisterSourceSid = {}));
-/** Relation type between two relatives. */
-var RsFamilyRelationSid;
-(function (RsFamilyRelationSid) {
-    /** Care participant */
-    RsFamilyRelationSid[RsFamilyRelationSid["CARE_PARTICIPANT"] = 12] = "CARE_PARTICIPANT";
-    /** Care recipient */
-    RsFamilyRelationSid[RsFamilyRelationSid["CARE_RECEIVER"] = 9] = "CARE_RECEIVER";
-    /** Care provider */
-    RsFamilyRelationSid[RsFamilyRelationSid["CAREGIVER"] = 8] = "CAREGIVER";
-    /** Case load */
-    RsFamilyRelationSid[RsFamilyRelationSid["CASE_LOAD"] = 16] = "CASE_LOAD";
-    /** Case Manager */
-    RsFamilyRelationSid[RsFamilyRelationSid["CASE_MANAGER"] = 15] = "CASE_MANAGER";
-    /** Child of the parent */
-    RsFamilyRelationSid[RsFamilyRelationSid["CHILD"] = 5] = "CHILD";
-    /** Dependent */
-    RsFamilyRelationSid[RsFamilyRelationSid["DEPENDENT"] = 10] = "DEPENDENT";
-    /** Friend */
-    RsFamilyRelationSid[RsFamilyRelationSid["FRIEND"] = 2] = "FRIEND";
-    /** Guardian */
-    RsFamilyRelationSid[RsFamilyRelationSid["GUARDIAN"] = 7] = "GUARDIAN";
-    /** Not specified custom relationship */
-    RsFamilyRelationSid[RsFamilyRelationSid["OTHER"] = 6] = "OTHER";
-    /** Parent of the child */
-    RsFamilyRelationSid[RsFamilyRelationSid["PARENT"] = 3] = "PARENT";
-    /** Sibling. A brother or sister */
-    RsFamilyRelationSid[RsFamilyRelationSid["SIBLING"] = 4] = "SIBLING";
-    /** Spouse. A husband or wife */
-    RsFamilyRelationSid[RsFamilyRelationSid["SPOUSE"] = 1] = "SPOUSE";
-    /** Student */
-    RsFamilyRelationSid[RsFamilyRelationSid["STUDENT"] = 14] = "STUDENT";
-    /** Teacher */
-    RsFamilyRelationSid[RsFamilyRelationSid["TEACHER"] = 13] = "TEACHER";
-    /** Therapist */
-    RsFamilyRelationSid[RsFamilyRelationSid["THERAPIST"] = 11] = "THERAPIST";
-})(RsFamilyRelationSid || (exports.RsFamilyRelationSid = RsFamilyRelationSid = {}));
-/** List of file extensions. */
-var WlProfileAttachAttachPreviewSid;
-(function (WlProfileAttachAttachPreviewSid) {
-    /** Image file */
-    WlProfileAttachAttachPreviewSid[WlProfileAttachAttachPreviewSid["IMAGE"] = 1] = "IMAGE";
-    /** Pdf file */
-    WlProfileAttachAttachPreviewSid[WlProfileAttachAttachPreviewSid["PDF"] = 2] = "PDF";
-})(WlProfileAttachAttachPreviewSid || (exports.WlProfileAttachAttachPreviewSid = WlProfileAttachAttachPreviewSid = {}));
-/** Sources of system notes. */
-var RsProfileNoteSid;
-(function (RsProfileNoteSid) {
-    /** A list of clients with not redeemed invitations */
-    RsProfileNoteSid[RsProfileNoteSid["DOORACCESS_BRIVO_INVITATION_BRIVOINVITATIONPROFILE"] = 5] = "DOORACCESS_BRIVO_INVITATION_BRIVOINVITATIONPROFILE";
-    /** A list of accounts with invalid progress log */
-    RsProfileNoteSid[RsProfileNoteSid["MEMBER_PROGRESS_LOG_PROFILE"] = 3] = "MEMBER_PROGRESS_LOG_PROFILE";
-    /** A list of accounts with not verified progress log */
-    RsProfileNoteSid[RsProfileNoteSid["MEMBER_PROGRESS_LOG_VERIFICATION"] = 4] = "MEMBER_PROGRESS_LOG_VERIFICATION";
-    /** A list of accounts with negative balance */
-    RsProfileNoteSid[RsProfileNoteSid["PAY_ACCOUNT"] = 1] = "PAY_ACCOUNT";
-    /** A list of accounts with unsigned waivers */
-    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_AGREE"] = 8] = "PROFILE_PAGE_OVERVIEW_ALERT_AGREE";
-    /** A list of accounts with upcoming birthdays */
-    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_BIRTHDAY"] = 6] = "PROFILE_PAGE_OVERVIEW_ALERT_BIRTHDAY";
-    /** A list of accounts with unsigned contracts */
-    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_CONTRACT"] = 9] = "PROFILE_PAGE_OVERVIEW_ALERT_CONTRACT";
-    /** A list of accounts with expired or soon expiring credit cards */
-    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_CREDITCARD"] = 7] = "PROFILE_PAGE_OVERVIEW_ALERT_CREDITCARD";
-    /** A list of accounts with a milestone visit */
-    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_MILESTONEVISIT"] = 12] = "PROFILE_PAGE_OVERVIEW_ALERT_MILESTONEVISIT";
-    /** A list of accounts with uncompleted quizzes */
-    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_QUIZ"] = 10] = "PROFILE_PAGE_OVERVIEW_ALERT_QUIZ";
-    /** A list of accounts at risk of churn */
-    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_RISK"] = 11] = "PROFILE_PAGE_OVERVIEW_ALERT_RISK";
-    /** A list of due membership payments */
-    RsProfileNoteSid[RsProfileNoteSid["PROMOTION_PAY"] = 2] = "PROMOTION_PAY";
-})(RsProfileNoteSid || (exports.RsProfileNoteSid = RsProfileNoteSid = {}));
-/** Class for access type to login note. */
-var RsLoginNoteAccessSid;
-(function (RsLoginNoteAccessSid) {
-    /** Login note can view all staff and client */
-    RsLoginNoteAccessSid[RsLoginNoteAccessSid["CLIENT"] = 1] = "CLIENT";
-    /** Login note can view only staff which create this note */
-    RsLoginNoteAccessSid[RsLoginNoteAccessSid["ME"] = 2] = "ME";
-    /** Login note can view only all staff */
-    RsLoginNoteAccessSid[RsLoginNoteAccessSid["STAFF"] = 3] = "STAFF";
-})(RsLoginNoteAccessSid || (exports.RsLoginNoteAccessSid = RsLoginNoteAccessSid = {}));
-/** List of modes to change user's "flag" status within a location */
-var RsLoginNoteFlagSid;
-(function (RsLoginNoteFlagSid) {
-    /** Add flag record */
-    RsLoginNoteFlagSid[RsLoginNoteFlagSid["ADD"] = 1] = "ADD";
-    /** Remove flag record */
-    RsLoginNoteFlagSid[RsLoginNoteFlagSid["REMOVE"] = 2] = "REMOVE";
-})(RsLoginNoteFlagSid || (exports.RsLoginNoteFlagSid = RsLoginNoteFlagSid = {}));
-/** Different sources of flags, which are not set manually by the staff member. Such flags have own logic. */
-var WlLocationFlagFlagSourceEnum;
-(function (WlLocationFlagFlagSourceEnum) {
-    /** Flag is set because user is sent to collections. This means user has debt and cannot make new purchases */
-    WlLocationFlagFlagSourceEnum[WlLocationFlagFlagSourceEnum["COLLECTIONS"] = 1] = "COLLECTIONS";
-})(WlLocationFlagFlagSourceEnum || (exports.WlLocationFlagFlagSourceEnum = WlLocationFlagFlagSourceEnum = {}));
-/** Defines if client has "Late cancel" or "No shows" sessions. */
-var WlBusinessPolicyBlameSid;
-(function (WlBusinessPolicyBlameSid) {
-    /** If client has "Late cancel" and "No shows" sessions */
-    WlBusinessPolicyBlameSid[WlBusinessPolicyBlameSid["BOTH"] = 1] = "BOTH";
-    /** If client has "Late cancel" sessions */
-    WlBusinessPolicyBlameSid[WlBusinessPolicyBlameSid["LATE_CANCEL"] = 2] = "LATE_CANCEL";
-    /** If client has "No shows" sessions */
-    WlBusinessPolicyBlameSid[WlBusinessPolicyBlameSid["NO_SHOWS"] = 3] = "NO_SHOWS";
-})(WlBusinessPolicyBlameSid || (exports.WlBusinessPolicyBlameSid = WlBusinessPolicyBlameSid = {}));
-/** Client's charge if he has "Late cancel" or "No shows" sessions. */
-var WlBusinessPolicyChargeSid;
-(function (WlBusinessPolicyChargeSid) {
-    /** The client should be to pay a penalty */
-    WlBusinessPolicyChargeSid[WlBusinessPolicyChargeSid["CHARGE"] = 1] = "CHARGE";
-    /** Mark account as has "Late cancel" and "No shows" sessions */
-    WlBusinessPolicyChargeSid[WlBusinessPolicyChargeSid["FLAG_ACCOUNT"] = 2] = "FLAG_ACCOUNT";
-})(WlBusinessPolicyChargeSid || (exports.WlBusinessPolicyChargeSid = WlBusinessPolicyChargeSid = {}));
-/** List of layouts for client's header. */
-var RsPageFrontendHeaderLayoutSid;
-(function (RsPageFrontendHeaderLayoutSid) {
-    /** Logo is under the main menu */
-    RsPageFrontendHeaderLayoutSid[RsPageFrontendHeaderLayoutSid["BOTTOM"] = 4] = "BOTTOM";
-    /** Logo is in the left corner */
-    RsPageFrontendHeaderLayoutSid[RsPageFrontendHeaderLayoutSid["LEFT"] = 1] = "LEFT";
-    /** Logo is in the right corner */
-    RsPageFrontendHeaderLayoutSid[RsPageFrontendHeaderLayoutSid["RIGHT"] = 2] = "RIGHT";
-    /** Logo is above the main menu */
-    RsPageFrontendHeaderLayoutSid[RsPageFrontendHeaderLayoutSid["TOP"] = 3] = "TOP";
-})(RsPageFrontendHeaderLayoutSid || (exports.RsPageFrontendHeaderLayoutSid = RsPageFrontendHeaderLayoutSid = {}));
-/** A position of logo. */
-var RsBusinessDesignLogoPositionSid;
-(function (RsBusinessDesignLogoPositionSid) {
-    /** Logo located in the center */
-    RsBusinessDesignLogoPositionSid[RsBusinessDesignLogoPositionSid["CENTER"] = 2] = "CENTER";
-    /** Logo located on the left side */
-    RsBusinessDesignLogoPositionSid[RsBusinessDesignLogoPositionSid["LEFT"] = 1] = "LEFT";
-    /** Logo located on the right side */
-    RsBusinessDesignLogoPositionSid[RsBusinessDesignLogoPositionSid["RIGHT"] = 3] = "RIGHT";
-})(RsBusinessDesignLogoPositionSid || (exports.RsBusinessDesignLogoPositionSid = RsBusinessDesignLogoPositionSid = {}));
-/** A style of logo. */
-var RsBusinessDesignLogoStyleSid;
-(function (RsBusinessDesignLogoStyleSid) {
-    /** Logo is invisible */
-    RsBusinessDesignLogoStyleSid[RsBusinessDesignLogoStyleSid["HIDE"] = 1] = "HIDE";
-    /** Logo is a rectangle */
-    RsBusinessDesignLogoStyleSid[RsBusinessDesignLogoStyleSid["RECTANGLE"] = 4] = "RECTANGLE";
-    /** Logo is a round */
-    RsBusinessDesignLogoStyleSid[RsBusinessDesignLogoStyleSid["ROUND"] = 3] = "ROUND";
-    /** Logo is a square */
-    RsBusinessDesignLogoStyleSid[RsBusinessDesignLogoStyleSid["SQUARE"] = 2] = "SQUARE";
-})(RsBusinessDesignLogoStyleSid || (exports.RsBusinessDesignLogoStyleSid = RsBusinessDesignLogoStyleSid = {}));
-/** A list of bookable types. */
-var WlServiceBookableSid;
-(function (WlServiceBookableSid) {
-    /** All users can book */
-    WlServiceBookableSid[WlServiceBookableSid["ALL"] = 1] = "ALL";
-    /** Only special client groups can book */
-    WlServiceBookableSid[WlServiceBookableSid["CUSTOM"] = 3] = "CUSTOM";
-    /** Nobody can book */
-    WlServiceBookableSid[WlServiceBookableSid["NONE"] = 2] = "NONE";
-})(WlServiceBookableSid || (exports.WlServiceBookableSid = WlServiceBookableSid = {}));
-/** Types of the location. */
-var WlBusinessFranchiseLocationBusinessFranchiseLocationSid;
-(function (WlBusinessFranchiseLocationBusinessFranchiseLocationSid) {
-    /** All locations */
-    WlBusinessFranchiseLocationBusinessFranchiseLocationSid[WlBusinessFranchiseLocationBusinessFranchiseLocationSid["ALL"] = 1] = "ALL";
-    /** Locations without the region */
-    WlBusinessFranchiseLocationBusinessFranchiseLocationSid[WlBusinessFranchiseLocationBusinessFranchiseLocationSid["REGION_NO"] = 2] = "REGION_NO";
-    /** Location with the region */
-    WlBusinessFranchiseLocationBusinessFranchiseLocationSid[WlBusinessFranchiseLocationBusinessFranchiseLocationSid["REGION_YES"] = 3] = "REGION_YES";
-})(WlBusinessFranchiseLocationBusinessFranchiseLocationSid || (exports.WlBusinessFranchiseLocationBusinessFranchiseLocationSid = WlBusinessFranchiseLocationBusinessFranchiseLocationSid = {}));
-/** Lists statuses of reports from point of view of its generation. */
-var WlReportGeneratorReportGeneratorStatusSid;
-(function (WlReportGeneratorReportGeneratorStatusSid) {
-    /** Report is in an inconsistent state */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["ABORTED"] = 6] = "ABORTED";
-    /** Current operation is being aborted now */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["ABORTING"] = 5] = "ABORTING";
-    /** This report is being deleted now */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["DELETING"] = 4] = "DELETING";
-    /** This report is being generated now */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["GENERATING"] = 2] = "GENERATING";
-    /** Generation of this report is queued */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["QUEUED"] = 1] = "QUEUED";
-    /** Generation of this report is now completed */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["READY"] = 3] = "READY";
-})(WlReportGeneratorReportGeneratorStatusSid || (exports.WlReportGeneratorReportGeneratorStatusSid = WlReportGeneratorReportGeneratorStatusSid = {}));
-/** List of statuses of an Autymate enrollment notification. */
-var WlIntegrationAutymateAutymateStatusSid;
-(function (WlIntegrationAutymateAutymateStatusSid) {
-    /** Autymation enrollment is active */
-    WlIntegrationAutymateAutymateStatusSid[WlIntegrationAutymateAutymateStatusSid["ACTIVE"] = 1] = "ACTIVE";
-    /** Autymation enrollment is no longer active */
-    WlIntegrationAutymateAutymateStatusSid[WlIntegrationAutymateAutymateStatusSid["INACTIVE"] = 2] = "INACTIVE";
-})(WlIntegrationAutymateAutymateStatusSid || (exports.WlIntegrationAutymateAutymateStatusSid = WlIntegrationAutymateAutymateStatusSid = {}));
-/** List of modes used to access Autymate. */
-var WlIntegrationAutymateAutymateAccessModeSid;
-(function (WlIntegrationAutymateAutymateAccessModeSid) {
-    /** Access Autymate to create an initial enrollment */
-    WlIntegrationAutymateAutymateAccessModeSid[WlIntegrationAutymateAutymateAccessModeSid["ENROLL"] = 1] = "ENROLL";
-    /** Access Autymate to view the dashboard */
-    WlIntegrationAutymateAutymateAccessModeSid[WlIntegrationAutymateAutymateAccessModeSid["VIEW"] = 2] = "VIEW";
-})(WlIntegrationAutymateAutymateAccessModeSid || (exports.WlIntegrationAutymateAutymateAccessModeSid = WlIntegrationAutymateAutymateAccessModeSid = {}));
-/** List sources of the view video. */
-var WlVideoWatchWatchSourceSid;
-(function (WlVideoWatchWatchSourceSid) {
-    /** Video watched from application */
-    WlVideoWatchWatchSourceSid[WlVideoWatchWatchSourceSid["APP"] = 1] = "APP";
-    /** Video watched from direct URL */
-    WlVideoWatchWatchSourceSid[WlVideoWatchWatchSourceSid["DIRECT_URL"] = 2] = "DIRECT_URL";
-    /** Video watched from frontend */
-    WlVideoWatchWatchSourceSid[WlVideoWatchWatchSourceSid["FRONTEND"] = 3] = "FRONTEND";
-    /** Source of watched is undefined */
-    WlVideoWatchWatchSourceSid[WlVideoWatchWatchSourceSid["UNDEFINED"] = 4] = "UNDEFINED";
-})(WlVideoWatchWatchSourceSid || (exports.WlVideoWatchWatchSourceSid = WlVideoWatchWatchSourceSid = {}));
-/** A list of report categories. */
-var RsReportCategorySid;
-(function (RsReportCategorySid) {
-    /** Category reports on attendance */
-    RsReportCategorySid[RsReportCategorySid["ATTENDANCE"] = 2] = "ATTENDANCE";
-    /** Category reports on clients */
-    RsReportCategorySid[RsReportCategorySid["CLIENT"] = 1] = "CLIENT";
-    /** Category on dashboards */
-    RsReportCategorySid[RsReportCategorySid["DASHBOARD"] = 9] = "DASHBOARD";
-    /** Corporate reports */
-    RsReportCategorySid[RsReportCategorySid["FRANCHISE"] = 6] = "FRANCHISE";
-    /** Insurance and reimbursements reports */
-    RsReportCategorySid[RsReportCategorySid["INSURANCE"] = 7] = "INSURANCE";
-    /** Category reports on mail */
-    RsReportCategorySid[RsReportCategorySid["MAIL"] = 5] = "MAIL";
-    /** Metrics category */
-    RsReportCategorySid[RsReportCategorySid["METRIC"] = 8] = "METRIC";
-    /** Category reports on sales */
-    RsReportCategorySid[RsReportCategorySid["SALE"] = 4] = "SALE";
-    /** Category reports on staff */
-    RsReportCategorySid[RsReportCategorySid["STAFF"] = 3] = "STAFF";
-})(RsReportCategorySid || (exports.RsReportCategorySid = RsReportCategorySid = {}));
-/** A list of types of visit note. */
-var WlVisitNoteSidNoteSid;
-(function (WlVisitNoteSidNoteSid) {
-    /** The usual quick accompanying note for the customer visit */
-    WlVisitNoteSidNoteSid[WlVisitNoteSidNoteSid["QUICK"] = 2] = "QUICK";
-    /** Accompanying medical note for the customer visit */
-    WlVisitNoteSidNoteSid[WlVisitNoteSidNoteSid["SOAP"] = 1] = "SOAP";
-})(WlVisitNoteSidNoteSid || (exports.WlVisitNoteSidNoteSid = WlVisitNoteSidNoteSid = {}));
-/** List of possible value of virtual integrations. */
-var WlVirtualVirtualProviderSid;
-(function (WlVirtualVirtualProviderSid) {
-    /** Virtual integration non implemented */
-    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["NON_INTEGRATED"] = 2] = "NON_INTEGRATED";
-    /** Virtual Zoom service integration */
-    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
-})(WlVirtualVirtualProviderSid || (exports.WlVirtualVirtualProviderSid = WlVirtualVirtualProviderSid = {}));
-/** Reasons why the client can't book this class. */
-var WlScheduleClassViewDenyReasonSid;
-(function (WlScheduleClassViewDenyReasonSid) {
-    /** User is trying to book on behalf of another client, but does not have permission to do so */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["ACCESS_DENIED"] = 1] = "ACCESS_DENIED";
-    /** Manual restriction to book business, location or a certain class */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["ACCESS_LIMITED"] = 2] = "ACCESS_LIMITED";
-    /** The business can not take one more client because of business subscription limitations */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["ACCOUNT_LIMIT"] = 3] = "ACCOUNT_LIMIT";
-    /** Class is not available for certain age */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["AGE_RESTRICTION"] = 4] = "AGE_RESTRICTION";
-    /** Liability Release needs to be agreed */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["AGREE_NX"] = 5] = "AGREE_NX";
-    /** Client has unpaid fees */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BALANCE_NEGATIVE"] = 22] = "BALANCE_NEGATIVE";
-    /** It's too early to book a class */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BOOK_EARLY"] = 7] = "BOOK_EARLY";
-    /** It's too late to book a class */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BOOK_LATE"] = 8] = "BOOK_LATE";
-    /** User's visit overlaps with another visit */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BOOK_OVERLAP"] = 25] = "BOOK_OVERLAP";
-    /** User's pricing options do not allow booking another visit within a certain period because of pricing option limitations */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BOOK_RESTRICT"] = 9] = "BOOK_RESTRICT";
-    /** Client is already booked for this session */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BOOKED_ALREADY"] = 6] = "BOOKED_ALREADY";
-    /** Business is inactive */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BUSINESS_INACTIVE"] = 10] = "BUSINESS_INACTIVE";
-    /** Class is canceled */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["CLASS_CANCELED"] = 11] = "CLASS_CANCELED";
-    /** Class is finished */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["CLASS_FINISHED"] = 26] = "CLASS_FINISHED";
-    /** Class is full */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["CLASS_FULL"] = 14] = "CLASS_FULL";
-    /** Class does not exist anymore */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["CLASS_NOT_AVAILABLE_ANYMORE"] = 15] = "CLASS_NOT_AVAILABLE_ANYMORE";
-    /** Client is flagged at location */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["CLIENT_FLAGGED"] = 12] = "CLIENT_FLAGGED";
-    /** Credit card is required for booking services */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["CREDIT_CARD_REQUIRE"] = 13] = "CREDIT_CARD_REQUIRE";
-    /** Business is closed */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["HOLIDAY"] = 16] = "HOLIDAY";
-    /** Login is required */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["LOGIN_REQUIRED"] = 17] = "LOGIN_REQUIRED";
-    /** Online booking is disabled for the class */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["NOT_BOOKABLE"] = 18] = "NOT_BOOKABLE";
-    /** Online booking is disabled for this type of client */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["NOT_BOOKABLE_BY_TYPE"] = 24] = "NOT_BOOKABLE_BY_TYPE";
-    /** Required personal details missing */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["USER_INFO_MISSING"] = 19] = "USER_INFO_MISSING";
-    /** Visit to another class is required first */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["VISIT_BEFORE"] = 20] = "VISIT_BEFORE";
-    /** The wait list is full */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["WAIT_LIST_LIMIT_MAX"] = 21] = "WAIT_LIST_LIMIT_MAX";
-    /** Client has unsigned waiver */
-    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["WAIVER_NX"] = 23] = "WAIVER_NX";
-})(WlScheduleClassViewDenyReasonSid || (exports.WlScheduleClassViewDenyReasonSid = WlScheduleClassViewDenyReasonSid = {}));
-/** List of resource categories. */
-var WlResourceResourceCategoryEnum;
-(function (WlResourceResourceCategoryEnum) {
-    /** Asset resource category */
-    WlResourceResourceCategoryEnum[WlResourceResourceCategoryEnum["ASSET"] = 1] = "ASSET";
-    /** Off-site location resource category */
-    WlResourceResourceCategoryEnum[WlResourceResourceCategoryEnum["LOCATION"] = 2] = "LOCATION";
-})(WlResourceResourceCategoryEnum || (exports.WlResourceResourceCategoryEnum = WlResourceResourceCategoryEnum = {}));
-/** Possible ways to stop repeatable events. */
-var RsRepeatEndSid;
-(function (RsRepeatEndSid) {
-    /** Stop after a certain number of repeats */
-    RsRepeatEndSid[RsRepeatEndSid["COUNT"] = 2] = "COUNT";
-    /** Stop after a certain date. Including this date */
-    RsRepeatEndSid[RsRepeatEndSid["DATE"] = 3] = "DATE";
-    /** Eternal appointments. Such appointments are scheduled for one year */
-    RsRepeatEndSid[RsRepeatEndSid["ETERNAL"] = 1] = "ETERNAL";
-})(RsRepeatEndSid || (exports.RsRepeatEndSid = RsRepeatEndSid = {}));
-/** The possible payment types an appointment can have. */
-var RsAppointmentPaySid;
-(function (RsAppointmentPaySid) {
-    /** A deposit was paid */
-    RsAppointmentPaySid[RsAppointmentPaySid["DEPOSIT"] = 2] = "DEPOSIT";
-    /** Appointment is free and does not require payment */
-    RsAppointmentPaySid[RsAppointmentPaySid["FREE"] = 4] = "FREE";
-    /** The full price was paid */
-    RsAppointmentPaySid[RsAppointmentPaySid["FULL"] = 3] = "FULL";
-    /** Nothing was paid */
-    RsAppointmentPaySid[RsAppointmentPaySid["NONE"] = 1] = "NONE";
-})(RsAppointmentPaySid || (exports.RsAppointmentPaySid = RsAppointmentPaySid = {}));
-/** Identifiers for services types. */
-var RsServiceSid;
-(function (RsServiceSid) {
-    /** Appointments */
-    RsServiceSid[RsServiceSid["APPOINTMENT"] = 1] = "APPOINTMENT";
-    /** Classes */
-    RsServiceSid[RsServiceSid["CLASSES"] = 2] = "CLASSES";
-    /** Enrolments */
-    RsServiceSid[RsServiceSid["ENROLLMENT"] = 3] = "ENROLLMENT";
-    /** Resources */
-    RsServiceSid[RsServiceSid["RESOURCE"] = 5] = "RESOURCE";
-    /** Visits */
-    RsServiceSid[RsServiceSid["VISIT"] = 4] = "VISIT";
-})(RsServiceSid || (exports.RsServiceSid = RsServiceSid = {}));
-/** List of progress log fields. */
-var WlMemberProgressFieldProgressFieldSid;
-(function (WlMemberProgressFieldProgressFieldSid) {
-    /** Abdomen field */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["ABDOMEN"] = 6] = "ABDOMEN";
-    /** Arms field */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["ARMS"] = 3] = "ARMS";
-    /** Blood pressure field */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["BLOOD_PRESSURE"] = 2] = "BLOOD_PRESSURE";
-    /** Body fat field */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["BODY_FAT"] = 11] = "BODY_FAT";
-    /** Bust field */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["BUST"] = 4] = "BUST";
-    /** Height of the client */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["HEIGHT"] = 9] = "HEIGHT";
-    /** Client hips size */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["HIPS"] = 7] = "HIPS";
-    /** Long term goals */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["LONG_TERM_GOALS"] = 14] = "LONG_TERM_GOALS";
-    /** Pre workout heart rate */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["PRE_WORKOUT_HEART_RATE"] = 1] = "PRE_WORKOUT_HEART_RATE";
-    /** Progress picture */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["PROGRESS_PICTURE"] = 12] = "PROGRESS_PICTURE";
-    /** Short term goals */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["SHORT_TERM_GOALS"] = 13] = "SHORT_TERM_GOALS";
-    /** THIGHS */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["THIGHS"] = 8] = "THIGHS";
-    /** Waist */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["WAIST"] = 5] = "WAIST";
-    /** Client weight */
-    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["WEIGHT"] = 10] = "WEIGHT";
-})(WlMemberProgressFieldProgressFieldSid || (exports.WlMemberProgressFieldProgressFieldSid = WlMemberProgressFieldProgressFieldSid = {}));
-/** Possible measurement units of the progress fields values. */
-var WlMemberProgressFieldMeasurementSid;
-(function (WlMemberProgressFieldMeasurementSid) {
-    /** Value in beats per minutes */
-    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["BEATS_PER_MINUTE"] = 7] = "BEATS_PER_MINUTE";
-    /** Value in centimeters */
-    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["CENTIMETRES"] = 1] = "CENTIMETRES";
-    /** Value in feet */
-    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["FEET"] = 3] = "FEET";
-    /** Value in feet and inches */
-    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["FEET_AND_INCHES"] = 11] = "FEET_AND_INCHES";
-    /** Value in grams */
-    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["GRAMS"] = 9] = "GRAMS";
-    /** Value in inches */
-    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["INCHES"] = 4] = "INCHES";
-    /** Value in kilograms */
-    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["KILOGRAMS"] = 5] = "KILOGRAMS";
-    /** Value in metres */
-    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["METRES"] = 2] = "METRES";
-    /** Value in metres and centimetres */
-    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["METRES_AND_CENTIMETRES"] = 12] = "METRES_AND_CENTIMETRES";
-    /** Value in mmHG */
-    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["MMHG"] = 8] = "MMHG";
-    /** Value in percentages */
-    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["PERCENTAGES"] = 10] = "PERCENTAGES";
-    /** Value in pounds */
-    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["POUNDS"] = 6] = "POUNDS";
-})(WlMemberProgressFieldMeasurementSid || (exports.WlMemberProgressFieldMeasurementSid = WlMemberProgressFieldMeasurementSid = {}));
-/** Possible types of the progress fields values. */
-var WlMemberProgressFieldTypeSid;
-(function (WlMemberProgressFieldTypeSid) {
-    /** Value is decimal */
-    WlMemberProgressFieldTypeSid[WlMemberProgressFieldTypeSid["DECIMAL"] = 2] = "DECIMAL";
-    /** Value is image */
-    WlMemberProgressFieldTypeSid[WlMemberProgressFieldTypeSid["IMAGE"] = 5] = "IMAGE";
-    /** Value is percentage */
-    WlMemberProgressFieldTypeSid[WlMemberProgressFieldTypeSid["PERCENTAGE"] = 3] = "PERCENTAGE";
-    /** Value is string */
-    WlMemberProgressFieldTypeSid[WlMemberProgressFieldTypeSid["STRING"] = 4] = "STRING";
-    /** Value is whole number */
-    WlMemberProgressFieldTypeSid[WlMemberProgressFieldTypeSid["WHOLE_NUMBER"] = 1] = "WHOLE_NUMBER";
-})(WlMemberProgressFieldTypeSid || (exports.WlMemberProgressFieldTypeSid = WlMemberProgressFieldTypeSid = {}));
-/** List of response statuses. */
-var CoreQuizResponseResponseStatusSid;
-(function (CoreQuizResponseResponseStatusSid) {
-    /** Response is active */
-    CoreQuizResponseResponseStatusSid[CoreQuizResponseResponseStatusSid["ACTIVE"] = 1] = "ACTIVE";
-    /** Response is active and has amendments */
-    CoreQuizResponseResponseStatusSid[CoreQuizResponseResponseStatusSid["ACTIVE_AMEND"] = 5] = "ACTIVE_AMEND";
-    /** Response in draft mode */
-    CoreQuizResponseResponseStatusSid[CoreQuizResponseResponseStatusSid["DRAFT"] = 2] = "DRAFT";
-    /** Response in inactive */
-    CoreQuizResponseResponseStatusSid[CoreQuizResponseResponseStatusSid["INACTIVE"] = 3] = "INACTIVE";
-    /** Response in inactive and in draft mode */
-    CoreQuizResponseResponseStatusSid[CoreQuizResponseResponseStatusSid["INACTIVE_DRAFT"] = 4] = "INACTIVE_DRAFT";
-})(CoreQuizResponseResponseStatusSid || (exports.CoreQuizResponseResponseStatusSid = CoreQuizResponseResponseStatusSid = {}));
-/** List of sensor types. */
-var WlProfileSensorSensorTypesSid;
-(function (WlProfileSensorSensorTypesSid) {
-    /** Heart rate sensor */
-    WlProfileSensorSensorTypesSid[WlProfileSensorSensorTypesSid["HEART_RATE"] = 1] = "HEART_RATE";
-})(WlProfileSensorSensorTypesSid || (exports.WlProfileSensorSensorTypesSid = WlProfileSensorSensorTypesSid = {}));
-/** List foreign sites that can pay for visits. */
-var WlVisitPassProspectSid;
-(function (WlVisitPassProspectSid) {
-    /** Class Pass */
-    WlVisitPassProspectSid[WlVisitPassProspectSid["CLASSPASS"] = 1] = "CLASSPASS";
-    /** Gym Pass */
-    WlVisitPassProspectSid[WlVisitPassProspectSid["GYMPASS"] = 2] = "GYMPASS";
-})(WlVisitPassProspectSid || (exports.WlVisitPassProspectSid = WlVisitPassProspectSid = {}));
-/** A list of client type IDs. */
-var WlLoginTypeClientTypeSid;
-(function (WlLoginTypeClientTypeSid) {
-    /** Record contains type of member */
-    WlLoginTypeClientTypeSid[WlLoginTypeClientTypeSid["MEMBER"] = 3] = "MEMBER";
-    /** Record is SystemSid::PROSPECT */
-    WlLoginTypeClientTypeSid[WlLoginTypeClientTypeSid["NOTHING"] = 1] = "NOTHING";
-    /** Record contains type of client */
-    WlLoginTypeClientTypeSid[WlLoginTypeClientTypeSid["PASSHOLDER"] = 2] = "PASSHOLDER";
-})(WlLoginTypeClientTypeSid || (exports.WlLoginTypeClientTypeSid = WlLoginTypeClientTypeSid = {}));
 /** Wellnessliving-wide privileges. */
 var WlPrivilegePrivilegeSid;
 (function (WlPrivilegePrivilegeSid) {
@@ -3608,76 +2936,34 @@ var WlPrivilegePrivilegeSid;
     /** Allow access to manage integration with Zapier */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["ZAPIER"] = 180] = "ZAPIER";
 })(WlPrivilegePrivilegeSid || (exports.WlPrivilegePrivilegeSid = WlPrivilegePrivilegeSid = {}));
-/** A list of supported social networks. */
-var ASocialSid;
-(function (ASocialSid) {
-    /** Facebook social network */
-    ASocialSid[ASocialSid["FACEBOOK"] = 1] = "FACEBOOK";
-    /** Google Plus social network */
-    ASocialSid[ASocialSid["GOOGLE"] = 2] = "GOOGLE";
-    /** Twitter social network */
-    ASocialSid[ASocialSid["TWITTER"] = 3] = "TWITTER";
-})(ASocialSid || (exports.ASocialSid = ASocialSid = {}));
-/** List of Setup -> Store configuration -> Categories and Layout sort options. */
-var WlShopCategoryShopCategorySortSid;
-(function (WlShopCategoryShopCategorySortSid) {
-    /** Custom sort */
-    WlShopCategoryShopCategorySortSid[WlShopCategoryShopCategorySortSid["CUSTOM"] = 2] = "CUSTOM";
-    /** Sort by date */
-    WlShopCategoryShopCategorySortSid[WlShopCategoryShopCategorySortSid["DATE"] = 3] = "DATE";
-    /** Sort by price */
-    WlShopCategoryShopCategorySortSid[WlShopCategoryShopCategorySortSid["PRICE"] = 4] = "PRICE";
-    /** Sort by name/title */
-    WlShopCategoryShopCategorySortSid[WlShopCategoryShopCategorySortSid["NAME"] = 1] = "NAME";
-})(WlShopCategoryShopCategorySortSid || (exports.WlShopCategoryShopCategorySortSid = WlShopCategoryShopCategorySortSid = {}));
-/** Coupon date start rule. */
-var WlCouponEditActivationSid;
-(function (WlCouponEditActivationSid) {
-    /** Number of a day of the month or of the week */
-    WlCouponEditActivationSid[WlCouponEditActivationSid["DAY"] = 7] = "DAY";
-    /** Custom date */
-    WlCouponEditActivationSid[WlCouponEditActivationSid["FIXED"] = 3] = "FIXED";
-    /** Date of the sale */
-    WlCouponEditActivationSid[WlCouponEditActivationSid["SALE"] = 1] = "SALE";
-})(WlCouponEditActivationSid || (exports.WlCouponEditActivationSid = WlCouponEditActivationSid = {}));
-/** Class to process string identifiers for duration types */
-var WlCouponEditDurationTypeSid;
-(function (WlCouponEditDurationTypeSid) {
-    /** Specific date. Example, 2013-12-24 */
-    WlCouponEditDurationTypeSid[WlCouponEditDurationTypeSid["DATE"] = 2] = "DATE";
-    /** No ending date */
-    WlCouponEditDurationTypeSid[WlCouponEditDurationTypeSid["ETERNAL"] = 3] = "ETERNAL";
-    /** Examples: 12 days, 2 months, 2 hours etc */
-    WlCouponEditDurationTypeSid[WlCouponEditDurationTypeSid["PERIOD"] = 1] = "PERIOD";
-})(WlCouponEditDurationTypeSid || (exports.WlCouponEditDurationTypeSid = WlCouponEditDurationTypeSid = {}));
-/** Types of taxes. */
-var RsTaxSid;
-(function (RsTaxSid) {
-    /** Tax is accounted based on percents */
-    RsTaxSid[RsTaxSid["PERCENT"] = 2] = "PERCENT";
-})(RsTaxSid || (exports.RsTaxSid = RsTaxSid = {}));
-/** A list of Purchase Option view types. */
-var WlCatalogPurchaseOptionViewSid;
-(function (WlCatalogPurchaseOptionViewSid) {
-    /** A single appointment reservation */
-    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["APPOINTMENT"] = 1] = "APPOINTMENT";
-    /** A single class reservation */
-    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["CLASS_PERIOD"] = 2] = "CLASS_PERIOD";
-    /** A gift card */
-    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["COUPON"] = 3] = "COUPON";
-    /** Enrollments. Classes where flag event is `true` */
-    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["ENROLLMENT"] = 4] = "ENROLLMENT";
-    /** Promotions with programs: */
-    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["MEMBERSHIP"] = 8] = "MEMBERSHIP";
-    /** Promotions with program {@link RsProgramSid} */
-    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["PACKAGE"] = 5] = "PACKAGE";
-    /** Products (such as water, t-shirts, etc.) */
-    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["PRODUCT"] = 6] = "PRODUCT";
-    /** Session passes */
-    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["PROMOTION"] = 7] = "PROMOTION";
-    /** Products available for quick buy */
-    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["QUICK_BUY"] = 9] = "QUICK_BUY";
-})(WlCatalogPurchaseOptionViewSid || (exports.WlCatalogPurchaseOptionViewSid = WlCatalogPurchaseOptionViewSid = {}));
+/** Attendance Restriction cycle type. */
+var WlPromotionEditLimitCycleSid;
+(function (WlPromotionEditLimitCycleSid) {
+    /** Attendance Restriction is applied at the start of the calendar cycle */
+    WlPromotionEditLimitCycleSid[WlPromotionEditLimitCycleSid["CALENDAR"] = 1] = "CALENDAR";
+    /** Attendance Restriction is applied at the start of the payment cycle */
+    WlPromotionEditLimitCycleSid[WlPromotionEditLimitCycleSid["PAYMENT"] = 2] = "PAYMENT";
+})(WlPromotionEditLimitCycleSid || (exports.WlPromotionEditLimitCycleSid = WlPromotionEditLimitCycleSid = {}));
+/** Program type categories. */
+var RsProgramCategorySid;
+(function (RsProgramCategorySid) {
+    /** Purchase options to fill user's account: */
+    RsProgramCategorySid[RsProgramCategorySid["ACCOUNT"] = 7] = "ACCOUNT";
+    /** Purchase options to pay for classes, events and enrollments: */
+    RsProgramCategorySid[RsProgramCategorySid["CLASSES"] = 1] = "CLASSES";
+    /** Special "Wellness Program" purchase option */
+    RsProgramCategorySid[RsProgramCategorySid["INSURANCE"] = 8] = "INSURANCE";
+    /** Packages and daily deals */
+    RsProgramCategorySid[RsProgramCategorySid["OTHER"] = 5] = "OTHER";
+    /** Resource category */
+    RsProgramCategorySid[RsProgramCategorySid["RESOURCE"] = 6] = "RESOURCE";
+    /** Purchase options to pay for appointments: */
+    RsProgramCategorySid[RsProgramCategorySid["SERVICE"] = 3] = "SERVICE";
+    /** Purchase options to pay for videos:<ui> */
+    RsProgramCategorySid[RsProgramCategorySid["VIDEO"] = 9] = "VIDEO";
+    /** Purchase options to pay for gym visits: */
+    RsProgramCategorySid[RsProgramCategorySid["VISIT"] = 2] = "VISIT";
+})(RsProgramCategorySid || (exports.RsProgramCategorySid = RsProgramCategorySid = {}));
 /** Mail types. */
 var RsMailSid;
 (function (RsMailSid) {
@@ -4072,6 +3358,272 @@ var RsMailSid;
     /** Email, which is sent when a Zoom license is lack */
     RsMailSid[RsMailSid["ZOOM_LICENSE_LACK"] = 149] = "ZOOM_LICENSE_LACK";
 })(RsMailSid || (exports.RsMailSid = RsMailSid = {}));
+/** Lists statuses of reports from point of view of its generation. */
+var WlReportGeneratorReportGeneratorStatusSid;
+(function (WlReportGeneratorReportGeneratorStatusSid) {
+    /** Report is in an inconsistent state */
+    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["ABORTED"] = 6] = "ABORTED";
+    /** Current operation is being aborted now */
+    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["ABORTING"] = 5] = "ABORTING";
+    /** This report is being deleted now */
+    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["DELETING"] = 4] = "DELETING";
+    /** This report is being generated now */
+    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["GENERATING"] = 2] = "GENERATING";
+    /** Generation of this report is queued */
+    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["QUEUED"] = 1] = "QUEUED";
+    /** Generation of this report is now completed */
+    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["READY"] = 3] = "READY";
+})(WlReportGeneratorReportGeneratorStatusSid || (exports.WlReportGeneratorReportGeneratorStatusSid = WlReportGeneratorReportGeneratorStatusSid = {}));
+/** List of statuses of an Autymate enrollment notification. */
+var WlIntegrationAutymateAutymateStatusSid;
+(function (WlIntegrationAutymateAutymateStatusSid) {
+    /** Autymation enrollment is active */
+    WlIntegrationAutymateAutymateStatusSid[WlIntegrationAutymateAutymateStatusSid["ACTIVE"] = 1] = "ACTIVE";
+    /** Autymation enrollment is no longer active */
+    WlIntegrationAutymateAutymateStatusSid[WlIntegrationAutymateAutymateStatusSid["INACTIVE"] = 2] = "INACTIVE";
+})(WlIntegrationAutymateAutymateStatusSid || (exports.WlIntegrationAutymateAutymateStatusSid = WlIntegrationAutymateAutymateStatusSid = {}));
+/** List of modes used to access Autymate. */
+var WlIntegrationAutymateAutymateAccessModeSid;
+(function (WlIntegrationAutymateAutymateAccessModeSid) {
+    /** Access Autymate to create an initial enrollment */
+    WlIntegrationAutymateAutymateAccessModeSid[WlIntegrationAutymateAutymateAccessModeSid["ENROLL"] = 1] = "ENROLL";
+    /** Access Autymate to view the dashboard */
+    WlIntegrationAutymateAutymateAccessModeSid[WlIntegrationAutymateAutymateAccessModeSid["VIEW"] = 2] = "VIEW";
+})(WlIntegrationAutymateAutymateAccessModeSid || (exports.WlIntegrationAutymateAutymateAccessModeSid = WlIntegrationAutymateAutymateAccessModeSid = {}));
+/** Types of the location. */
+var WlBusinessFranchiseLocationBusinessFranchiseLocationSid;
+(function (WlBusinessFranchiseLocationBusinessFranchiseLocationSid) {
+    /** All locations */
+    WlBusinessFranchiseLocationBusinessFranchiseLocationSid[WlBusinessFranchiseLocationBusinessFranchiseLocationSid["ALL"] = 1] = "ALL";
+    /** Locations without the region */
+    WlBusinessFranchiseLocationBusinessFranchiseLocationSid[WlBusinessFranchiseLocationBusinessFranchiseLocationSid["REGION_NO"] = 2] = "REGION_NO";
+    /** Location with the region */
+    WlBusinessFranchiseLocationBusinessFranchiseLocationSid[WlBusinessFranchiseLocationBusinessFranchiseLocationSid["REGION_YES"] = 3] = "REGION_YES";
+})(WlBusinessFranchiseLocationBusinessFranchiseLocationSid || (exports.WlBusinessFranchiseLocationBusinessFranchiseLocationSid = WlBusinessFranchiseLocationBusinessFranchiseLocationSid = {}));
+/** List of sale categories on the store page. */
+var RsSaleSid;
+(function (RsSaleSid) {
+    /** Single appointment reservation */
+    RsSaleSid[RsSaleSid["APPOINTMENT"] = 8] = "APPOINTMENT";
+    /** Single appointment deposit reservation */
+    RsSaleSid[RsSaleSid["APPOINTMENT_DEPOSIT"] = 11] = "APPOINTMENT_DEPOSIT";
+    /** Tips for the appointment */
+    RsSaleSid[RsSaleSid["APPOINTMENT_TIP"] = 12] = "APPOINTMENT_TIP";
+    /** Single class visit */
+    RsSaleSid[RsSaleSid["CLASS_PERIOD"] = 6] = "CLASS_PERIOD";
+    /** Gift card */
+    RsSaleSid[RsSaleSid["COUPON"] = 7] = "COUPON";
+    /** Enrollments. Classes where flag event is `true` */
+    RsSaleSid[RsSaleSid["ENROLLMENT"] = 3] = "ENROLLMENT";
+    /** Promotions with program {@link RsProgramSid} */
+    RsSaleSid[RsSaleSid["PACKAGE"] = 5] = "PACKAGE";
+    /** Products: water, t-shirts, etc */
+    RsSaleSid[RsSaleSid["PRODUCT"] = 4] = "PRODUCT";
+    /** Promotions with program category {@link RsProgramCategorySid} and {@link RsProgramCategorySid} */
+    RsSaleSid[RsSaleSid["PROMOTION_CLASS"] = 1] = "PROMOTION_CLASS";
+    /** Promotions with program category {@link RsProgramCategorySid} */
+    RsSaleSid[RsSaleSid["PROMOTION_RESOURCE"] = 9] = "PROMOTION_RESOURCE";
+    /** Promotions with program category {@link RsProgramCategorySid} and {@link RsProgramCategorySid} */
+    RsSaleSid[RsSaleSid["PROMOTION_SERVICE"] = 2] = "PROMOTION_SERVICE";
+    /** Promotions with program category {@link RsProgramCategorySid} */
+    RsSaleSid[RsSaleSid["PROMOTION_VIDEO"] = 13] = "PROMOTION_VIDEO";
+    /** Products: water, t-shirts, etc. That is available for quick buy */
+    RsSaleSid[RsSaleSid["QUICK_BUY"] = 10] = "QUICK_BUY";
+    /** Tuition */
+    RsSaleSid[RsSaleSid["TUITION"] = 14] = "TUITION";
+    /** Tuition fees */
+    RsSaleSid[RsSaleSid["TUITION_FEE"] = 15] = "TUITION_FEE";
+})(RsSaleSid || (exports.RsSaleSid = RsSaleSid = {}));
+/** A list of types of visit note. */
+var WlVisitNoteSidNoteSid;
+(function (WlVisitNoteSidNoteSid) {
+    /** The usual quick accompanying note for the customer visit */
+    WlVisitNoteSidNoteSid[WlVisitNoteSidNoteSid["QUICK"] = 2] = "QUICK";
+    /** Accompanying medical note for the customer visit */
+    WlVisitNoteSidNoteSid[WlVisitNoteSidNoteSid["SOAP"] = 1] = "SOAP";
+})(WlVisitNoteSidNoteSid || (exports.WlVisitNoteSidNoteSid = WlVisitNoteSidNoteSid = {}));
+/** Identifiers for services types. */
+var RsServiceSid;
+(function (RsServiceSid) {
+    /** Appointments */
+    RsServiceSid[RsServiceSid["APPOINTMENT"] = 1] = "APPOINTMENT";
+    /** Classes */
+    RsServiceSid[RsServiceSid["CLASSES"] = 2] = "CLASSES";
+    /** Enrolments */
+    RsServiceSid[RsServiceSid["ENROLLMENT"] = 3] = "ENROLLMENT";
+    /** Resources */
+    RsServiceSid[RsServiceSid["RESOURCE"] = 5] = "RESOURCE";
+    /** Visits */
+    RsServiceSid[RsServiceSid["VISIT"] = 4] = "VISIT";
+})(RsServiceSid || (exports.RsServiceSid = RsServiceSid = {}));
+/** List of progress log fields. */
+var WlMemberProgressFieldProgressFieldSid;
+(function (WlMemberProgressFieldProgressFieldSid) {
+    /** Abdomen field */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["ABDOMEN"] = 6] = "ABDOMEN";
+    /** Arms field */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["ARMS"] = 3] = "ARMS";
+    /** Blood pressure field */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["BLOOD_PRESSURE"] = 2] = "BLOOD_PRESSURE";
+    /** Body fat field */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["BODY_FAT"] = 11] = "BODY_FAT";
+    /** Bust field */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["BUST"] = 4] = "BUST";
+    /** Height of the client */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["HEIGHT"] = 9] = "HEIGHT";
+    /** Client hips size */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["HIPS"] = 7] = "HIPS";
+    /** Long term goals */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["LONG_TERM_GOALS"] = 14] = "LONG_TERM_GOALS";
+    /** Pre workout heart rate */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["PRE_WORKOUT_HEART_RATE"] = 1] = "PRE_WORKOUT_HEART_RATE";
+    /** Progress picture */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["PROGRESS_PICTURE"] = 12] = "PROGRESS_PICTURE";
+    /** Short term goals */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["SHORT_TERM_GOALS"] = 13] = "SHORT_TERM_GOALS";
+    /** THIGHS */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["THIGHS"] = 8] = "THIGHS";
+    /** Waist */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["WAIST"] = 5] = "WAIST";
+    /** Client weight */
+    WlMemberProgressFieldProgressFieldSid[WlMemberProgressFieldProgressFieldSid["WEIGHT"] = 10] = "WEIGHT";
+})(WlMemberProgressFieldProgressFieldSid || (exports.WlMemberProgressFieldProgressFieldSid = WlMemberProgressFieldProgressFieldSid = {}));
+/** Possible measurement units of the progress fields values. */
+var WlMemberProgressFieldMeasurementSid;
+(function (WlMemberProgressFieldMeasurementSid) {
+    /** Value in beats per minutes */
+    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["BEATS_PER_MINUTE"] = 7] = "BEATS_PER_MINUTE";
+    /** Value in centimeters */
+    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["CENTIMETRES"] = 1] = "CENTIMETRES";
+    /** Value in feet */
+    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["FEET"] = 3] = "FEET";
+    /** Value in feet and inches */
+    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["FEET_AND_INCHES"] = 11] = "FEET_AND_INCHES";
+    /** Value in grams */
+    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["GRAMS"] = 9] = "GRAMS";
+    /** Value in inches */
+    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["INCHES"] = 4] = "INCHES";
+    /** Value in kilograms */
+    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["KILOGRAMS"] = 5] = "KILOGRAMS";
+    /** Value in metres */
+    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["METRES"] = 2] = "METRES";
+    /** Value in metres and centimetres */
+    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["METRES_AND_CENTIMETRES"] = 12] = "METRES_AND_CENTIMETRES";
+    /** Value in mmHG */
+    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["MMHG"] = 8] = "MMHG";
+    /** Value in percentages */
+    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["PERCENTAGES"] = 10] = "PERCENTAGES";
+    /** Value in pounds */
+    WlMemberProgressFieldMeasurementSid[WlMemberProgressFieldMeasurementSid["POUNDS"] = 6] = "POUNDS";
+})(WlMemberProgressFieldMeasurementSid || (exports.WlMemberProgressFieldMeasurementSid = WlMemberProgressFieldMeasurementSid = {}));
+/** Possible types of the progress fields values. */
+var WlMemberProgressFieldTypeSid;
+(function (WlMemberProgressFieldTypeSid) {
+    /** Value is decimal */
+    WlMemberProgressFieldTypeSid[WlMemberProgressFieldTypeSid["DECIMAL"] = 2] = "DECIMAL";
+    /** Value is image */
+    WlMemberProgressFieldTypeSid[WlMemberProgressFieldTypeSid["IMAGE"] = 5] = "IMAGE";
+    /** Value is percentage */
+    WlMemberProgressFieldTypeSid[WlMemberProgressFieldTypeSid["PERCENTAGE"] = 3] = "PERCENTAGE";
+    /** Value is string */
+    WlMemberProgressFieldTypeSid[WlMemberProgressFieldTypeSid["STRING"] = 4] = "STRING";
+    /** Value is whole number */
+    WlMemberProgressFieldTypeSid[WlMemberProgressFieldTypeSid["WHOLE_NUMBER"] = 1] = "WHOLE_NUMBER";
+})(WlMemberProgressFieldTypeSid || (exports.WlMemberProgressFieldTypeSid = WlMemberProgressFieldTypeSid = {}));
+/** List of response statuses. */
+var CoreQuizResponseResponseStatusSid;
+(function (CoreQuizResponseResponseStatusSid) {
+    /** Response is active */
+    CoreQuizResponseResponseStatusSid[CoreQuizResponseResponseStatusSid["ACTIVE"] = 1] = "ACTIVE";
+    /** Response is active and has amendments */
+    CoreQuizResponseResponseStatusSid[CoreQuizResponseResponseStatusSid["ACTIVE_AMEND"] = 5] = "ACTIVE_AMEND";
+    /** Response in draft mode */
+    CoreQuizResponseResponseStatusSid[CoreQuizResponseResponseStatusSid["DRAFT"] = 2] = "DRAFT";
+    /** Response in inactive */
+    CoreQuizResponseResponseStatusSid[CoreQuizResponseResponseStatusSid["INACTIVE"] = 3] = "INACTIVE";
+    /** Response in inactive and in draft mode */
+    CoreQuizResponseResponseStatusSid[CoreQuizResponseResponseStatusSid["INACTIVE_DRAFT"] = 4] = "INACTIVE_DRAFT";
+})(CoreQuizResponseResponseStatusSid || (exports.CoreQuizResponseResponseStatusSid = CoreQuizResponseResponseStatusSid = {}));
+/** List of sensor types. */
+var WlProfileSensorSensorTypesSid;
+(function (WlProfileSensorSensorTypesSid) {
+    /** Heart rate sensor */
+    WlProfileSensorSensorTypesSid[WlProfileSensorSensorTypesSid["HEART_RATE"] = 1] = "HEART_RATE";
+})(WlProfileSensorSensorTypesSid || (exports.WlProfileSensorSensorTypesSid = WlProfileSensorSensorTypesSid = {}));
+/** List foreign sites that can pay for visits. */
+var WlVisitPassProspectSid;
+(function (WlVisitPassProspectSid) {
+    /** Class Pass */
+    WlVisitPassProspectSid[WlVisitPassProspectSid["CLASSPASS"] = 1] = "CLASSPASS";
+    /** Gym Pass */
+    WlVisitPassProspectSid[WlVisitPassProspectSid["GYMPASS"] = 2] = "GYMPASS";
+})(WlVisitPassProspectSid || (exports.WlVisitPassProspectSid = WlVisitPassProspectSid = {}));
+/** A list of client type IDs. */
+var WlLoginTypeClientTypeSid;
+(function (WlLoginTypeClientTypeSid) {
+    /** Record contains type of member */
+    WlLoginTypeClientTypeSid[WlLoginTypeClientTypeSid["MEMBER"] = 3] = "MEMBER";
+    /** Record is SystemSid::PROSPECT */
+    WlLoginTypeClientTypeSid[WlLoginTypeClientTypeSid["NOTHING"] = 1] = "NOTHING";
+    /** Record contains type of client */
+    WlLoginTypeClientTypeSid[WlLoginTypeClientTypeSid["PASSHOLDER"] = 2] = "PASSHOLDER";
+})(WlLoginTypeClientTypeSid || (exports.WlLoginTypeClientTypeSid = WlLoginTypeClientTypeSid = {}));
+/** A list of supported social networks. */
+var ASocialSid;
+(function (ASocialSid) {
+    /** Facebook social network */
+    ASocialSid[ASocialSid["FACEBOOK"] = 1] = "FACEBOOK";
+    /** Google Plus social network */
+    ASocialSid[ASocialSid["GOOGLE"] = 2] = "GOOGLE";
+    /** Twitter social network */
+    ASocialSid[ASocialSid["TWITTER"] = 3] = "TWITTER";
+})(ASocialSid || (exports.ASocialSid = ASocialSid = {}));
+/** Possible ways to stop repeatable events. */
+var RsRepeatEndSid;
+(function (RsRepeatEndSid) {
+    /** Stop after a certain number of repeats */
+    RsRepeatEndSid[RsRepeatEndSid["COUNT"] = 2] = "COUNT";
+    /** Stop after a certain date. Including this date */
+    RsRepeatEndSid[RsRepeatEndSid["DATE"] = 3] = "DATE";
+    /** Eternal appointments. Such appointments are scheduled for one year */
+    RsRepeatEndSid[RsRepeatEndSid["ETERNAL"] = 1] = "ETERNAL";
+})(RsRepeatEndSid || (exports.RsRepeatEndSid = RsRepeatEndSid = {}));
+/** Relation type between two relatives. */
+var RsFamilyRelationSid;
+(function (RsFamilyRelationSid) {
+    /** Care participant */
+    RsFamilyRelationSid[RsFamilyRelationSid["CARE_PARTICIPANT"] = 12] = "CARE_PARTICIPANT";
+    /** Care recipient */
+    RsFamilyRelationSid[RsFamilyRelationSid["CARE_RECEIVER"] = 9] = "CARE_RECEIVER";
+    /** Care provider */
+    RsFamilyRelationSid[RsFamilyRelationSid["CAREGIVER"] = 8] = "CAREGIVER";
+    /** Case load */
+    RsFamilyRelationSid[RsFamilyRelationSid["CASE_LOAD"] = 16] = "CASE_LOAD";
+    /** Case Manager */
+    RsFamilyRelationSid[RsFamilyRelationSid["CASE_MANAGER"] = 15] = "CASE_MANAGER";
+    /** Child of the parent */
+    RsFamilyRelationSid[RsFamilyRelationSid["CHILD"] = 5] = "CHILD";
+    /** Dependent */
+    RsFamilyRelationSid[RsFamilyRelationSid["DEPENDENT"] = 10] = "DEPENDENT";
+    /** Friend */
+    RsFamilyRelationSid[RsFamilyRelationSid["FRIEND"] = 2] = "FRIEND";
+    /** Guardian */
+    RsFamilyRelationSid[RsFamilyRelationSid["GUARDIAN"] = 7] = "GUARDIAN";
+    /** Not specified custom relationship */
+    RsFamilyRelationSid[RsFamilyRelationSid["OTHER"] = 6] = "OTHER";
+    /** Parent of the child */
+    RsFamilyRelationSid[RsFamilyRelationSid["PARENT"] = 3] = "PARENT";
+    /** Sibling. A brother or sister */
+    RsFamilyRelationSid[RsFamilyRelationSid["SIBLING"] = 4] = "SIBLING";
+    /** Spouse. A husband or wife */
+    RsFamilyRelationSid[RsFamilyRelationSid["SPOUSE"] = 1] = "SPOUSE";
+    /** Student */
+    RsFamilyRelationSid[RsFamilyRelationSid["STUDENT"] = 14] = "STUDENT";
+    /** Teacher */
+    RsFamilyRelationSid[RsFamilyRelationSid["TEACHER"] = 13] = "TEACHER";
+    /** Therapist */
+    RsFamilyRelationSid[RsFamilyRelationSid["THERAPIST"] = 11] = "THERAPIST";
+})(RsFamilyRelationSid || (exports.RsFamilyRelationSid = RsFamilyRelationSid = {}));
 /** Class/Event booking process sid class. */
 var WlBookProcessProcessSpaSid;
 (function (WlBookProcessProcessSpaSid) {
@@ -4112,34 +3664,534 @@ var WlClassesRequirePaySid;
     /** Clients can only pay when they visit. Online payment is not available */
     WlClassesRequirePaySid[WlClassesRequirePaySid["VISIT"] = 2] = "VISIT";
 })(WlClassesRequirePaySid || (exports.WlClassesRequirePaySid = WlClassesRequirePaySid = {}));
-/** Attendance Restriction cycle type. */
-var WlPromotionEditLimitCycleSid;
-(function (WlPromotionEditLimitCycleSid) {
-    /** Attendance Restriction is applied at the start of the calendar cycle */
-    WlPromotionEditLimitCycleSid[WlPromotionEditLimitCycleSid["CALENDAR"] = 1] = "CALENDAR";
-    /** Attendance Restriction is applied at the start of the payment cycle */
-    WlPromotionEditLimitCycleSid[WlPromotionEditLimitCycleSid["PAYMENT"] = 2] = "PAYMENT";
-})(WlPromotionEditLimitCycleSid || (exports.WlPromotionEditLimitCycleSid = WlPromotionEditLimitCycleSid = {}));
-/** Program type categories. */
-var RsProgramCategorySid;
-(function (RsProgramCategorySid) {
-    /** Purchase options to fill user's account: */
-    RsProgramCategorySid[RsProgramCategorySid["ACCOUNT"] = 7] = "ACCOUNT";
-    /** Purchase options to pay for classes, events and enrollments: */
-    RsProgramCategorySid[RsProgramCategorySid["CLASSES"] = 1] = "CLASSES";
-    /** Special "Wellness Program" purchase option */
-    RsProgramCategorySid[RsProgramCategorySid["INSURANCE"] = 8] = "INSURANCE";
-    /** Packages and daily deals */
-    RsProgramCategorySid[RsProgramCategorySid["OTHER"] = 5] = "OTHER";
-    /** Resource category */
-    RsProgramCategorySid[RsProgramCategorySid["RESOURCE"] = 6] = "RESOURCE";
-    /** Purchase options to pay for appointments: */
-    RsProgramCategorySid[RsProgramCategorySid["SERVICE"] = 3] = "SERVICE";
-    /** Purchase options to pay for videos:<ui> */
-    RsProgramCategorySid[RsProgramCategorySid["VIDEO"] = 9] = "VIDEO";
-    /** Purchase options to pay for gym visits: */
-    RsProgramCategorySid[RsProgramCategorySid["VISIT"] = 2] = "VISIT";
-})(RsProgramCategorySid || (exports.RsProgramCategorySid = RsProgramCategorySid = {}));
+/** Promotion or package date start rule. */
+var RsActivationSid;
+(function (RsActivationSid) {
+    /** Number of a day of the month or of the week */
+    RsActivationSid[RsActivationSid["DAY"] = 7] = "DAY";
+    /** Custom date */
+    RsActivationSid[RsActivationSid["FIXED"] = 3] = "FIXED";
+    /** The first day of month */
+    RsActivationSid[RsActivationSid["MONTH_FIRST"] = 4] = "MONTH_FIRST";
+    /** The 15th day of the month */
+    RsActivationSid[RsActivationSid["MONTH_HALF"] = 6] = "MONTH_HALF";
+    /** The last day of the month */
+    RsActivationSid[RsActivationSid["MONTH_LAST"] = 5] = "MONTH_LAST";
+    /** Date of the sale */
+    RsActivationSid[RsActivationSid["SALE"] = 1] = "SALE";
+    /** Date of the first visit */
+    RsActivationSid[RsActivationSid["VISIT"] = 2] = "VISIT";
+})(RsActivationSid || (exports.RsActivationSid = RsActivationSid = {}));
+/** String identifiers for tax type. */
+var RsCommissionTypeSid;
+(function (RsCommissionTypeSid) {
+    /** Fixed type */
+    RsCommissionTypeSid[RsCommissionTypeSid["FLAT"] = 1] = "FLAT";
+    /** Percent type */
+    RsCommissionTypeSid[RsCommissionTypeSid["PERCENT"] = 2] = "PERCENT";
+})(RsCommissionTypeSid || (exports.RsCommissionTypeSid = RsCommissionTypeSid = {}));
+/** List of file extensions. */
+var WlProfileAttachAttachPreviewSid;
+(function (WlProfileAttachAttachPreviewSid) {
+    /** Image file */
+    WlProfileAttachAttachPreviewSid[WlProfileAttachAttachPreviewSid["IMAGE"] = 1] = "IMAGE";
+    /** Pdf file */
+    WlProfileAttachAttachPreviewSid[WlProfileAttachAttachPreviewSid["PDF"] = 2] = "PDF";
+})(WlProfileAttachAttachPreviewSid || (exports.WlProfileAttachAttachPreviewSid = WlProfileAttachAttachPreviewSid = {}));
+/** List of available design icons. */
+var WlDesignIconSid;
+(function (WlDesignIconSid) {
+    /** Signs that session or pass is an appointment connected */
+    WlDesignIconSid[WlDesignIconSid["APPOINTMENT"] = 4] = "APPOINTMENT";
+    /** Signs that session or pass is an asset connected */
+    WlDesignIconSid[WlDesignIconSid["ASSET"] = 7] = "ASSET";
+    /** Signs that session or pass is a class or event connected */
+    WlDesignIconSid[WlDesignIconSid["CLASSES"] = 5] = "CLASSES";
+    /** Cycle icon. Used, for example, to show transferred status of the promotion */
+    WlDesignIconSid[WlDesignIconSid["CYCLE"] = 3] = "CYCLE";
+    /** Early cancel activity list icon */
+    WlDesignIconSid[WlDesignIconSid["EARLY_CANCELED"] = 8] = "EARLY_CANCELED";
+    /** Signs that session or pass is a gym visit connected */
+    WlDesignIconSid[WlDesignIconSid["GYM_VISIT"] = 6] = "GYM_VISIT";
+    /** Late cancel activity list icon */
+    WlDesignIconSid[WlDesignIconSid["LATE_CANCELED"] = 9] = "LATE_CANCELED";
+    /** Piece of paper with the curved end for different text notes */
+    WlDesignIconSid[WlDesignIconSid["NOTE"] = 2] = "NOTE";
+    /** No show at visit activity list icon */
+    WlDesignIconSid[WlDesignIconSid["NO_SHOW"] = 10] = "NO_SHOW";
+    /** Paper with medical symbolic for medical notes */
+    WlDesignIconSid[WlDesignIconSid["SOAP"] = 1] = "SOAP";
+    /** Clock activity list icon in SPA application */
+    WlDesignIconSid[WlDesignIconSid["SPA_CLOCK"] = 11] = "SPA_CLOCK";
+})(WlDesignIconSid || (exports.WlDesignIconSid = WlDesignIconSid = {}));
+/** Manages identifiers of user activity. */
+var RsLoginActivityTypeSid;
+(function (RsLoginActivityTypeSid) {
+    /** Client books an appointment */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_BOOK"] = 27] = "APPOINTMENT_BOOK";
+    /** Client booked an appointment and shared on Facebook */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_BOOK_FACEBOOK"] = 47] = "APPOINTMENT_BOOK_FACEBOOK";
+    /** Client booked an appointment and shared on Twitter */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_BOOK_TWITTER"] = 48] = "APPOINTMENT_BOOK_TWITTER";
+    /** Client cancels an appointment */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_CANCEL"] = 28] = "APPOINTMENT_CANCEL";
+    /** Client attends an appointment */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_VISIT"] = 23] = "APPOINTMENT_VISIT";
+    /** Client books an appointment to wait list */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_WAIT"] = 52] = "APPOINTMENT_WAIT";
+    /** Client booked an asset and shared on Facebook */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ASSET_BOOK_FACEBOOK"] = 49] = "ASSET_BOOK_FACEBOOK";
+    /** Client booked an asset and shared on Twitter */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ASSET_BOOK_TWITTER"] = 50] = "ASSET_BOOK_TWITTER";
+    /** Client's birthday */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["BIRTHDAY"] = 1] = "BIRTHDAY";
+    /** Client booked a class */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CLASS_BOOK"] = 2] = "CLASS_BOOK";
+    /** Client booked a class and shared on Facebook */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CLASS_BOOK_FACEBOOK"] = 43] = "CLASS_BOOK_FACEBOOK";
+    /** Client booked a class and shared on Twitter */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CLASS_BOOK_TWITTER"] = 44] = "CLASS_BOOK_TWITTER";
+    /** Client cancelled a class */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CLASS_CANCEL"] = 3] = "CLASS_CANCEL";
+    /** Client attends a class */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CLASS_VISIT"] = 15] = "CLASS_VISIT";
+    /** Client booked a class */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CLASS_WAIT"] = 54] = "CLASS_WAIT";
+    /** Gift card transferred */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["COUPON_TRANSFER"] = 51] = "COUPON_TRANSFER";
+    /** Staff approved a custom reward for a client */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["CUSTOM_REWARD"] = 31] = "CUSTOM_REWARD";
+    /** Client booked an enrollment */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ENROLLMENT_BOOK"] = 17] = "ENROLLMENT_BOOK";
+    /** Client booked an enrollment and shared on Facebook */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ENROLLMENT_BOOK_FACEBOOK"] = 45] = "ENROLLMENT_BOOK_FACEBOOK";
+    /** Client booked an enrollment and shared on Twitter */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ENROLLMENT_BOOK_TWITTER"] = 46] = "ENROLLMENT_BOOK_TWITTER";
+    /** Client cancels an enrollment */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ENROLLMENT_CANCEL"] = 18] = "ENROLLMENT_CANCEL";
+    /** Client attends an enrollment */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ENROLLMENT_VISIT"] = 16] = "ENROLLMENT_VISIT";
+    /** Client booked an enrollment */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["ENROLLMENT_WAIT"] = 53] = "ENROLLMENT_WAIT";
+    /** Client connected his Facebook account */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FACEBOOK_CONNECT"] = 12] = "FACEBOOK_CONNECT";
+    /** Client disconnected his Facebook account */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FACEBOOK_DISCONNECT"] = 19] = "FACEBOOK_DISCONNECT";
+    /** Client added a class to favorites */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_ADD_CLASS"] = 4] = "FAVORITE_ADD_CLASS";
+    /** Client added a location to favorites */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_ADD_LOCATION"] = 5] = "FAVORITE_ADD_LOCATION";
+    /** Client added a staff member to favorites */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_ADD_STAFF"] = 6] = "FAVORITE_ADD_STAFF";
+    /** Client removed a class from favorites */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_REMOVE_CLASS"] = 7] = "FAVORITE_REMOVE_CLASS";
+    /** Client removed a location from favorites */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_REMOVE_LOCATION"] = 8] = "FAVORITE_REMOVE_LOCATION";
+    /** Client removed a staff member from favorites */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_REMOVE_STAFF"] = 9] = "FAVORITE_REMOVE_STAFF";
+    /** Client added a friend */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["FRIEND_ADD"] = 10] = "FRIEND_ADD";
+    /** Client made a gym visit */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["GYM_VISIT"] = 32] = "GYM_VISIT";
+    /** Client sent an invite */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["INVITE_SEND"] = 14] = "INVITE_SEND";
+    /** The user shared location item into Facebook */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LOCATION_SHARE_FACEBOOK"] = 39] = "LOCATION_SHARE_FACEBOOK";
+    /** The user shared location item into Twitter */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LOCATION_SHARE_TWITTER"] = 40] = "LOCATION_SHARE_TWITTER";
+    /** The user spend money */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PAY"] = 22] = "PAY";
+    /** Client has bought prize */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PRIZE"] = 24] = "PRIZE";
+    /** Promotion transferred */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PROMOTION_TRANSFER"] = 34] = "PROMOTION_TRANSFER";
+    /** Customer bought the product */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PURCHASE_PRODUCT"] = 30] = "PURCHASE_PRODUCT";
+    /** Customer bought the promotion */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PURCHASE_PROMOTION"] = 29] = "PURCHASE_PROMOTION";
+    /** The user shared purchase item into Facebook */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PURCHASE_SHARE_FACEBOOK"] = 25] = "PURCHASE_SHARE_FACEBOOK";
+    /** The user shared purchase item into Twitter */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["PURCHASE_SHARE_TWITTER"] = 26] = "PURCHASE_SHARE_TWITTER";
+    /** Referral made a purchase */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REFER_PURCHASE"] = 38] = "REFER_PURCHASE";
+    /** A referrer is set for the user */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REFER_REGISTER"] = 37] = "REFER_REGISTER";
+    /** The user has logged in */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REGISTRATION"] = 21] = "REGISTRATION";
+    /** Client wrote a review */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REVIEW"] = 11] = "REVIEW";
+    /** The user shared purchase item into Facebook */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REVIEW_SHARE_FACEBOOK"] = 41] = "REVIEW_SHARE_FACEBOOK";
+    /** The user shared purchase item into Twitter */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REVIEW_SHARE_TWITTER"] = 42] = "REVIEW_SHARE_TWITTER";
+    /** Reward points were changed manually */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REWARD_MANUAL"] = 55] = "REWARD_MANUAL";
+    /** All-time earned reward points have been reset */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REWARD_RESET"] = 36] = "REWARD_RESET";
+    /** Current available reward points have been reset */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["REWARD_RESET_AVAILABLE"] = 56] = "REWARD_RESET_AVAILABLE";
+    /** Client attended several visits */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["SUMMARY_VISIT"] = 35] = "SUMMARY_VISIT";
+    /** Client connected his Twitter account */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["TWITTER_CONNECT"] = 13] = "TWITTER_CONNECT";
+    /** Client disconnected his Twitter account */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["TWITTER_DISCONNECT"] = 20] = "TWITTER_DISCONNECT";
+})(RsLoginActivityTypeSid || (exports.RsLoginActivityTypeSid = RsLoginActivityTypeSid = {}));
+/** Sources of system notes. */
+var RsProfileNoteSid;
+(function (RsProfileNoteSid) {
+    /** A list of clients with not redeemed invitations */
+    RsProfileNoteSid[RsProfileNoteSid["DOORACCESS_BRIVO_INVITATION_BRIVOINVITATIONPROFILE"] = 5] = "DOORACCESS_BRIVO_INVITATION_BRIVOINVITATIONPROFILE";
+    /** A list of accounts with invalid progress log */
+    RsProfileNoteSid[RsProfileNoteSid["MEMBER_PROGRESS_LOG_PROFILE"] = 3] = "MEMBER_PROGRESS_LOG_PROFILE";
+    /** A list of accounts with not verified progress log */
+    RsProfileNoteSid[RsProfileNoteSid["MEMBER_PROGRESS_LOG_VERIFICATION"] = 4] = "MEMBER_PROGRESS_LOG_VERIFICATION";
+    /** A list of accounts with negative balance */
+    RsProfileNoteSid[RsProfileNoteSid["PAY_ACCOUNT"] = 1] = "PAY_ACCOUNT";
+    /** A list of accounts with unsigned waivers */
+    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_AGREE"] = 8] = "PROFILE_PAGE_OVERVIEW_ALERT_AGREE";
+    /** A list of accounts with upcoming birthdays */
+    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_BIRTHDAY"] = 6] = "PROFILE_PAGE_OVERVIEW_ALERT_BIRTHDAY";
+    /** A list of accounts with unsigned contracts */
+    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_CONTRACT"] = 9] = "PROFILE_PAGE_OVERVIEW_ALERT_CONTRACT";
+    /** A list of accounts with expired or soon expiring credit cards */
+    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_CREDITCARD"] = 7] = "PROFILE_PAGE_OVERVIEW_ALERT_CREDITCARD";
+    /** A list of accounts with a milestone visit */
+    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_MILESTONEVISIT"] = 12] = "PROFILE_PAGE_OVERVIEW_ALERT_MILESTONEVISIT";
+    /** A list of accounts with uncompleted quizzes */
+    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_QUIZ"] = 10] = "PROFILE_PAGE_OVERVIEW_ALERT_QUIZ";
+    /** A list of accounts at risk of churn */
+    RsProfileNoteSid[RsProfileNoteSid["PROFILE_PAGE_OVERVIEW_ALERT_RISK"] = 11] = "PROFILE_PAGE_OVERVIEW_ALERT_RISK";
+    /** A list of due membership payments */
+    RsProfileNoteSid[RsProfileNoteSid["PROMOTION_PAY"] = 2] = "PROMOTION_PAY";
+})(RsProfileNoteSid || (exports.RsProfileNoteSid = RsProfileNoteSid = {}));
+/** Class for access type to login note. */
+var RsLoginNoteAccessSid;
+(function (RsLoginNoteAccessSid) {
+    /** Login note can view all staff and client */
+    RsLoginNoteAccessSid[RsLoginNoteAccessSid["CLIENT"] = 1] = "CLIENT";
+    /** Login note can view only staff which create this note */
+    RsLoginNoteAccessSid[RsLoginNoteAccessSid["ME"] = 2] = "ME";
+    /** Login note can view only all staff */
+    RsLoginNoteAccessSid[RsLoginNoteAccessSid["STAFF"] = 3] = "STAFF";
+})(RsLoginNoteAccessSid || (exports.RsLoginNoteAccessSid = RsLoginNoteAccessSid = {}));
+/** List of modes to change user's "flag" status within a location */
+var RsLoginNoteFlagSid;
+(function (RsLoginNoteFlagSid) {
+    /** Add flag record */
+    RsLoginNoteFlagSid[RsLoginNoteFlagSid["ADD"] = 1] = "ADD";
+    /** Remove flag record */
+    RsLoginNoteFlagSid[RsLoginNoteFlagSid["REMOVE"] = 2] = "REMOVE";
+})(RsLoginNoteFlagSid || (exports.RsLoginNoteFlagSid = RsLoginNoteFlagSid = {}));
+/** Different sources of flags, which are not set manually by the staff member. Such flags have own logic. */
+var WlLocationFlagFlagSourceEnum;
+(function (WlLocationFlagFlagSourceEnum) {
+    /** Flag is set because user is sent to collections. This means user has debt and cannot make new purchases */
+    WlLocationFlagFlagSourceEnum[WlLocationFlagFlagSourceEnum["COLLECTIONS"] = 1] = "COLLECTIONS";
+})(WlLocationFlagFlagSourceEnum || (exports.WlLocationFlagFlagSourceEnum = WlLocationFlagFlagSourceEnum = {}));
+/** List of sources from where the user registers. */
+var WlProfileRegisterSourceSid;
+(function (WlProfileRegisterSourceSid) {
+    /** Source when a user registers during purchase or booking */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["BOOKING_AND_PURCHASE"] = 1] = "BOOKING_AND_PURCHASE";
+    /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["SELF"] = 2] = "SELF";
+    /** This is a service value, which means to not choose any specific source */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["UNSET_VALUE"] = 3] = "UNSET_VALUE";
+})(WlProfileRegisterSourceSid || (exports.WlProfileRegisterSourceSid = WlProfileRegisterSourceSid = {}));
+/** Coupon date start rule. */
+var WlCouponEditActivationSid;
+(function (WlCouponEditActivationSid) {
+    /** Number of a day of the month or of the week */
+    WlCouponEditActivationSid[WlCouponEditActivationSid["DAY"] = 7] = "DAY";
+    /** Custom date */
+    WlCouponEditActivationSid[WlCouponEditActivationSid["FIXED"] = 3] = "FIXED";
+    /** Date of the sale */
+    WlCouponEditActivationSid[WlCouponEditActivationSid["SALE"] = 1] = "SALE";
+})(WlCouponEditActivationSid || (exports.WlCouponEditActivationSid = WlCouponEditActivationSid = {}));
+/** Class to process string identifiers for duration types */
+var WlCouponEditDurationTypeSid;
+(function (WlCouponEditDurationTypeSid) {
+    /** Specific date. Example, 2013-12-24 */
+    WlCouponEditDurationTypeSid[WlCouponEditDurationTypeSid["DATE"] = 2] = "DATE";
+    /** No ending date */
+    WlCouponEditDurationTypeSid[WlCouponEditDurationTypeSid["ETERNAL"] = 3] = "ETERNAL";
+    /** Examples: 12 days, 2 months, 2 hours etc */
+    WlCouponEditDurationTypeSid[WlCouponEditDurationTypeSid["PERIOD"] = 1] = "PERIOD";
+})(WlCouponEditDurationTypeSid || (exports.WlCouponEditDurationTypeSid = WlCouponEditDurationTypeSid = {}));
+/** Types of taxes. */
+var RsTaxSid;
+(function (RsTaxSid) {
+    /** Tax is accounted based on percents */
+    RsTaxSid[RsTaxSid["PERCENT"] = 2] = "PERCENT";
+})(RsTaxSid || (exports.RsTaxSid = RsTaxSid = {}));
+/** A list of Purchase Option view types. */
+var WlCatalogPurchaseOptionViewSid;
+(function (WlCatalogPurchaseOptionViewSid) {
+    /** A single appointment reservation */
+    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["APPOINTMENT"] = 1] = "APPOINTMENT";
+    /** A single class reservation */
+    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["CLASS_PERIOD"] = 2] = "CLASS_PERIOD";
+    /** A gift card */
+    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["COUPON"] = 3] = "COUPON";
+    /** Enrollments. Classes where flag event is `true` */
+    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["ENROLLMENT"] = 4] = "ENROLLMENT";
+    /** Promotions with programs: */
+    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["MEMBERSHIP"] = 8] = "MEMBERSHIP";
+    /** Promotions with program {@link RsProgramSid} */
+    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["PACKAGE"] = 5] = "PACKAGE";
+    /** Products (such as water, t-shirts, etc.) */
+    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["PRODUCT"] = 6] = "PRODUCT";
+    /** Session passes */
+    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["PROMOTION"] = 7] = "PROMOTION";
+    /** Products available for quick buy */
+    WlCatalogPurchaseOptionViewSid[WlCatalogPurchaseOptionViewSid["QUICK_BUY"] = 9] = "QUICK_BUY";
+})(WlCatalogPurchaseOptionViewSid || (exports.WlCatalogPurchaseOptionViewSid = WlCatalogPurchaseOptionViewSid = {}));
+/** List of Setup -> Store configuration -> Categories and Layout sort options. */
+var WlShopCategoryShopCategorySortSid;
+(function (WlShopCategoryShopCategorySortSid) {
+    /** Custom sort */
+    WlShopCategoryShopCategorySortSid[WlShopCategoryShopCategorySortSid["CUSTOM"] = 2] = "CUSTOM";
+    /** Sort by date */
+    WlShopCategoryShopCategorySortSid[WlShopCategoryShopCategorySortSid["DATE"] = 3] = "DATE";
+    /** Sort by price */
+    WlShopCategoryShopCategorySortSid[WlShopCategoryShopCategorySortSid["PRICE"] = 4] = "PRICE";
+    /** Sort by name/title */
+    WlShopCategoryShopCategorySortSid[WlShopCategoryShopCategorySortSid["NAME"] = 1] = "NAME";
+})(WlShopCategoryShopCategorySortSid || (exports.WlShopCategoryShopCategorySortSid = WlShopCategoryShopCategorySortSid = {}));
+/** Different user flows that can be tracked. */
+var WlUserTrackingFlowSid;
+(function (WlUserTrackingFlowSid) {
+    /** Appointment booking flow */
+    WlUserTrackingFlowSid[WlUserTrackingFlowSid["BOOK_APPOINTMENT"] = 1] = "BOOK_APPOINTMENT";
+    /** Class booking flow */
+    WlUserTrackingFlowSid[WlUserTrackingFlowSid["BOOK_CLASS"] = 2] = "BOOK_CLASS";
+    /** Event booking flow */
+    WlUserTrackingFlowSid[WlUserTrackingFlowSid["BOOK_EVENT"] = 3] = "BOOK_EVENT";
+})(WlUserTrackingFlowSid || (exports.WlUserTrackingFlowSid = WlUserTrackingFlowSid = {}));
+/** Defines if client has "Late cancel" or "No shows" sessions. */
+var WlBusinessPolicyBlameSid;
+(function (WlBusinessPolicyBlameSid) {
+    /** If client has "Late cancel" and "No shows" sessions */
+    WlBusinessPolicyBlameSid[WlBusinessPolicyBlameSid["BOTH"] = 1] = "BOTH";
+    /** If client has "Late cancel" sessions */
+    WlBusinessPolicyBlameSid[WlBusinessPolicyBlameSid["LATE_CANCEL"] = 2] = "LATE_CANCEL";
+    /** If client has "No shows" sessions */
+    WlBusinessPolicyBlameSid[WlBusinessPolicyBlameSid["NO_SHOWS"] = 3] = "NO_SHOWS";
+})(WlBusinessPolicyBlameSid || (exports.WlBusinessPolicyBlameSid = WlBusinessPolicyBlameSid = {}));
+/** Client's charge if he has "Late cancel" or "No shows" sessions. */
+var WlBusinessPolicyChargeSid;
+(function (WlBusinessPolicyChargeSid) {
+    /** The client should be to pay a penalty */
+    WlBusinessPolicyChargeSid[WlBusinessPolicyChargeSid["CHARGE"] = 1] = "CHARGE";
+    /** Mark account as has "Late cancel" and "No shows" sessions */
+    WlBusinessPolicyChargeSid[WlBusinessPolicyChargeSid["FLAG_ACCOUNT"] = 2] = "FLAG_ACCOUNT";
+})(WlBusinessPolicyChargeSid || (exports.WlBusinessPolicyChargeSid = WlBusinessPolicyChargeSid = {}));
+/** List of layouts for client's header. */
+var RsPageFrontendHeaderLayoutSid;
+(function (RsPageFrontendHeaderLayoutSid) {
+    /** Logo is under the main menu */
+    RsPageFrontendHeaderLayoutSid[RsPageFrontendHeaderLayoutSid["BOTTOM"] = 4] = "BOTTOM";
+    /** Logo is in the left corner */
+    RsPageFrontendHeaderLayoutSid[RsPageFrontendHeaderLayoutSid["LEFT"] = 1] = "LEFT";
+    /** Logo is in the right corner */
+    RsPageFrontendHeaderLayoutSid[RsPageFrontendHeaderLayoutSid["RIGHT"] = 2] = "RIGHT";
+    /** Logo is above the main menu */
+    RsPageFrontendHeaderLayoutSid[RsPageFrontendHeaderLayoutSid["TOP"] = 3] = "TOP";
+})(RsPageFrontendHeaderLayoutSid || (exports.RsPageFrontendHeaderLayoutSid = RsPageFrontendHeaderLayoutSid = {}));
+/** A position of logo. */
+var RsBusinessDesignLogoPositionSid;
+(function (RsBusinessDesignLogoPositionSid) {
+    /** Logo located in the center */
+    RsBusinessDesignLogoPositionSid[RsBusinessDesignLogoPositionSid["CENTER"] = 2] = "CENTER";
+    /** Logo located on the left side */
+    RsBusinessDesignLogoPositionSid[RsBusinessDesignLogoPositionSid["LEFT"] = 1] = "LEFT";
+    /** Logo located on the right side */
+    RsBusinessDesignLogoPositionSid[RsBusinessDesignLogoPositionSid["RIGHT"] = 3] = "RIGHT";
+})(RsBusinessDesignLogoPositionSid || (exports.RsBusinessDesignLogoPositionSid = RsBusinessDesignLogoPositionSid = {}));
+/** A style of logo. */
+var RsBusinessDesignLogoStyleSid;
+(function (RsBusinessDesignLogoStyleSid) {
+    /** Logo is invisible */
+    RsBusinessDesignLogoStyleSid[RsBusinessDesignLogoStyleSid["HIDE"] = 1] = "HIDE";
+    /** Logo is a rectangle */
+    RsBusinessDesignLogoStyleSid[RsBusinessDesignLogoStyleSid["RECTANGLE"] = 4] = "RECTANGLE";
+    /** Logo is a round */
+    RsBusinessDesignLogoStyleSid[RsBusinessDesignLogoStyleSid["ROUND"] = 3] = "ROUND";
+    /** Logo is a square */
+    RsBusinessDesignLogoStyleSid[RsBusinessDesignLogoStyleSid["SQUARE"] = 2] = "SQUARE";
+})(RsBusinessDesignLogoStyleSid || (exports.RsBusinessDesignLogoStyleSid = RsBusinessDesignLogoStyleSid = {}));
+/** The possible payment types an appointment can have. */
+var RsAppointmentPaySid;
+(function (RsAppointmentPaySid) {
+    /** A deposit was paid */
+    RsAppointmentPaySid[RsAppointmentPaySid["DEPOSIT"] = 2] = "DEPOSIT";
+    /** Appointment is free and does not require payment */
+    RsAppointmentPaySid[RsAppointmentPaySid["FREE"] = 4] = "FREE";
+    /** The full price was paid */
+    RsAppointmentPaySid[RsAppointmentPaySid["FULL"] = 3] = "FULL";
+    /** Nothing was paid */
+    RsAppointmentPaySid[RsAppointmentPaySid["NONE"] = 1] = "NONE";
+})(RsAppointmentPaySid || (exports.RsAppointmentPaySid = RsAppointmentPaySid = {}));
+/** A list of report categories. */
+var RsReportCategorySid;
+(function (RsReportCategorySid) {
+    /** Category reports on attendance */
+    RsReportCategorySid[RsReportCategorySid["ATTENDANCE"] = 2] = "ATTENDANCE";
+    /** Category reports on clients */
+    RsReportCategorySid[RsReportCategorySid["CLIENT"] = 1] = "CLIENT";
+    /** Category on dashboards */
+    RsReportCategorySid[RsReportCategorySid["DASHBOARD"] = 9] = "DASHBOARD";
+    /** Corporate reports */
+    RsReportCategorySid[RsReportCategorySid["FRANCHISE"] = 6] = "FRANCHISE";
+    /** Insurance and reimbursements reports */
+    RsReportCategorySid[RsReportCategorySid["INSURANCE"] = 7] = "INSURANCE";
+    /** Category reports on mail */
+    RsReportCategorySid[RsReportCategorySid["MAIL"] = 5] = "MAIL";
+    /** Metrics category */
+    RsReportCategorySid[RsReportCategorySid["METRIC"] = 8] = "METRIC";
+    /** Category reports on sales */
+    RsReportCategorySid[RsReportCategorySid["SALE"] = 4] = "SALE";
+    /** Category reports on staff */
+    RsReportCategorySid[RsReportCategorySid["STAFF"] = 3] = "STAFF";
+})(RsReportCategorySid || (exports.RsReportCategorySid = RsReportCategorySid = {}));
+/** A list of bookable types. */
+var WlServiceBookableSid;
+(function (WlServiceBookableSid) {
+    /** All users can book */
+    WlServiceBookableSid[WlServiceBookableSid["ALL"] = 1] = "ALL";
+    /** Only special client groups can book */
+    WlServiceBookableSid[WlServiceBookableSid["CUSTOM"] = 3] = "CUSTOM";
+    /** Nobody can book */
+    WlServiceBookableSid[WlServiceBookableSid["NONE"] = 2] = "NONE";
+})(WlServiceBookableSid || (exports.WlServiceBookableSid = WlServiceBookableSid = {}));
+/** List of sources where quiz response can be generated. */
+var WlQuizResponseSourceSid;
+(function (WlQuizResponseSourceSid) {
+    /** Quiz response received during booking process */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["BOOKING"] = 2] = "BOOKING";
+    /** Quiz response was imported */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["IMPORT"] = 6] = "IMPORT";
+    /** Quiz response received by kiosk mode link */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["KIOSK"] = 7] = "KIOSK";
+    /** Quiz response received by direct link */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["LINK"] = 1] = "LINK";
+    /** Quiz response received by direct link */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["MANUAL"] = 5] = "MANUAL";
+    /** Quiz response received during purchase process */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["PURCHASE"] = 4] = "PURCHASE";
+    /** Quiz response received during registration process */
+    WlQuizResponseSourceSid[WlQuizResponseSourceSid["REGISTRATION"] = 3] = "REGISTRATION";
+})(WlQuizResponseSourceSid || (exports.WlQuizResponseSourceSid = WlQuizResponseSourceSid = {}));
+/** List of quick purchase item types. */
+var WlCatalogQuickPurchaseTypeSid;
+(function (WlCatalogQuickPurchaseTypeSid) {
+    /** Classes */
+    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["CLASSES"] = 224] = "CLASSES";
+    /** Resource */
+    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["RESOURCE"] = 681] = "RESOURCE";
+    /** Service */
+    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["SERVICE"] = 690] = "SERVICE";
+})(WlCatalogQuickPurchaseTypeSid || (exports.WlCatalogQuickPurchaseTypeSid = WlCatalogQuickPurchaseTypeSid = {}));
+/** Widget analytics checkout types. */
+var WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid;
+(function (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid) {
+    /** Any checkout type */
+    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["ANY"] = 1] = "ANY";
+    /** Booking checkout type */
+    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["BOOKING"] = 3] = "BOOKING";
+    /** Store purchase checkout type */
+    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["STORE_PURCHASE"] = 2] = "STORE_PURCHASE";
+})(WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid || (exports.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = {}));
+/** Widget analytics event types. */
+var WlWidgetAnalyticsWidgetAnalyticsEventSid;
+(function (WlWidgetAnalyticsWidgetAnalyticsEventSid) {
+    /** Checkout abandonment event */
+    WlWidgetAnalyticsWidgetAnalyticsEventSid[WlWidgetAnalyticsWidgetAnalyticsEventSid["ABANDONED_CHECKOUT"] = 1] = "ABANDONED_CHECKOUT";
+    /** Begin checkout event */
+    WlWidgetAnalyticsWidgetAnalyticsEventSid[WlWidgetAnalyticsWidgetAnalyticsEventSid["BEGIN_CHECKOUT"] = 2] = "BEGIN_CHECKOUT";
+    /** Purchase event */
+    WlWidgetAnalyticsWidgetAnalyticsEventSid[WlWidgetAnalyticsWidgetAnalyticsEventSid["PURCHASE"] = 3] = "PURCHASE";
+})(WlWidgetAnalyticsWidgetAnalyticsEventSid || (exports.WlWidgetAnalyticsWidgetAnalyticsEventSid = WlWidgetAnalyticsWidgetAnalyticsEventSid = {}));
+/** Widget analytics event schema versions. */
+var WlWidgetAnalyticsWidgetAnalyticsEventVersionSid;
+(function (WlWidgetAnalyticsWidgetAnalyticsEventVersionSid) {
+    /** Initial event schema */
+    WlWidgetAnalyticsWidgetAnalyticsEventVersionSid[WlWidgetAnalyticsWidgetAnalyticsEventVersionSid["V1"] = 1] = "V1";
+})(WlWidgetAnalyticsWidgetAnalyticsEventVersionSid || (exports.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = {}));
+/** List of resource categories. */
+var WlResourceResourceCategoryEnum;
+(function (WlResourceResourceCategoryEnum) {
+    /** Asset resource category */
+    WlResourceResourceCategoryEnum[WlResourceResourceCategoryEnum["ASSET"] = 1] = "ASSET";
+    /** Off-site location resource category */
+    WlResourceResourceCategoryEnum[WlResourceResourceCategoryEnum["LOCATION"] = 2] = "LOCATION";
+})(WlResourceResourceCategoryEnum || (exports.WlResourceResourceCategoryEnum = WlResourceResourceCategoryEnum = {}));
+/** Reasons why the client can't book this class. */
+var WlScheduleClassViewDenyReasonSid;
+(function (WlScheduleClassViewDenyReasonSid) {
+    /** User is trying to book on behalf of another client, but does not have permission to do so */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["ACCESS_DENIED"] = 1] = "ACCESS_DENIED";
+    /** Manual restriction to book business, location or a certain class */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["ACCESS_LIMITED"] = 2] = "ACCESS_LIMITED";
+    /** The business can not take one more client because of business subscription limitations */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["ACCOUNT_LIMIT"] = 3] = "ACCOUNT_LIMIT";
+    /** Class is not available for certain age */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["AGE_RESTRICTION"] = 4] = "AGE_RESTRICTION";
+    /** Liability Release needs to be agreed */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["AGREE_NX"] = 5] = "AGREE_NX";
+    /** Client has unpaid fees */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BALANCE_NEGATIVE"] = 22] = "BALANCE_NEGATIVE";
+    /** It's too early to book a class */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BOOK_EARLY"] = 7] = "BOOK_EARLY";
+    /** It's too late to book a class */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BOOK_LATE"] = 8] = "BOOK_LATE";
+    /** User's visit overlaps with another visit */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BOOK_OVERLAP"] = 25] = "BOOK_OVERLAP";
+    /** User's pricing options do not allow booking another visit within a certain period because of pricing option limitations */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BOOK_RESTRICT"] = 9] = "BOOK_RESTRICT";
+    /** Client is already booked for this session */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BOOKED_ALREADY"] = 6] = "BOOKED_ALREADY";
+    /** Business is inactive */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["BUSINESS_INACTIVE"] = 10] = "BUSINESS_INACTIVE";
+    /** Class is canceled */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["CLASS_CANCELED"] = 11] = "CLASS_CANCELED";
+    /** Class is finished */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["CLASS_FINISHED"] = 26] = "CLASS_FINISHED";
+    /** Class is full */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["CLASS_FULL"] = 14] = "CLASS_FULL";
+    /** Class does not exist anymore */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["CLASS_NOT_AVAILABLE_ANYMORE"] = 15] = "CLASS_NOT_AVAILABLE_ANYMORE";
+    /** Client is flagged at location */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["CLIENT_FLAGGED"] = 12] = "CLIENT_FLAGGED";
+    /** Credit card is required for booking services */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["CREDIT_CARD_REQUIRE"] = 13] = "CREDIT_CARD_REQUIRE";
+    /** Business is closed */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["HOLIDAY"] = 16] = "HOLIDAY";
+    /** Login is required */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["LOGIN_REQUIRED"] = 17] = "LOGIN_REQUIRED";
+    /** Online booking is disabled for the class */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["NOT_BOOKABLE"] = 18] = "NOT_BOOKABLE";
+    /** Online booking is disabled for this type of client */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["NOT_BOOKABLE_BY_TYPE"] = 24] = "NOT_BOOKABLE_BY_TYPE";
+    /** Required personal details missing */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["USER_INFO_MISSING"] = 19] = "USER_INFO_MISSING";
+    /** Visit to another class is required first */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["VISIT_BEFORE"] = 20] = "VISIT_BEFORE";
+    /** The wait list is full */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["WAIT_LIST_LIMIT_MAX"] = 21] = "WAIT_LIST_LIMIT_MAX";
+    /** Client has unsigned waiver */
+    WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["WAIVER_NX"] = 23] = "WAIVER_NX";
+})(WlScheduleClassViewDenyReasonSid || (exports.WlScheduleClassViewDenyReasonSid = WlScheduleClassViewDenyReasonSid = {}));
+/** List of possible value of virtual integrations. */
+var WlVirtualVirtualProviderSid;
+(function (WlVirtualVirtualProviderSid) {
+    /** Virtual integration non implemented */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["NON_INTEGRATED"] = 2] = "NON_INTEGRATED";
+    /** Virtual Zoom service integration */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
+})(WlVirtualVirtualProviderSid || (exports.WlVirtualVirtualProviderSid = WlVirtualVirtualProviderSid = {}));
 /** List of ages, which are suitable for visiting this location. */
 var RsAgeSid;
 (function (RsAgeSid) {
@@ -4342,6 +4394,40 @@ var RsFacilitySid;
     /** This location has zero depth entry pool */
     RsFacilitySid[RsFacilitySid["ZERO_DEPTH_ENTRY_POOL"] = 93] = "ZERO_DEPTH_ENTRY_POOL";
 })(RsFacilitySid || (exports.RsFacilitySid = RsFacilitySid = {}));
+/** List sources of the view video. */
+var WlVideoWatchWatchSourceSid;
+(function (WlVideoWatchWatchSourceSid) {
+    /** Video watched from application */
+    WlVideoWatchWatchSourceSid[WlVideoWatchWatchSourceSid["APP"] = 1] = "APP";
+    /** Video watched from direct URL */
+    WlVideoWatchWatchSourceSid[WlVideoWatchWatchSourceSid["DIRECT_URL"] = 2] = "DIRECT_URL";
+    /** Video watched from frontend */
+    WlVideoWatchWatchSourceSid[WlVideoWatchWatchSourceSid["FRONTEND"] = 3] = "FRONTEND";
+    /** Source of watched is undefined */
+    WlVideoWatchWatchSourceSid[WlVideoWatchWatchSourceSid["UNDEFINED"] = 4] = "UNDEFINED";
+})(WlVideoWatchWatchSourceSid || (exports.WlVideoWatchWatchSourceSid = WlVideoWatchWatchSourceSid = {}));
+/** Types of reward actions. */
+var RsRewardScoreSid;
+(function (RsRewardScoreSid) {
+    /** Referral registration */
+    RsRewardScoreSid[RsRewardScoreSid["REFER_REGISTER"] = 31] = "REFER_REGISTER";
+})(RsRewardScoreSid || (exports.RsRewardScoreSid = RsRewardScoreSid = {}));
+/** List of default categories of the rewards. */
+var RsRewardActionCategorySid;
+(function (RsRewardActionCategorySid) {
+    /** Booking and visiting rewards */
+    RsRewardActionCategorySid[RsRewardActionCategorySid["ATTENDANCE"] = 1] = "ATTENDANCE";
+    /** Rewards for spending money */
+    RsRewardActionCategorySid[RsRewardActionCategorySid["PURCHASE"] = 2] = "PURCHASE";
+    /** Rewards for referrals */
+    RsRewardActionCategorySid[RsRewardActionCategorySid["REFER"] = 7] = "REFER";
+    /** Rewards for reviewing a business */
+    RsRewardActionCategorySid[RsRewardActionCategorySid["REVIEW"] = 3] = "REVIEW";
+    /** Social networks rewards */
+    RsRewardActionCategorySid[RsRewardActionCategorySid["SOCIAL"] = 4] = "SOCIAL";
+    /** Rewards for significant user events */
+    RsRewardActionCategorySid[RsRewardActionCategorySid["USER"] = 5] = "USER";
+})(RsRewardActionCategorySid || (exports.RsRewardActionCategorySid = RsRewardActionCategorySid = {}));
 /** Types of the shapes. */
 var WlResourceLayoutShapeLayoutShapeSid;
 (function (WlResourceLayoutShapeLayoutShapeSid) {
@@ -4414,88 +4500,28 @@ var WlResourceImageImageIconSid;
     /** Weight */
     WlResourceImageImageIconSid[WlResourceImageImageIconSid["WEIGHT"] = 29] = "WEIGHT";
 })(WlResourceImageImageIconSid || (exports.WlResourceImageImageIconSid = WlResourceImageImageIconSid = {}));
-/** List of default categories of the rewards. */
-var RsRewardActionCategorySid;
-(function (RsRewardActionCategorySid) {
-    /** Booking and visiting rewards */
-    RsRewardActionCategorySid[RsRewardActionCategorySid["ATTENDANCE"] = 1] = "ATTENDANCE";
-    /** Rewards for spending money */
-    RsRewardActionCategorySid[RsRewardActionCategorySid["PURCHASE"] = 2] = "PURCHASE";
-    /** Rewards for referrals */
-    RsRewardActionCategorySid[RsRewardActionCategorySid["REFER"] = 7] = "REFER";
-    /** Rewards for reviewing a business */
-    RsRewardActionCategorySid[RsRewardActionCategorySid["REVIEW"] = 3] = "REVIEW";
-    /** Social networks rewards */
-    RsRewardActionCategorySid[RsRewardActionCategorySid["SOCIAL"] = 4] = "SOCIAL";
-    /** Rewards for significant user events */
-    RsRewardActionCategorySid[RsRewardActionCategorySid["USER"] = 5] = "USER";
-})(RsRewardActionCategorySid || (exports.RsRewardActionCategorySid = RsRewardActionCategorySid = {}));
-/** Types of reward actions. */
-var RsRewardScoreSid;
-(function (RsRewardScoreSid) {
-    /** Customer Birthday earns X points */
-    RsRewardScoreSid[RsRewardScoreSid["BIRTHDAY"] = 16] = "BIRTHDAY";
-    /** Book a class online */
-    RsRewardScoreSid[RsRewardScoreSid["BOOK"] = 14] = "BOOK";
-    /** Book a class and share on Facebook */
-    RsRewardScoreSid[RsRewardScoreSid["BOOK_FACEBOOK"] = 2] = "BOOK_FACEBOOK";
-    /** Book a class and share on Twitter */
-    RsRewardScoreSid[RsRewardScoreSid["BOOK_TWITTER"] = 3] = "BOOK_TWITTER";
-    /** Custom action */
-    RsRewardScoreSid[RsRewardScoreSid["CUSTOM"] = 26] = "CUSTOM";
-    /** Connect profile to Facebook */
-    RsRewardScoreSid[RsRewardScoreSid["LOGIN_FACEBOOK"] = 7] = "LOGIN_FACEBOOK";
-    /** Each Dollar spent earns customers X points */
-    RsRewardScoreSid[RsRewardScoreSid["PAY"] = 15] = "PAY";
-    /** The reward for the purchase of some product */
-    RsRewardScoreSid[RsRewardScoreSid["PURCHASE_PRODUCT"] = 28] = "PURCHASE_PRODUCT";
-    /** The reward for the purchase of some promotion */
-    RsRewardScoreSid[RsRewardScoreSid["PURCHASE_PROMOTION"] = 27] = "PURCHASE_PROMOTION";
-    /** Share to facebook purchased item */
-    RsRewardScoreSid[RsRewardScoreSid["PURCHASE_SHARE_FACEBOOK"] = 22] = "PURCHASE_SHARE_FACEBOOK";
-    /** Share to twitter purchased item */
-    RsRewardScoreSid[RsRewardScoreSid["PURCHASE_SHARE_TWITTER"] = 23] = "PURCHASE_SHARE_TWITTER";
-    /** Referral purchase */
-    RsRewardScoreSid[RsRewardScoreSid["REFER_PURCHASE"] = 30] = "REFER_PURCHASE";
-    /** Referral registration */
-    RsRewardScoreSid[RsRewardScoreSid["REFER_REGISTER"] = 31] = "REFER_REGISTER";
-    /** User registration */
-    RsRewardScoreSid[RsRewardScoreSid["REGISTRATION"] = 20] = "REGISTRATION";
-    /** Record to reset all-time earned user points. This points will be always negative */
-    RsRewardScoreSid[RsRewardScoreSid["RESET"] = 25] = "RESET";
-    /** Record to reset current available user points. This points will be always negative */
-    RsRewardScoreSid[RsRewardScoreSid["RESET_AVAILABLE"] = 32] = "RESET_AVAILABLE";
-    /** Write a review on microsite */
-    RsRewardScoreSid[RsRewardScoreSid["REVIEW"] = 11] = "REVIEW";
-    /** Write a review on microsite and share on Facebook */
-    RsRewardScoreSid[RsRewardScoreSid["REVIEW_FACEBOOK"] = 9] = "REVIEW_FACEBOOK";
-    /** Write a review on microsite and share on Twitter */
-    RsRewardScoreSid[RsRewardScoreSid["REVIEW_TWITTER"] = 10] = "REVIEW_TWITTER";
-    /** Visit classes on the same location */
-    RsRewardScoreSid[RsRewardScoreSid["VISIT"] = 12] = "VISIT";
-    /** Attending a specific appointment earns customers X points */
-    RsRewardScoreSid[RsRewardScoreSid["VISIT_APPOINTMENT"] = 29] = "VISIT_APPOINTMENT";
-    /** Attending a specific class earns customers X points */
-    RsRewardScoreSid[RsRewardScoreSid["VISIT_CLASS"] = 18] = "VISIT_CLASS";
-    /** Attending a specific Workshop/Enrollment/Event earns customers X points */
-    RsRewardScoreSid[RsRewardScoreSid["VISIT_ENROLLMENT"] = 19] = "VISIT_ENROLLMENT";
-})(RsRewardScoreSid || (exports.RsRewardScoreSid = RsRewardScoreSid = {}));
-/** List of sounds used for check ins. */
-var WlReceptionDesignCheckInSoundSid;
-(function (WlReceptionDesignCheckInSoundSid) {
-    /** Error sound 1 to be played when self check in fails */
-    WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["ERROR_SOUND_1"] = 1] = "ERROR_SOUND_1";
-    /** Error sound 2 to be played when self check in fails */
-    WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["ERROR_SOUND_2"] = 2] = "ERROR_SOUND_2";
-    /** Error sound 3 to be played when self check in fails */
-    WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["ERROR_SOUND_3"] = 3] = "ERROR_SOUND_3";
-    /** Success sound 1 to be played when self check in succeeds */
-    WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["SUCCESS_SOUND_1"] = 4] = "SUCCESS_SOUND_1";
-    /** Success sound 2 to be played when self check in succeeds */
-    WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["SUCCESS_SOUND_2"] = 5] = "SUCCESS_SOUND_2";
-    /** Success sound 3 to be played when self check in succeeds */
-    WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["SUCCESS_SOUND_3"] = 6] = "SUCCESS_SOUND_3";
-})(WlReceptionDesignCheckInSoundSid || (exports.WlReceptionDesignCheckInSoundSid = WlReceptionDesignCheckInSoundSid = {}));
+/** List of possible types of Gift Cards. */
+var WlCouponTypeSid;
+(function (WlCouponTypeSid) {
+    /** Amount Gift Card */
+    WlCouponTypeSid[WlCouponTypeSid["AMOUNT"] = 2] = "AMOUNT";
+    /** Product Gift Card */
+    WlCouponTypeSid[WlCouponTypeSid["COMPONENT"] = 1] = "COMPONENT";
+    /** Quick Gift Card */
+    WlCouponTypeSid[WlCouponTypeSid["QUICK"] = 3] = "QUICK";
+})(WlCouponTypeSid || (exports.WlCouponTypeSid = WlCouponTypeSid = {}));
+/** List of possible order for gets review. */
+var WlReviewReviewListReviewOrderSid;
+(function (WlReviewReviewListReviewOrderSid) {
+    /** Ascending sort review by date */
+    WlReviewReviewListReviewOrderSid[WlReviewReviewListReviewOrderSid["LATEST"] = 1] = "LATEST";
+    /** Ascending sort review by date */
+    WlReviewReviewListReviewOrderSid[WlReviewReviewListReviewOrderSid["NEGATIVE"] = 3] = "NEGATIVE";
+    /** Descending sort review by date */
+    WlReviewReviewListReviewOrderSid[WlReviewReviewListReviewOrderSid["OLDEST"] = 4] = "OLDEST";
+    /** Descending sort review by date */
+    WlReviewReviewListReviewOrderSid[WlReviewReviewListReviewOrderSid["POSITIVE"] = 2] = "POSITIVE";
+})(WlReviewReviewListReviewOrderSid || (exports.WlReviewReviewListReviewOrderSid = WlReviewReviewListReviewOrderSid = {}));
 /** Define colors of notice messages. */
 var WlReceptionApplicationMemberInfoColorSid;
 (function (WlReceptionApplicationMemberInfoColorSid) {
@@ -4532,38 +4558,22 @@ var WlReceptionApplicationMemberInfoIconSid;
     /** Icon of an exclamation mark. For messages communicating a mild issue or cautioning the user */
     WlReceptionApplicationMemberInfoIconSid[WlReceptionApplicationMemberInfoIconSid["WARNING"] = 10] = "WARNING";
 })(WlReceptionApplicationMemberInfoIconSid || (exports.WlReceptionApplicationMemberInfoIconSid = WlReceptionApplicationMemberInfoIconSid = {}));
-/** List of possible types of Gift Cards. */
-var WlCouponTypeSid;
-(function (WlCouponTypeSid) {
-    /** Amount Gift Card */
-    WlCouponTypeSid[WlCouponTypeSid["AMOUNT"] = 2] = "AMOUNT";
-    /** Product Gift Card */
-    WlCouponTypeSid[WlCouponTypeSid["COMPONENT"] = 1] = "COMPONENT";
-    /** Quick Gift Card */
-    WlCouponTypeSid[WlCouponTypeSid["QUICK"] = 3] = "QUICK";
-})(WlCouponTypeSid || (exports.WlCouponTypeSid = WlCouponTypeSid = {}));
-/** Different user flows that can be tracked. */
-var WlUserTrackingFlowSid;
-(function (WlUserTrackingFlowSid) {
-    /** Appointment booking flow */
-    WlUserTrackingFlowSid[WlUserTrackingFlowSid["BOOK_APPOINTMENT"] = 1] = "BOOK_APPOINTMENT";
-    /** Class booking flow */
-    WlUserTrackingFlowSid[WlUserTrackingFlowSid["BOOK_CLASS"] = 2] = "BOOK_CLASS";
-    /** Event booking flow */
-    WlUserTrackingFlowSid[WlUserTrackingFlowSid["BOOK_EVENT"] = 3] = "BOOK_EVENT";
-})(WlUserTrackingFlowSid || (exports.WlUserTrackingFlowSid = WlUserTrackingFlowSid = {}));
-/** List of possible order for gets review. */
-var WlReviewReviewListReviewOrderSid;
-(function (WlReviewReviewListReviewOrderSid) {
-    /** Ascending sort review by date */
-    WlReviewReviewListReviewOrderSid[WlReviewReviewListReviewOrderSid["LATEST"] = 1] = "LATEST";
-    /** Ascending sort review by date */
-    WlReviewReviewListReviewOrderSid[WlReviewReviewListReviewOrderSid["NEGATIVE"] = 3] = "NEGATIVE";
-    /** Descending sort review by date */
-    WlReviewReviewListReviewOrderSid[WlReviewReviewListReviewOrderSid["OLDEST"] = 4] = "OLDEST";
-    /** Descending sort review by date */
-    WlReviewReviewListReviewOrderSid[WlReviewReviewListReviewOrderSid["POSITIVE"] = 2] = "POSITIVE";
-})(WlReviewReviewListReviewOrderSid || (exports.WlReviewReviewListReviewOrderSid = WlReviewReviewListReviewOrderSid = {}));
+/** List of sounds used for check ins. */
+var WlReceptionDesignCheckInSoundSid;
+(function (WlReceptionDesignCheckInSoundSid) {
+    /** Error sound 1 to be played when self check in fails */
+    WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["ERROR_SOUND_1"] = 1] = "ERROR_SOUND_1";
+    /** Error sound 2 to be played when self check in fails */
+    WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["ERROR_SOUND_2"] = 2] = "ERROR_SOUND_2";
+    /** Error sound 3 to be played when self check in fails */
+    WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["ERROR_SOUND_3"] = 3] = "ERROR_SOUND_3";
+    /** Success sound 1 to be played when self check in succeeds */
+    WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["SUCCESS_SOUND_1"] = 4] = "SUCCESS_SOUND_1";
+    /** Success sound 2 to be played when self check in succeeds */
+    WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["SUCCESS_SOUND_2"] = 5] = "SUCCESS_SOUND_2";
+    /** Success sound 3 to be played when self check in succeeds */
+    WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["SUCCESS_SOUND_3"] = 6] = "SUCCESS_SOUND_3";
+})(WlReceptionDesignCheckInSoundSid || (exports.WlReceptionDesignCheckInSoundSid = WlReceptionDesignCheckInSoundSid = {}));
 /** A list of types object for share post to social network. */
 var WlSocialShareShareObjectSid;
 (function (WlSocialShareShareObjectSid) {
@@ -4576,60 +4586,6 @@ var WlSocialShareShareObjectSid;
     /** Review */
     WlSocialShareShareObjectSid[WlSocialShareShareObjectSid["REVIEW"] = 2] = "REVIEW";
 })(WlSocialShareShareObjectSid || (exports.WlSocialShareShareObjectSid = WlSocialShareShareObjectSid = {}));
-/** List of sources where quiz response can be generated. */
-var WlQuizResponseSourceSid;
-(function (WlQuizResponseSourceSid) {
-    /** Quiz response received during booking process */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["BOOKING"] = 2] = "BOOKING";
-    /** Quiz response was imported */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["IMPORT"] = 6] = "IMPORT";
-    /** Quiz response received by kiosk mode link */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["KIOSK"] = 7] = "KIOSK";
-    /** Quiz response received by direct link */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["LINK"] = 1] = "LINK";
-    /** Quiz response received by direct link */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["MANUAL"] = 5] = "MANUAL";
-    /** Quiz response received during purchase process */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["PURCHASE"] = 4] = "PURCHASE";
-    /** Quiz response received during registration process */
-    WlQuizResponseSourceSid[WlQuizResponseSourceSid["REGISTRATION"] = 3] = "REGISTRATION";
-})(WlQuizResponseSourceSid || (exports.WlQuizResponseSourceSid = WlQuizResponseSourceSid = {}));
-/** List of quick purchase item types. */
-var WlCatalogQuickPurchaseTypeSid;
-(function (WlCatalogQuickPurchaseTypeSid) {
-    /** Classes */
-    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["CLASSES"] = 224] = "CLASSES";
-    /** Resource */
-    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["RESOURCE"] = 681] = "RESOURCE";
-    /** Service */
-    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["SERVICE"] = 690] = "SERVICE";
-})(WlCatalogQuickPurchaseTypeSid || (exports.WlCatalogQuickPurchaseTypeSid = WlCatalogQuickPurchaseTypeSid = {}));
-/** Widget analytics checkout types. */
-var WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid;
-(function (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid) {
-    /** Any checkout type */
-    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["ANY"] = 1] = "ANY";
-    /** Booking checkout type */
-    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["BOOKING"] = 3] = "BOOKING";
-    /** Store purchase checkout type */
-    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["STORE_PURCHASE"] = 2] = "STORE_PURCHASE";
-})(WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid || (exports.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = {}));
-/** Widget analytics event types. */
-var WlWidgetAnalyticsWidgetAnalyticsEventSid;
-(function (WlWidgetAnalyticsWidgetAnalyticsEventSid) {
-    /** Checkout abandonment event */
-    WlWidgetAnalyticsWidgetAnalyticsEventSid[WlWidgetAnalyticsWidgetAnalyticsEventSid["ABANDONED_CHECKOUT"] = 1] = "ABANDONED_CHECKOUT";
-    /** Begin checkout event */
-    WlWidgetAnalyticsWidgetAnalyticsEventSid[WlWidgetAnalyticsWidgetAnalyticsEventSid["BEGIN_CHECKOUT"] = 2] = "BEGIN_CHECKOUT";
-    /** Purchase event */
-    WlWidgetAnalyticsWidgetAnalyticsEventSid[WlWidgetAnalyticsWidgetAnalyticsEventSid["PURCHASE"] = 3] = "PURCHASE";
-})(WlWidgetAnalyticsWidgetAnalyticsEventSid || (exports.WlWidgetAnalyticsWidgetAnalyticsEventSid = WlWidgetAnalyticsWidgetAnalyticsEventSid = {}));
-/** Widget analytics event schema versions. */
-var WlWidgetAnalyticsWidgetAnalyticsEventVersionSid;
-(function (WlWidgetAnalyticsWidgetAnalyticsEventVersionSid) {
-    /** Initial event schema */
-    WlWidgetAnalyticsWidgetAnalyticsEventVersionSid[WlWidgetAnalyticsWidgetAnalyticsEventVersionSid["V1"] = 1] = "V1";
-})(WlWidgetAnalyticsWidgetAnalyticsEventVersionSid || (exports.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = {}));
 /** A list of card types. */
 var WlCardCardSystemSid;
 (function (WlCardCardSystemSid) {
@@ -4694,22 +4650,88 @@ var RsPayBankAchSecSid;
     /** Web Initiated Entry */
     RsPayBankAchSecSid[RsPayBankAchSecSid["WEB"] = 1] = "WEB";
 })(RsPayBankAchSecSid || (exports.RsPayBankAchSecSid = RsPayBankAchSecSid = {}));
-/** List of possible plans for ConstantContactSubscription subscription. */
-var WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid;
-(function (WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid) {
-    /** None */
-    WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid[WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Standard */
-    WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid[WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid["STANDARD"] = 2] = "STANDARD";
-})(WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid || (exports.WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = {}));
-/** List of possible plans for MailchimpSubscription subscription. */
-var WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid;
-(function (WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid) {
-    /** None */
-    WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid[WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Standard */
-    WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid[WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid["STANDARD"] = 2] = "STANDARD";
-})(WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid || (exports.WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = {}));
+/** List of different OTP code delivery strategies. */
+var WlPassportLoginEnterOtpDeliveryStrategyEnum;
+(function (WlPassportLoginEnterOtpDeliveryStrategyEnum) {
+    /** OTP code is sent to all given communication channels (sms, emails, etc.) */
+    WlPassportLoginEnterOtpDeliveryStrategyEnum[WlPassportLoginEnterOtpDeliveryStrategyEnum["BROADCAST"] = 1] = "BROADCAST";
+    /** OTP code is sent to the first communication channel that is available, according to the given list of priorities */
+    WlPassportLoginEnterOtpDeliveryStrategyEnum[WlPassportLoginEnterOtpDeliveryStrategyEnum["PRIORITY"] = 2] = "PRIORITY";
+})(WlPassportLoginEnterOtpDeliveryStrategyEnum || (exports.WlPassportLoginEnterOtpDeliveryStrategyEnum = WlPassportLoginEnterOtpDeliveryStrategyEnum = {}));
+/** Guest Pass reset type. */
+var WlPromotionGuestPassGuestPassResetTypeSid;
+(function (WlPromotionGuestPassGuestPassResetTypeSid) {
+    /** Limits reset on promotion billing day */
+    WlPromotionGuestPassGuestPassResetTypeSid[WlPromotionGuestPassGuestPassResetTypeSid["BILLING"] = 1] = "BILLING";
+    /** Limits reset on promotion renewal day */
+    WlPromotionGuestPassGuestPassResetTypeSid[WlPromotionGuestPassGuestPassResetTypeSid["RENEWAL"] = 2] = "RENEWAL";
+})(WlPromotionGuestPassGuestPassResetTypeSid || (exports.WlPromotionGuestPassGuestPassResetTypeSid = WlPromotionGuestPassGuestPassResetTypeSid = {}));
+/** List of options to convert promotion. */
+var WlPromotionConvertPromotionConvertSid;
+(function (WlPromotionConvertPromotionConvertSid) {
+    /** Promotion conversion downgraded */
+    WlPromotionConvertPromotionConvertSid[WlPromotionConvertPromotionConvertSid["DOWNGRADE"] = 1] = "DOWNGRADE";
+    /** Type of the promotion conversion */
+    WlPromotionConvertPromotionConvertSid[WlPromotionConvertPromotionConvertSid["EQUAL_VALUE"] = 2] = "EQUAL_VALUE";
+    /** Promotion conversion upgraded */
+    WlPromotionConvertPromotionConvertSid[WlPromotionConvertPromotionConvertSid["UPGRADE"] = 3] = "UPGRADE";
+})(WlPromotionConvertPromotionConvertSid || (exports.WlPromotionConvertPromotionConvertSid = WlPromotionConvertPromotionConvertSid = {}));
+/** Different types of conversion behavior: when and how it should be converted. */
+var WlLoginPromotionConvertConvertWhenSid;
+(function (WlLoginPromotionConvertConvertWhenSid) {
+    /** Purchase Option converts one day after the scheduled expiration date and the client is charged for the new purchase option */
+    WlLoginPromotionConvertConvertWhenSid[WlLoginPromotionConvertConvertWhenSid["EXPIRATION_PAID"] = 1] = "EXPIRATION_PAID";
+    /** Purchase Option converts now and the client is not charged for the new Purchase Option */
+    WlLoginPromotionConvertConvertWhenSid[WlLoginPromotionConvertConvertWhenSid["NOW_FREE"] = 2] = "NOW_FREE";
+    /** Purchase Option converts now and the client is changed for the new Purchase Option */
+    WlLoginPromotionConvertConvertWhenSid[WlLoginPromotionConvertConvertWhenSid["NOW_PAID"] = 3] = "NOW_PAID";
+    /** Purchase Option converts on the specified date and the client is charged for the new Purchase Option */
+    WlLoginPromotionConvertConvertWhenSid[WlLoginPromotionConvertConvertWhenSid["SCHEDULE_PAID"] = 4] = "SCHEDULE_PAID";
+})(WlLoginPromotionConvertConvertWhenSid || (exports.WlLoginPromotionConvertConvertWhenSid = WlLoginPromotionConvertConvertWhenSid = {}));
+/** List of options to add client to attendance list. */
+var WlLoginAttendanceAddOptionSid;
+(function (WlLoginAttendanceAddOptionSid) {
+    /** Add client to attendance list and charge his account */
+    WlLoginAttendanceAddOptionSid[WlLoginAttendanceAddOptionSid["DEBIT"] = 2] = "DEBIT";
+    /** Add client to attendance list and pay now */
+    WlLoginAttendanceAddOptionSid[WlLoginAttendanceAddOptionSid["PAY"] = 3] = "PAY";
+    /** Add client to attendance list without payment */
+    WlLoginAttendanceAddOptionSid[WlLoginAttendanceAddOptionSid["UNPAID"] = 1] = "UNPAID";
+})(WlLoginAttendanceAddOptionSid || (exports.WlLoginAttendanceAddOptionSid = WlLoginAttendanceAddOptionSid = {}));
+/** Discount types. */
+var WlDiscountDiscountRuleSid;
+(function (WlDiscountDiscountRuleSid) {
+    /** Discount for catalog cart */
+    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["CART"] = 5] = "CART";
+    /** Discount by discount code */
+    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["CODE"] = 4] = "CODE";
+    /** Group of custom discounts applied individually to a purchase item */
+    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["CUSTOM"] = 6] = "CUSTOM";
+    /** Discount by login type */
+    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["LOGIN_TYPE"] = 1] = "LOGIN_TYPE";
+    /** Manual discount for element of purchase */
+    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["MANUAL"] = 3] = "MANUAL";
+    /** Discount by reward prize */
+    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["PRIZE"] = 2] = "PRIZE";
+})(WlDiscountDiscountRuleSid || (exports.WlDiscountDiscountRuleSid = WlDiscountDiscountRuleSid = {}));
+/** List of checks that are performed before session book. */
+var WlBookProcessProcessCheckSid;
+(function (WlBookProcessProcessCheckSid) {
+    /** Check that a client has a credit card */
+    WlBookProcessProcessCheckSid[WlBookProcessProcessCheckSid["CARD"] = 1] = "CARD";
+    /** Check a client has no unsigned waiver */
+    WlBookProcessProcessCheckSid[WlBookProcessProcessCheckSid["WAIVER"] = 2] = "WAIVER";
+})(WlBookProcessProcessCheckSid || (exports.WlBookProcessProcessCheckSid = WlBookProcessProcessCheckSid = {}));
+/** Purchase restrictions. */
+var WlShopProductPurchaseRestrictionSid;
+(function (WlShopProductPurchaseRestrictionSid) {
+    /** Purchase option available for all clients */
+    WlShopProductPurchaseRestrictionSid[WlShopProductPurchaseRestrictionSid["ALL"] = 1] = "ALL";
+    /** Purchase option introductory offer, available for new clients only */
+    WlShopProductPurchaseRestrictionSid[WlShopProductPurchaseRestrictionSid["INTRODUCTORY"] = 2] = "INTRODUCTORY";
+    /** Purchase option available for clients with special login type or member group */
+    WlShopProductPurchaseRestrictionSid[WlShopProductPurchaseRestrictionSid["TYPE"] = 3] = "TYPE";
+})(WlShopProductPurchaseRestrictionSid || (exports.WlShopProductPurchaseRestrictionSid = WlShopProductPurchaseRestrictionSid = {}));
 /** List of possible plans for QuickBooksSubscription subscription. */
 var WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid;
 (function (WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid) {
@@ -4718,146 +4740,6 @@ var WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid;
     /** Free */
     WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid[WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid["FREE"] = 1] = "FREE";
 })(WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid || (exports.WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid = WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid = {}));
-/** List of possible plans for EmailSubscription subscription. */
-var WlBusinessAccountSubscriptionEmailEmailSubscriptionSid;
-(function (WlBusinessAccountSubscriptionEmailEmailSubscriptionSid) {
-    /** None */
-    WlBusinessAccountSubscriptionEmailEmailSubscriptionSid[WlBusinessAccountSubscriptionEmailEmailSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Standard */
-    WlBusinessAccountSubscriptionEmailEmailSubscriptionSid[WlBusinessAccountSubscriptionEmailEmailSubscriptionSid["STANDARD"] = 2] = "STANDARD";
-})(WlBusinessAccountSubscriptionEmailEmailSubscriptionSid || (exports.WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = {}));
-/** List of possible plans for FitliveSubscription subscription. */
-var WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid;
-(function (WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid) {
-    /** Advanced */
-    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["ADVANCED"] = 5] = "ADVANCED";
-    /** Basic */
-    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["BASIC"] = 4] = "BASIC";
-    /** None */
-    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Professional */
-    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["LICENCED"] = 2] = "LICENCED";
-    /** Suspended */
-    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["SUSPENDED"] = 3] = "SUSPENDED";
-})(WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid || (exports.WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = {}));
-/** List of possible plans for FitvidSubscription subscription. */
-var WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid;
-(function (WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid) {
-    /** Basic */
-    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["BASIC"] = 2] = "BASIC";
-    /** Enterprise */
-    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["ENTERPRISE"] = 3] = "ENTERPRISE";
-    /** None */
-    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Premium */
-    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["PREMIUM"] = 4] = "PREMIUM";
-})(WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid || (exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = {}));
-/** List of possible plans for ReviewSubscription subscription. */
-var WlBusinessAccountSubscriptionReviewReviewSubscriptionSid;
-(function (WlBusinessAccountSubscriptionReviewReviewSubscriptionSid) {
-    /** None */
-    WlBusinessAccountSubscriptionReviewReviewSubscriptionSid[WlBusinessAccountSubscriptionReviewReviewSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Professional */
-    WlBusinessAccountSubscriptionReviewReviewSubscriptionSid[WlBusinessAccountSubscriptionReviewReviewSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
-})(WlBusinessAccountSubscriptionReviewReviewSubscriptionSid || (exports.WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = {}));
-/** List of possible plans for FitzoneSubscription subscription. */
-var WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid;
-(function (WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid) {
-    /** None */
-    WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid[WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Professional */
-    WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid[WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
-})(WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid || (exports.WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = {}));
-/** List of possible plans for RewardSubscription subscription. */
-var WlBusinessAccountSubscriptionRewardRewardSubscriptionSid;
-(function (WlBusinessAccountSubscriptionRewardRewardSubscriptionSid) {
-    /** None */
-    WlBusinessAccountSubscriptionRewardRewardSubscriptionSid[WlBusinessAccountSubscriptionRewardRewardSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Professional */
-    WlBusinessAccountSubscriptionRewardRewardSubscriptionSid[WlBusinessAccountSubscriptionRewardRewardSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
-})(WlBusinessAccountSubscriptionRewardRewardSubscriptionSid || (exports.WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = {}));
-/** List of possible plans for ApiSubscription subscription. */
-var WlBusinessAccountSubscriptionApiApiSubscriptionSid;
-(function (WlBusinessAccountSubscriptionApiApiSubscriptionSid) {
-    /** None */
-    WlBusinessAccountSubscriptionApiApiSubscriptionSid[WlBusinessAccountSubscriptionApiApiSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Premium */
-    WlBusinessAccountSubscriptionApiApiSubscriptionSid[WlBusinessAccountSubscriptionApiApiSubscriptionSid["PREMIUM"] = 2] = "PREMIUM";
-})(WlBusinessAccountSubscriptionApiApiSubscriptionSid || (exports.WlBusinessAccountSubscriptionApiApiSubscriptionSid = WlBusinessAccountSubscriptionApiApiSubscriptionSid = {}));
-/** List of possible plans for BusinessCoachSubscription subscription. */
-var WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid;
-(function (WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid) {
-    /** Business Success Coaching */
-    WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid[WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid["BUSINESS_SUCCESS_COACHING"] = 2] = "BUSINESS_SUCCESS_COACHING";
-    /** No subscription */
-    WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid[WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid["FREE"] = 1] = "FREE";
-})(WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid || (exports.WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = {}));
-/** List of possible plans for ZoomSubscription subscription. */
-var WlBusinessAccountSubscriptionZoomZoomSubscriptionSid;
-(function (WlBusinessAccountSubscriptionZoomZoomSubscriptionSid) {
-    /** Basic */
-    WlBusinessAccountSubscriptionZoomZoomSubscriptionSid[WlBusinessAccountSubscriptionZoomZoomSubscriptionSid["BASIC"] = 2] = "BASIC";
-    /** None */
-    WlBusinessAccountSubscriptionZoomZoomSubscriptionSid[WlBusinessAccountSubscriptionZoomZoomSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Professional */
-    WlBusinessAccountSubscriptionZoomZoomSubscriptionSid[WlBusinessAccountSubscriptionZoomZoomSubscriptionSid["PROFESSIONAL"] = 3] = "PROFESSIONAL";
-})(WlBusinessAccountSubscriptionZoomZoomSubscriptionSid || (exports.WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = {}));
-/** List of possible plans for FitbuilderSubscription subscription. */
-var WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid;
-(function (WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid) {
-    /** None */
-    WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid[WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Professional */
-    WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid[WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
-})(WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid || (exports.WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = {}));
-/** List of possible plans for QuizSubscription subscription. */
-var WlBusinessAccountSubscriptionQuizQuizSubscriptionSid;
-(function (WlBusinessAccountSubscriptionQuizQuizSubscriptionSid) {
-    /** Business */
-    WlBusinessAccountSubscriptionQuizQuizSubscriptionSid[WlBusinessAccountSubscriptionQuizQuizSubscriptionSid["BUSINESS"] = 3] = "BUSINESS";
-    /** None */
-    WlBusinessAccountSubscriptionQuizQuizSubscriptionSid[WlBusinessAccountSubscriptionQuizQuizSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Professional */
-    WlBusinessAccountSubscriptionQuizQuizSubscriptionSid[WlBusinessAccountSubscriptionQuizQuizSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
-    /** Starter */
-    WlBusinessAccountSubscriptionQuizQuizSubscriptionSid[WlBusinessAccountSubscriptionQuizQuizSubscriptionSid["STARTER"] = 4] = "STARTER";
-})(WlBusinessAccountSubscriptionQuizQuizSubscriptionSid || (exports.WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = {}));
-/** List of possible plans for WebsiteSubscription subscription. */
-var WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid;
-(function (WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid) {
-    /** Basic */
-    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["BASIC"] = 2] = "BASIC";
-    /** Basic */
-    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["BASIC_LARGE"] = 6] = "BASIC_LARGE";
-    /** Enterprise */
-    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["ENTERPRISE"] = 4] = "ENTERPRISE";
-    /** None */
-    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Premium */
-    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PREMIUM"] = 3] = "PREMIUM";
-    /** Premium (Business Max) */
-    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PREMIUM_MAX"] = 7] = "PREMIUM_MAX";
-    /** Professional */
-    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PROFESSIONAL"] = 5] = "PROFESSIONAL";
-})(WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid || (exports.WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = {}));
-/** List of possible plans for GoHighLevelSubscription subscription. */
-var WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid;
-(function (WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid) {
-    /** Standard */
-    WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid[WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid["BASIC"] = 2] = "BASIC";
-    /** Free */
-    WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid[WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid["FREE"] = 1] = "FREE";
-})(WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid || (exports.WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = {}));
-/** List of possible plans for DoorSubscription subscription. */
-var WlBusinessAccountSubscriptionDoorDoorSubscriptionSid;
-(function (WlBusinessAccountSubscriptionDoorDoorSubscriptionSid) {
-    /** Brivo */
-    WlBusinessAccountSubscriptionDoorDoorSubscriptionSid[WlBusinessAccountSubscriptionDoorDoorSubscriptionSid["BASE"] = 2] = "BASE";
-    /** None */
-    WlBusinessAccountSubscriptionDoorDoorSubscriptionSid[WlBusinessAccountSubscriptionDoorDoorSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Passport */
-    WlBusinessAccountSubscriptionDoorDoorSubscriptionSid[WlBusinessAccountSubscriptionDoorDoorSubscriptionSid["PASSPORT"] = 3] = "PASSPORT";
-})(WlBusinessAccountSubscriptionDoorDoorSubscriptionSid || (exports.WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = {}));
 /** List of possible plans for AiAgentSubscription subscription. */
 var WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid;
 (function (WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid) {
@@ -4874,6 +4756,40 @@ var WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid;
     /** Standard subscription, which will be automatically converted to {@link WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid} after the 5th lead */
     WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["STANDARD_TRIAL"] = 7] = "STANDARD_TRIAL";
 })(WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid || (exports.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = {}));
+/** List of possible plans for CollectionsSubscription subscription. */
+var WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid;
+(function (WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid[WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Integration Requested */
+    WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid[WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid["INTEGRATION_REQUESTED"] = 3] = "INTEGRATION_REQUESTED";
+    /** Professional */
+    WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid[WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid || (exports.WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = {}));
+/** List of possible plans for EmailSubscription subscription. */
+var WlBusinessAccountSubscriptionEmailEmailSubscriptionSid;
+(function (WlBusinessAccountSubscriptionEmailEmailSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionEmailEmailSubscriptionSid[WlBusinessAccountSubscriptionEmailEmailSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Standard */
+    WlBusinessAccountSubscriptionEmailEmailSubscriptionSid[WlBusinessAccountSubscriptionEmailEmailSubscriptionSid["STANDARD"] = 2] = "STANDARD";
+})(WlBusinessAccountSubscriptionEmailEmailSubscriptionSid || (exports.WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = {}));
+/** List of possible plans for ConstantContactSubscription subscription. */
+var WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid;
+(function (WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid[WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Standard */
+    WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid[WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid["STANDARD"] = 2] = "STANDARD";
+})(WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid || (exports.WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = {}));
+/** List of possible plans for MailchimpSubscription subscription. */
+var WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid;
+(function (WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid[WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Standard */
+    WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid[WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid["STANDARD"] = 2] = "STANDARD";
+})(WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid || (exports.WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = {}));
 /** List of possible plans for SmsSubscription subscription. */
 var WlBusinessAccountSubscriptionSmsSmsSubscriptionSid;
 (function (WlBusinessAccountSubscriptionSmsSmsSubscriptionSid) {
@@ -4906,6 +4822,36 @@ var WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid;
     /** Professional */
     WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid[WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
 })(WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid || (exports.WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid = WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid = {}));
+/** List of possible plans for GoHighLevelSubscription subscription. */
+var WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid;
+(function (WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid) {
+    /** Standard */
+    WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid[WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** Free */
+    WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid[WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid["FREE"] = 1] = "FREE";
+})(WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid || (exports.WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = {}));
+/** List of possible plans for ZapierSubscription subscription. */
+var WlBusinessAccountSubscriptionZapierZapierSubscriptionSid;
+(function (WlBusinessAccountSubscriptionZapierZapierSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionZapierZapierSubscriptionSid[WlBusinessAccountSubscriptionZapierZapierSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionZapierZapierSubscriptionSid[WlBusinessAccountSubscriptionZapierZapierSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionZapierZapierSubscriptionSid || (exports.WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = {}));
+/** List of possible plans for FitliveSubscription subscription. */
+var WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid;
+(function (WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid) {
+    /** Advanced */
+    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["ADVANCED"] = 5] = "ADVANCED";
+    /** Basic */
+    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["BASIC"] = 4] = "BASIC";
+    /** None */
+    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["LICENCED"] = 2] = "LICENCED";
+    /** Suspended */
+    WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid[WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid["SUSPENDED"] = 3] = "SUSPENDED";
+})(WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid || (exports.WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = {}));
 /** List of possible plans for PostcardSubscription subscription. */
 var WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid;
 (function (WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid) {
@@ -4916,6 +4862,116 @@ var WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid;
     /** Professional */
     WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid[WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
 })(WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid || (exports.WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid = WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid = {}));
+/** List of possible plans for BusinessCoachSubscription subscription. */
+var WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid;
+(function (WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid) {
+    /** Business Success Coaching */
+    WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid[WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid["BUSINESS_SUCCESS_COACHING"] = 2] = "BUSINESS_SUCCESS_COACHING";
+    /** No subscription */
+    WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid[WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid["FREE"] = 1] = "FREE";
+})(WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid || (exports.WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = {}));
+/** List of possible plans for DoorSubscription subscription. */
+var WlBusinessAccountSubscriptionDoorDoorSubscriptionSid;
+(function (WlBusinessAccountSubscriptionDoorDoorSubscriptionSid) {
+    /** Brivo */
+    WlBusinessAccountSubscriptionDoorDoorSubscriptionSid[WlBusinessAccountSubscriptionDoorDoorSubscriptionSid["BASE"] = 2] = "BASE";
+    /** None */
+    WlBusinessAccountSubscriptionDoorDoorSubscriptionSid[WlBusinessAccountSubscriptionDoorDoorSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Passport */
+    WlBusinessAccountSubscriptionDoorDoorSubscriptionSid[WlBusinessAccountSubscriptionDoorDoorSubscriptionSid["PASSPORT"] = 3] = "PASSPORT";
+})(WlBusinessAccountSubscriptionDoorDoorSubscriptionSid || (exports.WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = {}));
+/** List of possible plans for FitbuilderSubscription subscription. */
+var WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid;
+(function (WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid[WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid[WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid || (exports.WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = {}));
+/** List of possible plans for RewardSubscription subscription. */
+var WlBusinessAccountSubscriptionRewardRewardSubscriptionSid;
+(function (WlBusinessAccountSubscriptionRewardRewardSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionRewardRewardSubscriptionSid[WlBusinessAccountSubscriptionRewardRewardSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionRewardRewardSubscriptionSid[WlBusinessAccountSubscriptionRewardRewardSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionRewardRewardSubscriptionSid || (exports.WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = {}));
+/** List of possible plans for ApiSubscription subscription. */
+var WlBusinessAccountSubscriptionApiApiSubscriptionSid;
+(function (WlBusinessAccountSubscriptionApiApiSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionApiApiSubscriptionSid[WlBusinessAccountSubscriptionApiApiSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Premium */
+    WlBusinessAccountSubscriptionApiApiSubscriptionSid[WlBusinessAccountSubscriptionApiApiSubscriptionSid["PREMIUM"] = 2] = "PREMIUM";
+})(WlBusinessAccountSubscriptionApiApiSubscriptionSid || (exports.WlBusinessAccountSubscriptionApiApiSubscriptionSid = WlBusinessAccountSubscriptionApiApiSubscriptionSid = {}));
+/** List of possible plans for FitvidSubscription subscription. */
+var WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid;
+(function (WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid) {
+    /** Basic */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** Enterprise */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["ENTERPRISE"] = 3] = "ENTERPRISE";
+    /** None */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Premium */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["PREMIUM"] = 4] = "PREMIUM";
+})(WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid || (exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = {}));
+/** List of possible plans for QuizSubscription subscription. */
+var WlBusinessAccountSubscriptionQuizQuizSubscriptionSid;
+(function (WlBusinessAccountSubscriptionQuizQuizSubscriptionSid) {
+    /** Business */
+    WlBusinessAccountSubscriptionQuizQuizSubscriptionSid[WlBusinessAccountSubscriptionQuizQuizSubscriptionSid["BUSINESS"] = 3] = "BUSINESS";
+    /** None */
+    WlBusinessAccountSubscriptionQuizQuizSubscriptionSid[WlBusinessAccountSubscriptionQuizQuizSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionQuizQuizSubscriptionSid[WlBusinessAccountSubscriptionQuizQuizSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+    /** Starter */
+    WlBusinessAccountSubscriptionQuizQuizSubscriptionSid[WlBusinessAccountSubscriptionQuizQuizSubscriptionSid["STARTER"] = 4] = "STARTER";
+})(WlBusinessAccountSubscriptionQuizQuizSubscriptionSid || (exports.WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = {}));
+/** List of possible plans for WebsiteSubscription subscription. */
+var WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid;
+(function (WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid) {
+    /** Basic */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** Basic */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["BASIC_LARGE"] = 6] = "BASIC_LARGE";
+    /** Enterprise */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["ENTERPRISE"] = 4] = "ENTERPRISE";
+    /** None */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Premium */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PREMIUM"] = 3] = "PREMIUM";
+    /** Premium (Business Max) */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PREMIUM_MAX"] = 7] = "PREMIUM_MAX";
+    /** Professional */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PROFESSIONAL"] = 5] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid || (exports.WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = {}));
+/** List of possible plans for ZoomSubscription subscription. */
+var WlBusinessAccountSubscriptionZoomZoomSubscriptionSid;
+(function (WlBusinessAccountSubscriptionZoomZoomSubscriptionSid) {
+    /** Basic */
+    WlBusinessAccountSubscriptionZoomZoomSubscriptionSid[WlBusinessAccountSubscriptionZoomZoomSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** None */
+    WlBusinessAccountSubscriptionZoomZoomSubscriptionSid[WlBusinessAccountSubscriptionZoomZoomSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionZoomZoomSubscriptionSid[WlBusinessAccountSubscriptionZoomZoomSubscriptionSid["PROFESSIONAL"] = 3] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionZoomZoomSubscriptionSid || (exports.WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = {}));
+/** List of possible plans for FitzoneSubscription subscription. */
+var WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid;
+(function (WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid[WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid[WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid || (exports.WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = {}));
+/** List of possible plans for ReviewSubscription subscription. */
+var WlBusinessAccountSubscriptionReviewReviewSubscriptionSid;
+(function (WlBusinessAccountSubscriptionReviewReviewSubscriptionSid) {
+    /** None */
+    WlBusinessAccountSubscriptionReviewReviewSubscriptionSid[WlBusinessAccountSubscriptionReviewReviewSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Professional */
+    WlBusinessAccountSubscriptionReviewReviewSubscriptionSid[WlBusinessAccountSubscriptionReviewReviewSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
+})(WlBusinessAccountSubscriptionReviewReviewSubscriptionSid || (exports.WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = {}));
 /** List of possible plans for AssetSubscription subscription. */
 var WlBusinessAccountSubscriptionAssetAssetSubscriptionSid;
 (function (WlBusinessAccountSubscriptionAssetAssetSubscriptionSid) {
@@ -4924,94 +4980,6 @@ var WlBusinessAccountSubscriptionAssetAssetSubscriptionSid;
     /** Professional */
     WlBusinessAccountSubscriptionAssetAssetSubscriptionSid[WlBusinessAccountSubscriptionAssetAssetSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
 })(WlBusinessAccountSubscriptionAssetAssetSubscriptionSid || (exports.WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = {}));
-/** List of possible plans for CollectionsSubscription subscription. */
-var WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid;
-(function (WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid) {
-    /** None */
-    WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid[WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Integration Requested */
-    WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid[WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid["INTEGRATION_REQUESTED"] = 3] = "INTEGRATION_REQUESTED";
-    /** Professional */
-    WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid[WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
-})(WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid || (exports.WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = {}));
-/** List of possible plans for ZapierSubscription subscription. */
-var WlBusinessAccountSubscriptionZapierZapierSubscriptionSid;
-(function (WlBusinessAccountSubscriptionZapierZapierSubscriptionSid) {
-    /** None */
-    WlBusinessAccountSubscriptionZapierZapierSubscriptionSid[WlBusinessAccountSubscriptionZapierZapierSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Professional */
-    WlBusinessAccountSubscriptionZapierZapierSubscriptionSid[WlBusinessAccountSubscriptionZapierZapierSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
-})(WlBusinessAccountSubscriptionZapierZapierSubscriptionSid || (exports.WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = {}));
-/** The list of possible actions for class modify wizard. */
-var RsClassModifyActionSid;
-(function (RsClassModifyActionSid) {
-    /** Cancel class schedule */
-    RsClassModifyActionSid[RsClassModifyActionSid["CANCEL"] = 2] = "CANCEL";
-    /** Change class schedule */
-    RsClassModifyActionSid[RsClassModifyActionSid["EDIT"] = 1] = "EDIT";
-    /** Restore cancelled schedule */
-    RsClassModifyActionSid[RsClassModifyActionSid["RESTORE"] = 3] = "RESTORE";
-})(RsClassModifyActionSid || (exports.RsClassModifyActionSid = RsClassModifyActionSid = {}));
-/** The list of possible modify mode for class modify wizard. */
-var RsClassModifyModeSid;
-(function (RsClassModifyModeSid) {
-    /** Edit class schedule */
-    RsClassModifyModeSid[RsClassModifyModeSid["FULL"] = 1] = "FULL";
-    /** Edit instructor in class schedule */
-    RsClassModifyModeSid[RsClassModifyModeSid["INSTRUCTOR"] = 2] = "INSTRUCTOR";
-    /** Asset working hours */
-    RsClassModifyModeSid[RsClassModifyModeSid["RESOURCE_PERIOD"] = 4] = "RESOURCE_PERIOD";
-    /** Staff working hours */
-    RsClassModifyModeSid[RsClassModifyModeSid["STAFF_PERIOD"] = 3] = "STAFF_PERIOD";
-})(RsClassModifyModeSid || (exports.RsClassModifyModeSid = RsClassModifyModeSid = {}));
-/** Mobile applications categories which will be displayed in select tag. */
-var WlSkinApplicationResourceApplicationCategorySid;
-(function (WlSkinApplicationResourceApplicationCategorySid) {
-    /** Mobile applications with content related to the sphere of cosmetology and appearance */
-    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["BEAUTY"] = 1] = "BEAUTY";
-    /** Mobile applications with content related to the sphere of Business and finance */
-    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["BUSINESS"] = 2] = "BUSINESS";
-    /** Mobile applications with content related to the sphere education */
-    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["EDUCATION"] = 3] = "EDUCATION";
-    /** Mobile applications with content related to the sphere entertainment */
-    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["ENTERTAINMENT"] = 4] = "ENTERTAINMENT";
-    /** Mobile applications with content related with various events */
-    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["EVENTS"] = 5] = "EVENTS";
-    /** Mobile applications with content related to the sphere health, sport and fitness */
-    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["HEALTH_AND_FITNESS"] = 6] = "HEALTH_AND_FITNESS";
-    /** Mobile applications with content related to the life style */
-    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["LIFESTYLE"] = 7] = "LIFESTYLE";
-    /** Mobile applications with content related to the sphere health, and medical services */
-    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["MEDICAL"] = 8] = "MEDICAL";
-    /** Mobile applications with content related with various social events */
-    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["SOCIAL"] = 9] = "SOCIAL";
-    /** Mobile applications with content related with various sports events */
-    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["SPORTS"] = 10] = "SPORTS";
-    /** Mobile applications with content for performing certain tasks */
-    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["TOOLS"] = 11] = "TOOLS";
-    /** Mobile applications with content related to the sphere of travel and geography */
-    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["TRAVEL_AND_LOCAL"] = 12] = "TRAVEL_AND_LOCAL";
-})(WlSkinApplicationResourceApplicationCategorySid || (exports.WlSkinApplicationResourceApplicationCategorySid = WlSkinApplicationResourceApplicationCategorySid = {}));
-/** Enum for application update types used in Google Play and Apple Store releases. */
-var WlSkinApplicationUpgradeAppUpdateTypeEnum;
-(function (WlSkinApplicationUpgradeAppUpdateTypeEnum) {
-    /** Patch update (1) - for small bug fixes or improvements */
-    WlSkinApplicationUpgradeAppUpdateTypeEnum[WlSkinApplicationUpgradeAppUpdateTypeEnum["PATCH"] = 1] = "PATCH";
-    /** Minor update (2) - for backward-compatible feature additions */
-    WlSkinApplicationUpgradeAppUpdateTypeEnum[WlSkinApplicationUpgradeAppUpdateTypeEnum["MINOR"] = 2] = "MINOR";
-    /** Major update (3) - for incompatible API changes or major new features */
-    WlSkinApplicationUpgradeAppUpdateTypeEnum[WlSkinApplicationUpgradeAppUpdateTypeEnum["MAJOR"] = 3] = "MAJOR";
-})(WlSkinApplicationUpgradeAppUpdateTypeEnum || (exports.WlSkinApplicationUpgradeAppUpdateTypeEnum = WlSkinApplicationUpgradeAppUpdateTypeEnum = {}));
-/** Appointment display option. */
-var WlScheduleDesignOptionSid;
-(function (WlScheduleDesignOptionSid) {
-    /** Appointment name in header */
-    WlScheduleDesignOptionSid[WlScheduleDesignOptionSid["APPOINTMENT_NAME"] = 1] = "APPOINTMENT_NAME";
-    /** Client name in header */
-    WlScheduleDesignOptionSid[WlScheduleDesignOptionSid["CLIENT_NAME"] = 3] = "CLIENT_NAME";
-    /** Staff name in header */
-    WlScheduleDesignOptionSid[WlScheduleDesignOptionSid["STAFF_NAME"] = 2] = "STAFF_NAME";
-})(WlScheduleDesignOptionSid || (exports.WlScheduleDesignOptionSid = WlScheduleDesignOptionSid = {}));
 /** List of user roles in a system. */
 var WlLoginLoginRoleSid;
 (function (WlLoginLoginRoleSid) {
@@ -5024,6 +4992,16 @@ var WlLoginLoginRoleSid;
     /** Staff member role */
     WlLoginLoginRoleSid[WlLoginLoginRoleSid["STAFF"] = 4] = "STAFF";
 })(WlLoginLoginRoleSid || (exports.WlLoginLoginRoleSid = WlLoginLoginRoleSid = {}));
+/** List of possible ways to solve a conflict. */
+var RsAppointmentEditConflictSid;
+(function (RsAppointmentEditConflictSid) {
+    /** Create an event with other staff, date or time */
+    RsAppointmentEditConflictSid[RsAppointmentEditConflictSid["EDIT"] = 3] = "EDIT";
+    /** Ignore this conflict and create event as it is */
+    RsAppointmentEditConflictSid[RsAppointmentEditConflictSid["IGNORE"] = 1] = "IGNORE";
+    /** Do not create conflicted event */
+    RsAppointmentEditConflictSid[RsAppointmentEditConflictSid["SKIP"] = 2] = "SKIP";
+})(RsAppointmentEditConflictSid || (exports.RsAppointmentEditConflictSid = RsAppointmentEditConflictSid = {}));
 /** A list of client booking flow types. */
 var WlServiceServiceBookFlowSid;
 (function (WlServiceServiceBookFlowSid) {
@@ -5048,16 +5026,6 @@ var RsServiceRequireSid;
     /** Credit card authorisation without payment is required */
     RsServiceRequireSid[RsServiceRequireSid["ZERO"] = 5] = "ZERO";
 })(RsServiceRequireSid || (exports.RsServiceRequireSid = RsServiceRequireSid = {}));
-/** List of possible ways to solve a conflict. */
-var RsAppointmentEditConflictSid;
-(function (RsAppointmentEditConflictSid) {
-    /** Create an event with other staff, date or time */
-    RsAppointmentEditConflictSid[RsAppointmentEditConflictSid["EDIT"] = 3] = "EDIT";
-    /** Ignore this conflict and create event as it is */
-    RsAppointmentEditConflictSid[RsAppointmentEditConflictSid["IGNORE"] = 1] = "IGNORE";
-    /** Do not create conflicted event */
-    RsAppointmentEditConflictSid[RsAppointmentEditConflictSid["SKIP"] = 2] = "SKIP";
-})(RsAppointmentEditConflictSid || (exports.RsAppointmentEditConflictSid = RsAppointmentEditConflictSid = {}));
 /** A list of service price types. */
 var RsServicePriceSid;
 (function (RsServicePriceSid) {
@@ -5070,56 +5038,28 @@ var RsServicePriceSid;
     /** Various price */
     RsServicePriceSid[RsServicePriceSid["VARIES"] = 3] = "VARIES";
 })(RsServicePriceSid || (exports.RsServicePriceSid = RsServicePriceSid = {}));
-/** List of options to add client to attendance list. */
-var WlLoginAttendanceAddOptionSid;
-(function (WlLoginAttendanceAddOptionSid) {
-    /** Add client to attendance list and charge his account */
-    WlLoginAttendanceAddOptionSid[WlLoginAttendanceAddOptionSid["DEBIT"] = 2] = "DEBIT";
-    /** Add client to attendance list and pay now */
-    WlLoginAttendanceAddOptionSid[WlLoginAttendanceAddOptionSid["PAY"] = 3] = "PAY";
-    /** Add client to attendance list without payment */
-    WlLoginAttendanceAddOptionSid[WlLoginAttendanceAddOptionSid["UNPAID"] = 1] = "UNPAID";
-})(WlLoginAttendanceAddOptionSid || (exports.WlLoginAttendanceAddOptionSid = WlLoginAttendanceAddOptionSid = {}));
-/** List of options to convert promotion. */
-var WlPromotionConvertPromotionConvertSid;
-(function (WlPromotionConvertPromotionConvertSid) {
-    /** Promotion conversion downgraded */
-    WlPromotionConvertPromotionConvertSid[WlPromotionConvertPromotionConvertSid["DOWNGRADE"] = 1] = "DOWNGRADE";
-    /** Type of the promotion conversion */
-    WlPromotionConvertPromotionConvertSid[WlPromotionConvertPromotionConvertSid["EQUAL_VALUE"] = 2] = "EQUAL_VALUE";
-    /** Promotion conversion upgraded */
-    WlPromotionConvertPromotionConvertSid[WlPromotionConvertPromotionConvertSid["UPGRADE"] = 3] = "UPGRADE";
-})(WlPromotionConvertPromotionConvertSid || (exports.WlPromotionConvertPromotionConvertSid = WlPromotionConvertPromotionConvertSid = {}));
-/** Different types of conversion behavior: when and how it should be converted. */
-var WlLoginPromotionConvertConvertWhenSid;
-(function (WlLoginPromotionConvertConvertWhenSid) {
-    /** Purchase Option converts one day after the scheduled expiration date and the client is charged for the new purchase option */
-    WlLoginPromotionConvertConvertWhenSid[WlLoginPromotionConvertConvertWhenSid["EXPIRATION_PAID"] = 1] = "EXPIRATION_PAID";
-    /** Purchase Option converts now and the client is not charged for the new Purchase Option */
-    WlLoginPromotionConvertConvertWhenSid[WlLoginPromotionConvertConvertWhenSid["NOW_FREE"] = 2] = "NOW_FREE";
-    /** Purchase Option converts now and the client is changed for the new Purchase Option */
-    WlLoginPromotionConvertConvertWhenSid[WlLoginPromotionConvertConvertWhenSid["NOW_PAID"] = 3] = "NOW_PAID";
-    /** Purchase Option converts on the specified date and the client is charged for the new Purchase Option */
-    WlLoginPromotionConvertConvertWhenSid[WlLoginPromotionConvertConvertWhenSid["SCHEDULE_PAID"] = 4] = "SCHEDULE_PAID";
-})(WlLoginPromotionConvertConvertWhenSid || (exports.WlLoginPromotionConvertConvertWhenSid = WlLoginPromotionConvertConvertWhenSid = {}));
-/** Guest Pass reset type. */
-var WlPromotionGuestPassGuestPassResetTypeSid;
-(function (WlPromotionGuestPassGuestPassResetTypeSid) {
-    /** Limits reset on promotion billing day */
-    WlPromotionGuestPassGuestPassResetTypeSid[WlPromotionGuestPassGuestPassResetTypeSid["BILLING"] = 1] = "BILLING";
-    /** Limits reset on promotion renewal day */
-    WlPromotionGuestPassGuestPassResetTypeSid[WlPromotionGuestPassGuestPassResetTypeSid["RENEWAL"] = 2] = "RENEWAL";
-})(WlPromotionGuestPassGuestPassResetTypeSid || (exports.WlPromotionGuestPassGuestPassResetTypeSid = WlPromotionGuestPassGuestPassResetTypeSid = {}));
-/** Purchase restrictions. */
-var WlShopProductPurchaseRestrictionSid;
-(function (WlShopProductPurchaseRestrictionSid) {
-    /** Purchase option available for all clients */
-    WlShopProductPurchaseRestrictionSid[WlShopProductPurchaseRestrictionSid["ALL"] = 1] = "ALL";
-    /** Purchase option introductory offer, available for new clients only */
-    WlShopProductPurchaseRestrictionSid[WlShopProductPurchaseRestrictionSid["INTRODUCTORY"] = 2] = "INTRODUCTORY";
-    /** Purchase option available for clients with special login type or member group */
-    WlShopProductPurchaseRestrictionSid[WlShopProductPurchaseRestrictionSid["TYPE"] = 3] = "TYPE";
-})(WlShopProductPurchaseRestrictionSid || (exports.WlShopProductPurchaseRestrictionSid = WlShopProductPurchaseRestrictionSid = {}));
+/** The list of possible actions for class modify wizard. */
+var RsClassModifyActionSid;
+(function (RsClassModifyActionSid) {
+    /** Cancel class schedule */
+    RsClassModifyActionSid[RsClassModifyActionSid["CANCEL"] = 2] = "CANCEL";
+    /** Change class schedule */
+    RsClassModifyActionSid[RsClassModifyActionSid["EDIT"] = 1] = "EDIT";
+    /** Restore cancelled schedule */
+    RsClassModifyActionSid[RsClassModifyActionSid["RESTORE"] = 3] = "RESTORE";
+})(RsClassModifyActionSid || (exports.RsClassModifyActionSid = RsClassModifyActionSid = {}));
+/** The list of possible modify mode for class modify wizard. */
+var RsClassModifyModeSid;
+(function (RsClassModifyModeSid) {
+    /** Edit class schedule */
+    RsClassModifyModeSid[RsClassModifyModeSid["FULL"] = 1] = "FULL";
+    /** Edit instructor in class schedule */
+    RsClassModifyModeSid[RsClassModifyModeSid["INSTRUCTOR"] = 2] = "INSTRUCTOR";
+    /** Asset working hours */
+    RsClassModifyModeSid[RsClassModifyModeSid["RESOURCE_PERIOD"] = 4] = "RESOURCE_PERIOD";
+    /** Staff working hours */
+    RsClassModifyModeSid[RsClassModifyModeSid["STAFF_PERIOD"] = 3] = "STAFF_PERIOD";
+})(RsClassModifyModeSid || (exports.RsClassModifyModeSid = RsClassModifyModeSid = {}));
 /** Lead conversion type. */
 var WlLeadConversionLeadConversionTypeSid;
 (function (WlLeadConversionLeadConversionTypeSid) {
@@ -5222,38 +5162,54 @@ var WlShareShareSid;
     /** Item is available for selected staff roles */
     WlShareShareSid[WlShareShareSid["SELECTED_STAFF_ROLE"] = 3] = "SELECTED_STAFF_ROLE";
 })(WlShareShareSid || (exports.WlShareShareSid = WlShareShareSid = {}));
-/** Discount types. */
-var WlDiscountDiscountRuleSid;
-(function (WlDiscountDiscountRuleSid) {
-    /** Discount for catalog cart */
-    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["CART"] = 5] = "CART";
-    /** Discount by discount code */
-    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["CODE"] = 4] = "CODE";
-    /** Group of custom discounts applied individually to a purchase item */
-    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["CUSTOM"] = 6] = "CUSTOM";
-    /** Discount by login type */
-    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["LOGIN_TYPE"] = 1] = "LOGIN_TYPE";
-    /** Manual discount for element of purchase */
-    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["MANUAL"] = 3] = "MANUAL";
-    /** Discount by reward prize */
-    WlDiscountDiscountRuleSid[WlDiscountDiscountRuleSid["PRIZE"] = 2] = "PRIZE";
-})(WlDiscountDiscountRuleSid || (exports.WlDiscountDiscountRuleSid = WlDiscountDiscountRuleSid = {}));
-/** List of checks that are performed before session book. */
-var WlBookProcessProcessCheckSid;
-(function (WlBookProcessProcessCheckSid) {
-    /** Check that a client has a credit card */
-    WlBookProcessProcessCheckSid[WlBookProcessProcessCheckSid["CARD"] = 1] = "CARD";
-    /** Check a client has no unsigned waiver */
-    WlBookProcessProcessCheckSid[WlBookProcessProcessCheckSid["WAIVER"] = 2] = "WAIVER";
-})(WlBookProcessProcessCheckSid || (exports.WlBookProcessProcessCheckSid = WlBookProcessProcessCheckSid = {}));
-/** List of different OTP code delivery strategies. */
-var WlPassportLoginEnterOtpDeliveryStrategyEnum;
-(function (WlPassportLoginEnterOtpDeliveryStrategyEnum) {
-    /** OTP code is sent to all given communication channels (sms, emails, etc.) */
-    WlPassportLoginEnterOtpDeliveryStrategyEnum[WlPassportLoginEnterOtpDeliveryStrategyEnum["BROADCAST"] = 1] = "BROADCAST";
-    /** OTP code is sent to the first communication channel that is available, according to the given list of priorities */
-    WlPassportLoginEnterOtpDeliveryStrategyEnum[WlPassportLoginEnterOtpDeliveryStrategyEnum["PRIORITY"] = 2] = "PRIORITY";
-})(WlPassportLoginEnterOtpDeliveryStrategyEnum || (exports.WlPassportLoginEnterOtpDeliveryStrategyEnum = WlPassportLoginEnterOtpDeliveryStrategyEnum = {}));
+/** Mobile applications categories which will be displayed in select tag. */
+var WlSkinApplicationResourceApplicationCategorySid;
+(function (WlSkinApplicationResourceApplicationCategorySid) {
+    /** Mobile applications with content related to the sphere of cosmetology and appearance */
+    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["BEAUTY"] = 1] = "BEAUTY";
+    /** Mobile applications with content related to the sphere of Business and finance */
+    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["BUSINESS"] = 2] = "BUSINESS";
+    /** Mobile applications with content related to the sphere education */
+    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["EDUCATION"] = 3] = "EDUCATION";
+    /** Mobile applications with content related to the sphere entertainment */
+    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["ENTERTAINMENT"] = 4] = "ENTERTAINMENT";
+    /** Mobile applications with content related with various events */
+    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["EVENTS"] = 5] = "EVENTS";
+    /** Mobile applications with content related to the sphere health, sport and fitness */
+    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["HEALTH_AND_FITNESS"] = 6] = "HEALTH_AND_FITNESS";
+    /** Mobile applications with content related to the life style */
+    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["LIFESTYLE"] = 7] = "LIFESTYLE";
+    /** Mobile applications with content related to the sphere health, and medical services */
+    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["MEDICAL"] = 8] = "MEDICAL";
+    /** Mobile applications with content related with various social events */
+    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["SOCIAL"] = 9] = "SOCIAL";
+    /** Mobile applications with content related with various sports events */
+    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["SPORTS"] = 10] = "SPORTS";
+    /** Mobile applications with content for performing certain tasks */
+    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["TOOLS"] = 11] = "TOOLS";
+    /** Mobile applications with content related to the sphere of travel and geography */
+    WlSkinApplicationResourceApplicationCategorySid[WlSkinApplicationResourceApplicationCategorySid["TRAVEL_AND_LOCAL"] = 12] = "TRAVEL_AND_LOCAL";
+})(WlSkinApplicationResourceApplicationCategorySid || (exports.WlSkinApplicationResourceApplicationCategorySid = WlSkinApplicationResourceApplicationCategorySid = {}));
+/** Enum for application update types used in Google Play and Apple Store releases. */
+var WlSkinApplicationUpgradeAppUpdateTypeEnum;
+(function (WlSkinApplicationUpgradeAppUpdateTypeEnum) {
+    /** Patch update (1) - for small bug fixes or improvements */
+    WlSkinApplicationUpgradeAppUpdateTypeEnum[WlSkinApplicationUpgradeAppUpdateTypeEnum["PATCH"] = 1] = "PATCH";
+    /** Minor update (2) - for backward-compatible feature additions */
+    WlSkinApplicationUpgradeAppUpdateTypeEnum[WlSkinApplicationUpgradeAppUpdateTypeEnum["MINOR"] = 2] = "MINOR";
+    /** Major update (3) - for incompatible API changes or major new features */
+    WlSkinApplicationUpgradeAppUpdateTypeEnum[WlSkinApplicationUpgradeAppUpdateTypeEnum["MAJOR"] = 3] = "MAJOR";
+})(WlSkinApplicationUpgradeAppUpdateTypeEnum || (exports.WlSkinApplicationUpgradeAppUpdateTypeEnum = WlSkinApplicationUpgradeAppUpdateTypeEnum = {}));
+/** Appointment display option. */
+var WlScheduleDesignOptionSid;
+(function (WlScheduleDesignOptionSid) {
+    /** Appointment name in header */
+    WlScheduleDesignOptionSid[WlScheduleDesignOptionSid["APPOINTMENT_NAME"] = 1] = "APPOINTMENT_NAME";
+    /** Client name in header */
+    WlScheduleDesignOptionSid[WlScheduleDesignOptionSid["CLIENT_NAME"] = 3] = "CLIENT_NAME";
+    /** Staff name in header */
+    WlScheduleDesignOptionSid[WlScheduleDesignOptionSid["STAFF_NAME"] = 2] = "STAFF_NAME";
+})(WlScheduleDesignOptionSid || (exports.WlScheduleDesignOptionSid = WlScheduleDesignOptionSid = {}));
 /** List of places to redirect user from attendance list after inactivity. */
 var WlReceptionRosterDirectSid;
 (function (WlReceptionRosterDirectSid) {
@@ -5312,13 +5268,13 @@ class ThothPayProcessorNuveiNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Finalizes the `Nuvei` transaction after successful payer authentication. */
-    nuveiTransactionOnAuthSuccess(params) {
-        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiTransactionOnAuthSuccess.json', params, 'POST');
-    }
     /** Opens a `Nuvei` order for the payment transaction. */
     nuveiOpenOrder(params) {
         return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiOpenOrder.json', params, 'POST');
+    }
+    /** Finalizes the `Nuvei` transaction after successful payer authentication. */
+    nuveiTransactionOnAuthSuccess(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiTransactionOnAuthSuccess.json', params, 'POST');
     }
     /** Cancels the `Nuvei` transaction. */
     nuveiTransactionCancel(params) {
@@ -5387,13 +5343,13 @@ class WlPayProcessorStripeComNamespace {
     paymentIntentUpdate(params) {
         return this._client._request('/Wl/Pay/Processor/StripeCom/PaymentIntentUpdate.json', params, 'POST');
     }
-    /** Initializes a `Stripe` payment. */
-    stripeComPayInit(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPayInit.json', params, 'POST');
-    }
     /** Gets the `Stripe` public key for a merchant. */
     stripeComKey(params) {
         return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComKey.json', params, 'POST');
+    }
+    /** Initializes a `Stripe` payment. */
+    stripeComPayInit(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPayInit.json', params, 'POST');
     }
     /** Cancels a `Stripe` Payment Intent. */
     stripeComPaymentIntentCancel(params) {
@@ -5405,6 +5361,10 @@ class WlPayProcessorCyberSourceNamespace {
     constructor(_client) {
         this._client = _client;
     }
+    /** Starts `CyberSource` Payer Authentication setup. */
+    csPaSetup(params) {
+        return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaSetup.json', params, 'POST');
+    }
     /** Generates a capture context for `CyberSource` Flex Microform. */
     csCaptureContext(params) {
         return this._client._request('/Wl/Pay/Processor/CyberSource/CsCaptureContext.json', params, 'POST');
@@ -5412,10 +5372,6 @@ class WlPayProcessorCyberSourceNamespace {
     /** Checks `CyberSource` Payer Authentication enrollment. */
     csPaEnrollment(params) {
         return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaEnrollment.json', params, 'POST');
-    }
-    /** Starts `CyberSource` Payer Authentication setup. */
-    csPaSetup(params) {
-        return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaSetup.json', params, 'POST');
     }
     /** Validates the `CyberSource` Payer Authentication result. */
     csPaValidate(params) {
@@ -5457,26 +5413,16 @@ class WlPayFormNamespace {
         this._client = _client;
     }
     /** Returns information about payment environment. */
-    environmentUser(params) {
-        return this._client._request('/Wl/Pay/Form/EnvironmentUser.json', params, 'GET');
-    }
-    /** Returns information about payment environment. */
     /** @deprecated */
     environment(params) {
         return this._client._request('/Wl/Pay/Form/Environment.json', params, 'GET');
     }
+    /** Returns information about payment environment. */
+    environmentUser(params) {
+        return this._client._request('/Wl/Pay/Form/EnvironmentUser.json', params, 'GET');
+    }
 }
 exports.WlPayFormNamespace = WlPayFormNamespace;
-class WlPayMethodNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns list of active payment methods data. */
-    list(params) {
-        return this._client._request('/Wl/Pay/Method/List.json', params, 'GET');
-    }
-}
-exports.WlPayMethodNamespace = WlPayMethodNamespace;
 class WlPayOwnerNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5487,6 +5433,16 @@ class WlPayOwnerNamespace {
     }
 }
 exports.WlPayOwnerNamespace = WlPayOwnerNamespace;
+class WlPayMethodNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns list of active payment methods data. */
+    list(params) {
+        return this._client._request('/Wl/Pay/Method/List.json', params, 'GET');
+    }
+}
+exports.WlPayMethodNamespace = WlPayMethodNamespace;
 class WlPayAddressWidgetNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5512,23 +5468,6 @@ class WlPayAddressNamespace {
     }
 }
 exports.WlPayAddressNamespace = WlPayAddressNamespace;
-class WlPayTransactionReportNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns All Transactions Report data for the specified date range. */
-    transactionAllPayment(params) {
-        return this._client._request('/Wl/Pay/Transaction/Report/TransactionAllPayment.json', params, 'GET');
-    }
-}
-exports.WlPayTransactionReportNamespace = WlPayTransactionReportNamespace;
-class WlPayTransactionNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.report = new WlPayTransactionReportNamespace(this._client);
-    }
-}
-exports.WlPayTransactionNamespace = WlPayTransactionNamespace;
 class WlPayBankCardAddNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5607,17 +5546,34 @@ class WlPayBankNamespace {
     }
 }
 exports.WlPayBankNamespace = WlPayBankNamespace;
+class WlPayTransactionReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns All Transactions Report data for the specified date range. */
+    transactionAllPayment(params) {
+        return this._client._request('/Wl/Pay/Transaction/Report/TransactionAllPayment.json', params, 'GET');
+    }
+}
+exports.WlPayTransactionReportNamespace = WlPayTransactionReportNamespace;
+class WlPayTransactionNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.report = new WlPayTransactionReportNamespace(this._client);
+    }
+}
+exports.WlPayTransactionNamespace = WlPayTransactionNamespace;
 class WlPayNamespace {
     constructor(_client) {
         this._client = _client;
         this.processor = new WlPayProcessorNamespace(this._client);
         this.account = new WlPayAccountNamespace(this._client);
         this.form = new WlPayFormNamespace(this._client);
-        this.method = new WlPayMethodNamespace(this._client);
         this.owner = new WlPayOwnerNamespace(this._client);
+        this.method = new WlPayMethodNamespace(this._client);
         this.address = new WlPayAddressNamespace(this._client);
-        this.transaction = new WlPayTransactionNamespace(this._client);
         this.bank = new WlPayBankNamespace(this._client);
+        this.transaction = new WlPayTransactionNamespace(this._client);
     }
 }
 exports.WlPayNamespace = WlPayNamespace;
@@ -5659,24 +5615,6 @@ class WlReportCustomizationNamespace {
     }
 }
 exports.WlReportCustomizationNamespace = WlReportCustomizationNamespace;
-class WlReportSaveNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns information about saved report. */
-    reportSaveGet(params) {
-        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'GET');
-    }
-    /** Saves new saved report. */
-    reportSavePost(params) {
-        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'POST');
-    }
-    /** Updates existing saved report. */
-    reportSavePut(params) {
-        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'PUT');
-    }
-}
-exports.WlReportSaveNamespace = WlReportSaveNamespace;
 class WlReportFavoriteNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5695,43 +5633,504 @@ class WlReportFavoriteNamespace {
     }
 }
 exports.WlReportFavoriteNamespace = WlReportFavoriteNamespace;
+class WlReportSaveNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns information about saved report. */
+    reportSaveGet(params) {
+        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'GET');
+    }
+    /** Saves new saved report. */
+    reportSavePost(params) {
+        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'POST');
+    }
+    /** Updates existing saved report. */
+    reportSavePut(params) {
+        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'PUT');
+    }
+}
+exports.WlReportSaveNamespace = WlReportSaveNamespace;
 class WlReportNamespace {
     constructor(_client) {
         this._client = _client;
         this.generator = new WlReportGeneratorNamespace(this._client);
         this.dashboard = new WlReportDashboardNamespace(this._client);
         this.customization = new WlReportCustomizationNamespace(this._client);
-        this.save = new WlReportSaveNamespace(this._client);
         this.favorite = new WlReportFavoriteNamespace(this._client);
+        this.save = new WlReportSaveNamespace(this._client);
     }
     /** Gets data of required report. */
     data(params) {
         return this._client._request('/Wl/Report/Data.json', params, 'GET');
     }
-    /** Checks access to given report. */
-    access(params) {
-        return this._client._request('/Wl/Report/Access.json', params, 'GET');
-    }
     /** Gets data of required report collection. */
     pageData(params) {
         return this._client._request('/Wl/Report/PageData.json', params, 'GET');
     }
+    /** Checks access to given report. */
+    access(params) {
+        return this._client._request('/Wl/Report/Access.json', params, 'GET');
+    }
 }
 exports.WlReportNamespace = WlReportNamespace;
-class WlProfileActivityNamespace {
+class WlMailPatternAutomatedMarketingCustomTemplateNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Retrieves information about activity item. */
-    element(params) {
-        return this._client._request('/Wl/Profile/Activity/Element.json', params, 'GET');
+    /** Gets custom pattern data. */
+    patternGet(params) {
+        return this._client._request('/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/Pattern.json', params, 'GET');
     }
-    /** Retrieves a list of activity items to show in user profile. */
-    list(params) {
-        return this._client._request('/Wl/Profile/Activity/List.json', params, 'GET');
+    /** Saves custom pattern. */
+    patternPost(params) {
+        return this._client._request('/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/Pattern.json', params, 'POST');
     }
 }
-exports.WlProfileActivityNamespace = WlProfileActivityNamespace;
+exports.WlMailPatternAutomatedMarketingCustomTemplateNamespace = WlMailPatternAutomatedMarketingCustomTemplateNamespace;
+class WlMailPatternAutomatedMarketingNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.customTemplate = new WlMailPatternAutomatedMarketingCustomTemplateNamespace(this._client);
+    }
+}
+exports.WlMailPatternAutomatedMarketingNamespace = WlMailPatternAutomatedMarketingNamespace;
+class WlMailPatternNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.automatedMarketing = new WlMailPatternAutomatedMarketingNamespace(this._client);
+    }
+}
+exports.WlMailPatternNamespace = WlMailPatternNamespace;
+class WlMailNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.pattern = new WlMailPatternNamespace(this._client);
+    }
+    /** Sends email. */
+    sendMail(params) {
+        return this._client._request('/Wl/Mail/SendMail.json', params, 'POST');
+    }
+}
+exports.WlMailNamespace = WlMailNamespace;
+class WlStaffPrivilegeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the list of privileges for the current user in the given business. */
+    privilegeList(params) {
+        return this._client._request('/Wl/Staff/Privilege/PrivilegeList.json', params, 'GET');
+    }
+}
+exports.WlStaffPrivilegeNamespace = WlStaffPrivilegeNamespace;
+class WlStaffStaffViewNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves information about staff. */
+    staffView74(params) {
+        return this._client._request('/Wl/Staff/StaffView/StaffView74.json', params, 'GET');
+    }
+    /** Retrieves information about staff. */
+    /** @deprecated */
+    staffView(params) {
+        return this._client._request('/Wl/Staff/StaffView/StaffView.json', params, 'GET');
+    }
+}
+exports.WlStaffStaffViewNamespace = WlStaffStaffViewNamespace;
+class WlStaffStaffListNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the list of staff members for the given business. */
+    staffList(params) {
+        return this._client._request('/Wl/Staff/StaffList/StaffList.json', params, 'GET');
+    }
+}
+exports.WlStaffStaffListNamespace = WlStaffStaffListNamespace;
+class WlStaffNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.privilege = new WlStaffPrivilegeNamespace(this._client);
+        this.staffView = new WlStaffStaffViewNamespace(this._client);
+        this.staffList = new WlStaffStaffListNamespace(this._client);
+    }
+    /** Update or create staff. */
+    staffElement(params) {
+        return this._client._request('/Wl/Staff/StaffElement.json', params, 'POST');
+    }
+}
+exports.WlStaffNamespace = WlStaffNamespace;
+class WlPromotionIndexNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a list of packages/passes/memberships. */
+    promotionIndex(params) {
+        return this._client._request('/Wl/Promotion/Index/PromotionIndex.json', params, 'GET');
+    }
+}
+exports.WlPromotionIndexNamespace = WlPromotionIndexNamespace;
+class WlPromotionNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.index = new WlPromotionIndexNamespace(this._client);
+    }
+    /** Soft-deletes the specified promotion if it has no associated sales. */
+    promotionDelete(params) {
+        return this._client._request('/Wl/Promotion/Promotion.json', params, 'DELETE');
+    }
+    /** Returns promotion by the specified business and promotion keys. */
+    promotionGet(params) {
+        return this._client._request('/Wl/Promotion/Promotion.json', params, 'GET');
+    }
+    /** Saves promotion data. */
+    promotionPost(params) {
+        return this._client._request('/Wl/Promotion/Promotion.json', params, 'POST');
+    }
+    /** Returns promotion list of the specified business. */
+    promotionList(params) {
+        return this._client._request('/Wl/Promotion/PromotionList.json', params, 'GET');
+    }
+}
+exports.WlPromotionNamespace = WlPromotionNamespace;
+class WlCollectorNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns a list of client debts for the specified business within the given date range. */
+    debtList(params) {
+        return this._client._request('/Wl/Collector/DebtList.json', params, 'GET');
+    }
+    /** Registers a debt payment made outside WellnessLiving and applies a credit to the client's account balance. */
+    debtPay(params) {
+        return this._client._request('/Wl/Collector/DebtPay.json', params, 'POST');
+    }
+    /** Returns a list of debt payment transactions for the specified business within the given date range. */
+    debtTransaction(params) {
+        return this._client._request('/Wl/Collector/DebtTransaction.json', params, 'GET');
+    }
+}
+exports.WlCollectorNamespace = WlCollectorNamespace;
+class WlLoginPromotionGuestPassInviteNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Revokes a guest pass invitation. */
+    inviteDelete(params) {
+        return this._client._request('/Wl/Login/Promotion/GuestPass/Invite/Invite.json', params, 'DELETE');
+    }
+    /** Sends a reminder notification for a guest pass invitation. */
+    invitePut(params) {
+        return this._client._request('/Wl/Login/Promotion/GuestPass/Invite/Invite.json', params, 'PUT');
+    }
+    /** Returns a list of guest pass invitations for the given membership or user. */
+    inviteListGet(params) {
+        return this._client._request('/Wl/Login/Promotion/GuestPass/Invite/InviteList.json', params, 'GET');
+    }
+    /** Sends a guest pass invitation to a user. */
+    inviteListPost(params) {
+        return this._client._request('/Wl/Login/Promotion/GuestPass/Invite/InviteList.json', params, 'POST');
+    }
+}
+exports.WlLoginPromotionGuestPassInviteNamespace = WlLoginPromotionGuestPassInviteNamespace;
+class WlLoginPromotionGuestPassApplyNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Applies the guest pass of the specified login promotion to the attendee's visit. */
+    apply(params) {
+        return this._client._request('/Wl/Login/Promotion/GuestPass/Apply/Apply.json', params, 'POST');
+    }
+}
+exports.WlLoginPromotionGuestPassApplyNamespace = WlLoginPromotionGuestPassApplyNamespace;
+class WlLoginPromotionGuestPassClaimNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Claims the guest pass invitation for the current user and accepts it. */
+    claim(params) {
+        return this._client._request('/Wl/Login/Promotion/GuestPass/Claim/Claim.json', params, 'POST');
+    }
+}
+exports.WlLoginPromotionGuestPassClaimNamespace = WlLoginPromotionGuestPassClaimNamespace;
+class WlLoginPromotionGuestPassNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.invite = new WlLoginPromotionGuestPassInviteNamespace(this._client);
+        this.apply = new WlLoginPromotionGuestPassApplyNamespace(this._client);
+        this.claim = new WlLoginPromotionGuestPassClaimNamespace(this._client);
+    }
+    /** Retrieves guest passes for a specific client. */
+    guestPassList(params) {
+        return this._client._request('/Wl/Login/Promotion/GuestPass/GuestPassList.json', params, 'GET');
+    }
+    /** Retrieves guest pass information for a client's membership. */
+    guestPassGet(params) {
+        return this._client._request('/Wl/Login/Promotion/GuestPass/GuestPass.json', params, 'GET');
+    }
+    /** Updates the guest pass remaining usages for a client's membership. */
+    guestPassPut(params) {
+        return this._client._request('/Wl/Login/Promotion/GuestPass/GuestPass.json', params, 'PUT');
+    }
+}
+exports.WlLoginPromotionGuestPassNamespace = WlLoginPromotionGuestPassNamespace;
+class WlLoginPromotionConvertNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes conversion and reset the after expiration setting to previous state. */
+    convertDelete(params) {
+        return this._client._request('/Wl/Login/Promotion/Convert/Convert.json', params, 'DELETE');
+    }
+    /** Returns the current conversion configuration and the list of promotions available to convert to. */
+    convertGet(params) {
+        return this._client._request('/Wl/Login/Promotion/Convert/Convert.json', params, 'GET');
+    }
+    /** Creates or updates conversion form data for the login promotion. Performs all necessary checks and apply changes. */
+    convertPost(params) {
+        return this._client._request('/Wl/Login/Promotion/Convert/Convert.json', params, 'POST');
+    }
+}
+exports.WlLoginPromotionConvertNamespace = WlLoginPromotionConvertNamespace;
+class WlLoginPromotionNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.guestPass = new WlLoginPromotionGuestPassNamespace(this._client);
+        this.convert = new WlLoginPromotionConvertNamespace(this._client);
+    }
+    /** Deletes specified promotion payment pause. */
+    promotionPayPauseDelete(params) {
+        return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'DELETE');
+    }
+    /** Returns promotion payment pause data: all hold periods when {@link WlLoginPromotionNamespace#promotionPayPauseGet} is `true`,  the specified hold period when {@link WlLoginPromotionPromotionPayPauseGetResponse.k_promotion_pay_pause} is provided, or the currently  active hold period otherwise. */
+    promotionPayPauseGet(params) {
+        return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'GET');
+    }
+    /** Adds or updates a payment pause period for promotion. */
+    promotionPayPausePost(params) {
+        return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'POST');
+    }
+    /** Updates a promotion payment pause period. */
+    promotionPayPausePut(params) {
+        return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'PUT');
+    }
+}
+exports.WlLoginPromotionNamespace = WlLoginPromotionNamespace;
+class WlLoginMemberDynamicIdNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the member's barcode and its expiry time for the specified business and user. */
+    dynamicId(params) {
+        return this._client._request('/Wl/Login/Member/DynamicId/DynamicId.json', params, 'GET');
+    }
+}
+exports.WlLoginMemberDynamicIdNamespace = WlLoginMemberDynamicIdNamespace;
+class WlLoginMemberNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.dynamicId = new WlLoginMemberDynamicIdNamespace(this._client);
+    }
+    /** Returns the list of businesses where the specified user is an active member. */
+    memberGet(params) {
+        return this._client._request('/Wl/Login/Member/Member.json', params, 'GET');
+    }
+    /** Adds a user into a business. */
+    memberPost(params) {
+        return this._client._request('/Wl/Login/Member/Member.json', params, 'POST');
+    }
+    /** Checks whether anything prevents the user from using the business and returns details about missing required fields. */
+    memberValidate63(params) {
+        return this._client._request('/Wl/Login/Member/MemberValidate63.json', params, 'GET');
+    }
+    /** Checks whether anything prevents the user from using the business and returns any blocking conditions found. */
+    /** @deprecated */
+    memberValidate(params) {
+        return this._client._request('/Wl/Login/Member/MemberValidate.json', params, 'GET');
+    }
+    /** Gets client ID for a specific client in a business. */
+    loginMemberGet(params) {
+        return this._client._request('/Wl/Login/Member/LoginMember.json', params, 'GET');
+    }
+    /** Updates client ID for a specific client in a business. */
+    loginMemberPost(params) {
+        return this._client._request('/Wl/Login/Member/LoginMember.json', params, 'POST');
+    }
+    /** Returns a paginated list of active member user keys for the specified business. */
+    loginMemberListAll(params) {
+        return this._client._request('/Wl/Login/Member/LoginMemberListAll.json', params, 'GET');
+    }
+}
+exports.WlLoginMemberNamespace = WlLoginMemberNamespace;
+class WlLoginAddNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks required profile fields and, if complete, registers the existing user in the specified business. */
+    mailUseOk(params) {
+        return this._client._request('/Wl/Login/Add/MailUseOk.json', params, 'POST');
+    }
+}
+exports.WlLoginAddNamespace = WlLoginAddNamespace;
+class WlLoginMailNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks if specified user exists in specified business. */
+    mailUse(params) {
+        return this._client._request('/Wl/Login/Mail/MailUse.json', params, 'GET');
+    }
+}
+exports.WlLoginMailNamespace = WlLoginMailNamespace;
+class WlLoginAttendanceAddNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets information about ability of user to pay for given session in any ways. */
+    addGet(params) {
+        return this._client._request('/Wl/Login/Attendance/Add/Add.json', params, 'GET');
+    }
+    /** Adds client to attendance list. */
+    addPost(params) {
+        return this._client._request('/Wl/Login/Attendance/Add/Add.json', params, 'POST');
+    }
+}
+exports.WlLoginAttendanceAddNamespace = WlLoginAttendanceAddNamespace;
+class WlLoginAttendanceNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.add = new WlLoginAttendanceAddNamespace(this._client);
+    }
+    /** Returns detailed information about a single class period, appointment, or asset session. */
+    attendanceInfo(params) {
+        return this._client._request('/Wl/Login/Attendance/AttendanceInfo.json', params, 'GET');
+    }
+    /** Returns detailed information about a single class period, appointment, or asset session. */
+    attendanceInfoByToken(params) {
+        return this._client._request('/Wl/Login/Attendance/AttendanceInfoByToken.json', params, 'GET');
+    }
+    /** Returns the attendance list for a class period or appointment session. */
+    attendanceList(params) {
+        return this._client._request('/Wl/Login/Attendance/AttendanceList.json', params, 'GET');
+    }
+    /** Returns the attendance list for a class period or appointment session. */
+    attendanceListByToken(params) {
+        return this._client._request('/Wl/Login/Attendance/AttendanceListByToken.json', params, 'GET');
+    }
+}
+exports.WlLoginAttendanceNamespace = WlLoginAttendanceNamespace;
+class WlLoginTypeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a login types list of a business. */
+    loginType(params) {
+        return this._client._request('/Wl/Login/Type/LoginType.json', params, 'GET');
+    }
+}
+exports.WlLoginTypeNamespace = WlLoginTypeNamespace;
+class WlLoginRankNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes a rank record for a user. */
+    loginRankElement(params) {
+        return this._client._request('/Wl/Login/Rank/LoginRankElement.json', params, 'DELETE');
+    }
+}
+exports.WlLoginRankNamespace = WlLoginRankNamespace;
+class WlLoginCouponNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves the key and balance of a gift card by its code for the specified business. */
+    coupon(params) {
+        return this._client._request('/Wl/Login/Coupon/Coupon.json', params, 'GET');
+    }
+}
+exports.WlLoginCouponNamespace = WlLoginCouponNamespace;
+class WlLoginSearchStaffAppNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Performs access checks and returns a list of users, depending on the search query. */
+    list(params) {
+        return this._client._request('/Wl/Login/Search/StaffApp/List.json', params, 'GET');
+    }
+}
+exports.WlLoginSearchStaffAppNamespace = WlLoginSearchStaffAppNamespace;
+class WlLoginSearchNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.staffApp = new WlLoginSearchStaffAppNamespace(this._client);
+    }
+    /** Finds a user by their email or phone within the specified business. */
+    concerto(params) {
+        return this._client._request('/Wl/Login/Search/Concerto.json', params, 'GET');
+    }
+}
+exports.WlLoginSearchNamespace = WlLoginSearchNamespace;
+class WlLoginProductNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns information about products purchased by client. */
+    product(params) {
+        return this._client._request('/Wl/Login/Product/Product.json', params, 'GET');
+    }
+}
+exports.WlLoginProductNamespace = WlLoginProductNamespace;
+class WlLoginPermissionNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Saves the auto-renew setting for a purchased promotion. */
+    permission(params) {
+        return this._client._request('/Wl/Login/Permission/Permission.json', params, 'POST');
+    }
+}
+exports.WlLoginPermissionNamespace = WlLoginPermissionNamespace;
+class WlLoginAgreeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns text of business liability release if business has liability release and if user did not agree to this liability release. */
+    agreeGet(params) {
+        return this._client._request('/Wl/Login/Agree/Agree.json', params, 'GET');
+    }
+    /** Saves the user's agreement to the online waiver. */
+    agreePost(params) {
+        return this._client._request('/Wl/Login/Agree/Agree.json', params, 'POST');
+    }
+}
+exports.WlLoginAgreeNamespace = WlLoginAgreeNamespace;
+class WlLoginNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.promotion = new WlLoginPromotionNamespace(this._client);
+        this.member = new WlLoginMemberNamespace(this._client);
+        this.add = new WlLoginAddNamespace(this._client);
+        this.mail = new WlLoginMailNamespace(this._client);
+        this.attendance = new WlLoginAttendanceNamespace(this._client);
+        this.type = new WlLoginTypeNamespace(this._client);
+        this.rank = new WlLoginRankNamespace(this._client);
+        this.coupon = new WlLoginCouponNamespace(this._client);
+        this.search = new WlLoginSearchNamespace(this._client);
+        this.product = new WlLoginProductNamespace(this._client);
+        this.permission = new WlLoginPermissionNamespace(this._client);
+        this.agree = new WlLoginAgreeNamespace(this._client);
+    }
+    /** Retrieves information about user. */
+    loginGet(params) {
+        return this._client._request('/Wl/Login/Login.json', params, 'GET');
+    }
+    /** Retrieves information about a list of users. This is done via "post" method because only "post" allows large requests. */
+    loginPost(params) {
+        return this._client._request('/Wl/Login/Login.json', params, 'POST');
+    }
+}
+exports.WlLoginNamespace = WlLoginNamespace;
 class WlProfilePurchaseNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5748,20 +6147,16 @@ class WlProfilePurchaseNamespace {
     }
 }
 exports.WlProfilePurchaseNamespace = WlProfilePurchaseNamespace;
-class WlProfilePurchaseListNamespace {
+class WlProfileTermNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Retrieves information about 1 purchase item. */
-    purchaseListElement(params) {
-        return this._client._request('/Wl/Profile/PurchaseList/PurchaseListElement.json', params, 'GET');
-    }
-    /** Retrieves a list of user's purchase items to show in user profile. */
-    purchaseList(params) {
-        return this._client._request('/Wl/Profile/PurchaseList/PurchaseList.json', params, 'GET');
+    /** Returns online waiver information for the specified user and business. */
+    term(params) {
+        return this._client._request('/Wl/Profile/Term/Term.json', params, 'GET');
     }
 }
-exports.WlProfilePurchaseListNamespace = WlProfilePurchaseListNamespace;
+exports.WlProfileTermNamespace = WlProfileTermNamespace;
 class WlProfileAttendanceScheduleFrontendNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5798,100 +6193,23 @@ class WlProfileAttendanceNamespace {
     }
 }
 exports.WlProfileAttendanceNamespace = WlProfileAttendanceNamespace;
-class WlProfileTermNamespace {
+class WlProfilePurchaseListNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns online waiver information for the specified user and business. */
-    term(params) {
-        return this._client._request('/Wl/Profile/Term/Term.json', params, 'GET');
+    /** Retrieves information about 1 purchase item. */
+    purchaseListElement(params) {
+        return this._client._request('/Wl/Profile/PurchaseList/PurchaseListElement.json', params, 'GET');
+    }
+    /** Retrieves a list of user's purchase items to show in user profile. */
+    purchaseList(params) {
+        return this._client._request('/Wl/Profile/PurchaseList/PurchaseList.json', params, 'GET');
     }
 }
-exports.WlProfileTermNamespace = WlProfileTermNamespace;
-class WlProfileEditEmailNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Checks if specified email address is busy. */
-    /** @deprecated */
-    editEmailGet(params) {
-        return this._client._request('/Wl/Profile/Edit/Email/EditEmail.json', params, 'GET');
-    }
-    /** Adds user to business. */
-    /** @deprecated */
-    editEmailPost(params) {
-        return this._client._request('/Wl/Profile/Edit/Email/EditEmail.json', params, 'POST');
-    }
-    /** Checks if specified email address is busy. */
-    editEmail67Get(params) {
-        return this._client._request('/Wl/Profile/Edit/Email/EditEmail67.json', params, 'GET');
-    }
-    /** Adds user to business. */
-    editEmail67Post(params) {
-        return this._client._request('/Wl/Profile/Edit/Email/EditEmail67.json', params, 'POST');
-    }
-}
-exports.WlProfileEditEmailNamespace = WlProfileEditEmailNamespace;
-class WlProfileEditNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.email = new WlProfileEditEmailNamespace(this._client);
-    }
-    /** Returns current user profile information. */
-    editGet(params) {
-        return this._client._request('/Wl/Profile/Edit/Edit.json', params, 'GET');
-    }
-    /** Creates a new user. */
-    editPost(params) {
-        return this._client._request('/Wl/Profile/Edit/Edit.json', params, 'POST');
-    }
-    /** Updates values of profile fields. */
-    editPut(params) {
-        return this._client._request('/Wl/Profile/Edit/Edit.json', params, 'PUT');
-    }
-    /** Saves new password for user. */
-    editPassword(params) {
-        return this._client._request('/Wl/Profile/Edit/EditPassword.json', params, 'POST');
-    }
-    /** Returns current user profile information. */
-    editByTokenGet(params) {
-        return this._client._request('/Wl/Profile/Edit/EditByToken.json', params, 'GET');
-    }
-    /** Creates a new user. */
-    editByTokenPost(params) {
-        return this._client._request('/Wl/Profile/Edit/EditByToken.json', params, 'POST');
-    }
-    /** Updates values of profile fields. */
-    editByTokenPut(params) {
-        return this._client._request('/Wl/Profile/Edit/EditByToken.json', params, 'PUT');
-    }
-    /** Creates a new user. */
-    create(params) {
-        return this._client._request('/Wl/Profile/Edit/Create.json', params, 'POST');
-    }
-}
-exports.WlProfileEditNamespace = WlProfileEditNamespace;
-class WlProfileTimezoneNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets a list of timezones with currently selected user's timezone and the business policy adjustment whether  clients are allowed to adjust timezone. */
-    profileTimezoneGet(params) {
-        return this._client._request('/Wl/Profile/Timezone/ProfileTimezone.json', params, 'GET');
-    }
-    /** Updates selected timezone for the site visitor in the given business. */
-    profileTimezonePut(params) {
-        return this._client._request('/Wl/Profile/Timezone/ProfileTimezone.json', params, 'PUT');
-    }
-}
-exports.WlProfileTimezoneNamespace = WlProfileTimezoneNamespace;
+exports.WlProfilePurchaseListNamespace = WlProfilePurchaseListNamespace;
 class WlProfileAttachNamespace {
     constructor(_client) {
         this._client = _client;
-    }
-    /** Returns the list of file attachments for the specified client in the given business. */
-    attachList(params) {
-        return this._client._request('/Wl/Profile/Attach/AttachList.json', params, 'GET');
     }
     /** Deletes the attachment. */
     attachElementDelete(params) {
@@ -5905,8 +6223,40 @@ class WlProfileAttachNamespace {
     attachElementPost(params) {
         return this._client._request('/Wl/Profile/Attach/AttachElement.json', params, 'POST');
     }
+    /** Returns the list of file attachments for the specified client in the given business. */
+    attachList(params) {
+        return this._client._request('/Wl/Profile/Attach/AttachList.json', params, 'GET');
+    }
 }
 exports.WlProfileAttachNamespace = WlProfileAttachNamespace;
+class WlProfileActivityNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves information about activity item. */
+    element(params) {
+        return this._client._request('/Wl/Profile/Activity/Element.json', params, 'GET');
+    }
+    /** Retrieves a list of activity items to show in user profile. */
+    list(params) {
+        return this._client._request('/Wl/Profile/Activity/List.json', params, 'GET');
+    }
+}
+exports.WlProfileActivityNamespace = WlProfileActivityNamespace;
+class WlProfileSettingNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves a list of user settings and other additional information for the settings page. */
+    settingGet(params) {
+        return this._client._request('/Wl/Profile/Setting/Setting.json', params, 'GET');
+    }
+    /** Saves the user's notification settings for the specified business. */
+    settingPost(params) {
+        return this._client._request('/Wl/Profile/Setting/Setting.json', params, 'POST');
+    }
+}
+exports.WlProfileSettingNamespace = WlProfileSettingNamespace;
 class WlProfileAlertNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5929,20 +6279,69 @@ class WlProfileAlertNamespace {
     }
 }
 exports.WlProfileAlertNamespace = WlProfileAlertNamespace;
-class WlProfileSettingNamespace {
+class WlProfileEditEmailNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Retrieves a list of user settings and other additional information for the settings page. */
-    settingGet(params) {
-        return this._client._request('/Wl/Profile/Setting/Setting.json', params, 'GET');
+    /** Checks if specified email address is busy. */
+    editEmail67Get(params) {
+        return this._client._request('/Wl/Profile/Edit/Email/EditEmail67.json', params, 'GET');
     }
-    /** Saves the user's notification settings for the specified business. */
-    settingPost(params) {
-        return this._client._request('/Wl/Profile/Setting/Setting.json', params, 'POST');
+    /** Adds user to business. */
+    editEmail67Post(params) {
+        return this._client._request('/Wl/Profile/Edit/Email/EditEmail67.json', params, 'POST');
+    }
+    /** Checks if specified email address is busy. */
+    /** @deprecated */
+    editEmailGet(params) {
+        return this._client._request('/Wl/Profile/Edit/Email/EditEmail.json', params, 'GET');
+    }
+    /** Adds user to business. */
+    /** @deprecated */
+    editEmailPost(params) {
+        return this._client._request('/Wl/Profile/Edit/Email/EditEmail.json', params, 'POST');
     }
 }
-exports.WlProfileSettingNamespace = WlProfileSettingNamespace;
+exports.WlProfileEditEmailNamespace = WlProfileEditEmailNamespace;
+class WlProfileEditNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.email = new WlProfileEditEmailNamespace(this._client);
+    }
+    /** Creates a new user. */
+    create(params) {
+        return this._client._request('/Wl/Profile/Edit/Create.json', params, 'POST');
+    }
+    /** Returns current user profile information. */
+    editGet(params) {
+        return this._client._request('/Wl/Profile/Edit/Edit.json', params, 'GET');
+    }
+    /** Creates a new user. */
+    editPost(params) {
+        return this._client._request('/Wl/Profile/Edit/Edit.json', params, 'POST');
+    }
+    /** Updates values of profile fields. */
+    editPut(params) {
+        return this._client._request('/Wl/Profile/Edit/Edit.json', params, 'PUT');
+    }
+    /** Returns current user profile information. */
+    editByTokenGet(params) {
+        return this._client._request('/Wl/Profile/Edit/EditByToken.json', params, 'GET');
+    }
+    /** Creates a new user. */
+    editByTokenPost(params) {
+        return this._client._request('/Wl/Profile/Edit/EditByToken.json', params, 'POST');
+    }
+    /** Updates values of profile fields. */
+    editByTokenPut(params) {
+        return this._client._request('/Wl/Profile/Edit/EditByToken.json', params, 'PUT');
+    }
+    /** Saves new password for user. */
+    editPassword(params) {
+        return this._client._request('/Wl/Profile/Edit/EditPassword.json', params, 'POST');
+    }
+}
+exports.WlProfileEditNamespace = WlProfileEditNamespace;
 class WlProfileContractContractAllNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5968,6 +6367,20 @@ class WlProfileContractNamespace {
     }
 }
 exports.WlProfileContractNamespace = WlProfileContractNamespace;
+class WlProfileTimezoneNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a list of timezones with currently selected user's timezone and the business policy adjustment whether  clients are allowed to adjust timezone. */
+    profileTimezoneGet(params) {
+        return this._client._request('/Wl/Profile/Timezone/ProfileTimezone.json', params, 'GET');
+    }
+    /** Updates selected timezone for the site visitor in the given business. */
+    profileTimezonePut(params) {
+        return this._client._request('/Wl/Profile/Timezone/ProfileTimezone.json', params, 'PUT');
+    }
+}
+exports.WlProfileTimezoneNamespace = WlProfileTimezoneNamespace;
 class WlProfileAccountSelectNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6009,17 +6422,17 @@ exports.WlProfileFormNamespace = WlProfileFormNamespace;
 class WlProfileNamespace {
     constructor(_client) {
         this._client = _client;
-        this.activity = new WlProfileActivityNamespace(this._client);
         this.purchase = new WlProfilePurchaseNamespace(this._client);
-        this.purchaseList = new WlProfilePurchaseListNamespace(this._client);
-        this.attendance = new WlProfileAttendanceNamespace(this._client);
         this.term = new WlProfileTermNamespace(this._client);
-        this.edit = new WlProfileEditNamespace(this._client);
-        this.timezone = new WlProfileTimezoneNamespace(this._client);
+        this.attendance = new WlProfileAttendanceNamespace(this._client);
+        this.purchaseList = new WlProfilePurchaseListNamespace(this._client);
         this.attach = new WlProfileAttachNamespace(this._client);
-        this.alert = new WlProfileAlertNamespace(this._client);
+        this.activity = new WlProfileActivityNamespace(this._client);
         this.setting = new WlProfileSettingNamespace(this._client);
+        this.alert = new WlProfileAlertNamespace(this._client);
+        this.edit = new WlProfileEditNamespace(this._client);
         this.contract = new WlProfileContractNamespace(this._client);
+        this.timezone = new WlProfileTimezoneNamespace(this._client);
         this.account = new WlProfileAccountNamespace(this._client);
         this.form = new WlProfileFormNamespace(this._client);
     }
@@ -6061,34 +6474,6 @@ class WlBusinessAccountNamespace {
     }
 }
 exports.WlBusinessAccountNamespace = WlBusinessAccountNamespace;
-class WlBusinessPartnerNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns the partner URL for the specified business. */
-    partnerCodeGet(params) {
-        return this._client._request('/Wl/Business/Partner/PartnerCode.json', params, 'GET');
-    }
-    /** Updates partner url for a business that takes part in the partner program. */
-    partnerCodePost(params) {
-        return this._client._request('/Wl/Business/Partner/PartnerCode.json', params, 'POST');
-    }
-    /** Returns partner settings for the business identified by the given partner code. */
-    partnerSettings(params) {
-        return this._client._request('/Wl/Business/Partner/PartnerSettings.json', params, 'GET');
-    }
-}
-exports.WlBusinessPartnerNamespace = WlBusinessPartnerNamespace;
-class WlBusinessAmazonRegionNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns the Amazon region ID for each of the requested business keys. */
-    amazonRegion(params) {
-        return this._client._request('/Wl/Business/AmazonRegion/AmazonRegion.json', params, 'GET');
-    }
-}
-exports.WlBusinessAmazonRegionNamespace = WlBusinessAmazonRegionNamespace;
 class WlBusinessConfigOptionNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6110,64 +6495,24 @@ class WlBusinessConfigNamespace {
     }
 }
 exports.WlBusinessConfigNamespace = WlBusinessConfigNamespace;
-class WlBusinessSelectNamespace {
+class WlBusinessPartnerNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Performs checks and generates a list of businesses according to a given configuration. */
-    businessSelect(params) {
-        return this._client._request('/Wl/Business/Select/BusinessSelect.json', params, 'GET');
+    /** Returns partner settings for the business identified by the given partner code. */
+    partnerSettings(params) {
+        return this._client._request('/Wl/Business/Partner/PartnerSettings.json', params, 'GET');
+    }
+    /** Returns the partner URL for the specified business. */
+    partnerCodeGet(params) {
+        return this._client._request('/Wl/Business/Partner/PartnerCode.json', params, 'GET');
+    }
+    /** Updates partner url for a business that takes part in the partner program. */
+    partnerCodePost(params) {
+        return this._client._request('/Wl/Business/Partner/PartnerCode.json', params, 'POST');
     }
 }
-exports.WlBusinessSelectNamespace = WlBusinessSelectNamespace;
-class WlBusinessTypeNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns the list of available business types with their categories and images. */
-    businessTypeList(params) {
-        return this._client._request('/Wl/Business/Type/BusinessTypeList.json', params, 'GET');
-    }
-}
-exports.WlBusinessTypeNamespace = WlBusinessTypeNamespace;
-class WlBusinessDesignNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** API method to get business design data. */
-    businessDesign(params) {
-        return this._client._request('/Wl/Business/Design/BusinessDesign.json', params, 'GET');
-    }
-}
-exports.WlBusinessDesignNamespace = WlBusinessDesignNamespace;
-class WlBusinessPhoneNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Deletes business phone number from the system. */
-    phoneDelete(params) {
-        return this._client._request('/Wl/Business/Phone/Phone.json', params, 'DELETE');
-    }
-    /** Returns phone number(in locale format) of the business, if phone number does not exist returns empty line. */
-    phoneGet(params) {
-        return this._client._request('/Wl/Business/Phone/Phone.json', params, 'GET');
-    }
-    /** Registers business phone number in system. */
-    phonePost(params) {
-        return this._client._request('/Wl/Business/Phone/Phone.json', params, 'POST');
-    }
-}
-exports.WlBusinessPhoneNamespace = WlBusinessPhoneNamespace;
-class WlBusinessLeadNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Saves a new business lead referral record submitted through the Partner Program. */
-    businessLead(params) {
-        return this._client._request('/Wl/Business/Lead/BusinessLead.json', params, 'POST');
-    }
-}
-exports.WlBusinessLeadNamespace = WlBusinessLeadNamespace;
+exports.WlBusinessPartnerNamespace = WlBusinessPartnerNamespace;
 class WlBusinessWaiverNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6178,6 +6523,50 @@ class WlBusinessWaiverNamespace {
     }
 }
 exports.WlBusinessWaiverNamespace = WlBusinessWaiverNamespace;
+class WlBusinessSearchNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Searches for businesses by name and email address and returns matching business keys. */
+    businessSearchUser(params) {
+        return this._client._request('/Wl/Business/Search/BusinessSearchUser.json', params, 'GET');
+    }
+    /** Searches for businesses by name and returns matching business keys. */
+    businessSearch(params) {
+        return this._client._request('/Wl/Business/Search/BusinessSearch.json', params, 'GET');
+    }
+}
+exports.WlBusinessSearchNamespace = WlBusinessSearchNamespace;
+class WlBusinessDesignNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** API method to get business design data. */
+    businessDesign(params) {
+        return this._client._request('/Wl/Business/Design/BusinessDesign.json', params, 'GET');
+    }
+}
+exports.WlBusinessDesignNamespace = WlBusinessDesignNamespace;
+class WlBusinessTypeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the list of available business types with their categories and images. */
+    businessTypeList(params) {
+        return this._client._request('/Wl/Business/Type/BusinessTypeList.json', params, 'GET');
+    }
+}
+exports.WlBusinessTypeNamespace = WlBusinessTypeNamespace;
+class WlBusinessAmazonRegionNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the Amazon region ID for each of the requested business keys. */
+    amazonRegion(params) {
+        return this._client._request('/Wl/Business/AmazonRegion/AmazonRegion.json', params, 'GET');
+    }
+}
+exports.WlBusinessAmazonRegionNamespace = WlBusinessAmazonRegionNamespace;
 class WlBusinessAuthorizePartnerNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6188,20 +6577,6 @@ class WlBusinessAuthorizePartnerNamespace {
     }
 }
 exports.WlBusinessAuthorizePartnerNamespace = WlBusinessAuthorizePartnerNamespace;
-class WlBusinessSearchNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Searches for businesses by name and returns matching business keys. */
-    businessSearch(params) {
-        return this._client._request('/Wl/Business/Search/BusinessSearch.json', params, 'GET');
-    }
-    /** Searches for businesses by name and email address and returns matching business keys. */
-    businessSearchUser(params) {
-        return this._client._request('/Wl/Business/Search/BusinessSearchUser.json', params, 'GET');
-    }
-}
-exports.WlBusinessSearchNamespace = WlBusinessSearchNamespace;
 class WlBusinessClaimNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6220,23 +6595,44 @@ class WlBusinessClaimNamespace {
     }
 }
 exports.WlBusinessClaimNamespace = WlBusinessClaimNamespace;
-class WlBusinessAuthorizeSupportResponseNamespace {
+class WlBusinessLeadNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Grants or denies access to business location for staff member. */
-    response(params) {
-        return this._client._request('/Wl/Business/AuthorizeSupport/Response/Response.json', params, 'GET');
+    /** Saves a new business lead referral record submitted through the Partner Program. */
+    businessLead(params) {
+        return this._client._request('/Wl/Business/Lead/BusinessLead.json', params, 'POST');
     }
 }
-exports.WlBusinessAuthorizeSupportResponseNamespace = WlBusinessAuthorizeSupportResponseNamespace;
-class WlBusinessAuthorizeSupportNamespace {
+exports.WlBusinessLeadNamespace = WlBusinessLeadNamespace;
+class WlBusinessPhoneNamespace {
     constructor(_client) {
         this._client = _client;
-        this.response = new WlBusinessAuthorizeSupportResponseNamespace(this._client);
+    }
+    /** Deletes business phone number from the system. */
+    phoneDelete(params) {
+        return this._client._request('/Wl/Business/Phone/Phone.json', params, 'DELETE');
+    }
+    /** Returns phone number(in locale format) of the business, if phone number does not exist returns empty line. */
+    phoneGet(params) {
+        return this._client._request('/Wl/Business/Phone/Phone.json', params, 'GET');
+    }
+    /** Registers business phone number in system. */
+    phonePost(params) {
+        return this._client._request('/Wl/Business/Phone/Phone.json', params, 'POST');
     }
 }
-exports.WlBusinessAuthorizeSupportNamespace = WlBusinessAuthorizeSupportNamespace;
+exports.WlBusinessPhoneNamespace = WlBusinessPhoneNamespace;
+class WlBusinessSelectNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Performs checks and generates a list of businesses according to a given configuration. */
+    businessSelect(params) {
+        return this._client._request('/Wl/Business/Select/BusinessSelect.json', params, 'GET');
+    }
+}
+exports.WlBusinessSelectNamespace = WlBusinessSelectNamespace;
 class WlBusinessFranchiseLocationNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6254,6 +6650,23 @@ class WlBusinessFranchiseNamespace {
     }
 }
 exports.WlBusinessFranchiseNamespace = WlBusinessFranchiseNamespace;
+class WlBusinessAuthorizeSupportResponseNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Grants or denies access to business location for staff member. */
+    response(params) {
+        return this._client._request('/Wl/Business/AuthorizeSupport/Response/Response.json', params, 'GET');
+    }
+}
+exports.WlBusinessAuthorizeSupportResponseNamespace = WlBusinessAuthorizeSupportResponseNamespace;
+class WlBusinessAuthorizeSupportNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.response = new WlBusinessAuthorizeSupportResponseNamespace(this._client);
+    }
+}
+exports.WlBusinessAuthorizeSupportNamespace = WlBusinessAuthorizeSupportNamespace;
 class WlBusinessRewardConfigNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6300,20 +6713,20 @@ class WlBusinessNamespace {
     constructor(_client) {
         this._client = _client;
         this.account = new WlBusinessAccountNamespace(this._client);
-        this.partner = new WlBusinessPartnerNamespace(this._client);
-        this.amazonRegion = new WlBusinessAmazonRegionNamespace(this._client);
         this.config = new WlBusinessConfigNamespace(this._client);
-        this.select = new WlBusinessSelectNamespace(this._client);
-        this.type = new WlBusinessTypeNamespace(this._client);
-        this.design = new WlBusinessDesignNamespace(this._client);
-        this.phone = new WlBusinessPhoneNamespace(this._client);
-        this.lead = new WlBusinessLeadNamespace(this._client);
+        this.partner = new WlBusinessPartnerNamespace(this._client);
         this.waiver = new WlBusinessWaiverNamespace(this._client);
-        this.authorizePartner = new WlBusinessAuthorizePartnerNamespace(this._client);
         this.search = new WlBusinessSearchNamespace(this._client);
+        this.design = new WlBusinessDesignNamespace(this._client);
+        this.type = new WlBusinessTypeNamespace(this._client);
+        this.amazonRegion = new WlBusinessAmazonRegionNamespace(this._client);
+        this.authorizePartner = new WlBusinessAuthorizePartnerNamespace(this._client);
         this.claim = new WlBusinessClaimNamespace(this._client);
-        this.authorizeSupport = new WlBusinessAuthorizeSupportNamespace(this._client);
+        this.lead = new WlBusinessLeadNamespace(this._client);
+        this.phone = new WlBusinessPhoneNamespace(this._client);
+        this.select = new WlBusinessSelectNamespace(this._client);
         this.franchise = new WlBusinessFranchiseNamespace(this._client);
+        this.authorizeSupport = new WlBusinessAuthorizeSupportNamespace(this._client);
         this.reward = new WlBusinessRewardNamespace(this._client);
         this.user = new WlBusinessUserNamespace(this._client);
     }
@@ -6335,6 +6748,188 @@ class WlBusinessNamespace {
     }
 }
 exports.WlBusinessNamespace = WlBusinessNamespace;
+class WlEventBookEventViewNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves information about event item. */
+    element(params) {
+        return this._client._request('/Wl/Event/Book/EventView/Element.json', params, 'GET');
+    }
+}
+exports.WlEventBookEventViewNamespace = WlEventBookEventViewNamespace;
+class WlEventBookEventListNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves a list of events. */
+    list(params) {
+        return this._client._request('/Wl/Event/Book/EventList/List.json', params, 'GET');
+    }
+}
+exports.WlEventBookEventListNamespace = WlEventBookEventListNamespace;
+class WlEventBookNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.eventView = new WlEventBookEventViewNamespace(this._client);
+        this.eventList = new WlEventBookEventListNamespace(this._client);
+    }
+}
+exports.WlEventBookNamespace = WlEventBookNamespace;
+class WlEventNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.book = new WlEventBookNamespace(this._client);
+    }
+    /** Returns a list of clients enrolled in the specified event classes. */
+    eventEnrollment(params) {
+        return this._client._request('/Wl/Event/EventEnrollment.json', params, 'GET');
+    }
+    /** Returns the list of events matching the specified filter parameters. */
+    eventListGet(params) {
+        return this._client._request('/Wl/Event/EventList.json', params, 'GET');
+    }
+    /** Resets the event list cache for the specified business and user. */
+    eventListPut(params) {
+        return this._client._request('/Wl/Event/EventList.json', params, 'PUT');
+    }
+    /** Cancels book of event {@link WlEventNamespace#eventCancelWhole}. */
+    eventCancelWhole(params) {
+        return this._client._request('/Wl/Event/EventCancelWhole.json', params, 'POST');
+    }
+}
+exports.WlEventNamespace = WlEventNamespace;
+class WlSessionNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns current session environment. */
+    environmentGet(params) {
+        return this._client._request('/Wl/Session/Environment.json', params, 'GET');
+    }
+    /** Saves current location of business for current user. */
+    environmentPut(params) {
+        return this._client._request('/Wl/Session/Environment.json', params, 'PUT');
+    }
+}
+exports.WlSessionNamespace = WlSessionNamespace;
+class WlQuizResponseNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes the specified quiz response or list of responses for the given business. */
+    response65Delete(params) {
+        return this._client._request('/Wl/Quiz/Response/Response65.json', params, 'DELETE');
+    }
+    /** Returns quiz response data including element answers, dates, and access information. */
+    response65Get(params) {
+        return this._client._request('/Wl/Quiz/Response/Response65.json', params, 'GET');
+    }
+    /** Saves a quiz response with the given element answers. */
+    response65Post(params) {
+        return this._client._request('/Wl/Quiz/Response/Response65.json', params, 'POST');
+    }
+    /** Validates, updates and reindex response information for associated user. */
+    response65Put(params) {
+        return this._client._request('/Wl/Quiz/Response/Response65.json', params, 'PUT');
+    }
+    /** Deletes the specified quiz response or list of responses for the given business. */
+    /** @deprecated */
+    responseDelete(params) {
+        return this._client._request('/Wl/Quiz/Response/Response.json', params, 'DELETE');
+    }
+    /** Returns quiz response data including element answers, dates, and access information. */
+    /** @deprecated */
+    responseGet(params) {
+        return this._client._request('/Wl/Quiz/Response/Response.json', params, 'GET');
+    }
+    /** Saves a quiz response with the given element answers. */
+    /** @deprecated */
+    responsePost(params) {
+        return this._client._request('/Wl/Quiz/Response/Response.json', params, 'POST');
+    }
+    /** Validates, updates and reindex response information for associated user. */
+    /** @deprecated */
+    responsePut(params) {
+        return this._client._request('/Wl/Quiz/Response/Response.json', params, 'PUT');
+    }
+}
+exports.WlQuizResponseNamespace = WlQuizResponseNamespace;
+class WlQuizNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.response = new WlQuizResponseNamespace(this._client);
+    }
+    /** Deletes the quiz with the given key. */
+    quizElement72Delete(params) {
+        return this._client._request('/Wl/Quiz/QuizElement72.json', params, 'DELETE');
+    }
+    /** Returns quiz element data including settings, elements, and access information for the given quiz. */
+    quizElement72Get(params) {
+        return this._client._request('/Wl/Quiz/QuizElement72.json', params, 'GET');
+    }
+    /** Creates or updates a quiz with the given elements and settings. */
+    quizElement72Post(params) {
+        return this._client._request('/Wl/Quiz/QuizElement72.json', params, 'POST');
+    }
+    /** Updates the active status of the given quiz. */
+    quizElement72Put(params) {
+        return this._client._request('/Wl/Quiz/QuizElement72.json', params, 'PUT');
+    }
+    /** Deletes the quiz with the given key. */
+    /** @deprecated */
+    quizElementDelete(params) {
+        return this._client._request('/Wl/Quiz/QuizElement.json', params, 'DELETE');
+    }
+    /** Returns quiz element data including settings, elements, and access information for the given quiz. */
+    /** @deprecated */
+    quizElementGet(params) {
+        return this._client._request('/Wl/Quiz/QuizElement.json', params, 'GET');
+    }
+    /** Creates or updates a quiz with the given elements and settings. */
+    /** @deprecated */
+    quizElementPost(params) {
+        return this._client._request('/Wl/Quiz/QuizElement.json', params, 'POST');
+    }
+    /** Updates the active status of the given quiz. */
+    /** @deprecated */
+    quizElementPut(params) {
+        return this._client._request('/Wl/Quiz/QuizElement.json', params, 'PUT');
+    }
+}
+exports.WlQuizNamespace = WlQuizNamespace;
+class WlTaxNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the title for the specified tax. */
+    tax(params) {
+        return this._client._request('/Wl/Tax/Tax.json', params, 'GET');
+    }
+    /** Returns taxes of the specified business. */
+    taxList(params) {
+        return this._client._request('/Wl/Tax/TaxList.json', params, 'GET');
+    }
+}
+exports.WlTaxNamespace = WlTaxNamespace;
+class WlSkinApplicationResourceNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Saves text metadata for the given business application. */
+    applicationResourceMaterial(params) {
+        return this._client._request('/Wl/Skin/Application/Resource/ApplicationResourceMaterial.json', params, 'POST');
+    }
+    /** Uploads image and file assets for the given business application. */
+    applicationResourceUpload(params) {
+        return this._client._request('/Wl/Skin/Application/Resource/ApplicationResourceUpload.json', params, 'POST');
+    }
+    /** Gets application resources. */
+    applicationResource(params) {
+        return this._client._request('/Wl/Skin/Application/Resource/ApplicationResource.json', params, 'GET');
+    }
+}
+exports.WlSkinApplicationResourceNamespace = WlSkinApplicationResourceNamespace;
 class WlSkinApplicationConnectNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6345,29 +6940,11 @@ class WlSkinApplicationConnectNamespace {
     }
 }
 exports.WlSkinApplicationConnectNamespace = WlSkinApplicationConnectNamespace;
-class WlSkinApplicationResourceNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets application resources. */
-    applicationResource(params) {
-        return this._client._request('/Wl/Skin/Application/Resource/ApplicationResource.json', params, 'GET');
-    }
-    /** Uploads image and file assets for the given business application. */
-    applicationResourceUpload(params) {
-        return this._client._request('/Wl/Skin/Application/Resource/ApplicationResourceUpload.json', params, 'POST');
-    }
-    /** Saves text metadata for the given business application. */
-    applicationResourceMaterial(params) {
-        return this._client._request('/Wl/Skin/Application/Resource/ApplicationResourceMaterial.json', params, 'POST');
-    }
-}
-exports.WlSkinApplicationResourceNamespace = WlSkinApplicationResourceNamespace;
 class WlSkinApplicationNamespace {
     constructor(_client) {
         this._client = _client;
-        this.connect = new WlSkinApplicationConnectNamespace(this._client);
         this.resource = new WlSkinApplicationResourceNamespace(this._client);
+        this.connect = new WlSkinApplicationConnectNamespace(this._client);
     }
     /** Reset customisation form of client application. */
     skinDelete(params) {
@@ -6417,17 +6994,205 @@ class WlSkinNamespace {
     }
 }
 exports.WlSkinNamespace = WlSkinNamespace;
-class WlVideoCategoryNamespace {
+class WlScheduleClassViewNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns the list of video categories for the business. */
-    categoryListGet(params) {
-        return this._client._request('/Wl/Video/Category/CategoryList.json', params, 'GET');
+    /** Retrieves information about class. */
+    classViewGet(params) {
+        return this._client._request('/Wl/Schedule/ClassView/ClassView.json', params, 'GET');
     }
-    /** Updates the order of video categories. */
-    categoryListPut(params) {
-        return this._client._request('/Wl/Video/Category/CategoryList.json', params, 'PUT');
+    /** Retrieves information about classes. */
+    classViewPost(params) {
+        return this._client._request('/Wl/Schedule/ClassView/ClassView.json', params, 'POST');
+    }
+}
+exports.WlScheduleClassViewNamespace = WlScheduleClassViewNamespace;
+class WlScheduleClassListNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** This method is a modified Get method `get()`. The difference is as follows: */
+    classList68(params) {
+        return this._client._request('/Wl/Schedule/ClassList/ClassList68.json', params, 'POST');
+    }
+    /** Retrieves a list of classes and class information for the given business and date range. */
+    /** @deprecated */
+    classList(params) {
+        return this._client._request('/Wl/Schedule/ClassList/ClassList.json', params, 'GET');
+    }
+}
+exports.WlScheduleClassListNamespace = WlScheduleClassListNamespace;
+class WlSchedulePageNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves information about one element of schedule. */
+    pageElement(params) {
+        return this._client._request('/Wl/Schedule/Page/PageElement.json', params, 'GET');
+    }
+    /** Retrieves items of schedule for the client. */
+    pageList(params) {
+        return this._client._request('/Wl/Schedule/Page/PageList.json', params, 'GET');
+    }
+}
+exports.WlSchedulePageNamespace = WlSchedulePageNamespace;
+class WlScheduleTabNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets information about tabs for page "Book now". */
+    tab(params) {
+        return this._client._request('/Wl/Schedule/Tab/Tab.json', params, 'GET');
+    }
+}
+exports.WlScheduleTabNamespace = WlScheduleTabNamespace;
+class WlScheduleScheduleListStaffAppNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets schedule of business {@link WlScheduleScheduleListStaffAppNamespace#scheduleList} for day {@link WlScheduleScheduleListStaffAppNamespace#scheduleList}. */
+    scheduleList(params) {
+        return this._client._request('/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json', params, 'GET');
+    }
+    /** Gets schedule of business {@link WlScheduleScheduleListStaffAppNamespace#scheduleList} for day {@link WlScheduleScheduleListStaffAppNamespace#scheduleList}. */
+    scheduleListByToken(params) {
+        return this._client._request('/Wl/Schedule/ScheduleList/StaffApp/ScheduleListByToken.json', params, 'GET');
+    }
+}
+exports.WlScheduleScheduleListStaffAppNamespace = WlScheduleScheduleListStaffAppNamespace;
+class WlScheduleScheduleListNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.staffApp = new WlScheduleScheduleListStaffAppNamespace(this._client);
+    }
+}
+exports.WlScheduleScheduleListNamespace = WlScheduleScheduleListNamespace;
+class WlScheduleNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.classView = new WlScheduleClassViewNamespace(this._client);
+        this.classList = new WlScheduleClassListNamespace(this._client);
+        this.page = new WlSchedulePageNamespace(this._client);
+        this.tab = new WlScheduleTabNamespace(this._client);
+        this.scheduleList = new WlScheduleScheduleListNamespace(this._client);
+    }
+    /** Cancels session for the client. */
+    cancelGet(params) {
+        return this._client._request('/Wl/Schedule/Cancel.json', params, 'GET');
+    }
+    /** Cancels session for the client. This method is an alias for partners using the API or SDK. */
+    cancelPost(params) {
+        return this._client._request('/Wl/Schedule/Cancel.json', params, 'POST');
+    }
+    /** Finds the nearest class session that can be booked by the current user. */
+    scheduleAvailableDate(params) {
+        return this._client._request('/Wl/Schedule/ScheduleAvailableDate.json', params, 'GET');
+    }
+}
+exports.WlScheduleNamespace = WlScheduleNamespace;
+class WlLocationViewNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns detailed information about the specified location. */
+    view(params) {
+        return this._client._request('/Wl/Location/View/View.json', params, 'GET');
+    }
+}
+exports.WlLocationViewNamespace = WlLocationViewNamespace;
+class WlLocationLocationRateNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves information about location rate. */
+    locationRate(params) {
+        return this._client._request('/Wl/Location/LocationRate/LocationRate.json', params, 'GET');
+    }
+}
+exports.WlLocationLocationRateNamespace = WlLocationLocationRateNamespace;
+class WlLocationFacilityNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the list of all items for the given Sid class. */
+    facilitySid(params) {
+        return this._client._request('/Wl/Location/Facility/FacilitySid.json', params, 'GET');
+    }
+}
+exports.WlLocationFacilityNamespace = WlLocationFacilityNamespace;
+class WlLocationFlagNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks if user {@link WlLocationFlagNamespace#flag} is flagged in location {@link WlLocationFlagNamespace#flag} or each of users {@link WlLocationFlagNamespace#flag} is flagged in location {@link WlLocationFlagNamespace#flag}. */
+    flag(params) {
+        return this._client._request('/Wl/Location/Flag/Flag.json', params, 'GET');
+    }
+}
+exports.WlLocationFlagNamespace = WlLocationFlagNamespace;
+class WlLocationWorkTimeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Saves working hours of the location. */
+    locationWorkTime(params) {
+        return this._client._request('/Wl/Location/WorkTime/LocationWorkTime.json', params, 'POST');
+    }
+}
+exports.WlLocationWorkTimeNamespace = WlLocationWorkTimeNamespace;
+class WlLocationNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.view = new WlLocationViewNamespace(this._client);
+        this.locationRate = new WlLocationLocationRateNamespace(this._client);
+        this.facility = new WlLocationFacilityNamespace(this._client);
+        this.flag = new WlLocationFlagNamespace(this._client);
+        this.workTime = new WlLocationWorkTimeNamespace(this._client);
+    }
+    /** Retrieves a list of locations for the given business. */
+    list(params) {
+        return this._client._request('/Wl/Location/List.json', params, 'GET');
+    }
+    /** Gets location lists for a bulk of businesses. */
+    listBulk(params) {
+        return this._client._request('/Wl/Location/ListBulk.json', params, 'GET');
+    }
+    /** Creates new location or edits the existing location. */
+    location(params) {
+        return this._client._request('/Wl/Location/Location.json', params, 'POST');
+    }
+}
+exports.WlLocationNamespace = WlLocationNamespace;
+class WlVideoLevelNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes the specified video level. */
+    levelDelete(params) {
+        return this._client._request('/Wl/Video/Level/Level.json', params, 'DELETE');
+    }
+    /** Creates a new video level. */
+    levelPost(params) {
+        return this._client._request('/Wl/Video/Level/Level.json', params, 'POST');
+    }
+    /** Updates the specified video level. */
+    levelPut(params) {
+        return this._client._request('/Wl/Video/Level/Level.json', params, 'PUT');
+    }
+    /** Returns the list of video levels for the business. */
+    levelListGet(params) {
+        return this._client._request('/Wl/Video/Level/LevelList.json', params, 'GET');
+    }
+    /** Updates the order of video levels. */
+    levelListPut(params) {
+        return this._client._request('/Wl/Video/Level/LevelList.json', params, 'PUT');
+    }
+}
+exports.WlVideoLevelNamespace = WlVideoLevelNamespace;
+class WlVideoCategoryNamespace {
+    constructor(_client) {
+        this._client = _client;
     }
     /** Deletes the specified video category. */
     categoryElementDelete(params) {
@@ -6440,6 +7205,14 @@ class WlVideoCategoryNamespace {
     /** Creates or updates a video category. */
     categoryElementPut(params) {
         return this._client._request('/Wl/Video/Category/CategoryElement.json', params, 'PUT');
+    }
+    /** Returns the list of video categories for the business. */
+    categoryListGet(params) {
+        return this._client._request('/Wl/Video/Category/CategoryList.json', params, 'GET');
+    }
+    /** Updates the order of video categories. */
+    categoryListPut(params) {
+        return this._client._request('/Wl/Video/Category/CategoryList.json', params, 'PUT');
     }
 }
 exports.WlVideoCategoryNamespace = WlVideoCategoryNamespace;
@@ -6479,39 +7252,13 @@ class WlVideoTagNamespace {
     }
 }
 exports.WlVideoTagNamespace = WlVideoTagNamespace;
-class WlVideoLevelNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Deletes the specified video level. */
-    levelDelete(params) {
-        return this._client._request('/Wl/Video/Level/Level.json', params, 'DELETE');
-    }
-    /** Creates a new video level. */
-    levelPost(params) {
-        return this._client._request('/Wl/Video/Level/Level.json', params, 'POST');
-    }
-    /** Updates the specified video level. */
-    levelPut(params) {
-        return this._client._request('/Wl/Video/Level/Level.json', params, 'PUT');
-    }
-    /** Returns the list of video levels for the business. */
-    levelListGet(params) {
-        return this._client._request('/Wl/Video/Level/LevelList.json', params, 'GET');
-    }
-    /** Updates the order of video levels. */
-    levelListPut(params) {
-        return this._client._request('/Wl/Video/Level/LevelList.json', params, 'PUT');
-    }
-}
-exports.WlVideoLevelNamespace = WlVideoLevelNamespace;
 class WlVideoNamespace {
     constructor(_client) {
         this._client = _client;
+        this.level = new WlVideoLevelNamespace(this._client);
         this.category = new WlVideoCategoryNamespace(this._client);
         this.watch = new WlVideoWatchNamespace(this._client);
         this.tag = new WlVideoTagNamespace(this._client);
-        this.level = new WlVideoLevelNamespace(this._client);
     }
     /** Deletes the specified video. */
     videoElementDelete(params) {
@@ -6539,535 +7286,6 @@ class WlVideoNamespace {
     }
 }
 exports.WlVideoNamespace = WlVideoNamespace;
-class WlScheduleTabNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets information about tabs for page "Book now". */
-    tab(params) {
-        return this._client._request('/Wl/Schedule/Tab/Tab.json', params, 'GET');
-    }
-}
-exports.WlScheduleTabNamespace = WlScheduleTabNamespace;
-class WlSchedulePageNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves information about one element of schedule. */
-    pageElement(params) {
-        return this._client._request('/Wl/Schedule/Page/PageElement.json', params, 'GET');
-    }
-    /** Retrieves items of schedule for the client. */
-    pageList(params) {
-        return this._client._request('/Wl/Schedule/Page/PageList.json', params, 'GET');
-    }
-}
-exports.WlSchedulePageNamespace = WlSchedulePageNamespace;
-class WlScheduleClassListNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves a list of classes and class information for the given business and date range. */
-    /** @deprecated */
-    classList(params) {
-        return this._client._request('/Wl/Schedule/ClassList/ClassList.json', params, 'GET');
-    }
-    /** This method is a modified Get method `get()`. The difference is as follows: */
-    classList68(params) {
-        return this._client._request('/Wl/Schedule/ClassList/ClassList68.json', params, 'POST');
-    }
-}
-exports.WlScheduleClassListNamespace = WlScheduleClassListNamespace;
-class WlScheduleClassViewNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves information about class. */
-    classViewGet(params) {
-        return this._client._request('/Wl/Schedule/ClassView/ClassView.json', params, 'GET');
-    }
-    /** Retrieves information about classes. */
-    classViewPost(params) {
-        return this._client._request('/Wl/Schedule/ClassView/ClassView.json', params, 'POST');
-    }
-}
-exports.WlScheduleClassViewNamespace = WlScheduleClassViewNamespace;
-class WlScheduleScheduleListStaffAppNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets schedule of business {@link WlScheduleScheduleListStaffAppNamespace#scheduleList} for day {@link WlScheduleScheduleListStaffAppNamespace#scheduleList}. */
-    scheduleList(params) {
-        return this._client._request('/Wl/Schedule/ScheduleList/StaffApp/ScheduleList.json', params, 'GET');
-    }
-    /** Gets schedule of business {@link WlScheduleScheduleListStaffAppNamespace#scheduleList} for day {@link WlScheduleScheduleListStaffAppNamespace#scheduleList}. */
-    scheduleListByToken(params) {
-        return this._client._request('/Wl/Schedule/ScheduleList/StaffApp/ScheduleListByToken.json', params, 'GET');
-    }
-}
-exports.WlScheduleScheduleListStaffAppNamespace = WlScheduleScheduleListStaffAppNamespace;
-class WlScheduleScheduleListNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.staffApp = new WlScheduleScheduleListStaffAppNamespace(this._client);
-    }
-}
-exports.WlScheduleScheduleListNamespace = WlScheduleScheduleListNamespace;
-class WlScheduleNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.tab = new WlScheduleTabNamespace(this._client);
-        this.page = new WlSchedulePageNamespace(this._client);
-        this.classList = new WlScheduleClassListNamespace(this._client);
-        this.classView = new WlScheduleClassViewNamespace(this._client);
-        this.scheduleList = new WlScheduleScheduleListNamespace(this._client);
-    }
-    /** Cancels session for the client. */
-    cancelGet(params) {
-        return this._client._request('/Wl/Schedule/Cancel.json', params, 'GET');
-    }
-    /** Cancels session for the client. This method is an alias for partners using the API or SDK. */
-    cancelPost(params) {
-        return this._client._request('/Wl/Schedule/Cancel.json', params, 'POST');
-    }
-    /** Finds the nearest class session that can be booked by the current user. */
-    scheduleAvailableDate(params) {
-        return this._client._request('/Wl/Schedule/ScheduleAvailableDate.json', params, 'GET');
-    }
-}
-exports.WlScheduleNamespace = WlScheduleNamespace;
-class WlLoginAttendanceAddNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets information about ability of user to pay for given session in any ways. */
-    addGet(params) {
-        return this._client._request('/Wl/Login/Attendance/Add/Add.json', params, 'GET');
-    }
-    /** Adds client to attendance list. */
-    addPost(params) {
-        return this._client._request('/Wl/Login/Attendance/Add/Add.json', params, 'POST');
-    }
-}
-exports.WlLoginAttendanceAddNamespace = WlLoginAttendanceAddNamespace;
-class WlLoginAttendanceNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.add = new WlLoginAttendanceAddNamespace(this._client);
-    }
-    /** Returns detailed information about a single class period, appointment, or asset session. */
-    attendanceInfo(params) {
-        return this._client._request('/Wl/Login/Attendance/AttendanceInfo.json', params, 'GET');
-    }
-    /** Returns the attendance list for a class period or appointment session. */
-    attendanceList(params) {
-        return this._client._request('/Wl/Login/Attendance/AttendanceList.json', params, 'GET');
-    }
-    /** Returns detailed information about a single class period, appointment, or asset session. */
-    attendanceInfoByToken(params) {
-        return this._client._request('/Wl/Login/Attendance/AttendanceInfoByToken.json', params, 'GET');
-    }
-    /** Returns the attendance list for a class period or appointment session. */
-    attendanceListByToken(params) {
-        return this._client._request('/Wl/Login/Attendance/AttendanceListByToken.json', params, 'GET');
-    }
-}
-exports.WlLoginAttendanceNamespace = WlLoginAttendanceNamespace;
-class WlLoginCouponNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves the key and balance of a gift card by its code for the specified business. */
-    coupon(params) {
-        return this._client._request('/Wl/Login/Coupon/Coupon.json', params, 'GET');
-    }
-}
-exports.WlLoginCouponNamespace = WlLoginCouponNamespace;
-class WlLoginPromotionConvertNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Removes conversion and reset the after expiration setting to previous state. */
-    convertDelete(params) {
-        return this._client._request('/Wl/Login/Promotion/Convert/Convert.json', params, 'DELETE');
-    }
-    /** Returns the current conversion configuration and the list of promotions available to convert to. */
-    convertGet(params) {
-        return this._client._request('/Wl/Login/Promotion/Convert/Convert.json', params, 'GET');
-    }
-    /** Creates or updates conversion form data for the login promotion. Performs all necessary checks and apply changes. */
-    convertPost(params) {
-        return this._client._request('/Wl/Login/Promotion/Convert/Convert.json', params, 'POST');
-    }
-}
-exports.WlLoginPromotionConvertNamespace = WlLoginPromotionConvertNamespace;
-class WlLoginPromotionGuestPassInviteNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns a list of guest pass invitations for the given membership or user. */
-    inviteListGet(params) {
-        return this._client._request('/Wl/Login/Promotion/GuestPass/Invite/InviteList.json', params, 'GET');
-    }
-    /** Sends a guest pass invitation to a user. */
-    inviteListPost(params) {
-        return this._client._request('/Wl/Login/Promotion/GuestPass/Invite/InviteList.json', params, 'POST');
-    }
-    /** Revokes a guest pass invitation. */
-    inviteDelete(params) {
-        return this._client._request('/Wl/Login/Promotion/GuestPass/Invite/Invite.json', params, 'DELETE');
-    }
-    /** Sends a reminder notification for a guest pass invitation. */
-    invitePut(params) {
-        return this._client._request('/Wl/Login/Promotion/GuestPass/Invite/Invite.json', params, 'PUT');
-    }
-}
-exports.WlLoginPromotionGuestPassInviteNamespace = WlLoginPromotionGuestPassInviteNamespace;
-class WlLoginPromotionGuestPassClaimNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Claims the guest pass invitation for the current user and accepts it. */
-    claim(params) {
-        return this._client._request('/Wl/Login/Promotion/GuestPass/Claim/Claim.json', params, 'POST');
-    }
-}
-exports.WlLoginPromotionGuestPassClaimNamespace = WlLoginPromotionGuestPassClaimNamespace;
-class WlLoginPromotionGuestPassApplyNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Applies the guest pass of the specified login promotion to the attendee's visit. */
-    apply(params) {
-        return this._client._request('/Wl/Login/Promotion/GuestPass/Apply/Apply.json', params, 'POST');
-    }
-}
-exports.WlLoginPromotionGuestPassApplyNamespace = WlLoginPromotionGuestPassApplyNamespace;
-class WlLoginPromotionGuestPassNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.invite = new WlLoginPromotionGuestPassInviteNamespace(this._client);
-        this.claim = new WlLoginPromotionGuestPassClaimNamespace(this._client);
-        this.apply = new WlLoginPromotionGuestPassApplyNamespace(this._client);
-    }
-    /** Retrieves guest pass information for a client's membership. */
-    guestPassGet(params) {
-        return this._client._request('/Wl/Login/Promotion/GuestPass/GuestPass.json', params, 'GET');
-    }
-    /** Updates the guest pass remaining usages for a client's membership. */
-    guestPassPut(params) {
-        return this._client._request('/Wl/Login/Promotion/GuestPass/GuestPass.json', params, 'PUT');
-    }
-    /** Retrieves guest passes for a specific client. */
-    guestPassList(params) {
-        return this._client._request('/Wl/Login/Promotion/GuestPass/GuestPassList.json', params, 'GET');
-    }
-}
-exports.WlLoginPromotionGuestPassNamespace = WlLoginPromotionGuestPassNamespace;
-class WlLoginPromotionNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.convert = new WlLoginPromotionConvertNamespace(this._client);
-        this.guestPass = new WlLoginPromotionGuestPassNamespace(this._client);
-    }
-    /** Deletes specified promotion payment pause. */
-    promotionPayPauseDelete(params) {
-        return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'DELETE');
-    }
-    /** Returns promotion payment pause data: all hold periods when {@link WlLoginPromotionNamespace#promotionPayPauseGet} is `true`,  the specified hold period when {@link WlLoginPromotionPromotionPayPauseGetResponse.k_promotion_pay_pause} is provided, or the currently  active hold period otherwise. */
-    promotionPayPauseGet(params) {
-        return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'GET');
-    }
-    /** Adds or updates a payment pause period for promotion. */
-    promotionPayPausePost(params) {
-        return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'POST');
-    }
-    /** Updates a promotion payment pause period. */
-    promotionPayPausePut(params) {
-        return this._client._request('/Wl/Login/Promotion/PromotionPayPause.json', params, 'PUT');
-    }
-}
-exports.WlLoginPromotionNamespace = WlLoginPromotionNamespace;
-class WlLoginSearchStaffAppNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Performs access checks and returns a list of users, depending on the search query. */
-    list(params) {
-        return this._client._request('/Wl/Login/Search/StaffApp/List.json', params, 'GET');
-    }
-}
-exports.WlLoginSearchStaffAppNamespace = WlLoginSearchStaffAppNamespace;
-class WlLoginSearchNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.staffApp = new WlLoginSearchStaffAppNamespace(this._client);
-    }
-    /** Finds a user by their email or phone within the specified business. */
-    concerto(params) {
-        return this._client._request('/Wl/Login/Search/Concerto.json', params, 'GET');
-    }
-}
-exports.WlLoginSearchNamespace = WlLoginSearchNamespace;
-class WlLoginAgreeNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns text of business liability release if business has liability release and if user did not agree to this liability release. */
-    agreeGet(params) {
-        return this._client._request('/Wl/Login/Agree/Agree.json', params, 'GET');
-    }
-    /** Saves the user's agreement to the online waiver. */
-    agreePost(params) {
-        return this._client._request('/Wl/Login/Agree/Agree.json', params, 'POST');
-    }
-}
-exports.WlLoginAgreeNamespace = WlLoginAgreeNamespace;
-class WlLoginAddNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Checks required profile fields and, if complete, registers the existing user in the specified business. */
-    mailUseOk(params) {
-        return this._client._request('/Wl/Login/Add/MailUseOk.json', params, 'POST');
-    }
-}
-exports.WlLoginAddNamespace = WlLoginAddNamespace;
-class WlLoginTypeNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets a login types list of a business. */
-    loginType(params) {
-        return this._client._request('/Wl/Login/Type/LoginType.json', params, 'GET');
-    }
-}
-exports.WlLoginTypeNamespace = WlLoginTypeNamespace;
-class WlLoginRankNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Deletes a rank record for a user. */
-    loginRankElement(params) {
-        return this._client._request('/Wl/Login/Rank/LoginRankElement.json', params, 'DELETE');
-    }
-}
-exports.WlLoginRankNamespace = WlLoginRankNamespace;
-class WlLoginMailNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Checks if specified user exists in specified business. */
-    mailUse(params) {
-        return this._client._request('/Wl/Login/Mail/MailUse.json', params, 'GET');
-    }
-}
-exports.WlLoginMailNamespace = WlLoginMailNamespace;
-class WlLoginMemberDynamicIdNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns the member's barcode and its expiry time for the specified business and user. */
-    dynamicId(params) {
-        return this._client._request('/Wl/Login/Member/DynamicId/DynamicId.json', params, 'GET');
-    }
-}
-exports.WlLoginMemberDynamicIdNamespace = WlLoginMemberDynamicIdNamespace;
-class WlLoginMemberNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.dynamicId = new WlLoginMemberDynamicIdNamespace(this._client);
-    }
-    /** Returns the list of businesses where the specified user is an active member. */
-    memberGet(params) {
-        return this._client._request('/Wl/Login/Member/Member.json', params, 'GET');
-    }
-    /** Adds a user into a business. */
-    memberPost(params) {
-        return this._client._request('/Wl/Login/Member/Member.json', params, 'POST');
-    }
-    /** Checks whether anything prevents the user from using the business and returns any blocking conditions found. */
-    /** @deprecated */
-    memberValidate(params) {
-        return this._client._request('/Wl/Login/Member/MemberValidate.json', params, 'GET');
-    }
-    /** Checks whether anything prevents the user from using the business and returns details about missing required fields. */
-    memberValidate63(params) {
-        return this._client._request('/Wl/Login/Member/MemberValidate63.json', params, 'GET');
-    }
-    /** Gets client ID for a specific client in a business. */
-    loginMemberGet(params) {
-        return this._client._request('/Wl/Login/Member/LoginMember.json', params, 'GET');
-    }
-    /** Updates client ID for a specific client in a business. */
-    loginMemberPost(params) {
-        return this._client._request('/Wl/Login/Member/LoginMember.json', params, 'POST');
-    }
-    /** Returns a paginated list of active member user keys for the specified business. */
-    loginMemberListAll(params) {
-        return this._client._request('/Wl/Login/Member/LoginMemberListAll.json', params, 'GET');
-    }
-}
-exports.WlLoginMemberNamespace = WlLoginMemberNamespace;
-class WlLoginPermissionNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Saves the auto-renew setting for a purchased promotion. */
-    permission(params) {
-        return this._client._request('/Wl/Login/Permission/Permission.json', params, 'POST');
-    }
-}
-exports.WlLoginPermissionNamespace = WlLoginPermissionNamespace;
-class WlLoginProductNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns information about products purchased by client. */
-    product(params) {
-        return this._client._request('/Wl/Login/Product/Product.json', params, 'GET');
-    }
-}
-exports.WlLoginProductNamespace = WlLoginProductNamespace;
-class WlLoginNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.attendance = new WlLoginAttendanceNamespace(this._client);
-        this.coupon = new WlLoginCouponNamespace(this._client);
-        this.promotion = new WlLoginPromotionNamespace(this._client);
-        this.search = new WlLoginSearchNamespace(this._client);
-        this.agree = new WlLoginAgreeNamespace(this._client);
-        this.add = new WlLoginAddNamespace(this._client);
-        this.type = new WlLoginTypeNamespace(this._client);
-        this.rank = new WlLoginRankNamespace(this._client);
-        this.mail = new WlLoginMailNamespace(this._client);
-        this.member = new WlLoginMemberNamespace(this._client);
-        this.permission = new WlLoginPermissionNamespace(this._client);
-        this.product = new WlLoginProductNamespace(this._client);
-    }
-    /** Retrieves information about user. */
-    loginGet(params) {
-        return this._client._request('/Wl/Login/Login.json', params, 'GET');
-    }
-    /** Retrieves information about a list of users. This is done via "post" method because only "post" allows large requests. */
-    loginPost(params) {
-        return this._client._request('/Wl/Login/Login.json', params, 'POST');
-    }
-}
-exports.WlLoginNamespace = WlLoginNamespace;
-class WlStaffStaffListNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns the list of staff members for the given business. */
-    staffList(params) {
-        return this._client._request('/Wl/Staff/StaffList/StaffList.json', params, 'GET');
-    }
-}
-exports.WlStaffStaffListNamespace = WlStaffStaffListNamespace;
-class WlStaffStaffViewNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves information about staff. */
-    /** @deprecated */
-    staffView(params) {
-        return this._client._request('/Wl/Staff/StaffView/StaffView.json', params, 'GET');
-    }
-    /** Retrieves information about staff. */
-    staffView74(params) {
-        return this._client._request('/Wl/Staff/StaffView/StaffView74.json', params, 'GET');
-    }
-}
-exports.WlStaffStaffViewNamespace = WlStaffStaffViewNamespace;
-class WlStaffPrivilegeNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns the list of privileges for the current user in the given business. */
-    privilegeList(params) {
-        return this._client._request('/Wl/Staff/Privilege/PrivilegeList.json', params, 'GET');
-    }
-}
-exports.WlStaffPrivilegeNamespace = WlStaffPrivilegeNamespace;
-class WlStaffNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.staffList = new WlStaffStaffListNamespace(this._client);
-        this.staffView = new WlStaffStaffViewNamespace(this._client);
-        this.privilege = new WlStaffPrivilegeNamespace(this._client);
-    }
-    /** Update or create staff. */
-    staffElement(params) {
-        return this._client._request('/Wl/Staff/StaffElement.json', params, 'POST');
-    }
-}
-exports.WlStaffNamespace = WlStaffNamespace;
-class WlSessionNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns current session environment. */
-    environmentGet(params) {
-        return this._client._request('/Wl/Session/Environment.json', params, 'GET');
-    }
-    /** Saves current location of business for current user. */
-    environmentPut(params) {
-        return this._client._request('/Wl/Session/Environment.json', params, 'PUT');
-    }
-}
-exports.WlSessionNamespace = WlSessionNamespace;
-class WlPromotionIndexNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets a list of packages/passes/memberships. */
-    promotionIndex(params) {
-        return this._client._request('/Wl/Promotion/Index/PromotionIndex.json', params, 'GET');
-    }
-}
-exports.WlPromotionIndexNamespace = WlPromotionIndexNamespace;
-class WlPromotionNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.index = new WlPromotionIndexNamespace(this._client);
-    }
-    /** Returns promotion list of the specified business. */
-    promotionList(params) {
-        return this._client._request('/Wl/Promotion/PromotionList.json', params, 'GET');
-    }
-    /** Soft-deletes the specified promotion if it has no associated sales. */
-    promotionDelete(params) {
-        return this._client._request('/Wl/Promotion/Promotion.json', params, 'DELETE');
-    }
-    /** Returns promotion by the specified business and promotion keys. */
-    promotionGet(params) {
-        return this._client._request('/Wl/Promotion/Promotion.json', params, 'GET');
-    }
-    /** Saves promotion data. */
-    promotionPost(params) {
-        return this._client._request('/Wl/Promotion/Promotion.json', params, 'POST');
-    }
-}
-exports.WlPromotionNamespace = WlPromotionNamespace;
-class WlVisitNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets visit status. */
-    visitStatusGet(params) {
-        return this._client._request('/Wl/Visit/VisitStatus.json', params, 'GET');
-    }
-    /** Changes visit status. */
-    visitStatusPost(params) {
-        return this._client._request('/Wl/Visit/VisitStatus.json', params, 'POST');
-    }
-    /** Returns the total visit count for the user at the business. */
-    visitTotalCount(params) {
-        return this._client._request('/Wl/Visit/VisitTotalCount.json', params, 'GET');
-    }
-}
-exports.WlVisitNamespace = WlVisitNamespace;
 class WlLeadSourceNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7096,6 +7314,10 @@ class WlLeadNamespace {
         this._client = _client;
         this.source = new WlLeadSourceNamespace(this._client);
     }
+    /** Checks if user with specified email already registered for specified business. */
+    leadCheck(params) {
+        return this._client._request('/Wl/Lead/LeadCheck.json', params, 'POST');
+    }
     /** Gets information necessary to display "Lead capture" widget. */
     leadGet(params) {
         return this._client._request('/Wl/Lead/Lead.json', params, 'GET');
@@ -7104,377 +7326,26 @@ class WlLeadNamespace {
     leadPost(params) {
         return this._client._request('/Wl/Lead/Lead.json', params, 'POST');
     }
-    /** Checks if user with specified email already registered for specified business. */
-    leadCheck(params) {
-        return this._client._request('/Wl/Lead/LeadCheck.json', params, 'POST');
-    }
 }
 exports.WlLeadNamespace = WlLeadNamespace;
-class WlMailPatternAutomatedMarketingCustomTemplateNamespace {
+class WlVisitNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets custom pattern data. */
-    patternGet(params) {
-        return this._client._request('/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/Pattern.json', params, 'GET');
+    /** Gets visit status. */
+    visitStatusGet(params) {
+        return this._client._request('/Wl/Visit/VisitStatus.json', params, 'GET');
     }
-    /** Saves custom pattern. */
-    patternPost(params) {
-        return this._client._request('/Wl/Mail/Pattern/AutomatedMarketing/CustomTemplate/Pattern.json', params, 'POST');
+    /** Changes visit status. */
+    visitStatusPost(params) {
+        return this._client._request('/Wl/Visit/VisitStatus.json', params, 'POST');
     }
-}
-exports.WlMailPatternAutomatedMarketingCustomTemplateNamespace = WlMailPatternAutomatedMarketingCustomTemplateNamespace;
-class WlMailPatternAutomatedMarketingNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.customTemplate = new WlMailPatternAutomatedMarketingCustomTemplateNamespace(this._client);
+    /** Returns the total visit count for the user at the business. */
+    visitTotalCount(params) {
+        return this._client._request('/Wl/Visit/VisitTotalCount.json', params, 'GET');
     }
 }
-exports.WlMailPatternAutomatedMarketingNamespace = WlMailPatternAutomatedMarketingNamespace;
-class WlMailPatternNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.automatedMarketing = new WlMailPatternAutomatedMarketingNamespace(this._client);
-    }
-}
-exports.WlMailPatternNamespace = WlMailPatternNamespace;
-class WlMailNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.pattern = new WlMailPatternNamespace(this._client);
-    }
-    /** Sends email. */
-    sendMail(params) {
-        return this._client._request('/Wl/Mail/SendMail.json', params, 'POST');
-    }
-}
-exports.WlMailNamespace = WlMailNamespace;
-class WlEventBookEventListNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves a list of events. */
-    list(params) {
-        return this._client._request('/Wl/Event/Book/EventList/List.json', params, 'GET');
-    }
-}
-exports.WlEventBookEventListNamespace = WlEventBookEventListNamespace;
-class WlEventBookEventViewNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves information about event item. */
-    element(params) {
-        return this._client._request('/Wl/Event/Book/EventView/Element.json', params, 'GET');
-    }
-}
-exports.WlEventBookEventViewNamespace = WlEventBookEventViewNamespace;
-class WlEventBookNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.eventList = new WlEventBookEventListNamespace(this._client);
-        this.eventView = new WlEventBookEventViewNamespace(this._client);
-    }
-}
-exports.WlEventBookNamespace = WlEventBookNamespace;
-class WlEventNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.book = new WlEventBookNamespace(this._client);
-    }
-    /** Returns the list of events matching the specified filter parameters. */
-    eventListGet(params) {
-        return this._client._request('/Wl/Event/EventList.json', params, 'GET');
-    }
-    /** Resets the event list cache for the specified business and user. */
-    eventListPut(params) {
-        return this._client._request('/Wl/Event/EventList.json', params, 'PUT');
-    }
-    /** Cancels book of event {@link WlEventNamespace#eventCancelWhole}. */
-    eventCancelWhole(params) {
-        return this._client._request('/Wl/Event/EventCancelWhole.json', params, 'POST');
-    }
-    /** Returns a list of clients enrolled in the specified event classes. */
-    eventEnrollment(params) {
-        return this._client._request('/Wl/Event/EventEnrollment.json', params, 'GET');
-    }
-}
-exports.WlEventNamespace = WlEventNamespace;
-class WlLocationWorkTimeNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Saves working hours of the location. */
-    locationWorkTime(params) {
-        return this._client._request('/Wl/Location/WorkTime/LocationWorkTime.json', params, 'POST');
-    }
-}
-exports.WlLocationWorkTimeNamespace = WlLocationWorkTimeNamespace;
-class WlLocationViewNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns detailed information about the specified location. */
-    view(params) {
-        return this._client._request('/Wl/Location/View/View.json', params, 'GET');
-    }
-}
-exports.WlLocationViewNamespace = WlLocationViewNamespace;
-class WlLocationLocationRateNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves information about location rate. */
-    locationRate(params) {
-        return this._client._request('/Wl/Location/LocationRate/LocationRate.json', params, 'GET');
-    }
-}
-exports.WlLocationLocationRateNamespace = WlLocationLocationRateNamespace;
-class WlLocationFlagNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Checks if user {@link WlLocationFlagNamespace#flag} is flagged in location {@link WlLocationFlagNamespace#flag} or each of users {@link WlLocationFlagNamespace#flag} is flagged in location {@link WlLocationFlagNamespace#flag}. */
-    flag(params) {
-        return this._client._request('/Wl/Location/Flag/Flag.json', params, 'GET');
-    }
-}
-exports.WlLocationFlagNamespace = WlLocationFlagNamespace;
-class WlLocationFacilityNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns the list of all items for the given Sid class. */
-    facilitySid(params) {
-        return this._client._request('/Wl/Location/Facility/FacilitySid.json', params, 'GET');
-    }
-}
-exports.WlLocationFacilityNamespace = WlLocationFacilityNamespace;
-class WlLocationNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.workTime = new WlLocationWorkTimeNamespace(this._client);
-        this.view = new WlLocationViewNamespace(this._client);
-        this.locationRate = new WlLocationLocationRateNamespace(this._client);
-        this.flag = new WlLocationFlagNamespace(this._client);
-        this.facility = new WlLocationFacilityNamespace(this._client);
-    }
-    /** Creates new location or edits the existing location. */
-    location(params) {
-        return this._client._request('/Wl/Location/Location.json', params, 'POST');
-    }
-    /** Retrieves a list of locations for the given business. */
-    list(params) {
-        return this._client._request('/Wl/Location/List.json', params, 'GET');
-    }
-    /** Gets location lists for a bulk of businesses. */
-    listBulk(params) {
-        return this._client._request('/Wl/Location/ListBulk.json', params, 'GET');
-    }
-}
-exports.WlLocationNamespace = WlLocationNamespace;
-class WlHolidayNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns information about holiday day of business/locations. */
-    holiday(params) {
-        return this._client._request('/Wl/Holiday/Holiday.json', params, 'GET');
-    }
-    /** Returns all holiday records for all locations of the specified business. */
-    bulkBusinessHoliday(params) {
-        return this._client._request('/Wl/Holiday/BulkBusinessHoliday.json', params, 'GET');
-    }
-}
-exports.WlHolidayNamespace = WlHolidayNamespace;
-class WlTagNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns tags of the specified business. */
-    tagListGet(params) {
-        return this._client._request('/Wl/Tag/TagList.json', params, 'GET');
-    }
-    /** Saves the list of tags. Can be used to create new tags or update existing ones. */
-    tagListPost(params) {
-        return this._client._request('/Wl/Tag/TagList.json', params, 'POST');
-    }
-}
-exports.WlTagNamespace = WlTagNamespace;
-class WlTaxNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns taxes of the specified business. */
-    taxList(params) {
-        return this._client._request('/Wl/Tax/TaxList.json', params, 'GET');
-    }
-    /** Returns the title for the specified tax. */
-    tax(params) {
-        return this._client._request('/Wl/Tax/Tax.json', params, 'GET');
-    }
-}
-exports.WlTaxNamespace = WlTaxNamespace;
-class WlCurrencyNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves information about currencies. */
-    currency(params) {
-        return this._client._request('/Wl/Currency/Currency.json', params, 'GET');
-    }
-}
-exports.WlCurrencyNamespace = WlCurrencyNamespace;
-class WlRankNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets belts list of a business. */
-    rank(params) {
-        return this._client._request('/Wl/Rank/Rank.json', params, 'GET');
-    }
-}
-exports.WlRankNamespace = WlRankNamespace;
-class WlReviewReviewListNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves a list of reviews. */
-    reviewList(params) {
-        return this._client._request('/Wl/Review/ReviewList/ReviewList.json', params, 'GET');
-    }
-    /** Deletes a review. */
-    reviewElementDelete(params) {
-        return this._client._request('/Wl/Review/ReviewList/ReviewElement.json', params, 'DELETE');
-    }
-    /** Retrieves information about review item. */
-    reviewElementGet(params) {
-        return this._client._request('/Wl/Review/ReviewList/ReviewElement.json', params, 'GET');
-    }
-}
-exports.WlReviewReviewListNamespace = WlReviewReviewListNamespace;
-class WlReviewNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.reviewList = new WlReviewReviewListNamespace(this._client);
-    }
-    /** Submits user's review. */
-    review(params) {
-        return this._client._request('/Wl/Review/Review.json', params, 'POST');
-    }
-    /** Saves the reply text and optional status update for the given review. */
-    reviewReply(params) {
-        return this._client._request('/Wl/Review/ReviewReply.json', params, 'POST');
-    }
-    /** Updates the featured status of the given review for the business. */
-    reviewFeature(params) {
-        return this._client._request('/Wl/Review/ReviewFeature.json', params, 'POST');
-    }
-}
-exports.WlReviewNamespace = WlReviewNamespace;
-class WlQuizResponseNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Deletes the specified quiz response or list of responses for the given business. */
-    /** @deprecated */
-    responseDelete(params) {
-        return this._client._request('/Wl/Quiz/Response/Response.json', params, 'DELETE');
-    }
-    /** Returns quiz response data including element answers, dates, and access information. */
-    /** @deprecated */
-    responseGet(params) {
-        return this._client._request('/Wl/Quiz/Response/Response.json', params, 'GET');
-    }
-    /** Saves a quiz response with the given element answers. */
-    /** @deprecated */
-    responsePost(params) {
-        return this._client._request('/Wl/Quiz/Response/Response.json', params, 'POST');
-    }
-    /** Validates, updates and reindex response information for associated user. */
-    /** @deprecated */
-    responsePut(params) {
-        return this._client._request('/Wl/Quiz/Response/Response.json', params, 'PUT');
-    }
-    /** Deletes the specified quiz response or list of responses for the given business. */
-    response65Delete(params) {
-        return this._client._request('/Wl/Quiz/Response/Response65.json', params, 'DELETE');
-    }
-    /** Returns quiz response data including element answers, dates, and access information. */
-    response65Get(params) {
-        return this._client._request('/Wl/Quiz/Response/Response65.json', params, 'GET');
-    }
-    /** Saves a quiz response with the given element answers. */
-    response65Post(params) {
-        return this._client._request('/Wl/Quiz/Response/Response65.json', params, 'POST');
-    }
-    /** Validates, updates and reindex response information for associated user. */
-    response65Put(params) {
-        return this._client._request('/Wl/Quiz/Response/Response65.json', params, 'PUT');
-    }
-}
-exports.WlQuizResponseNamespace = WlQuizResponseNamespace;
-class WlQuizNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.response = new WlQuizResponseNamespace(this._client);
-    }
-    /** Deletes the quiz with the given key. */
-    /** @deprecated */
-    quizElementDelete(params) {
-        return this._client._request('/Wl/Quiz/QuizElement.json', params, 'DELETE');
-    }
-    /** Returns quiz element data including settings, elements, and access information for the given quiz. */
-    /** @deprecated */
-    quizElementGet(params) {
-        return this._client._request('/Wl/Quiz/QuizElement.json', params, 'GET');
-    }
-    /** Creates or updates a quiz with the given elements and settings. */
-    /** @deprecated */
-    quizElementPost(params) {
-        return this._client._request('/Wl/Quiz/QuizElement.json', params, 'POST');
-    }
-    /** Updates the active status of the given quiz. */
-    /** @deprecated */
-    quizElementPut(params) {
-        return this._client._request('/Wl/Quiz/QuizElement.json', params, 'PUT');
-    }
-    /** Deletes the quiz with the given key. */
-    quizElement72Delete(params) {
-        return this._client._request('/Wl/Quiz/QuizElement72.json', params, 'DELETE');
-    }
-    /** Returns quiz element data including settings, elements, and access information for the given quiz. */
-    quizElement72Get(params) {
-        return this._client._request('/Wl/Quiz/QuizElement72.json', params, 'GET');
-    }
-    /** Creates or updates a quiz with the given elements and settings. */
-    quizElement72Post(params) {
-        return this._client._request('/Wl/Quiz/QuizElement72.json', params, 'POST');
-    }
-    /** Updates the active status of the given quiz. */
-    quizElement72Put(params) {
-        return this._client._request('/Wl/Quiz/QuizElement72.json', params, 'PUT');
-    }
-}
-exports.WlQuizNamespace = WlQuizNamespace;
-class WlCollectorNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns a list of debt payment transactions for the specified business within the given date range. */
-    debtTransaction(params) {
-        return this._client._request('/Wl/Collector/DebtTransaction.json', params, 'GET');
-    }
-    /** Returns a list of client debts for the specified business within the given date range. */
-    debtList(params) {
-        return this._client._request('/Wl/Collector/DebtList.json', params, 'GET');
-    }
-    /** Registers a debt payment made outside WellnessLiving and applies a credit to the client's account balance. */
-    debtPay(params) {
-        return this._client._request('/Wl/Collector/DebtPay.json', params, 'POST');
-    }
-}
-exports.WlCollectorNamespace = WlCollectorNamespace;
+exports.WlVisitNamespace = WlVisitNamespace;
 class WlFitbuilderNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7495,6 +7366,43 @@ class WlAnnouncementNamespace {
     }
 }
 exports.WlAnnouncementNamespace = WlAnnouncementNamespace;
+class WlReviewReviewListNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes a review. */
+    reviewElementDelete(params) {
+        return this._client._request('/Wl/Review/ReviewList/ReviewElement.json', params, 'DELETE');
+    }
+    /** Retrieves information about review item. */
+    reviewElementGet(params) {
+        return this._client._request('/Wl/Review/ReviewList/ReviewElement.json', params, 'GET');
+    }
+    /** Retrieves a list of reviews. */
+    reviewList(params) {
+        return this._client._request('/Wl/Review/ReviewList/ReviewList.json', params, 'GET');
+    }
+}
+exports.WlReviewReviewListNamespace = WlReviewReviewListNamespace;
+class WlReviewNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.reviewList = new WlReviewReviewListNamespace(this._client);
+    }
+    /** Submits user's review. */
+    review(params) {
+        return this._client._request('/Wl/Review/Review.json', params, 'POST');
+    }
+    /** Updates the featured status of the given review for the business. */
+    reviewFeature(params) {
+        return this._client._request('/Wl/Review/ReviewFeature.json', params, 'POST');
+    }
+    /** Saves the reply text and optional status update for the given review. */
+    reviewReply(params) {
+        return this._client._request('/Wl/Review/ReviewReply.json', params, 'POST');
+    }
+}
+exports.WlReviewNamespace = WlReviewNamespace;
 class WlDriveNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7513,92 +7421,177 @@ class WlDriveNamespace {
     }
 }
 exports.WlDriveNamespace = WlDriveNamespace;
-class WlClassesPromotionNamespace {
+class WlTagNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns list of promotions that can be used to pay for the class / event. */
-    classPromotion(params) {
-        return this._client._request('/Wl/Classes/Promotion/ClassPromotion.json', params, 'GET');
+    /** Returns tags of the specified business. */
+    tagListGet(params) {
+        return this._client._request('/Wl/Tag/TagList.json', params, 'GET');
+    }
+    /** Saves the list of tags. Can be used to create new tags or update existing ones. */
+    tagListPost(params) {
+        return this._client._request('/Wl/Tag/TagList.json', params, 'POST');
     }
 }
-exports.WlClassesPromotionNamespace = WlClassesPromotionNamespace;
-class WlClassesClassListNamespace {
+exports.WlTagNamespace = WlTagNamespace;
+class WlCurrencyNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns list of classes and events in the business. */
-    list(params) {
-        return this._client._request('/Wl/Classes/ClassList/List.json', params, 'GET');
-    }
-    /** Gets a list of classes which take place in the specified location. */
-    bookList(params) {
-        return this._client._request('/Wl/Classes/ClassList/BookList.json', params, 'GET');
+    /** Retrieves information about currencies. */
+    currency(params) {
+        return this._client._request('/Wl/Currency/Currency.json', params, 'GET');
     }
 }
-exports.WlClassesClassListNamespace = WlClassesClassListNamespace;
-class WlClassesInfoNamespace {
+exports.WlCurrencyNamespace = WlCurrencyNamespace;
+class WlRankNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets information about class. */
+    /** Gets belts list of a business. */
+    rank(params) {
+        return this._client._request('/Wl/Rank/Rank.json', params, 'GET');
+    }
+}
+exports.WlRankNamespace = WlRankNamespace;
+class WlHolidayNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns all holiday records for all locations of the specified business. */
+    bulkBusinessHoliday(params) {
+        return this._client._request('/Wl/Holiday/BulkBusinessHoliday.json', params, 'GET');
+    }
+    /** Returns information about holiday day of business/locations. */
+    holiday(params) {
+        return this._client._request('/Wl/Holiday/Holiday.json', params, 'GET');
+    }
+}
+exports.WlHolidayNamespace = WlHolidayNamespace;
+class WlNotificationSendNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns configuration information about the specified notification for the given business. */
+    notificationInfo(params) {
+        return this._client._request('/Wl/Notification/Send/NotificationInfo.json', params, 'GET');
+    }
+    /** Schedules or immediately sends a notification to clients of the specified business or location. */
+    notificationSend(params) {
+        return this._client._request('/Wl/Notification/Send/NotificationSend.json', params, 'POST');
+    }
+}
+exports.WlNotificationSendNamespace = WlNotificationSendNamespace;
+class WlNotificationOtpNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Sends an OTP code to the specified phone number for verification. */
+    phoneOtpGet(params) {
+        return this._client._request('/Wl/Notification/Otp/PhoneOtp.json', params, 'GET');
+    }
+    /** Verifies the OTP code submitted by the user for the specified phone number. */
+    phoneOtpPost(params) {
+        return this._client._request('/Wl/Notification/Otp/PhoneOtp.json', params, 'POST');
+    }
+}
+exports.WlNotificationOtpNamespace = WlNotificationOtpNamespace;
+class WlNotificationNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.send = new WlNotificationSendNamespace(this._client);
+        this.otp = new WlNotificationOtpNamespace(this._client);
+    }
+}
+exports.WlNotificationNamespace = WlNotificationNamespace;
+class WlPassportLoginEnterNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Sends an OTP code to the user's email or phone number to initiate authorization. */
+    passportOtpGet(params) {
+        return this._client._request('/Wl/Passport/Login/Enter/PassportOtp.json', params, 'GET');
+    }
+    /** Verifies the submitted OTP code and establishes an authorized session for the user. */
+    passportOtpPost(params) {
+        return this._client._request('/Wl/Passport/Login/Enter/PassportOtp.json', params, 'POST');
+    }
+}
+exports.WlPassportLoginEnterNamespace = WlPassportLoginEnterNamespace;
+class WlPassportLoginRegisterNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets the public key material for OTP registration JWT verification. */
+    registerOtpJwtPublicKey(params) {
+        return this._client._request('/Wl/Passport/Login/Register/RegisterOtpJwtPublicKey.json', params, 'GET');
+    }
+    /** Sends an OTP code to the user's email or phone number to initiate authorization. */
+    registerOtpGet(params) {
+        return this._client._request('/Wl/Passport/Login/Register/RegisterOtp.json', params, 'GET');
+    }
+    /** Verifies the submitted OTP code and establishes an authorized session for the user. */
+    registerOtpPost(params) {
+        return this._client._request('/Wl/Passport/Login/Register/RegisterOtp.json', params, 'POST');
+    }
+}
+exports.WlPassportLoginRegisterNamespace = WlPassportLoginRegisterNamespace;
+class WlPassportLoginNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.enter = new WlPassportLoginEnterNamespace(this._client);
+        this.register = new WlPassportLoginRegisterNamespace(this._client);
+    }
+    /** Returns the current user's login information and password reset URL for the specified business. */
     info(params) {
-        return this._client._request('/Wl/Classes/Info/Info.json', params, 'GET');
+        return this._client._request('/Wl/Passport/Login/Info.json', params, 'GET');
     }
 }
-exports.WlClassesInfoNamespace = WlClassesInfoNamespace;
-class WlClassesClassViewNamespace {
+exports.WlPassportLoginNamespace = WlPassportLoginNamespace;
+class WlPassportNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.login = new WlPassportLoginNamespace(this._client);
+    }
+}
+exports.WlPassportNamespace = WlPassportNamespace;
+class WlDiscountCodeEditNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns class information including schedules, images, and booking settings for the specified business. */
-    element(params) {
-        return this._client._request('/Wl/Classes/ClassView/Element.json', params, 'GET');
+    /** Gets information about discount. */
+    discountCodeEditGet(params) {
+        return this._client._request('/Wl/Discount/Code/Edit/DiscountCodeEdit.json', params, 'GET');
+    }
+    /** Saves information about discount code or create new. */
+    discountCodeEditPost(params) {
+        return this._client._request('/Wl/Discount/Code/Edit/DiscountCodeEdit.json', params, 'POST');
+    }
+    /** Duplicates an existing discount code. */
+    discountCodeEditPut(params) {
+        return this._client._request('/Wl/Discount/Code/Edit/DiscountCodeEdit.json', params, 'PUT');
     }
 }
-exports.WlClassesClassViewNamespace = WlClassesClassViewNamespace;
-class WlClassesPeriodModifyNamespace {
+exports.WlDiscountCodeEditNamespace = WlDiscountCodeEditNamespace;
+class WlDiscountCodeNamespace {
     constructor(_client) {
         this._client = _client;
+        this.edit = new WlDiscountCodeEditNamespace(this._client);
     }
-    /** Gets data for step in wizard. */
-    modifyGet(params) {
-        return this._client._request('/Wl/Classes/Period/Modify/Modify.json', params, 'GET');
-    }
-    /** Makes step in wizard. */
-    modifyPost(params) {
-        return this._client._request('/Wl/Classes/Period/Modify/Modify.json', params, 'POST');
+    /** Returns discount codes of the specified business. */
+    discountCode(params) {
+        return this._client._request('/Wl/Discount/Code/DiscountCode.json', params, 'GET');
     }
 }
-exports.WlClassesPeriodModifyNamespace = WlClassesPeriodModifyNamespace;
-class WlClassesPeriodNamespace {
+exports.WlDiscountCodeNamespace = WlDiscountCodeNamespace;
+class WlDiscountNamespace {
     constructor(_client) {
         this._client = _client;
-        this.modify = new WlClassesPeriodModifyNamespace(this._client);
+        this.code = new WlDiscountCodeNamespace(this._client);
     }
 }
-exports.WlClassesPeriodNamespace = WlClassesPeriodNamespace;
-class WlClassesNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.promotion = new WlClassesPromotionNamespace(this._client);
-        this.classList = new WlClassesClassListNamespace(this._client);
-        this.info = new WlClassesInfoNamespace(this._client);
-        this.classView = new WlClassesClassViewNamespace(this._client);
-        this.period = new WlClassesPeriodNamespace(this._client);
-    }
-}
-exports.WlClassesNamespace = WlClassesNamespace;
-class WlIntegrationCurvesNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns country, region, state, city and location lists of the franchisor. This method returns all the information from the parent `get()` and the Curves territory ID. */
-    curvesFranchiseLocation(params) {
-        return this._client._request('/Wl/Integration/Curves/CurvesFranchiseLocation.json', params, 'GET');
-    }
-}
-exports.WlIntegrationCurvesNamespace = WlIntegrationCurvesNamespace;
+exports.WlDiscountNamespace = WlDiscountNamespace;
 class WlIntegrationSamlNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7623,6 +7616,16 @@ class WlIntegrationAutymateNamespace {
     }
 }
 exports.WlIntegrationAutymateNamespace = WlIntegrationAutymateNamespace;
+class WlIntegrationCurvesNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns country, region, state, city and location lists of the franchisor. This method returns all the information from the parent `get()` and the Curves territory ID. */
+    curvesFranchiseLocation(params) {
+        return this._client._request('/Wl/Integration/Curves/CurvesFranchiseLocation.json', params, 'GET');
+    }
+}
+exports.WlIntegrationCurvesNamespace = WlIntegrationCurvesNamespace;
 class WlIntegrationDragonFlyNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7636,317 +7639,13 @@ exports.WlIntegrationDragonFlyNamespace = WlIntegrationDragonFlyNamespace;
 class WlIntegrationNamespace {
     constructor(_client) {
         this._client = _client;
-        this.curves = new WlIntegrationCurvesNamespace(this._client);
         this.saml = new WlIntegrationSamlNamespace(this._client);
         this.autymate = new WlIntegrationAutymateNamespace(this._client);
+        this.curves = new WlIntegrationCurvesNamespace(this._client);
         this.dragonFly = new WlIntegrationDragonFlyNamespace(this._client);
     }
 }
 exports.WlIntegrationNamespace = WlIntegrationNamespace;
-class WlServiceServiceListNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns list of appointment type in the business. */
-    list(params) {
-        return this._client._request('/Wl/Service/ServiceList/List.json', params, 'GET');
-    }
-    /** Returns list of appointment type in the business. */
-    list75(params) {
-        return this._client._request('/Wl/Service/ServiceList/List75.json', params, 'GET');
-    }
-}
-exports.WlServiceServiceListNamespace = WlServiceServiceListNamespace;
-class WlServiceNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.serviceList = new WlServiceServiceListNamespace(this._client);
-    }
-}
-exports.WlServiceNamespace = WlServiceNamespace;
-class WlAppointmentEditNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Return data about appointment's add-ons. */
-    addonUpdateGet(params) {
-        return this._client._request('/Wl/Appointment/Edit/AddonUpdate.json', params, 'GET');
-    }
-    /** Replaces the add-ons for the appointment with the provided list, optionally updating the appointment duration. */
-    addonUpdatePut(params) {
-        return this._client._request('/Wl/Appointment/Edit/AddonUpdate.json', params, 'PUT');
-    }
-}
-exports.WlAppointmentEditNamespace = WlAppointmentEditNamespace;
-class WlAppointmentInfoNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets information about appointment. */
-    info(params) {
-        return this._client._request('/Wl/Appointment/Info/Info.json', params, 'GET');
-    }
-}
-exports.WlAppointmentInfoNamespace = WlAppointmentInfoNamespace;
-class WlAppointmentRecentNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets list of client's last booked services. */
-    recentService(params) {
-        return this._client._request('/Wl/Appointment/Recent/RecentService.json', params, 'GET');
-    }
-}
-exports.WlAppointmentRecentNamespace = WlAppointmentRecentNamespace;
-class WlAppointmentBookPaymentNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Calculates pricing information for an appointment booking, including taxes, discounts, surcharges, and totals. */
-    /** @deprecated */
-    paymentGet(params) {
-        return this._client._request('/Wl/Appointment/Book/Payment/Payment.json', params, 'GET');
-    }
-    /** Allows to pay an appointment or appointment purchase option for the client. */
-    /** @deprecated */
-    paymentPost(params) {
-        return this._client._request('/Wl/Appointment/Book/Payment/Payment.json', params, 'POST');
-    }
-    /** Calculates pricing information for an appointment booking, including taxes, discounts, surcharges, and totals. */
-    paymentPostGet(params) {
-        return this._client._request('/Wl/Appointment/Book/Payment/PaymentPost.json', params, 'GET');
-    }
-    /** Allows to pay an appointment or appointment purchase option for the client. */
-    paymentPostPost(params) {
-        return this._client._request('/Wl/Appointment/Book/Payment/PaymentPost.json', params, 'POST');
-    }
-    /** Calculates pricing information for a batch of appointment bookings, including taxes, discounts, surcharges, and per-provider totals. */
-    paymentMultipleGet(params) {
-        return this._client._request('/Wl/Appointment/Book/Payment/PaymentMultiple.json', params, 'GET');
-    }
-    /** Allows to pay an appointment or appointment purchase option for the client. */
-    paymentMultiplePost(params) {
-        return this._client._request('/Wl/Appointment/Book/Payment/PaymentMultiple.json', params, 'POST');
-    }
-}
-exports.WlAppointmentBookPaymentNamespace = WlAppointmentBookPaymentNamespace;
-class WlAppointmentBookStaffNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves an information about staff members for the current service. */
-    /** @deprecated */
-    list(params) {
-        return this._client._request('/Wl/Appointment/Book/Staff/List.json', params, 'GET');
-    }
-    /** Retrieves an information about staff members for the current service. */
-    staffList(params) {
-        return this._client._request('/Wl/Appointment/Book/Staff/StaffList.json', params, 'GET');
-    }
-}
-exports.WlAppointmentBookStaffNamespace = WlAppointmentBookStaffNamespace;
-class WlAppointmentBookServiceNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves information about services in the current service category. */
-    /** @deprecated */
-    serviceList(params) {
-        return this._client._request('/Wl/Appointment/Book/Service/ServiceList.json', params, 'GET');
-    }
-    /** Retrieves a list of information about service categories on the appointment booking page. */
-    category(params) {
-        return this._client._request('/Wl/Appointment/Book/Service/Category.json', params, 'GET');
-    }
-    /** Retrieves information about services in the current service category. */
-    serviceList52(params) {
-        return this._client._request('/Wl/Appointment/Book/Service/ServiceList52.json', params, 'GET');
-    }
-    /** Checks whether a service can be booked by the given client at the given date, throwing an exception if booking is restricted. */
-    serviceCheck(params) {
-        return this._client._request('/Wl/Appointment/Book/Service/ServiceCheck.json', params, 'GET');
-    }
-}
-exports.WlAppointmentBookServiceNamespace = WlAppointmentBookServiceNamespace;
-class WlAppointmentBookFinishNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Loads data to prepare client side to complete booking. */
-    /** @deprecated */
-    finishGet(params) {
-        return this._client._request('/Wl/Appointment/Book/Finish/Finish.json', params, 'GET');
-    }
-    /** Completes the appointment booking and processes payment for the client. */
-    /** @deprecated */
-    finishPost(params) {
-        return this._client._request('/Wl/Appointment/Book/Finish/Finish.json', params, 'POST');
-    }
-    /** Loads data to prepare client side to complete booking. */
-    finish47Get(params) {
-        return this._client._request('/Wl/Appointment/Book/Finish/Finish47.json', params, 'GET');
-    }
-    /** Completes the appointment booking and logs variable counts for diagnostic purposes. */
-    finish47Post(params) {
-        return this._client._request('/Wl/Appointment/Book/Finish/Finish47.json', params, 'POST');
-    }
-    /** Completes the appointment booking for one or more providers, optionally creating a new client. */
-    finishMultiple(params) {
-        return this._client._request('/Wl/Appointment/Book/Finish/FinishMultiple.json', params, 'POST');
-    }
-}
-exports.WlAppointmentBookFinishNamespace = WlAppointmentBookFinishNamespace;
-class WlAppointmentBookAssetServiceNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves assets required for a service booking at the given date and time, including availability and busy status. */
-    service(params) {
-        return this._client._request('/Wl/Appointment/Book/Asset/Service/Service.json', params, 'GET');
-    }
-}
-exports.WlAppointmentBookAssetServiceNamespace = WlAppointmentBookAssetServiceNamespace;
-class WlAppointmentBookAssetNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.service = new WlAppointmentBookAssetServiceNamespace(this._client);
-    }
-    /** Retrieves a list of information about asset categories for the appointment booking page. */
-    category(params) {
-        return this._client._request('/Wl/Appointment/Book/Asset/Category.json', params, 'GET');
-    }
-    /** Retrieves information about assets in the current asset category. */
-    assetList(params) {
-        return this._client._request('/Wl/Appointment/Book/Asset/AssetList.json', params, 'GET');
-    }
-}
-exports.WlAppointmentBookAssetNamespace = WlAppointmentBookAssetNamespace;
-class WlAppointmentBookQuestionNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves questions for the current service. */
-    question(params) {
-        return this._client._request('/Wl/Appointment/Book/Question/Question.json', params, 'GET');
-    }
-}
-exports.WlAppointmentBookQuestionNamespace = WlAppointmentBookQuestionNamespace;
-class WlAppointmentBookProductNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves list of available service add-ons. */
-    product(params) {
-        return this._client._request('/Wl/Appointment/Book/Product/Product.json', params, 'GET');
-    }
-    /** Retrieves list of available service add-ons. */
-    product62(params) {
-        return this._client._request('/Wl/Appointment/Book/Product/Product62.json', params, 'GET');
-    }
-}
-exports.WlAppointmentBookProductNamespace = WlAppointmentBookProductNamespace;
-class WlAppointmentBookPurchaseNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves a list of information about available purchase options. */
-    /** @deprecated */
-    purchase(params) {
-        return this._client._request('/Wl/Appointment/Book/Purchase/Purchase.json', params, 'GET');
-    }
-    /** Retrieves a list of information about available purchase options. */
-    purchase72(params) {
-        return this._client._request('/Wl/Appointment/Book/Purchase/Purchase72.json', params, 'GET');
-    }
-}
-exports.WlAppointmentBookPurchaseNamespace = WlAppointmentBookPurchaseNamespace;
-class WlAppointmentBookScheduleNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Retrieves a list of available appointment booking schedule. */
-    /** @deprecated */
-    dayTime(params) {
-        return this._client._request('/Wl/Appointment/Book/Schedule/DayTime.json', params, 'GET');
-    }
-    /** Retrieves a list with all calendar days in specified period with available and unavailable appointment booking schedule. */
-    /** @deprecated */
-    calendar(params) {
-        return this._client._request('/Wl/Appointment/Book/Schedule/Calendar.json', params, 'GET');
-    }
-    /** Finds and returns the next available date for appointment booking starting from the given date. */
-    nextAvailableDay(params) {
-        return this._client._request('/Wl/Appointment/Book/Schedule/NextAvailableDay.json', params, 'GET');
-    }
-    /** Retrieves a list of available appointment booking schedule. */
-    serviceAvailability(params) {
-        return this._client._request('/Wl/Appointment/Book/Schedule/ServiceAvailability.json', params, 'GET');
-    }
-}
-exports.WlAppointmentBookScheduleNamespace = WlAppointmentBookScheduleNamespace;
-class WlAppointmentBookQuizNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets a list of required quizzes. */
-    quiz(params) {
-        return this._client._request('/Wl/Appointment/Book/Quiz/Quiz.json', params, 'GET');
-    }
-}
-exports.WlAppointmentBookQuizNamespace = WlAppointmentBookQuizNamespace;
-class WlAppointmentBookNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.payment = new WlAppointmentBookPaymentNamespace(this._client);
-        this.staff = new WlAppointmentBookStaffNamespace(this._client);
-        this.service = new WlAppointmentBookServiceNamespace(this._client);
-        this.finish = new WlAppointmentBookFinishNamespace(this._client);
-        this.asset = new WlAppointmentBookAssetNamespace(this._client);
-        this.question = new WlAppointmentBookQuestionNamespace(this._client);
-        this.product = new WlAppointmentBookProductNamespace(this._client);
-        this.purchase = new WlAppointmentBookPurchaseNamespace(this._client);
-        this.schedule = new WlAppointmentBookScheduleNamespace(this._client);
-        this.quiz = new WlAppointmentBookQuizNamespace(this._client);
-    }
-}
-exports.WlAppointmentBookNamespace = WlAppointmentBookNamespace;
-class WlAppointmentNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.edit = new WlAppointmentEditNamespace(this._client);
-        this.info = new WlAppointmentInfoNamespace(this._client);
-        this.recent = new WlAppointmentRecentNamespace(this._client);
-        this.book = new WlAppointmentBookNamespace(this._client);
-    }
-}
-exports.WlAppointmentNamespace = WlAppointmentNamespace;
-class WlSmsPhoneNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets the phone number associated with a specific business. */
-    businessPhone(params) {
-        return this._client._request('/Wl/Sms/Phone/BusinessPhone.json', params, 'GET');
-    }
-}
-exports.WlSmsPhoneNamespace = WlSmsPhoneNamespace;
-class WlSmsNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.phone = new WlSmsPhoneNamespace(this._client);
-    }
-}
-exports.WlSmsNamespace = WlSmsNamespace;
-class WlPurchaseMailNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Sends mail message with list of purchased items for specified purchase. */
-    purchaseMail(params) {
-        return this._client._request('/Wl/Purchase/Mail/PurchaseMail.json', params, 'POST');
-    }
-}
-exports.WlPurchaseMailNamespace = WlPurchaseMailNamespace;
 class WlPurchaseReceiptNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7957,6 +7656,16 @@ class WlPurchaseReceiptNamespace {
     }
 }
 exports.WlPurchaseReceiptNamespace = WlPurchaseReceiptNamespace;
+class WlPurchaseMailNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Sends mail message with list of purchased items for specified purchase. */
+    purchaseMail(params) {
+        return this._client._request('/Wl/Purchase/Mail/PurchaseMail.json', params, 'POST');
+    }
+}
+exports.WlPurchaseMailNamespace = WlPurchaseMailNamespace;
 class WlPurchaseShareNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7970,12 +7679,227 @@ exports.WlPurchaseShareNamespace = WlPurchaseShareNamespace;
 class WlPurchaseNamespace {
     constructor(_client) {
         this._client = _client;
-        this.mail = new WlPurchaseMailNamespace(this._client);
         this.receipt = new WlPurchaseReceiptNamespace(this._client);
+        this.mail = new WlPurchaseMailNamespace(this._client);
         this.share = new WlPurchaseShareNamespace(this._client);
     }
 }
 exports.WlPurchaseNamespace = WlPurchaseNamespace;
+class WlBookProcessPurchaseNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Builds a single-item purchase list from the scalar input fields and delegates to the parent for price calculation. */
+    purchaseElement(params) {
+        return this._client._request('/Wl/Book/Process/Purchase/PurchaseElement.json', params, 'GET');
+    }
+    /** Returns the pricing breakdown (totals, taxes, and discounts) for the given list of purchase items. */
+    purchaseElementGroup(params) {
+        return this._client._request('/Wl/Book/Process/Purchase/PurchaseElementGroup.json', params, 'GET');
+    }
+    /** Returns the pricing breakdown for a list of purchase items, applying applicable discounts and taxes. */
+    purchaseElementList(params) {
+        return this._client._request('/Wl/Book/Process/Purchase/PurchaseElementList.json', params, 'GET');
+    }
+    /** Returns available purchase options, existing client promotions, session passes, and prizes for the specified session. */
+    /** @deprecated */
+    purchase(params) {
+        return this._client._request('/Wl/Book/Process/Purchase/Purchase.json', params, 'GET');
+    }
+    /** Returns available purchase options for the specified session, decoding JSON-encoded group promotion and session inputs. */
+    purchase56(params) {
+        return this._client._request('/Wl/Book/Process/Purchase/Purchase56.json', params, 'GET');
+    }
+}
+exports.WlBookProcessPurchaseNamespace = WlBookProcessPurchaseNamespace;
+class WlBookProcessInfoNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns class session details and booking information for the "Class and Location" step of the booking wizard. */
+    /** @deprecated */
+    infoGet(params) {
+        return this._client._request('/Wl/Book/Process/Info/Info.json', params, 'GET');
+    }
+    /** Processes the "Class and Location" step of the booking wizard, optionally recording the waiver agreement and booking the session. */
+    /** @deprecated */
+    infoPost(params) {
+        return this._client._request('/Wl/Book/Process/Info/Info.json', params, 'POST');
+    }
+    /** Returns class and location booking information, enriched with localized date and time for each session. */
+    info54Get(params) {
+        return this._client._request('/Wl/Book/Process/Info/Info54.json', params, 'GET');
+    }
+    /** Processes the "Class and Location" step of the booking wizard, optionally recording the waiver agreement and booking the session. */
+    info54Post(params) {
+        return this._client._request('/Wl/Book/Process/Info/Info54.json', params, 'POST');
+    }
+    /** Checks whether the user can complete booking wizard without additional steps. */
+    /** @deprecated */
+    infoCanCompleteGet(params) {
+        return this._client._request('/Wl/Book/Process/Info/InfoCanComplete.json', params, 'GET');
+    }
+    /** Checks whether the user can complete booking wizard without additional steps. */
+    infoCanCompletePost(params) {
+        return this._client._request('/Wl/Book/Process/Info/InfoCanComplete.json', params, 'POST');
+    }
+}
+exports.WlBookProcessInfoNamespace = WlBookProcessInfoNamespace;
+class WlBookProcessPaymentNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Processes purchases and books sessions on the "Pay/Billing info" step of the booking wizard. */
+    payment(params) {
+        return this._client._request('/Wl/Book/Process/Payment/Payment.json', params, 'POST');
+    }
+}
+exports.WlBookProcessPaymentNamespace = WlBookProcessPaymentNamespace;
+class WlBookProcessStoreNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Processes the "Purchase Options" step of the booking wizard, validates selections, and books the session when possible. */
+    store(params) {
+        return this._client._request('/Wl/Book/Process/Store/Store.json', params, 'POST');
+    }
+    /** Validates and distributes selected purchase options across all clients in the booking group. */
+    storeGroup(params) {
+        return this._client._request('/Wl/Book/Process/Store/StoreGroup.json', params, 'POST');
+    }
+}
+exports.WlBookProcessStoreNamespace = WlBookProcessStoreNamespace;
+class WlBookProcessFrequencyNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the list of visits to be created for the given recurring booking settings. */
+    repeat(params) {
+        return this._client._request('/Wl/Book/Process/Frequency/Repeat.json', params, 'GET');
+    }
+    /** Returns the list of visits to be created for the given recurring booking settings. */
+    repeatParallel(params) {
+        return this._client._request('/Wl/Book/Process/Frequency/RepeatParallel.json', params, 'GET');
+    }
+}
+exports.WlBookProcessFrequencyNamespace = WlBookProcessFrequencyNamespace;
+class WlBookProcessQuizNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Defines list of required quizzes. */
+    quizGet(params) {
+        return this._client._request('/Wl/Book/Process/Quiz/Quiz.json', params, 'GET');
+    }
+    /** Finished booking process and save quiz responses (if quiz step is the last in booking wizard). */
+    quizPost(params) {
+        return this._client._request('/Wl/Book/Process/Quiz/Quiz.json', params, 'POST');
+    }
+}
+exports.WlBookProcessQuizNamespace = WlBookProcessQuizNamespace;
+class WlBookProcessRelationNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks if user can book specified session. */
+    relationGet(params) {
+        return this._client._request('/Wl/Book/Process/Relation/Relation.json', params, 'GET');
+    }
+    /** Added new relative. */
+    relationPost(params) {
+        return this._client._request('/Wl/Book/Process/Relation/Relation.json', params, 'POST');
+    }
+}
+exports.WlBookProcessRelationNamespace = WlBookProcessRelationNamespace;
+class WlBookProcessResourceNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns available assets for the booking, decoding the JSON-encoded session input before delegating to the parent. */
+    resource54Get(params) {
+        return this._client._request('/Wl/Book/Process/Resource/Resource54.json', params, 'GET');
+    }
+    /** Processes the asset selection step of the booking wizard, decoding the JSON-encoded session input before delegating to the parent. */
+    resource54Post(params) {
+        return this._client._request('/Wl/Book/Process/Resource/Resource54.json', params, 'POST');
+    }
+    /** Returns the list of available assets for the booking session, grouped by asset category. */
+    /** @deprecated */
+    resourceGet(params) {
+        return this._client._request('/Wl/Book/Process/Resource/Resource.json', params, 'GET');
+    }
+    /** Saves the asset selection for the booking and attempts to book the session if no further steps are required. */
+    /** @deprecated */
+    resourcePost(params) {
+        return this._client._request('/Wl/Book/Process/Resource/Resource.json', params, 'POST');
+    }
+}
+exports.WlBookProcessResourceNamespace = WlBookProcessResourceNamespace;
+class WlBookProcessGuestNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Check if user exists. */
+    guestProfileGet(params) {
+        return this._client._request('/Wl/Book/Process/Guest/GuestProfile.json', params, 'GET');
+    }
+    /** Creates new user. */
+    guestProfilePost(params) {
+        return this._client._request('/Wl/Book/Process/Guest/GuestProfile.json', params, 'POST');
+    }
+}
+exports.WlBookProcessGuestNamespace = WlBookProcessGuestNamespace;
+class WlBookProcessNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.purchase = new WlBookProcessPurchaseNamespace(this._client);
+        this.info = new WlBookProcessInfoNamespace(this._client);
+        this.payment = new WlBookProcessPaymentNamespace(this._client);
+        this.store = new WlBookProcessStoreNamespace(this._client);
+        this.frequency = new WlBookProcessFrequencyNamespace(this._client);
+        this.quiz = new WlBookProcessQuizNamespace(this._client);
+        this.relation = new WlBookProcessRelationNamespace(this._client);
+        this.resource = new WlBookProcessResourceNamespace(this._client);
+        this.guest = new WlBookProcessGuestNamespace(this._client);
+    }
+    /** Processes the group booking: validates input, collects payment, books sessions, and sends confirmation emails. */
+    processGroup(params) {
+        return this._client._request('/Wl/Book/Process/ProcessGroup.json', params, 'POST');
+    }
+    /** Returns the ordered list of booking wizard steps for the given session and client. */
+    /** @deprecated */
+    process(params) {
+        return this._client._request('/Wl/Book/Process/Process.json', params, 'GET');
+    }
+    /** Returns the ordered list of booking wizard steps, including the quiz step when required. */
+    /** @deprecated */
+    process54(params) {
+        return this._client._request('/Wl/Book/Process/Process54.json', params, 'GET');
+    }
+    /** Returns the booking wizard steps, adjusting the path when the service is already booked for a family member. */
+    process59(params) {
+        return this._client._request('/Wl/Book/Process/Process59.json', params, 'GET');
+    }
+}
+exports.WlBookProcessNamespace = WlBookProcessNamespace;
+class WlBookCancelNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns information about whether the given user can cancel the booking and the expected consequences. */
+    cancelCan(params) {
+        return this._client._request('/Wl/Book/Cancel/CancelCan.json', params, 'GET');
+    }
+}
+exports.WlBookCancelNamespace = WlBookCancelNamespace;
+class WlBookNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.process = new WlBookProcessNamespace(this._client);
+        this.cancel = new WlBookCancelNamespace(this._client);
+    }
+}
+exports.WlBookNamespace = WlBookNamespace;
 class WlCatalogCartNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8004,6 +7928,10 @@ class WlCatalogCatalogListNamespace {
     constructor(_client) {
         this._client = _client;
     }
+    /** Retrieves an information about current sale item. */
+    element(params) {
+        return this._client._request('/Wl/Catalog/CatalogList/Element.json', params, 'GET');
+    }
     /** Retrieves a list of all sale items. */
     list(params) {
         return this._client._request('/Wl/Catalog/CatalogList/List.json', params, 'GET');
@@ -8011,10 +7939,6 @@ class WlCatalogCatalogListNamespace {
     /** Gets store products by shop category. */
     catalogProduct(params) {
         return this._client._request('/Wl/Catalog/CatalogList/CatalogProduct.json', params, 'GET');
-    }
-    /** Retrieves an information about current sale item. */
-    element(params) {
-        return this._client._request('/Wl/Catalog/CatalogList/Element.json', params, 'GET');
     }
 }
 exports.WlCatalogCatalogListNamespace = WlCatalogCatalogListNamespace;
@@ -8078,52 +8002,498 @@ class WlCatalogNamespace {
     }
 }
 exports.WlCatalogNamespace = WlCatalogNamespace;
-class WlNotificationSendNamespace {
+class WlTuitionEnrollmentNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Schedules or immediately sends a notification to clients of the specified business or location. */
-    notificationSend(params) {
-        return this._client._request('/Wl/Notification/Send/NotificationSend.json', params, 'POST');
+    /** Returns list of enrollments for the tuition. */
+    tuitionEnrollmentList(params) {
+        return this._client._request('/Wl/Tuition/Enrollment/TuitionEnrollmentList.json', params, 'GET');
     }
-    /** Returns configuration information about the specified notification for the given business. */
-    notificationInfo(params) {
-        return this._client._request('/Wl/Notification/Send/NotificationInfo.json', params, 'GET');
+    /** Allows canceling certain event enrollments within tuition. */
+    tuitionEnrollmentCancel(params) {
+        return this._client._request('/Wl/Tuition/Enrollment/TuitionEnrollmentCancel.json', params, 'PUT');
+    }
+    /** Returns summary of clients and events enrolled for the given tuitions. */
+    tuitionClientsSummary(params) {
+        return this._client._request('/Wl/Tuition/Enrollment/TuitionClientsSummary.json', params, 'GET');
     }
 }
-exports.WlNotificationSendNamespace = WlNotificationSendNamespace;
-class WlNotificationOtpNamespace {
+exports.WlTuitionEnrollmentNamespace = WlTuitionEnrollmentNamespace;
+class WlTuitionNamespace {
     constructor(_client) {
         this._client = _client;
-    }
-    /** Sends an OTP code to the specified phone number for verification. */
-    phoneOtpGet(params) {
-        return this._client._request('/Wl/Notification/Otp/PhoneOtp.json', params, 'GET');
-    }
-    /** Verifies the OTP code submitted by the user for the specified phone number. */
-    phoneOtpPost(params) {
-        return this._client._request('/Wl/Notification/Otp/PhoneOtp.json', params, 'POST');
+        this.enrollment = new WlTuitionEnrollmentNamespace(this._client);
     }
 }
-exports.WlNotificationOtpNamespace = WlNotificationOtpNamespace;
-class WlNotificationNamespace {
+exports.WlTuitionNamespace = WlTuitionNamespace;
+class WlFamilyRelationNamespace {
     constructor(_client) {
         this._client = _client;
-        this.send = new WlNotificationSendNamespace(this._client);
-        this.otp = new WlNotificationOtpNamespace(this._client);
+    }
+    /** Deletes family relation between 2 users. */
+    relation72Delete(params) {
+        return this._client._request('/Wl/Family/Relation/Relation72.json', params, 'DELETE');
+    }
+    /** Gets relative list. */
+    relation72Get(params) {
+        return this._client._request('/Wl/Family/Relation/Relation72.json', params, 'GET');
+    }
+    /** Adds to user {@link WlFamilyRelationNamespace#relationGet} relative {@link WlFamilyRelationNamespace#relationGet}. */
+    relation72Post(params) {
+        return this._client._request('/Wl/Family/Relation/Relation72.json', params, 'POST');
+    }
+    /** Deletes family relation between 2 users. */
+    relationDelete(params) {
+        return this._client._request('/Wl/Family/Relation/Relation.json', params, 'DELETE');
+    }
+    /** Gets relative list. */
+    relationGet(params) {
+        return this._client._request('/Wl/Family/Relation/Relation.json', params, 'GET');
+    }
+    /** Adds to user {@link WlFamilyRelationNamespace#relationGet} relative {@link WlFamilyRelationNamespace#relationGet}. */
+    relationPost(params) {
+        return this._client._request('/Wl/Family/Relation/Relation.json', params, 'POST');
+    }
+    /** Gets relationships list. */
+    familyRelation(params) {
+        return this._client._request('/Wl/Family/Relation/FamilyRelation.json', params, 'GET');
     }
 }
-exports.WlNotificationNamespace = WlNotificationNamespace;
-class WlMemberInfoNamespace {
+exports.WlFamilyRelationNamespace = WlFamilyRelationNamespace;
+class WlFamilyNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.relation = new WlFamilyRelationNamespace(this._client);
+    }
+}
+exports.WlFamilyNamespace = WlFamilyNamespace;
+class WlAppointmentEditNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns information about specified member. */
+    /** Return data about appointment's add-ons. */
+    addonUpdateGet(params) {
+        return this._client._request('/Wl/Appointment/Edit/AddonUpdate.json', params, 'GET');
+    }
+    /** Replaces the add-ons for the appointment with the provided list, optionally updating the appointment duration. */
+    addonUpdatePut(params) {
+        return this._client._request('/Wl/Appointment/Edit/AddonUpdate.json', params, 'PUT');
+    }
+}
+exports.WlAppointmentEditNamespace = WlAppointmentEditNamespace;
+class WlAppointmentInfoNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets information about appointment. */
     info(params) {
-        return this._client._request('/Wl/Member/Info/Info.json', params, 'GET');
+        return this._client._request('/Wl/Appointment/Info/Info.json', params, 'GET');
     }
 }
-exports.WlMemberInfoNamespace = WlMemberInfoNamespace;
+exports.WlAppointmentInfoNamespace = WlAppointmentInfoNamespace;
+class WlAppointmentRecentNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets list of client's last booked services. */
+    recentService(params) {
+        return this._client._request('/Wl/Appointment/Recent/RecentService.json', params, 'GET');
+    }
+}
+exports.WlAppointmentRecentNamespace = WlAppointmentRecentNamespace;
+class WlAppointmentBookStaffNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves an information about staff members for the current service. */
+    /** @deprecated */
+    list(params) {
+        return this._client._request('/Wl/Appointment/Book/Staff/List.json', params, 'GET');
+    }
+    /** Retrieves an information about staff members for the current service. */
+    staffList(params) {
+        return this._client._request('/Wl/Appointment/Book/Staff/StaffList.json', params, 'GET');
+    }
+}
+exports.WlAppointmentBookStaffNamespace = WlAppointmentBookStaffNamespace;
+class WlAppointmentBookFinishNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Loads data to prepare client side to complete booking. */
+    finish47Get(params) {
+        return this._client._request('/Wl/Appointment/Book/Finish/Finish47.json', params, 'GET');
+    }
+    /** Completes the appointment booking and logs variable counts for diagnostic purposes. */
+    finish47Post(params) {
+        return this._client._request('/Wl/Appointment/Book/Finish/Finish47.json', params, 'POST');
+    }
+    /** Loads data to prepare client side to complete booking. */
+    /** @deprecated */
+    finishGet(params) {
+        return this._client._request('/Wl/Appointment/Book/Finish/Finish.json', params, 'GET');
+    }
+    /** Completes the appointment booking and processes payment for the client. */
+    /** @deprecated */
+    finishPost(params) {
+        return this._client._request('/Wl/Appointment/Book/Finish/Finish.json', params, 'POST');
+    }
+    /** Completes the appointment booking for one or more providers, optionally creating a new client. */
+    finishMultiple(params) {
+        return this._client._request('/Wl/Appointment/Book/Finish/FinishMultiple.json', params, 'POST');
+    }
+}
+exports.WlAppointmentBookFinishNamespace = WlAppointmentBookFinishNamespace;
+class WlAppointmentBookScheduleNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves a list of available appointment booking schedule. */
+    /** @deprecated */
+    dayTime(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/DayTime.json', params, 'GET');
+    }
+    /** Retrieves a list of available appointment booking schedule. */
+    serviceAvailability(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/ServiceAvailability.json', params, 'GET');
+    }
+    /** Retrieves a list with all calendar days in specified period with available and unavailable appointment booking schedule. */
+    /** @deprecated */
+    calendar(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/Calendar.json', params, 'GET');
+    }
+    /** Finds and returns the next available date for appointment booking starting from the given date. */
+    nextAvailableDay(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/NextAvailableDay.json', params, 'GET');
+    }
+}
+exports.WlAppointmentBookScheduleNamespace = WlAppointmentBookScheduleNamespace;
+class WlAppointmentBookPaymentNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Calculates pricing information for an appointment booking, including taxes, discounts, surcharges, and totals. */
+    /** @deprecated */
+    paymentGet(params) {
+        return this._client._request('/Wl/Appointment/Book/Payment/Payment.json', params, 'GET');
+    }
+    /** Allows to pay an appointment or appointment purchase option for the client. */
+    /** @deprecated */
+    paymentPost(params) {
+        return this._client._request('/Wl/Appointment/Book/Payment/Payment.json', params, 'POST');
+    }
+    /** Calculates pricing information for a batch of appointment bookings, including taxes, discounts, surcharges, and per-provider totals. */
+    paymentMultipleGet(params) {
+        return this._client._request('/Wl/Appointment/Book/Payment/PaymentMultiple.json', params, 'GET');
+    }
+    /** Allows to pay an appointment or appointment purchase option for the client. */
+    paymentMultiplePost(params) {
+        return this._client._request('/Wl/Appointment/Book/Payment/PaymentMultiple.json', params, 'POST');
+    }
+    /** Calculates pricing information for an appointment booking, including taxes, discounts, surcharges, and totals. */
+    paymentPostGet(params) {
+        return this._client._request('/Wl/Appointment/Book/Payment/PaymentPost.json', params, 'GET');
+    }
+    /** Allows to pay an appointment or appointment purchase option for the client. */
+    paymentPostPost(params) {
+        return this._client._request('/Wl/Appointment/Book/Payment/PaymentPost.json', params, 'POST');
+    }
+}
+exports.WlAppointmentBookPaymentNamespace = WlAppointmentBookPaymentNamespace;
+class WlAppointmentBookQuizNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a list of required quizzes. */
+    quiz(params) {
+        return this._client._request('/Wl/Appointment/Book/Quiz/Quiz.json', params, 'GET');
+    }
+}
+exports.WlAppointmentBookQuizNamespace = WlAppointmentBookQuizNamespace;
+class WlAppointmentBookServiceNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves information about services in the current service category. */
+    serviceList52(params) {
+        return this._client._request('/Wl/Appointment/Book/Service/ServiceList52.json', params, 'GET');
+    }
+    /** Checks whether a service can be booked by the given client at the given date, throwing an exception if booking is restricted. */
+    serviceCheck(params) {
+        return this._client._request('/Wl/Appointment/Book/Service/ServiceCheck.json', params, 'GET');
+    }
+    /** Retrieves a list of information about service categories on the appointment booking page. */
+    category(params) {
+        return this._client._request('/Wl/Appointment/Book/Service/Category.json', params, 'GET');
+    }
+    /** Retrieves information about services in the current service category. */
+    /** @deprecated */
+    serviceList(params) {
+        return this._client._request('/Wl/Appointment/Book/Service/ServiceList.json', params, 'GET');
+    }
+}
+exports.WlAppointmentBookServiceNamespace = WlAppointmentBookServiceNamespace;
+class WlAppointmentBookAssetServiceNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves assets required for a service booking at the given date and time, including availability and busy status. */
+    service(params) {
+        return this._client._request('/Wl/Appointment/Book/Asset/Service/Service.json', params, 'GET');
+    }
+}
+exports.WlAppointmentBookAssetServiceNamespace = WlAppointmentBookAssetServiceNamespace;
+class WlAppointmentBookAssetNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.service = new WlAppointmentBookAssetServiceNamespace(this._client);
+    }
+    /** Retrieves information about assets in the current asset category. */
+    assetList(params) {
+        return this._client._request('/Wl/Appointment/Book/Asset/AssetList.json', params, 'GET');
+    }
+    /** Retrieves a list of information about asset categories for the appointment booking page. */
+    category(params) {
+        return this._client._request('/Wl/Appointment/Book/Asset/Category.json', params, 'GET');
+    }
+}
+exports.WlAppointmentBookAssetNamespace = WlAppointmentBookAssetNamespace;
+class WlAppointmentBookPurchaseNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves a list of information about available purchase options. */
+    /** @deprecated */
+    purchase(params) {
+        return this._client._request('/Wl/Appointment/Book/Purchase/Purchase.json', params, 'GET');
+    }
+    /** Retrieves a list of information about available purchase options. */
+    purchase72(params) {
+        return this._client._request('/Wl/Appointment/Book/Purchase/Purchase72.json', params, 'GET');
+    }
+}
+exports.WlAppointmentBookPurchaseNamespace = WlAppointmentBookPurchaseNamespace;
+class WlAppointmentBookProductNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves list of available service add-ons. */
+    product62(params) {
+        return this._client._request('/Wl/Appointment/Book/Product/Product62.json', params, 'GET');
+    }
+    /** Retrieves list of available service add-ons. */
+    product(params) {
+        return this._client._request('/Wl/Appointment/Book/Product/Product.json', params, 'GET');
+    }
+}
+exports.WlAppointmentBookProductNamespace = WlAppointmentBookProductNamespace;
+class WlAppointmentBookQuestionNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves questions for the current service. */
+    question(params) {
+        return this._client._request('/Wl/Appointment/Book/Question/Question.json', params, 'GET');
+    }
+}
+exports.WlAppointmentBookQuestionNamespace = WlAppointmentBookQuestionNamespace;
+class WlAppointmentBookNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.staff = new WlAppointmentBookStaffNamespace(this._client);
+        this.finish = new WlAppointmentBookFinishNamespace(this._client);
+        this.schedule = new WlAppointmentBookScheduleNamespace(this._client);
+        this.payment = new WlAppointmentBookPaymentNamespace(this._client);
+        this.quiz = new WlAppointmentBookQuizNamespace(this._client);
+        this.service = new WlAppointmentBookServiceNamespace(this._client);
+        this.asset = new WlAppointmentBookAssetNamespace(this._client);
+        this.purchase = new WlAppointmentBookPurchaseNamespace(this._client);
+        this.product = new WlAppointmentBookProductNamespace(this._client);
+        this.question = new WlAppointmentBookQuestionNamespace(this._client);
+    }
+}
+exports.WlAppointmentBookNamespace = WlAppointmentBookNamespace;
+class WlAppointmentNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.edit = new WlAppointmentEditNamespace(this._client);
+        this.info = new WlAppointmentInfoNamespace(this._client);
+        this.recent = new WlAppointmentRecentNamespace(this._client);
+        this.book = new WlAppointmentBookNamespace(this._client);
+    }
+}
+exports.WlAppointmentNamespace = WlAppointmentNamespace;
+class WlShopCategoryNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the list of shop categories available for the given business. */
+    categoryGet(params) {
+        return this._client._request('/Wl/Shop/Category/Category.json', params, 'GET');
+    }
+    /** Creates new shop category. */
+    categoryPost(params) {
+        return this._client._request('/Wl/Shop/Category/Category.json', params, 'POST');
+    }
+}
+exports.WlShopCategoryNamespace = WlShopCategoryNamespace;
+class WlShopProductOptionInventoryCountNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns information about product options. Works in two modes: review and search. In review mode, the method returns products with changed inventory quantities and notes. In search mode, the method returns one product and its options (the result of searching by product barcode). */
+    inventoryCountGet(params) {
+        return this._client._request('/Wl/Shop/Product/Option/Inventory/Count/InventoryCount.json', params, 'GET');
+    }
+    /** Saves changes of product inventory quantities and notes. */
+    inventoryCountPost(params) {
+        return this._client._request('/Wl/Shop/Product/Option/Inventory/Count/InventoryCount.json', params, 'POST');
+    }
+}
+exports.WlShopProductOptionInventoryCountNamespace = WlShopProductOptionInventoryCountNamespace;
+class WlShopProductOptionInventoryNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.count = new WlShopProductOptionInventoryCountNamespace(this._client);
+    }
+}
+exports.WlShopProductOptionInventoryNamespace = WlShopProductOptionInventoryNamespace;
+class WlShopProductOptionNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.inventory = new WlShopProductOptionInventoryNamespace(this._client);
+    }
+}
+exports.WlShopProductOptionNamespace = WlShopProductOptionNamespace;
+class WlShopProductNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.option = new WlShopProductOptionNamespace(this._client);
+    }
+}
+exports.WlShopProductNamespace = WlShopProductNamespace;
+class WlShopNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.category = new WlShopCategoryNamespace(this._client);
+        this.product = new WlShopProductNamespace(this._client);
+    }
+}
+exports.WlShopNamespace = WlShopNamespace;
+class WlBillingBulkNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets the list of promotions and products available at the location. */
+    purchaseItemListGet(params) {
+        return this._client._request('/Wl/Billing/Bulk/PurchaseItemList.json', params, 'GET');
+    }
+    /** Prepares the bulk billing review: the per-client totals and the list of clients that will be billed. */
+    purchaseItemListPost(params) {
+        return this._client._request('/Wl/Billing/Bulk/PurchaseItemList.json', params, 'POST');
+    }
+    /** Cancels a scheduled bulk billing so that it is never billed. */
+    bulkBillingDelete(params) {
+        return this._client._request('/Wl/Billing/Bulk/BulkBilling.json', params, 'DELETE');
+    }
+    /** Schedules the bulk billing. */
+    bulkBillingPost(params) {
+        return this._client._request('/Wl/Billing/Bulk/BulkBilling.json', params, 'POST');
+    }
+    /** Reschedules a previously scheduled bulk billing to a new date and time. */
+    bulkBillingPut(params) {
+        return this._client._request('/Wl/Billing/Bulk/BulkBilling.json', params, 'PUT');
+    }
+    /** Removes the client from the batch so that they are not billed. */
+    bulkBillingUser(params) {
+        return this._client._request('/Wl/Billing/Bulk/BulkBillingUser.json', params, 'DELETE');
+    }
+}
+exports.WlBillingBulkNamespace = WlBillingBulkNamespace;
+class WlBillingNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.bulk = new WlBillingBulkNamespace(this._client);
+    }
+}
+exports.WlBillingNamespace = WlBillingNamespace;
+class WlClassesClassListNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns list of classes and events in the business. */
+    list(params) {
+        return this._client._request('/Wl/Classes/ClassList/List.json', params, 'GET');
+    }
+    /** Gets a list of classes which take place in the specified location. */
+    bookList(params) {
+        return this._client._request('/Wl/Classes/ClassList/BookList.json', params, 'GET');
+    }
+}
+exports.WlClassesClassListNamespace = WlClassesClassListNamespace;
+class WlClassesInfoNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets information about class. */
+    info(params) {
+        return this._client._request('/Wl/Classes/Info/Info.json', params, 'GET');
+    }
+}
+exports.WlClassesInfoNamespace = WlClassesInfoNamespace;
+class WlClassesClassViewNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns class information including schedules, images, and booking settings for the specified business. */
+    element(params) {
+        return this._client._request('/Wl/Classes/ClassView/Element.json', params, 'GET');
+    }
+}
+exports.WlClassesClassViewNamespace = WlClassesClassViewNamespace;
+class WlClassesPromotionNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns list of promotions that can be used to pay for the class / event. */
+    classPromotion(params) {
+        return this._client._request('/Wl/Classes/Promotion/ClassPromotion.json', params, 'GET');
+    }
+}
+exports.WlClassesPromotionNamespace = WlClassesPromotionNamespace;
+class WlClassesPeriodModifyNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets data for step in wizard. */
+    modifyGet(params) {
+        return this._client._request('/Wl/Classes/Period/Modify/Modify.json', params, 'GET');
+    }
+    /** Makes step in wizard. */
+    modifyPost(params) {
+        return this._client._request('/Wl/Classes/Period/Modify/Modify.json', params, 'POST');
+    }
+}
+exports.WlClassesPeriodModifyNamespace = WlClassesPeriodModifyNamespace;
+class WlClassesPeriodNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.modify = new WlClassesPeriodModifyNamespace(this._client);
+    }
+}
+exports.WlClassesPeriodNamespace = WlClassesPeriodNamespace;
+class WlClassesNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.classList = new WlClassesClassListNamespace(this._client);
+        this.info = new WlClassesInfoNamespace(this._client);
+        this.classView = new WlClassesClassViewNamespace(this._client);
+        this.promotion = new WlClassesPromotionNamespace(this._client);
+        this.period = new WlClassesPeriodNamespace(this._client);
+    }
+}
+exports.WlClassesNamespace = WlClassesNamespace;
 class WlMemberPurchaseNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8134,42 +8504,16 @@ class WlMemberPurchaseNamespace {
     }
 }
 exports.WlMemberPurchaseNamespace = WlMemberPurchaseNamespace;
-class WlMemberGroupGroupListNamespace {
+class WlMemberInfoNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Removes groups. */
-    listDelete(params) {
-        return this._client._request('/Wl/Member/Group/GroupList/List.json', params, 'DELETE');
-    }
-    /** Returns all member groups list in the business if `$a_member_group_select` is empty, otherwise filters result according to `$a_member_group_select`. */
-    listGet(params) {
-        return this._client._request('/Wl/Member/Group/GroupList/List.json', params, 'GET');
-    }
-    /** Updates the order of groups in a list. */
-    listPut(params) {
-        return this._client._request('/Wl/Member/Group/GroupList/List.json', params, 'PUT');
+    /** Returns information about specified member. */
+    info(params) {
+        return this._client._request('/Wl/Member/Info/Info.json', params, 'GET');
     }
 }
-exports.WlMemberGroupGroupListNamespace = WlMemberGroupGroupListNamespace;
-class WlMemberGroupEditNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns data for group edit form. */
-    editGet(params) {
-        return this._client._request('/Wl/Member/Group/Edit/Edit.json', params, 'GET');
-    }
-    /** Adds or changes a client group. */
-    editPost(params) {
-        return this._client._request('/Wl/Member/Group/Edit/Edit.json', params, 'POST');
-    }
-    /** Adds or edit client group Query. */
-    editPut(params) {
-        return this._client._request('/Wl/Member/Group/Edit/Edit.json', params, 'PUT');
-    }
-}
-exports.WlMemberGroupEditNamespace = WlMemberGroupEditNamespace;
+exports.WlMemberInfoNamespace = WlMemberInfoNamespace;
 class WlMemberGroupUserNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8188,12 +8532,48 @@ class WlMemberGroupUserNamespace {
     }
 }
 exports.WlMemberGroupUserNamespace = WlMemberGroupUserNamespace;
+class WlMemberGroupEditNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns data for group edit form. */
+    editGet(params) {
+        return this._client._request('/Wl/Member/Group/Edit/Edit.json', params, 'GET');
+    }
+    /** Adds or changes a client group. */
+    editPost(params) {
+        return this._client._request('/Wl/Member/Group/Edit/Edit.json', params, 'POST');
+    }
+    /** Adds or edit client group Query. */
+    editPut(params) {
+        return this._client._request('/Wl/Member/Group/Edit/Edit.json', params, 'PUT');
+    }
+}
+exports.WlMemberGroupEditNamespace = WlMemberGroupEditNamespace;
+class WlMemberGroupGroupListNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes groups. */
+    listDelete(params) {
+        return this._client._request('/Wl/Member/Group/GroupList/List.json', params, 'DELETE');
+    }
+    /** Returns all member groups list in the business if `$a_member_group_select` is empty, otherwise filters result according to `$a_member_group_select`. */
+    listGet(params) {
+        return this._client._request('/Wl/Member/Group/GroupList/List.json', params, 'GET');
+    }
+    /** Updates the order of groups in a list. */
+    listPut(params) {
+        return this._client._request('/Wl/Member/Group/GroupList/List.json', params, 'PUT');
+    }
+}
+exports.WlMemberGroupGroupListNamespace = WlMemberGroupGroupListNamespace;
 class WlMemberGroupNamespace {
     constructor(_client) {
         this._client = _client;
-        this.groupList = new WlMemberGroupGroupListNamespace(this._client);
-        this.edit = new WlMemberGroupEditNamespace(this._client);
         this.user = new WlMemberGroupUserNamespace(this._client);
+        this.edit = new WlMemberGroupEditNamespace(this._client);
+        this.groupList = new WlMemberGroupGroupListNamespace(this._client);
     }
 }
 exports.WlMemberGroupNamespace = WlMemberGroupNamespace;
@@ -8310,394 +8690,141 @@ exports.WlMemberProgressNamespace = WlMemberProgressNamespace;
 class WlMemberNamespace {
     constructor(_client) {
         this._client = _client;
-        this.info = new WlMemberInfoNamespace(this._client);
         this.purchase = new WlMemberPurchaseNamespace(this._client);
+        this.info = new WlMemberInfoNamespace(this._client);
         this.group = new WlMemberGroupNamespace(this._client);
         this.progress = new WlMemberProgressNamespace(this._client);
     }
 }
 exports.WlMemberNamespace = WlMemberNamespace;
-class WlSearchTagNamespace {
+class WlWidgetAnalyticsNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns list of search tags. This is public information and method does not require any level of privileges. */
-    searchTagList(params) {
-        return this._client._request('/Wl/Search/Tag/SearchTagList.json', params, 'GET');
+    /** Accepts a Widget analytics event. */
+    widgetAnalyticsEvent(params) {
+        return this._client._request('/Wl/Widget/Analytics/WidgetAnalyticsEvent.json', params, 'POST');
     }
 }
-exports.WlSearchTagNamespace = WlSearchTagNamespace;
-class WlSearchNamespace {
+exports.WlWidgetAnalyticsNamespace = WlWidgetAnalyticsNamespace;
+class WlWidgetNamespace {
     constructor(_client) {
         this._client = _client;
-        this.tag = new WlSearchTagNamespace(this._client);
+        this.analytics = new WlWidgetAnalyticsNamespace(this._client);
     }
 }
-exports.WlSearchNamespace = WlSearchNamespace;
-class WlBookProcessPaymentNamespace {
+exports.WlWidgetNamespace = WlWidgetNamespace;
+class WlServiceServiceListNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Processes purchases and books sessions on the "Pay/Billing info" step of the booking wizard. */
-    payment(params) {
-        return this._client._request('/Wl/Book/Process/Payment/Payment.json', params, 'POST');
+    /** Returns list of appointment type in the business. */
+    list75(params) {
+        return this._client._request('/Wl/Service/ServiceList/List75.json', params, 'GET');
     }
-}
-exports.WlBookProcessPaymentNamespace = WlBookProcessPaymentNamespace;
-class WlBookProcessInfoNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns class session details and booking information for the "Class and Location" step of the booking wizard. */
-    /** @deprecated */
-    infoGet(params) {
-        return this._client._request('/Wl/Book/Process/Info/Info.json', params, 'GET');
-    }
-    /** Processes the "Class and Location" step of the booking wizard, optionally recording the waiver agreement and booking the session. */
-    /** @deprecated */
-    infoPost(params) {
-        return this._client._request('/Wl/Book/Process/Info/Info.json', params, 'POST');
-    }
-    /** Checks whether the user can complete booking wizard without additional steps. */
-    /** @deprecated */
-    infoCanCompleteGet(params) {
-        return this._client._request('/Wl/Book/Process/Info/InfoCanComplete.json', params, 'GET');
-    }
-    /** Checks whether the user can complete booking wizard without additional steps. */
-    infoCanCompletePost(params) {
-        return this._client._request('/Wl/Book/Process/Info/InfoCanComplete.json', params, 'POST');
-    }
-    /** Returns class and location booking information, enriched with localized date and time for each session. */
-    info54Get(params) {
-        return this._client._request('/Wl/Book/Process/Info/Info54.json', params, 'GET');
-    }
-    /** Processes the "Class and Location" step of the booking wizard, optionally recording the waiver agreement and booking the session. */
-    info54Post(params) {
-        return this._client._request('/Wl/Book/Process/Info/Info54.json', params, 'POST');
-    }
-}
-exports.WlBookProcessInfoNamespace = WlBookProcessInfoNamespace;
-class WlBookProcessPurchaseNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns the pricing breakdown for a list of purchase items, applying applicable discounts and taxes. */
-    purchaseElementList(params) {
-        return this._client._request('/Wl/Book/Process/Purchase/PurchaseElementList.json', params, 'GET');
-    }
-    /** Returns available purchase options, existing client promotions, session passes, and prizes for the specified session. */
-    /** @deprecated */
-    purchase(params) {
-        return this._client._request('/Wl/Book/Process/Purchase/Purchase.json', params, 'GET');
-    }
-    /** Builds a single-item purchase list from the scalar input fields and delegates to the parent for price calculation. */
-    purchaseElement(params) {
-        return this._client._request('/Wl/Book/Process/Purchase/PurchaseElement.json', params, 'GET');
-    }
-    /** Returns available purchase options for the specified session, decoding JSON-encoded group promotion and session inputs. */
-    purchase56(params) {
-        return this._client._request('/Wl/Book/Process/Purchase/Purchase56.json', params, 'GET');
-    }
-    /** Returns the pricing breakdown (totals, taxes, and discounts) for the given list of purchase items. */
-    purchaseElementGroup(params) {
-        return this._client._request('/Wl/Book/Process/Purchase/PurchaseElementGroup.json', params, 'GET');
-    }
-}
-exports.WlBookProcessPurchaseNamespace = WlBookProcessPurchaseNamespace;
-class WlBookProcessResourceNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns the list of available assets for the booking session, grouped by asset category. */
-    /** @deprecated */
-    resourceGet(params) {
-        return this._client._request('/Wl/Book/Process/Resource/Resource.json', params, 'GET');
-    }
-    /** Saves the asset selection for the booking and attempts to book the session if no further steps are required. */
-    /** @deprecated */
-    resourcePost(params) {
-        return this._client._request('/Wl/Book/Process/Resource/Resource.json', params, 'POST');
-    }
-    /** Returns available assets for the booking, decoding the JSON-encoded session input before delegating to the parent. */
-    resource54Get(params) {
-        return this._client._request('/Wl/Book/Process/Resource/Resource54.json', params, 'GET');
-    }
-    /** Processes the asset selection step of the booking wizard, decoding the JSON-encoded session input before delegating to the parent. */
-    resource54Post(params) {
-        return this._client._request('/Wl/Book/Process/Resource/Resource54.json', params, 'POST');
-    }
-}
-exports.WlBookProcessResourceNamespace = WlBookProcessResourceNamespace;
-class WlBookProcessStoreNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Processes the "Purchase Options" step of the booking wizard, validates selections, and books the session when possible. */
-    store(params) {
-        return this._client._request('/Wl/Book/Process/Store/Store.json', params, 'POST');
-    }
-    /** Validates and distributes selected purchase options across all clients in the booking group. */
-    storeGroup(params) {
-        return this._client._request('/Wl/Book/Process/Store/StoreGroup.json', params, 'POST');
-    }
-}
-exports.WlBookProcessStoreNamespace = WlBookProcessStoreNamespace;
-class WlBookProcessQuizNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Defines list of required quizzes. */
-    quizGet(params) {
-        return this._client._request('/Wl/Book/Process/Quiz/Quiz.json', params, 'GET');
-    }
-    /** Finished booking process and save quiz responses (if quiz step is the last in booking wizard). */
-    quizPost(params) {
-        return this._client._request('/Wl/Book/Process/Quiz/Quiz.json', params, 'POST');
-    }
-}
-exports.WlBookProcessQuizNamespace = WlBookProcessQuizNamespace;
-class WlBookProcessFrequencyNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns the list of visits to be created for the given recurring booking settings. */
-    repeat(params) {
-        return this._client._request('/Wl/Book/Process/Frequency/Repeat.json', params, 'GET');
-    }
-    /** Returns the list of visits to be created for the given recurring booking settings. */
-    repeatParallel(params) {
-        return this._client._request('/Wl/Book/Process/Frequency/RepeatParallel.json', params, 'GET');
-    }
-}
-exports.WlBookProcessFrequencyNamespace = WlBookProcessFrequencyNamespace;
-class WlBookProcessRelationNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Checks if user can book specified session. */
-    relationGet(params) {
-        return this._client._request('/Wl/Book/Process/Relation/Relation.json', params, 'GET');
-    }
-    /** Added new relative. */
-    relationPost(params) {
-        return this._client._request('/Wl/Book/Process/Relation/Relation.json', params, 'POST');
-    }
-}
-exports.WlBookProcessRelationNamespace = WlBookProcessRelationNamespace;
-class WlBookProcessGuestNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Check if user exists. */
-    guestProfileGet(params) {
-        return this._client._request('/Wl/Book/Process/Guest/GuestProfile.json', params, 'GET');
-    }
-    /** Creates new user. */
-    guestProfilePost(params) {
-        return this._client._request('/Wl/Book/Process/Guest/GuestProfile.json', params, 'POST');
-    }
-}
-exports.WlBookProcessGuestNamespace = WlBookProcessGuestNamespace;
-class WlBookProcessNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.payment = new WlBookProcessPaymentNamespace(this._client);
-        this.info = new WlBookProcessInfoNamespace(this._client);
-        this.purchase = new WlBookProcessPurchaseNamespace(this._client);
-        this.resource = new WlBookProcessResourceNamespace(this._client);
-        this.store = new WlBookProcessStoreNamespace(this._client);
-        this.quiz = new WlBookProcessQuizNamespace(this._client);
-        this.frequency = new WlBookProcessFrequencyNamespace(this._client);
-        this.relation = new WlBookProcessRelationNamespace(this._client);
-        this.guest = new WlBookProcessGuestNamespace(this._client);
-    }
-    /** Returns the ordered list of booking wizard steps for the given session and client. */
-    /** @deprecated */
-    process(params) {
-        return this._client._request('/Wl/Book/Process/Process.json', params, 'GET');
-    }
-    /** Returns the ordered list of booking wizard steps, including the quiz step when required. */
-    /** @deprecated */
-    process54(params) {
-        return this._client._request('/Wl/Book/Process/Process54.json', params, 'GET');
-    }
-    /** Returns the booking wizard steps, adjusting the path when the service is already booked for a family member. */
-    process59(params) {
-        return this._client._request('/Wl/Book/Process/Process59.json', params, 'GET');
-    }
-    /** Processes the group booking: validates input, collects payment, books sessions, and sends confirmation emails. */
-    processGroup(params) {
-        return this._client._request('/Wl/Book/Process/ProcessGroup.json', params, 'POST');
-    }
-}
-exports.WlBookProcessNamespace = WlBookProcessNamespace;
-class WlBookCancelNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns information about whether the given user can cancel the booking and the expected consequences. */
-    cancelCan(params) {
-        return this._client._request('/Wl/Book/Cancel/CancelCan.json', params, 'GET');
-    }
-}
-exports.WlBookCancelNamespace = WlBookCancelNamespace;
-class WlBookNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.process = new WlBookProcessNamespace(this._client);
-        this.cancel = new WlBookCancelNamespace(this._client);
-    }
-}
-exports.WlBookNamespace = WlBookNamespace;
-class WlInsuranceCatalogNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns a list of active insurance programs for the specified promotion. */
-    programList(params) {
-        return this._client._request('/Wl/Insurance/Catalog/ProgramList.json', params, 'GET');
-    }
-}
-exports.WlInsuranceCatalogNamespace = WlInsuranceCatalogNamespace;
-class WlInsuranceEnrollmentFieldNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns the list of required partner fields for the specified wellness program. */
-    enrollmentFieldListGet(params) {
-        return this._client._request('/Wl/Insurance/Enrollment/Field/EnrollmentFieldList.json', params, 'GET');
-    }
-    /** Validates the list of fields filled in by the user for enrollment. */
-    enrollmentFieldListPost(params) {
-        return this._client._request('/Wl/Insurance/Enrollment/Field/EnrollmentFieldList.json', params, 'POST');
-    }
-}
-exports.WlInsuranceEnrollmentFieldNamespace = WlInsuranceEnrollmentFieldNamespace;
-class WlInsuranceEnrollmentNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.field = new WlInsuranceEnrollmentFieldNamespace(this._client);
-    }
-}
-exports.WlInsuranceEnrollmentNamespace = WlInsuranceEnrollmentNamespace;
-class WlInsuranceNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.catalog = new WlInsuranceCatalogNamespace(this._client);
-        this.enrollment = new WlInsuranceEnrollmentNamespace(this._client);
-    }
-}
-exports.WlInsuranceNamespace = WlInsuranceNamespace;
-class WlDiscountCodeEditNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets information about discount. */
-    discountCodeEditGet(params) {
-        return this._client._request('/Wl/Discount/Code/Edit/DiscountCodeEdit.json', params, 'GET');
-    }
-    /** Saves information about discount code or create new. */
-    discountCodeEditPost(params) {
-        return this._client._request('/Wl/Discount/Code/Edit/DiscountCodeEdit.json', params, 'POST');
-    }
-    /** Duplicates an existing discount code. */
-    discountCodeEditPut(params) {
-        return this._client._request('/Wl/Discount/Code/Edit/DiscountCodeEdit.json', params, 'PUT');
-    }
-}
-exports.WlDiscountCodeEditNamespace = WlDiscountCodeEditNamespace;
-class WlDiscountCodeNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.edit = new WlDiscountCodeEditNamespace(this._client);
-    }
-    /** Returns discount codes of the specified business. */
-    discountCode(params) {
-        return this._client._request('/Wl/Discount/Code/DiscountCode.json', params, 'GET');
-    }
-}
-exports.WlDiscountCodeNamespace = WlDiscountCodeNamespace;
-class WlDiscountNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.code = new WlDiscountCodeNamespace(this._client);
-    }
-}
-exports.WlDiscountNamespace = WlDiscountNamespace;
-class WlGoogleLoginNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Performs Google authorization within the context of the specified business. */
-    googleLogin(params) {
-        return this._client._request('/Wl/Google/Login/GoogleLogin.json', params, 'POST');
-    }
-}
-exports.WlGoogleLoginNamespace = WlGoogleLoginNamespace;
-class WlGoogleNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.login = new WlGoogleLoginNamespace(this._client);
-    }
-}
-exports.WlGoogleNamespace = WlGoogleNamespace;
-class WlResourceLayoutNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns information about the specified asset layout, including assets and custom shapes. */
-    layout(params) {
-        return this._client._request('/Wl/Resource/Layout/Layout.json', params, 'GET');
-    }
-}
-exports.WlResourceLayoutNamespace = WlResourceLayoutNamespace;
-class WlResourceResourceListNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns assets list in the business. */
+    /** Returns list of appointment type in the business. */
     list(params) {
-        return this._client._request('/Wl/Resource/ResourceList/List.json', params, 'GET');
+        return this._client._request('/Wl/Service/ServiceList/List.json', params, 'GET');
     }
 }
-exports.WlResourceResourceListNamespace = WlResourceResourceListNamespace;
-class WlResourceNamespace {
+exports.WlServiceServiceListNamespace = WlServiceServiceListNamespace;
+class WlServiceNamespace {
     constructor(_client) {
         this._client = _client;
-        this.layout = new WlResourceLayoutNamespace(this._client);
-        this.resourceList = new WlResourceResourceListNamespace(this._client);
+        this.serviceList = new WlServiceServiceListNamespace(this._client);
     }
 }
-exports.WlResourceNamespace = WlResourceNamespace;
-class WlRewardScoreCurrentNamespace {
+exports.WlServiceNamespace = WlServiceNamespace;
+class WlAiAgentLinkNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Retrieves information about current score in wellnessliving points. */
-    current(params) {
-        return this._client._request('/Wl/Reward/Score/Current/Current.json', params, 'GET');
+    /** Sends an AI agent link action email (booking or purchase) to the specified user. */
+    sendMail(params) {
+        return this._client._request('/Wl/AiAgent/Link/SendMail.json', params, 'POST');
     }
 }
-exports.WlRewardScoreCurrentNamespace = WlRewardScoreCurrentNamespace;
-class WlRewardScoreNamespace {
+exports.WlAiAgentLinkNamespace = WlAiAgentLinkNamespace;
+class WlAiAgentNamespace {
     constructor(_client) {
         this._client = _client;
-        this.current = new WlRewardScoreCurrentNamespace(this._client);
-    }
-    /** Returns the total reward points for the specified activity list or user. */
-    scoreGet(params) {
-        return this._client._request('/Wl/Reward/Score/Score.json', params, 'GET');
-    }
-    /** Gives user reward points for sharing of certain activity into Facebook. */
-    scorePost(params) {
-        return this._client._request('/Wl/Reward/Score/Score.json', params, 'POST');
-    }
-    /** Manually adjusts the reward points balance for the specified user. */
-    scorePut(params) {
-        return this._client._request('/Wl/Reward/Score/Score.json', params, 'PUT');
+        this.link = new WlAiAgentLinkNamespace(this._client);
     }
 }
-exports.WlRewardScoreNamespace = WlRewardScoreNamespace;
+exports.WlAiAgentNamespace = WlAiAgentNamespace;
+class WlUserInfoNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves information about the user belongs to certain integrations. */
+    userIntegration(params) {
+        return this._client._request('/Wl/User/Info/UserIntegration.json', params, 'GET');
+    }
+    /** Retrieves information about user. */
+    userInfo(params) {
+        return this._client._request('/Wl/User/Info/UserInfo.json', params, 'GET');
+    }
+}
+exports.WlUserInfoNamespace = WlUserInfoNamespace;
+class WlUserReferrerNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns referral count, total referral points, and shareable referral link for the given user. */
+    referralInfo(params) {
+        return this._client._request('/Wl/User/Referrer/ReferralInfo.json', params, 'GET');
+    }
+    /** Searches for a referrer by the given search string and returns their profile information. */
+    referrer(params) {
+        return this._client._request('/Wl/User/Referrer/Referrer.json', params, 'GET');
+    }
+}
+exports.WlUserReferrerNamespace = WlUserReferrerNamespace;
+class WlUserNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.info = new WlUserInfoNamespace(this._client);
+        this.referrer = new WlUserReferrerNamespace(this._client);
+    }
+}
+exports.WlUserNamespace = WlUserNamespace;
+class WlRewardActionCategoryListNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Retrieves all reward action categories for business specified in {@link WlRewardActionCategoryListNamespace#categoryList}. */
+    categoryList(params) {
+        return this._client._request('/Wl/Reward/Action/CategoryList/CategoryList.json', params, 'GET');
+    }
+}
+exports.WlRewardActionCategoryListNamespace = WlRewardActionCategoryListNamespace;
+class WlRewardActionNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.categoryList = new WlRewardActionCategoryListNamespace(this._client);
+    }
+    /** Retrieves a list of available reward actions. */
+    action(params) {
+        return this._client._request('/Wl/Reward/Action/Action.json', params, 'GET');
+    }
+    /** Retrieves information about reward actions. */
+    actionType(params) {
+        return this._client._request('/Wl/Reward/Action/ActionType.json', params, 'GET');
+    }
+    /** Retrieves information about reward action item. */
+    elementGet(params) {
+        return this._client._request('/Wl/Reward/Action/Element.json', params, 'GET');
+    }
+    /** Requests points earning. */
+    elementPost(params) {
+        return this._client._request('/Wl/Reward/Action/Element.json', params, 'POST');
+    }
+    /** Updates configuration fields for the specified reward action. */
+    actionWrite(params) {
+        return this._client._request('/Wl/Reward/Action/ActionWrite.json', params, 'POST');
+    }
+}
+exports.WlRewardActionNamespace = WlRewardActionNamespace;
 class WlRewardPrizeNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8741,197 +8868,146 @@ class WlRewardBoardNamespace {
     }
 }
 exports.WlRewardBoardNamespace = WlRewardBoardNamespace;
-class WlRewardActionCategoryListNamespace {
+class WlRewardScoreCurrentNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Retrieves all reward action categories for business specified in {@link WlRewardActionCategoryListNamespace#categoryList}. */
-    categoryList(params) {
-        return this._client._request('/Wl/Reward/Action/CategoryList/CategoryList.json', params, 'GET');
+    /** Retrieves information about current score in wellnessliving points. */
+    current(params) {
+        return this._client._request('/Wl/Reward/Score/Current/Current.json', params, 'GET');
     }
 }
-exports.WlRewardActionCategoryListNamespace = WlRewardActionCategoryListNamespace;
-class WlRewardActionNamespace {
+exports.WlRewardScoreCurrentNamespace = WlRewardScoreCurrentNamespace;
+class WlRewardScoreNamespace {
     constructor(_client) {
         this._client = _client;
-        this.categoryList = new WlRewardActionCategoryListNamespace(this._client);
+        this.current = new WlRewardScoreCurrentNamespace(this._client);
     }
-    /** Updates configuration fields for the specified reward action. */
-    actionWrite(params) {
-        return this._client._request('/Wl/Reward/Action/ActionWrite.json', params, 'POST');
+    /** Returns the total reward points for the specified activity list or user. */
+    scoreGet(params) {
+        return this._client._request('/Wl/Reward/Score/Score.json', params, 'GET');
     }
-    /** Retrieves a list of available reward actions. */
-    action(params) {
-        return this._client._request('/Wl/Reward/Action/Action.json', params, 'GET');
+    /** Gives user reward points for sharing of certain activity into Facebook. */
+    scorePost(params) {
+        return this._client._request('/Wl/Reward/Score/Score.json', params, 'POST');
     }
-    /** Retrieves information about reward action item. */
-    elementGet(params) {
-        return this._client._request('/Wl/Reward/Action/Element.json', params, 'GET');
-    }
-    /** Requests points earning. */
-    elementPost(params) {
-        return this._client._request('/Wl/Reward/Action/Element.json', params, 'POST');
-    }
-    /** Retrieves information about reward actions. */
-    actionType(params) {
-        return this._client._request('/Wl/Reward/Action/ActionType.json', params, 'GET');
+    /** Manually adjusts the reward points balance for the specified user. */
+    scorePut(params) {
+        return this._client._request('/Wl/Reward/Score/Score.json', params, 'PUT');
     }
 }
-exports.WlRewardActionNamespace = WlRewardActionNamespace;
+exports.WlRewardScoreNamespace = WlRewardScoreNamespace;
 class WlRewardNamespace {
     constructor(_client) {
         this._client = _client;
-        this.score = new WlRewardScoreNamespace(this._client);
+        this.action = new WlRewardActionNamespace(this._client);
         this.prize = new WlRewardPrizeNamespace(this._client);
         this.board = new WlRewardBoardNamespace(this._client);
-        this.action = new WlRewardActionNamespace(this._client);
+        this.score = new WlRewardScoreNamespace(this._client);
     }
 }
 exports.WlRewardNamespace = WlRewardNamespace;
-class WlShopCategoryNamespace {
+class WlResourceResourceListNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns the list of shop categories available for the given business. */
-    categoryGet(params) {
-        return this._client._request('/Wl/Shop/Category/Category.json', params, 'GET');
-    }
-    /** Creates new shop category. */
-    categoryPost(params) {
-        return this._client._request('/Wl/Shop/Category/Category.json', params, 'POST');
+    /** Returns assets list in the business. */
+    list(params) {
+        return this._client._request('/Wl/Resource/ResourceList/List.json', params, 'GET');
     }
 }
-exports.WlShopCategoryNamespace = WlShopCategoryNamespace;
-class WlShopProductOptionInventoryCountNamespace {
+exports.WlResourceResourceListNamespace = WlResourceResourceListNamespace;
+class WlResourceLayoutNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns information about product options. Works in two modes: review and search. In review mode, the method returns products with changed inventory quantities and notes. In search mode, the method returns one product and its options (the result of searching by product barcode). */
-    inventoryCountGet(params) {
-        return this._client._request('/Wl/Shop/Product/Option/Inventory/Count/InventoryCount.json', params, 'GET');
-    }
-    /** Saves changes of product inventory quantities and notes. */
-    inventoryCountPost(params) {
-        return this._client._request('/Wl/Shop/Product/Option/Inventory/Count/InventoryCount.json', params, 'POST');
+    /** Returns information about the specified asset layout, including assets and custom shapes. */
+    layout(params) {
+        return this._client._request('/Wl/Resource/Layout/Layout.json', params, 'GET');
     }
 }
-exports.WlShopProductOptionInventoryCountNamespace = WlShopProductOptionInventoryCountNamespace;
-class WlShopProductOptionInventoryNamespace {
+exports.WlResourceLayoutNamespace = WlResourceLayoutNamespace;
+class WlResourceNamespace {
     constructor(_client) {
         this._client = _client;
-        this.count = new WlShopProductOptionInventoryCountNamespace(this._client);
+        this.resourceList = new WlResourceResourceListNamespace(this._client);
+        this.layout = new WlResourceLayoutNamespace(this._client);
     }
 }
-exports.WlShopProductOptionInventoryNamespace = WlShopProductOptionInventoryNamespace;
-class WlShopProductOptionNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.inventory = new WlShopProductOptionInventoryNamespace(this._client);
-    }
-}
-exports.WlShopProductOptionNamespace = WlShopProductOptionNamespace;
-class WlShopProductNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.option = new WlShopProductOptionNamespace(this._client);
-    }
-}
-exports.WlShopProductNamespace = WlShopProductNamespace;
-class WlShopNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.category = new WlShopCategoryNamespace(this._client);
-        this.product = new WlShopProductNamespace(this._client);
-    }
-}
-exports.WlShopNamespace = WlShopNamespace;
-class WlUserInfoNamespace {
+exports.WlResourceNamespace = WlResourceNamespace;
+class WlCouponCouponListNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Retrieves information about user. */
-    userInfo(params) {
-        return this._client._request('/Wl/User/Info/UserInfo.json', params, 'GET');
-    }
-    /** Retrieves information about the user belongs to certain integrations. */
-    userIntegration(params) {
-        return this._client._request('/Wl/User/Info/UserIntegration.json', params, 'GET');
+    /** Gets list of coupons. */
+    list(params) {
+        return this._client._request('/Wl/Coupon/CouponList/List.json', params, 'GET');
     }
 }
-exports.WlUserInfoNamespace = WlUserInfoNamespace;
-class WlUserReferrerNamespace {
+exports.WlCouponCouponListNamespace = WlCouponCouponListNamespace;
+class WlCouponNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.couponList = new WlCouponCouponListNamespace(this._client);
+    }
+}
+exports.WlCouponNamespace = WlCouponNamespace;
+class WlSmsPhoneNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Searches for a referrer by the given search string and returns their profile information. */
-    referrer(params) {
-        return this._client._request('/Wl/User/Referrer/Referrer.json', params, 'GET');
-    }
-    /** Returns referral count, total referral points, and shareable referral link for the given user. */
-    referralInfo(params) {
-        return this._client._request('/Wl/User/Referrer/ReferralInfo.json', params, 'GET');
+    /** Gets the phone number associated with a specific business. */
+    businessPhone(params) {
+        return this._client._request('/Wl/Sms/Phone/BusinessPhone.json', params, 'GET');
     }
 }
-exports.WlUserReferrerNamespace = WlUserReferrerNamespace;
-class WlUserNamespace {
+exports.WlSmsPhoneNamespace = WlSmsPhoneNamespace;
+class WlSmsNamespace {
     constructor(_client) {
         this._client = _client;
-        this.info = new WlUserInfoNamespace(this._client);
-        this.referrer = new WlUserReferrerNamespace(this._client);
+        this.phone = new WlSmsPhoneNamespace(this._client);
     }
 }
-exports.WlUserNamespace = WlUserNamespace;
-class WlPassportLoginEnterNamespace {
+exports.WlSmsNamespace = WlSmsNamespace;
+class WlSearchTagNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Sends an OTP code to the user's email or phone number to initiate authorization. */
-    passportOtpGet(params) {
-        return this._client._request('/Wl/Passport/Login/Enter/PassportOtp.json', params, 'GET');
-    }
-    /** Verifies the submitted OTP code and establishes an authorized session for the user. */
-    passportOtpPost(params) {
-        return this._client._request('/Wl/Passport/Login/Enter/PassportOtp.json', params, 'POST');
+    /** Returns list of search tags. This is public information and method does not require any level of privileges. */
+    searchTagList(params) {
+        return this._client._request('/Wl/Search/Tag/SearchTagList.json', params, 'GET');
     }
 }
-exports.WlPassportLoginEnterNamespace = WlPassportLoginEnterNamespace;
-class WlPassportLoginRegisterNamespace {
+exports.WlSearchTagNamespace = WlSearchTagNamespace;
+class WlSearchNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.tag = new WlSearchTagNamespace(this._client);
+    }
+}
+exports.WlSearchNamespace = WlSearchNamespace;
+class WlReceptionApplicationNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Sends an OTP code to the user's email or phone number to initiate authorization. */
-    registerOtpGet(params) {
-        return this._client._request('/Wl/Passport/Login/Register/RegisterOtp.json', params, 'GET');
+    /** Returns the schedule and HTML for the Self Check-In Web App for the given user. */
+    receptionScheduleGet(params) {
+        return this._client._request('/Wl/Reception/Application/ReceptionSchedule.json', params, 'GET');
     }
-    /** Verifies the submitted OTP code and establishes an authorized session for the user. */
-    registerOtpPost(params) {
-        return this._client._request('/Wl/Passport/Login/Register/RegisterOtp.json', params, 'POST');
+    /** Performs check-in for the given user and returns the confirmation HTML and data. */
+    receptionSchedulePost(params) {
+        return this._client._request('/Wl/Reception/Application/ReceptionSchedule.json', params, 'POST');
     }
-    /** Gets the public key material for OTP registration JWT verification. */
-    registerOtpJwtPublicKey(params) {
-        return this._client._request('/Wl/Passport/Login/Register/RegisterOtpJwtPublicKey.json', params, 'GET');
+    /** Returns member information and notification items for the Self Check-In Web App. */
+    memberInfo(params) {
+        return this._client._request('/Wl/Reception/Application/MemberInfo.json', params, 'GET');
     }
-}
-exports.WlPassportLoginRegisterNamespace = WlPassportLoginRegisterNamespace;
-class WlPassportLoginNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.enter = new WlPassportLoginEnterNamespace(this._client);
-        this.register = new WlPassportLoginRegisterNamespace(this._client);
-    }
-    /** Returns the current user's login information and password reset URL for the specified business. */
-    info(params) {
-        return this._client._request('/Wl/Passport/Login/Info.json', params, 'GET');
+    /** Performs authorization based on the given authorization value and business settings. */
+    receptionAuthorize(params) {
+        return this._client._request('/Wl/Reception/Application/ReceptionAuthorize.json', params, 'POST');
     }
 }
-exports.WlPassportLoginNamespace = WlPassportLoginNamespace;
-class WlPassportNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.login = new WlPassportLoginNamespace(this._client);
-    }
-}
-exports.WlPassportNamespace = WlPassportNamespace;
+exports.WlReceptionApplicationNamespace = WlReceptionApplicationNamespace;
 class WlReceptionRosterDesignNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8947,13 +9023,13 @@ class WlReceptionRosterNamespace {
         this._client = _client;
         this.design = new WlReceptionRosterDesignNamespace(this._client);
     }
-    /** Books a class for the client via the Attendance Kiosk and returns whether the client was placed on the class list or waitlist. */
-    attendanceListBook(params) {
-        return this._client._request('/Wl/Reception/Roster/AttendanceListBook.json', params, 'POST');
-    }
     /** Books a class for the client and marks the visit as attended via the Attendance Kiosk. */
     attendanceListAttend(params) {
         return this._client._request('/Wl/Reception/Roster/AttendanceListAttend.json', params, 'POST');
+    }
+    /** Books a class for the client via the Attendance Kiosk and returns whether the client was placed on the class list or waitlist. */
+    attendanceListBook(params) {
+        return this._client._request('/Wl/Reception/Roster/AttendanceListBook.json', params, 'POST');
     }
     /** Marks the visit as not attended via the Attendance Kiosk. */
     attendanceListNotAttend(params) {
@@ -8975,112 +9051,54 @@ class WlReceptionDesignNamespace {
     }
 }
 exports.WlReceptionDesignNamespace = WlReceptionDesignNamespace;
-class WlReceptionApplicationNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns member information and notification items for the Self Check-In Web App. */
-    memberInfo(params) {
-        return this._client._request('/Wl/Reception/Application/MemberInfo.json', params, 'GET');
-    }
-    /** Returns the schedule and HTML for the Self Check-In Web App for the given user. */
-    receptionScheduleGet(params) {
-        return this._client._request('/Wl/Reception/Application/ReceptionSchedule.json', params, 'GET');
-    }
-    /** Performs check-in for the given user and returns the confirmation HTML and data. */
-    receptionSchedulePost(params) {
-        return this._client._request('/Wl/Reception/Application/ReceptionSchedule.json', params, 'POST');
-    }
-    /** Performs authorization based on the given authorization value and business settings. */
-    receptionAuthorize(params) {
-        return this._client._request('/Wl/Reception/Application/ReceptionAuthorize.json', params, 'POST');
-    }
-}
-exports.WlReceptionApplicationNamespace = WlReceptionApplicationNamespace;
 class WlReceptionNamespace {
     constructor(_client) {
         this._client = _client;
+        this.application = new WlReceptionApplicationNamespace(this._client);
         this.roster = new WlReceptionRosterNamespace(this._client);
         this.design = new WlReceptionDesignNamespace(this._client);
-        this.application = new WlReceptionApplicationNamespace(this._client);
     }
 }
 exports.WlReceptionNamespace = WlReceptionNamespace;
-class WlCouponCouponListNamespace {
+class WlInsuranceCatalogNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets list of coupons. */
-    list(params) {
-        return this._client._request('/Wl/Coupon/CouponList/List.json', params, 'GET');
+    /** Returns a list of active insurance programs for the specified promotion. */
+    programList(params) {
+        return this._client._request('/Wl/Insurance/Catalog/ProgramList.json', params, 'GET');
     }
 }
-exports.WlCouponCouponListNamespace = WlCouponCouponListNamespace;
-class WlCouponNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.couponList = new WlCouponCouponListNamespace(this._client);
-    }
-}
-exports.WlCouponNamespace = WlCouponNamespace;
-class WlFamilyRelationNamespace {
+exports.WlInsuranceCatalogNamespace = WlInsuranceCatalogNamespace;
+class WlInsuranceEnrollmentFieldNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Deletes family relation between 2 users. */
-    relationDelete(params) {
-        return this._client._request('/Wl/Family/Relation/Relation.json', params, 'DELETE');
+    /** Returns the list of required partner fields for the specified wellness program. */
+    enrollmentFieldListGet(params) {
+        return this._client._request('/Wl/Insurance/Enrollment/Field/EnrollmentFieldList.json', params, 'GET');
     }
-    /** Gets relative list. */
-    relationGet(params) {
-        return this._client._request('/Wl/Family/Relation/Relation.json', params, 'GET');
-    }
-    /** Adds to user {@link WlFamilyRelationNamespace#relationGet} relative {@link WlFamilyRelationNamespace#relationGet}. */
-    relationPost(params) {
-        return this._client._request('/Wl/Family/Relation/Relation.json', params, 'POST');
-    }
-    /** Gets relationships list. */
-    familyRelation(params) {
-        return this._client._request('/Wl/Family/Relation/FamilyRelation.json', params, 'GET');
-    }
-    /** Deletes family relation between 2 users. */
-    relation72Delete(params) {
-        return this._client._request('/Wl/Family/Relation/Relation72.json', params, 'DELETE');
-    }
-    /** Gets relative list. */
-    relation72Get(params) {
-        return this._client._request('/Wl/Family/Relation/Relation72.json', params, 'GET');
-    }
-    /** Adds to user {@link WlFamilyRelationNamespace#relationGet} relative {@link WlFamilyRelationNamespace#relationGet}. */
-    relation72Post(params) {
-        return this._client._request('/Wl/Family/Relation/Relation72.json', params, 'POST');
+    /** Validates the list of fields filled in by the user for enrollment. */
+    enrollmentFieldListPost(params) {
+        return this._client._request('/Wl/Insurance/Enrollment/Field/EnrollmentFieldList.json', params, 'POST');
     }
 }
-exports.WlFamilyRelationNamespace = WlFamilyRelationNamespace;
-class WlFamilyNamespace {
+exports.WlInsuranceEnrollmentFieldNamespace = WlInsuranceEnrollmentFieldNamespace;
+class WlInsuranceEnrollmentNamespace {
     constructor(_client) {
         this._client = _client;
-        this.relation = new WlFamilyRelationNamespace(this._client);
+        this.field = new WlInsuranceEnrollmentFieldNamespace(this._client);
     }
 }
-exports.WlFamilyNamespace = WlFamilyNamespace;
-class WlFacebookLoginNamespace {
+exports.WlInsuranceEnrollmentNamespace = WlInsuranceEnrollmentNamespace;
+class WlInsuranceNamespace {
     constructor(_client) {
         this._client = _client;
-    }
-    /** Performs Facebook authorization within the context of the specified business. */
-    facebookLogin(params) {
-        return this._client._request('/Wl/Facebook/Login/FacebookLogin.json', params, 'POST');
+        this.catalog = new WlInsuranceCatalogNamespace(this._client);
+        this.enrollment = new WlInsuranceEnrollmentNamespace(this._client);
     }
 }
-exports.WlFacebookLoginNamespace = WlFacebookLoginNamespace;
-class WlFacebookNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.login = new WlFacebookLoginNamespace(this._client);
-    }
-}
-exports.WlFacebookNamespace = WlFacebookNamespace;
+exports.WlInsuranceNamespace = WlInsuranceNamespace;
 class WlGymVisitNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9098,23 +9116,6 @@ class WlGymNamespace {
     }
 }
 exports.WlGymNamespace = WlGymNamespace;
-class WlSocialShareNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Saves the share post data and returns the secret key for the shared object. */
-    socialShare(params) {
-        return this._client._request('/Wl/Social/Share/SocialShare.json', params, 'POST');
-    }
-}
-exports.WlSocialShareNamespace = WlSocialShareNamespace;
-class WlSocialNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.share = new WlSocialShareNamespace(this._client);
-    }
-}
-exports.WlSocialNamespace = WlSocialNamespace;
 class WlMicrosoftLoginNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9140,175 +9141,120 @@ class WlMicrosoftNamespace {
     }
 }
 exports.WlMicrosoftNamespace = WlMicrosoftNamespace;
-class WlAiAgentLinkNamespace {
+class WlFacebookLoginNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Sends an AI agent link action email (booking or purchase) to the specified user. */
-    sendMail(params) {
-        return this._client._request('/Wl/AiAgent/Link/SendMail.json', params, 'POST');
+    /** Performs Facebook authorization within the context of the specified business. */
+    facebookLogin(params) {
+        return this._client._request('/Wl/Facebook/Login/FacebookLogin.json', params, 'POST');
     }
 }
-exports.WlAiAgentLinkNamespace = WlAiAgentLinkNamespace;
-class WlAiAgentNamespace {
+exports.WlFacebookLoginNamespace = WlFacebookLoginNamespace;
+class WlFacebookNamespace {
     constructor(_client) {
         this._client = _client;
-        this.link = new WlAiAgentLinkNamespace(this._client);
+        this.login = new WlFacebookLoginNamespace(this._client);
     }
 }
-exports.WlAiAgentNamespace = WlAiAgentNamespace;
-class WlBillingBulkNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets the list of promotions and products available at the location. */
-    purchaseItemListGet(params) {
-        return this._client._request('/Wl/Billing/Bulk/PurchaseItemList.json', params, 'GET');
-    }
-    /** Prepares the bulk billing review: the per-client totals and the list of clients that will be billed. */
-    purchaseItemListPost(params) {
-        return this._client._request('/Wl/Billing/Bulk/PurchaseItemList.json', params, 'POST');
-    }
-    /** Cancels a scheduled bulk billing so that it is never billed. */
-    bulkBillingDelete(params) {
-        return this._client._request('/Wl/Billing/Bulk/BulkBilling.json', params, 'DELETE');
-    }
-    /** Schedules the bulk billing. */
-    bulkBillingPost(params) {
-        return this._client._request('/Wl/Billing/Bulk/BulkBilling.json', params, 'POST');
-    }
-    /** Reschedules a previously scheduled bulk billing to a new date and time. */
-    bulkBillingPut(params) {
-        return this._client._request('/Wl/Billing/Bulk/BulkBilling.json', params, 'PUT');
-    }
-    /** Removes the client from the batch so that they are not billed. */
-    bulkBillingUser(params) {
-        return this._client._request('/Wl/Billing/Bulk/BulkBillingUser.json', params, 'DELETE');
-    }
-}
-exports.WlBillingBulkNamespace = WlBillingBulkNamespace;
-class WlBillingNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.bulk = new WlBillingBulkNamespace(this._client);
-    }
-}
-exports.WlBillingNamespace = WlBillingNamespace;
-class WlWidgetAnalyticsNamespace {
+exports.WlFacebookNamespace = WlFacebookNamespace;
+class WlGoogleLoginNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Accepts a Widget analytics event. */
-    widgetAnalyticsEvent(params) {
-        return this._client._request('/Wl/Widget/Analytics/WidgetAnalyticsEvent.json', params, 'POST');
+    /** Performs Google authorization within the context of the specified business. */
+    googleLogin(params) {
+        return this._client._request('/Wl/Google/Login/GoogleLogin.json', params, 'POST');
     }
 }
-exports.WlWidgetAnalyticsNamespace = WlWidgetAnalyticsNamespace;
-class WlWidgetNamespace {
+exports.WlGoogleLoginNamespace = WlGoogleLoginNamespace;
+class WlGoogleNamespace {
     constructor(_client) {
         this._client = _client;
-        this.analytics = new WlWidgetAnalyticsNamespace(this._client);
+        this.login = new WlGoogleLoginNamespace(this._client);
     }
 }
-exports.WlWidgetNamespace = WlWidgetNamespace;
-class WlTuitionEnrollmentNamespace {
+exports.WlGoogleNamespace = WlGoogleNamespace;
+class WlSocialShareNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns summary of clients and events enrolled for the given tuitions. */
-    tuitionClientsSummary(params) {
-        return this._client._request('/Wl/Tuition/Enrollment/TuitionClientsSummary.json', params, 'GET');
-    }
-    /** Allows canceling certain event enrollments within tuition. */
-    tuitionEnrollmentCancel(params) {
-        return this._client._request('/Wl/Tuition/Enrollment/TuitionEnrollmentCancel.json', params, 'PUT');
-    }
-    /** Returns list of enrollments for the tuition. */
-    tuitionEnrollmentList(params) {
-        return this._client._request('/Wl/Tuition/Enrollment/TuitionEnrollmentList.json', params, 'GET');
+    /** Saves the share post data and returns the secret key for the shared object. */
+    socialShare(params) {
+        return this._client._request('/Wl/Social/Share/SocialShare.json', params, 'POST');
     }
 }
-exports.WlTuitionEnrollmentNamespace = WlTuitionEnrollmentNamespace;
-class WlTuitionNamespace {
+exports.WlSocialShareNamespace = WlSocialShareNamespace;
+class WlSocialNamespace {
     constructor(_client) {
         this._client = _client;
-        this.enrollment = new WlTuitionEnrollmentNamespace(this._client);
+        this.share = new WlSocialShareNamespace(this._client);
     }
 }
-exports.WlTuitionNamespace = WlTuitionNamespace;
+exports.WlSocialNamespace = WlSocialNamespace;
 class WlNamespace {
     constructor(_client) {
         this._client = _client;
         this.pay = new WlPayNamespace(this._client);
         this.report = new WlReportNamespace(this._client);
+        this.mail = new WlMailNamespace(this._client);
+        this.staff = new WlStaffNamespace(this._client);
+        this.promotion = new WlPromotionNamespace(this._client);
+        this.collector = new WlCollectorNamespace(this._client);
+        this.login = new WlLoginNamespace(this._client);
         this.profile = new WlProfileNamespace(this._client);
         this.business = new WlBusinessNamespace(this._client);
-        this.skin = new WlSkinNamespace(this._client);
-        this.video = new WlVideoNamespace(this._client);
-        this.schedule = new WlScheduleNamespace(this._client);
-        this.login = new WlLoginNamespace(this._client);
-        this.staff = new WlStaffNamespace(this._client);
-        this.session = new WlSessionNamespace(this._client);
-        this.promotion = new WlPromotionNamespace(this._client);
-        this.visit = new WlVisitNamespace(this._client);
-        this.lead = new WlLeadNamespace(this._client);
-        this.mail = new WlMailNamespace(this._client);
         this.event = new WlEventNamespace(this._client);
-        this.location = new WlLocationNamespace(this._client);
-        this.holiday = new WlHolidayNamespace(this._client);
-        this.tag = new WlTagNamespace(this._client);
-        this.tax = new WlTaxNamespace(this._client);
-        this.currency = new WlCurrencyNamespace(this._client);
-        this.rank = new WlRankNamespace(this._client);
-        this.review = new WlReviewNamespace(this._client);
+        this.session = new WlSessionNamespace(this._client);
         this.quiz = new WlQuizNamespace(this._client);
-        this.collector = new WlCollectorNamespace(this._client);
+        this.tax = new WlTaxNamespace(this._client);
+        this.skin = new WlSkinNamespace(this._client);
+        this.schedule = new WlScheduleNamespace(this._client);
+        this.location = new WlLocationNamespace(this._client);
+        this.video = new WlVideoNamespace(this._client);
+        this.lead = new WlLeadNamespace(this._client);
+        this.visit = new WlVisitNamespace(this._client);
         this.fitbuilder = new WlFitbuilderNamespace(this._client);
         this.announcement = new WlAnnouncementNamespace(this._client);
+        this.review = new WlReviewNamespace(this._client);
         this.drive = new WlDriveNamespace(this._client);
-        this.classes = new WlClassesNamespace(this._client);
-        this.integration = new WlIntegrationNamespace(this._client);
-        this.service = new WlServiceNamespace(this._client);
-        this.appointment = new WlAppointmentNamespace(this._client);
-        this.sms = new WlSmsNamespace(this._client);
-        this.purchase = new WlPurchaseNamespace(this._client);
-        this.catalog = new WlCatalogNamespace(this._client);
+        this.tag = new WlTagNamespace(this._client);
+        this.currency = new WlCurrencyNamespace(this._client);
+        this.rank = new WlRankNamespace(this._client);
+        this.holiday = new WlHolidayNamespace(this._client);
         this.notification = new WlNotificationNamespace(this._client);
-        this.member = new WlMemberNamespace(this._client);
-        this.search = new WlSearchNamespace(this._client);
-        this.book = new WlBookNamespace(this._client);
-        this.insurance = new WlInsuranceNamespace(this._client);
-        this.discount = new WlDiscountNamespace(this._client);
-        this.google = new WlGoogleNamespace(this._client);
-        this.resource = new WlResourceNamespace(this._client);
-        this.reward = new WlRewardNamespace(this._client);
-        this.shop = new WlShopNamespace(this._client);
-        this.user = new WlUserNamespace(this._client);
         this.passport = new WlPassportNamespace(this._client);
-        this.reception = new WlReceptionNamespace(this._client);
-        this.coupon = new WlCouponNamespace(this._client);
-        this.family = new WlFamilyNamespace(this._client);
-        this.facebook = new WlFacebookNamespace(this._client);
-        this.gym = new WlGymNamespace(this._client);
-        this.social = new WlSocialNamespace(this._client);
-        this.microsoft = new WlMicrosoftNamespace(this._client);
-        this.aiAgent = new WlAiAgentNamespace(this._client);
-        this.billing = new WlBillingNamespace(this._client);
-        this.widget = new WlWidgetNamespace(this._client);
+        this.discount = new WlDiscountNamespace(this._client);
+        this.integration = new WlIntegrationNamespace(this._client);
+        this.purchase = new WlPurchaseNamespace(this._client);
+        this.book = new WlBookNamespace(this._client);
+        this.catalog = new WlCatalogNamespace(this._client);
         this.tuition = new WlTuitionNamespace(this._client);
+        this.family = new WlFamilyNamespace(this._client);
+        this.appointment = new WlAppointmentNamespace(this._client);
+        this.shop = new WlShopNamespace(this._client);
+        this.billing = new WlBillingNamespace(this._client);
+        this.classes = new WlClassesNamespace(this._client);
+        this.member = new WlMemberNamespace(this._client);
+        this.widget = new WlWidgetNamespace(this._client);
+        this.service = new WlServiceNamespace(this._client);
+        this.aiAgent = new WlAiAgentNamespace(this._client);
+        this.user = new WlUserNamespace(this._client);
+        this.reward = new WlRewardNamespace(this._client);
+        this.resource = new WlResourceNamespace(this._client);
+        this.coupon = new WlCouponNamespace(this._client);
+        this.sms = new WlSmsNamespace(this._client);
+        this.search = new WlSearchNamespace(this._client);
+        this.reception = new WlReceptionNamespace(this._client);
+        this.insurance = new WlInsuranceNamespace(this._client);
+        this.gym = new WlGymNamespace(this._client);
+        this.microsoft = new WlMicrosoftNamespace(this._client);
+        this.facebook = new WlFacebookNamespace(this._client);
+        this.google = new WlGoogleNamespace(this._client);
+        this.social = new WlSocialNamespace(this._client);
     }
 }
 exports.WlNamespace = WlNamespace;
-class CoreWebSocketNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Checks whether a listener can subscribe to specified channel. Subscribes in a case of positive result. */
-    subscribe(params) {
-        return this._client._request('/Core/WebSocket/Subscribe.json', params, 'POST');
-    }
-}
-exports.CoreWebSocketNamespace = CoreWebSocketNamespace;
 class CoreRequestApiApplicationCredentialNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9379,13 +9325,19 @@ class CoreRequestNamespace {
     }
 }
 exports.CoreRequestNamespace = CoreRequestNamespace;
-class CoreGoogleCaptchaNamespace {
+class CoreCaptchaNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Saves the user CAPTCHA token for the current session. */
-    googleCaptcha(params) {
-        return this._client._request('/Core/Google/Captcha/GoogleCaptcha.json', params, 'PUT');
+    /** Checks if a CAPTCHA is required for the given captcha type. */
+    captchaRequire(params) {
+        return this._client._request('/Core/Captcha/CaptchaRequire.json', params, 'GET');
+    }
+}
+exports.CoreCaptchaNamespace = CoreCaptchaNamespace;
+class CoreGoogleCaptchaNamespace {
+    constructor(_client) {
+        this._client = _client;
     }
     /** Returns the overridden score for the reCAPTCHA v3. */
     captchaScoreGet(params) {
@@ -9398,6 +9350,10 @@ class CoreGoogleCaptchaNamespace {
     /** Overrides the score for the reCAPTCHA v3. */
     captchaScorePut(params) {
         return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'PUT');
+    }
+    /** Saves the user CAPTCHA token for the current session. */
+    googleCaptcha(params) {
+        return this._client._request('/Core/Google/Captcha/GoogleCaptcha.json', params, 'PUT');
     }
 }
 exports.CoreGoogleCaptchaNamespace = CoreGoogleCaptchaNamespace;
@@ -9413,6 +9369,26 @@ class CoreGoogleNamespace {
     }
 }
 exports.CoreGoogleNamespace = CoreGoogleNamespace;
+class CoreSidNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the list of all items for the given Sid class. */
+    coreSid(params) {
+        return this._client._request('/Core/Sid/CoreSid.json', params, 'GET');
+    }
+}
+exports.CoreSidNamespace = CoreSidNamespace;
+class CoreWebSocketNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks whether a listener can subscribe to specified channel. Subscribes in a case of positive result. */
+    subscribe(params) {
+        return this._client._request('/Core/WebSocket/Subscribe.json', params, 'POST');
+    }
+}
+exports.CoreWebSocketNamespace = CoreWebSocketNamespace;
 class CoreGeoRegionNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9434,40 +9410,23 @@ class CoreGeoNamespace {
     }
 }
 exports.CoreGeoNamespace = CoreGeoNamespace;
-class CoreSidNamespace {
+class CoreTestingAutomationNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns the list of all items for the given Sid class. */
-    coreSid(params) {
-        return this._client._request('/Core/Sid/CoreSid.json', params, 'GET');
+    /** Flushes all application caches. */
+    cacheFlush(params) {
+        return this._client._request('/Core/Testing/Automation/CacheFlush.json', params, 'GET');
     }
 }
-exports.CoreSidNamespace = CoreSidNamespace;
-class CoreCaptchaNamespace {
+exports.CoreTestingAutomationNamespace = CoreTestingAutomationNamespace;
+class CoreTestingNamespace {
     constructor(_client) {
         this._client = _client;
-    }
-    /** Checks if a CAPTCHA is required for the given captcha type. */
-    captchaRequire(params) {
-        return this._client._request('/Core/Captcha/CaptchaRequire.json', params, 'GET');
+        this.automation = new CoreTestingAutomationNamespace(this._client);
     }
 }
-exports.CoreCaptchaNamespace = CoreCaptchaNamespace;
-class CorePassportLoginEnterNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Signs the user in using their login and hashed password. */
-    enter(params) {
-        return this._client._request('/Core/Passport/Login/Enter/Enter.json', params, 'POST');
-    }
-    /** Generates notepad for user sign in form. */
-    notepad(params) {
-        return this._client._request('/Core/Passport/Login/Enter/Notepad.json', params, 'GET');
-    }
-}
-exports.CorePassportLoginEnterNamespace = CorePassportLoginEnterNamespace;
+exports.CoreTestingNamespace = CoreTestingNamespace;
 class CorePassportLoginRegisterNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9482,6 +9441,20 @@ class CorePassportLoginRegisterNamespace {
     }
 }
 exports.CorePassportLoginRegisterNamespace = CorePassportLoginRegisterNamespace;
+class CorePassportLoginEnterNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Signs the user in using their login and hashed password. */
+    enter(params) {
+        return this._client._request('/Core/Passport/Login/Enter/Enter.json', params, 'POST');
+    }
+    /** Generates notepad for user sign in form. */
+    notepad(params) {
+        return this._client._request('/Core/Passport/Login/Enter/Notepad.json', params, 'GET');
+    }
+}
+exports.CorePassportLoginEnterNamespace = CorePassportLoginEnterNamespace;
 class CorePassportLoginSignOutNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9495,8 +9468,8 @@ exports.CorePassportLoginSignOutNamespace = CorePassportLoginSignOutNamespace;
 class CorePassportLoginNamespace {
     constructor(_client) {
         this._client = _client;
-        this.enter = new CorePassportLoginEnterNamespace(this._client);
         this.register = new CorePassportLoginRegisterNamespace(this._client);
+        this.enter = new CorePassportLoginEnterNamespace(this._client);
         this.signOut = new CorePassportLoginSignOutNamespace(this._client);
     }
     /** Returns information about user that is currently signed in. */
@@ -9519,23 +9492,6 @@ class CorePassportChangePasswordNamespace {
     }
 }
 exports.CorePassportChangePasswordNamespace = CorePassportChangePasswordNamespace;
-class CorePassportEnterJwtNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns a jwt token that can be used to log user. */
-    jwtToken(params) {
-        return this._client._request('/Core/Passport/Enter/Jwt/JwtToken.json', params, 'GET');
-    }
-}
-exports.CorePassportEnterJwtNamespace = CorePassportEnterJwtNamespace;
-class CorePassportEnterNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.jwt = new CorePassportEnterJwtNamespace(this._client);
-    }
-}
-exports.CorePassportEnterNamespace = CorePassportEnterNamespace;
 class CorePassportUserEmailNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9553,13 +9509,30 @@ class CorePassportUserNamespace {
     }
 }
 exports.CorePassportUserNamespace = CorePassportUserNamespace;
+class CorePassportEnterJwtNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns a jwt token that can be used to log user. */
+    jwtToken(params) {
+        return this._client._request('/Core/Passport/Enter/Jwt/JwtToken.json', params, 'GET');
+    }
+}
+exports.CorePassportEnterJwtNamespace = CorePassportEnterJwtNamespace;
+class CorePassportEnterNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.jwt = new CorePassportEnterJwtNamespace(this._client);
+    }
+}
+exports.CorePassportEnterNamespace = CorePassportEnterNamespace;
 class CorePassportNamespace {
     constructor(_client) {
         this._client = _client;
         this.login = new CorePassportLoginNamespace(this._client);
         this.changePassword = new CorePassportChangePasswordNamespace(this._client);
-        this.enter = new CorePassportEnterNamespace(this._client);
         this.user = new CorePassportUserNamespace(this._client);
+        this.enter = new CorePassportEnterNamespace(this._client);
     }
 }
 exports.CorePassportNamespace = CorePassportNamespace;
@@ -9609,36 +9582,19 @@ class CoreDriveNamespace {
     }
 }
 exports.CoreDriveNamespace = CoreDriveNamespace;
-class CoreTestingAutomationNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Flushes all application caches. */
-    cacheFlush(params) {
-        return this._client._request('/Core/Testing/Automation/CacheFlush.json', params, 'GET');
-    }
-}
-exports.CoreTestingAutomationNamespace = CoreTestingAutomationNamespace;
-class CoreTestingNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.automation = new CoreTestingAutomationNamespace(this._client);
-    }
-}
-exports.CoreTestingNamespace = CoreTestingNamespace;
 class CoreNamespace {
     constructor(_client) {
         this._client = _client;
-        this.webSocket = new CoreWebSocketNamespace(this._client);
         this.request = new CoreRequestNamespace(this._client);
-        this.google = new CoreGoogleNamespace(this._client);
-        this.geo = new CoreGeoNamespace(this._client);
-        this.sid = new CoreSidNamespace(this._client);
         this.captcha = new CoreCaptchaNamespace(this._client);
+        this.google = new CoreGoogleNamespace(this._client);
+        this.sid = new CoreSidNamespace(this._client);
+        this.webSocket = new CoreWebSocketNamespace(this._client);
+        this.geo = new CoreGeoNamespace(this._client);
+        this.testing = new CoreTestingNamespace(this._client);
         this.passport = new CorePassportNamespace(this._client);
         this.spa = new CoreSpaNamespace(this._client);
         this.drive = new CoreDriveNamespace(this._client);
-        this.testing = new CoreTestingNamespace(this._client);
     }
 }
 exports.CoreNamespace = CoreNamespace;
@@ -9681,23 +9637,6 @@ class SocialAppleNamespace {
     }
 }
 exports.SocialAppleNamespace = SocialAppleNamespace;
-class SocialGooglePlusNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Authorizes user with Google. */
-    login(params) {
-        return this._client._request('/Social/Google/Plus/Login.json', params, 'POST');
-    }
-}
-exports.SocialGooglePlusNamespace = SocialGooglePlusNamespace;
-class SocialGoogleNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.plus = new SocialGooglePlusNamespace(this._client);
-    }
-}
-exports.SocialGoogleNamespace = SocialGoogleNamespace;
 class SocialFacebookLoginNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9715,13 +9654,30 @@ class SocialFacebookNamespace {
     }
 }
 exports.SocialFacebookNamespace = SocialFacebookNamespace;
+class SocialGooglePlusNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Authorizes user with Google. */
+    login(params) {
+        return this._client._request('/Social/Google/Plus/Login.json', params, 'POST');
+    }
+}
+exports.SocialGooglePlusNamespace = SocialGooglePlusNamespace;
+class SocialGoogleNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.plus = new SocialGooglePlusNamespace(this._client);
+    }
+}
+exports.SocialGoogleNamespace = SocialGoogleNamespace;
 class SocialNamespace {
     constructor(_client) {
         this._client = _client;
         this.microsoft = new SocialMicrosoftNamespace(this._client);
         this.apple = new SocialAppleNamespace(this._client);
-        this.google = new SocialGoogleNamespace(this._client);
         this.facebook = new SocialFacebookNamespace(this._client);
+        this.google = new SocialGoogleNamespace(this._client);
     }
 }
 exports.SocialNamespace = SocialNamespace;
