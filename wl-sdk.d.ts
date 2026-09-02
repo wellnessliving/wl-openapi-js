@@ -8304,6 +8304,8 @@ export interface WlTagTagGetResponse {
             k_id: string;
             /** Whether the tag is the primary revenue category for the resource. */
             is_primary: boolean;
+            /** The resource title. */
+            text_title: string;
         };
         /** Classes and events assigned to the tag. Each element has the next structure: */
         a_class: {
@@ -8311,6 +8313,8 @@ export interface WlTagTagGetResponse {
             k_id: string;
             /** Whether the tag is the primary revenue category for the class. */
             is_primary: boolean;
+            /** The class title. */
+            text_title: string;
         };
         /** Gift cards assigned to the tag. Each element has the next structure: */
         a_coupon: {
@@ -8318,6 +8322,8 @@ export interface WlTagTagGetResponse {
             k_id: string;
             /** Whether the tag is the primary revenue category for the coupon. */
             is_primary: boolean;
+            /** The coupon title. */
+            text_title: string;
         };
         /** Purchase options (passes and memberships) assigned to the tag. Each element has the next structure: */
         a_promotion: {
@@ -8325,6 +8331,8 @@ export interface WlTagTagGetResponse {
             k_id: string;
             /** Whether the tag is the primary revenue category for the promotion. */
             is_primary: boolean;
+            /** The promotion title. */
+            text_title: string;
         };
         /** Appointment types assigned to the tag. Each element has the next structure: */
         a_service: {
@@ -8332,6 +8340,8 @@ export interface WlTagTagGetResponse {
             k_id: string;
             /** Whether the tag is the primary revenue category for the service. */
             is_primary: boolean;
+            /** The service title. */
+            text_title: string;
         };
         /** Store products assigned to the tag. Each element has the next structure: */
         a_product: {
@@ -8339,6 +8349,8 @@ export interface WlTagTagGetResponse {
             k_id: string;
             /** Whether the tag is the primary revenue category for the product. */
             is_primary: boolean;
+            /** The product title. */
+            text_title: string;
         };
         /** The sort order of the tag. */
         i_sort: number;
