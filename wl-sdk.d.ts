@@ -9477,10 +9477,14 @@ export interface WlProfileAttendanceAttendanceOverlapResponse {
         k_enrollment_book: string;
         /** Location key. */
         k_location: string;
+        /** Local date of the visit, formatted according to the business locale. */
+        text_date?: string;
         /** Local end time of the visit, formatted according to the business locale. */
         text_time_end?: string;
         /** Local start time of the visit, formatted according to the business locale. */
         text_time_start?: string;
+        /** Name of the timezone used to format `text_date`, `text_time_end` and `text_time_start`. */
+        text_timezone?: string;
         /** Title of a service */
         text_title: string;
     }>;
