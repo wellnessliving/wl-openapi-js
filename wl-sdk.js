@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20260902091833
+ * Spec version: 1.1.20260903065703
  * Build date:   2026-09-03
- * Endpoints:    527
+ * Endpoints:    530
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/production/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260902091833';
+  WlClient.SPEC_VERSION = '1.1.20260903065703';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (527 total)
+  // Generated API methods (530 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -1704,11 +1704,12 @@
    * @param {string[]} params.a_staff Staff member keys to filter.
    * @param {Object} params.a_time Time interval:
    * @param {string} params.dtu_start The date/time to start from in UTC.
-   * @param {number} params.id_class_tab "Book now" tab ID. One of {@link WlClient.WlClassesTabTabSid} constants.
+   * @param {number} params.id_class_tab Optional "Book now" tab ID filter. One of {@link WlClient.WlClassesTabTabSid} constants.
    * @param {boolean} params.is_class `true` to include classes; `false` to exclude.
    * @param {boolean} params.is_event `true` to include events; `false` to exclude.
    * @param {boolean} params.is_virtual `true` to include only virtual classes;
    * @param {string} params.k_business Business key.
+   * @param {string} params.k_class_tab Optional book now tab key filter.
    * @param {string} params.k_timezone Timezone key.
    * @returns {Promise<Object>} Response data.
    *  `dl_next_available` {?string} Nearest session date available for booking in user's or business timezone.
@@ -2246,6 +2247,42 @@
   WlClient.prototype.wlDriveProductImageUploadPut = function(params)
   {
     return this.request('/Wl/Drive/ProductImageUpload.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Removes the tag.
+   *
+   * Deletes the revenue category from the business. The deletion fails if the tag is currently
+   * set as the primary revenue category for any linked asset, class, coupon, promotion, service,
+   * or product (promotions that have already been removed are ignored). On success, notifies
+   * listeners about the affected linked objects and invalidates the cached tag list of the
+   * business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business The business key of the tags.
+   * @param {string} params.k_tag The tag key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlTagTagDelete = function(params)
+  {
+    return this.request('/Wl/Tag/Tag.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Returns revenue categories (tags) of the business.
+   *
+   * Returns tags along with the bookable assets, classes, coupons, promotions, services, and
+   * products assigned to each one.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business The business key of the tags.
+   * @param {string} params.k_tag The tag key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_tag` {Object[]} The revenue categories (tags) of the business.
+   */
+  WlClient.prototype.wlTagTagGet = function(params)
+  {
+    return this.request('/Wl/Tag/Tag.json', params || {}, 'GET');
   };
 
   /**
@@ -3050,6 +3087,8 @@
    * so the staff member can select one to view or edit.
    *
    * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_event_filter List of event keys to filter the discount codes by.
+   * @param {string[]} params.a_promotion_filter List of membership and passes keys to filter the discount codes by.
    * @param {string} params.k_business Business key of the discount codes.
    * @returns {Promise<Object>} Response data.
    *  `a_list` {Object[]} Discount codes list. Each element has the following structure:
@@ -4041,10 +4080,25 @@
    * @param {string} params.uid UID of a user.
    * @returns {Promise<Object>} Response data.
    *  `a_visit_list` {Object[]} List of visits that overlap with the specified data.
+   *  `is_overlap` {boolean} Whether at least one overlap exists.
    */
   WlClient.prototype.wlProfileAttendanceAttendanceOverlap = function(params)
   {
     return this.request('/Wl/Profile/Attendance/AttendanceOverlap.json', params || {}, 'GET');
+  };
+
+  /**
+   * Checks whether the specified user has any existing bookings that overlap with a given time range or service.
+   *
+   * Used before scheduling to detect conflicts and prompt staff or the client with a warning.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `a_date_overlap` {Object[]} Overlap result for every checked session. Key is `i` from {@link WlClient#wlP...
+   */
+  WlClient.prototype.wlProfileAttendanceAttendanceOverlapList = function(params)
+  {
+    return this.request('/Wl/Profile/Attendance/AttendanceOverlapList.json', params || {}, 'POST');
   };
 
   /**
@@ -14440,6 +14494,8 @@
     INTEGRATION_AUTYMATE: 163,
     /** Set up and modify Brivo integration */
     INTEGRATION_BRIVO: 179,
+    /** Access to set up and change quickbooks integration */
+    INTEGRATION_QUICKBOOKS: 249,
     /** Enroll into and manage the WellnessLiving Achieve App. These settings are located under Setup > Achieve Client App */
     INTERFACE_ACHIEVE_APP: 87,
     /** Modify the look and functionality business’s widgets. These settings are located within Setup > Widgets */
@@ -14598,8 +14654,6 @@
     PURCHASE_EDIT: 93,
     /** Access to view client purchases (passes and memberships) */
     PURCHASE_VIEW: 92,
-    /** Access to set up and change quickbooks integration */
-    QUICKBOOKS: 249,
     /** Allow to see alerts */
     RECEIVE_ALERT: 193,
     /** Access to view reports for all staff */

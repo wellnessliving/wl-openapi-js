@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — production channel
-// OpenAPI spec version: 1.1.20260902091833
+// OpenAPI spec version: 1.1.20260903065703
 // Build date: 2026-09-03
-// Endpoints: 527
+// Endpoints: 530
 // Enums: 199
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsRankTypeSid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.CoreAmazonRegionAmazonRegionSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.RsProgramTypeSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsProgramSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.AFlagSid = exports.RsPrivilegeRoleSid = exports.AGenderSid = exports.WlImportCustomCustomSid = exports.WlVisitVisitSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.WlTaskTaskStatusSid = exports.WlGenderGenderSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.RsPayOwnerSid = exports.CoreLocaleLocaleSid = exports.ThothPayProcessorPayProcessorSid = exports.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = exports.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = exports.ThothPayProcessorStripeComTerminalStripeReaderModelSid = exports.ThothWlPayCordovaCordovaCcrDeviceSid = exports.ThothPayProcessorTerminalTerminalTypeSid = exports.ThothPayProcessorTerminalTerminalStatusSid = exports.ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = exports.ACardSystemSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.RsPayMethodSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorStripeComPaymentIntentStatusSid = exports.CoreLocaleCurrencySid = exports.RsPayActorSid = exports.RsHomeTourSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.WlApiError = void 0;
@@ -2637,6 +2637,8 @@ var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_AUTYMATE"] = 163] = "INTEGRATION_AUTYMATE";
     /** Set up and modify Brivo integration */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_BRIVO"] = 179] = "INTEGRATION_BRIVO";
+    /** Access to set up and change quickbooks integration */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_QUICKBOOKS"] = 249] = "INTEGRATION_QUICKBOOKS";
     /** Enroll into and manage the WellnessLiving Achieve App. These settings are located under Setup > Achieve Client App */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTERFACE_ACHIEVE_APP"] = 87] = "INTERFACE_ACHIEVE_APP";
     /** Modify the look and functionality business’s widgets. These settings are located within Setup > Widgets */
@@ -2795,8 +2797,6 @@ var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PURCHASE_EDIT"] = 93] = "PURCHASE_EDIT";
     /** Access to view client purchases (passes and memberships) */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PURCHASE_VIEW"] = 92] = "PURCHASE_VIEW";
-    /** Access to set up and change quickbooks integration */
-    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["QUICKBOOKS"] = 249] = "QUICKBOOKS";
     /** Allow to see alerts */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["RECEIVE_ALERT"] = 193] = "RECEIVE_ALERT";
     /** Access to view reports for all staff */
@@ -6191,6 +6191,10 @@ class WlProfileAttendanceNamespace {
     attendanceOverlap(params) {
         return this._client._request('/Wl/Profile/Attendance/AttendanceOverlap.json', params, 'GET');
     }
+    /** Checks whether the specified user has any existing bookings that overlap with a given time range or service. */
+    attendanceOverlapList(params) {
+        return this._client._request('/Wl/Profile/Attendance/AttendanceOverlapList.json', params, 'POST');
+    }
 }
 exports.WlProfileAttendanceNamespace = WlProfileAttendanceNamespace;
 class WlProfilePurchaseListNamespace {
@@ -7424,6 +7428,14 @@ exports.WlDriveNamespace = WlDriveNamespace;
 class WlTagNamespace {
     constructor(_client) {
         this._client = _client;
+    }
+    /** Removes the tag. */
+    tagDelete(params) {
+        return this._client._request('/Wl/Tag/Tag.json', params, 'DELETE');
+    }
+    /** Returns revenue categories (tags) of the business. */
+    tagGet(params) {
+        return this._client._request('/Wl/Tag/Tag.json', params, 'GET');
     }
     /** Returns tags of the specified business. */
     tagListGet(params) {

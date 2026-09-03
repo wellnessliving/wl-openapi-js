@@ -2549,6 +2549,8 @@ export declare enum WlPrivilegePrivilegeSid {
     INTEGRATION_AUTYMATE = 163,
     /** Set up and modify Brivo integration */
     INTEGRATION_BRIVO = 179,
+    /** Access to set up and change quickbooks integration */
+    INTEGRATION_QUICKBOOKS = 249,
     /** Enroll into and manage the WellnessLiving Achieve App. These settings are located under Setup > Achieve Client App */
     INTERFACE_ACHIEVE_APP = 87,
     /** Modify the look and functionality business’s widgets. These settings are located within Setup > Widgets */
@@ -2707,8 +2709,6 @@ export declare enum WlPrivilegePrivilegeSid {
     PURCHASE_EDIT = 93,
     /** Access to view client purchases (passes and memberships) */
     PURCHASE_VIEW = 92,
-    /** Access to set up and change quickbooks integration */
-    QUICKBOOKS = 249,
     /** Allow to see alerts */
     RECEIVE_ALERT = 193,
     /** Access to view reports for all staff */
@@ -7905,7 +7905,7 @@ export interface WlScheduleScheduleAvailableDateParams {
     };
     /** The date/time to start from in UTC. */
     dtu_start: string;
-    /** "Book now" tab ID. One of {@link WlClassesTabTabSid} constants. */
+    /** Optional "Book now" tab ID filter. One of {@link WlClassesTabTabSid} constants. */
     id_class_tab: WlClassesTabTabSid;
     /** `true` to include classes; `false` to exclude. */
     is_class: boolean;
@@ -7915,6 +7915,8 @@ export interface WlScheduleScheduleAvailableDateParams {
     is_virtual: boolean;
     /** Business key. */
     k_business: string;
+    /** Optional book now tab key filter. */
+    k_class_tab: string;
     /** Timezone key. */
     k_timezone: string;
 }
@@ -8713,6 +8715,82 @@ export interface WlDriveProductImageUploadPutResponse {
     url_upload: string | null;
     /** The URL of the full image. */
     url_view: string | null;
+}
+export interface WlTagTagDeleteParams {
+    /** The business key of the tags. */
+    k_business: string;
+    /** The tag key. */
+    k_tag: string;
+}
+export type WlTagTagDeleteResponse = Record<string, unknown>;
+export interface WlTagTagGetParams {
+    /** The business key of the tags. */
+    k_business: string;
+    /** The tag key. */
+    k_tag: string;
+}
+export interface WlTagTagGetResponse {
+    /** The revenue categories (tags) of the business. */
+    a_tag: Array<{
+        /** Bookable assets assigned to the tag. Each element has the next structure: */
+        a_asset: {
+            /** The resource key. */
+            k_id: string;
+            /** Whether the tag is the primary revenue category for the resource. */
+            is_primary: boolean;
+            /** The resource title. */
+            text_title: string;
+        };
+        /** Classes and events assigned to the tag. Each element has the next structure: */
+        a_class: {
+            /** The class key. */
+            k_id: string;
+            /** Whether the tag is the primary revenue category for the class. */
+            is_primary: boolean;
+            /** The class title. */
+            text_title: string;
+        };
+        /** Gift cards assigned to the tag. Each element has the next structure: */
+        a_coupon: {
+            /** The coupon key. */
+            k_id: string;
+            /** Whether the tag is the primary revenue category for the coupon. */
+            is_primary: boolean;
+            /** The coupon title. */
+            text_title: string;
+        };
+        /** Purchase options (passes and memberships) assigned to the tag. Each element has the next structure: */
+        a_promotion: {
+            /** The promotion key. */
+            k_id: string;
+            /** Whether the tag is the primary revenue category for the promotion. */
+            is_primary: boolean;
+            /** The promotion title. */
+            text_title: string;
+        };
+        /** Appointment types assigned to the tag. Each element has the next structure: */
+        a_service: {
+            /** The service key. */
+            k_id: string;
+            /** Whether the tag is the primary revenue category for the service. */
+            is_primary: boolean;
+            /** The service title. */
+            text_title: string;
+        };
+        /** Store products assigned to the tag. Each element has the next structure: */
+        a_product: {
+            /** The product key. */
+            k_id: string;
+            /** Whether the tag is the primary revenue category for the product. */
+            is_primary: boolean;
+            /** The product title. */
+            text_title: string;
+        };
+        /** The sort order of the tag. */
+        i_sort: number;
+        /** The tag title. */
+        text_title: string;
+    }>;
 }
 export interface WlTagTagListGetParams {
     /** The business key of the tags. */
@@ -9908,6 +9986,10 @@ export interface WlPassportLoginInfoResponse {
     url_register: string;
 }
 export interface WlDiscountCodeDiscountCodeParams {
+    /** List of event keys to filter the discount codes by. */
+    a_event_filter: Array<string>;
+    /** List of membership and passes keys to filter the discount codes by. */
+    a_promotion_filter: Array<string>;
     /** Business key of the discount codes. */
     k_business: string;
 }
@@ -12941,6 +13023,47 @@ export interface WlProfileAttendanceAttendanceOverlapResponse {
         /** Title of a service */
         text_title: string;
     }>;
+    /** Whether at least one overlap exists. */
+    is_overlap: boolean;
+}
+export type WlProfileAttendanceAttendanceOverlapListParams = Record<string, unknown>;
+export interface WlProfileAttendanceAttendanceOverlapListResponse {
+    /** Overlap result for every checked session. Key is `i` from {@link WlProfileAttendanceNamespace#att... */
+    a_date_overlap: Array<{
+        /** List of visits that overlap with the checked session. Same structure as */
+        a_visit_list: {
+            /** Date and time of the visit. */
+            dtu_date: string;
+            /** Duration of a service. */
+            i_duration?: number;
+            /** End datetime of the visit in unix format. */
+            i_end: number;
+            /** Local end datetime of the visit in unix format. */
+            i_end_local?: number;
+            /** Start datetime of the visit in unix format. */
+            i_start: number;
+            /** Local start datetime of the visit in unix format. */
+            i_start_local?: number;
+            /** Appointment key. */
+            k_appointment: string;
+            /** Business key. */
+            k_business: string;
+            /** Class period key. */
+            k_class_period: string;
+            /** Enrollment book key. */
+            k_enrollment_book: string;
+            /** Location key. */
+            k_location: string;
+            /** Local end time of the visit, formatted according to the business locale. */
+            text_time_end?: string;
+            /** Local start time of the visit, formatted according to the business locale. */
+            text_time_start?: string;
+            /** Title of a service */
+            text_title: string;
+        };
+        /** `true` if the checked session overlaps with an already booked visit, `false` otherwise. */
+        is_overlap: boolean;
+    }>;
 }
 export interface WlProfilePurchaseListPurchaseListElementParams {
     /** Image Height in pixels. Please specify this value if you need purchase image to be returned in sp... */
@@ -14561,6 +14684,10 @@ export interface WlTuitionEnrollmentTuitionClientsSummaryResponse {
     a_summary: Array<{
         /** Number of unique clients having at least one not cancelled enrolled event. */
         i_clients_enrolled: number;
+        /** Total number of group enrollments with at least one not cancelled enrolled client in the group. */
+        i_enrollments_active: number;
+        /** Total number of group enrollments. */
+        i_enrollments_total: number;
         /** Total number of not cancelled event enrollments. */
         i_enrolled_total: number;
         /** Number of unique events having at least one not cancelled enrollment. */
@@ -18071,7 +18198,7 @@ export interface WlSchedulePagePageElementResponse {
         k_resource: string;
         /** Image kind. String representation of one of ImageSid constants. */
         sid_image: string;
-        /** Icon name.String representation of one of {@link WlResourceImageImageIconSid} constants. */
+        /** Icon name. String representation of one of {@link WlResourceImageImageIconSid} constants. */
         sid_image_icon: string;
         /** Shape name. String representation of one of ImageShapeSid constants. */
         sid_image_shape: string;
@@ -18994,7 +19121,7 @@ export interface WlResourceLayoutLayoutResponse {
             k_resource: string;
             /** Image kind. String representation of one of ImageSid constants. */
             sid_image: string;
-            /** Icon name.String representation of one of {@link WlResourceImageImageIconSid} constants. */
+            /** Icon name. String representation of one of {@link WlResourceImageImageIconSid} constants. */
             sid_image_icon: string;
             /** Shape name. String representation of one of ImageShapeSid constants. */
             sid_image_shape: string;
@@ -26998,7 +27125,7 @@ export interface WlAppointmentBookAssetServiceServiceResponse {
                 k_resource: string;
                 /** Image kind. String representation of one of ImageSid constants. */
                 sid_image: string;
-                /** Icon name.String representation of one of {@link WlResourceImageImageIconSid} constants. */
+                /** Icon name. String representation of one of {@link WlResourceImageImageIconSid} constants. */
                 sid_image_icon: string;
                 /** Shape name. String representation of one of ImageShapeSid constants. */
                 sid_image_shape: string;
@@ -27862,6 +27989,8 @@ export declare class WlProfileAttendanceNamespace {
     constructor(_client: WlClient);
     /** Returns a list of visits that overlap with the specified service, class, resource, or time data. */
     attendanceOverlap(params?: WlProfileAttendanceAttendanceOverlapParams): Promise<WlProfileAttendanceAttendanceOverlapResponse>;
+    /** Checks whether the specified user has any existing bookings that overlap with a given time range or service. */
+    attendanceOverlapList(params?: WlProfileAttendanceAttendanceOverlapListParams): Promise<WlProfileAttendanceAttendanceOverlapListResponse>;
 }
 export declare class WlProfilePurchaseListNamespace {
     private readonly _client;
@@ -28598,6 +28727,10 @@ export declare class WlDriveNamespace {
 export declare class WlTagNamespace {
     private readonly _client;
     constructor(_client: WlClient);
+    /** Removes the tag. */
+    tagDelete(params?: WlTagTagDeleteParams): Promise<WlTagTagDeleteResponse>;
+    /** Returns revenue categories (tags) of the business. */
+    tagGet(params?: WlTagTagGetParams): Promise<WlTagTagGetResponse>;
     /** Returns tags of the specified business. */
     tagListGet(params?: WlTagTagListGetParams): Promise<WlTagTagListGetResponse>;
     /** Saves the list of tags. Can be used to create new tags or update existing ones. */
