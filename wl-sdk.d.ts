@@ -23829,6 +23829,8 @@ export interface WlAppointmentBookPurchasePurchase72Response {
 export interface WlAppointmentBookServiceServiceList52Params {
     /** The class tab key to use to filter services. If empty, this can be found on the standard book tab. */
     a_class_tab: Array<string>;
+    /** List of services to filter a result. */
+    a_service_filter: Array<string>;
     /** List of staff members to filter a result. */
     a_staff: Array<string>;
     /** List of user keys to book appointments. */
@@ -24037,6 +24039,8 @@ export interface WlAppointmentBookServiceCategoryResponse {
 export interface WlAppointmentBookServiceServiceListParams {
     /** The class tab key to use to filter services. If empty, this can be found on the standard book tab. */
     a_class_tab: Array<string>;
+    /** List of services to filter a result. */
+    a_service_filter: Array<string>;
     /** List of staff members to filter a result. */
     a_staff: Array<string>;
     /** List of user keys to book appointments. */
