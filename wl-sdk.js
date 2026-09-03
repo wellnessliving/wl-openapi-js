@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260903165302
+ * Spec version: 1.1.20260903170812
  * Build date:   2026-09-03
  * Endpoints:    540
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260903165302';
+  WlClient.SPEC_VERSION = '1.1.20260903170812';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (540 total)
@@ -8928,7 +8928,9 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_appointment List of appointment keys for which to load unpaid data.
    * @param {?string} [params.dtl_date] Local date and time for which visit is booked in MySQL format.
+   * @param {boolean} params.is_relationship `true` to all appointments are related to the same user, `false` if appointments can be related t...
    * @param {boolean} params.is_simple When set to `true` it's mean that need load full information about unpaid visits:
+   * @param {boolean} params.is_unpaid `true` to get only unpaid appointments, `false` to get all appointments.
    * @param {string} params.k_business The business key.
    * @param {?string} [params.k_location] The location key.
    * @param {string} params.k_visit Last booked visit key.

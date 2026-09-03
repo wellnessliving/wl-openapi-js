@@ -22602,8 +22602,12 @@ export interface WlEventBookEventListListResponse {
 export interface WlProfileAttendanceSchedulePaymentMultipleGetParams {
     /** List of appointment keys for which to load unpaid data. */
     a_appointment: Array<string>;
+    /** `true` to all appointments are related to the same user, `false` if appointments can be related t... */
+    is_relationship: boolean;
     /** When set to `true` it's mean that need load full information about unpaid visits: */
     is_simple: boolean;
+    /** `true` to get only unpaid appointments, `false` to get all appointments. */
+    is_unpaid: boolean;
     /** The business key. */
     k_business: string;
     /** Last booked visit key. */
