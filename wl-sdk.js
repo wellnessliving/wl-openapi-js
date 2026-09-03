@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260902152656
+ * Spec version: 1.1.20260903042739
  * Build date:   2026-09-03
  * Endpoints:    530
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260902152656';
+  WlClient.SPEC_VERSION = '1.1.20260903042739';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (530 total)
@@ -10237,6 +10237,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_class_tab The class tab key to use to filter services. If empty, this can be found on the standard book tab.
+   * @param {string[]} params.a_service_filter List of services to filter a result.
    * @param {string[]} params.a_staff List of staff members to filter a result.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {?number} [params.i_height] Image height in pixels. Please specify this value if you need image to be returned in specific size.
@@ -10312,6 +10313,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_class_tab The class tab key to use to filter services. If empty, this can be found on the standard book tab.
+   * @param {string[]} params.a_service_filter List of services to filter a result.
    * @param {string[]} params.a_staff List of staff members to filter a result.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {?number} [params.i_height] Image height in pixels. Please specify this value if you need image to be returned in specific size.
