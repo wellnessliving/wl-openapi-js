@@ -26099,6 +26099,14 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartResponse {
     is_receipt_note: boolean;
     /** The amount that has to be charged right now for the cart. */
     m_checkout: string;
+    /** The subtotal amount that has to be charged right now for the cart, before discount. */
+    m_checkout_before_discount: string;
+    /** The amount that has to be charged right now for the cart, after discount but before tax. */
+    m_checkout_before_tax: string;
+    /** The discount amount that applies to the part of the cart charged right now, excluding tax. */
+    m_checkout_discount: string;
+    /** The amount of tax that applies to the part of the cart charged right now. */
+    m_checkout_tax: string;
     /** The discount amount in dollars, excluding tax. */
     m_discount: string;
     /** The discount amount applied to the cart's total amount, including taxes. */
