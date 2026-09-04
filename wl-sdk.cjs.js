@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260904114635
+// OpenAPI spec version: 1.1.20260904144140
 // Build date: 2026-09-04
 // Endpoints: 540
 // Enums: 204
@@ -257,8 +257,6 @@ var RsReportSid;
     RsReportSid[RsReportSid["LOGIN_RANK"] = 40] = "LOGIN_RANK";
     /** List of clients that are at churn risk according to isaac prediction */
     RsReportSid[RsReportSid["LOGIN_RISK"] = 261] = "LOGIN_RISK";
-    /** Report with client's attendance history */
-    RsReportSid[RsReportSid["LOGIN_VISIT"] = 52] = "LOGIN_VISIT";
     /** Count of sent mail and sms per business */
     RsReportSid[RsReportSid["MAIL_BUSINESS_LIST"] = 46] = "MAIL_BUSINESS_LIST";
     /** Mail campaign details list report */
