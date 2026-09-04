@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260904144140
+// OpenAPI spec version: 1.1.20260904153327
 // Build date: 2026-09-04
-// Endpoints: 540
+// Endpoints: 541
 // Enums: 204
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -6953,6 +6953,10 @@ export class WlLeadStageNamespace {
     /** Creates a new custom lead stage. */
     leadStageElementPut(params) {
         return this._client._request('/Wl/Lead/Stage/LeadStageElement.json', params, 'PUT');
+    }
+    /** Sets the lead stage of the client. */
+    leadStageUser(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageUser.json', params, 'POST');
     }
 }
 export class WlLeadSourceNamespace {

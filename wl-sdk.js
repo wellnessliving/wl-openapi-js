@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260904144140
+ * Spec version: 1.1.20260904153327
  * Build date:   2026-09-04
- * Endpoints:    540
+ * Endpoints:    541
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260904144140';
+  WlClient.SPEC_VERSION = '1.1.20260904153327';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (540 total)
+  // Generated API methods (541 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -5442,6 +5442,21 @@
   WlClient.prototype.wlLeadStageLeadStageElementPut = function(params)
   {
     return this.request('/Wl/Lead/Stage/LeadStageElement.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Sets the lead stage of the client.
+   *
+   * If the client is already in this stage, nothing is changed.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.uid Key of the client whose stage is set.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlLeadStageLeadStageUser = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageUser.json', params || {}, 'POST');
   };
 
   /**

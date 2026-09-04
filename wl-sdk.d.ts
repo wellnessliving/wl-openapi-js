@@ -15227,6 +15227,13 @@ export interface WlLeadStageLeadStageElementPutResponse {
     /** Key of the lead stage. */
     k_lead_stage: string;
 }
+export interface WlLeadStageLeadStageUserParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the client whose stage is set. */
+    uid: string;
+}
+export type WlLeadStageLeadStageUserResponse = Record<string, unknown>;
 export interface WlLeadSourceLeadSourceElementDeleteParams {
     /** Key of the lead source. */
     k_lead_source_replace: string;
@@ -28805,6 +28812,8 @@ export declare class WlLeadStageNamespace {
     leadStageElementPost(params?: WlLeadStageLeadStageElementPostParams): Promise<WlLeadStageLeadStageElementPostResponse>;
     /** Creates a new custom lead stage. */
     leadStageElementPut(params?: WlLeadStageLeadStageElementPutParams): Promise<WlLeadStageLeadStageElementPutResponse>;
+    /** Sets the lead stage of the client. */
+    leadStageUser(params?: WlLeadStageLeadStageUserParams): Promise<WlLeadStageLeadStageUserResponse>;
 }
 export declare class WlLeadSourceNamespace {
     private readonly _client;
