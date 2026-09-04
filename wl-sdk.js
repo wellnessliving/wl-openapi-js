@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260904074635
+ * Spec version: 1.1.20260904105948
  * Build date:   2026-09-04
  * Endpoints:    530
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260904074635';
+  WlClient.SPEC_VERSION = '1.1.20260904105948';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (530 total)
@@ -12798,8 +12798,6 @@
     LOGIN_RANK: 40,
     /** List of clients that are at churn risk according to isaac prediction */
     LOGIN_RISK: 261,
-    /** Report with client's attendance history */
-    LOGIN_VISIT: 52,
     /** Count of sent mail and sms per business */
     MAIL_BUSINESS_LIST: 46,
     /** Mail campaign details list report */

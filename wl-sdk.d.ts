@@ -1121,8 +1121,6 @@ export declare enum RsReportSid {
     LOGIN_RANK = 40,
     /** List of clients that are at churn risk according to isaac prediction */
     LOGIN_RISK = 261,
-    /** Report with client's attendance history */
-    LOGIN_VISIT = 52,
     /** Count of sent mail and sms per business */
     MAIL_BUSINESS_LIST = 46,
     /** Mail campaign details list report */
@@ -7679,12 +7677,20 @@ export interface WlEventEventListGetResponse {
         dtu_session: string;
         /** Reason why session can not be booked. */
         html_reason: string;
+        /** Number of clients in the active list. */
+        i_book_active: number;
+        /** Capacity of the active list. */
+        i_capacity: number;
         /** Number of all sessions in the event. */
         i_session_all: number;
         /** Number of future sessions in the event. */
         i_session_future: number;
         /** Number of past sessions in the event. */
         i_session_past: number;
+        /** Number of clients in the wait list. */
+        i_wait: number;
+        /** Wait list limit of the event. */
+        i_wait_limit?: number | null;
         /** ID of deny reason. */
         id_reason: number;
         /** Whether booking of this event restricted because of age rules for {@link WlEventNamespace#eventLi... */
@@ -7719,8 +7725,12 @@ export interface WlEventEventListGetResponse {
         is_prorate: boolean;
         /** Whether class/event can be paid with single session. */
         is_single_buy: boolean;
+        /** Whether current user is booked or on the wait list. */
+        is_user_booked: boolean;
         /** Whether event is virtual. */
         is_virtual: boolean;
+        /** Whether wait list is enabled for this event. */
+        is_wait_list_enabled: boolean;
         /** Class key. */
         k_class: string;
         /** Class period key of the closest session of the event. */
