@@ -15159,6 +15159,8 @@ export interface WlLeadStageLeadStageListResponse {
         i_order: number;
         /** Number of automations used this stage. */
         i_automation?: number;
+        /** Number of client groups which convert their clients into this stage. Such a group depends on the ... */
+        i_member_group?: number;
         /** Number of clients who are in this stage. */
         i_user?: number;
         /** Shapes of lead stage icons. @see WlLeadStageLeadStageShapeSid */

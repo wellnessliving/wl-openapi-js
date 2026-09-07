@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260907164934
+ * Spec version: 1.1.20260907180227
  * Build date:   2026-09-07
  * Endpoints:    541
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260907164934';
+  WlClient.SPEC_VERSION = '1.1.20260907180227';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (541 total)
@@ -5379,6 +5379,9 @@
    * at least one stage of every type. If the stage has leads or clients assigned,
    * {@link WlClient#wlLeadStageLeadStageElementGet} must be given - they are moved to the replacement stage,
    * which must be of the same type.
+   * 
+   * A system stage of a conversion type can also be used by the `Won` / `Lost` client groups of the business.
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
