@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260904105948
+ * Spec version: 1.1.20260907065518
  * Build date:   2026-09-07
  * Endpoints:    530
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260904105948';
+  WlClient.SPEC_VERSION = '1.1.20260907065518';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (530 total)
@@ -9605,6 +9605,10 @@
    *  `is_discount_code_mode_select` {boolean} Determines, how staff sees discount codes in Store.
    *  `is_receipt_note` {boolean} Determines whether to display custom receipt notes at checkout.
    *  `m_checkout` {string} The amount that has to be charged right now for the cart.
+   *  `m_checkout_before_discount` {string} The subtotal amount that has to be charged right now for the cart, before dis...
+   *  `m_checkout_before_tax` {string} The amount that has to be charged right now for the cart, after discount but ...
+   *  `m_checkout_discount` {string} The discount amount that applies to the part of the cart charged right now, e...
+   *  `m_checkout_tax` {string} The amount of tax that applies to the part of the cart charged right now.
    *  `m_discount` {string} The discount amount in dollars, excluding tax.
    *  `m_discount_total` {string} The discount amount applied to the cart's total amount, including taxes.
    *  `m_subtotal` {string} The subtotal amount.
