@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260908154752
+ * Spec version: 1.1.20260908181504
  * Build date:   2026-09-08
  * Endpoints:    541
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260908154752';
+  WlClient.SPEC_VERSION = '1.1.20260908181504';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (541 total)
@@ -6636,6 +6636,7 @@
    * embedded widget. Tabs may represent classes, appointments, events, or other bookable services.
    *
    * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_full_list Whether to return all tabs or only the tabs for which sessions are available.
    * @param {boolean} params.is_widget Whether we are inside the widget or not.
    * @param {string} params.k_business The key of the current business.
    * @param {string} params.k_location The key of the current location.

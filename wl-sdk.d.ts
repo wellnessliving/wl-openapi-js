@@ -17540,6 +17540,8 @@ export interface WlSchedulePagePageListResponse {
     }>;
 }
 export interface WlScheduleTabTabParams {
+    /** Whether to return all tabs or only the tabs for which sessions are available. */
+    is_full_list: boolean;
     /** Whether we are inside the widget or not. */
     is_widget: boolean;
     /** The key of the current business. */
