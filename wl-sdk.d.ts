@@ -19350,6 +19350,41 @@ export interface WlRewardScoreScorePostParams {
 export type WlRewardScoreScorePostResponse = Record<string, unknown>;
 export type WlRewardScoreScorePutParams = Record<string, unknown>;
 export type WlRewardScoreScorePutResponse = Record<string, unknown>;
+export interface WlVisitPayPayChangeGetParams {
+    /** Defines whether 'pay now' option should be present. */
+    is_pay_now: boolean;
+    /** Business key. */
+    k_business: string;
+    /** Class period key. */
+    k_visit: string;
+    /** Current user ID. */
+    uid: string;
+}
+export interface WlVisitPayPayChangeGetResponse {
+    /** List of purchase options that can be applied to pay for visit: */
+    a_list: {
+        /** Promotion logo, see result of RsPromotionImageLogo::data(). Empty array for not paid option. */
+        a_logo: Array<unknown>;
+        /** Whether current element selected in the list. */
+        is_select: boolean;
+        /** `0` means 'Single buy', `-1` means 'Not paid'. Otherwise key with next structure: `k_login_promot... */
+        s_key: string;
+        /** Title of select option. */
+        text_title: string;
+    };
+}
+export interface WlVisitPayPayChangePostParams {
+    /** Business key. */
+    k_business: string;
+    /** Class period key. */
+    k_visit: string;
+    /** Current user ID. */
+    uid: string;
+}
+export interface WlVisitPayPayChangePostResponse {
+    /** Whether changes applied to visit (if user selected the same promotion, we should do nothing). */
+    is_change: boolean;
+}
 export interface WlResourceResourceListListParams {
     /** Type of the resource. @see WlResourceResourceCategoryEnum */
     id_category: WlResourceResourceCategoryEnum;
@@ -20623,7 +20658,7 @@ export interface WlProfileAttendanceSchedulePaymentMultiplePostParams {
         a_shop_product_option: Array<string>;
         /** The visit key. */
         k_visit: string;
-        /** Selected pay option to apply. The key has structure PayChangeApi::$text_key, plus an */
+        /** Selected pay option to apply. The key has structure {@link WlVisitPayNamespace#payChangeGet}, plu... */
         text_key: string;
         /** The user key. */
         uid: string;
@@ -24156,6 +24191,210 @@ export interface WlAppointmentBookScheduleServiceAvailabilityResponse {
         /** Staff user key. */
         uid_staff: string;
     };
+}
+export interface WlAppointmentBookScheduleCalendar73Params {
+    /** List of user keys to book appointments. */
+    a_uid: Array<string>;
+    /** The date to show the available appointment booking schedule. */
+    dt_date: string;
+    /** The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv... */
+    i_duration: number;
+    /** An index of the selected asset. `0` for booking of service or if asset is not on layout. */
+    i_index: number;
+    /** The ID of the staff member's gender. @see AGenderSid */
+    id_gender_staff: AGenderSid;
+    /** Determines whether multiple appointments are booked in back-to-back mode. */
+    is_back_to_back: boolean;
+    /** If calendar should be displayed in month view mode. */
+    is_month_view: boolean;
+    /** `true` if the request is made by staff member; in this case booking policy restrictions are ignored. */
+    is_staff: boolean;
+    /** `true` - search in all tabs. */
+    is_tab_all: boolean;
+    /** `true` - return service categories that have no staff members able to conduct them. */
+    is_unavailable: boolean;
+    /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
+    is_walk_in: boolean;
+    /** Location to show available appointment booking schedule. */
+    k_location: string;
+    /** The resource key to show which days are available for booking. */
+    k_resource: string;
+    /** The service key used for showing the available appointment booking schedule. */
+    k_service: string;
+    /** The staff key to show what days are available for booking. */
+    s_appointment: string;
+    /** A list of service add-ons keys(encoded as JSON string). */
+    s_product: string;
+    /** The user key. */
+    uid: string;
+    /** The staff user key used for showing the available appointment booking schedule. */
+    uid_staff: string;
+    /** Current booking tab. */
+    k_class_tab?: string | null;
+    /** Key of timezone. */
+    k_timezone?: string | null;
+}
+export interface WlAppointmentBookScheduleCalendar73Response {
+    /** A list with all calendar days in the specified month with */
+    a_date: Array<{
+        /** Date item of the calendar. */
+        dt_date: string;
+        /** Number of day in week. */
+        i_week: number;
+        /** Whether booking is available for this day. */
+        is_available: boolean;
+        /** Whether date is current. */
+        is_current: boolean;
+        /** Whether date is out of current month or it's business/location closed date. */
+        is_out: boolean;
+        /** Whether booking for this day available only in wait list. */
+        is_waitlist_only: boolean;
+        /** Whether date is last day of the week. */
+        is_week_end: boolean;
+        /** Whether date is first day of the week. */
+        is_week_start: boolean;
+        /** String representation of day number with leading zeroes. */
+        s_day: string;
+        /** String representation of week day (one letter, i.e. "F"). */
+        s_week: string;
+    }>;
+    /** An array with a schedule of available appointment booking times. */
+    a_time: {
+        /** Date of the calendar. */
+        dt_date: string;
+        /** Same moment as `dt_date`, converted to real UTC date and time, in MySQL format. */
+        dtu_date: string;
+        /** The count of clients that have already booked this appointment. */
+        i_count: number;
+        /** Integer representation of appointment schedule time. */
+        i_time: number;
+        /** The count of clients on the waiting list for this appointment. */
+        i_wait: number;
+        /** Whether the appointment can be booked only in a wait list. */
+        is_waitlist: boolean;
+        /** @deprecated If this time is already occupied by any client and staff member (but service capacity... */
+        k_staff: string;
+        /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
+        uid_staff: string;
+        /** String representation of appointment schedule time. */
+        s_title: string;
+    };
+    /** Information about timezone. */
+    a_timezone_data: {
+        /** `null` if business settings doesn't allow client to adjust timezone, otherwise list of timezones: */
+        a_timezone: {
+            /** Timezone order. */
+            i_order: number;
+            /** Timezone shift from UTC in hours. */
+            i_shift: number;
+            /** `true` for selected timezone - from {@link WlAppointmentBookScheduleNamespace#calendar} param or ... */
+            is_select: boolean;
+            /** Timezone key. */
+            k_timezone: string;
+            /** Timezone name. */
+            s_title: string;
+            /** Timezone abbreviation. */
+            text_abbr: string;
+        } | null;
+        /** `null` if business settings doesn't allow client to adjust timezone, otherwise timezone input name. */
+        name: string | null;
+    };
+    /** Array with short week day's names (2 letters, i.e. 'Fr') for calendar month view. Week days order... */
+    a_week_name: {
+        /** Week day, one of the {@link ADateWeekSid} constants. */
+        i_day: number;
+        /** Short week day's name (2 letters, i.e. 'Fr'). */
+        html_week_day: string;
+    };
+    /** Whether previous calendar period can be shown (start of shown period later than current date). */
+    can_backwards: boolean;
+    /** The date to show the available appointment booking schedule. */
+    dt_date: string;
+    /** Maximum number of clients that can simultaneously book this service. */
+    i_capacity: number | null;
+    /** Maximum number of clients that can be placed on the waitlist for this service. */
+    i_capacity_waitlist: number | null;
+    /** A class for the days of the week. @see ADateWeekSid */
+    i_week_end: ADateWeekSid;
+    /** A class for the days of the week. @see ADateWeekSid */
+    i_week_start: ADateWeekSid;
+    /** Whether list of available times contains slots with only waitlist booking available. */
+    is_waitlist: boolean;
+    /** Location to show available appointment booking schedule. */
+    k_location: string;
+}
+export interface WlAppointmentBookScheduleDayTime73Params {
+    /** List of user keys to book appointments. */
+    a_uid: Array<string>;
+    /** The date to show the available appointment booking schedule. */
+    dt_date: string;
+    /** The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv... */
+    i_duration: number;
+    /** An index of the selected asset. `0` for booking of service or if asset is not on layout. */
+    i_index: number;
+    /** The ID of the staff member's gender. @see AGenderSid */
+    id_gender_staff: AGenderSid;
+    /** Determines whether multiple appointments are booked in back-to-back mode. */
+    is_back_to_back: boolean;
+    /** `true` if the request is made by staff member; in this case booking policy restrictions are ignored. */
+    is_staff: boolean;
+    /** `true` - search in all tabs. */
+    is_tab_all: boolean;
+    /** `true` - return service categories that have no staff members able to conduct them. */
+    is_unavailable: boolean;
+    /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
+    is_walk_in: boolean;
+    /** Location to show available appointment booking schedule. */
+    k_location: string;
+    /** The resource key to show which days are available for booking. */
+    k_resource: string;
+    /** The service key used for showing the available appointment booking schedule. */
+    k_service: string;
+    /** The staff key to show what days are available for booking. */
+    s_appointment: string;
+    /** A list of service add-ons keys(encoded as JSON string). */
+    s_product: string;
+    /** The user key. */
+    uid: string;
+    /** The staff user key used for showing the available appointment booking schedule. */
+    uid_staff: string;
+    /** Current booking tab. */
+    k_class_tab?: string | null;
+    /** Key of timezone. */
+    k_timezone?: string | null;
+}
+export interface WlAppointmentBookScheduleDayTime73Response {
+    /** An array with a schedule of available appointment booking times. */
+    a_time: {
+        /** Date of the calendar. */
+        dt_date: string;
+        /** Same moment as `dt_date`, converted to real UTC date and time, in MySQL format. */
+        dtu_date: string;
+        /** The count of clients that have already booked this appointment. */
+        i_count: number;
+        /** Integer representation of appointment schedule time. */
+        i_time: number;
+        /** The count of clients on the waiting list for this appointment. */
+        i_wait: number;
+        /** Whether the appointment can be booked only in a wait list. */
+        is_waitlist: boolean;
+        /** @deprecated If this time is already occupied by any client and staff member (but service capacity... */
+        k_staff: string;
+        /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
+        uid_staff: string;
+        /** String representation of appointment schedule time. */
+        s_title: string;
+    };
+    /** The date to show the available appointment booking schedule. */
+    dt_date: string;
+    /** Maximum number of clients that can simultaneously book this service. */
+    i_capacity: number | null;
+    /** Maximum number of clients that can be placed on the waitlist for this service. */
+    i_capacity_waitlist: number | null;
+    /** Whether list of available times contains slots with only waitlist booking available. */
+    is_waitlist: boolean;
+    /** Location to show available appointment booking schedule. */
+    k_location: string;
 }
 export interface WlAppointmentBookScheduleCalendarParams {
     /** List of user keys to book appointments. */
@@ -29017,8 +29256,17 @@ export declare class WlLeadNamespace {
     /** Saves new user via "Lead capture". */
     leadPost(params?: WlLeadLeadPostParams): Promise<WlLeadLeadPostResponse>;
 }
+export declare class WlVisitPayNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns data to change visit pay option. */
+    payChangeGet(params?: WlVisitPayPayChangeGetParams): Promise<WlVisitPayPayChangeGetResponse>;
+    /** Saves user's promotion for certain attendance. */
+    payChangePost(params?: WlVisitPayPayChangePostParams): Promise<WlVisitPayPayChangePostResponse>;
+}
 export declare class WlVisitNamespace {
     private readonly _client;
+    readonly pay: WlVisitPayNamespace;
     constructor(_client: WlClient);
     /** Gets visit status. */
     visitStatusGet(params?: WlVisitVisitStatusGetParams): Promise<WlVisitVisitStatusGetResponse>;
@@ -29577,6 +29825,10 @@ export declare class WlAppointmentBookScheduleNamespace {
     dayTime(params?: WlAppointmentBookScheduleDayTimeParams): Promise<WlAppointmentBookScheduleDayTimeResponse>;
     /** Retrieves a list of available appointment booking schedule. */
     serviceAvailability(params?: WlAppointmentBookScheduleServiceAvailabilityParams): Promise<WlAppointmentBookScheduleServiceAvailabilityResponse>;
+    /** Retrieves a list with all calendar days in specified period with available and unavailable appointment booking schedule. */
+    calendar73(params?: WlAppointmentBookScheduleCalendar73Params): Promise<WlAppointmentBookScheduleCalendar73Response>;
+    /** Retrieves a list of available appointment booking schedule. */
+    dayTime73(params?: WlAppointmentBookScheduleDayTime73Params): Promise<WlAppointmentBookScheduleDayTime73Response>;
     /** Retrieves a list with all calendar days in specified period with available and unavailable appointment booking schedule. */
     /** @deprecated */
     calendar(params?: WlAppointmentBookScheduleCalendarParams): Promise<WlAppointmentBookScheduleCalendarResponse>;
