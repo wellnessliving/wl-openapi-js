@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260909105931
+// OpenAPI spec version: 1.1.20260909130106
 // Build date: 2026-09-09
-// Endpoints: 541
+// Endpoints: 545
 // Enums: 204
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -7035,9 +7035,23 @@ export class WlMailNamespace {
         return this._client._request('/Wl/Mail/SendMail.json', params, 'POST');
     }
 }
+export class WlVisitPayNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns data to change visit pay option. */
+    payChangeGet(params) {
+        return this._client._request('/Wl/Visit/Pay/PayChange.json', params, 'GET');
+    }
+    /** Saves user's promotion for certain attendance. */
+    payChangePost(params) {
+        return this._client._request('/Wl/Visit/Pay/PayChange.json', params, 'POST');
+    }
+}
 export class WlVisitNamespace {
     constructor(_client) {
         this._client = _client;
+        this.pay = new WlVisitPayNamespace(this._client);
     }
     /** Gets visit status. */
     visitStatusGet(params) {
@@ -8163,6 +8177,14 @@ export class WlAppointmentBookScheduleNamespace {
     /** Retrieves a list of available appointment booking schedule. */
     serviceAvailability(params) {
         return this._client._request('/Wl/Appointment/Book/Schedule/ServiceAvailability.json', params, 'GET');
+    }
+    /** Retrieves a list with all calendar days in specified period with available and unavailable appointment booking schedule. */
+    calendar73(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/Calendar73.json', params, 'GET');
+    }
+    /** Retrieves a list of available appointment booking schedule. */
+    dayTime73(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/DayTime73.json', params, 'GET');
     }
     /** Retrieves a list with all calendar days in specified period with available and unavailable appointment booking schedule. */
     /** @deprecated */

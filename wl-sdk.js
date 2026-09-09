@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260909105931
+ * Spec version: 1.1.20260909130106
  * Build date:   2026-09-09
- * Endpoints:    541
+ * Endpoints:    545
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260909105931';
+  WlClient.SPEC_VERSION = '1.1.20260909130106';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (541 total)
+  // Generated API methods (545 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -5721,6 +5721,37 @@
   };
 
   /**
+   * Returns data to change visit pay option.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_pay_now Defines whether 'pay now' option should be present.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_visit Class period key.
+   * @param {string} params.uid Current user ID.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object} List of purchase options that can be applied to pay for visit:
+   */
+  WlClient.prototype.wlVisitPayPayChangeGet = function(params)
+  {
+    return this.request('/Wl/Visit/Pay/PayChange.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves user's promotion for certain attendance.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_visit Class period key.
+   * @param {string} params.uid Current user ID.
+   * @returns {Promise<Object>} Response data.
+   *  `is_change` {boolean} Whether changes applied to visit (if user selected the same promotion, we sho...
+   */
+  WlClient.prototype.wlVisitPayPayChangePost = function(params)
+  {
+    return this.request('/Wl/Visit/Pay/PayChange.json', params || {}, 'POST');
+  };
+
+  /**
    * Gets purchase cost data.
    *
    * Used in the client-facing checkout flow to show a live price summary before the client submits
@@ -9817,6 +9848,93 @@
   WlClient.prototype.wlAppointmentBookScheduleServiceAvailability = function(params)
   {
     return this.request('/Wl/Appointment/Book/Schedule/ServiceAvailability.json', params || {}, 'GET');
+  };
+
+  /**
+   * Retrieves a list with all calendar days in specified period with available and unavailable appointment booking schedule.
+   *
+   * Returns each day in the requested month marked as available or unavailable for booking the given
+   *  service at the given location. Availability is determined by the business schedule, holidays,
+   *  and staff availability for the selected date range.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {string} params.dt_date The date to show the available appointment booking schedule.
+   * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
+   * @param {number} params.i_index An index of the selected asset. `0` for booking of service or if asset is not on layout.
+   * @param {number} params.id_gender_staff The ID of the staff member's gender. See {@link WlClient.AGenderSid}.
+   * @param {boolean} params.is_back_to_back Determines whether multiple appointments are booked in back-to-back mode.
+   * @param {boolean} params.is_month_view If calendar should be displayed in month view mode.
+   * @param {boolean} params.is_staff `true` if the request is made by staff member; in this case booking policy restrictions are ignored.
+   * @param {boolean} params.is_tab_all `true` - search in all tabs.
+   * @param {boolean} params.is_unavailable `true` - return service categories that have no staff members able to conduct them.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {?string} [params.k_class_tab] Current booking tab.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_resource The resource key to show which days are available for booking.
+   * @param {string} params.k_service The service key used for showing the available appointment booking schedule.
+   * @param {?string} [params.k_timezone] Key of timezone.
+   * @param {string} params.s_appointment The staff key to show what days are available for booking.
+   * @param {string} params.s_product A list of service add-ons keys(encoded as JSON string).
+   * @param {string} params.uid The user key.
+   * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
+   * @returns {Promise<Object>} Response data.
+   *  `a_date` {Object[]} A list with all calendar days in the specified month with
+   *  `a_time` {Object} An array with a schedule of available appointment booking times.
+   *  `a_timezone_data` {Object} Information about timezone.
+   *  `a_week_name` {Object} Array with short week day's names (2 letters, i.e. 'Fr') for calendar month v...
+   *  `can_backwards` {boolean} Whether previous calendar period can be shown (start of shown period later th...
+   *  `dt_date` {string} The date to show the available appointment booking schedule.
+   *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
+   *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
+   *  `i_week_end` {number} A class for the days of the week. See {@link WlClient.ADateWeekSid}.
+   *  `i_week_start` {number} A class for the days of the week. See {@link WlClient.ADateWeekSid}.
+   *  `is_waitlist` {boolean} Whether list of available times contains slots with only waitlist booking ava...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookScheduleCalendar73 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Schedule/Calendar73.json', params || {}, 'GET');
+  };
+
+  /**
+   * Retrieves a list of available appointment booking schedule.
+   *
+   * Returns available time slots for the specified service, location, staff member, and date range.
+   *  Each slot includes the start time, duration, available capacity, and staff information. Supports
+   *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {string} params.dt_date The date to show the available appointment booking schedule.
+   * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
+   * @param {number} params.i_index An index of the selected asset. `0` for booking of service or if asset is not on layout.
+   * @param {number} params.id_gender_staff The ID of the staff member's gender. See {@link WlClient.AGenderSid}.
+   * @param {boolean} params.is_back_to_back Determines whether multiple appointments are booked in back-to-back mode.
+   * @param {boolean} params.is_staff `true` if the request is made by staff member; in this case booking policy restrictions are ignored.
+   * @param {boolean} params.is_tab_all `true` - search in all tabs.
+   * @param {boolean} params.is_unavailable `true` - return service categories that have no staff members able to conduct them.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {?string} [params.k_class_tab] Current booking tab.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_resource The resource key to show which days are available for booking.
+   * @param {string} params.k_service The service key used for showing the available appointment booking schedule.
+   * @param {?string} [params.k_timezone] Key of timezone.
+   * @param {string} params.s_appointment The staff key to show what days are available for booking.
+   * @param {string} params.s_product A list of service add-ons keys(encoded as JSON string).
+   * @param {string} params.uid The user key.
+   * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
+   * @returns {Promise<Object>} Response data.
+   *  `a_time` {Object} An array with a schedule of available appointment booking times.
+   *  `dt_date` {string} The date to show the available appointment booking schedule.
+   *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
+   *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
+   *  `is_waitlist` {boolean} Whether list of available times contains slots with only waitlist booking ava...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookScheduleDayTime73 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Schedule/DayTime73.json', params || {}, 'GET');
   };
 
   /**
