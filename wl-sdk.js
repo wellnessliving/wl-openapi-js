@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260908114815
- * Build date:   2026-09-08
- * Endpoints:    530
+ * Spec version: 1.1.20260909033358
+ * Build date:   2026-09-09
+ * Endpoints:    541
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260908114815';
+  WlClient.SPEC_VERSION = '1.1.20260909033358';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (530 total)
+  // Generated API methods (541 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -243,6 +243,22 @@
   WlClient.prototype.thothExplorerSearchClassSessionClassSessionSearch = function(params)
   {
     return this.request('/Thoth/ExplorerSearch/ClassSession/ClassSessionSearch.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns the data required to render the site footer for the given business.
+   *
+   * Loads the business's white-label status and derives whether the "Powered by WellnessLiving"
+   * branding and the Terms and Conditions link should be shown in the footer.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key to get footer data for.
+   * @returns {Promise<Object>} Response data.
+   *  `show_term` {boolean} `true` to show the "Powered by WellnessLiving" branding and Terms & Condition...
+   */
+  WlClient.prototype.thothLayoutBeFooterFooter = function(params)
+  {
+    return this.request('/Thoth/LayoutBe/Footer/Footer.json', params || {}, 'GET');
   };
 
   /**
@@ -1437,6 +1453,7 @@
    * @param {?string[]} [params.a_location] List of location keys applied by filter.
    * @param {?string[]} [params.a_staff] List of staff keys applied by filter.
    * @param {?number[]} [params.a_time] List of time day applied by filter {@link WlClient.RsScheduleTimeSid}.
+   * @param {?string[]} [params.a_uid_staff] List of staff UIDs applied by filter.
    * @param {?string[]} [params.a_virtual] List of IDs to include/exclude virtual events.
    * @param {?string} [params.dl_end] The end date of the range from which a list of events should be retrieved.
    * @param {?string} [params.dl_start] The start date of the range from which a list of events should be retrieved.
@@ -1808,7 +1825,7 @@
    * @param {string} params.k_video The video key.
    * @returns {Promise<Object>} Response data.
    *  `a_location` {string[]} The keys of the locations where this video is available.
-   *  `a_staff` {string[]} The keys of the user staff members who are on the video.
+   *  `a_staff` {string[]} The legacy staff keys associated with the video.
    *  `a_staff_info` {Object} A list of staff members associated with the video. Every item has the followi...
    *  `a_staff_uid` {string[]} The user IDs of the staff members who are on the video (authoritative list fo...
    *  `a_video_category` {string[]} The video category keys where this video can be found.
@@ -1898,8 +1915,11 @@
    * @param {string} params.text_search The filter phrase to filter videos by name.
    * @param {?string} [params.uid] UID of the client who request list of videos.
    * @returns {Promise<Object>} Response data.
+   *  `a_level_filter` {Object[]} All levels to offer in the level filter of the video catalog.
    *  `a_list` {Object[]} A list of videos.
    *  `a_page` {Object} Pagination data.
+   *  `a_staff_filter` {Object[]} All staff members to offer in the staff filter of the video catalog.
+   *  `a_video_tag_filter` {Object[]} All tags to offer in the tag filter of the video catalog.
    *  `id_embed_source` {?number} List of embed video sources. See {@link WlClient.WlVideoVideoEmbedSourceSid}.
    *  `id_order` {?number} List of possible sort order. See {@link WlClient.CoreSidSortOrderSid}.
    *  `id_sort` {?number} List of video catalog sorting types. See {@link WlClient.WlVideoCatalogFilterSortFilterSortSid}.
@@ -2555,6 +2575,23 @@
   };
 
   /**
+   * Returns a fixed connection value and, when requested, selected findings.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number[]} params.a_id_source IDs of finding sources from {@link WlClient.CoreAILogTriageTriageSourceSid}.
+   * @param {boolean} params.is_finding `true` returns findings; otherwise `false` performs only the connection check.
+   * @param {string} params.s_date_mask Date/time mask accepted by LogSearchQuery.
+   * @param {string} params.text_search Optional case-insensitive message substring.
+   * @returns {Promise<Object>} Response data.
+   *  `a_finding` {Object[]} Grouped findings.
+   *  `i_result` {number} Connection check value.
+   */
+  WlClient.prototype.coreAILogTriageConnectionCheck = function(params)
+  {
+    return this.request('/Core/AI/LogTriage/ConnectionCheck.json', params || {}, 'GET');
+  };
+
+  /**
    * Returns information about user that is currently signed in.
    *
    * Used to bootstrap the login widget: determines whether a session is active and provides the URLs needed
@@ -2812,6 +2849,21 @@
   WlClient.prototype.coreGoogleCaptchaGoogleCaptcha = function(params)
   {
     return this.request('/Core/Google/Captcha/GoogleCaptcha.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Switches the language.
+   *
+   * Remembers the requested language for the user who makes this request, within the context this user is currently
+   * in, and stores it in the session and in the cookie so that the very next request is served in this language too.
+   * The language must be active in this installation, otherwise the request is rejected and nothing is stored.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.coreLocaleLanguageLanguageSwitch = function(params)
+  {
+    return this.request('/Core/Locale/Language/LanguageSwitch.json', params || {}, 'POST');
   };
 
   /**
@@ -4146,6 +4198,7 @@
    * @param {?string} [params.k_promotion_pay_pause] The promotion payment hold key. If this key is used, it will edit an existing hold.
    * @returns {Promise<Object>} Response data.
    *  `a_pay_pause_list` {?Object[]} List of all promotion payment pause periods. Each element has next structure:
+   *  `a_payment_schedule` {string[]} List of all upcoming payments for the give pricing option. Just dates in loca...
    *  `dt_end` {?string} The end date of the current hold, in the local time zone.
    *  `dt_start` {?string} The start date of the current hold, in the local time zone.
    *  `dtu_date_notification` {?string} The date when the email notification was sent.
@@ -5088,7 +5141,7 @@
    *  `dtu_complete` {?string} The date and time when this report has completed generation.
    *  `dtu_queue` {?string} The date and time when this report was put in the generation queue.
    *  `dtu_start` {?string} The date and time when generation of this report was started.
-   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation. See {@link WlClient.WlReportGeneratorReportGeneratorStatusSid}.
+   *  `id_report_status` {number} Lists statuses of reports from point of view of its generation. See {@link WlClient.ThothReportCoreGeneratorReportGeneratorStatusSid}.
    *  `is_more` {boolean} If `true` then there are more report rows to get. Otherwise, `false` if all r...
    *  `is_report_complete` {boolean} Determines whether this report is complete. If this report is accessed on the...
    */
@@ -5321,6 +5374,42 @@
   WlClient.prototype.wlAiAgentLinkSendMail = function(params)
   {
     return this.request('/Wl/AiAgent/Link/SendMail.json', params || {}, 'POST');
+  };
+
+  /**
+   * Fires an in-app alert for the specified event.
+   *
+   * Triggers the alert that appears in the business `Alert Center` for staff members with appropriate access.
+   * Requires the business to have an active `AI Agent` subscription.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlAiAgentAlertAlert = function(params)
+  {
+    return this.request('/Wl/AiAgent/Alert/Alert.json', params || {}, 'POST');
+  };
+
+  /**
+   * Sends the "Phone Agent Call Received" staff notification to every active staff member of the business who
+  has the {@link WlClient.WlPrivilegePrivilegeSid} permission.
+   *
+   * Requires the business to have an active Phone Agent subscription tier.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.id_call_outcome How the call ended. Required. See {@link WlClient.WlAiAgentPhoneCallOutcomeEnum}.
+   * @param {string} params.k_business Business key. Required.
+   * @param {string} params.text_call_summary Short summary of the call generated by CAASI. Used in the email notification only. Optional.
+   * @param {string} params.text_caller_name The caller's name, if identified. Optional.
+   * @param {string} params.text_caller_phone The caller's phone number. Optional.
+   * @param {string} params.url_view_conversation_link URL to view the conversation between the caller and CAASI (for email). Optional.
+   * @param {string} params.url_view_conversation_link_sms URL to view the conversation, in an SMS-safe format. Optional.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlAiAgentPhoneCallReceived = function(params)
+  {
+    return this.request('/Wl/AiAgent/Phone/CallReceived.json', params || {}, 'POST');
   };
 
   /**
@@ -6496,6 +6585,7 @@
    * embedded widget. Tabs may represent classes, appointments, events, or other bookable services.
    *
    * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_full_list Whether to return all tabs or only the tabs for which sessions are available.
    * @param {boolean} params.is_widget Whether we are inside the widget or not.
    * @param {string} params.k_business The key of the current business.
    * @param {string} params.k_location The key of the current location.
@@ -7056,6 +7146,114 @@
   WlClient.prototype.wlLeadSourceLeadSourceList = function(params)
   {
     return this.request('/Wl/Lead/Source/LeadSourceList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Deletes a lead stage.
+   *
+   * The last remaining stage of a type ({@link WlClient.WlLeadStageLeadStageTypeSid}) can not be deleted - a business must always have
+   * at least one stage of every type. If the stage has leads or clients assigned,
+   * {@link WlClient#wlLeadStageLeadStageElementGet} must be given - they are moved to the replacement stage,
+   * which must be of the same type.
+   * 
+   * A system stage of a conversion type can also be used by the `Won` / `Lost` client groups of the business.
+   * ...
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_lead_stage Key of the lead stage.
+   * @param {string} params.k_lead_stage_replace Key of the lead stage to move leads and clients of the deleted stage to.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlLeadStageLeadStageElementDelete = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageElement.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Returns information about a lead stage.
+   *
+   * The information includes the name, icon and type of the lead stage.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_lead_stage Key of the lead stage.
+   * @returns {Promise<Object>} Response data.
+   *  `id_lead_stage_shape` {number} Shapes of lead stage icons. See {@link WlClient.WlLeadStageLeadStageShapeSid}.
+   *  `id_lead_stage_type` {number} Types of lead stages. See {@link WlClient.WlLeadStageLeadStageTypeSid}.
+   *  `s_color_background` {string} Background color of the icon. Hexadecimal color.
+   *  `s_color_foreground` {string} Color of characters on the icon. Hexadecimal color.
+   *  `s_icon` {string} Characters on the icon.
+   *  `text_title` {string} Name of the stage.
+   */
+  WlClient.prototype.wlLeadStageLeadStageElementGet = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageElement.json', params || {}, 'GET');
+  };
+
+  /**
+   * Edits name and icon of a lead stage.
+   *
+   * Type of the stage ({@link WlClient.WlLeadStageLeadStageTypeSid}) is read-only and can not be changed.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_lead_stage Key of the lead stage.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlLeadStageLeadStageElementPost = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageElement.json', params || {}, 'POST');
+  };
+
+  /**
+   * Creates a new custom lead stage.
+   *
+   * The name must be unique within the business and no longer than `TITLE_LENGTH_MAX`
+   * characters. {@link WlClient#wlLeadStageLeadStageElementGet} is required and can not be changed afterwards.
+   * A business may have no more than `STAGE_LIMIT` stages.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `k_lead_stage` {string} Key of the lead stage.
+   */
+  WlClient.prototype.wlLeadStageLeadStageElementPut = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageElement.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Gets a list of lead stages of the business.
+   *
+   * Returns all lead stages configured for the specified business, both system-defined and custom ones,
+   * with their order, name and icon. In a case {@link WlClient#wlLeadStageLeadStageList} is `true`,
+   * the number of clients of every stage is returned too.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_statistic Determines whether statistics of the stages must be returned.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_lead_stage` {Object[]} List of lead stages of the business. Ordered by `i_order`.
+   */
+  WlClient.prototype.wlLeadStageLeadStageList = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Sets the lead stage of the client.
+   *
+   * If the client is already in this stage, nothing is changed.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.uid Key of the client whose stage is set.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlLeadStageLeadStageUser = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageUser.json', params || {}, 'POST');
   };
 
   /**
@@ -8097,7 +8295,9 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_appointment List of appointment keys for which to load unpaid data.
    * @param {?string} [params.dtl_date] Local date and time for which visit is booked in MySQL format.
+   * @param {boolean} params.is_relationship `true` to all appointments are related to the same user, `false` if appointments can be related t...
    * @param {boolean} params.is_simple When set to `true` it's mean that need load full information about unpaid visits:
+   * @param {boolean} params.is_unpaid `true` to get only unpaid appointments, `false` to get all appointments.
    * @param {string} params.k_business The business key.
    * @param {?string} [params.k_location] The location key.
    * @param {string} params.k_visit Last booked visit key.
@@ -8435,6 +8635,10 @@
    * If the business uses dynamic barcodes, generates or refreshes a time-limited barcode and returns its value,
    * expiry countdown, and an image URL. If the business uses static barcodes, returns the member's static ID
    * with a zero expiry.
+   * 
+   * If the business uses QR code as the scan format ({@link WlClient#wlLoginMemberDynamicIdDynamicId}), also returns the issue
+   * timestamp ({@link WlClient#wlLoginMemberDynamicIdDynamicId}) that the Achieve app uses to build and locally refresh the QR
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_refresh `true` if a new dynamic ID should be generated.
@@ -8442,7 +8646,9 @@
    * @param {string} params.uid User unique identifier.
    * @returns {Promise<Object>} Response data.
    *  `i_expire` {number} Number of seconds left until the dynamic ID expires.
+   *  `is_qr` {boolean} `true` if the business uses QR code as the client check-in scan format, `fals...
    *  `text_barcode` {string} Barcode of the member.
+   *  `tu_qr_issued` {number} Unix time in seconds at which {@link WlClient#wlLoginMemberDynamicIdDynamicId...
    *  `url_barcode` {string} URL of the barcode image.
    */
   WlClient.prototype.wlLoginMemberDynamicIdDynamicId = function(params)
@@ -11573,7 +11779,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (216 total)
+  // Enum constants (221 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -14311,6 +14517,24 @@
   });
 
   /**
+   * Sources from which log triage findings can be collected.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreAILogTriageTriageSourceSid = Object.freeze({
+    /** Erroneous asynchronous tasks */
+    ASYNC_TASK: 5,
+    /** Erroneous background tasks */
+    BACKGROUND_TASK: 4,
+    /** PHP error log represented by DebugPhpLog */
+    ERROR_LOG: 1,
+    /** Slow-operation log represented by DebugSlowLog */
+    SLOW_LOG: 2,
+    /** Aggregated usage statistics */
+    WATCH_USAGE_STAT: 3,
+  });
+
+  /**
    * List of responses for Google Captcha token.
    *
    * @enum {number}
@@ -14326,6 +14550,30 @@
     VALID: 3,
     /** Token is valid but score is risky */
     VALID_BLOCK: 4,
+  });
+
+  /**
+   * A list of all languages.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreLocaleLanguageLocaleLanguageSid = Object.freeze({
+    /** German */
+    DE: 6,
+    /** English */
+    EN: 2,
+    /** Spanish */
+    ES: 9,
+    /** French */
+    FR: 4,
+    /** Portuguese */
+    PT: 5,
+    /** Russian */
+    RU: 1,
+    /** Turkish */
+    TR: 8,
+    /** Ukrainian */
+    UK: 3,
   });
 
   /**
@@ -15023,26 +15271,6 @@
   });
 
   /**
-   * Lists statuses of reports from point of view of its generation.
-   *
-   * @enum {number}
-   */
-  WlClient.WlReportGeneratorReportGeneratorStatusSid = Object.freeze({
-    /** Report is in an inconsistent state */
-    ABORTED: 6,
-    /** Current operation is being aborted now */
-    ABORTING: 5,
-    /** This report is being deleted now */
-    DELETING: 4,
-    /** This report is being generated now */
-    GENERATING: 2,
-    /** Generation of this report is queued */
-    QUEUED: 1,
-    /** Generation of this report is now completed */
-    READY: 3,
-  });
-
-  /**
    * List of statuses of an Autymate enrollment notification.
    *
    * @enum {number}
@@ -15334,6 +15562,8 @@
     LEAD_CAPTURE: 87,
     /** Sent to staff when CAASI captures a new lead from a conversation, */
     LEAD_CAPTURE_AI: 197,
+    /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
+    LEAD_STAGE_UPDATED: 224,
     /** Sent to client on annual anniversary of the Member Since date */
     LOGIN_ANNIVERSARY: 96,
     /** Attendance List */
@@ -15362,6 +15592,8 @@
     LOGIN_STATEMENT_NEW: 213,
     /** Sent to all new users after they create an account for the first time */
     LOGIN_WELCOME: 9,
+    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
+    MARKETING_AUTOMATION_NOTIFY_STAFF: 223,
     /** Client added to a member group */
     MEMBER_GROUP_USER_ADD: 214,
     /** Client removed from a member group */
@@ -15380,6 +15612,8 @@
     PAY_AUTOMATIC_SUCCESS: 116,
     /** Transaction failed */
     PAY_TRANSACTION_FAIL: 181,
+    /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
+    PHONE_AGENT_CALL_RECEIVED: 222,
     /** Request a custom website subscription */
     PRESENCE_ACTIVATE: 137,
     /** Sent after purchase of product */
@@ -15498,8 +15732,6 @@
    * @enum {number}
    */
   WlClient.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = Object.freeze({
-    /** Any checkout type */
-    ANY: 1,
     /** Booking checkout type */
     BOOKING: 3,
     /** Store purchase checkout type */
@@ -15528,6 +15760,20 @@
   WlClient.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = Object.freeze({
     /** Initial event schema */
     V1: 1,
+  });
+
+  /**
+   * List of outcomes of a CAASI Phone Agent call.
+   *
+   * @enum {number}
+   */
+  WlClient.WlAiAgentPhoneCallOutcomeEnum = Object.freeze({
+    /** The call was resolved by CAASI without staff involvement */
+    RESOLVED: 1,
+    /** The call was transferred to a live staff member */
+    TRANSFERRED: 2,
+    /** The caller requested a callback from staff */
+    CALLBACK_REQUESTED: 3,
   });
 
   /**
@@ -15978,6 +16224,8 @@
     NOTIFICATION_MEMBERSHIP_CANCEL: 214,
     /** Receive Membership or Purchase Options Query notification */
     NOTIFICATION_MEMBERSHIP_QUERY: 223,
+    /** Receive CAASI Phone Call Received (AI Agent) notification */
+    NOTIFICATION_PHONE_AGENT_CALL_RECEIVED: 248,
     /** Staff with this role will receive emails about reward prizes */
     NOTIFICATION_PRIZE_REDEMPTION: 90,
     /** Staff with this role will receive the inventory mails */
@@ -16504,6 +16752,62 @@
   WlClient.RsRewardScoreSid = Object.freeze({
     /** Referral registration */
     REFER_REGISTER: 31,
+  });
+
+  /**
+   * Shapes of lead stage icons.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLeadStageLeadStageShapeSid = Object.freeze({
+    /** Circle */
+    CIRCLE: 1,
+    /** Hexagon */
+    HEXAGON: 2,
+    /** Oval */
+    OVAL: 3,
+    /** Pentagon */
+    PENTAGON: 4,
+    /** Rectangle */
+    RECTANGLE: 5,
+    /** Square */
+    SQUARE: 6,
+    /** Star */
+    STAR: 7,
+  });
+
+  /**
+   * Types of lead stages.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLeadStageLeadStageTypeSid = Object.freeze({
+    /** A lead is lost - the client will not make a purchase */
+    LOST: 3,
+    /** A lead is still in the funnel - the business is working with the client */
+    OPEN: 1,
+    /** A lead is won - the client is converted into a member */
+    WON: 2,
+  });
+
+  /**
+   * System-defined lead stages.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLeadStageLeadStageSystemSid = Object.freeze({
+    /** A lead which was contacted by a staff member */
+    CONTACTED: 6,
+    /** A lead which is being actively worked with and is close to a purchase */
+    HOT: 2,
+    /** A lead which was lost */
+    LOST: 5,
+    /** A newly captured lead. This stage is set to a client when they are added as a lead */
+    NEW: 1,
+    /** A lead which has shown some interest, but is not ready to purchase yet */
+    WARM: 3,
+    /** A lead which was successfully converted into a client */
+    WON: 4,
   });
 
   /**

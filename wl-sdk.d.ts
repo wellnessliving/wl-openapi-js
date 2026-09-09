@@ -2368,6 +2368,19 @@ export declare enum RsPayAccountChargeSid {
     /** Manual account withdrawal by admin */
     DEBIT = 2
 }
+/** Sources from which log triage findings can be collected. */
+export declare enum CoreAILogTriageTriageSourceSid {
+    /** Erroneous asynchronous tasks */
+    ASYNC_TASK = 5,
+    /** Erroneous background tasks */
+    BACKGROUND_TASK = 4,
+    /** PHP error log represented by DebugPhpLog */
+    ERROR_LOG = 1,
+    /** Slow-operation log represented by DebugSlowLog */
+    SLOW_LOG = 2,
+    /** Aggregated usage statistics */
+    WATCH_USAGE_STAT = 3
+}
 /** List of responses for Google Captcha token. */
 export declare enum CoreGoogleCaptchaCaptchaResponseSid {
     /** Token can be verified due to error from Google Captcha */
@@ -2380,6 +2393,25 @@ export declare enum CoreGoogleCaptchaCaptchaResponseSid {
     VALID = 3,
     /** Token is valid but score is risky */
     VALID_BLOCK = 4
+}
+/** A list of all languages. */
+export declare enum CoreLocaleLanguageLocaleLanguageSid {
+    /** German */
+    DE = 6,
+    /** English */
+    EN = 2,
+    /** Spanish */
+    ES = 9,
+    /** French */
+    FR = 4,
+    /** Portuguese */
+    PT = 5,
+    /** Russian */
+    RU = 1,
+    /** Turkish */
+    TR = 8,
+    /** Ukrainian */
+    UK = 3
 }
 /** Promotion or package date start rule. */
 export declare enum RsActivationSid {
@@ -2920,21 +2952,6 @@ export declare enum RsBusinessDesignLogoStyleSid {
     /** Logo is a square */
     SQUARE = 2
 }
-/** Lists statuses of reports from point of view of its generation. */
-export declare enum WlReportGeneratorReportGeneratorStatusSid {
-    /** Report is in an inconsistent state */
-    ABORTED = 6,
-    /** Current operation is being aborted now */
-    ABORTING = 5,
-    /** This report is being deleted now */
-    DELETING = 4,
-    /** This report is being generated now */
-    GENERATING = 2,
-    /** Generation of this report is queued */
-    QUEUED = 1,
-    /** Generation of this report is now completed */
-    READY = 3
-}
 /** List of statuses of an Autymate enrollment notification. */
 export declare enum WlIntegrationAutymateAutymateStatusSid {
     /** Autymation enrollment is active */
@@ -3208,6 +3225,8 @@ export declare enum RsMailSid {
     LEAD_CAPTURE = 87,
     /** Sent to staff when CAASI captures a new lead from a conversation, */
     LEAD_CAPTURE_AI = 197,
+    /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
+    LEAD_STAGE_UPDATED = 224,
     /** Sent to client on annual anniversary of the Member Since date */
     LOGIN_ANNIVERSARY = 96,
     /** Attendance List */
@@ -3236,6 +3255,8 @@ export declare enum RsMailSid {
     LOGIN_STATEMENT_NEW = 213,
     /** Sent to all new users after they create an account for the first time */
     LOGIN_WELCOME = 9,
+    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
+    MARKETING_AUTOMATION_NOTIFY_STAFF = 223,
     /** Client added to a member group */
     MEMBER_GROUP_USER_ADD = 214,
     /** Client removed from a member group */
@@ -3254,6 +3275,8 @@ export declare enum RsMailSid {
     PAY_AUTOMATIC_SUCCESS = 116,
     /** Transaction failed */
     PAY_TRANSACTION_FAIL = 181,
+    /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
+    PHONE_AGENT_CALL_RECEIVED = 222,
     /** Request a custom website subscription */
     PRESENCE_ACTIVATE = 137,
     /** Sent after purchase of product */
@@ -3362,8 +3385,6 @@ export declare enum ASocialSid {
 }
 /** Widget analytics checkout types. */
 export declare enum WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid {
-    /** Any checkout type */
-    ANY = 1,
     /** Booking checkout type */
     BOOKING = 3,
     /** Store purchase checkout type */
@@ -3382,6 +3403,15 @@ export declare enum WlWidgetAnalyticsWidgetAnalyticsEventSid {
 export declare enum WlWidgetAnalyticsWidgetAnalyticsEventVersionSid {
     /** Initial event schema */
     V1 = 1
+}
+/** List of outcomes of a CAASI Phone Agent call. */
+export declare enum WlAiAgentPhoneCallOutcomeEnum {
+    /** The call was resolved by CAASI without staff involvement */
+    RESOLVED = 1,
+    /** The call was transferred to a live staff member */
+    TRANSFERRED = 2,
+    /** The caller requested a callback from staff */
+    CALLBACK_REQUESTED = 3
 }
 /** Possible ways to stop repeatable events. */
 export declare enum RsRepeatEndSid {
@@ -3772,6 +3802,8 @@ export declare enum WlPrivilegePrivilegeSid {
     NOTIFICATION_MEMBERSHIP_CANCEL = 214,
     /** Receive Membership or Purchase Options Query notification */
     NOTIFICATION_MEMBERSHIP_QUERY = 223,
+    /** Receive CAASI Phone Call Received (AI Agent) notification */
+    NOTIFICATION_PHONE_AGENT_CALL_RECEIVED = 248,
     /** Staff with this role will receive emails about reward prizes */
     NOTIFICATION_PRIZE_REDEMPTION = 90,
     /** Staff with this role will receive the inventory mails */
@@ -4263,6 +4295,47 @@ export declare enum WlVideoWatchWatchSourceSid {
 export declare enum RsRewardScoreSid {
     /** Referral registration */
     REFER_REGISTER = 31
+}
+/** Shapes of lead stage icons. */
+export declare enum WlLeadStageLeadStageShapeSid {
+    /** Circle */
+    CIRCLE = 1,
+    /** Hexagon */
+    HEXAGON = 2,
+    /** Oval */
+    OVAL = 3,
+    /** Pentagon */
+    PENTAGON = 4,
+    /** Rectangle */
+    RECTANGLE = 5,
+    /** Square */
+    SQUARE = 6,
+    /** Star */
+    STAR = 7
+}
+/** Types of lead stages. */
+export declare enum WlLeadStageLeadStageTypeSid {
+    /** A lead is lost - the client will not make a purchase */
+    LOST = 3,
+    /** A lead is still in the funnel - the business is working with the client */
+    OPEN = 1,
+    /** A lead is won - the client is converted into a member */
+    WON = 2
+}
+/** System-defined lead stages. */
+export declare enum WlLeadStageLeadStageSystemSid {
+    /** A lead which was contacted by a staff member */
+    CONTACTED = 6,
+    /** A lead which is being actively worked with and is close to a purchase */
+    HOT = 2,
+    /** A lead which was lost */
+    LOST = 5,
+    /** A newly captured lead. This stage is set to a client when they are added as a lead */
+    NEW = 1,
+    /** A lead which has shown some interest, but is not ready to purchase yet */
+    WARM = 3,
+    /** A lead which was successfully converted into a client */
+    WON = 4
 }
 /** List of default categories of the rewards. */
 export declare enum RsRewardActionCategorySid {
@@ -5081,6 +5154,14 @@ export interface ThothExplorerSearchClassSessionClassSessionSearchResponse {
         /** Class session key. */
         k_class_period_session: string;
     };
+}
+export interface ThothLayoutBeFooterFooterParams {
+    /** Business key to get footer data for. */
+    k_business: string;
+}
+export interface ThothLayoutBeFooterFooterResponse {
+    /** `true` to show the "Powered by WellnessLiving" branding and Terms & Conditions links in the footer; */
+    show_term: boolean;
 }
 export interface WlPayProcessorStripeComPaymentIntentUpdateParams {
     /** ID of the actor. One of {@link RsPayActorSid} constants. */
@@ -7132,6 +7213,8 @@ export interface WlPromotionPromotionGetResponse {
             /** This will be `true` if any event in the business can be visited with this Purchase Option. */
             is_event_all: boolean;
         };
+        /** A list of franchise regions where a guest may redeem this Guest Pass, in addition to the location... */
+        a_franchise_region: Array<string>;
         /** Information about Purchase Option image. */
         a_image: {
             /** The height of the image. */
@@ -7179,6 +7262,12 @@ export interface WlPromotionPromotionGetResponse {
         is_online: boolean;
         /** Whether clients who purchase this item excluded from payroll calculations. */
         is_payroll: boolean;
+        /** Whether a guest may redeem this Guest Pass at other locations within the regions listed in */
+        is_regional: boolean;
+        /** Whether the regional access setting can be configured for this Guest Pass promotion and business ... */
+        is_regional_access: boolean;
+        /** Whether the regional access setting is read-only for this business. `true` for a franchisee locat... */
+        is_regional_access_readonly: boolean;
         /** If `true` need to add approximate revenue per session value. */
         is_revenue_single: boolean;
         /** Whether promotion can be used for booking. `null` if there is no termination. */
@@ -7624,6 +7713,8 @@ export interface WlEventEventListGetParams {
     a_staff?: Array<string> | null;
     /** List of time day applied by filter {@link RsScheduleTimeSid}. */
     a_time?: Array<RsScheduleTimeSid> | null;
+    /** List of staff UIDs applied by filter. */
+    a_uid_staff?: Array<string> | null;
     /** List of IDs to include/exclude virtual events. */
     a_virtual?: Array<string> | null;
     /** The end date of the range from which a list of events should be retrieved. */
@@ -7987,11 +8078,11 @@ export interface WlVideoVideoElementGetParams {
 export interface WlVideoVideoElementGetResponse {
     /** The keys of the locations where this video is available. */
     a_location: Array<string>;
-    /** The keys of the user staff members who are on the video. */
+    /** The legacy staff keys associated with the video. */
     a_staff: Array<string>;
     /** A list of staff members associated with the video. Every item has the following structure: */
     a_staff_info: {
-        /** <b>Deprecated</b> The staff member key. */
+        /** <b>Deprecated</b> The optional staff member key returned only to legacy applications. */
         k_staff: string;
         /** The staff member's full name. */
         text_name: string;
@@ -8133,6 +8224,13 @@ export interface WlVideoVideoListGetParams {
     uid?: string | null;
 }
 export interface WlVideoVideoListGetResponse {
+    /** All levels to offer in the level filter of the video catalog. */
+    a_level_filter: Array<{
+        /** Level key. */
+        k_video_level: string;
+        /** Level name. */
+        text_title: string;
+    }>;
     /** A list of videos. */
     a_list: Array<{
         /** List of staff members associated with the video. */
@@ -8222,6 +8320,22 @@ export interface WlVideoVideoListGetResponse {
         /** `true` if this entry represents a skipped page range (ellipsis). Only present on skip entries. */
         skip?: boolean;
     };
+    /** All staff members to offer in the staff filter of the video catalog. */
+    a_staff_filter: Array<{
+        /** Full name of the staff member. */
+        text_name: string;
+        /** User key of the staff member. */
+        uid_staff: string;
+        /** Staff member key. Only for legacy applications. */
+        k_staff?: string;
+    }>;
+    /** All tags to offer in the tag filter of the video catalog. */
+    a_video_tag_filter: Array<{
+        /** Tag key. */
+        k_video_tag: string;
+        /** Tag name. */
+        text_title: string;
+    }>;
     /** List of embed video sources. @see WlVideoVideoEmbedSourceSid */
     id_embed_source: WlVideoVideoEmbedSourceSid | null;
     /** List of possible sort order. @see CoreSidSortOrderSid */
@@ -9168,6 +9282,45 @@ export interface CoreRequestTokenTokenPinResponse {
     /** The PIN code. */
     text_pin: string;
 }
+export interface CoreAILogTriageConnectionCheckParams {
+    /** IDs of finding sources from {@link CoreAILogTriageTriageSourceSid}. */
+    a_id_source: Array<CoreAILogTriageTriageSourceSid>;
+    /** `true` returns findings; otherwise `false` performs only the connection check. */
+    is_finding: boolean;
+    /** Date/time mask accepted by LogSearchQuery. */
+    s_date_mask: string;
+    /** Optional case-insensitive message substring. */
+    text_search: string;
+}
+export interface CoreAILogTriageConnectionCheckResponse {
+    /** Grouped findings. */
+    a_finding: Array<{
+        /** Local date of the first usage-statistics record. */
+        dl_first_seen: string;
+        /** Local date of the last usage-statistics record. */
+        dl_last_seen: string;
+        /** UTC date/time of the first matching log or async-task record. Empty for background tasks. */
+        dtu_first_seen: string;
+        /** UTC date/time of the last matching log or async-task record. Empty for background tasks. */
+        dtu_last_seen: string;
+        /** Number of matching records. */
+        i_occurrence_count: number;
+        /** Usage-statistics priority multiplier. Present for the usage-statistics source. */
+        i_priority_multiplier: number;
+        /** Sources from which log triage findings can be collected. @see CoreAILogTriageTriageSourceSid */
+        id_source: CoreAILogTriageTriageSourceSid;
+        /** Usage-statistics object. Present for the usage-statistics source. */
+        s_object: string;
+        /** Usage-statistics aggregation period. Present for the usage-statistics source. */
+        s_period: string;
+        /** Usage-statistics priority. Present for the usage-statistics source. */
+        s_priority: string;
+        /** Log message or task description. Present for log and task sources. */
+        text_message: string;
+    }>;
+    /** Connection check value. */
+    i_result: number;
+}
 export type CorePassportLoginInfoParams = Record<string, unknown>;
 export interface CorePassportLoginInfoResponse {
     /** The current user key. */
@@ -9406,6 +9559,8 @@ export type CoreGoogleCaptchaCaptchaScorePutParams = Record<string, unknown>;
 export type CoreGoogleCaptchaCaptchaScorePutResponse = Record<string, unknown>;
 export type CoreGoogleCaptchaGoogleCaptchaParams = Record<string, unknown>;
 export type CoreGoogleCaptchaGoogleCaptchaResponse = Record<string, unknown>;
+export type CoreLocaleLanguageLanguageSwitchParams = Record<string, unknown>;
+export type CoreLocaleLanguageLanguageSwitchResponse = Record<string, unknown>;
 export interface CoreGeoRegionRegionParams {
     /** The locale ID to find regions for. One of the {@link CoreLocaleLocaleSid} constants. */
     id_locale: CoreLocaleLocaleSid | null;
@@ -11964,6 +12119,8 @@ export interface WlLoginPromotionPromotionPayPauseGetResponse {
         /** Key of a user that has created hold period. `null` for old records. */
         uid_create: string | null;
     }> | null;
+    /** List of all upcoming payments for the give pricing option. Just dates in local timezone. */
+    a_payment_schedule: Array<string>;
     /** The end date of the current hold, in the local time zone. */
     dt_end: string | null;
     /** The start date of the current hold, in the local time zone. */
@@ -14595,8 +14752,8 @@ export interface WlIntegrationAutymateReportResponse {
     dtu_queue: string | null;
     /** The date and time when generation of this report was started. */
     dtu_start: string | null;
-    /** Lists statuses of reports from point of view of its generation. @see WlReportGeneratorReportGeneratorStatusSid */
-    id_report_status: WlReportGeneratorReportGeneratorStatusSid;
+    /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
+    id_report_status: ThothReportCoreGeneratorReportGeneratorStatusSid;
     /** If `true` then there are more report rows to get. Otherwise, `false` if all rows have been sent. */
     is_more: boolean;
     /** Determines whether this report is complete. If this report is accessed on the current day, or is ... */
@@ -14888,6 +15045,28 @@ export interface WlAiAgentLinkSendMailParams {
     uid: string;
 }
 export type WlAiAgentLinkSendMailResponse = Record<string, unknown>;
+export interface WlAiAgentAlertAlertParams {
+    /** Business key. */
+    k_business: string;
+}
+export type WlAiAgentAlertAlertResponse = Record<string, unknown>;
+export interface WlAiAgentPhoneCallReceivedParams {
+    /** How the call ended. Required. @see WlAiAgentPhoneCallOutcomeEnum */
+    id_call_outcome: WlAiAgentPhoneCallOutcomeEnum;
+    /** Business key. Required. */
+    k_business: string;
+    /** Short summary of the call generated by CAASI. Used in the email notification only. Optional. */
+    text_call_summary: string;
+    /** The caller's name, if identified. Optional. */
+    text_caller_name: string;
+    /** The caller's phone number. Optional. */
+    text_caller_phone: string;
+    /** URL to view the conversation between the caller and CAASI (for email). Optional. */
+    url_view_conversation_link: string;
+    /** URL to view the conversation, in an SMS-safe format. Optional. */
+    url_view_conversation_link_sms: string;
+}
+export type WlAiAgentPhoneCallReceivedResponse = Record<string, unknown>;
 export interface WlBookProcessProcessGroupParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
@@ -18238,12 +18417,16 @@ export interface WlSchedulePagePageElementResponse {
     } | null;
     /** A list of staff members involved in the visit. */
     a_staff: Array<{
-        /** The staff member key. */
+        /** The staff user key. */
+        uid_staff: string;
+        /** Deprecated staff key. Returned only to applications in `APPS_USE_OLD_K_STAFF`. */
         k_staff: string;
         /** The surname of the staff member. */
         s_family: string;
         /** The first name of the staff member. */
         s_name: string;
+        /** The full name of the staff member. */
+        s_name_full: string;
     }>;
     /** The latest date and time for when the visit can be canceled without penalty. */
     dt_cancel: string;
@@ -18332,6 +18515,8 @@ export interface WlSchedulePagePageListResponse {
     }>;
 }
 export interface WlScheduleTabTabParams {
+    /** Whether to return all tabs or only the tabs for which sessions are available. */
+    is_full_list: boolean;
     /** Whether we are inside the widget or not. */
     is_widget: boolean;
     /** The key of the current business. */
@@ -18924,6 +19109,96 @@ export interface WlLeadSourceLeadSourceListResponse {
         text_title: string;
     }>;
 }
+export interface WlLeadStageLeadStageElementDeleteParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the lead stage. */
+    k_lead_stage: string;
+    /** Key of the lead stage to move leads and clients of the deleted stage to. */
+    k_lead_stage_replace: string;
+}
+export type WlLeadStageLeadStageElementDeleteResponse = Record<string, unknown>;
+export interface WlLeadStageLeadStageElementGetParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the lead stage. */
+    k_lead_stage: string;
+}
+export interface WlLeadStageLeadStageElementGetResponse {
+    /** Shapes of lead stage icons. @see WlLeadStageLeadStageShapeSid */
+    id_lead_stage_shape: WlLeadStageLeadStageShapeSid;
+    /** Types of lead stages. @see WlLeadStageLeadStageTypeSid */
+    id_lead_stage_type: WlLeadStageLeadStageTypeSid;
+    /** Background color of the icon. Hexadecimal color. */
+    s_color_background: string;
+    /** Color of characters on the icon. Hexadecimal color. */
+    s_color_foreground: string;
+    /** Characters on the icon. */
+    s_icon: string;
+    /** Name of the stage. */
+    text_title: string;
+}
+export interface WlLeadStageLeadStageElementPostParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the lead stage. */
+    k_lead_stage: string;
+}
+export type WlLeadStageLeadStageElementPostResponse = Record<string, unknown>;
+export interface WlLeadStageLeadStageElementPutParams {
+    /** Business key. */
+    k_business: string;
+}
+export interface WlLeadStageLeadStageElementPutResponse {
+    /** Key of the lead stage. */
+    k_lead_stage: string;
+}
+export interface WlLeadStageLeadStageListParams {
+    /** Determines whether statistics of the stages must be returned. */
+    is_statistic: boolean;
+    /** Business key. */
+    k_business: string;
+}
+export interface WlLeadStageLeadStageListResponse {
+    /** List of lead stages of the business. Ordered by `i_order`. */
+    a_lead_stage: Array<{
+        /** Sequence number of the stage in the list. */
+        i_order: number;
+        /** Number of automations used this stage. */
+        i_automation?: number;
+        /** Number of client groups which convert their clients into this stage. Such a group depends on the ... */
+        i_member_group?: number;
+        /** Number of clients who are in this stage. */
+        i_user?: number;
+        /** Shapes of lead stage icons. @see WlLeadStageLeadStageShapeSid */
+        id_lead_stage_shape: WlLeadStageLeadStageShapeSid;
+        /** System-defined lead stages. @see WlLeadStageLeadStageSystemSid */
+        id_lead_stage_system: WlLeadStageLeadStageSystemSid | null;
+        /** Types of lead stages. @see WlLeadStageLeadStageTypeSid */
+        id_lead_stage_type: WlLeadStageLeadStageTypeSid;
+        /** Key of the stage. */
+        k_lead_stage: string;
+        /** Background color of the icon. Hexadecimal color. */
+        s_color_background: string;
+        /** Color of characters on the icon. Hexadecimal color. */
+        s_color_foreground: string;
+        /** Characters on the icon. */
+        s_icon: string;
+        /** Name of the stage. */
+        text_title: string;
+        /** URL of the list of automations which use this stage. */
+        url_automation_list?: string;
+        /** URL of the report of clients who are in this stage. */
+        url_member_report?: string;
+    }>;
+}
+export interface WlLeadStageLeadStageUserParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the client whose stage is set. */
+    uid: string;
+}
+export type WlLeadStageLeadStageUserResponse = Record<string, unknown>;
 export interface WlRewardActionActionParams {
     /** Key of current business. */
     k_business: string;
@@ -20228,8 +20503,12 @@ export interface CorePassportEnterJwtJwtTokenResponse {
 export interface WlProfileAttendanceSchedulePaymentMultipleGetParams {
     /** List of appointment keys for which to load unpaid data. */
     a_appointment: Array<string>;
+    /** `true` to all appointments are related to the same user, `false` if appointments can be related t... */
+    is_relationship: boolean;
     /** When set to `true` it's mean that need load full information about unpaid visits: */
     is_simple: boolean;
+    /** `true` to get only unpaid appointments, `false` to get all appointments. */
+    is_unpaid: boolean;
     /** The business key. */
     k_business: string;
     /** Last booked visit key. */
@@ -20633,6 +20912,8 @@ export interface WlLoginPromotionGuestPassGuestPassListResponse {
         dl_reset: string | null;
         /** `true` if the guest pass is service-type (not invite-type). Inverse of `can_invite`. */
         has_service: boolean;
+        /** `true` if regional access is enabled for the guest pass, i.e. it may be redeemed at other */
+        is_regional: boolean;
         /** Maximum guest passes that can be sent per day. `null` if there is no daily cap. */
         i_cap_day: number | null;
         /** Total number of guest passes initially granted. `null` if the supply is unlimited. */
@@ -20725,6 +21006,8 @@ export interface WlLoginPromotionGuestPassGuestPassGetResponse {
         dl_reset: string | null;
         /** `true` if the guest pass is service-type (not invite-type). Inverse of `can_invite`. */
         has_service: boolean;
+        /** `true` if regional access is enabled for the guest pass, i.e. it may be redeemed at other */
+        is_regional: boolean;
         /** Maximum guest passes that can be sent per day. `null` if there is no daily cap. */
         i_cap_day: number | null;
         /** Total number of guest passes initially granted. `null` if the supply is unlimited. */
@@ -20858,8 +21141,12 @@ export interface WlLoginMemberDynamicIdDynamicIdParams {
 export interface WlLoginMemberDynamicIdDynamicIdResponse {
     /** Number of seconds left until the dynamic ID expires. */
     i_expire: number;
+    /** `true` if the business uses QR code as the client check-in scan format, `false` if it uses the cl... */
+    is_qr: boolean;
     /** Barcode of the member. */
     text_barcode: string;
+    /** Unix time in seconds at which {@link WlLoginMemberDynamicIdDynamicIdResponse.text_barcode} was is... */
+    tu_qr_issued: number;
     /** URL of the barcode image. */
     url_barcode: string;
 }
@@ -26922,6 +27209,8 @@ export interface WlLoginPromotionGuestPassInviteInviteListGetResponse {
         id_status: WlLoginPromotionGuestPassInviteInviteStatusEnum;
         /** `true` if the guest may only enter when the inviting member is checked in. */
         is_checkin: boolean | null;
+        /** `true` if the visit was redeemed at a sibling franchisee business rather than the business that */
+        is_visit_business_other: boolean;
         /** `true` if associated visit in future, `false` otherwise. */
         is_visit_future: boolean;
         /** Login promotion key granted to the guest upon acceptance. */
@@ -26940,6 +27229,8 @@ export interface WlLoginPromotionGuestPassInviteInviteListGetResponse {
         text_promotion_guest: string;
         /** Title of the host promotion. */
         text_promotion_host: string;
+        /** Title of the location the visit was redeemed at - may be a sibling franchisee's location when the */
+        text_location: string | null;
         /** Title of the service booked with the guest pass. */
         text_service_title: string | null;
         /** Name of the business timezone used for all `dtl_*` fields (e.g. "America/New_York"). */
@@ -27451,6 +27742,17 @@ export declare class ThothExplorerSearchNamespace {
     readonly classSession: ThothExplorerSearchClassSessionNamespace;
     constructor(_client: WlClient);
 }
+export declare class ThothLayoutBeFooterNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the data required to render the site footer for the given business. */
+    footer(params?: ThothLayoutBeFooterFooterParams): Promise<ThothLayoutBeFooterFooterResponse>;
+}
+export declare class ThothLayoutBeNamespace {
+    private readonly _client;
+    readonly footer: ThothLayoutBeFooterNamespace;
+    constructor(_client: WlClient);
+}
 export declare class ThothPayProcessorNuveiNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -27492,6 +27794,7 @@ export declare class ThothReportCoreNamespace {
 export declare class ThothNamespace {
     private readonly _client;
     readonly explorerSearch: ThothExplorerSearchNamespace;
+    readonly layoutBe: ThothLayoutBeNamespace;
     readonly payProcessor: ThothPayProcessorNamespace;
     readonly reportCore: ThothReportCoreNamespace;
     constructor(_client: WlClient);
@@ -28686,9 +28989,26 @@ export declare class WlLeadSourceNamespace {
     /** Gets list of Lead Sources. */
     leadSourceList(params?: WlLeadSourceLeadSourceListParams): Promise<WlLeadSourceLeadSourceListResponse>;
 }
+export declare class WlLeadStageNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Deletes a lead stage. */
+    leadStageElementDelete(params?: WlLeadStageLeadStageElementDeleteParams): Promise<WlLeadStageLeadStageElementDeleteResponse>;
+    /** Returns information about a lead stage. */
+    leadStageElementGet(params?: WlLeadStageLeadStageElementGetParams): Promise<WlLeadStageLeadStageElementGetResponse>;
+    /** Edits name and icon of a lead stage. */
+    leadStageElementPost(params?: WlLeadStageLeadStageElementPostParams): Promise<WlLeadStageLeadStageElementPostResponse>;
+    /** Creates a new custom lead stage. */
+    leadStageElementPut(params?: WlLeadStageLeadStageElementPutParams): Promise<WlLeadStageLeadStageElementPutResponse>;
+    /** Gets a list of lead stages of the business. */
+    leadStageList(params?: WlLeadStageLeadStageListParams): Promise<WlLeadStageLeadStageListResponse>;
+    /** Sets the lead stage of the client. */
+    leadStageUser(params?: WlLeadStageLeadStageUserParams): Promise<WlLeadStageLeadStageUserResponse>;
+}
 export declare class WlLeadNamespace {
     private readonly _client;
     readonly source: WlLeadSourceNamespace;
+    readonly stage: WlLeadStageNamespace;
     constructor(_client: WlClient);
     /** Checks if user with specified email already registered for specified business. */
     leadCheck(params?: WlLeadLeadCheckParams): Promise<WlLeadLeadCheckResponse>;
@@ -28954,9 +29274,23 @@ export declare class WlAiAgentLinkNamespace {
     /** Sends an AI agent link action email (booking or purchase) to the specified user. */
     sendMail(params?: WlAiAgentLinkSendMailParams): Promise<WlAiAgentLinkSendMailResponse>;
 }
+export declare class WlAiAgentAlertNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Fires an in-app alert for the specified event. */
+    alert(params?: WlAiAgentAlertAlertParams): Promise<WlAiAgentAlertAlertResponse>;
+}
+export declare class WlAiAgentPhoneNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Sends the "Phone Agent Call Received" staff notification to every active staff member of the business who has the {@link WlPrivilegePrivilegeSid} permission. */
+    callReceived(params?: WlAiAgentPhoneCallReceivedParams): Promise<WlAiAgentPhoneCallReceivedResponse>;
+}
 export declare class WlAiAgentNamespace {
     private readonly _client;
     readonly link: WlAiAgentLinkNamespace;
+    readonly alert: WlAiAgentAlertNamespace;
+    readonly phone: WlAiAgentPhoneNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlBookProcessPurchaseNamespace {
@@ -30006,6 +30340,17 @@ export declare class CoreTestingNamespace {
     readonly automation: CoreTestingAutomationNamespace;
     constructor(_client: WlClient);
 }
+export declare class CoreAILogTriageNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns a fixed connection value and, when requested, selected findings. */
+    connectionCheck(params?: CoreAILogTriageConnectionCheckParams): Promise<CoreAILogTriageConnectionCheckResponse>;
+}
+export declare class CoreAINamespace {
+    private readonly _client;
+    readonly logTriage: CoreAILogTriageNamespace;
+    constructor(_client: WlClient);
+}
 export declare class CorePassportLoginRegisterNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -30103,6 +30448,17 @@ export declare class CoreDriveNamespace {
     readonly imageUpload: CoreDriveImageUploadNamespace;
     constructor(_client: WlClient);
 }
+export declare class CoreLocaleLanguageNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Switches the language. */
+    languageSwitch(params?: CoreLocaleLanguageLanguageSwitchParams): Promise<CoreLocaleLanguageLanguageSwitchResponse>;
+}
+export declare class CoreLocaleNamespace {
+    private readonly _client;
+    readonly language: CoreLocaleLanguageNamespace;
+    constructor(_client: WlClient);
+}
 export declare class CoreNamespace {
     private readonly _client;
     readonly request: CoreRequestNamespace;
@@ -30112,9 +30468,11 @@ export declare class CoreNamespace {
     readonly webSocket: CoreWebSocketNamespace;
     readonly geo: CoreGeoNamespace;
     readonly testing: CoreTestingNamespace;
+    readonly aI: CoreAINamespace;
     readonly passport: CorePassportNamespace;
     readonly spa: CoreSpaNamespace;
     readonly drive: CoreDriveNamespace;
+    readonly locale: CoreLocaleNamespace;
     constructor(_client: WlClient);
 }
 export declare class SocialMicrosoftNamespace {

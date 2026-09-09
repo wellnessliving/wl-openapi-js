@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260908114815
-// Build date: 2026-09-08
-// Endpoints: 530
-// Enums: 199
+// OpenAPI spec version: 1.1.20260909033358
+// Build date: 2026-09-09
+// Endpoints: 541
+// Enums: 204
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (199 total) ---
+// --- Enum types (204 total) ---
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
 (function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
@@ -2440,6 +2440,20 @@ export var RsPayAccountChargeSid;
     /** Manual account withdrawal by admin */
     RsPayAccountChargeSid[RsPayAccountChargeSid["DEBIT"] = 2] = "DEBIT";
 })(RsPayAccountChargeSid || (RsPayAccountChargeSid = {}));
+/** Sources from which log triage findings can be collected. */
+export var CoreAILogTriageTriageSourceSid;
+(function (CoreAILogTriageTriageSourceSid) {
+    /** Erroneous asynchronous tasks */
+    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ASYNC_TASK"] = 5] = "ASYNC_TASK";
+    /** Erroneous background tasks */
+    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["BACKGROUND_TASK"] = 4] = "BACKGROUND_TASK";
+    /** PHP error log represented by DebugPhpLog */
+    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ERROR_LOG"] = 1] = "ERROR_LOG";
+    /** Slow-operation log represented by DebugSlowLog */
+    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["SLOW_LOG"] = 2] = "SLOW_LOG";
+    /** Aggregated usage statistics */
+    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["WATCH_USAGE_STAT"] = 3] = "WATCH_USAGE_STAT";
+})(CoreAILogTriageTriageSourceSid || (CoreAILogTriageTriageSourceSid = {}));
 /** List of responses for Google Captcha token. */
 export var CoreGoogleCaptchaCaptchaResponseSid;
 (function (CoreGoogleCaptchaCaptchaResponseSid) {
@@ -2454,6 +2468,26 @@ export var CoreGoogleCaptchaCaptchaResponseSid;
     /** Token is valid but score is risky */
     CoreGoogleCaptchaCaptchaResponseSid[CoreGoogleCaptchaCaptchaResponseSid["VALID_BLOCK"] = 4] = "VALID_BLOCK";
 })(CoreGoogleCaptchaCaptchaResponseSid || (CoreGoogleCaptchaCaptchaResponseSid = {}));
+/** A list of all languages. */
+export var CoreLocaleLanguageLocaleLanguageSid;
+(function (CoreLocaleLanguageLocaleLanguageSid) {
+    /** German */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["DE"] = 6] = "DE";
+    /** English */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["EN"] = 2] = "EN";
+    /** Spanish */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["ES"] = 9] = "ES";
+    /** French */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["FR"] = 4] = "FR";
+    /** Portuguese */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["PT"] = 5] = "PT";
+    /** Russian */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["RU"] = 1] = "RU";
+    /** Turkish */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["TR"] = 8] = "TR";
+    /** Ukrainian */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["UK"] = 3] = "UK";
+})(CoreLocaleLanguageLocaleLanguageSid || (CoreLocaleLanguageLocaleLanguageSid = {}));
 /** Promotion or package date start rule. */
 export var RsActivationSid;
 (function (RsActivationSid) {
@@ -3024,22 +3058,6 @@ export var RsBusinessDesignLogoStyleSid;
     /** Logo is a square */
     RsBusinessDesignLogoStyleSid[RsBusinessDesignLogoStyleSid["SQUARE"] = 2] = "SQUARE";
 })(RsBusinessDesignLogoStyleSid || (RsBusinessDesignLogoStyleSid = {}));
-/** Lists statuses of reports from point of view of its generation. */
-export var WlReportGeneratorReportGeneratorStatusSid;
-(function (WlReportGeneratorReportGeneratorStatusSid) {
-    /** Report is in an inconsistent state */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["ABORTED"] = 6] = "ABORTED";
-    /** Current operation is being aborted now */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["ABORTING"] = 5] = "ABORTING";
-    /** This report is being deleted now */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["DELETING"] = 4] = "DELETING";
-    /** This report is being generated now */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["GENERATING"] = 2] = "GENERATING";
-    /** Generation of this report is queued */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["QUEUED"] = 1] = "QUEUED";
-    /** Generation of this report is now completed */
-    WlReportGeneratorReportGeneratorStatusSid[WlReportGeneratorReportGeneratorStatusSid["READY"] = 3] = "READY";
-})(WlReportGeneratorReportGeneratorStatusSid || (WlReportGeneratorReportGeneratorStatusSid = {}));
 /** List of statuses of an Autymate enrollment notification. */
 export var WlIntegrationAutymateAutymateStatusSid;
 (function (WlIntegrationAutymateAutymateStatusSid) {
@@ -3317,6 +3335,8 @@ export var RsMailSid;
     RsMailSid[RsMailSid["LEAD_CAPTURE"] = 87] = "LEAD_CAPTURE";
     /** Sent to staff when CAASI captures a new lead from a conversation, */
     RsMailSid[RsMailSid["LEAD_CAPTURE_AI"] = 197] = "LEAD_CAPTURE_AI";
+    /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
+    RsMailSid[RsMailSid["LEAD_STAGE_UPDATED"] = 224] = "LEAD_STAGE_UPDATED";
     /** Sent to client on annual anniversary of the Member Since date */
     RsMailSid[RsMailSid["LOGIN_ANNIVERSARY"] = 96] = "LOGIN_ANNIVERSARY";
     /** Attendance List */
@@ -3345,6 +3365,8 @@ export var RsMailSid;
     RsMailSid[RsMailSid["LOGIN_STATEMENT_NEW"] = 213] = "LOGIN_STATEMENT_NEW";
     /** Sent to all new users after they create an account for the first time */
     RsMailSid[RsMailSid["LOGIN_WELCOME"] = 9] = "LOGIN_WELCOME";
+    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
+    RsMailSid[RsMailSid["MARKETING_AUTOMATION_NOTIFY_STAFF"] = 223] = "MARKETING_AUTOMATION_NOTIFY_STAFF";
     /** Client added to a member group */
     RsMailSid[RsMailSid["MEMBER_GROUP_USER_ADD"] = 214] = "MEMBER_GROUP_USER_ADD";
     /** Client removed from a member group */
@@ -3363,6 +3385,8 @@ export var RsMailSid;
     RsMailSid[RsMailSid["PAY_AUTOMATIC_SUCCESS"] = 116] = "PAY_AUTOMATIC_SUCCESS";
     /** Transaction failed */
     RsMailSid[RsMailSid["PAY_TRANSACTION_FAIL"] = 181] = "PAY_TRANSACTION_FAIL";
+    /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
+    RsMailSid[RsMailSid["PHONE_AGENT_CALL_RECEIVED"] = 222] = "PHONE_AGENT_CALL_RECEIVED";
     /** Request a custom website subscription */
     RsMailSid[RsMailSid["PRESENCE_ACTIVATE"] = 137] = "PRESENCE_ACTIVATE";
     /** Sent after purchase of product */
@@ -3473,8 +3497,6 @@ export var ASocialSid;
 /** Widget analytics checkout types. */
 export var WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid;
 (function (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid) {
-    /** Any checkout type */
-    WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["ANY"] = 1] = "ANY";
     /** Booking checkout type */
     WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid[WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid["BOOKING"] = 3] = "BOOKING";
     /** Store purchase checkout type */
@@ -3496,6 +3518,16 @@ export var WlWidgetAnalyticsWidgetAnalyticsEventVersionSid;
     /** Initial event schema */
     WlWidgetAnalyticsWidgetAnalyticsEventVersionSid[WlWidgetAnalyticsWidgetAnalyticsEventVersionSid["V1"] = 1] = "V1";
 })(WlWidgetAnalyticsWidgetAnalyticsEventVersionSid || (WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = {}));
+/** List of outcomes of a CAASI Phone Agent call. */
+export var WlAiAgentPhoneCallOutcomeEnum;
+(function (WlAiAgentPhoneCallOutcomeEnum) {
+    /** The call was resolved by CAASI without staff involvement */
+    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["RESOLVED"] = 1] = "RESOLVED";
+    /** The call was transferred to a live staff member */
+    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["TRANSFERRED"] = 2] = "TRANSFERRED";
+    /** The caller requested a callback from staff */
+    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["CALLBACK_REQUESTED"] = 3] = "CALLBACK_REQUESTED";
+})(WlAiAgentPhoneCallOutcomeEnum || (WlAiAgentPhoneCallOutcomeEnum = {}));
 /** Possible ways to stop repeatable events. */
 export var RsRepeatEndSid;
 (function (RsRepeatEndSid) {
@@ -3897,6 +3929,8 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["NOTIFICATION_MEMBERSHIP_CANCEL"] = 214] = "NOTIFICATION_MEMBERSHIP_CANCEL";
     /** Receive Membership or Purchase Options Query notification */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["NOTIFICATION_MEMBERSHIP_QUERY"] = 223] = "NOTIFICATION_MEMBERSHIP_QUERY";
+    /** Receive CAASI Phone Call Received (AI Agent) notification */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["NOTIFICATION_PHONE_AGENT_CALL_RECEIVED"] = 248] = "NOTIFICATION_PHONE_AGENT_CALL_RECEIVED";
     /** Staff with this role will receive emails about reward prizes */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["NOTIFICATION_PRIZE_REDEMPTION"] = 90] = "NOTIFICATION_PRIZE_REDEMPTION";
     /** Staff with this role will receive the inventory mails */
@@ -4396,6 +4430,50 @@ export var RsRewardScoreSid;
     /** Referral registration */
     RsRewardScoreSid[RsRewardScoreSid["REFER_REGISTER"] = 31] = "REFER_REGISTER";
 })(RsRewardScoreSid || (RsRewardScoreSid = {}));
+/** Shapes of lead stage icons. */
+export var WlLeadStageLeadStageShapeSid;
+(function (WlLeadStageLeadStageShapeSid) {
+    /** Circle */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["CIRCLE"] = 1] = "CIRCLE";
+    /** Hexagon */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["HEXAGON"] = 2] = "HEXAGON";
+    /** Oval */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["OVAL"] = 3] = "OVAL";
+    /** Pentagon */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["PENTAGON"] = 4] = "PENTAGON";
+    /** Rectangle */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["RECTANGLE"] = 5] = "RECTANGLE";
+    /** Square */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["SQUARE"] = 6] = "SQUARE";
+    /** Star */
+    WlLeadStageLeadStageShapeSid[WlLeadStageLeadStageShapeSid["STAR"] = 7] = "STAR";
+})(WlLeadStageLeadStageShapeSid || (WlLeadStageLeadStageShapeSid = {}));
+/** Types of lead stages. */
+export var WlLeadStageLeadStageTypeSid;
+(function (WlLeadStageLeadStageTypeSid) {
+    /** A lead is lost - the client will not make a purchase */
+    WlLeadStageLeadStageTypeSid[WlLeadStageLeadStageTypeSid["LOST"] = 3] = "LOST";
+    /** A lead is still in the funnel - the business is working with the client */
+    WlLeadStageLeadStageTypeSid[WlLeadStageLeadStageTypeSid["OPEN"] = 1] = "OPEN";
+    /** A lead is won - the client is converted into a member */
+    WlLeadStageLeadStageTypeSid[WlLeadStageLeadStageTypeSid["WON"] = 2] = "WON";
+})(WlLeadStageLeadStageTypeSid || (WlLeadStageLeadStageTypeSid = {}));
+/** System-defined lead stages. */
+export var WlLeadStageLeadStageSystemSid;
+(function (WlLeadStageLeadStageSystemSid) {
+    /** A lead which was contacted by a staff member */
+    WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["CONTACTED"] = 6] = "CONTACTED";
+    /** A lead which is being actively worked with and is close to a purchase */
+    WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["HOT"] = 2] = "HOT";
+    /** A lead which was lost */
+    WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["LOST"] = 5] = "LOST";
+    /** A newly captured lead. This stage is set to a client when they are added as a lead */
+    WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["NEW"] = 1] = "NEW";
+    /** A lead which has shown some interest, but is not ready to purchase yet */
+    WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["WARM"] = 3] = "WARM";
+    /** A lead which was successfully converted into a client */
+    WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["WON"] = 4] = "WON";
+})(WlLeadStageLeadStageSystemSid || (WlLeadStageLeadStageSystemSid = {}));
 /** List of default categories of the rewards. */
 export var RsRewardActionCategorySid;
 (function (RsRewardActionCategorySid) {
@@ -5246,6 +5324,21 @@ export class ThothExplorerSearchNamespace {
         this.classSession = new ThothExplorerSearchClassSessionNamespace(this._client);
     }
 }
+export class ThothLayoutBeFooterNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the data required to render the site footer for the given business. */
+    footer(params) {
+        return this._client._request('/Thoth/LayoutBe/Footer/Footer.json', params, 'GET');
+    }
+}
+export class ThothLayoutBeNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.footer = new ThothLayoutBeFooterNamespace(this._client);
+    }
+}
 export class ThothPayProcessorNuveiNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5306,6 +5399,7 @@ export class ThothNamespace {
     constructor(_client) {
         this._client = _client;
         this.explorerSearch = new ThothExplorerSearchNamespace(this._client);
+        this.layoutBe = new ThothLayoutBeNamespace(this._client);
         this.payProcessor = new ThothPayProcessorNamespace(this._client);
         this.reportCore = new ThothReportCoreNamespace(this._client);
     }
@@ -7154,10 +7248,40 @@ export class WlLeadSourceNamespace {
         return this._client._request('/Wl/Lead/Source/LeadSourceList.json', params, 'GET');
     }
 }
+export class WlLeadStageNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes a lead stage. */
+    leadStageElementDelete(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageElement.json', params, 'DELETE');
+    }
+    /** Returns information about a lead stage. */
+    leadStageElementGet(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageElement.json', params, 'GET');
+    }
+    /** Edits name and icon of a lead stage. */
+    leadStageElementPost(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageElement.json', params, 'POST');
+    }
+    /** Creates a new custom lead stage. */
+    leadStageElementPut(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageElement.json', params, 'PUT');
+    }
+    /** Gets a list of lead stages of the business. */
+    leadStageList(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageList.json', params, 'GET');
+    }
+    /** Sets the lead stage of the client. */
+    leadStageUser(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageUser.json', params, 'POST');
+    }
+}
 export class WlLeadNamespace {
     constructor(_client) {
         this._client = _client;
         this.source = new WlLeadSourceNamespace(this._client);
+        this.stage = new WlLeadStageNamespace(this._client);
     }
     /** Checks if user with specified email already registered for specified business. */
     leadCheck(params) {
@@ -7567,10 +7691,30 @@ export class WlAiAgentLinkNamespace {
         return this._client._request('/Wl/AiAgent/Link/SendMail.json', params, 'POST');
     }
 }
+export class WlAiAgentAlertNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Fires an in-app alert for the specified event. */
+    alert(params) {
+        return this._client._request('/Wl/AiAgent/Alert/Alert.json', params, 'POST');
+    }
+}
+export class WlAiAgentPhoneNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Sends the "Phone Agent Call Received" staff notification to every active staff member of the business who has the {@link WlPrivilegePrivilegeSid} permission. */
+    callReceived(params) {
+        return this._client._request('/Wl/AiAgent/Phone/CallReceived.json', params, 'POST');
+    }
+}
 export class WlAiAgentNamespace {
     constructor(_client) {
         this._client = _client;
         this.link = new WlAiAgentLinkNamespace(this._client);
+        this.alert = new WlAiAgentAlertNamespace(this._client);
+        this.phone = new WlAiAgentPhoneNamespace(this._client);
     }
 }
 export class WlBookProcessPurchaseNamespace {
@@ -9118,6 +9262,21 @@ export class CoreTestingNamespace {
         this.automation = new CoreTestingAutomationNamespace(this._client);
     }
 }
+export class CoreAILogTriageNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns a fixed connection value and, when requested, selected findings. */
+    connectionCheck(params) {
+        return this._client._request('/Core/AI/LogTriage/ConnectionCheck.json', params, 'GET');
+    }
+}
+export class CoreAINamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.logTriage = new CoreAILogTriageNamespace(this._client);
+    }
+}
 export class CorePassportLoginRegisterNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9259,6 +9418,21 @@ export class CoreDriveNamespace {
         this.imageUpload = new CoreDriveImageUploadNamespace(this._client);
     }
 }
+export class CoreLocaleLanguageNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Switches the language. */
+    languageSwitch(params) {
+        return this._client._request('/Core/Locale/Language/LanguageSwitch.json', params, 'POST');
+    }
+}
+export class CoreLocaleNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.language = new CoreLocaleLanguageNamespace(this._client);
+    }
+}
 export class CoreNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9269,9 +9443,11 @@ export class CoreNamespace {
         this.webSocket = new CoreWebSocketNamespace(this._client);
         this.geo = new CoreGeoNamespace(this._client);
         this.testing = new CoreTestingNamespace(this._client);
+        this.aI = new CoreAINamespace(this._client);
         this.passport = new CorePassportNamespace(this._client);
         this.spa = new CoreSpaNamespace(this._client);
         this.drive = new CoreDriveNamespace(this._client);
+        this.locale = new CoreLocaleNamespace(this._client);
     }
 }
 export class SocialMicrosoftNamespace {
