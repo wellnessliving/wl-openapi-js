@@ -10823,6 +10823,13 @@ export type WlProfileEditEditByTokenPutResponse = Record<string, unknown>;
 export type WlProfileEditEditPasswordParams = Record<string, unknown>;
 export type WlProfileEditEditPasswordResponse = Record<string, unknown>;
 export interface WlProfileContractContractGetParams {
+    /** Additional configuration for the item that might influence contracts. */
+    a_config: {
+        /** The tuition class schedule selected for the participant. */
+        a_event_list?: Array<unknown>;
+        /** Registration fees to charge together with the tuition, keyed by participant key. */
+        a_registration_fee_list?: Array<unknown>;
+    };
     /** The start date of the contract. */
     dt_start: string;
     /** The percentage discount for the item. */
@@ -10847,6 +10854,13 @@ export interface WlProfileContractContractGetParams {
     uid: string;
 }
 export interface WlProfileContractContractGetResponse {
+    /** List of contracts required at once, if the purchase option requires agreement to several */
+    a_contract_list: {
+        /** The text of this specific contract. */
+        html_contract: string;
+        /** Key of the visitor this contract applies to. Primary key in PassportLoginSql. */
+        uid: string;
+    };
     /** The text of the contract. */
     html_contract: string;
     /** Age of minor which documents can be signed by parent or legal guardian. */
@@ -26342,14 +26356,6 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartResponse {
     is_receipt_note: boolean;
     /** The amount that has to be charged right now for the cart. */
     m_checkout: string;
-    /** The subtotal amount that has to be charged right now for the cart, before discount. */
-    m_checkout_before_discount: string;
-    /** The amount that has to be charged right now for the cart, after discount but before tax. */
-    m_checkout_before_tax: string;
-    /** The discount amount that applies to the part of the cart charged right now, excluding tax. */
-    m_checkout_discount: string;
-    /** The amount of tax that applies to the part of the cart charged right now. */
-    m_checkout_tax: string;
     /** The discount amount in dollars, excluding tax. */
     m_discount: string;
     /** The discount amount applied to the cart's total amount, including taxes. */

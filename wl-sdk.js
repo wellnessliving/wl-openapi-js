@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260909130106
+ * Spec version: 1.1.20260909133430
  * Build date:   2026-09-09
  * Endpoints:    545
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260909130106';
+  WlClient.SPEC_VERSION = '1.1.20260909133430';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (545 total)
@@ -3630,9 +3630,14 @@
    *
    * Renders the contract text for the specified purchase option, applying any applicable
    *  discounts, and returns the content needed to display the contract acceptance modal to the
-   *  client.
+   *  client. If the purchase option requires agreement to several distinct contracts at once,
+   *  returns them through {@link WlClient#wlProfileContractContractGet} instead, each rendered the same
+   *  way as a single contract, using the discount already resolved for that specific contract -
+   *  {@link WlClient#wlProfileContractContractGet}, {@link WlClient#wlProfileContractContractGet}, and
+   * ...
    *
    * @param {Object} [params] Request parameters.
+   * @param {Object} params.a_config Additional configuration for the item that might influence contracts.
    * @param {string} params.dt_start The start date of the contract.
    * @param {number} params.f_manual_discount The percentage discount for the item.
    * @param {number} params.id_purchase_item The type of purchase item. This is one of the {@link WlClient.RsPurchaseItemSid} constants.
@@ -3645,6 +3650,7 @@
    * @param {string} params.s_discount_code The discount code used for the item.
    * @param {string} params.uid The key of the current user.
    * @returns {Promise<Object>} Response data.
+   *  `a_contract_list` {Object} List of contracts required at once, if the purchase option requires agreement...
    *  `html_contract` {string} The text of the contract.
    *  `i_minor_age` {number} Age of minor which documents can be signed by parent or legal guardian.
    *  `text_title` {string} Title of purchase option.
@@ -10688,10 +10694,6 @@
    *  `is_discount_code_mode_select` {boolean} Determines, how staff sees discount codes in Store.
    *  `is_receipt_note` {boolean} Determines whether to display custom receipt notes at checkout.
    *  `m_checkout` {string} The amount that has to be charged right now for the cart.
-   *  `m_checkout_before_discount` {string} The subtotal amount that has to be charged right now for the cart, before dis...
-   *  `m_checkout_before_tax` {string} The amount that has to be charged right now for the cart, after discount but ...
-   *  `m_checkout_discount` {string} The discount amount that applies to the part of the cart charged right now, e...
-   *  `m_checkout_tax` {string} The amount of tax that applies to the part of the cart charged right now.
    *  `m_discount` {string} The discount amount in dollars, excluding tax.
    *  `m_discount_total` {string} The discount amount applied to the cart's total amount, including taxes.
    *  `m_subtotal` {string} The subtotal amount.
