@@ -27481,7 +27481,7 @@ export interface WlLoginPromotionGuestPassInviteInviteListGetResponse {
         dtl_redeem: string | null;
         /** Rejection date and time in business timezone in MySQL datetime format. */
         dtl_reject: string | null;
-        /** Visit date and time in MySQL datetime format. */
+        /** Visit date and time in MySQL datetime format, in the timezone of the location the visit took */
         dtl_visit: string | null;
         /** Acceptance date and time in UTC in MySQL datetime format. */
         dtu_accept: string | null;
