@@ -15515,8 +15515,15 @@ export interface WlVisitPayPayChangeGetParams {
 export interface WlVisitPayPayChangeGetResponse {
     /** List of purchase options that can be applied to pay for visit: */
     a_list: {
-        /** Promotion logo, see result of RsPromotionImageLogo::data(). Empty array for not paid option. */
-        a_logo: Array<unknown>;
+        /** Promotion logo. Empty array for not paid option. */
+        a_logo: {
+            /** Image height. */
+            i_height: number;
+            /** Image width. */
+            i_width: number;
+            /** Thumbnail url. */
+            'url-thumbnail': string;
+        };
         /** Whether current element selected in the list. */
         is_select: boolean;
         /** `0` means 'Single buy', `-1` means 'Not paid'. Otherwise key with next structure: `k_login_promot... */

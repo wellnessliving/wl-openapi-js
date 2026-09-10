@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260910080447
+ * Spec version: 1.1.20260910090539
  * Build date:   2026-09-10
  * Endpoints:    545
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260910080447';
+  WlClient.SPEC_VERSION = '1.1.20260910090539';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (545 total)
@@ -5729,6 +5729,9 @@
   /**
    * Returns data to change visit pay option.
    *
+   * Loads the visit and returns the list of purchase options available for it, marking the
+   *  option that is currently applied. Guest visits without a client have no purchase options.
+   *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_pay_now Defines whether 'pay now' option should be present.
    * @param {string} params.k_business Business key.
@@ -5744,6 +5747,10 @@
 
   /**
    * Saves user's promotion for certain attendance.
+   *
+   * Applies the selected promotion or session pass to the visit. Does nothing if the selected
+   *  option is already applied to the visit. Verifies that the caller has access to the visit
+   *  and that the selected promotion belongs to the visit's client before saving the change.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
