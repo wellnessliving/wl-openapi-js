@@ -16420,6 +16420,21 @@ export interface WlAppointmentInfoInfoResponse {
     /** Staff member who conducts this appointment. */
     uid_staff: string | null;
 }
+export interface WlAppointmentViewViewStoreParams {
+    /** Appointment key. */
+    k_appointment: string;
+    /** Business key. */
+    k_business: string;
+}
+export interface WlAppointmentViewViewStoreResponse {
+    /** List of amounts that must be paid. Each element contains keys: */
+    a_item: Array<{
+        /** Item price. */
+        m_price: string;
+        /** Item title. */
+        text_title: string;
+    }>;
+}
 export interface WlAppointmentRecentRecentServiceParams {
     /** Count of last booked services to return. Default value is 5. */
     i_visit: number;
@@ -29818,6 +29833,12 @@ export declare class WlAppointmentInfoNamespace {
     /** Gets information about appointment. */
     info(params?: WlAppointmentInfoInfoParams): Promise<WlAppointmentInfoInfoResponse>;
 }
+export declare class WlAppointmentViewNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Loads information about amounts that must be paid for an appointment. */
+    viewStore(params?: WlAppointmentViewViewStoreParams): Promise<WlAppointmentViewViewStoreResponse>;
+}
 export declare class WlAppointmentRecentNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -29960,6 +29981,7 @@ export declare class WlAppointmentNamespace {
     private readonly _client;
     readonly edit: WlAppointmentEditNamespace;
     readonly info: WlAppointmentInfoNamespace;
+    readonly view: WlAppointmentViewNamespace;
     readonly recent: WlAppointmentRecentNamespace;
     readonly book: WlAppointmentBookNamespace;
     constructor(_client: WlClient);

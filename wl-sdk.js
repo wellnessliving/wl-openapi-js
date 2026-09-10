@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260910055449
+ * Spec version: 1.1.20260910075221
  * Build date:   2026-09-10
- * Endpoints:    545
+ * Endpoints:    546
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260910055449';
+  WlClient.SPEC_VERSION = '1.1.20260910075221';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (545 total)
+  // Generated API methods (546 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -6020,6 +6020,26 @@
   WlClient.prototype.wlAppointmentInfoInfo = function(params)
   {
     return this.request('/Wl/Appointment/Info/Info.json', params || {}, 'GET');
+  };
+
+  /**
+   * Loads information about amounts that must be paid for an appointment.
+   *
+   * Checks that the caller may view the appointment - either the client who booked it, or a staff member
+   *  with the corresponding privilege - and that the appointment belongs to the specified business. Fills
+   *  `a_item` with the price of the service or resource (or its default promotion, if one applies),
+   *  a deposit item when only a deposit is charged, and a paid and an unpaid item for every add-on product
+   *  of the appointment.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_appointment Appointment key.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_item` {Object[]} List of amounts that must be paid. Each element contains keys:
+   */
+  WlClient.prototype.wlAppointmentViewViewStore = function(params)
+  {
+    return this.request('/Wl/Appointment/View/ViewStore.json', params || {}, 'GET');
   };
 
   /**
