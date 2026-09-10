@@ -2130,6 +2130,8 @@ export declare enum RsSkinSid {
     APPLICATION = 13,
     /** Appointment booking wizard */
     APPOINTMENT = 7,
+    /** Appointment booking wizard built by microservice widget team */
+    APPOINTMENT_FOREIGN = 22,
     /** Online store widget */
     CATALOG_FOREIGN = 21,
     /** Event enrollment wizard widget */
