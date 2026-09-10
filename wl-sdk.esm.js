@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260910104158
+// OpenAPI spec version: 1.1.20260910105324
 // Build date: 2026-09-10
-// Endpoints: 545
+// Endpoints: 546
 // Enums: 204
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -8079,6 +8079,15 @@ export class WlAppointmentInfoNamespace {
         return this._client._request('/Wl/Appointment/Info/Info.json', params, 'GET');
     }
 }
+export class WlAppointmentViewNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Loads information about amounts that must be paid for an appointment. */
+    viewStore(params) {
+        return this._client._request('/Wl/Appointment/View/ViewStore.json', params, 'GET');
+    }
+}
 export class WlAppointmentRecentNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8301,6 +8310,7 @@ export class WlAppointmentNamespace {
         this._client = _client;
         this.edit = new WlAppointmentEditNamespace(this._client);
         this.info = new WlAppointmentInfoNamespace(this._client);
+        this.view = new WlAppointmentViewNamespace(this._client);
         this.recent = new WlAppointmentRecentNamespace(this._client);
         this.book = new WlAppointmentBookNamespace(this._client);
     }
