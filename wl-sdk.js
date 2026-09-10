@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260909165046
- * Build date:   2026-09-09
+ * Spec version: 1.1.20260910035643
+ * Build date:   2026-09-10
  * Endpoints:    545
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260909165046';
+  WlClient.SPEC_VERSION = '1.1.20260910035643';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (545 total)
@@ -5679,6 +5679,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_age_restriction` {Object} The age restriction configuration.
    *  `a_data` {Object} Additional information specific for the item.
+   *  `a_guest_pass` {Object} Information about promotion guest pass. Empty array if promotion does not hav...
    *  `a_image` {Object} Image information:
    *  `a_image_list` {Object[]} List of images.
    *  `a_installment_template` {Object[]} A list of installment plans. Each element has the following next keys:
@@ -5696,7 +5697,6 @@
    *  `id_sale` {number} List of sale categories on the store page. See {@link WlClient.RsSaleSid}.
    *  `is_contract` {boolean} If `true`, the item requires a contract. Otherwise, this will be `false`.
    *  `k_id` {string} The item key.
-   *  `k_shop_product_option` {?string} The product option key.
    *  `...` {*}
    */
   WlClient.prototype.wlCatalogCatalogListElement = function(params)
@@ -15987,6 +15987,18 @@
   });
 
   /**
+   * Guest Pass reset type.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionGuestPassGuestPassResetTypeSid = Object.freeze({
+    /** Limits reset on promotion billing day */
+    BILLING: 1,
+    /** Limits reset on promotion renewal day */
+    RENEWAL: 2,
+  });
+
+  /**
    * Types of taxes.
    *
    * @enum {number}
@@ -17218,18 +17230,6 @@
     TEL: 3,
     /** Web Initiated Entry */
     WEB: 1,
-  });
-
-  /**
-   * Guest Pass reset type.
-   *
-   * @enum {number}
-   */
-  WlClient.WlPromotionGuestPassGuestPassResetTypeSid = Object.freeze({
-    /** Limits reset on promotion billing day */
-    BILLING: 1,
-    /** Limits reset on promotion renewal day */
-    RENEWAL: 2,
   });
 
   /**

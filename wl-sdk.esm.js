@@ -1,7 +1,7 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260909165046
-// Build date: 2026-09-09
+// OpenAPI spec version: 1.1.20260910035643
+// Build date: 2026-09-10
 // Endpoints: 545
 // Enums: 204
 export class WlApiError extends Error {
@@ -3598,6 +3598,14 @@ export var WlCouponEditDurationTypeSid;
     /** Examples: 12 days, 2 months, 2 hours etc */
     WlCouponEditDurationTypeSid[WlCouponEditDurationTypeSid["PERIOD"] = 1] = "PERIOD";
 })(WlCouponEditDurationTypeSid || (WlCouponEditDurationTypeSid = {}));
+/** Guest Pass reset type. */
+export var WlPromotionGuestPassGuestPassResetTypeSid;
+(function (WlPromotionGuestPassGuestPassResetTypeSid) {
+    /** Limits reset on promotion billing day */
+    WlPromotionGuestPassGuestPassResetTypeSid[WlPromotionGuestPassGuestPassResetTypeSid["BILLING"] = 1] = "BILLING";
+    /** Limits reset on promotion renewal day */
+    WlPromotionGuestPassGuestPassResetTypeSid[WlPromotionGuestPassGuestPassResetTypeSid["RENEWAL"] = 2] = "RENEWAL";
+})(WlPromotionGuestPassGuestPassResetTypeSid || (WlPromotionGuestPassGuestPassResetTypeSid = {}));
 /** Types of taxes. */
 export var RsTaxSid;
 (function (RsTaxSid) {
@@ -4712,14 +4720,6 @@ export var RsPayBankAchSecSid;
     /** Web Initiated Entry */
     RsPayBankAchSecSid[RsPayBankAchSecSid["WEB"] = 1] = "WEB";
 })(RsPayBankAchSecSid || (RsPayBankAchSecSid = {}));
-/** Guest Pass reset type. */
-export var WlPromotionGuestPassGuestPassResetTypeSid;
-(function (WlPromotionGuestPassGuestPassResetTypeSid) {
-    /** Limits reset on promotion billing day */
-    WlPromotionGuestPassGuestPassResetTypeSid[WlPromotionGuestPassGuestPassResetTypeSid["BILLING"] = 1] = "BILLING";
-    /** Limits reset on promotion renewal day */
-    WlPromotionGuestPassGuestPassResetTypeSid[WlPromotionGuestPassGuestPassResetTypeSid["RENEWAL"] = 2] = "RENEWAL";
-})(WlPromotionGuestPassGuestPassResetTypeSid || (WlPromotionGuestPassGuestPassResetTypeSid = {}));
 /** List of options to convert promotion. */
 export var WlPromotionConvertPromotionConvertSid;
 (function (WlPromotionConvertPromotionConvertSid) {

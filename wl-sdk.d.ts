@@ -3478,6 +3478,13 @@ export declare enum WlCouponEditDurationTypeSid {
     /** Examples: 12 days, 2 months, 2 hours etc */
     PERIOD = 1
 }
+/** Guest Pass reset type. */
+export declare enum WlPromotionGuestPassGuestPassResetTypeSid {
+    /** Limits reset on promotion billing day */
+    BILLING = 1,
+    /** Limits reset on promotion renewal day */
+    RENEWAL = 2
+}
 /** Types of taxes. */
 export declare enum RsTaxSid {
     /** Tax is accounted based on percents */
@@ -4561,13 +4568,6 @@ export declare enum RsPayBankAchSecSid {
     TEL = 3,
     /** Web Initiated Entry */
     WEB = 1
-}
-/** Guest Pass reset type. */
-export declare enum WlPromotionGuestPassGuestPassResetTypeSid {
-    /** Limits reset on promotion billing day */
-    BILLING = 1,
-    /** Limits reset on promotion renewal day */
-    RENEWAL = 2
 }
 /** List of options to convert promotion. */
 export declare enum WlPromotionConvertPromotionConvertSid {
@@ -15575,6 +15575,25 @@ export interface WlCatalogCatalogListElementResponse {
         /** Class to process string identifiers for duration types @see WlCouponEditDurationTypeSid */
         id_duration_type: WlCouponEditDurationTypeSid;
     };
+    /** Information about promotion guest pass. Empty array if promotion does not have guest pass or */
+    a_guest_pass: {
+        /** Number of times guest pass can be used per period. `null` for unlimited guest pass. */
+        i_limit: number | null;
+        /** Number of times guest pass can be used per day. `null` for limited guest pass. */
+        i_limit_daily: number | null;
+        /** Number of periods after which guest pass limits are reset. `null` for unlimited guest pass. */
+        i_period: number | null;
+        /** Period type by which guest pass limits are reset. `null` for unlimited guest pass. */
+        id_period: number | null;
+        /** Guest Pass reset type. @see WlPromotionGuestPassGuestPassResetTypeSid */
+        id_reset_type: WlPromotionGuestPassGuestPassResetTypeSid | null;
+        /** Guest pass promotion key. */
+        k_promotion_guest: string;
+        /** Formatted guest pass limits. */
+        text_limit: string;
+        /** Guest pass promotion title. */
+        text_title: string;
+    };
     /** Image information: */
     a_image: {
         /** The height in pixels. */
@@ -20980,7 +20999,7 @@ export interface WlLoginPromotionGuestPassGuestPassListResponse {
         /** Program types. @see RsProgramSid */
         id_program_guest: RsProgramSid;
         /** Guest Pass reset type. @see WlPromotionGuestPassGuestPassResetTypeSid */
-        id_reset_type_guest: WlPromotionGuestPassGuestPassResetTypeSid;
+        id_reset_type_guest: WlPromotionGuestPassGuestPassResetTypeSid | null;
         /** `true` if the pass is close enough to its reset or expiry date that the UI should */
         is_expire_note: boolean;
         /** `true` if the remaining count resets on `dl_reset`; */
@@ -21074,7 +21093,7 @@ export interface WlLoginPromotionGuestPassGuestPassGetResponse {
         /** Program types. @see RsProgramSid */
         id_program_guest: RsProgramSid;
         /** Guest Pass reset type. @see WlPromotionGuestPassGuestPassResetTypeSid */
-        id_reset_type_guest: WlPromotionGuestPassGuestPassResetTypeSid;
+        id_reset_type_guest: WlPromotionGuestPassGuestPassResetTypeSid | null;
         /** `true` if the pass is close enough to its reset or expiry date that the UI should */
         is_expire_note: boolean;
         /** `true` if the remaining count resets on `dl_reset`; */
