@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20260908054656
+ * Spec version: 1.1.20260910063845
  * Build date:   2026-09-10
  * Endpoints:    530
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260908054656';
+  WlClient.SPEC_VERSION = '1.1.20260910063845';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (530 total)
@@ -4617,9 +4617,14 @@
    *
    * Renders the contract text for the specified purchase option, applying any applicable
    *  discounts, and returns the content needed to display the contract acceptance modal to the
-   *  client.
+   *  client. If the purchase option requires agreement to several distinct contracts at once,
+   *  returns them through {@link WlClient#wlProfileContractContractGet} instead, each rendered the same
+   *  way as a single contract, using the discount already resolved for that specific contract -
+   *  {@link WlClient#wlProfileContractContractGet}, {@link WlClient#wlProfileContractContractGet}, and
+   * ...
    *
    * @param {Object} [params] Request parameters.
+   * @param {Object} params.a_config Additional configuration for the item that might influence contracts.
    * @param {string} params.dt_start The start date of the contract.
    * @param {number} params.f_manual_discount The percentage discount for the item.
    * @param {number} params.id_purchase_item The type of purchase item. This is one of the {@link WlClient.RsPurchaseItemSid} constants.
@@ -4632,6 +4637,7 @@
    * @param {string} params.s_discount_code The discount code used for the item.
    * @param {string} params.uid The key of the current user.
    * @returns {Promise<Object>} Response data.
+   *  `a_contract_list` {Object} List of contracts required at once, if the purchase option requires agreement...
    *  `html_contract` {string} The text of the contract.
    *  `i_minor_age` {number} Age of minor which documents can be signed by parent or legal guardian.
    *  `text_title` {string} Title of purchase option.
@@ -10237,6 +10243,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_class_tab The class tab key to use to filter services. If empty, this can be found on the standard book tab.
+   * @param {string[]} params.a_service_filter List of services to filter a result.
    * @param {string[]} params.a_staff List of staff members to filter a result.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {?number} [params.i_height] Image height in pixels. Please specify this value if you need image to be returned in specific size.
@@ -10312,6 +10319,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_class_tab The class tab key to use to filter services. If empty, this can be found on the standard book tab.
+   * @param {string[]} params.a_service_filter List of services to filter a result.
    * @param {string[]} params.a_staff List of staff members to filter a result.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {?number} [params.i_height] Image height in pixels. Please specify this value if you need image to be returned in specific size.
@@ -12826,8 +12834,6 @@
     LOGIN_RANK: 40,
     /** List of clients that are at churn risk according to isaac prediction */
     LOGIN_RISK: 261,
-    /** Report with client's attendance history */
-    LOGIN_VISIT: 52,
     /** Count of sent mail and sms per business */
     MAIL_BUSINESS_LIST: 46,
     /** Mail campaign details list report */

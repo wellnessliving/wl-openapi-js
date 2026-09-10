@@ -1141,8 +1141,6 @@ export declare enum RsReportSid {
     LOGIN_RANK = 40,
     /** List of clients that are at churn risk according to isaac prediction */
     LOGIN_RISK = 261,
-    /** Report with client's attendance history */
-    LOGIN_VISIT = 52,
     /** Count of sent mail and sms per business */
     MAIL_BUSINESS_LIST = 46,
     /** Mail campaign details list report */
@@ -6570,12 +6568,20 @@ export interface WlEventEventListGetResponse {
         dtu_session: string;
         /** Reason why session can not be booked. */
         html_reason: string;
+        /** Number of clients in the active list. */
+        i_book_active: number;
+        /** Capacity of the active list. */
+        i_capacity: number;
         /** Number of all sessions in the event. */
         i_session_all: number;
         /** Number of future sessions in the event. */
         i_session_future: number;
         /** Number of past sessions in the event. */
         i_session_past: number;
+        /** Number of clients in the wait list. */
+        i_wait: number;
+        /** Wait list limit of the event. */
+        i_wait_limit?: number | null;
         /** ID of deny reason. */
         id_reason: number;
         /** Whether booking of this event restricted because of age rules for {@link WlEventNamespace#eventLi... */
@@ -6610,8 +6616,12 @@ export interface WlEventEventListGetResponse {
         is_prorate: boolean;
         /** Whether class/event can be paid with single session. */
         is_single_buy: boolean;
+        /** Whether current user is booked or on the wait list. */
+        is_user_booked: boolean;
         /** Whether event is virtual. */
         is_virtual: boolean;
+        /** Whether wait list is enabled for this event. */
+        is_wait_list_enabled: boolean;
         /** Class key. */
         k_class: string;
         /** Class period key of the closest session of the event. */
@@ -13016,10 +13026,14 @@ export interface WlProfileAttendanceAttendanceOverlapResponse {
         k_enrollment_book: string;
         /** Location key. */
         k_location: string;
+        /** Local date of the visit, formatted according to the business locale. */
+        text_date?: string;
         /** Local end time of the visit, formatted according to the business locale. */
         text_time_end?: string;
         /** Local start time of the visit, formatted according to the business locale. */
         text_time_start?: string;
+        /** Name of the timezone used to format `text_date`, `text_time_end` and `text_time_start`. */
+        text_timezone?: string;
         /** Title of a service */
         text_title: string;
     }>;
@@ -13911,6 +13925,13 @@ export type WlProfileEditEditByTokenPutResponse = Record<string, unknown>;
 export type WlProfileEditEditPasswordParams = Record<string, unknown>;
 export type WlProfileEditEditPasswordResponse = Record<string, unknown>;
 export interface WlProfileContractContractGetParams {
+    /** Additional configuration for the item that might influence contracts. */
+    a_config: {
+        /** The tuition class schedule selected for the participant. */
+        a_event_list?: Array<unknown>;
+        /** Registration fees to charge together with the tuition, keyed by participant key. */
+        a_registration_fee_list?: Array<unknown>;
+    };
     /** The start date of the contract. */
     dt_start: string;
     /** The percentage discount for the item. */
@@ -13935,6 +13956,13 @@ export interface WlProfileContractContractGetParams {
     uid: string;
 }
 export interface WlProfileContractContractGetResponse {
+    /** List of contracts required at once, if the purchase option requires agreement to several */
+    a_contract_list: {
+        /** The text of this specific contract. */
+        html_contract: string;
+        /** Key of the visitor this contract applies to. Primary key in PassportLoginSql. */
+        uid: string;
+    };
     /** The text of the contract. */
     html_contract: string;
     /** Age of minor which documents can be signed by parent or legal guardian. */
@@ -14684,7 +14712,7 @@ export interface WlTuitionEnrollmentTuitionClientsSummaryResponse {
     a_summary: Array<{
         /** Number of unique clients having at least one not cancelled enrolled event. */
         i_clients_enrolled: number;
-        /** Total number of group enrollments with at least one not cancelled enrolled client in the group. */
+        /** Total number of group enrollments with at least one not cancelled enrolled client in the group and */
         i_enrollments_active: number;
         /** Total number of group enrollments. */
         i_enrollments_total: number;
@@ -24503,6 +24531,8 @@ export interface WlAppointmentBookQuizQuizResponse {
 export interface WlAppointmentBookServiceServiceList52Params {
     /** The class tab key to use to filter services. If empty, this can be found on the standard book tab. */
     a_class_tab: Array<string>;
+    /** List of services to filter a result. */
+    a_service_filter: Array<string>;
     /** List of staff members to filter a result. */
     a_staff: Array<string>;
     /** List of user keys to book appointments. */
@@ -24711,6 +24741,8 @@ export interface WlAppointmentBookServiceCategoryResponse {
 export interface WlAppointmentBookServiceServiceListParams {
     /** The class tab key to use to filter services. If empty, this can be found on the standard book tab. */
     a_class_tab: Array<string>;
+    /** List of services to filter a result. */
+    a_service_filter: Array<string>;
     /** List of staff members to filter a result. */
     a_staff: Array<string>;
     /** List of user keys to book appointments. */
