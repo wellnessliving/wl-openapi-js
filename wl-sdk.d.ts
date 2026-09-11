@@ -20237,6 +20237,8 @@ export interface WlUserInfoUserListInfoParams {
 export interface WlUserInfoUserListInfoResponse {
     /** Information about the user's. The information returned has the following structure: */
     a_user_data: {
+        /** Relation between the user and family members. Keys are UIDs of relatives, values - */
+        a_relation: Record<string, unknown>;
         /** Class to work with gender string identifiers. @see WlGenderGenderSid */
         id_gender: WlGenderGenderSid;
         /** Whether an address of a user is inherited from a relative `true` - inherited, `false` - otherwise. */
