@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260911132505
+ * Spec version: 1.1.20260911141200
  * Build date:   2026-09-11
  * Endpoints:    643
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260911132505';
+  WlClient.SPEC_VERSION = '1.1.20260911141200';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (643 total)
@@ -6613,14 +6613,14 @@
    * @param {?string} [params.text_item] A list of goods to get information for. Every element must contain the next keys:
    * @param {string} params.uid_customer The UID of a customer (user) for whom the purchase is made. This is used in the backend to calcul...
    * @returns {Promise<Object>} Response data.
-   *  `a_age_restriction` {Object} The age restriction configuration.
+   *  `a_age_restriction` {?Object} The age restriction configuration.
    *  `a_data` {Object} Additional information specific for the item.
    *  `a_guest_pass` {Object} Information about promotion guest pass. Empty array if promotion does not hav...
    *  `a_image` {Object} Image information:
    *  `a_image_list` {Object[]} List of images.
    *  `a_installment_template` {Object[]} A list of installment plans. Each element has the following next keys:
    *  `a_item` {Object[]} The list of information pertaining to the specified item.
-   *  `a_tax` {Object[]} A list of the item's taxes.
+   *  `a_tax` {string[]} A list of the item's taxes.
    *  `f_price` {?string} The price of the sale item.
    *  `f_price_include` {?string} The price of the sale item, including tax.
    *  `f_price_retail_product` {string} The retail price of the product. This will be empty if this isn't a product.
@@ -18012,16 +18012,6 @@
   });
 
   /**
-   * Types of taxes.
-   *
-   * @enum {number}
-   */
-  WlClient.RsTaxSid = Object.freeze({
-    /** Tax is accounted based on percents */
-    PERCENT: 2,
-  });
-
-  /**
    * A list of Purchase Option view types.
    *
    * @enum {number}
@@ -19865,6 +19855,16 @@
     INTRODUCTORY: 2,
     /** Purchase option available for clients with special login type or member group */
     TYPE: 3,
+  });
+
+  /**
+   * Types of taxes.
+   *
+   * @enum {number}
+   */
+  WlClient.RsTaxSid = Object.freeze({
+    /** Tax is accounted based on percents */
+    PERCENT: 2,
   });
 
   /**
