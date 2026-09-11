@@ -3504,11 +3504,6 @@ export declare enum WlPromotionGuestPassGuestPassResetTypeSid {
     /** Limits reset on promotion renewal day */
     RENEWAL = 2
 }
-/** Types of taxes. */
-export declare enum RsTaxSid {
-    /** Tax is accounted based on percents */
-    PERCENT = 2
-}
 /** A list of Purchase Option view types. */
 export declare enum WlCatalogPurchaseOptionViewSid {
     /** A single appointment reservation */
@@ -4939,6 +4934,11 @@ export declare enum WlShopProductPurchaseRestrictionSid {
     INTRODUCTORY = 2,
     /** Purchase option available for clients with special login type or member group */
     TYPE = 3
+}
+/** Types of taxes. */
+export declare enum RsTaxSid {
+    /** Tax is accounted based on percents */
+    PERCENT = 2
 }
 /** List of available features in the system that can be shown in owner's header. */
 export declare enum WlPageBackendFeatureFeatureSid {
@@ -16134,7 +16134,7 @@ export interface WlCatalogCatalogListElementParams {
         /** The fixed amount of the discount. */
         f_amount: string;
         /** The percentage amount of the discount. */
-        f_percent: number;
+        f_percent: string;
         /** Limitation. */
         i_limit: number;
         /** The discount code key. */
@@ -16148,7 +16148,7 @@ export interface WlCatalogCatalogListElementParams {
         id_sale: RsSaleSid;
         /** The primary key of item. */
         k_id: string;
-        /** The product option or `0` for any other cases. */
+        /** The product option key or `0` for any other cases. */
         k_shop_product_option: string;
     }>;
     /** The image height in pixels. Specify this value if you need the image to be returned in a specific... */
@@ -16197,7 +16197,7 @@ export interface WlCatalogCatalogListElementResponse {
         is_age_public: boolean;
         /** Whether months are enabled for age restrictions. */
         is_month_enabled: boolean;
-    };
+    } | null;
     /** Additional information specific for the item. */
     a_data: {
         /** Access to services for a purchase option. */
@@ -16242,6 +16242,8 @@ export interface WlCatalogCatalogListElementResponse {
         id_duration: ADurationSid;
         /** Class to process string identifiers for duration types @see WlCouponEditDurationTypeSid */
         id_duration_type: WlCouponEditDurationTypeSid;
+        /** Whether to display individual prices for each item in the package. */
+        is_price_breakdown: boolean;
     };
     /** Information about promotion guest pass. Empty array if promotion does not have guest pass or */
     a_guest_pass: {
@@ -16255,7 +16257,7 @@ export interface WlCatalogCatalogListElementResponse {
         id_period: number | null;
         /** Guest Pass reset type. @see WlPromotionGuestPassGuestPassResetTypeSid */
         id_reset_type: WlPromotionGuestPassGuestPassResetTypeSid | null;
-        /** Guest pass promotion key. */
+        /** Guest pass promotion key. Primary key from RsPromotionSql table. */
         k_promotion_guest: string;
         /** Formatted guest pass limits. */
         text_limit: string;
@@ -16279,7 +16281,7 @@ export interface WlCatalogCatalogListElementResponse {
         i_height: number;
         /** The width in pixels. */
         i_width: number;
-        /** `true` - item has no image (in this case ignore other keys of this array). */
+        /** `true` - the item has no image (in this case, ignore the other keys of this array). */
         is_empty: boolean;
         /** The image URL. */
         s_url: string;
@@ -16303,10 +16305,51 @@ export interface WlCatalogCatalogListElementResponse {
     }>;
     /** The list of information pertaining to the specified item. */
     a_item: Array<{
-        /** Contains additional data for the sale item. */
+        /** Contains additional data for the sale item. The same structure as {@link WlCatalogCatalogListElem... */
         a_data: {
+            /** Access to services for a purchase option. */
+            a_service_access: Array<number>;
+            /** This applies only for promotions. */
+            is_renew_public: boolean;
+            /** This applies only for coupons. Coupon components information. Each element will contain the follo... */
+            a_component: Record<string, unknown>;
+            /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
+            a_staff: Record<string, unknown>;
+            /** Date of expiration of coupon, local date in MySQL format. */
+            dl_expire: string;
+            /** Current date, local date in MySQL format. */
+            dl_now: string;
+            /** Date to activate the coupon on, local date in MySQL format. */
+            dl_start: string;
+            /** Number of periods the coupon is active. Type of a period is specified by `id_duration`. */
+            i_duration: number;
+            /** Coupon date start rule. @see WlCouponEditActivationSid */
+            id_activation: WlCouponEditActivationSid;
+            /** A class for managing time intervals. @see ADurationSid */
+            id_duration: ADurationSid;
+            /** Class to process string identifiers for duration types @see WlCouponEditDurationTypeSid */
+            id_duration_type: WlCouponEditDurationTypeSid;
             /** Whether to display individual prices for each item in the package. */
             is_price_breakdown: boolean;
+        };
+        /** Information about promotion guest pass. The same structure as {@link WlCatalogCatalogListElementR... */
+        a_guest_pass: {
+            /** Number of times guest pass can be used per period. `null` for unlimited guest pass. */
+            i_limit: number | null;
+            /** Number of times guest pass can be used per day. `null` for limited guest pass. */
+            i_limit_daily: number | null;
+            /** Number of periods after which guest pass limits are reset. `null` for unlimited guest pass. */
+            i_period: number | null;
+            /** Period type by which guest pass limits are reset. `null` for unlimited guest pass. */
+            id_period: number | null;
+            /** Guest Pass reset type. @see WlPromotionGuestPassGuestPassResetTypeSid */
+            id_reset_type: WlPromotionGuestPassGuestPassResetTypeSid | null;
+            /** Guest pass promotion key. Primary key from RsPromotionSql table. */
+            k_promotion_guest: string;
+            /** Formatted guest pass limits. */
+            text_limit: string;
+            /** Guest pass promotion title. */
+            text_title: string;
         };
         /** Contains information about one image connected to a sale item. */
         a_image: {
@@ -16320,23 +16363,8 @@ export interface WlCatalogCatalogListElementResponse {
             /** Link to the variant file. */
             s_url: string;
         };
-        /** Contains information about taxes. */
-        a_tax: {
-            /** The calculated tax amount applied by this rule. */
-            f_tax: number;
-            /** The tax amount after applying all discounts. */
-            f_tax_discount: string;
-            /** The tax amount after applying the client type discount only. */
-            f_tax_discount_login: string;
-            /** The tax rate. Its meaning depends on `id_tax`. */
-            f_value: number;
-            /** Types of taxes. @see RsTaxSid */
-            id_tax: RsTaxSid;
-            /** The tax key. */
-            k_tax: string;
-            /** The tax name. */
-            s_tax: string;
-        };
+        /** Tax amounts keyed by tax key. Keys are primary keys in the RsTaxSql table. */
+        a_tax: Array<string>;
         /** A list of Purchase Option view types. @see WlCatalogPurchaseOptionViewSid */
         id_purchase_option_view: WlCatalogPurchaseOptionViewSid;
         /** The discount code amount. */
@@ -16353,22 +16381,7 @@ export interface WlCatalogCatalogListElementResponse {
         s_title: string;
     }>;
     /** A list of the item's taxes. */
-    a_tax: Array<{
-        /** The calculated tax amount applied by this rule. */
-        f_tax: number;
-        /** The tax amount after applying all discounts. */
-        f_tax_discount: string;
-        /** The tax amount after applying the client type discount only. */
-        f_tax_discount_login: string;
-        /** The tax rate. Its meaning depends on `id_tax`. */
-        f_value: number;
-        /** Types of taxes. @see RsTaxSid */
-        id_tax: RsTaxSid;
-        /** The tax key. */
-        k_tax: string;
-        /** The tax name. */
-        s_tax: string;
-    }>;
+    a_tax: Array<string>;
     /** The price of the sale item. */
     f_price: string | null;
     /** The price of the sale item, including tax. */

@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260911085611
+// OpenAPI spec version: 1.1.20260911100854
 // Build date: 2026-09-11
 // Endpoints: 642
 // Enums: 210
@@ -3626,12 +3626,6 @@ export var WlPromotionGuestPassGuestPassResetTypeSid;
     /** Limits reset on promotion renewal day */
     WlPromotionGuestPassGuestPassResetTypeSid[WlPromotionGuestPassGuestPassResetTypeSid["RENEWAL"] = 2] = "RENEWAL";
 })(WlPromotionGuestPassGuestPassResetTypeSid || (WlPromotionGuestPassGuestPassResetTypeSid = {}));
-/** Types of taxes. */
-export var RsTaxSid;
-(function (RsTaxSid) {
-    /** Tax is accounted based on percents */
-    RsTaxSid[RsTaxSid["PERCENT"] = 2] = "PERCENT";
-})(RsTaxSid || (RsTaxSid = {}));
 /** A list of Purchase Option view types. */
 export var WlCatalogPurchaseOptionViewSid;
 (function (WlCatalogPurchaseOptionViewSid) {
@@ -5128,6 +5122,12 @@ export var WlShopProductPurchaseRestrictionSid;
     /** Purchase option available for clients with special login type or member group */
     WlShopProductPurchaseRestrictionSid[WlShopProductPurchaseRestrictionSid["TYPE"] = 3] = "TYPE";
 })(WlShopProductPurchaseRestrictionSid || (WlShopProductPurchaseRestrictionSid = {}));
+/** Types of taxes. */
+export var RsTaxSid;
+(function (RsTaxSid) {
+    /** Tax is accounted based on percents */
+    RsTaxSid[RsTaxSid["PERCENT"] = 2] = "PERCENT";
+})(RsTaxSid || (RsTaxSid = {}));
 /** List of available features in the system that can be shown in owner's header. */
 export var WlPageBackendFeatureFeatureSid;
 (function (WlPageBackendFeatureFeatureSid) {
