@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20260910063845
+ * Spec version: 1.1.20260911050242
  * Build date:   2026-09-11
  * Endpoints:    530
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260910063845';
+  WlClient.SPEC_VERSION = '1.1.20260911050242';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (530 total)
@@ -14036,6 +14036,8 @@
     APPLICATION: 13,
     /** Appointment booking wizard */
     APPOINTMENT: 7,
+    /** Appointment booking wizard built by microservice widget team */
+    APPOINTMENT_FOREIGN: 22,
     /** Online store widget */
     CATALOG_FOREIGN: 21,
     /** Event enrollment wizard widget */
