@@ -11206,10 +11206,18 @@ export type WlProfileRankAddonPostResponse = Record<string, unknown>;
 export interface WlProfileContractContractGetParams {
     /** Additional configuration for the item that might influence contracts. */
     a_config: {
-        /** The tuition class schedule selected for the participant. */
-        a_event_list?: Array<unknown>;
+        /** The tuition class schedule selected for the participant. Each element has the next keys: */
+        a_event_list?: {
+            /** Key of the event class. */
+            k_class: string;
+            /** Key of the tuition participant. */
+            uid: string;
+        };
         /** Registration fees to charge together with the tuition, keyed by participant key. */
-        a_registration_fee_list?: Array<unknown>;
+        a_registration_fee_list?: {
+            /** Registration fee amount for the tuition participant. */
+            m_amount: string;
+        };
     };
     /** The start date of the contract. */
     dt_start: string;
@@ -11239,7 +11247,7 @@ export interface WlProfileContractContractGetResponse {
     a_contract_list: {
         /** The text of this specific contract. */
         html_contract: string;
-        /** Key of the visitor this contract applies to. Primary key in PassportLoginSql. */
+        /** Key of the visitor this contract applies to. */
         uid: string;
     };
     /** The text of the contract. */
