@@ -16856,11 +16856,11 @@ export interface WlCatalogCatalogListElementResponse {
         i_limit_daily: number | null;
         /** Number of periods after which guest pass limits are reset. `null` for unlimited guest pass. */
         i_period: number | null;
-        /** Period type by which guest pass limits are reset. `null` for unlimited guest pass. */
-        id_period: number | null;
+        /** A class for managing time intervals. @see ADurationSid */
+        id_period: ADurationSid;
         /** Guest Pass reset type. @see WlPromotionGuestPassGuestPassResetTypeSid */
         id_reset_type: WlPromotionGuestPassGuestPassResetTypeSid | null;
-        /** Guest pass promotion key. Primary key from RsPromotionSql table. */
+        /** Guest pass promotion key. */
         k_promotion_guest: string;
         /** Formatted guest pass limits. */
         text_limit: string;
@@ -16943,11 +16943,11 @@ export interface WlCatalogCatalogListElementResponse {
             i_limit_daily: number | null;
             /** Number of periods after which guest pass limits are reset. `null` for unlimited guest pass. */
             i_period: number | null;
-            /** Period type by which guest pass limits are reset. `null` for unlimited guest pass. */
-            id_period: number | null;
+            /** A class for managing time intervals. @see ADurationSid */
+            id_period: ADurationSid;
             /** Guest Pass reset type. @see WlPromotionGuestPassGuestPassResetTypeSid */
             id_reset_type: WlPromotionGuestPassGuestPassResetTypeSid | null;
-            /** Guest pass promotion key. Primary key from RsPromotionSql table. */
+            /** Guest pass promotion key. */
             k_promotion_guest: string;
             /** Formatted guest pass limits. */
             text_limit: string;
@@ -16966,7 +16966,7 @@ export interface WlCatalogCatalogListElementResponse {
             /** Link to the variant file. */
             s_url: string;
         };
-        /** Tax amounts keyed by tax key. Keys are primary keys in the RsTaxSql table. */
+        /** Tax amounts keyed by tax key. The same structure as {@link WlCatalogCatalogListElementResponse.a_... */
         a_tax: Array<string>;
         /** A list of Purchase Option view types. @see WlCatalogPurchaseOptionViewSid */
         id_purchase_option_view: WlCatalogPurchaseOptionViewSid;
