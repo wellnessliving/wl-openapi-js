@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260914052245
+ * Spec version: 1.1.20260914061429
  * Build date:   2026-09-14
  * Endpoints:    642
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260914052245';
+  WlClient.SPEC_VERSION = '1.1.20260914061429';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (642 total)
@@ -1457,6 +1457,7 @@
    *  `id_category` {number} A list of client booking flow types. See {@link WlClient.RsBusinessCategorySid}.
    *  `id_claim_status` {number} Business status for managing claim request behavior. See {@link WlClient.WlBusinessClaimBusinessClaimStatusSid}.
    *  `id_currency` {number} A list of currencies. See {@link WlClient.CoreLocaleCurrencySid}.
+   *  `id_language` {number} A list of all languages. See {@link WlClient.CoreLocaleLanguageLocaleLanguageSid}.
    *  `id_locale` {?number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
    *  `id_rank_type` {?number} Types of the possible ranks in different business. See {@link WlClient.RsRankTypeSid}.
    *  `id_region` {number} List of available data center regions. See {@link WlClient.CoreAmazonRegionAmazonRegionSid}.
@@ -1471,7 +1472,6 @@
    *  `is_tip` {boolean} If `true`, tips are available in the business. Otherwise, this will be `false`.
    *  `is_tip_deny` {boolean} If `true`, the business has the "No tip" option displayed. Otherwise, this wi...
    *  `is_tip_sign` {boolean} If `true`, the client must sign after selecting the tip. Otherwise, this will...
-   *  `k_business_franchisor` {string} The franchisor business key. This will be empty if this business is the franc...
    *  `...` {*}
    */
   WlClient.prototype.wlBusinessData = function(params)
@@ -16216,6 +16216,30 @@
   });
 
   /**
+   * A list of all languages.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreLocaleLanguageLocaleLanguageSid = Object.freeze({
+    /** German */
+    DE: 6,
+    /** English */
+    EN: 2,
+    /** Spanish */
+    ES: 9,
+    /** French */
+    FR: 4,
+    /** Portuguese */
+    PT: 5,
+    /** Russian */
+    RU: 1,
+    /** Turkish */
+    TR: 8,
+    /** Ukrainian */
+    UK: 3,
+  });
+
+  /**
    * Types of the possible ranks in different business.
    *
    * @enum {number}
@@ -16605,30 +16629,6 @@
     VALID: 3,
     /** Token is valid but score is risky */
     VALID_BLOCK: 4,
-  });
-
-  /**
-   * A list of all languages.
-   *
-   * @enum {number}
-   */
-  WlClient.CoreLocaleLanguageLocaleLanguageSid = Object.freeze({
-    /** German */
-    DE: 6,
-    /** English */
-    EN: 2,
-    /** Spanish */
-    ES: 9,
-    /** French */
-    FR: 4,
-    /** Portuguese */
-    PT: 5,
-    /** Russian */
-    RU: 1,
-    /** Turkish */
-    TR: 8,
-    /** Ukrainian */
-    UK: 3,
   });
 
   /**

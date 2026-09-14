@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260914052245
+// OpenAPI spec version: 1.1.20260914061429
 // Build date: 2026-09-14
 // Endpoints: 642
 // Enums: 210
@@ -2166,6 +2166,26 @@ export var WlBusinessClaimBusinessClaimStatusSid;
     /** Business claiming process started, the contact information was verified, the trial has started, but company */
     WlBusinessClaimBusinessClaimStatusSid[WlBusinessClaimBusinessClaimStatusSid["UNVERIFY"] = 2] = "UNVERIFY";
 })(WlBusinessClaimBusinessClaimStatusSid || (WlBusinessClaimBusinessClaimStatusSid = {}));
+/** A list of all languages. */
+export var CoreLocaleLanguageLocaleLanguageSid;
+(function (CoreLocaleLanguageLocaleLanguageSid) {
+    /** German */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["DE"] = 6] = "DE";
+    /** English */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["EN"] = 2] = "EN";
+    /** Spanish */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["ES"] = 9] = "ES";
+    /** French */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["FR"] = 4] = "FR";
+    /** Portuguese */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["PT"] = 5] = "PT";
+    /** Russian */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["RU"] = 1] = "RU";
+    /** Turkish */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["TR"] = 8] = "TR";
+    /** Ukrainian */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["UK"] = 3] = "UK";
+})(CoreLocaleLanguageLocaleLanguageSid || (CoreLocaleLanguageLocaleLanguageSid = {}));
 /** Types of the possible ranks in different business. */
 export var RsRankTypeSid;
 (function (RsRankTypeSid) {
@@ -2470,26 +2490,6 @@ export var CoreGoogleCaptchaCaptchaResponseSid;
     /** Token is valid but score is risky */
     CoreGoogleCaptchaCaptchaResponseSid[CoreGoogleCaptchaCaptchaResponseSid["VALID_BLOCK"] = 4] = "VALID_BLOCK";
 })(CoreGoogleCaptchaCaptchaResponseSid || (CoreGoogleCaptchaCaptchaResponseSid = {}));
-/** A list of all languages. */
-export var CoreLocaleLanguageLocaleLanguageSid;
-(function (CoreLocaleLanguageLocaleLanguageSid) {
-    /** German */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["DE"] = 6] = "DE";
-    /** English */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["EN"] = 2] = "EN";
-    /** Spanish */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["ES"] = 9] = "ES";
-    /** French */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["FR"] = 4] = "FR";
-    /** Portuguese */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["PT"] = 5] = "PT";
-    /** Russian */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["RU"] = 1] = "RU";
-    /** Turkish */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["TR"] = 8] = "TR";
-    /** Ukrainian */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["UK"] = 3] = "UK";
-})(CoreLocaleLanguageLocaleLanguageSid || (CoreLocaleLanguageLocaleLanguageSid = {}));
 /** Promotion or package date start rule. */
 export var RsActivationSid;
 (function (RsActivationSid) {

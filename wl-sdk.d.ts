@@ -2114,6 +2114,25 @@ export declare enum WlBusinessClaimBusinessClaimStatusSid {
     /** Business claiming process started, the contact information was verified, the trial has started, but company */
     UNVERIFY = 2
 }
+/** A list of all languages. */
+export declare enum CoreLocaleLanguageLocaleLanguageSid {
+    /** German */
+    DE = 6,
+    /** English */
+    EN = 2,
+    /** Spanish */
+    ES = 9,
+    /** French */
+    FR = 4,
+    /** Portuguese */
+    PT = 5,
+    /** Russian */
+    RU = 1,
+    /** Turkish */
+    TR = 8,
+    /** Ukrainian */
+    UK = 3
+}
 /** Types of the possible ranks in different business. */
 export declare enum RsRankTypeSid {
     /** Belts for Martial Arts */
@@ -2395,25 +2414,6 @@ export declare enum CoreGoogleCaptchaCaptchaResponseSid {
     VALID = 3,
     /** Token is valid but score is risky */
     VALID_BLOCK = 4
-}
-/** A list of all languages. */
-export declare enum CoreLocaleLanguageLocaleLanguageSid {
-    /** German */
-    DE = 6,
-    /** English */
-    EN = 2,
-    /** Spanish */
-    ES = 9,
-    /** French */
-    FR = 4,
-    /** Portuguese */
-    PT = 5,
-    /** Russian */
-    RU = 1,
-    /** Turkish */
-    TR = 8,
-    /** Ukrainian */
-    UK = 3
 }
 /** Promotion or package date start rule. */
 export declare enum RsActivationSid {
@@ -7793,6 +7793,8 @@ export interface WlBusinessDataResponse {
     id_claim_status: WlBusinessClaimBusinessClaimStatusSid;
     /** A list of currencies. @see CoreLocaleCurrencySid */
     id_currency: CoreLocaleCurrencySid;
+    /** A list of all languages. @see CoreLocaleLanguageLocaleLanguageSid */
+    id_language: CoreLocaleLanguageLocaleLanguageSid;
     /** A list of locales. @see CoreLocaleLocaleSid */
     id_locale: CoreLocaleLocaleSid | null;
     /** Types of the possible ranks in different business. @see RsRankTypeSid */
