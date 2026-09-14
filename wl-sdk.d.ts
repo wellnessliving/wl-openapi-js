@@ -20167,6 +20167,8 @@ export interface WlUserInfoUserInfoResponse {
         dt_birth: string;
         /** String identifiers for gender. @see AGenderSid */
         id_gender: AGenderSid;
+        /** The ID of the language that is effective for the user. */
+        id_language: number;
         /** This will be `true` if the user has never made purchases or reservations in this business. */
         is_customer_new: boolean;
         /** This will be `true` if the user is a traveler. A traveler is someone whose home location isn't th... */
@@ -20204,6 +20206,8 @@ export interface WlUserInfoUserInfoResponse {
     has_discount: boolean | null;
     /** String identifiers for gender. @see AGenderSid */
     id_gender: AGenderSid;
+    /** A list of all languages. @see CoreLocaleLanguageLocaleLanguageSid */
+    id_language: CoreLocaleLanguageLocaleLanguageSid;
     /** This will be `true` if the user has Google Calendar linked to their account; otherwise, `false`. */
     is_calendar_google: boolean;
     /** This will be `true` if the user has Microsoft Calendar linked to their account; otherwise, `false`. */

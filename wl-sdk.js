@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260914061429
+ * Spec version: 1.1.20260914072541
  * Build date:   2026-09-14
  * Endpoints:    642
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260914061429';
+  WlClient.SPEC_VERSION = '1.1.20260914072541';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (642 total)
@@ -7972,6 +7972,7 @@
    *  `dt_birth` {string} The user's birthday. This will be `null` if the birthday isn't set yet.
    *  `has_discount` {?boolean} Whether client's login type has a discount.
    *  `id_gender` {number} String identifiers for gender. See {@link WlClient.AGenderSid}.
+   *  `id_language` {number} A list of all languages. See {@link WlClient.CoreLocaleLanguageLocaleLanguageSid}.
    *  `is_calendar_google` {boolean} This will be `true` if the user has Google Calendar linked to their account; ...
    *  `is_calendar_microsoft` {boolean} This will be `true` if the user has Microsoft Calendar linked to their accoun...
    *  `is_customer_new` {boolean} This will be `true` if the user has never made purchases or reservations in t...
@@ -7982,7 +7983,6 @@
    *  `s_last_name` {string} The user's last name.
    *  `s_mail` {string} The user's email address.
    *  `s_member` {string} The user's member ID in the business. Also referred to as the client ID in th...
-   *  `s_phone` {string} The user's phone number.
    *  `...` {*}
    */
   WlClient.prototype.wlUserInfoUserInfo = function(params)
