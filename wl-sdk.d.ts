@@ -1930,6 +1930,25 @@ export declare enum WlBusinessClaimBusinessClaimStatusSid {
     /** Business claiming process started, the contact information was verified, the trial has started, but company */
     UNVERIFY = 2
 }
+/** A list of all languages. */
+export declare enum CoreLocaleLanguageLocaleLanguageSid {
+    /** German */
+    DE = 6,
+    /** English */
+    EN = 2,
+    /** Spanish */
+    ES = 9,
+    /** French */
+    FR = 4,
+    /** Portuguese */
+    PT = 5,
+    /** Russian */
+    RU = 1,
+    /** Turkish */
+    TR = 8,
+    /** Ukrainian */
+    UK = 3
+}
 /** Types of the possible ranks in different business. */
 export declare enum RsRankTypeSid {
     /** Belts for Martial Arts */
@@ -2346,25 +2365,6 @@ export declare enum RsPayOwnerSid {
     BUSINESS = 2,
     /** System user */
     USER = 1
-}
-/** A list of all languages. */
-export declare enum CoreLocaleLanguageLocaleLanguageSid {
-    /** German */
-    DE = 6,
-    /** English */
-    EN = 2,
-    /** Spanish */
-    ES = 9,
-    /** French */
-    FR = 4,
-    /** Portuguese */
-    PT = 5,
-    /** Russian */
-    RU = 1,
-    /** Turkish */
-    TR = 8,
-    /** Ukrainian */
-    UK = 3
 }
 /** Sources from which log triage findings can be collected. */
 export declare enum CoreAILogTriageTriageSourceSid {
@@ -3125,10 +3125,20 @@ export declare enum WlLocationFlagFlagSourceEnum {
 }
 /** List of sources from where the user registers. */
 export declare enum WlProfileRegisterSourceSid {
+    /** Source when a user registers while booking a service */
+    BOOKING = 4,
     /** Source when a user registers during purchase or booking */
     BOOKING_AND_PURCHASE = 1,
+    /** Source when a guest (an unregistered visitor) books a service or makes a purchase */
+    GUEST = 6,
+    /** Source when a user registers while making a purchase */
+    PURCHASE = 5,
+    /** Source when a client adds a family member (a relative profile) - directly, or as part of booking or purchase */
+    RELATIONSHIP = 7,
     /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
     SELF = 2,
+    /** Source when staff add or edit a client profile */
+    STAFF = 8,
     /** This is a service value, which means to not choose any specific source */
     UNSET_VALUE = 3
 }
@@ -7427,6 +7437,8 @@ export interface WlBusinessDataResponse {
     id_claim_status: WlBusinessClaimBusinessClaimStatusSid;
     /** A list of currencies. @see CoreLocaleCurrencySid */
     id_currency: CoreLocaleCurrencySid;
+    /** A list of all languages. @see CoreLocaleLanguageLocaleLanguageSid */
+    id_language: CoreLocaleLanguageLocaleLanguageSid;
     /** A list of locales. @see CoreLocaleLocaleSid */
     id_locale: CoreLocaleLocaleSid;
     /** Types of the possible ranks in different business. @see RsRankTypeSid */
@@ -21208,6 +21220,8 @@ export interface WlUserInfoUserInfoResponse {
         dt_birth: string;
         /** String identifiers for gender. @see AGenderSid */
         id_gender: AGenderSid;
+        /** The ID of the language that is effective for the user. */
+        id_language: number;
         /** This will be `true` if the user has never made purchases or reservations in this business. */
         is_customer_new: boolean;
         /** This will be `true` if the user is a traveler. A traveler is someone whose home location isn't th... */
@@ -21245,6 +21259,8 @@ export interface WlUserInfoUserInfoResponse {
     has_discount: boolean | null;
     /** String identifiers for gender. @see AGenderSid */
     id_gender: AGenderSid;
+    /** A list of all languages. @see CoreLocaleLanguageLocaleLanguageSid */
+    id_language: CoreLocaleLanguageLocaleLanguageSid;
     /** This will be `true` if the user has Google Calendar linked to their account; otherwise, `false`. */
     is_calendar_google: boolean;
     /** This will be `true` if the user has Microsoft Calendar linked to their account; otherwise, `false`. */

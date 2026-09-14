@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260912122943
+// OpenAPI spec version: 1.1.20260914110305
 // Build date: 2026-09-14
 // Endpoints: 652
 // Enums: 210
@@ -1972,6 +1972,26 @@ export var WlBusinessClaimBusinessClaimStatusSid;
     /** Business claiming process started, the contact information was verified, the trial has started, but company */
     WlBusinessClaimBusinessClaimStatusSid[WlBusinessClaimBusinessClaimStatusSid["UNVERIFY"] = 2] = "UNVERIFY";
 })(WlBusinessClaimBusinessClaimStatusSid || (WlBusinessClaimBusinessClaimStatusSid = {}));
+/** A list of all languages. */
+export var CoreLocaleLanguageLocaleLanguageSid;
+(function (CoreLocaleLanguageLocaleLanguageSid) {
+    /** German */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["DE"] = 6] = "DE";
+    /** English */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["EN"] = 2] = "EN";
+    /** Spanish */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["ES"] = 9] = "ES";
+    /** French */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["FR"] = 4] = "FR";
+    /** Portuguese */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["PT"] = 5] = "PT";
+    /** Russian */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["RU"] = 1] = "RU";
+    /** Turkish */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["TR"] = 8] = "TR";
+    /** Ukrainian */
+    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["UK"] = 3] = "UK";
+})(CoreLocaleLanguageLocaleLanguageSid || (CoreLocaleLanguageLocaleLanguageSid = {}));
 /** Types of the possible ranks in different business. */
 export var RsRankTypeSid;
 (function (RsRankTypeSid) {
@@ -2416,26 +2436,6 @@ export var RsPayOwnerSid;
     /** System user */
     RsPayOwnerSid[RsPayOwnerSid["USER"] = 1] = "USER";
 })(RsPayOwnerSid || (RsPayOwnerSid = {}));
-/** A list of all languages. */
-export var CoreLocaleLanguageLocaleLanguageSid;
-(function (CoreLocaleLanguageLocaleLanguageSid) {
-    /** German */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["DE"] = 6] = "DE";
-    /** English */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["EN"] = 2] = "EN";
-    /** Spanish */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["ES"] = 9] = "ES";
-    /** French */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["FR"] = 4] = "FR";
-    /** Portuguese */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["PT"] = 5] = "PT";
-    /** Russian */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["RU"] = 1] = "RU";
-    /** Turkish */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["TR"] = 8] = "TR";
-    /** Ukrainian */
-    CoreLocaleLanguageLocaleLanguageSid[CoreLocaleLanguageLocaleLanguageSid["UK"] = 3] = "UK";
-})(CoreLocaleLanguageLocaleLanguageSid || (CoreLocaleLanguageLocaleLanguageSid = {}));
 /** Sources from which log triage findings can be collected. */
 export var CoreAILogTriageTriageSourceSid;
 (function (CoreAILogTriageTriageSourceSid) {
@@ -3213,10 +3213,20 @@ export var WlLocationFlagFlagSourceEnum;
 /** List of sources from where the user registers. */
 export var WlProfileRegisterSourceSid;
 (function (WlProfileRegisterSourceSid) {
+    /** Source when a user registers while booking a service */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["BOOKING"] = 4] = "BOOKING";
     /** Source when a user registers during purchase or booking */
     WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["BOOKING_AND_PURCHASE"] = 1] = "BOOKING_AND_PURCHASE";
+    /** Source when a guest (an unregistered visitor) books a service or makes a purchase */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["GUEST"] = 6] = "GUEST";
+    /** Source when a user registers while making a purchase */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["PURCHASE"] = 5] = "PURCHASE";
+    /** Source when a client adds a family member (a relative profile) - directly, or as part of booking or purchase */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["RELATIONSHIP"] = 7] = "RELATIONSHIP";
     /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
     WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["SELF"] = 2] = "SELF";
+    /** Source when staff add or edit a client profile */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["STAFF"] = 8] = "STAFF";
     /** This is a service value, which means to not choose any specific source */
     WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["UNSET_VALUE"] = 3] = "UNSET_VALUE";
 })(WlProfileRegisterSourceSid || (WlProfileRegisterSourceSid = {}));

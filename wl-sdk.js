@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260912122943
+ * Spec version: 1.1.20260914110305
  * Build date:   2026-09-14
  * Endpoints:    652
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260912122943';
+  WlClient.SPEC_VERSION = '1.1.20260914110305';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (652 total)
@@ -1120,6 +1120,7 @@
    *  `id_category` {number} A list of client booking flow types. See {@link WlClient.RsBusinessCategorySid}.
    *  `id_claim_status` {number} Business status for managing claim request behavior. See {@link WlClient.WlBusinessClaimBusinessClaimStatusSid}.
    *  `id_currency` {number} A list of currencies. See {@link WlClient.CoreLocaleCurrencySid}.
+   *  `id_language` {number} A list of all languages. See {@link WlClient.CoreLocaleLanguageLocaleLanguageSid}.
    *  `id_locale` {number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
    *  `id_rank_type` {?number} Types of the possible ranks in different business. See {@link WlClient.RsRankTypeSid}.
    *  `id_region` {number} List of available data center regions. See {@link WlClient.CoreAmazonRegionAmazonRegionSid}.
@@ -1134,7 +1135,6 @@
    *  `is_tip` {boolean} If `true`, tips are available in the business. Otherwise, this will be `false`.
    *  `is_tip_deny` {boolean} If `true`, the business has the "No tip" option displayed. Otherwise, this wi...
    *  `is_tip_sign` {boolean} If `true`, the client must sign after selecting the tip. Otherwise, this will...
-   *  `k_business_franchisor` {string} The franchisor business key. This will be empty if this business is the franc...
    *  `...` {*}
    */
   WlClient.prototype.wlBusinessData = function(params)
@@ -8827,6 +8827,7 @@
    *  `dt_birth` {string} The user's birthday. This will be `null` if the birthday isn't set yet.
    *  `has_discount` {?boolean} Whether client's login type has a discount.
    *  `id_gender` {number} String identifiers for gender. See {@link WlClient.AGenderSid}.
+   *  `id_language` {number} A list of all languages. See {@link WlClient.CoreLocaleLanguageLocaleLanguageSid}.
    *  `is_calendar_google` {boolean} This will be `true` if the user has Google Calendar linked to their account; ...
    *  `is_calendar_microsoft` {boolean} This will be `true` if the user has Microsoft Calendar linked to their accoun...
    *  `is_customer_new` {boolean} This will be `true` if the user has never made purchases or reservations in t...
@@ -8837,7 +8838,6 @@
    *  `s_last_name` {string} The user's last name.
    *  `s_mail` {string} The user's email address.
    *  `s_member` {string} The user's member ID in the business. Also referred to as the client ID in th...
-   *  `s_phone` {string} The user's phone number.
    *  `...` {*}
    */
   WlClient.prototype.wlUserInfoUserInfo = function(params)
@@ -16171,6 +16171,30 @@
   });
 
   /**
+   * A list of all languages.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreLocaleLanguageLocaleLanguageSid = Object.freeze({
+    /** German */
+    DE: 6,
+    /** English */
+    EN: 2,
+    /** Spanish */
+    ES: 9,
+    /** French */
+    FR: 4,
+    /** Portuguese */
+    PT: 5,
+    /** Russian */
+    RU: 1,
+    /** Turkish */
+    TR: 8,
+    /** Ukrainian */
+    UK: 3,
+  });
+
+  /**
    * Types of the possible ranks in different business.
    *
    * @enum {number}
@@ -16720,30 +16744,6 @@
     BUSINESS: 2,
     /** System user */
     USER: 1,
-  });
-
-  /**
-   * A list of all languages.
-   *
-   * @enum {number}
-   */
-  WlClient.CoreLocaleLanguageLocaleLanguageSid = Object.freeze({
-    /** German */
-    DE: 6,
-    /** English */
-    EN: 2,
-    /** Spanish */
-    ES: 9,
-    /** French */
-    FR: 4,
-    /** Portuguese */
-    PT: 5,
-    /** Russian */
-    RU: 1,
-    /** Turkish */
-    TR: 8,
-    /** Ukrainian */
-    UK: 3,
   });
 
   /**
@@ -17594,10 +17594,20 @@
    * @enum {number}
    */
   WlClient.WlProfileRegisterSourceSid = Object.freeze({
+    /** Source when a user registers while booking a service */
+    BOOKING: 4,
     /** Source when a user registers during purchase or booking */
     BOOKING_AND_PURCHASE: 1,
+    /** Source when a guest (an unregistered visitor) books a service or makes a purchase */
+    GUEST: 6,
+    /** Source when a user registers while making a purchase */
+    PURCHASE: 5,
+    /** Source when a client adds a family member (a relative profile) - directly, or as part of booking or purchase */
+    RELATIONSHIP: 7,
     /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
     SELF: 2,
+    /** Source when staff add or edit a client profile */
+    STAFF: 8,
     /** This is a service value, which means to not choose any specific source */
     UNSET_VALUE: 3,
   });
