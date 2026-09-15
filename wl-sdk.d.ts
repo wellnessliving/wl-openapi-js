@@ -6026,6 +6026,7 @@ export interface WlQuizQuizElement72GetResponse {
         id_element: number;
         /** Answer can have multiple options selected. */
         is_multiple: boolean;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -6108,6 +6109,7 @@ export interface WlQuizQuizElement72GetResponse {
         id_element: number;
         /** ` true ` if custom markup image is to be deleted `false` otherwise. */
         is_delete_custom_markup_image: boolean;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Fake id used for image upload. */
         k_id: string;
@@ -6146,6 +6148,7 @@ export interface WlQuizQuizElement72GetResponse {
         html_subheading: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -6172,6 +6175,7 @@ export interface WlQuizQuizElement72GetResponse {
         html_question: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -6213,6 +6217,7 @@ export interface WlQuizQuizElement72GetResponse {
         i_scale: number;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -6241,6 +6246,7 @@ export interface WlQuizQuizElement72GetResponse {
         html_subheading: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Left response image key. */
         k_id_image_left: string;
@@ -6508,6 +6514,7 @@ export interface WlQuizQuizElementGetResponse {
         id_element: number;
         /** Answer can have multiple options selected. */
         is_multiple: boolean;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -6590,6 +6597,7 @@ export interface WlQuizQuizElementGetResponse {
         id_element: number;
         /** ` true ` if custom markup image is to be deleted `false` otherwise. */
         is_delete_custom_markup_image: boolean;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Fake id used for image upload. */
         k_id: string;
@@ -6628,6 +6636,7 @@ export interface WlQuizQuizElementGetResponse {
         html_subheading: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -6654,6 +6663,7 @@ export interface WlQuizQuizElementGetResponse {
         html_question: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -6695,6 +6705,7 @@ export interface WlQuizQuizElementGetResponse {
         i_scale: number;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -6723,6 +6734,7 @@ export interface WlQuizQuizElementGetResponse {
         html_subheading: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Left response image key. */
         k_id_image_left: string;
@@ -11639,6 +11651,7 @@ export interface WlQuizResponseResponseGetResponse {
         id_element: number;
         /** Answer can have multiple options selected. */
         is_multiple: boolean;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -11721,6 +11734,7 @@ export interface WlQuizResponseResponseGetResponse {
         id_element: number;
         /** ` true ` if custom markup image is to be deleted `false` otherwise. */
         is_delete_custom_markup_image: boolean;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Fake id used for image upload. */
         k_id: string;
@@ -11759,6 +11773,7 @@ export interface WlQuizResponseResponseGetResponse {
         html_subheading: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -11785,6 +11800,7 @@ export interface WlQuizResponseResponseGetResponse {
         html_question: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -11826,6 +11842,7 @@ export interface WlQuizResponseResponseGetResponse {
         i_scale: number;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -11854,6 +11871,7 @@ export interface WlQuizResponseResponseGetResponse {
         html_subheading: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Left response image key. */
         k_id_image_left: string;
@@ -11990,6 +12008,7 @@ export interface WlQuizResponseResponse65GetParams {
     can_anonymous: boolean;
     /** `true` for load answers for response, `false` otherwise. */
     is_answer: boolean;
+    /** `true` if API is being used from backend, `false` otherwise. */
     is_backend: boolean;
     /** Whether quiz response received by kiosk or direct mode link. */
     is_simple: boolean;
@@ -12032,6 +12051,7 @@ export interface WlQuizResponseResponse65GetResponse {
         id_element: number;
         /** Answer can have multiple options selected. */
         is_multiple: boolean;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -12114,6 +12134,7 @@ export interface WlQuizResponseResponse65GetResponse {
         id_element: number;
         /** ` true ` if custom markup image is to be deleted `false` otherwise. */
         is_delete_custom_markup_image: boolean;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Fake id used for image upload. */
         k_id: string;
@@ -12152,6 +12173,7 @@ export interface WlQuizResponseResponse65GetResponse {
         html_subheading: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -12178,6 +12200,7 @@ export interface WlQuizResponseResponse65GetResponse {
         html_question: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -12219,6 +12242,7 @@ export interface WlQuizResponseResponse65GetResponse {
         i_scale: number;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Quiz element key. */
         k_quiz_element?: string | null;
@@ -12247,6 +12271,7 @@ export interface WlQuizResponseResponse65GetResponse {
         html_subheading: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
+        /** Whether element is required or not. */
         is_require: boolean;
         /** Left response image key. */
         k_id_image_left: string;
@@ -12339,6 +12364,7 @@ export interface WlQuizResponseResponse65GetResponse {
 export interface WlQuizResponseResponse65PostParams {
     /** Checks whether unauthorized user should be permitted to operate with form and make a response. */
     can_anonymous: boolean;
+    /** `true` if API is being used from backend, `false` otherwise. */
     is_backend: boolean;
     /** Whether quiz response received by kiosk or direct mode link. */
     is_simple: boolean;
@@ -33809,7 +33835,9 @@ export declare class ThothPayProcessorNamespace {
 export declare class ThothReportCoreQueryEngineReportCustomizationNamespace {
     private readonly _client;
     constructor(_client: WlClient);
+    /** Loads customization data of the customization form that corresponds to specified report / report page. */
     reportQueryCustomizationFormGet(params?: ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetParams): Promise<ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetResponse>;
+    /** Saves given data of a customization form into database. */
     reportQueryCustomizationFormPost(params?: ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostParams): Promise<ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostResponse>;
 }
 export declare class ThothReportCoreQueryEngineReportNamespace {
