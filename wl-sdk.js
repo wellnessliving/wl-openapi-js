@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260915162536
+ * Spec version: 1.1.20260915163445
  * Build date:   2026-09-15
  * Endpoints:    652
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260915162536';
+  WlClient.SPEC_VERSION = '1.1.20260915163445';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (652 total)
@@ -8942,6 +8942,7 @@
    *  `id_task_status` {number} A list of task statuses. See {@link WlClient.WlTaskTaskStatusSid}.
    *  `k_location` {?string} Location key.
    *  `text_title` {string} Task title.
+   *  `tl_due` {string} Due time.
    *  `uid` {?string} Client's uid for whom connected task.
    *  `xml_description` {string} Task description.
    */

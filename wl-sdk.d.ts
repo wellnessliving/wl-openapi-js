@@ -21422,6 +21422,8 @@ export interface WlTaskEditEditGetResponse {
     k_location: string | null;
     /** Task title. */
     text_title: string;
+    /** Due time. */
+    tl_due: string;
     /** Client's uid for whom connected task. */
     uid: string | null;
     /** Task description. */
