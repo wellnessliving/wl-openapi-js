@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260916104135
+ * Spec version: 1.1.20260916110238
  * Build date:   2026-09-16
  * Endpoints:    643
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260916104135';
+  WlClient.SPEC_VERSION = '1.1.20260916110238';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (643 total)
@@ -4554,10 +4554,12 @@
    * @param {?string} [params.k_promotion_pay_pause] The promotion payment hold key. If this key is used, it will edit an existing hold.
    * @returns {Promise<Object>} Response data.
    *  `a_pay_pause_list` {?Object[]} List of all promotion payment pause periods. Each element has next structure:
+   *  `a_payment_periods` {Object[]} List of all payment periods for the give pricing option. Just dates in local ...
    *  `a_payment_schedule` {string[]} List of all upcoming payments for the give pricing option. Just dates in loca...
    *  `dt_end` {?string} The end date of the current hold, in the local time zone.
    *  `dt_start` {?string} The start date of the current hold, in the local time zone.
    *  `dtu_date_notification` {?string} The date when the email notification was sent.
+   *  `id_hold` {number} Contains a list of schemes of processing of on-hold periods. See {@link WlClient.WlPromotionPayPromotionPayHoldSid}.
    *  `is_mail` {boolean} Whether or not to send email notification.
    *  `is_push` {boolean} Whether or not to send push notification.
    *  `is_sms` {boolean} Whether or not to send SMS notification.
@@ -13852,7 +13854,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (227 total)
+  // Enum constants (228 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -17523,6 +17525,22 @@
     VIDEO: 9,
     /** Purchase options to pay for gym visits: */
     VISIT: 2,
+  });
+
+  /**
+   * Contains a list of schemes of processing of on-hold periods.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionPayPromotionPayHoldSid = Object.freeze({
+    /** Mindbody scheme */
+    MINDBODY: 2,
+    /** WellnessLiving scheme (default) */
+    WL: 1,
+    /** WellnessLiving scheme in which payments that fall on a suspended day, are not skipped */
+    WL_STICK: 3,
+    /** Scheme in which payments continue on schedule with standard amount regardless of pauses */
+    WL_STRICT_SCHEDULE: 4,
   });
 
   /**

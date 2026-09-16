@@ -3194,6 +3194,17 @@ export declare enum RsProgramCategorySid {
     /** Purchase options to pay for gym visits: */
     VISIT = 2
 }
+/** Contains a list of schemes of processing of on-hold periods. */
+export declare enum WlPromotionPayPromotionPayHoldSid {
+    /** Mindbody scheme */
+    MINDBODY = 2,
+    /** WellnessLiving scheme (default) */
+    WL = 1,
+    /** WellnessLiving scheme in which payments that fall on a suspended day, are not skipped */
+    WL_STICK = 3,
+    /** Scheme in which payments continue on schedule with standard amount regardless of pauses */
+    WL_STRICT_SCHEDULE = 4
+}
 /** A list of types of visit note. */
 export declare enum WlVisitNoteSidNoteSid {
     /** The usual quick accompanying note for the customer visit */
@@ -12608,6 +12619,15 @@ export interface WlLoginPromotionPromotionPayPauseGetResponse {
         /** Key of a user that has created hold period. `null` for old records. */
         uid_create: string | null;
     }> | null;
+    /** List of all payment periods for the give pricing option. Just dates in local timezone. */
+    a_payment_periods: Array<{
+        /** End date of the period in local timezone. */
+        dt_end: string;
+        /** Date, when this period should be paid. */
+        dl_payment: string;
+        /** Start date of the period in local timezone. */
+        dt_start: string;
+    }>;
     /** List of all upcoming payments for the give pricing option. Just dates in local timezone. */
     a_payment_schedule: Array<string>;
     /** The end date of the current hold, in the local time zone. */
@@ -12616,6 +12636,8 @@ export interface WlLoginPromotionPromotionPayPauseGetResponse {
     dt_start: string | null;
     /** The date when the email notification was sent. */
     dtu_date_notification: string | null;
+    /** Contains a list of schemes of processing of on-hold periods. @see WlPromotionPayPromotionPayHoldSid */
+    id_hold: WlPromotionPayPromotionPayHoldSid;
     /** Whether or not to send email notification. */
     is_mail: boolean;
     /** Whether or not to send push notification. */

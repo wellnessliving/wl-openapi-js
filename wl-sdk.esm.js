@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260916104135
+// OpenAPI spec version: 1.1.20260916110238
 // Build date: 2026-09-16
 // Endpoints: 643
-// Enums: 210
+// Enums: 211
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (210 total) ---
+// --- Enum types (211 total) ---
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
 (function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
@@ -3288,6 +3288,18 @@ export var RsProgramCategorySid;
     /** Purchase options to pay for gym visits: */
     RsProgramCategorySid[RsProgramCategorySid["VISIT"] = 2] = "VISIT";
 })(RsProgramCategorySid || (RsProgramCategorySid = {}));
+/** Contains a list of schemes of processing of on-hold periods. */
+export var WlPromotionPayPromotionPayHoldSid;
+(function (WlPromotionPayPromotionPayHoldSid) {
+    /** Mindbody scheme */
+    WlPromotionPayPromotionPayHoldSid[WlPromotionPayPromotionPayHoldSid["MINDBODY"] = 2] = "MINDBODY";
+    /** WellnessLiving scheme (default) */
+    WlPromotionPayPromotionPayHoldSid[WlPromotionPayPromotionPayHoldSid["WL"] = 1] = "WL";
+    /** WellnessLiving scheme in which payments that fall on a suspended day, are not skipped */
+    WlPromotionPayPromotionPayHoldSid[WlPromotionPayPromotionPayHoldSid["WL_STICK"] = 3] = "WL_STICK";
+    /** Scheme in which payments continue on schedule with standard amount regardless of pauses */
+    WlPromotionPayPromotionPayHoldSid[WlPromotionPayPromotionPayHoldSid["WL_STRICT_SCHEDULE"] = 4] = "WL_STRICT_SCHEDULE";
+})(WlPromotionPayPromotionPayHoldSid || (WlPromotionPayPromotionPayHoldSid = {}));
 /** A list of types of visit note. */
 export var WlVisitNoteSidNoteSid;
 (function (WlVisitNoteSidNoteSid) {
