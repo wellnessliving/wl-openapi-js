@@ -27979,11 +27979,11 @@ export interface WlAppointmentBookProductProductResponse {
         text_title: string;
     }>;
 }
-export interface WlAppointmentBookQuestionQuestionParams {
+export interface WlAppointmentBookQuestionQuestionGetParams {
     /** The service key used for retrieving questions. */
     k_service: string;
 }
-export interface WlAppointmentBookQuestionQuestionResponse {
+export interface WlAppointmentBookQuestionQuestionGetResponse {
     /** A list of questions for the service. Each element contains: */
     a_question: Array<{
         /** Number of text rows for the answer input. Values greater than 1 indicate a multi-line answer. */
@@ -27996,6 +27996,8 @@ export interface WlAppointmentBookQuestionQuestionResponse {
         s_question: string;
     }>;
 }
+export type WlAppointmentBookQuestionQuestionPostParams = Record<string, unknown>;
+export type WlAppointmentBookQuestionQuestionPostResponse = Record<string, unknown>;
 export interface WlShopCategoryStaffAppCategoryParams {
     /** Key of business to get categories for. */
     k_business: string;
@@ -32632,7 +32634,9 @@ export declare class WlAppointmentBookQuestionNamespace {
     private readonly _client;
     constructor(_client: WlClient);
     /** Retrieves questions for the current service. */
-    question(params?: WlAppointmentBookQuestionQuestionParams): Promise<WlAppointmentBookQuestionQuestionResponse>;
+    questionGet(params?: WlAppointmentBookQuestionQuestionGetParams): Promise<WlAppointmentBookQuestionQuestionGetResponse>;
+    /** Saves answers for an existing appointment. */
+    questionPost(params?: WlAppointmentBookQuestionQuestionPostParams): Promise<WlAppointmentBookQuestionQuestionPostResponse>;
 }
 export declare class WlAppointmentBookNamespace {
     private readonly _client;
