@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260916094427
+ * Spec version: 1.1.20260916134150
  * Build date:   2026-09-16
- * Endpoints:    652
+ * Endpoints:    653
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260916094427';
+  WlClient.SPEC_VERSION = '1.1.20260916134150';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (652 total)
+  // Generated API methods (653 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -11793,9 +11793,20 @@
    * @returns {Promise<Object>} Response data.
    *  `a_question` {Object[]} A list of questions for the service. Each element contains:
    */
-  WlClient.prototype.wlAppointmentBookQuestionQuestion = function(params)
+  WlClient.prototype.wlAppointmentBookQuestionQuestionGet = function(params)
   {
     return this.request('/Wl/Appointment/Book/Question/Question.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves answers for an existing appointment.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlAppointmentBookQuestionQuestionPost = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Question/Question.json', params || {}, 'POST');
   };
 
   /**

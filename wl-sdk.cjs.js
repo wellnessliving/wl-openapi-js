@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260916094427
+// OpenAPI spec version: 1.1.20260916134150
 // Build date: 2026-09-16
-// Endpoints: 652
+// Endpoints: 653
 // Enums: 210
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsPayMethodSid = exports.CoreLocaleCurrencySid = exports.AGenderSid = exports.RsProgramTypeSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsProgramSid = exports.RsDurationTypeSid = exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.CoreSidYesNoSid = exports.RsPurchaseItemSid = exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.WlBusinessFranchiseTravelTravelModeSid = exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = exports.RsPlaceSid = exports.RsCurrencySid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.WlModeModeSid = exports.AFlagSid = exports.RsScheduleTimeSid = exports.ADateWeekSid = exports.ADurationSid = exports.CoreDriveDriveTypeSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.WlVisitVisitSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.RsReportSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlTaskTaskStatusSid = exports.WlGenderGenderSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlApiError = void 0;
@@ -9437,8 +9437,12 @@ class WlAppointmentBookQuestionNamespace {
         this._client = _client;
     }
     /** Retrieves questions for the current service. */
-    question(params) {
+    questionGet(params) {
         return this._client._request('/Wl/Appointment/Book/Question/Question.json', params, 'GET');
+    }
+    /** Saves answers for an existing appointment. */
+    questionPost(params) {
+        return this._client._request('/Wl/Appointment/Book/Question/Question.json', params, 'POST');
     }
 }
 exports.WlAppointmentBookQuestionNamespace = WlAppointmentBookQuestionNamespace;
