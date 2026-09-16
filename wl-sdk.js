@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260916144122
+ * Spec version: 1.1.20260916173209
  * Build date:   2026-09-16
  * Endpoints:    653
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260916144122';
+  WlClient.SPEC_VERSION = '1.1.20260916173209';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (653 total)
@@ -4744,10 +4744,12 @@
    * @param {?string} [params.k_promotion_pay_pause] The promotion payment hold key. If this key is used, it will edit an existing hold.
    * @returns {Promise<Object>} Response data.
    *  `a_pay_pause_list` {?Object[]} List of all promotion payment pause periods. Each element has next structure:
+   *  `a_payment_periods` {Object[]} List of all payment periods for the give pricing option. Just dates in local ...
    *  `a_payment_schedule` {string[]} List of all upcoming payments for the give pricing option. Just dates in loca...
    *  `dt_end` {?string} The end date of the current hold, in the local time zone.
    *  `dt_start` {?string} The start date of the current hold, in the local time zone.
    *  `dtu_date_notification` {?string} The date when the email notification was sent.
+   *  `id_hold` {number} Contains a list of schemes of processing of on-hold periods. See {@link WlClient.WlPromotionPayPromotionPayHoldSid}.
    *  `is_mail` {boolean} Whether or not to send email notification.
    *  `is_push` {boolean} Whether or not to send push notification.
    *  `is_sms` {boolean} Whether or not to send SMS notification.
@@ -5193,11 +5195,11 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {?string} [params.k_class] Class key.
-   * @param {string} params.s_user_key UIDs of users encoded by Javascript analogue of the
-   * @param {string} params.s_user_rank_category Users with rank categories encoded by Javascript analogue of the
+   * @param {string} params.s_user_key Encoded list of UIDs.
+   * @param {string} params.s_user_rank_category Encoded users with rank categories.
    * @param {boolean} params.show_user_detail Whether need to return user detail information (mail, phone).
    * @returns {Promise<Object>} Response data.
-   *  `a_user_list` {Object[]} List of users with information about their ranks in the business. Each element:
+   *  `a_user_list` {Object[]} List of users with information about their ranks in the business.
    */
   WlClient.prototype.wlLoginRankLoginRankListGet = function(params)
   {
@@ -5588,7 +5590,7 @@
    * @param {string} params.k_business Business key.
    * @returns {Promise<Object>} Response data.
    *  `a_appointment` {Object} Information about the appointment. Has next structure:
-   *  `a_wait` {Object[]} List of visits in wait list. Each element has next structure:
+   *  `a_wait` {Object[]} List of visits in wait list.
    *  `is_mail` {boolean} Whether or not to send email notification.
    *  `is_push` {boolean} Whether or not to send push notification.
    *  `is_sms` {boolean} Whether or not to send SMS notification.
@@ -8340,8 +8342,8 @@
    * @param {string} params.k_staff Staff member primary key.
    * @param {string} params.uid_staff User key.
    * @returns {Promise<Object>} Response data.
-   *  `a_pay_rate` {Object} Staff pay rates info. See .
-   *  `a_work` {Object} Staff work information. See `rs_staff_load_check_work_trx()`. Empty array if ...
+   *  `a_pay_rate` {Object} Staff pay rates info.
+   *  `a_work` {Object} Staff work information.
    *  `is_time_manage` {boolean} Whether staff member can manage staff clock in/out for other staff members.
    *  `text_work_start` {string} Message, when the work has been started.
    */
@@ -8364,7 +8366,7 @@
    * @param {string} params.k_staff Staff member primary key.
    * @param {string} params.uid_staff User key.
    * @returns {Promise<Object>} Response data.
-   *  `a_work` {Object} Staff work information. See `rs_staff_load_check_work_trx()`. Empty array if ...
+   *  `a_work` {Object} Staff work information.
    *  `is_start` {boolean} `true` if staff member has been clocked in; `false` if clocked out.
    */
   WlClient.prototype.wlStaffLoadLoadPut = function(params)
@@ -8667,9 +8669,7 @@
    * Validates that the specified resource and visit belong to the same business and that the
    *  resource is available for the visit's session, then checks that the current user has
    *  attendance privileges for the class location. When the visit belongs to a block event, the
-   *  new asset is applied to all sessions of that event for the same visitor. The change runs
-   *  inside a transaction that updates or inserts the corresponding `rs_resource_busy` records,
-   *  and fails when the target asset is already occupied for the affected time slot.
+   *  new asset is applied to all sessions of that event for the same visitor.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
@@ -11669,7 +11669,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_product List of add-ons.
    * @param {?Object} [params.a_repeat] Data of appointment repeat.
-   * @param {Object[]} params.a_resource List of assets. Every element has next keys:
+   * @param {Object[]} params.a_resource List of assets.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {string} params.dt_date Date/time of appointment. In location timezone.
    * @param {number} params.i_duration Appointment duration.
@@ -11702,7 +11702,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_product List of add-ons.
    * @param {?Object} [params.a_repeat] Data of appointment repeat.
-   * @param {Object[]} params.a_resource List of assets. Every element has next keys:
+   * @param {Object[]} params.a_resource List of assets.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {string} params.dt_date Date/time of appointment. In location timezone.
    * @param {number} params.i_duration Appointment duration.
@@ -12469,7 +12469,7 @@
    * @param {string} params.k_id ID of the sale item.
    * @param {string} params.k_shop_product_option Shop product option ID.
    * @returns {Promise<Object>} Response data.
-   *  `a_image` {Object[]} Contains a list of images for the current product. Each element has the struc...
+   *  `a_image` {Object[]} Contains a list of images for the current product.
    */
   WlClient.prototype.wlCatalogViewImageImage = function(params)
   {
@@ -12604,7 +12604,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date Date for which working hours are required.
-   * @param {string} params.k_business ID of business for which working hours are required.
+   * @param {string} params.k_business Key of business for which working hours are required.
    * @returns {Promise<Object>} Response data.
    *  `a_staff_period` {Object} Working hours list keyed by `uid_staff`.
    */
@@ -12934,7 +12934,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @returns {Promise<Object>} Response data.
-   *  `a_resource_period` {string[]} Resource period key.
+   *  `a_resource_period` {string[]} Resource period keys.
    */
   WlClient.prototype.wlResourceScheduleAddAdd = function(params)
   {
@@ -13273,9 +13273,8 @@
    * Generates secret key to verify legitimacy of the request.
    *
    * Verifies that the current session belongs to the requested user, then builds a protected
-   *  link through  that can be opened to sign the user in
-   *  without further authorization. The generated link expires after
-   *   seconds.
+   * link that can be opened to sign the user in without further authorization.
+   * The generated link expires after `900` seconds.
    *
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_data Additional data, which can be sent to the listeners of the event "user signed in".
@@ -13677,7 +13676,7 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.uid User key.
    * @returns {Promise<Object>} Response data.
-   *  `a_staff` {string[]} IDs of staff members which must be represented of business schedule. Primary ...
+   *  `a_staff` {string[]} IDs of staff members which must be represented of business schedule.
    *  `a_uid_staff` {string[]} IDs of staff members which must be represented of business schedule. Primary ...
    */
   WlClient.prototype.wlScheduleScheduleListStaffAppStaffScheduleListStaff = function(params)
@@ -13716,7 +13715,7 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.uid User key.
    * @returns {Promise<Object>} Response data.
-   *  `a_filter` {Object} List of schedule filters. Keys - filters IDs; primary key in the `rs_schedule...
+   *  `a_filter` {Object} List of schedule filters.
    */
   WlClient.prototype.wlScheduleScheduleListStaffAppFilterScheduleListFilter = function(params)
   {
@@ -13767,7 +13766,7 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.uid User key.
    * @returns {Promise<Object>} Response data.
-   *  `a_service` {Object} List of appointment services. Keys - service IDs; primary key in the `rs_serv...
+   *  `a_service` {Object} List of appointment services.
    */
   WlClient.prototype.wlScheduleScheduleListStaffAppServiceScheduleListService = function(params)
   {
@@ -14041,7 +14040,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (227 total)
+  // Enum constants (228 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -17746,6 +17745,22 @@
     VIDEO: 9,
     /** Purchase options to pay for gym visits: */
     VISIT: 2,
+  });
+
+  /**
+   * Contains a list of schemes of processing of on-hold periods.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionPayPromotionPayHoldSid = Object.freeze({
+    /** Mindbody scheme */
+    MINDBODY: 2,
+    /** WellnessLiving scheme (default) */
+    WL: 1,
+    /** WellnessLiving scheme in which payments that fall on a suspended day, are not skipped */
+    WL_STICK: 3,
+    /** Scheme in which payments continue on schedule with standard amount regardless of pauses */
+    WL_STRICT_SCHEDULE: 4,
   });
 
   /**

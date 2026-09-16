@@ -3228,6 +3228,17 @@ export declare enum RsProgramCategorySid {
     /** Purchase options to pay for gym visits: */
     VISIT = 2
 }
+/** Contains a list of schemes of processing of on-hold periods. */
+export declare enum WlPromotionPayPromotionPayHoldSid {
+    /** Mindbody scheme */
+    MINDBODY = 2,
+    /** WellnessLiving scheme (default) */
+    WL = 1,
+    /** WellnessLiving scheme in which payments that fall on a suspended day, are not skipped */
+    WL_STICK = 3,
+    /** Scheme in which payments continue on schedule with standard amount regardless of pauses */
+    WL_STRICT_SCHEDULE = 4
+}
 /** A list of types of visit note. */
 export declare enum WlVisitNoteSidNoteSid {
     /** The usual quick accompanying note for the customer visit */
@@ -8162,9 +8173,9 @@ export interface WlAlertAlertListGetResponse {
         i_difference: number;
         /** Determines whether the alert was read by the user. */
         is_read: boolean;
-        /** Alert key. Primary key in  table. */
+        /** Alert key.  table. */
         k_alert: string;
-        /** Business key. Primary key in  table. */
+        /** Business key.  table. */
         k_business: string;
         /** Icon class. See AlertAbstract::CSS_CLASS. */
         s_icon_class: string;
@@ -8172,9 +8183,9 @@ export interface WlAlertAlertListGetResponse {
         text_message: string;
         /** Alert title. */
         text_title: string;
-        /** User key associated with this alert. Primary key in .`null` if user is walk-in. */
+        /** User key associated with this alert. */
         uid_client: string | null;
-        /** A link to detail page related to the alert. Can be empty if the user had */
+        /** A link to detail page related to the alert. */
         url_detail: string;
         /** Url to user's logo. */
         url_logo: string;
@@ -9441,7 +9452,7 @@ export interface WlPayAddressAddressResponse {
         is_selected: boolean;
         /** Country geo key. `null` if the country cannot be determined. */
         k_country: string | null;
-        /** Payment address key. Primary key in the `rs_pay_address` table. */
+        /** Payment address key. */
         k_pay_address: string;
         /** Region geo key. */
         k_region: string;
@@ -11268,15 +11279,15 @@ export interface WlProfileRankAddonGetResponse {
     a_addon: Array<{
         /** Date, when rank has been added. */
         dt_add: string;
-        /** Rank key. Primary key in the  table. */
+        /** Rank key. */
         k_rank: string;
-        /** Category rank key. Primary key in the  table. */
+        /** Category rank key. */
         k_rank_category: string;
         /** Rank name. */
         s_rank: string;
         /** Rank category name. */
         s_rank_category: string;
-        /** User's key. Primary key in  table. */
+        /** User's key. */
         uid: string;
         /** Compressed and serialised list of addons, that client has. */
         z_addon: string;
@@ -12730,6 +12741,15 @@ export interface WlLoginPromotionPromotionPayPauseGetResponse {
         /** Key of a user that has created hold period. `null` for old records. */
         uid_create: string | null;
     }> | null;
+    /** List of all payment periods for the give pricing option. Just dates in local timezone. */
+    a_payment_periods: Array<{
+        /** End date of the period in local timezone. */
+        dt_end: string;
+        /** Date, when this period should be paid. */
+        dl_payment: string;
+        /** Start date of the period in local timezone. */
+        dt_start: string;
+    }>;
     /** List of all upcoming payments for the give pricing option. Just dates in local timezone. */
     a_payment_schedule: Array<string>;
     /** The end date of the current hold, in the local time zone. */
@@ -12738,6 +12758,8 @@ export interface WlLoginPromotionPromotionPayPauseGetResponse {
     dt_start: string | null;
     /** The date when the email notification was sent. */
     dtu_date_notification: string | null;
+    /** Contains a list of schemes of processing of on-hold periods. @see WlPromotionPayPromotionPayHoldSid */
+    id_hold: WlPromotionPayPromotionPayHoldSid;
     /** Whether or not to send email notification. */
     is_mail: boolean;
     /** Whether or not to send push notification. */
@@ -14841,9 +14863,9 @@ export type WlLoginRankLoginRankElementResponse = Record<string, unknown>;
 export interface WlLoginRankLoginRankListGetParams {
     /** Business key. */
     k_business: string;
-    /** UIDs of users encoded by Javascript analogue of the */
+    /** Encoded list of UIDs. */
     s_user_key: string;
-    /** Users with rank categories encoded by Javascript analogue of the */
+    /** Encoded users with rank categories. */
     s_user_rank_category: string;
     /** Whether need to return user detail information (mail, phone). */
     show_user_detail: boolean;
@@ -14851,26 +14873,26 @@ export interface WlLoginRankLoginRankListGetParams {
     k_class?: string | null;
 }
 export interface WlLoginRankLoginRankListGetResponse {
-    /** List of users with information about their ranks in the business. Each element: */
+    /** List of users with information about their ranks in the business. */
     a_user_list: Array<{
-        /** List of rank categories with rank details for the user. Each element: */
+        /** List of rank categories with rank details for the user. */
         a_rank_category: {
-            /** List of ranks available for the category. Each element: */
+            /** List of ranks available for the category. */
             a_available: Record<string, unknown>;
-            /** Data of the user's current rank in the category, merged with promotion condition data. Contains */
+            /** Data of the user's current rank in the category, merged with promotion condition data. */
             a_current: Record<string, unknown>;
-            /** Rank category key. Primary key from  table. */
+            /** Rank category key. */
             k_rank_category: string;
             /** Rank category title. */
             text_rank_category: string;
         };
-        /** User info: */
+        /** User information. */
         a_user_info: {
-            /** Result of  function. */
+            /** HTML information about user. */
             html_info: string;
             /** Full user name. */
             text_name: string;
-            /** User key. Primary key in the  table. */
+            /** User key. */
             uid: string;
         };
     }>;
@@ -15403,11 +15425,11 @@ export interface WlAppointmentWaitListAppointmentWaitListResponse {
         /** Staff name. `null` if the appointment is reserved for asset. */
         text_staff: string | null;
     };
-    /** List of visits in wait list. Each element has next structure: */
+    /** List of visits in wait list. */
     a_wait: Array<{
         /** A list of addons. Each element has next structure: */
         a_addon: {
-            /** Key of the shop product option. Primary key from  table. */
+            /** Key of the shop product option. */
             k_shop_product_options: string;
             /** Title of the product. */
             text_title: string;
@@ -15441,7 +15463,7 @@ export interface WlAppointmentWaitListAppointmentWaitListResponse {
             text_name: string;
             /** User phone. Empty string if the user has no phone or current user has not access to this informat... */
             text_phone: string;
-            /** User key. Primary key in the  table. */
+            /** User key. */
             uid: string;
             /** Link to user logo. */
             url_logo: string;
@@ -15460,7 +15482,7 @@ export interface WlAppointmentWaitListAppointmentWaitListResponse {
         is_paid: boolean;
         /** Whether is awaiting for user confirmation. */
         is_wait_confirm: boolean;
-        /** Visit key. Primary key in the  table. */
+        /** Visit key.  table. */
         k_visit: string;
     }>;
     /** Whether or not to send email notification. */
@@ -17616,7 +17638,7 @@ export interface WlScheduleWorkingTimeStaffWorkingResponse {
         dl_day: {
             /** Hours of break. Keys - primary keys in one of period table; values - arrays with keys: */
             a_break: {
-                /** Services that affect this hours. Primary keys in  table. */
+                /** Services that affect this hours. */
                 a_service: Array<string> | null;
                 /** Date when created period. */
                 dtu_create: string;
@@ -17624,7 +17646,7 @@ export interface WlScheduleWorkingTimeStaffWorkingResponse {
                 i_end: number;
                 /** Start time. In seconds. */
                 i_start: number;
-                /** Primary key of location in  table. */
+                /** Location key. */
                 k_location: string;
                 /** Note to available/unavailable time. */
                 text_note: string;
@@ -17641,7 +17663,7 @@ export interface WlScheduleWorkingTimeStaffWorkingResponse {
                 i_end: number;
                 /** Start time. In seconds. */
                 i_start: number;
-                /** Primary key of location in  table. */
+                /** Location key. */
                 k_location: string;
                 /** Note to available/unavailable time. */
                 text_note: string;
@@ -20267,7 +20289,7 @@ export interface WlStaffLoadLoadGetParams {
     uid_staff: string;
 }
 export interface WlStaffLoadLoadGetResponse {
-    /** Staff pay rates info. See . */
+    /** Staff pay rates info. */
     a_pay_rate: {
         /** Custom data that depends on `id_staff_pay`. */
         a_data: {
@@ -20280,14 +20302,14 @@ export interface WlStaffLoadLoadGetResponse {
         };
         /** List of possible pay roles. @see RsStaffPaySid */
         id_staff_pay: RsStaffPaySid;
-        /** Location key. Primary key from . This is a location where pay rate can be used for a staff load. ... */
+        /** Location key. */
         k_location: string;
-        /** Pay rate identifier, primary key in */
+        /** Pay rate key. */
         k_staff_pay: string;
         /** Name of the rate. */
         s_title: string;
     };
-    /** Staff work information. See `rs_staff_load_check_work_trx()`. Empty array if the staff */
+    /** Staff work information. */
     a_work: {
         /** Date and time in UTC when the staff member clocked in. */
         dt_start?: string;
@@ -20314,7 +20336,7 @@ export interface WlStaffLoadLoadPutParams {
     uid_staff: string;
 }
 export interface WlStaffLoadLoadPutResponse {
-    /** Staff work information. See `rs_staff_load_check_work_trx()`. Empty array if the staff */
+    /** Staff work information. */
     a_work: {
         /** Date and time in UTC when the staff member clocked in. */
         dt_start?: string;
@@ -20716,17 +20738,17 @@ export interface WlStaffPayRateListResponse {
         is_default: boolean;
         /** Whether hourly pay rate used as default for staff with `k_staff`. */
         is_hour_default: boolean;
-        /** Location key. Primary key from . This is a location where pay rate can be used for a staff staff ... */
+        /** Location key. */
         k_location: string;
-        /** Staff key, primary key in . */
+        /** Staff key. */
         k_staff: string;
-        /** Pay rate identifier, primary key in . */
+        /** Pay rate key. */
         k_staff_pay: string;
         /** Name of staff member. */
         text_staff: string;
         /** Pay rate title. */
         text_title: string;
-        /** Staff user ID. Primary key in . */
+        /** Staff user key. */
         uid_staff: string;
     }>;
 }
@@ -20976,7 +20998,7 @@ export interface WlResourceTypeResourceTypeListResponse {
         id_category: WlResourceResourceCategoryEnum;
         /** Whether resource type is active. */
         is_active: boolean;
-        /** Resource type key, primary key in the  table. */
+        /** Resource type key. */
         k_resource_type: string;
         /** Resource type title. */
         text_title: string;
@@ -21346,7 +21368,7 @@ export interface WlUserInfoUserListInfoResponse {
         is_inherited: boolean;
         /** Whether phones of a user are inherited from a relative `true` - inherited, `false` - otherwise. */
         is_phone_inherited: boolean;
-        /** City key. Primary key in the  table. */
+        /** City key. */
         k_city: string;
         /** User's address. */
         text_address: string;
@@ -21356,7 +21378,7 @@ export interface WlUserInfoUserListInfoResponse {
         text_cell_phone: string;
         /** User's city. */
         text_city: string;
-        /** Compound key delimited wit a colon. First part is business key. Primary key in  table. Second par... */
+        /** Compound key delimited wit a colon. */
         text_business_uid_key: string;
         /** User's home phone. */
         text_home_phone: string;
@@ -27374,11 +27396,11 @@ export interface WlAppointmentBookAssetCategoryResponse {
 export interface WlAppointmentBookConflictConflict56Params {
     /** List of add-ons. */
     a_product: Array<string>;
-    /** List of assets. Every element has next keys: */
+    /** List of assets. */
     a_resource: Array<{
         /** Asset index in layout. */
         i_index?: number;
-        /** Asset primary key in  table. */
+        /** Asset key. */
         k_resource: string;
     }>;
     /** List of user keys to book appointments. */
@@ -27451,11 +27473,11 @@ export interface WlAppointmentBookConflictConflict56Response {
 export interface WlAppointmentBookConflictConflictParams {
     /** List of add-ons. */
     a_product: Array<string>;
-    /** List of assets. Every element has next keys: */
+    /** List of assets. */
     a_resource: Array<{
         /** Asset index in layout. */
         i_index?: number;
-        /** Asset primary key in  table. */
+        /** Asset key. */
         k_resource: string;
     }>;
     /** List of user keys to book appointments. */
@@ -28007,7 +28029,7 @@ export interface WlVisitNoteEditEditGetResponse {
         dtl_create: string;
         /** Local date and time the note was last edited. Empty string if the note was never edited. */
         dtl_edit: string;
-        /** Visit note key, primary key in . `0` if the note does not exist yet. */
+        /** Visit note key. */
         k_visit_note: string;
         /** Key of the visit that has a previous note. `0` if a previous note does not exist. */
         k_visit_previous: string;
@@ -28349,11 +28371,11 @@ export interface WlCatalogStaffAppCatalogCommissionCatalogCommissionParams {
 export interface WlCatalogStaffAppCatalogCommissionCatalogCommissionResponse {
     /** Default staff commission for current client. Includes: */
     a_commission_default: Array<{
-        /** @deprecated Staff key. Primary key of  table. */
+        /** <b>Deprecated.</b> Staff key. */
         k_staff: string;
-        /** Staff pay key. Primary key of  table. */
+        /** Staff pay key. */
         k_staff_pay: string;
-        /** User key of staff. Primary key of  table. */
+        /** User key of staff. */
         uid_staff: string;
     }>;
     /** List of staff with commission. Includes: */
@@ -28368,14 +28390,14 @@ export interface WlCatalogStaffAppCatalogCommissionCatalogCommissionResponse {
             is_default: boolean;
             /** Title of the commission. */
             html_commission: string;
-            /** Staff pay key. Primary key of  table. */
+            /** Staff pay key.  table. */
             k_staff_pay: string;
         };
-        /** @deprecated Staff key. Primary key of  table. It's use `uid` instead of this field. */
+        /** [Deprecated]Staff key. */
         k_staff: string;
         /** Name of staff. */
         html_name: string;
-        /** User key. Primary key of  table. */
+        /** User key.  table. */
         uid: string;
     }>;
 }
@@ -28458,7 +28480,7 @@ export interface WlCatalogViewImageImageParams {
     k_shop_product_option: string;
 }
 export interface WlCatalogViewImageImageResponse {
-    /** Contains a list of images for the current product. Each element has the structure */
+    /** Contains a list of images for the current product. */
     a_image: Array<{
         /** Information about the image. */
         a_image: {
@@ -28544,7 +28566,7 @@ export interface WlShopCategoryStaffAppCategoryResponse {
     a_shop_category: {
         /** Shop category order. */
         i_order: number;
-        /** ID in  table. */
+        /** Shop category key. */
         k_shop_category: string;
         /** Category description. */
         text_description: string;
@@ -28826,7 +28848,7 @@ export interface WlScheduleScheduleListStaffAppScheduleListByTokenResponse {
 export interface WlScheduleScheduleListStaffPeriodStaffPeriodParams {
     /** Date for which working hours are required. */
     dt_date: string;
-    /** ID of business for which working hours are required. */
+    /** Key of business for which working hours are required. */
     k_business: string;
 }
 export interface WlScheduleScheduleListStaffPeriodStaffPeriodResponse {
@@ -29113,7 +29135,7 @@ export interface WlResourceScheduleAddAddParams {
     k_business: string;
 }
 export interface WlResourceScheduleAddAddResponse {
-    /** Resource period key. */
+    /** Resource period keys. */
     a_resource_period: Array<string>;
 }
 export type WlSkinApplicationResourceApplicationResourceMaterialParams = Record<string, unknown>;
@@ -29840,7 +29862,7 @@ export interface WlBusinessSmsChatDialogDialogListResponse {
         text_date_last_sms: string;
         /** The text of the last SMS from the client. */
         text_last_sms: string;
-        /** UID of the client. Primary key in  table. */
+        /** UID of the client.  table. */
         uid: string;
         /** The link to logo the client. */
         url_profile_logo: string;
@@ -29867,7 +29889,7 @@ export interface WlBusinessSmsChatDialogMessageHistoryResponse {
         is_automated: boolean;
         /** `true` if staff member sent SMS, `false` - if the client sent the SMS. */
         is_outbound: boolean;
-        /** The key of SMS history. Primary key in  table. */
+        /** The key of SMS history.  table. */
         k_sms_history: string;
         /** The day when SMS messages were sent. */
         text_date: string;
@@ -30020,7 +30042,7 @@ export interface WlScheduleScheduleListStaffAppStaffScheduleListStaffParams {
     uid: string;
 }
 export interface WlScheduleScheduleListStaffAppStaffScheduleListStaffResponse {
-    /** IDs of staff members which must be represented of business schedule. Primary keys in the `rs_staf... */
+    /** IDs of staff members which must be represented of business schedule. */
     a_staff: Array<string>;
     /** IDs of staff members which must be represented of business schedule. Primary keys in the `passpor... */
     a_uid_staff: Array<string>;
@@ -30044,21 +30066,21 @@ export interface WlScheduleScheduleListStaffAppFilterScheduleListFilterParams {
     uid: string;
 }
 export interface WlScheduleScheduleListStaffAppFilterScheduleListFilterResponse {
-    /** List of schedule filters. Keys - filters IDs; primary key in the `rs_schedule_config` table. Valu... */
+    /** List of schedule filters. */
     a_filter: {
         /** Configurations of filter chapters. If configuration of filter chapter is empty, there are no limi... */
         a_config: {
-            /** Classes. Primary keys in  table. */
+            /** Classes. */
             a_class: Array<string>;
-            /** Events. Primary keys in  table. */
+            /** Events. */
             a_event: Array<string>;
-            /** Locations. Primary keys in  table. */
+            /** Locations. */
             a_location: Array<string>;
-            /** Assets. Primary keys in  table. */
+            /** Assets. */
             a_resource: Array<string>;
-            /** Appointment services. Primary keys in  table. */
+            /** Appointment services. */
             a_service: Array<string>;
-            /** Staff members. Primary keys in  table. */
+            /** Staff members. */
             a_staff: Array<string>;
             /** Service types. Constants of {@link RsServiceSid} class (excluding {@link RsServiceSid}). */
             a_type: Array<number>;
@@ -30147,7 +30169,7 @@ export interface WlScheduleScheduleListStaffAppServiceScheduleListServiceParams 
     uid: string;
 }
 export interface WlScheduleScheduleListStaffAppServiceScheduleListServiceResponse {
-    /** List of appointment services. Keys - service IDs; primary key in the `rs_service` table. Values -... */
+    /** List of appointment services. */
     a_service: Record<string, unknown>;
 }
 export interface WlMemberProgressLogEditLogGetParams {
