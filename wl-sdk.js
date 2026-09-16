@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260915084637
- * Build date:   2026-09-15
+ * Spec version: 1.1.20260916025957
+ * Build date:   2026-09-16
  * Endpoints:    642
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260915084637';
+  WlClient.SPEC_VERSION = '1.1.20260916025957';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (642 total)
@@ -4174,7 +4174,7 @@
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.can_anonymous Checks whether unauthorized user should be permitted to operate with form and make a response.
    * @param {boolean} params.is_answer `true` for load answers for response, `false` otherwise.
-   * @param {boolean} params.is_backend
+   * @param {boolean} params.is_backend `true` if API is being used from backend, `false` otherwise.
    * @param {boolean} params.is_simple Whether quiz response received by kiosk or direct mode link.
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {?string} [params.k_quiz_response] Quiz response key.
@@ -4209,7 +4209,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.can_anonymous Checks whether unauthorized user should be permitted to operate with form and make a response.
-   * @param {boolean} params.is_backend
+   * @param {boolean} params.is_backend `true` if API is being used from backend, `false` otherwise.
    * @param {boolean} params.is_simple Whether quiz response received by kiosk or direct mode link.
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
@@ -8671,6 +8671,7 @@
    *  `id_task_status` {number} A list of task statuses. See {@link WlClient.WlTaskTaskStatusSid}.
    *  `k_location` {?string} Location key.
    *  `text_title` {string} Task title.
+   *  `tl_due` {string} Due time.
    *  `uid` {?string} Client's uid for whom connected task.
    *  `xml_description` {string} Task description.
    */
@@ -9148,6 +9149,10 @@
   };
 
   /**
+   * Loads customization data of the customization form that corresponds to specified report / report page.
+   *
+   * Populates {@link WlClient#wlReportCustomizationCustomizationFormGet} with the customization data of the requested
+   * report or report page, optionally converted to the reports listed in {@link WlClient#wlReportCustomizationCustomizationFormGet}.
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.cid_page Report page CID.
@@ -9166,6 +9171,10 @@
   };
 
   /**
+   * Saves given data of a customization form into database.
+   *
+   * Stores the customization data supplied in {@link WlClient#wlReportCustomizationCustomizationFormGet} for the
+   * requested report or report page and resets the related report configuration cache.
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.cid_page Report page CID.

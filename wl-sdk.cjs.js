@@ -1,8 +1,8 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260915084637
-// Build date: 2026-09-15
+// OpenAPI spec version: 1.1.20260916025957
+// Build date: 2026-09-16
 // Endpoints: 642
 // Enums: 210
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -5546,9 +5546,11 @@ class ThothReportCoreQueryEngineReportCustomizationNamespace {
     constructor(_client) {
         this._client = _client;
     }
+    /** Loads customization data of the customization form that corresponds to specified report / report page. */
     reportQueryCustomizationFormGet(params) {
         return this._client._request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params, 'GET');
     }
+    /** Saves given data of a customization form into database. */
     reportQueryCustomizationFormPost(params) {
         return this._client._request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params, 'POST');
     }
