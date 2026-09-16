@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260916031914
+ * Spec version: 1.1.20260916045434
  * Build date:   2026-09-16
  * Endpoints:    642
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260916031914';
+  WlClient.SPEC_VERSION = '1.1.20260916045434';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (642 total)
@@ -12871,7 +12871,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business ID of a business to show information for.
    * @returns {Promise<Object>} Response data.
-   *  `a_category` {Object}
+   *  `a_category` {Object} List of reward categories.
    */
   WlClient.prototype.wlRewardActionCategoryListCategoryList = function(params)
   {

@@ -16381,6 +16381,7 @@ export interface WlCatalogCatalogListElementResponse {
         };
         /** Contains information about one image connected to a sale item. */
         a_image: {
+            /** Information about the image. */
             a_image: Record<string, unknown>;
             /** Height of the variant image. */
             i_height: number;
@@ -25280,6 +25281,7 @@ export interface WlCatalogViewImageImageParams {
 export interface WlCatalogViewImageImageResponse {
     /** Contains a list of images for the current product. Each element has the structure */
     a_image: Array<{
+        /** Information about the image. */
         a_image: {
             /** Height of the variant image. */
             i_height: number;
@@ -29055,6 +29057,7 @@ export interface WlRewardActionCategoryListCategoryListParams {
     k_business: string;
 }
 export interface WlRewardActionCategoryListCategoryListResponse {
+    /** List of reward categories. */
     a_category: {
         /** List of default categories of the rewards. @see RsRewardActionCategorySid */
         id_reward_action_category: RsRewardActionCategorySid;
