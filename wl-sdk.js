@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260918044637
+ * Spec version: 1.1.20260918072409
  * Build date:   2026-09-18
  * Endpoints:    643
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260918044637';
+  WlClient.SPEC_VERSION = '1.1.20260918072409';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (643 total)
@@ -8205,7 +8205,7 @@
    * @param {boolean} params.is_statistic Determines whether statistics of the stages must be returned.
    * @param {string} params.k_business Business key.
    * @returns {Promise<Object>} Response data.
-   *  `a_lead_stage` {Object[]} List of lead stages of the business. Ordered by `i_order`.
+   *  `a_lead_stage` {Object[]} List of lead stages of the business.
    */
   WlClient.prototype.wlLeadStageLeadStageList = function(params)
   {
