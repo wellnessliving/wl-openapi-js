@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260917184611
+// OpenAPI spec version: 1.1.20260918084958
 // Build date: 2026-09-18
-// Endpoints: 653
+// Endpoints: 654
 // Enums: 211
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -7023,6 +7023,21 @@ export class WlBusinessSelectNamespace {
         return this._client._request('/Wl/Business/Select/BusinessSelect.json', params, 'GET');
     }
 }
+export class WlBusinessCustomTermsNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Saves {@link WlBusinessCustomTermsNamespace#customTerms} as the custom terms of {@link WlBusinessCustomTermsNamespace#customTerms}. */
+    customTerms(params) {
+        return this._client._request('/Wl/Business/Custom/Terms/CustomTerms.json', params, 'POST');
+    }
+}
+export class WlBusinessCustomNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.terms = new WlBusinessCustomTermsNamespace(this._client);
+    }
+}
 export class WlBusinessFranchiseLocationNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7094,6 +7109,7 @@ export class WlBusinessNamespace {
         this.claim = new WlBusinessClaimNamespace(this._client);
         this.phone = new WlBusinessPhoneNamespace(this._client);
         this.select = new WlBusinessSelectNamespace(this._client);
+        this.custom = new WlBusinessCustomNamespace(this._client);
         this.franchise = new WlBusinessFranchiseNamespace(this._client);
         this.reward = new WlBusinessRewardNamespace(this._client);
         this.user = new WlBusinessUserNamespace(this._client);

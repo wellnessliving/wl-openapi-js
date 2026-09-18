@@ -22654,6 +22654,8 @@ export interface WlProfileFormResponseResponseListResponse {
     /** Whether response can be viewed by current user. */
     can_view: boolean;
 }
+export type WlBusinessCustomTermsCustomTermsParams = Record<string, unknown>;
+export type WlBusinessCustomTermsCustomTermsResponse = Record<string, unknown>;
 export type WlBusinessSmsPinSmsPinDeleteParams = Record<string, unknown>;
 export type WlBusinessSmsPinSmsPinDeleteResponse = Record<string, unknown>;
 export type WlBusinessSmsPinSmsPinPostParams = Record<string, unknown>;
@@ -31425,6 +31427,17 @@ export declare class WlBusinessSelectNamespace {
     /** Performs checks and generates a list of businesses according to a given configuration. */
     businessSelect(params?: WlBusinessSelectBusinessSelectParams): Promise<WlBusinessSelectBusinessSelectResponse>;
 }
+export declare class WlBusinessCustomTermsNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Saves {@link WlBusinessCustomTermsNamespace#customTerms} as the custom terms of {@link WlBusinessCustomTermsNamespace#customTerms}. */
+    customTerms(params?: WlBusinessCustomTermsCustomTermsParams): Promise<WlBusinessCustomTermsCustomTermsResponse>;
+}
+export declare class WlBusinessCustomNamespace {
+    private readonly _client;
+    readonly terms: WlBusinessCustomTermsNamespace;
+    constructor(_client: WlClient);
+}
 export declare class WlBusinessFranchiseLocationNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -31479,6 +31492,7 @@ export declare class WlBusinessNamespace {
     readonly claim: WlBusinessClaimNamespace;
     readonly phone: WlBusinessPhoneNamespace;
     readonly select: WlBusinessSelectNamespace;
+    readonly custom: WlBusinessCustomNamespace;
     readonly franchise: WlBusinessFranchiseNamespace;
     readonly reward: WlBusinessRewardNamespace;
     readonly user: WlBusinessUserNamespace;
