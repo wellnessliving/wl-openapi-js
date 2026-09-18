@@ -13533,7 +13533,7 @@ export interface WlLeadStageLeadStageListParams {
     k_business: string;
 }
 export interface WlLeadStageLeadStageListResponse {
-    /** List of lead stages of the business. Ordered by `i_order`. */
+    /** List of lead stages of the business. */
     a_lead_stage: Array<{
         /** Sequence number of the stage in the list. */
         i_order: number;
