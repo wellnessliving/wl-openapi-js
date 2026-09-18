@@ -28002,6 +28002,8 @@ export interface WlAppointmentBookProductProductResponse {
     }>;
 }
 export interface WlAppointmentBookQuestionQuestionGetParams {
+    /** Appointment key to save answers for. */
+    k_appointment: string;
     /** The service key used for retrieving questions. */
     k_service: string;
 }
@@ -28018,7 +28020,10 @@ export interface WlAppointmentBookQuestionQuestionGetResponse {
         s_question: string;
     }>;
 }
-export type WlAppointmentBookQuestionQuestionPostParams = Record<string, unknown>;
+export interface WlAppointmentBookQuestionQuestionPostParams {
+    /** Appointment key to save answers for. */
+    k_appointment: string;
+}
 export type WlAppointmentBookQuestionQuestionPostResponse = Record<string, unknown>;
 export interface WlShopCategoryStaffAppCategoryParams {
     /** Key of business to get categories for. */
