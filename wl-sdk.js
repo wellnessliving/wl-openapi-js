@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260918133559
+ * Spec version: 1.1.20260918141054
  * Build date:   2026-09-18
  * Endpoints:    654
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260918133559';
+  WlClient.SPEC_VERSION = '1.1.20260918141054';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (654 total)
@@ -11369,7 +11369,7 @@
    *  hash key for matching answers, and input size metadata.
    *
    * @param {Object} [params] Request parameters.
-   * @param {string} params.k_appointment Appointment key to save answers for.
+   * @param {string} params.k_appointment Appointment key used to load or save question answers.
    * @param {string} params.k_service The service key used for retrieving questions.
    * @returns {Promise<Object>} Response data.
    *  `a_question` {Object[]} A list of questions for the service. Each element contains:
@@ -11383,7 +11383,7 @@
    * Saves answers for an existing appointment.
    *
    * @param {Object} [params] Request parameters.
-   * @param {string} params.k_appointment Appointment key to save answers for.
+   * @param {string} params.k_appointment Appointment key used to load or save question answers.
    * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.wlAppointmentBookQuestionQuestionPost = function(params)

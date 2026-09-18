@@ -25582,7 +25582,7 @@ export interface WlAppointmentBookConflictConflictResponse {
     k_location: string;
 }
 export interface WlAppointmentBookQuestionQuestionGetParams {
-    /** Appointment key to save answers for. */
+    /** Appointment key used to load or save question answers. */
     k_appointment: string;
     /** The service key used for retrieving questions. */
     k_service: string;
@@ -25590,6 +25590,8 @@ export interface WlAppointmentBookQuestionQuestionGetParams {
 export interface WlAppointmentBookQuestionQuestionGetResponse {
     /** A list of questions for the service. Each element contains: */
     a_question: Array<{
+        /** `true` if the current appointment already has a non-empty answer for this question, `false` other... */
+        has_answer: boolean;
         /** Number of text rows for the answer input. Values greater than 1 indicate a multi-line answer. */
         i_size: number;
         /** `true` if `i_size` is greater than 1, `false` otherwise. */
@@ -25601,7 +25603,7 @@ export interface WlAppointmentBookQuestionQuestionGetResponse {
     }>;
 }
 export interface WlAppointmentBookQuestionQuestionPostParams {
-    /** Appointment key to save answers for. */
+    /** Appointment key used to load or save question answers. */
     k_appointment: string;
 }
 export type WlAppointmentBookQuestionQuestionPostResponse = Record<string, unknown>;
