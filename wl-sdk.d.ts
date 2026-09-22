@@ -1901,16 +1901,60 @@ export declare enum RsPurchaseItemSid {
     /** Tuition prorate purchase item */
     TUITION_PRORATE = 28
 }
-/** List of image types. */
-export declare enum CoreDriveDriveTypeSid {
-    /** Bmp image */
-    BMP = 4,
-    /** Gif image */
-    GIF = 1,
-    /** Jpeg image */
-    JPEG = 2,
-    /** Png image */
-    PNG = 3
+/** Reasons why the client can't book this event. */
+export declare enum WlEventDenyReasonSid {
+    /** User is trying to book on behalf of another client, but does not have permission to do so */
+    ACCESS_DENIED = 1,
+    /** Manual restriction to book business, location or a certain class */
+    ACCESS_LIMITED = 2,
+    /** The business can not take one more client because of business subscription limitations */
+    ACCOUNT_LIMIT = 3,
+    /** Class is not available for certain age */
+    AGE_RESTRICTION = 4,
+    /** Liability Release needs to be agreed */
+    AGREE_NX = 5,
+    /** Client has unpaid fees */
+    BALANCE_NEGATIVE = 22,
+    /** It's too early to book a class */
+    BOOK_EARLY = 7,
+    /** It's too late to book a class */
+    BOOK_LATE = 8,
+    /** User's visit overlaps with another visit */
+    BOOK_OVERLAP = 25,
+    /** User's pricing options do not allow booking another visit within a certain period because of pricing option limitations */
+    BOOK_RESTRICT = 9,
+    /** Client is already booked for this session */
+    BOOKED_ALREADY = 6,
+    /** Business is inactive */
+    BUSINESS_INACTIVE = 10,
+    /** Class is canceled */
+    CLASS_CANCELED = 11,
+    /** Class is finished */
+    CLASS_FINISHED = 26,
+    /** Class is full */
+    CLASS_FULL = 14,
+    /** Class does not exist anymore */
+    CLASS_NOT_AVAILABLE_ANYMORE = 15,
+    /** Client is flagged at location */
+    CLIENT_FLAGGED = 12,
+    /** Credit card is required for booking services */
+    CREDIT_CARD_REQUIRE = 13,
+    /** Business is closed */
+    HOLIDAY = 16,
+    /** Login is required */
+    LOGIN_REQUIRED = 17,
+    /** Online booking is disabled for the class */
+    NOT_BOOKABLE = 18,
+    /** Online booking is disabled for this type of client */
+    NOT_BOOKABLE_BY_TYPE = 24,
+    /** Required personal details missing */
+    USER_INFO_MISSING = 19,
+    /** Visit to another class is required first */
+    VISIT_BEFORE = 20,
+    /** The wait list is full */
+    WAIT_LIST_LIMIT_MAX = 21,
+    /** Client has unsigned waiver */
+    WAIVER_NX = 23
 }
 /** Day time periods. */
 export declare enum RsScheduleTimeSid {
@@ -2378,6 +2422,17 @@ export declare enum CoreAILogTriageTriageSourceSid {
     SLOW_LOG = 2,
     /** Aggregated usage statistics */
     WATCH_USAGE_STAT = 3
+}
+/** List of image types. */
+export declare enum CoreDriveDriveTypeSid {
+    /** Bmp image */
+    BMP = 4,
+    /** Gif image */
+    GIF = 1,
+    /** Jpeg image */
+    JPEG = 2,
+    /** Png image */
+    PNG = 3
 }
 /** List of responses for Google Captcha token. */
 export declare enum CoreGoogleCaptchaCaptchaResponseSid {
@@ -7611,7 +7666,7 @@ export interface WlEventEventListGetParams {
     /** List of staff UIDs applied by filter. */
     a_uid_staff?: Array<string> | null;
     /** List of IDs to include/exclude virtual events. */
-    a_virtual?: Array<string> | null;
+    a_virtual?: Array<CoreSidYesNoSid> | null;
     /** The end date of the range from which a list of events should be retrieved. */
     dl_end?: string | null;
     /** The start date of the range from which a list of events should be retrieved. */
@@ -7642,11 +7697,50 @@ export interface WlEventEventListGetResponse {
         /** List of book now tags connected to this event. */
         a_class_tab: Array<string>;
         /** Data about logo of the event. */
-        a_logo: Record<string, unknown>;
+        a_logo: {
+            /** Thumbnail height in pixels. */
+            i_height: number;
+            /** Thumbnail width in pixels. */
+            i_width: number;
+            /** `false` for the new wide-rectangle format; `true` for the legacy square format. */
+            is_old: boolean;
+            /** Thumbnail URL. */
+            s_url: string;
+        };
         /** List of scheduled sessions of the event. */
-        a_schedule: Array<Record<string, unknown>>;
+        a_schedule: {
+            /** List of weekday numbers when event occur. */
+            a_day: Array<number>;
+            /** Information about event repeating. */
+            a_repeat: Record<string, unknown>;
+            /** List of staff members providing event session. */
+            a_staff_member: Record<string, unknown>;
+            /** End date of the schedule in `MySql` format. */
+            dl_end: string;
+            /** Start date of the schedule in `MySql` format. */
+            dl_start: string;
+            /** Whether this is a single day schedule (start and end dates of the schedule are the same). */
+            is_day: boolean;
+            /** Class period key. */
+            k_class_period: string;
+            /** Location key. */
+            k_location: string;
+            /** Resource key, which has category {@link WlResourceResourceCategoryEnum}. */
+            k_resource_location: string;
+            /** Location title. */
+            text_location: string;
+            /** Room where the session takes place. */
+            text_room: string;
+            /** Start and end time of the scheduled sessions in human readable format. */
+            text_time: string;
+        };
         /** List of search tags connected to this event. */
-        a_search_tag: Array<Record<string, unknown>>;
+        a_search_tag: {
+            /** Search tag key. */
+            k_search_tag: string;
+            /** Name of the tag. */
+            text_title: string;
+        };
         /** Whether event can be booked or not. */
         can_book: boolean;
         /** Whether current user can cancel already booked event. */
@@ -7677,8 +7771,8 @@ export interface WlEventEventListGetResponse {
         i_wait: number;
         /** Wait list limit of the event. */
         i_wait_limit?: number | null;
-        /** ID of deny reason. */
-        id_reason: number;
+        /** Reasons why the client can't book this event. @see WlEventDenyReasonSid */
+        id_reason: WlEventDenyReasonSid;
         /** Whether booking of this event restricted because of age rules for {@link WlEventNamespace#eventLi... */
         is_age_restrict: boolean;
         /** `true` if this event booking is restricted and restricted because of client's age only. */
@@ -24978,13 +25072,17 @@ export interface WlCatalogStaffAppCatalogListCatalogListResponse {
         a_shop_category: Array<string>;
         /** Program types. @see RsProgramSid */
         id_program?: RsProgramSid;
+        /** The number of tickets that can still be sold for the event instance. */
+        i_ticket_left?: number;
         /** Purchase restrictions. @see WlShopProductPurchaseRestrictionSid */
         id_restriction: WlShopProductPurchaseRestrictionSid;
         /** List of sale categories on the store page. @see RsSaleSid */
         id_sale: RsSaleSid | null;
         /** Determines whether the sale item can be purchased by the client. */
         is_online_sell: boolean;
-        /** `true` if the sale item is a ticketed event, `false` otherwise. */
+        /** `true` if all tickets of the event instance are sold and no more can be sold, `false` otherwise. */
+        is_sold_out?: boolean;
+        /** `true` if the sale item is one instance of a ticketed event, `false` otherwise. */
         is_ticket: boolean;
         /** This will be `true` if this Purchase Option is suitable to pay for the visit {@link WlCatalogStaf... */
         is_visit: boolean;
@@ -25224,11 +25322,11 @@ export interface WlScheduleScheduleListStaffAppScheduleListResponse {
             is_hide: boolean;
             /** Whether it's required. `true` quiz is required, `false` otherwise. */
             is_require: boolean;
-            /** Quiz key, */
+            /** Quiz key. */
             k_quiz: string;
-            /** Quiz login key, */
+            /** Quiz login key. */
             k_quiz_login: string;
-            /** Quiz response key, */
+            /** Quiz response key. */
             k_quiz_response: string;
             /** Quiz title. */
             text_title: string;
@@ -25269,7 +25367,7 @@ export interface WlScheduleScheduleListStaffAppScheduleListResponse {
         };
         /** For appointments, this is a list of the names of users who are scheduled to attend the session. */
         a_user: Array<string>;
-        /** List of virtual locations. Each value is . */
+        /** List of virtual locations. */
         a_virtual_location: Array<string>;
         /** The date/time of the session in UTC. */
         dt_date: string;
@@ -25392,7 +25490,7 @@ export interface WlScheduleScheduleListStaffAppScheduleListByTokenResponse {
         a_resource: Array<string>;
         /** A list of staff members who will conduct the session. */
         a_staff: Array<string>;
-        /** Information about staff members who conduct this session. The keys are . */
+        /** Information about staff members who conduct this session. The keys are staff keys. */
         a_staff_info: {
             /** Staff full name. */
             text_staff: string;
@@ -25403,7 +25501,7 @@ export interface WlScheduleScheduleListStaffAppScheduleListByTokenResponse {
         };
         /** For appointments, this is a list of the names of users who are scheduled to attend the session. */
         a_user: Array<string>;
-        /** List of virtual locations. Each value is . */
+        /** List of virtual locations. */
         a_virtual_location: Array<string>;
         /** The date/time of the session in UTC. */
         dt_date: string;
@@ -29023,9 +29121,9 @@ export interface WlEventBookEventListListResponse {
     /** A list of event identifiers. */
     a_event: Array<string>;
     /** Event availability map. */
-    a_event_available: Array<boolean>;
+    a_event_available: Record<string, unknown>;
     /** Ticketed event map. */
-    a_event_ticket: Array<boolean>;
+    a_event_ticket: Record<string, unknown>;
     /** `true` if exist at least one virtual event */
     is_virtual_service: boolean;
 }
