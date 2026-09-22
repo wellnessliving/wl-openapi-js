@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260921133539
- * Build date:   2026-09-21
+ * Spec version: 1.1.20260922051530
+ * Build date:   2026-09-22
  * Endpoints:    654
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260921133539';
+  WlClient.SPEC_VERSION = '1.1.20260922051530';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (654 total)
@@ -9922,13 +9922,6 @@
   /**
    * Saves {@link WlClient#wlBusinessCustomTermsCustomTerms} as the custom terms of {@link WlClient#wlBusinessCustomTermsCustomTerms}.
    *
-   * Validates every posted term slot and its selected option, then delegates the write itself to
-   * CustomTermsSettings::saveTerms() - a slot whose new value equals the business's resolved default
-   * (the business-type default, or the system default if there is none) is reset instead of written, see
-   * CustomTermsSettings::saveTerms(). A term slot missing from {@link WlClient#wlBusinessCustomTermsCustomTerms}
-   * is left untouched; the client is expected to submit the current value of every slot on every save, not
-   * only the slots that changed.
-   *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
    */
@@ -11381,6 +11374,8 @@
 
   /**
    * Saves answers for an existing appointment.
+   *
+   * Matches submitted answers to the service's questions by hash key, and saves them to the specified appointment.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_appointment Appointment key used to load or save question answers.
@@ -14060,7 +14055,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (228 total)
+  // Enum constants (229 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -19493,6 +19488,24 @@
     PAY: 3,
     /** Add client to attendance list without payment */
     UNPAID: 1,
+  });
+
+  /**
+   * Term slots available on the Custom Terms settings page.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessCustomTermsCustomTermSid = Object.freeze({
+    /** Appointment */
+    APPOINTMENT: 2,
+    /** Business */
+    BUSINESS: 5,
+    /** Class */
+    CLASS_TERM: 3,
+    /** Client */
+    CLIENT: 4,
+    /** Staff */
+    STAFF: 1,
   });
 
   /**

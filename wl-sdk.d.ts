@@ -4641,6 +4641,19 @@ export declare enum WlLoginAttendanceAddOptionSid {
     /** Add client to attendance list without payment */
     UNPAID = 1
 }
+/** Term slots available on the Custom Terms settings page. */
+export declare enum WlBusinessCustomTermsCustomTermSid {
+    /** Appointment */
+    APPOINTMENT = 2,
+    /** Business */
+    BUSINESS = 5,
+    /** Class */
+    CLASS_TERM = 3,
+    /** Client */
+    CLIENT = 4,
+    /** Staff */
+    STAFF = 1
+}
 /** List of possible plans for CollectionsSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid {
     /** None */

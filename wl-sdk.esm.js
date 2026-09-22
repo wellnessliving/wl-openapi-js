@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260921133539
-// Build date: 2026-09-21
+// OpenAPI spec version: 1.1.20260922051530
+// Build date: 2026-09-22
 // Endpoints: 654
-// Enums: 211
+// Enums: 212
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (211 total) ---
+// --- Enum types (212 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -4798,6 +4798,20 @@ export var WlLoginAttendanceAddOptionSid;
     /** Add client to attendance list without payment */
     WlLoginAttendanceAddOptionSid[WlLoginAttendanceAddOptionSid["UNPAID"] = 1] = "UNPAID";
 })(WlLoginAttendanceAddOptionSid || (WlLoginAttendanceAddOptionSid = {}));
+/** Term slots available on the Custom Terms settings page. */
+export var WlBusinessCustomTermsCustomTermSid;
+(function (WlBusinessCustomTermsCustomTermSid) {
+    /** Appointment */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["APPOINTMENT"] = 2] = "APPOINTMENT";
+    /** Business */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["BUSINESS"] = 5] = "BUSINESS";
+    /** Class */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["CLASS_TERM"] = 3] = "CLASS_TERM";
+    /** Client */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["CLIENT"] = 4] = "CLIENT";
+    /** Staff */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["STAFF"] = 1] = "STAFF";
+})(WlBusinessCustomTermsCustomTermSid || (WlBusinessCustomTermsCustomTermSid = {}));
 /** List of possible plans for CollectionsSubscription subscription. */
 export var WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid;
 (function (WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid) {
