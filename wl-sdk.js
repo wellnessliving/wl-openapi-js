@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260921104349
+ * Spec version: 1.1.20260922073143
  * Build date:   2026-09-22
  * Endpoints:    643
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260921104349';
+  WlClient.SPEC_VERSION = '1.1.20260922073143';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (643 total)
@@ -12366,6 +12366,8 @@
 
   /**
    * Saves answers for an existing appointment.
+   *
+   * Matches submitted answers to the service's questions by hash key, and saves them to the specified appointment.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_appointment Appointment key used to load or save question answers.
