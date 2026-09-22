@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260922074558
+// OpenAPI spec version: 1.1.20260922114910
 // Build date: 2026-09-22
 // Endpoints: 654
-// Enums: 212
+// Enums: 213
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (212 total) ---
+// --- Enum types (213 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -3945,6 +3945,10 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["IMPORT_CLIENT"] = 215] = "IMPORT_CLIENT";
     /** Set up and modify Autymate integration */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_AUTYMATE"] = 163] = "INTEGRATION_AUTYMATE";
+    /** Access to view Bridge Athletic integration */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_BRIDGE_ATHLETIC_ACCESS"] = 251] = "INTEGRATION_BRIDGE_ATHLETIC_ACCESS";
+    /** Access to set up and change Bridge Athletic integration */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_BRIDGE_ATHLETIC_MANAGE"] = 250] = "INTEGRATION_BRIDGE_ATHLETIC_MANAGE";
     /** Set up and modify Brivo integration */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_BRIVO"] = 179] = "INTEGRATION_BRIVO";
     /** Access to set up and change quickbooks integration */
@@ -5052,6 +5056,14 @@ export var WlBusinessAccountSubscriptionReviewReviewSubscriptionSid;
     /** Professional */
     WlBusinessAccountSubscriptionReviewReviewSubscriptionSid[WlBusinessAccountSubscriptionReviewReviewSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
 })(WlBusinessAccountSubscriptionReviewReviewSubscriptionSid || (WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = {}));
+/** List of possible plans for BridgeAthleticSubscription subscription. */
+export var WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid;
+(function (WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid) {
+    /** Free */
+    WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid[WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid["FREE"] = 2] = "FREE";
+    /** None */
+    WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid[WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid["NONE"] = 1] = "NONE";
+})(WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid || (WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid = {}));
 /** List of checks that are performed before session book. */
 export var WlBookProcessProcessCheckSid;
 (function (WlBookProcessProcessCheckSid) {

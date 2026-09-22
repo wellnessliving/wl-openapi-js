@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260922074558
+ * Spec version: 1.1.20260922114910
  * Build date:   2026-09-22
  * Endpoints:    654
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260922074558';
+  WlClient.SPEC_VERSION = '1.1.20260922114910';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (654 total)
@@ -14057,7 +14057,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (229 total)
+  // Enum constants (230 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -18478,6 +18478,10 @@
     IMPORT_CLIENT: 215,
     /** Set up and modify Autymate integration */
     INTEGRATION_AUTYMATE: 163,
+    /** Access to view Bridge Athletic integration */
+    INTEGRATION_BRIDGE_ATHLETIC_ACCESS: 251,
+    /** Access to set up and change Bridge Athletic integration */
+    INTEGRATION_BRIDGE_ATHLETIC_MANAGE: 250,
     /** Set up and modify Brivo integration */
     INTEGRATION_BRIVO: 179,
     /** Access to set up and change quickbooks integration */
@@ -19840,6 +19844,18 @@
     FREE: 1,
     /** Professional */
     PROFESSIONAL: 2,
+  });
+
+  /**
+   * List of possible plans for BridgeAthleticSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid = Object.freeze({
+    /** Free */
+    FREE: 2,
+    /** None */
+    NONE: 1,
   });
 
   /**
