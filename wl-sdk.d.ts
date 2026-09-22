@@ -17684,6 +17684,8 @@ export interface WlBillingBulkPurchaseItemListPostResponse {
             /** The client type title. */
             text_title: string;
         };
+        /** The same total as `m_total_tax` below, split by `k_tax` instead of collapsed into one aggregate. */
+        a_tax_by_name: Array<string>;
         /** The number of clients that paid by account. */
         i_pay_account: number;
         /** The number of clients that paid by card or ACH. */
