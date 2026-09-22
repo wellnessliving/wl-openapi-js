@@ -11385,10 +11385,14 @@ export interface WlBillingBulkPurchaseItemListPostResponse {
         };
         /** The list of clients that will be billed. Each element has the following structure: */
         a_client: {
+            /** A class for a list of card systems. @see ACardSystemSid */
+            id_card_system: ACardSystemSid;
             /** A list of payment methods. @see RsPayMethodSid */
             id_pay_method: RsPayMethodSid | null;
             /** `true` if the client has no default payment method on file, has no email on file while a receipt is */
             is_warning: boolean;
+            /** The masked card or account number of the client's default payment method, or `null` when */
+            s_number: string | null;
             /** The client email address. Empty string if the client has no email. */
             text_mail: string;
             /** The client full name. */
