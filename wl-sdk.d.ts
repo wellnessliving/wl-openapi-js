@@ -7700,6 +7700,8 @@ export interface WlEventEventListGetResponse {
         is_prorate: boolean;
         /** Whether class/event can be paid with single session. */
         is_single_buy: boolean;
+        /** `true` if the event is a ticketed event, `false` otherwise. */
+        is_ticket: boolean;
         /** Whether current user is booked or on the wait list. */
         is_user_booked: boolean;
         /** Whether event is virtual. */
@@ -14598,6 +14600,8 @@ export interface WlCatalogCatalogListElementResponse {
         id_duration_type: WlCouponEditDurationTypeSid;
         /** Whether to display individual prices for each item in the package. */
         is_price_breakdown: boolean;
+        /** This applies to enrollment/event items. */
+        is_ticket: boolean;
     };
     /** Information about promotion guest pass. Empty array if promotion does not have guest pass or */
     a_guest_pass: {
@@ -14685,6 +14689,8 @@ export interface WlCatalogCatalogListElementResponse {
             id_duration_type: WlCouponEditDurationTypeSid;
             /** Whether to display individual prices for each item in the package. */
             is_price_breakdown: boolean;
+            /** This applies to enrollment/event items. */
+            is_ticket: boolean;
         };
         /** Information about promotion guest pass. The same structure as {@link WlCatalogCatalogListElementR... */
         a_guest_pass: {
@@ -14830,6 +14836,8 @@ export interface WlCatalogCatalogListListResponse {
         is_direct: boolean;
         /** `true` if the item is an introductory offer, `false` otherwise. */
         is_introductory: boolean;
+        /** `true` if the item is a ticketed event, `false` otherwise. */
+        is_ticket: boolean;
         /** The item key. */
         k_id: string;
         /** The primary shop category key for this item entry. */
@@ -14859,6 +14867,8 @@ export interface WlCatalogCatalogListListResponse {
         is_direct: boolean;
         /** `true` if the item is an introductory offer, `false` otherwise. */
         is_introductory: boolean;
+        /** `true` if the item is a ticketed event, `false` otherwise. */
+        is_ticket: boolean;
         /** The item key. */
         k_id: string;
         /** The primary shop category key for this item entry. */
@@ -24957,6 +24967,8 @@ export interface WlCatalogStaffAppCatalogListCatalogListResponse {
         id_sale: RsSaleSid | null;
         /** Determines whether the sale item can be purchased by the client. */
         is_online_sell: boolean;
+        /** `true` if the sale item is a ticketed event, `false` otherwise. */
+        is_ticket: boolean;
         /** This will be `true` if this Purchase Option is suitable to pay for the visit {@link WlCatalogStaf... */
         is_visit: boolean;
         /** The sale item ID. */
@@ -25019,6 +25031,8 @@ export interface WlCatalogStaffAppCatalogViewCatalogViewResponse {
         /** The tax name. */
         s_tax: string;
     };
+    /** `true` if the sale item is a ticketed event, `false` otherwise. */
+    is_ticket: boolean;
     /** The prorated amount. */
     m_prorate: string;
     /** The amount of the sale item, excluding taxes. */
@@ -25276,6 +25290,8 @@ export interface WlScheduleScheduleListStaffAppScheduleListResponse {
         is_pay: boolean;
         /** For appointments: `true` if appointment is recurring; `false` otherwise. */
         is_repeat: boolean;
+        /** `true` if the session belongs to a ticketed event, `false` otherwise. */
+        is_ticket: boolean;
         /** The appointment key. */
         k_appointment: string;
         /** Confirmation date for appointment in MySQL format. Will be zero date + time in case appointment */
@@ -25402,6 +25418,8 @@ export interface WlScheduleScheduleListStaffAppScheduleListByTokenResponse {
         is_pay: boolean;
         /** For appointments: `true` if appointment is recurring; `false` otherwise. */
         is_repeat: boolean;
+        /** `true` if the session belongs to a ticketed event, `false` otherwise. */
+        is_ticket: boolean;
         /** The appointment key. */
         k_appointment: string;
         /** Confirmation date for appointment in MySQL format. Will be zero date + time in case appointment */
@@ -28764,6 +28782,8 @@ export interface WlEventBookEventViewElementResponse {
         is_past: boolean;
         /** `true` {@link WlEventBookEventViewElementResponse.a_business_policy} contains the custom policies... */
         is_policy_custom: boolean;
+        /** `true` if the event is a ticketed event; `false` otherwise. */
+        is_ticket: boolean;
         /** `true` if event is virtual; `false` otherwise. */
         is_virtual: boolean;
         /** Key of first event session. */
@@ -28945,6 +28965,8 @@ export interface WlEventBookEventViewElementResponse {
     is_prorate: boolean;
     /** Determines whether this event allows paying for a single session. */
     is_single_session_buy: boolean;
+    /** `true` if this event is a ticketed event, `false` otherwise. */
+    is_ticket: boolean;
     /** `true` if event is virtual; `false` otherwise. */
     is_virtual: boolean;
     /** The ID of the session which should be used to go to the booking wizard. */
@@ -28985,6 +29007,8 @@ export interface WlEventBookEventListListResponse {
     a_event: Array<string>;
     /** Event availability map. */
     a_event_available: Array<boolean>;
+    /** Ticketed event map. */
+    a_event_ticket: Array<boolean>;
     /** `true` if exist at least one virtual event */
     is_virtual_service: boolean;
 }

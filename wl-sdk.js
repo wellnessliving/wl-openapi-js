@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260922071135
+ * Spec version: 1.1.20260922074558
  * Build date:   2026-09-22
  * Endpoints:    654
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260922071135';
+  WlClient.SPEC_VERSION = '1.1.20260922074558';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (654 total)
@@ -11086,6 +11086,7 @@
    * @param {string} params.uid The ID of the user who performed the actions.
    * @returns {Promise<Object>} Response data.
    *  `a_tax_data` {Object} Contains information about calculated taxes.
+   *  `is_ticket` {boolean} `true` if the sale item is a ticketed event, `false` otherwise.
    *  `m_prorate` {string} The prorated amount.
    *  `m_subtotal` {string} The amount of the sale item, excluding taxes.
    *  `m_tax` {string} The calculated amount of tax.
@@ -12823,6 +12824,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_event` {string[]} A list of event identifiers.
    *  `a_event_available` {boolean[]} Event availability map.
+   *  `a_event_ticket` {boolean[]} Ticketed event map.
    *  `is_virtual_service` {boolean} `true` if exist at least one virtual event
    */
   WlClient.prototype.wlEventBookEventListList = function(params)
