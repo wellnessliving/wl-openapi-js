@@ -5357,6 +5357,44 @@ export interface WlPayProcessorStripeComStripeComPayInitResponse {
 }
 export type WlPayProcessorStripeComStripeComPaymentIntentCancelParams = Record<string, unknown>;
 export type WlPayProcessorStripeComStripeComPaymentIntentCancelResponse = Record<string, unknown>;
+export interface WlPayProcessorStripeComStripeComChargeParams {
+    /** ID of the currency. @see CoreLocaleCurrencySid */
+    id_currency: CoreLocaleCurrencySid;
+    /** ID of the actor. @see RsPayActorSid */
+    id_pay_actor: RsPayActorSid;
+    /** Key of the business. */
+    k_business: string;
+    /** Key of the business merchant to get the public key for. */
+    k_business_merchant: string;
+    /** Charge id to get data for. */
+    s_charge: string;
+    /** Payment owner user key. */
+    uid_purchase: string;
+}
+export interface WlPayProcessorStripeComStripeComChargeResponse {
+    /** Details about the payment method at the time of the transaction: */
+    o_payment_method_details: {
+        /** ID of a card payment method generated. */
+        s_generated_card_id: string;
+        /** Card brand, like visa or mastercard. */
+        text_brand: string;
+        /** The cardholder name as read from the card. */
+        text_cardholder_name: string;
+        /** Two-digit number representing the card's expiration month. */
+        text_exp_month: string;
+        /** Four-digit number representing the card's expiration year. */
+        text_exp_year: string;
+        /** Last four digits of the card number. */
+        text_last4: string;
+    };
+    /** ID of the payment method used in this charge. */
+    s_payment_method: string;
+}
+export type WlPayProcessorStripeComStripeComConnectionTokenParams = Record<string, unknown>;
+export interface WlPayProcessorStripeComStripeComConnectionTokenResponse {
+    /** Connection token secret key. */
+    s_secret: string;
+}
 export type WlPayProcessorCyberSourceCsPaSetupParams = Record<string, unknown>;
 export interface WlPayProcessorCyberSourceCsPaSetupResponse {
     /** Key of payment transaction that was created. */
@@ -5401,6 +5439,15 @@ export interface ThothPayProcessorNuveiNuveiOpenOrderResponse {
 }
 export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse = Record<string, unknown>;
+export type WlPayProcessorNuveiNuveiTransactionStartParams = Record<string, unknown>;
+export interface WlPayProcessorNuveiNuveiTransactionStartResponse {
+    /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
+    id_card_type: ThothWlPayBankCardCardTypeEnum;
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string | null;
+    /** Error message. */
+    text_message: string | null;
+}
 export type ThothPayProcessorNuveiNuveiTransactionCancelParams = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiTransactionCancelResponse = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiUpdateOrderParams = Record<string, unknown>;
@@ -5478,6 +5525,8 @@ export interface WlReportGeneratorQueryResponse {
     /** Text of an error message that occurred during generation of the report. */
     text_error: string;
 }
+export type WlPayBankPrimaryParams = Record<string, unknown>;
+export type WlPayBankPrimaryResponse = Record<string, unknown>;
 export interface WlPayAccountAccountParams {
     /** If `true`, information for the account's owner is returned. Clients can be configured to pay for ... */
     is_owner: boolean;
@@ -5828,7 +5877,7 @@ export interface WlPayAddressAddressResponse {
         is_selected: boolean;
         /** Country geo key. `null` if the country cannot be determined. */
         k_country: string | null;
-        /** Payment address key. Primary key in the `rs_pay_address` table. */
+        /** Payment address key. */
         k_pay_address: string;
         /** Region geo key. */
         k_region: string;
@@ -5879,6 +5928,43 @@ export interface WlPayAddressProfileResponse {
     s_street1: string | null;
     /** The second line of the client address. */
     s_street2: string | null;
+}
+export interface WlHardwareStripeComStripeComHardwareElementDeleteParams {
+    /** Business key. */
+    k_business: string;
+    /** Terminal key. */
+    k_terminal?: string | null;
+}
+export type WlHardwareStripeComStripeComHardwareElementDeleteResponse = Record<string, unknown>;
+export interface WlHardwareStripeComStripeComHardwareElementGetParams {
+    /** Business key. */
+    k_business: string;
+    /** Terminal key. */
+    k_terminal?: string | null;
+}
+export interface WlHardwareStripeComStripeComHardwareElementGetResponse {
+    /** Stripe device type of reader. @see ThothPayProcessorStripeComTerminalStripeReaderModelSid */
+    id_model: ThothPayProcessorStripeComTerminalStripeReaderModelSid;
+    /** List of possible status of readers. @see ThothPayProcessorTerminalTerminalStatusSid */
+    id_status: ThothPayProcessorTerminalTerminalStatusSid;
+    /** IP address of terminal. */
+    ip_terminal: string | null;
+    /** Location key. */
+    k_location: string;
+    /** Label of the terminal. */
+    text_label: string;
+    /** Location name. */
+    text_location: string | null;
+}
+export interface WlHardwareStripeComStripeComHardwareElementPostParams {
+    /** Business key. */
+    k_business: string;
+    /** Terminal key. */
+    k_terminal?: string | null;
+}
+export interface WlHardwareStripeComStripeComHardwareElementPostResponse {
+    /** Terminal key. */
+    k_terminal: string | null;
 }
 export interface CoreRequestExampleParams {
     /** Example argument. */
@@ -9364,6 +9450,8 @@ export interface WlAlertAlertListPostParams {
     k_business: string;
 }
 export type WlAlertAlertListPostResponse = Record<string, unknown>;
+export type ThothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoidParams = Record<string, unknown>;
+export type ThothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoidResponse = Record<string, unknown>;
 export interface WlPayBankCardListParams {
     /** ID of current business. */
     k_business: string;
@@ -21714,6 +21802,17 @@ export interface WlSocialShareSocialShareResponse {
     /** Secret key for access shared object. */
     s_secret: string;
 }
+export type ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartParams = Record<string, unknown>;
+export interface ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartResponse {
+    /** CS Response code class. @see ThothPayProcessorNuveiCodeCSResponseSid */
+    id_response: ThothPayProcessorNuveiCodeCSResponseSid | null;
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string | null;
+    /** The request exchange identification. */
+    s_exchange_identification: string;
+    /** Error message. */
+    text_message: string | null;
+}
 export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetParams {
     /** Report page CID. */
     cid_page: number;
@@ -21935,6 +22034,53 @@ export interface WlPayBankAchAddAddPostResponse {
         text_street1: string;
         /** Street address line 2. */
         text_street2: string;
+    };
+}
+export interface WlPayBankAchWidgetWidgetSelectParams {
+    /** Pay bank id. @see RsPayBankSid */
+    id_pay_bank: RsPayBankSid;
+    /** Payment method. @see RsPayMethodSid */
+    id_pay_method: RsPayMethodSid | null;
+    /** Payment owner kind. @see RsPayOwnerSid */
+    id_pay_owner: RsPayOwnerSid;
+    /** Business key. */
+    k_business: string;
+    /** Currency key. */
+    k_currency: string;
+    /** Payment owner. */
+    k_id: string;
+    /** Location key. */
+    k_location: string;
+}
+export interface WlPayBankAchWidgetWidgetSelectResponse {
+    /** List of saved bank accounts, keyed by bank account key. Each entry: */
+    a_pay_bank: {
+        /** Address key of the bank account. */
+        k_pay_address: string;
+        /** Bank account key. */
+        k_pay_bank: string;
+        /** Region key, or empty string if the address has no region. */
+        k_region: string;
+        /** Part of the bank account number. */
+        s_number: string;
+        /** Bank account nickname. */
+        s_name: string;
+        /** `true` if this is the default bank account, `false` otherwise. */
+        is_default: boolean;
+        /** Name of the account holder. */
+        text_name_holder: string;
+        /** City of the billing address. */
+        text_city: string;
+        /** Phone number of the billing address. */
+        text_phone: string;
+        /** Postal code of the billing address. */
+        text_postal: string;
+        /** First line of the billing street address. */
+        text_street1: string;
+        /** Second line of the billing street address. */
+        text_street2: string;
+        /** Region title. */
+        text_region: string;
     };
 }
 export type CoreRequestApiApplicationOriginDeleteParams = Record<string, unknown>;
@@ -30290,8 +30436,22 @@ export declare class ThothLayoutBeNamespace {
     readonly footer: ThothLayoutBeFooterNamespace;
     constructor(_client: WlClient);
 }
+export declare class ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Starts a payment transaction on a `Nuvei` POS terminal. */
+    nuveiTerminalTransactionStart(params?: ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartParams): Promise<ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartResponse>;
+}
+export declare class ThothPayProcessorNuveiTerminalNamespace {
+    private readonly _client;
+    readonly oMNIChannelApi: ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace;
+    constructor(_client: WlClient);
+    /** Cancels a payment made through a `Nuvei` omnichannel terminal. */
+    nuveiOmnichannelTerminalPaymentVoid(params?: ThothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoidParams): Promise<ThothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoidResponse>;
+}
 export declare class ThothPayProcessorNuveiNamespace {
     private readonly _client;
+    readonly terminal: ThothPayProcessorNuveiTerminalNamespace;
     constructor(_client: WlClient);
     /** Opens a `Nuvei` order for the payment transaction. */
     nuveiOpenOrder(params?: ThothPayProcessorNuveiNuveiOpenOrderParams): Promise<ThothPayProcessorNuveiNuveiOpenOrderResponse>;
@@ -30349,6 +30509,10 @@ export declare class WlPayProcessorStripeComNamespace {
     stripeComPayInit(params?: WlPayProcessorStripeComStripeComPayInitParams): Promise<WlPayProcessorStripeComStripeComPayInitResponse>;
     /** Cancels a `Stripe` Payment Intent. */
     stripeComPaymentIntentCancel(params?: WlPayProcessorStripeComStripeComPaymentIntentCancelParams): Promise<WlPayProcessorStripeComStripeComPaymentIntentCancelResponse>;
+    /** Gets Stripe charge information. */
+    stripeComCharge(params?: WlPayProcessorStripeComStripeComChargeParams): Promise<WlPayProcessorStripeComStripeComChargeResponse>;
+    /** Gets a secret from a connection token for the Stripe Terminal SDK. */
+    stripeComConnectionToken(params?: WlPayProcessorStripeComStripeComConnectionTokenParams): Promise<WlPayProcessorStripeComStripeComConnectionTokenResponse>;
 }
 export declare class WlPayProcessorCyberSourceNamespace {
     private readonly _client;
@@ -30362,11 +30526,76 @@ export declare class WlPayProcessorCyberSourceNamespace {
     /** Validates the `CyberSource` Payer Authentication result. */
     csPaValidate(params?: WlPayProcessorCyberSourceCsPaValidateParams): Promise<WlPayProcessorCyberSourceCsPaValidateResponse>;
 }
+export declare class WlPayProcessorNuveiNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Starts a `Nuvei` card authorization transaction for a purchase or a card verification. */
+    /** @deprecated */
+    nuveiTransactionStart(params?: WlPayProcessorNuveiNuveiTransactionStartParams): Promise<WlPayProcessorNuveiNuveiTransactionStartResponse>;
+}
 export declare class WlPayProcessorNamespace {
     private readonly _client;
     readonly stripeCom: WlPayProcessorStripeComNamespace;
     readonly cyberSource: WlPayProcessorCyberSourceNamespace;
+    readonly nuvei: WlPayProcessorNuveiNamespace;
     constructor(_client: WlClient);
+}
+export declare class WlPayBankCardAddNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Deletes saved card. */
+    addDelete(params?: WlPayBankCardAddAddDeleteParams): Promise<WlPayBankCardAddAddDeleteResponse>;
+    /** Gets code of bank card widget. */
+    /** @deprecated */
+    addGet(params?: WlPayBankCardAddAddGetParams): Promise<WlPayBankCardAddAddGetResponse>;
+    /** Saves new bank card. */
+    addPost(params?: WlPayBankCardAddAddPostParams): Promise<WlPayBankCardAddAddPostResponse>;
+}
+export declare class WlPayBankCardWidgetNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets a list of saved bank cards. */
+    widgetSelect(params?: WlPayBankCardWidgetWidgetSelectParams): Promise<WlPayBankCardWidgetWidgetSelectResponse>;
+}
+export declare class WlPayBankCardNamespace {
+    private readonly _client;
+    readonly add: WlPayBankCardAddNamespace;
+    readonly widget: WlPayBankCardWidgetNamespace;
+    constructor(_client: WlClient);
+    /** Retrieves information about user's bank cards. */
+    list(params?: WlPayBankCardListParams): Promise<WlPayBankCardListResponse>;
+}
+export declare class WlPayBankAchAddNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Deletes saved ACH. */
+    addDelete(params?: WlPayBankAchAddAddDeleteParams): Promise<WlPayBankAchAddAddDeleteResponse>;
+    /** Gets widget for ACH account add. */
+    addGet(params?: WlPayBankAchAddAddGetParams): Promise<WlPayBankAchAddAddGetResponse>;
+    /** Saves new ACH pay method. */
+    addPost(params?: WlPayBankAchAddAddPostParams): Promise<WlPayBankAchAddAddPostResponse>;
+}
+export declare class WlPayBankAchWidgetNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets a list of saved bank account. */
+    widgetSelect(params?: WlPayBankAchWidgetWidgetSelectParams): Promise<WlPayBankAchWidgetWidgetSelectResponse>;
+}
+export declare class WlPayBankAchNamespace {
+    private readonly _client;
+    readonly add: WlPayBankAchAddNamespace;
+    readonly widget: WlPayBankAchWidgetNamespace;
+    constructor(_client: WlClient);
+    /** Retrieves information about user's ACH accounts. */
+    list(params?: WlPayBankAchListParams): Promise<WlPayBankAchListResponse>;
+}
+export declare class WlPayBankNamespace {
+    private readonly _client;
+    readonly card: WlPayBankCardNamespace;
+    readonly ach: WlPayBankAchNamespace;
+    constructor(_client: WlClient);
+    /** Sets a specified payment method as default. */
+    primary(params?: WlPayBankPrimaryParams): Promise<WlPayBankPrimaryResponse>;
 }
 export declare class WlPayAccountChargeNamespace {
     private readonly _client;
@@ -30417,54 +30646,6 @@ export declare class WlPayAddressNamespace {
     /** Returns default payment address data that is retrieved from user profile. */
     profile(params?: WlPayAddressProfileParams): Promise<WlPayAddressProfileResponse>;
 }
-export declare class WlPayBankCardAddNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Deletes saved card. */
-    addDelete(params?: WlPayBankCardAddAddDeleteParams): Promise<WlPayBankCardAddAddDeleteResponse>;
-    /** Gets code of bank card widget. */
-    /** @deprecated */
-    addGet(params?: WlPayBankCardAddAddGetParams): Promise<WlPayBankCardAddAddGetResponse>;
-    /** Saves new bank card. */
-    addPost(params?: WlPayBankCardAddAddPostParams): Promise<WlPayBankCardAddAddPostResponse>;
-}
-export declare class WlPayBankCardWidgetNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets a list of saved bank cards. */
-    widgetSelect(params?: WlPayBankCardWidgetWidgetSelectParams): Promise<WlPayBankCardWidgetWidgetSelectResponse>;
-}
-export declare class WlPayBankCardNamespace {
-    private readonly _client;
-    readonly add: WlPayBankCardAddNamespace;
-    readonly widget: WlPayBankCardWidgetNamespace;
-    constructor(_client: WlClient);
-    /** Retrieves information about user's bank cards. */
-    list(params?: WlPayBankCardListParams): Promise<WlPayBankCardListResponse>;
-}
-export declare class WlPayBankAchAddNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Deletes saved ACH. */
-    addDelete(params?: WlPayBankAchAddAddDeleteParams): Promise<WlPayBankAchAddAddDeleteResponse>;
-    /** Gets widget for ACH account add. */
-    addGet(params?: WlPayBankAchAddAddGetParams): Promise<WlPayBankAchAddAddGetResponse>;
-    /** Saves new ACH pay method. */
-    addPost(params?: WlPayBankAchAddAddPostParams): Promise<WlPayBankAchAddAddPostResponse>;
-}
-export declare class WlPayBankAchNamespace {
-    private readonly _client;
-    readonly add: WlPayBankAchAddNamespace;
-    constructor(_client: WlClient);
-    /** Retrieves information about user's ACH accounts. */
-    list(params?: WlPayBankAchListParams): Promise<WlPayBankAchListResponse>;
-}
-export declare class WlPayBankNamespace {
-    private readonly _client;
-    readonly card: WlPayBankCardNamespace;
-    readonly ach: WlPayBankAchNamespace;
-    constructor(_client: WlClient);
-}
 export declare class WlPayTransactionReportNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -30479,12 +30660,12 @@ export declare class WlPayTransactionNamespace {
 export declare class WlPayNamespace {
     private readonly _client;
     readonly processor: WlPayProcessorNamespace;
+    readonly bank: WlPayBankNamespace;
     readonly account: WlPayAccountNamespace;
     readonly form: WlPayFormNamespace;
     readonly owner: WlPayOwnerNamespace;
     readonly method: WlPayMethodNamespace;
     readonly address: WlPayAddressNamespace;
-    readonly bank: WlPayBankNamespace;
     readonly transaction: WlPayTransactionNamespace;
     constructor(_client: WlClient);
 }
@@ -30544,6 +30725,21 @@ export declare class WlReportNamespace {
     pageData(params?: WlReportPageDataParams): Promise<WlReportPageDataResponse>;
     /** Checks access to given report. */
     access(params?: WlReportAccessParams): Promise<WlReportAccessResponse>;
+}
+export declare class WlHardwareStripeComNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Removes terminal. */
+    stripeComHardwareElementDelete(params?: WlHardwareStripeComStripeComHardwareElementDeleteParams): Promise<WlHardwareStripeComStripeComHardwareElementDeleteResponse>;
+    /** Fetch terminal information. */
+    stripeComHardwareElementGet(params?: WlHardwareStripeComStripeComHardwareElementGetParams): Promise<WlHardwareStripeComStripeComHardwareElementGetResponse>;
+    /** Creates terminal. */
+    stripeComHardwareElementPost(params?: WlHardwareStripeComStripeComHardwareElementPostParams): Promise<WlHardwareStripeComStripeComHardwareElementPostResponse>;
+}
+export declare class WlHardwareNamespace {
+    private readonly _client;
+    readonly stripeCom: WlHardwareStripeComNamespace;
+    constructor(_client: WlClient);
 }
 export declare class WlProfileAttendanceScheduleFrontendNamespace {
     private readonly _client;
@@ -33278,6 +33474,7 @@ export declare class WlNamespace {
     private readonly _client;
     readonly pay: WlPayNamespace;
     readonly report: WlReportNamespace;
+    readonly hardware: WlHardwareNamespace;
     readonly profile: WlProfileNamespace;
     readonly session: WlSessionNamespace;
     readonly quiz: WlQuizNamespace;

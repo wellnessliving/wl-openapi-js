@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260923044157
+// OpenAPI spec version: 1.1.20260923055311
 // Build date: 2026-09-23
-// Endpoints: 643
+// Endpoints: 653
 // Enums: 211
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -5505,9 +5505,29 @@ export class ThothLayoutBeNamespace {
         this.footer = new ThothLayoutBeFooterNamespace(this._client);
     }
 }
+export class ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Starts a payment transaction on a `Nuvei` POS terminal. */
+    nuveiTerminalTransactionStart(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/Terminal/OMNIChannelApi/NuveiTerminalTransactionStart.json', params, 'POST');
+    }
+}
+export class ThothPayProcessorNuveiTerminalNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.oMNIChannelApi = new ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace(this._client);
+    }
+    /** Cancels a payment made through a `Nuvei` omnichannel terminal. */
+    nuveiOmnichannelTerminalPaymentVoid(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/Terminal/NuveiOmnichannelTerminalPaymentVoid.json', params, 'POST');
+    }
+}
 export class ThothPayProcessorNuveiNamespace {
     constructor(_client) {
         this._client = _client;
+        this.terminal = new ThothPayProcessorNuveiTerminalNamespace(this._client);
     }
     /** Opens a `Nuvei` order for the payment transaction. */
     nuveiOpenOrder(params) {
@@ -5592,6 +5612,14 @@ export class WlPayProcessorStripeComNamespace {
     stripeComPaymentIntentCancel(params) {
         return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPaymentIntentCancel.json', params, 'POST');
     }
+    /** Gets Stripe charge information. */
+    stripeComCharge(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComCharge.json', params, 'GET');
+    }
+    /** Gets a secret from a connection token for the Stripe Terminal SDK. */
+    stripeComConnectionToken(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComConnectionToken.json', params, 'POST');
+    }
 }
 export class WlPayProcessorCyberSourceNamespace {
     constructor(_client) {
@@ -5614,11 +5642,108 @@ export class WlPayProcessorCyberSourceNamespace {
         return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaValidate.json', params, 'POST');
     }
 }
+export class WlPayProcessorNuveiNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Starts a `Nuvei` card authorization transaction for a purchase or a card verification. */
+    /** @deprecated */
+    nuveiTransactionStart(params) {
+        return this._client._request('/Wl/Pay/Processor/Nuvei/NuveiTransactionStart.json', params, 'POST');
+    }
+}
 export class WlPayProcessorNamespace {
     constructor(_client) {
         this._client = _client;
         this.stripeCom = new WlPayProcessorStripeComNamespace(this._client);
         this.cyberSource = new WlPayProcessorCyberSourceNamespace(this._client);
+        this.nuvei = new WlPayProcessorNuveiNamespace(this._client);
+    }
+}
+export class WlPayBankCardAddNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes saved card. */
+    addDelete(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'DELETE');
+    }
+    /** Gets code of bank card widget. */
+    /** @deprecated */
+    addGet(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'GET');
+    }
+    /** Saves new bank card. */
+    addPost(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'POST');
+    }
+}
+export class WlPayBankCardWidgetNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a list of saved bank cards. */
+    widgetSelect(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Widget/WidgetSelect.json', params, 'GET');
+    }
+}
+export class WlPayBankCardNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.add = new WlPayBankCardAddNamespace(this._client);
+        this.widget = new WlPayBankCardWidgetNamespace(this._client);
+    }
+    /** Retrieves information about user's bank cards. */
+    list(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/List.json', params, 'GET');
+    }
+}
+export class WlPayBankAchAddNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes saved ACH. */
+    addDelete(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'DELETE');
+    }
+    /** Gets widget for ACH account add. */
+    addGet(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'GET');
+    }
+    /** Saves new ACH pay method. */
+    addPost(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'POST');
+    }
+}
+export class WlPayBankAchWidgetNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a list of saved bank account. */
+    widgetSelect(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/Widget/WidgetSelect.json', params, 'GET');
+    }
+}
+export class WlPayBankAchNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.add = new WlPayBankAchAddNamespace(this._client);
+        this.widget = new WlPayBankAchWidgetNamespace(this._client);
+    }
+    /** Retrieves information about user's ACH accounts. */
+    list(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/List.json', params, 'GET');
+    }
+}
+export class WlPayBankNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.card = new WlPayBankCardNamespace(this._client);
+        this.ach = new WlPayBankAchNamespace(this._client);
+    }
+    /** Sets a specified payment method as default. */
+    primary(params) {
+        return this._client._request('/Wl/Pay/Bank/Primary.json', params, 'PUT');
     }
 }
 export class WlPayAccountChargeNamespace {
@@ -5695,78 +5820,6 @@ export class WlPayAddressNamespace {
         return this._client._request('/Wl/Pay/Address/Profile.json', params, 'GET');
     }
 }
-export class WlPayBankCardAddNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Deletes saved card. */
-    addDelete(params) {
-        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'DELETE');
-    }
-    /** Gets code of bank card widget. */
-    /** @deprecated */
-    addGet(params) {
-        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'GET');
-    }
-    /** Saves new bank card. */
-    addPost(params) {
-        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'POST');
-    }
-}
-export class WlPayBankCardWidgetNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets a list of saved bank cards. */
-    widgetSelect(params) {
-        return this._client._request('/Wl/Pay/Bank/Card/Widget/WidgetSelect.json', params, 'GET');
-    }
-}
-export class WlPayBankCardNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.add = new WlPayBankCardAddNamespace(this._client);
-        this.widget = new WlPayBankCardWidgetNamespace(this._client);
-    }
-    /** Retrieves information about user's bank cards. */
-    list(params) {
-        return this._client._request('/Wl/Pay/Bank/Card/List.json', params, 'GET');
-    }
-}
-export class WlPayBankAchAddNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Deletes saved ACH. */
-    addDelete(params) {
-        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'DELETE');
-    }
-    /** Gets widget for ACH account add. */
-    addGet(params) {
-        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'GET');
-    }
-    /** Saves new ACH pay method. */
-    addPost(params) {
-        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'POST');
-    }
-}
-export class WlPayBankAchNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.add = new WlPayBankAchAddNamespace(this._client);
-    }
-    /** Retrieves information about user's ACH accounts. */
-    list(params) {
-        return this._client._request('/Wl/Pay/Bank/Ach/List.json', params, 'GET');
-    }
-}
-export class WlPayBankNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.card = new WlPayBankCardNamespace(this._client);
-        this.ach = new WlPayBankAchNamespace(this._client);
-    }
-}
 export class WlPayTransactionReportNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5786,12 +5839,12 @@ export class WlPayNamespace {
     constructor(_client) {
         this._client = _client;
         this.processor = new WlPayProcessorNamespace(this._client);
+        this.bank = new WlPayBankNamespace(this._client);
         this.account = new WlPayAccountNamespace(this._client);
         this.form = new WlPayFormNamespace(this._client);
         this.owner = new WlPayOwnerNamespace(this._client);
         this.method = new WlPayMethodNamespace(this._client);
         this.address = new WlPayAddressNamespace(this._client);
-        this.bank = new WlPayBankNamespace(this._client);
         this.transaction = new WlPayTransactionNamespace(this._client);
     }
 }
@@ -5884,6 +5937,29 @@ export class WlReportNamespace {
     /** Checks access to given report. */
     access(params) {
         return this._client._request('/Wl/Report/Access.json', params, 'GET');
+    }
+}
+export class WlHardwareStripeComNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes terminal. */
+    stripeComHardwareElementDelete(params) {
+        return this._client._request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params, 'DELETE');
+    }
+    /** Fetch terminal information. */
+    stripeComHardwareElementGet(params) {
+        return this._client._request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params, 'GET');
+    }
+    /** Creates terminal. */
+    stripeComHardwareElementPost(params) {
+        return this._client._request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params, 'POST');
+    }
+}
+export class WlHardwareNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.stripeCom = new WlHardwareStripeComNamespace(this._client);
     }
 }
 export class WlProfileAttendanceScheduleFrontendNamespace {
@@ -10046,6 +10122,7 @@ export class WlNamespace {
         this._client = _client;
         this.pay = new WlPayNamespace(this._client);
         this.report = new WlReportNamespace(this._client);
+        this.hardware = new WlHardwareNamespace(this._client);
         this.profile = new WlProfileNamespace(this._client);
         this.session = new WlSessionNamespace(this._client);
         this.quiz = new WlQuizNamespace(this._client);
