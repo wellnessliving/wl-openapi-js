@@ -12242,6 +12242,16 @@ export interface WlProfileEditEditGetResponse {
     a_structure: Array<{
         /** List of general fields in user's profile. @see RsFieldGeneralSid */
         id_field_general?: RsFieldGeneralSid;
+        /** Requirement for a case when a client books a service. One of FieldLevelEnum members. */
+        id_level_booking: number;
+        /** Requirement for a case when a guest books or buys. One of FieldLevelEnum members. */
+        id_level_guest: number;
+        /** Requirement for a case when a client makes a purchase. One of FieldLevelEnum members. */
+        id_level_purchase: number;
+        /** Requirement for a case when a client adds a relationship. One of FieldLevelEnum members. */
+        id_level_relationship: number;
+        /** Requirement for a case when a client signs up. One of FieldLevelEnum members. */
+        id_level_signup: number;
         /** Indicates whether the value of this field is required. This will be `1` if required or `0` if the... */
         is_require: boolean;
         /** Possible types of the custom fields: text, checkbox, radio buttons, etc. @see RsFieldTypeSid */
@@ -12376,6 +12386,16 @@ export interface WlProfileEditEditByTokenGetResponse {
     a_structure: Array<{
         /** List of general fields in user's profile. @see RsFieldGeneralSid */
         id_field_general?: RsFieldGeneralSid;
+        /** Requirement for a case when a client books a service. One of FieldLevelEnum members. */
+        id_level_booking: number;
+        /** Requirement for a case when a guest books or buys. One of FieldLevelEnum members. */
+        id_level_guest: number;
+        /** Requirement for a case when a client makes a purchase. One of FieldLevelEnum members. */
+        id_level_purchase: number;
+        /** Requirement for a case when a client adds a relationship. One of FieldLevelEnum members. */
+        id_level_relationship: number;
+        /** Requirement for a case when a client signs up. One of FieldLevelEnum members. */
+        id_level_signup: number;
         /** Indicates whether the value of this field is required. This will be `1` if required or `0` if the... */
         is_require: boolean;
         /** Possible types of the custom fields: text, checkbox, radio buttons, etc. @see RsFieldTypeSid */
