@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — production channel
-// OpenAPI spec version: 1.1.20260923030755
+// OpenAPI spec version: 1.1.20260923062616
 // Build date: 2026-09-23
-// Endpoints: 530
+// Endpoints: 540
 // Enums: 199
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -90,6 +90,28 @@ export var RsHomeTourSid;
     /** Zumba */
     RsHomeTourSid[RsHomeTourSid["ZUMBA"] = 27] = "ZUMBA";
 })(RsHomeTourSid || (RsHomeTourSid = {}));
+/** Stripe device type of reader. */
+export var ThothPayProcessorStripeComTerminalStripeReaderModelSid;
+(function (ThothPayProcessorStripeComTerminalStripeReaderModelSid) {
+    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPAD3"] = 1] = "BBPOS_WISEPAD3";
+    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPOS_E"] = 4] = "BBPOS_WISEPOS_E";
+    /** SIMULATED Wise POS E */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["SIMULATED_WISEPOS_E"] = 6] = "SIMULATED_WISEPOS_E";
+    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["STRIPE_M2"] = 2] = "STRIPE_M2";
+})(ThothPayProcessorStripeComTerminalStripeReaderModelSid || (ThothPayProcessorStripeComTerminalStripeReaderModelSid = {}));
+/** List of possible status of readers. */
+export var ThothPayProcessorTerminalTerminalStatusSid;
+(function (ThothPayProcessorTerminalTerminalStatusSid) {
+    /** Status active */
+    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["ACTIVE"] = 1] = "ACTIVE";
+    /** Status inactive */
+    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["INACTIVE"] = 2] = "INACTIVE";
+    /** Status setup, reader is active but not added to stripe yet */
+    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["SETUP"] = 3] = "SETUP";
+})(ThothPayProcessorTerminalTerminalStatusSid || (ThothPayProcessorTerminalTerminalStatusSid = {}));
 /** Payment actors (staff member, user or business owner). */
 export var RsPayActorSid;
 (function (RsPayActorSid) {
@@ -258,16 +280,6 @@ export var ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid;
     /** Verifone V400m reader */
     ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V400_M"] = 6] = "V400_M";
 })(ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid || (ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = {}));
-/** List of possible status of readers. */
-export var ThothPayProcessorTerminalTerminalStatusSid;
-(function (ThothPayProcessorTerminalTerminalStatusSid) {
-    /** Status active */
-    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["ACTIVE"] = 1] = "ACTIVE";
-    /** Status inactive */
-    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["INACTIVE"] = 2] = "INACTIVE";
-    /** Status setup, reader is active but not added to stripe yet */
-    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["SETUP"] = 3] = "SETUP";
-})(ThothPayProcessorTerminalTerminalStatusSid || (ThothPayProcessorTerminalTerminalStatusSid = {}));
 /** List of supported terminal interaction types. */
 export var ThothPayProcessorTerminalTerminalTypeSid;
 (function (ThothPayProcessorTerminalTerminalTypeSid) {
@@ -312,18 +324,6 @@ export var ThothWlPayCordovaCordovaCcrDeviceSid;
     /** Virtual device for testing purposes */
     ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["VIRTUAL"] = 10] = "VIRTUAL";
 })(ThothWlPayCordovaCordovaCcrDeviceSid || (ThothWlPayCordovaCordovaCcrDeviceSid = {}));
-/** Stripe device type of reader. */
-export var ThothPayProcessorStripeComTerminalStripeReaderModelSid;
-(function (ThothPayProcessorStripeComTerminalStripeReaderModelSid) {
-    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
-    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPAD3"] = 1] = "BBPOS_WISEPAD3";
-    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
-    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPOS_E"] = 4] = "BBPOS_WISEPOS_E";
-    /** SIMULATED Wise POS E */
-    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["SIMULATED_WISEPOS_E"] = 6] = "SIMULATED_WISEPOS_E";
-    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
-    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["STRIPE_M2"] = 2] = "STRIPE_M2";
-})(ThothPayProcessorStripeComTerminalStripeReaderModelSid || (ThothPayProcessorStripeComTerminalStripeReaderModelSid = {}));
 /** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
 export var ThothPayProcessorStripeComTerminalStripeTerminalTypeSid;
 (function (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid) {
@@ -5248,9 +5248,29 @@ export class ThothExplorerSearchNamespace {
         this.classSession = new ThothExplorerSearchClassSessionNamespace(this._client);
     }
 }
+export class ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Starts a payment transaction on a `Nuvei` POS terminal. */
+    nuveiTerminalTransactionStart(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/Terminal/OMNIChannelApi/NuveiTerminalTransactionStart.json', params, 'POST');
+    }
+}
+export class ThothPayProcessorNuveiTerminalNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.oMNIChannelApi = new ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace(this._client);
+    }
+    /** Cancels a payment made through a `Nuvei` omnichannel terminal. */
+    nuveiOmnichannelTerminalPaymentVoid(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/Terminal/NuveiOmnichannelTerminalPaymentVoid.json', params, 'POST');
+    }
+}
 export class ThothPayProcessorNuveiNamespace {
     constructor(_client) {
         this._client = _client;
+        this.terminal = new ThothPayProcessorNuveiTerminalNamespace(this._client);
     }
     /** Opens a `Nuvei` order for the payment transaction. */
     nuveiOpenOrder(params) {
@@ -5312,6 +5332,29 @@ export class ThothNamespace {
         this.reportCore = new ThothReportCoreNamespace(this._client);
     }
 }
+export class WlHardwareStripeComNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes terminal. */
+    stripeComHardwareElementDelete(params) {
+        return this._client._request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params, 'DELETE');
+    }
+    /** Fetch terminal information. */
+    stripeComHardwareElementGet(params) {
+        return this._client._request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params, 'GET');
+    }
+    /** Creates terminal. */
+    stripeComHardwareElementPost(params) {
+        return this._client._request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params, 'POST');
+    }
+}
+export class WlHardwareNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.stripeCom = new WlHardwareStripeComNamespace(this._client);
+    }
+}
 export class WlPayProcessorStripeComNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5331,6 +5374,14 @@ export class WlPayProcessorStripeComNamespace {
     /** Cancels a `Stripe` Payment Intent. */
     stripeComPaymentIntentCancel(params) {
         return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPaymentIntentCancel.json', params, 'POST');
+    }
+    /** Gets Stripe charge information. */
+    stripeComCharge(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComCharge.json', params, 'GET');
+    }
+    /** Gets a secret from a connection token for the Stripe Terminal SDK. */
+    stripeComConnectionToken(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComConnectionToken.json', params, 'POST');
     }
 }
 export class WlPayProcessorCyberSourceNamespace {
@@ -5354,11 +5405,22 @@ export class WlPayProcessorCyberSourceNamespace {
         return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaValidate.json', params, 'POST');
     }
 }
+export class WlPayProcessorNuveiNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Starts a `Nuvei` card authorization transaction for a purchase or a card verification. */
+    /** @deprecated */
+    nuveiTransactionStart(params) {
+        return this._client._request('/Wl/Pay/Processor/Nuvei/NuveiTransactionStart.json', params, 'POST');
+    }
+}
 export class WlPayProcessorNamespace {
     constructor(_client) {
         this._client = _client;
         this.stripeCom = new WlPayProcessorStripeComNamespace(this._client);
         this.cyberSource = new WlPayProcessorCyberSourceNamespace(this._client);
+        this.nuvei = new WlPayProcessorNuveiNamespace(this._client);
     }
 }
 export class WlPayAccountChargeNamespace {
@@ -5378,61 +5440,6 @@ export class WlPayAccountNamespace {
     /** Retrieves information about accounts of given user in given business. */
     account(params) {
         return this._client._request('/Wl/Pay/Account/Account.json', params, 'GET');
-    }
-}
-export class WlPayFormNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns information about payment environment. */
-    /** @deprecated */
-    environment(params) {
-        return this._client._request('/Wl/Pay/Form/Environment.json', params, 'GET');
-    }
-    /** Returns information about payment environment. */
-    environmentUser(params) {
-        return this._client._request('/Wl/Pay/Form/EnvironmentUser.json', params, 'GET');
-    }
-}
-export class WlPayOwnerNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns information about payment owner. */
-    owner(params) {
-        return this._client._request('/Wl/Pay/Owner/Owner.json', params, 'GET');
-    }
-}
-export class WlPayMethodNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns list of active payment methods data. */
-    list(params) {
-        return this._client._request('/Wl/Pay/Method/List.json', params, 'GET');
-    }
-}
-export class WlPayAddressWidgetNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets data for "edit payment address" widget. */
-    widgetEdit(params) {
-        return this._client._request('/Wl/Pay/Address/Widget/WidgetEdit.json', params, 'GET');
-    }
-}
-export class WlPayAddressNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.widget = new WlPayAddressWidgetNamespace(this._client);
-    }
-    /** Gets user's payment addresses information. */
-    address(params) {
-        return this._client._request('/Wl/Pay/Address/Address.json', params, 'GET');
-    }
-    /** Returns default payment address data that is retrieved from user profile. */
-    profile(params) {
-        return this._client._request('/Wl/Pay/Address/Profile.json', params, 'GET');
     }
 }
 export class WlPayBankCardAddNamespace {
@@ -5490,10 +5497,20 @@ export class WlPayBankAchAddNamespace {
         return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'POST');
     }
 }
+export class WlPayBankAchWidgetNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a list of saved bank account. */
+    widgetSelect(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/Widget/WidgetSelect.json', params, 'GET');
+    }
+}
 export class WlPayBankAchNamespace {
     constructor(_client) {
         this._client = _client;
         this.add = new WlPayBankAchAddNamespace(this._client);
+        this.widget = new WlPayBankAchWidgetNamespace(this._client);
     }
     /** Retrieves information about user's ACH accounts. */
     list(params) {
@@ -5505,6 +5522,65 @@ export class WlPayBankNamespace {
         this._client = _client;
         this.card = new WlPayBankCardNamespace(this._client);
         this.ach = new WlPayBankAchNamespace(this._client);
+    }
+    /** Sets a specified payment method as default. */
+    primary(params) {
+        return this._client._request('/Wl/Pay/Bank/Primary.json', params, 'PUT');
+    }
+}
+export class WlPayFormNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns information about payment environment. */
+    /** @deprecated */
+    environment(params) {
+        return this._client._request('/Wl/Pay/Form/Environment.json', params, 'GET');
+    }
+    /** Returns information about payment environment. */
+    environmentUser(params) {
+        return this._client._request('/Wl/Pay/Form/EnvironmentUser.json', params, 'GET');
+    }
+}
+export class WlPayOwnerNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns information about payment owner. */
+    owner(params) {
+        return this._client._request('/Wl/Pay/Owner/Owner.json', params, 'GET');
+    }
+}
+export class WlPayMethodNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns list of active payment methods data. */
+    list(params) {
+        return this._client._request('/Wl/Pay/Method/List.json', params, 'GET');
+    }
+}
+export class WlPayAddressWidgetNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets data for "edit payment address" widget. */
+    widgetEdit(params) {
+        return this._client._request('/Wl/Pay/Address/Widget/WidgetEdit.json', params, 'GET');
+    }
+}
+export class WlPayAddressNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.widget = new WlPayAddressWidgetNamespace(this._client);
+    }
+    /** Gets user's payment addresses information. */
+    address(params) {
+        return this._client._request('/Wl/Pay/Address/Address.json', params, 'GET');
+    }
+    /** Returns default payment address data that is retrieved from user profile. */
+    profile(params) {
+        return this._client._request('/Wl/Pay/Address/Profile.json', params, 'GET');
     }
 }
 export class WlPayTransactionReportNamespace {
@@ -5527,11 +5603,11 @@ export class WlPayNamespace {
         this._client = _client;
         this.processor = new WlPayProcessorNamespace(this._client);
         this.account = new WlPayAccountNamespace(this._client);
+        this.bank = new WlPayBankNamespace(this._client);
         this.form = new WlPayFormNamespace(this._client);
         this.owner = new WlPayOwnerNamespace(this._client);
         this.method = new WlPayMethodNamespace(this._client);
         this.address = new WlPayAddressNamespace(this._client);
-        this.bank = new WlPayBankNamespace(this._client);
         this.transaction = new WlPayTransactionNamespace(this._client);
     }
 }
@@ -8903,6 +8979,7 @@ export class WlSocialNamespace {
 export class WlNamespace {
     constructor(_client) {
         this._client = _client;
+        this.hardware = new WlHardwareNamespace(this._client);
         this.pay = new WlPayNamespace(this._client);
         this.report = new WlReportNamespace(this._client);
         this.mail = new WlMailNamespace(this._client);

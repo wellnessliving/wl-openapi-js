@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20260923030755
+ * Spec version: 1.1.20260923062616
  * Build date:   2026-09-23
- * Endpoints:    530
+ * Endpoints:    540
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/production/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260923030755';
+  WlClient.SPEC_VERSION = '1.1.20260923062616';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (530 total)
+  // Generated API methods (540 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -243,6 +243,61 @@
   WlClient.prototype.thothExplorerSearchClassSessionClassSessionSearch = function(params)
   {
     return this.request('/Thoth/ExplorerSearch/ClassSession/ClassSessionSearch.json', params || {}, 'GET');
+  };
+
+  /**
+   * Removes terminal.
+   *
+   * Validates the business, the terminal key, and the current user's access to hardware management, then
+   * permanently removes the terminal record for the payment processor.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {?string} [params.k_terminal] Terminal key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlHardwareStripeComStripeComHardwareElementDelete = function(params)
+  {
+    return this.request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Fetch terminal information.
+   *
+   * Validates the business, the terminal key, and the current user's access to hardware management, then
+   * returns the current terminal data for the payment processor.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {?string} [params.k_terminal] Terminal key.
+   * @returns {Promise<Object>} Response data.
+   *  `id_model` {number} Stripe device type of reader. See {@link WlClient.ThothPayProcessorStripeComTerminalStripeReaderModelSid}.
+   *  `id_status` {number} List of possible status of readers. See {@link WlClient.ThothPayProcessorTerminalTerminalStatusSid}.
+   *  `ip_terminal` {?string} IP address of terminal.
+   *  `k_location` {string} Location key.
+   *  `text_label` {string} Label of the terminal.
+   *  `text_location` {?string} Location name.
+   */
+  WlClient.prototype.wlHardwareStripeComStripeComHardwareElementGet = function(params)
+  {
+    return this.request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params || {}, 'GET');
+  };
+
+  /**
+   * Creates terminal.
+   *
+   * Creates a new `stripe.com` terminal reader when no terminal key is provided, or updates the status,
+   * terminal ID, and label of an existing terminal identified by the terminal key.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {?string} [params.k_terminal] Terminal key.
+   * @returns {Promise<Object>} Response data.
+   *  `k_terminal` {?string} Terminal key.
+   */
+  WlClient.prototype.wlHardwareStripeComStripeComHardwareElementPost = function(params)
+  {
+    return this.request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params || {}, 'POST');
   };
 
   /**
@@ -311,6 +366,44 @@
   WlClient.prototype.wlPayProcessorStripeComStripeComPaymentIntentCancel = function(params)
   {
     return this.request('/Wl/Pay/Processor/StripeCom/StripeComPaymentIntentCancel.json', params || {}, 'POST');
+  };
+
+  /**
+   * Gets Stripe charge information.
+   *
+   * Validates the business merchant and payer, retrieves the charge from Stripe by its charge id,
+   * and returns the payment method used along with the payment method details captured at the time
+   * of the transaction.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.id_currency ID of the currency. See {@link WlClient.CoreLocaleCurrencySid}.
+   * @param {number} params.id_pay_actor ID of the actor. See {@link WlClient.RsPayActorSid}.
+   * @param {string} params.k_business Key of the business.
+   * @param {string} params.k_business_merchant Key of the business merchant to get the public key for.
+   * @param {string} params.s_charge Charge id to get data for.
+   * @param {string} params.uid_purchase Payment owner user key.
+   * @returns {Promise<Object>} Response data.
+   *  `o_payment_method_details` {Object} Details about the payment method at the time of the transaction:
+   *  `s_payment_method` {string} ID of the payment method used in this charge.
+   */
+  WlClient.prototype.wlPayProcessorStripeComStripeComCharge = function(params)
+  {
+    return this.request('/Wl/Pay/Processor/StripeCom/StripeComCharge.json', params || {}, 'GET');
+  };
+
+  /**
+   * Gets a secret from a connection token for the Stripe Terminal SDK.
+   *
+   * Validates the business merchant, the payer, and that the currency supports point-of-sale payments, then
+   * creates a Stripe Terminal connection token, optionally scoped to the given location, and returns its secret.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `s_secret` {string} Connection token secret key.
+   */
+  WlClient.prototype.wlPayProcessorStripeComStripeComConnectionToken = function(params)
+  {
+    return this.request('/Wl/Pay/Processor/StripeCom/StripeComConnectionToken.json', params || {}, 'POST');
   };
 
   /**
@@ -415,6 +508,28 @@
   };
 
   /**
+   * Starts a `Nuvei` card authorization transaction for a purchase or a card verification.
+   *
+   * Validates the submitted card form (either a new card or a previously stored one), creates a
+   *  pending pay transaction, obtains a `Nuvei` session token, and requests the card
+   *  authorization or, when only verifying the card, a zero-amount authorization. On success,
+   *  stores a `Nuvei` 3-D Secure payment session for a possible follow-up step and schedules a
+   *  task to void the transaction automatically if it is never completed. The transaction is
+   *  finalized with the processor result regardless of the outcome.
+   * @deprecated Use {@link \Thoth\PayProcessor\Nuvei\NuveiOpenOrderApi} instead.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `id_card_type` {number} An enum of credit card types. See {@link WlClient.ThothWlPayBankCardCardTypeEnum}.
+   *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `text_message` {?string} Error message.
+   */
+  WlClient.prototype.wlPayProcessorNuveiNuveiTransactionStart = function(params)
+  {
+    return this.request('/Wl/Pay/Processor/Nuvei/NuveiTransactionStart.json', params || {}, 'POST');
+  };
+
+  /**
    * Cancels the `Nuvei` transaction.
    *
    * Voids the payer authentication session opened by {@link WlClient#thothPayProcessorNuveiNuveiOpenOrder} and schedules the
@@ -488,6 +603,21 @@
   WlClient.prototype.wlPayAccountAccount = function(params)
   {
     return this.request('/Wl/Pay/Account/Account.json', params || {}, 'GET');
+  };
+
+  /**
+   * Sets a specified payment method as default.
+   *
+   * Validates that the payment method exists, is not removed, not expired, and not already default,
+   * then verifies the acting user has access to the owning business or client profile before applying
+   * the change and logging it to the payment method history.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlPayBankPrimary = function(params)
+  {
+    return this.request('/Wl/Pay/Bank/Primary.json', params || {}, 'PUT');
   };
 
   /**
@@ -2388,6 +2518,22 @@
   WlClient.prototype.wlHolidayHoliday = function(params)
   {
     return this.request('/Wl/Holiday/Holiday.json', params || {}, 'GET');
+  };
+
+  /**
+   * Cancels a payment made through a `Nuvei` omnichannel terminal.
+   *
+   * Validates the business merchant and pay transaction, confirms the requesting user owns the
+   *  terminal payment session, and verifies the transaction belongs to the specified business and
+   *  merchant. Schedules an asynchronous task to void the unfinished transaction instead of voiding
+   *  it immediately.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.thothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoid = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/Nuvei/Terminal/NuveiOmnichannelTerminalPaymentVoid.json', params || {}, 'POST');
   };
 
   /**
@@ -7766,6 +7912,27 @@
   };
 
   /**
+   * Starts a payment transaction on a `Nuvei` POS terminal.
+   *
+   * Validates the terminal, business merchant, and staff permissions, then creates a pay
+   *  transaction and sends a payment request to the terminal. If another transaction is already
+   *  in progress on the terminal, attempts to recover or cancel it. Schedules a background task to
+   *  poll the terminal for the swipe result and a fallback task to void the transaction if it is
+   *  never completed.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `id_response` {?number} CS Response code class. See {@link WlClient.ThothPayProcessorNuveiCodeCSResponseSid}.
+   *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `s_exchange_identification` {string} The request exchange identification.
+   *  `text_message` {?string} Error message.
+   */
+  WlClient.prototype.thothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStart = function(params)
+  {
+    return this.request('/Thoth/PayProcessor/Nuvei/Terminal/OMNIChannelApi/NuveiTerminalTransactionStart.json', params || {}, 'POST');
+  };
+
+  /**
    *
    * @param {Object} [params] Request parameters.
    * @param {number} params.cid_page Report page CID.
@@ -7929,6 +8096,28 @@
   WlClient.prototype.wlPayBankAchAddAddPost = function(params)
   {
     return this.request('/Wl/Pay/Bank/Ach/Add/Add.json', params || {}, 'POST');
+  };
+
+  /**
+   * Gets a list of saved bank account.
+   *
+   * Validates the input parameters, resolves the payment owner and business merchant, checks access,
+   * and returns the list of bank accounts available for selection in the bank account widget.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.id_pay_bank Pay bank id. See {@link WlClient.RsPayBankSid}.
+   * @param {?number} params.id_pay_method Payment method. See {@link WlClient.RsPayMethodSid}.
+   * @param {number} params.id_pay_owner Payment owner kind. See {@link WlClient.RsPayOwnerSid}.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_currency Currency key.
+   * @param {string} params.k_id Payment owner.
+   * @param {string} params.k_location Location key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_pay_bank` {Object} List of saved bank accounts, keyed by bank account key. Each entry:
+   */
+  WlClient.prototype.wlPayBankAchWidgetWidgetSelect = function(params)
+  {
+    return this.request('/Wl/Pay/Bank/Ach/Widget/WidgetSelect.json', params || {}, 'GET');
   };
 
   /**
@@ -11663,6 +11852,36 @@
   });
 
   /**
+   * Stripe device type of reader.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothPayProcessorStripeComTerminalStripeReaderModelSid = Object.freeze({
+    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
+    BBPOS_WISEPAD3: 1,
+    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
+    BBPOS_WISEPOS_E: 4,
+    /** SIMULATED Wise POS E */
+    SIMULATED_WISEPOS_E: 6,
+    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
+    STRIPE_M2: 2,
+  });
+
+  /**
+   * List of possible status of readers.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothPayProcessorTerminalTerminalStatusSid = Object.freeze({
+    /** Status active */
+    ACTIVE: 1,
+    /** Status inactive */
+    INACTIVE: 2,
+    /** Status setup, reader is active but not added to stripe yet */
+    SETUP: 3,
+  });
+
+  /**
    * Payment actors (staff member, user or business owner).
    *
    * @enum {number}
@@ -11863,20 +12082,6 @@
   });
 
   /**
-   * List of possible status of readers.
-   *
-   * @enum {number}
-   */
-  WlClient.ThothPayProcessorTerminalTerminalStatusSid = Object.freeze({
-    /** Status active */
-    ACTIVE: 1,
-    /** Status inactive */
-    INACTIVE: 2,
-    /** Status setup, reader is active but not added to stripe yet */
-    SETUP: 3,
-  });
-
-  /**
    * List of supported terminal interaction types.
    *
    * @enum {number}
@@ -11926,22 +12131,6 @@
     STRIPE_READER_M2_BLUETOOTH: 16,
     /** Virtual device for testing purposes */
     VIRTUAL: 10,
-  });
-
-  /**
-   * Stripe device type of reader.
-   *
-   * @enum {number}
-   */
-  WlClient.ThothPayProcessorStripeComTerminalStripeReaderModelSid = Object.freeze({
-    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
-    BBPOS_WISEPAD3: 1,
-    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
-    BBPOS_WISEPOS_E: 4,
-    /** SIMULATED Wise POS E */
-    SIMULATED_WISEPOS_E: 6,
-    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
-    STRIPE_M2: 2,
   });
 
   /**
