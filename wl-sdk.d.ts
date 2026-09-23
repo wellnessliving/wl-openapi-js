@@ -20576,8 +20576,10 @@ export interface WlLeadStageLeadStageListResponse {
     a_lead_stage: Array<{
         /** Sequence number of the stage in the list. */
         i_order: number;
-        /** Number of automations used this stage. */
-        i_automation?: number;
+        /** Number of active automations which use this stage. */
+        i_automation_active?: number;
+        /** Number of inactive automations which use this stage. Such an automation still refers the stage, s... */
+        i_automation_inactive?: number;
         /** Number of client groups which convert their clients into this stage. Such a group depends on the ... */
         i_member_group?: number;
         /** Number of clients who are in this stage. */
@@ -20598,7 +20600,7 @@ export interface WlLeadStageLeadStageListResponse {
         s_icon: string;
         /** Name of the stage. */
         text_title: string;
-        /** URL of the list of automations which use this stage. */
+        /** URL of the list of the active automations which use this stage. */
         url_automation_list?: string;
         /** URL of the report of clients who are in this stage. */
         url_member_report?: string;
