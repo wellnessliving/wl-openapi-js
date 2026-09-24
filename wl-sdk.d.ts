@@ -2616,6 +2616,15 @@ export declare enum WlLoginTypeClientTypeSid {
     /** Record contains type of client */
     PASSHOLDER = 2
 }
+/** Level at which a client profile field is asked at a given collection entry point. */
+export declare enum WlFieldFieldLevelEnum {
+    /** The field is not asked at this entry point */
+    DONT_ASK = 1,
+    /** The field is asked, but a value is not required */
+    OPTIONAL = 2,
+    /** The field is asked, and a value is required */
+    REQUIRED = 3
+}
 /** List of sources from where the user registers. */
 export declare enum WlProfileRegisterSourceSid {
     /** Source when a user registers while booking a service */
@@ -12242,16 +12251,16 @@ export interface WlProfileEditEditGetResponse {
     a_structure: Array<{
         /** List of general fields in user's profile. @see RsFieldGeneralSid */
         id_field_general?: RsFieldGeneralSid;
-        /** Requirement for a case when a client books a service. One of FieldLevelEnum members. */
-        id_level_booking: number;
-        /** Requirement for a case when a guest books or buys. One of FieldLevelEnum members. */
-        id_level_guest: number;
-        /** Requirement for a case when a client makes a purchase. One of FieldLevelEnum members. */
-        id_level_purchase: number;
-        /** Requirement for a case when a client adds a relationship. One of FieldLevelEnum members. */
-        id_level_relationship: number;
-        /** Requirement for a case when a client signs up. One of FieldLevelEnum members. */
-        id_level_signup: number;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_booking: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_guest: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_purchase: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_relationship: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_signup: WlFieldFieldLevelEnum;
         /** Indicates whether the value of this field is required. This will be `1` if required or `0` if the... */
         is_require: boolean;
         /** Possible types of the custom fields: text, checkbox, radio buttons, etc. @see RsFieldTypeSid */
@@ -12386,16 +12395,16 @@ export interface WlProfileEditEditByTokenGetResponse {
     a_structure: Array<{
         /** List of general fields in user's profile. @see RsFieldGeneralSid */
         id_field_general?: RsFieldGeneralSid;
-        /** Requirement for a case when a client books a service. One of FieldLevelEnum members. */
-        id_level_booking: number;
-        /** Requirement for a case when a guest books or buys. One of FieldLevelEnum members. */
-        id_level_guest: number;
-        /** Requirement for a case when a client makes a purchase. One of FieldLevelEnum members. */
-        id_level_purchase: number;
-        /** Requirement for a case when a client adds a relationship. One of FieldLevelEnum members. */
-        id_level_relationship: number;
-        /** Requirement for a case when a client signs up. One of FieldLevelEnum members. */
-        id_level_signup: number;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_booking: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_guest: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_purchase: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_relationship: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_signup: WlFieldFieldLevelEnum;
         /** Indicates whether the value of this field is required. This will be `1` if required or `0` if the... */
         is_require: boolean;
         /** Possible types of the custom fields: text, checkbox, radio buttons, etc. @see RsFieldTypeSid */
@@ -13677,8 +13686,10 @@ export interface WlLeadStageLeadStageListResponse {
     a_lead_stage: Array<{
         /** Sequence number of the stage in the list. */
         i_order: number;
-        /** Number of automations used this stage. */
-        i_automation?: number;
+        /** Number of active automations which use this stage. */
+        i_automation_active?: number;
+        /** Number of inactive automations which use this stage. Such an automation still refers the stage, s... */
+        i_automation_inactive?: number;
         /** Number of client groups which convert their clients into this stage. Such a group depends on the ... */
         i_member_group?: number;
         /** Number of clients who are in this stage. */
@@ -13699,7 +13710,7 @@ export interface WlLeadStageLeadStageListResponse {
         s_icon: string;
         /** Name of the stage. */
         text_title: string;
-        /** URL of the list of automations which use this stage. */
+        /** URL of the list of the active automations which use this stage. */
         url_automation_list?: string;
         /** URL of the report of clients who are in this stage. */
         url_member_report?: string;

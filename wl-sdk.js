@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260923121600
+ * Spec version: 1.1.20260924130528
  * Build date:   2026-09-24
  * Endpoints:    654
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260923121600';
+  WlClient.SPEC_VERSION = '1.1.20260924130528';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (654 total)
@@ -14057,7 +14057,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (231 total)
+  // Enum constants (232 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -17100,6 +17100,20 @@
     NOTHING: 1,
     /** Record contains type of client */
     PASSHOLDER: 2,
+  });
+
+  /**
+   * Level at which a client profile field is asked at a given collection entry point.
+   *
+   * @enum {number}
+   */
+  WlClient.WlFieldFieldLevelEnum = Object.freeze({
+    /** The field is not asked at this entry point */
+    DONT_ASK: 1,
+    /** The field is asked, but a value is not required */
+    OPTIONAL: 2,
+    /** The field is asked, and a value is required */
+    REQUIRED: 3,
   });
 
   /**

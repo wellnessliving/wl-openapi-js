@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260923121600
+// OpenAPI spec version: 1.1.20260924130528
 // Build date: 2026-09-24
 // Endpoints: 654
-// Enums: 214
+// Enums: 215
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (214 total) ---
+// --- Enum types (215 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -2700,6 +2700,16 @@ export var WlLoginTypeClientTypeSid;
     /** Record contains type of client */
     WlLoginTypeClientTypeSid[WlLoginTypeClientTypeSid["PASSHOLDER"] = 2] = "PASSHOLDER";
 })(WlLoginTypeClientTypeSid || (WlLoginTypeClientTypeSid = {}));
+/** Level at which a client profile field is asked at a given collection entry point. */
+export var WlFieldFieldLevelEnum;
+(function (WlFieldFieldLevelEnum) {
+    /** The field is not asked at this entry point */
+    WlFieldFieldLevelEnum[WlFieldFieldLevelEnum["DONT_ASK"] = 1] = "DONT_ASK";
+    /** The field is asked, but a value is not required */
+    WlFieldFieldLevelEnum[WlFieldFieldLevelEnum["OPTIONAL"] = 2] = "OPTIONAL";
+    /** The field is asked, and a value is required */
+    WlFieldFieldLevelEnum[WlFieldFieldLevelEnum["REQUIRED"] = 3] = "REQUIRED";
+})(WlFieldFieldLevelEnum || (WlFieldFieldLevelEnum = {}));
 /** List of sources from where the user registers. */
 export var WlProfileRegisterSourceSid;
 (function (WlProfileRegisterSourceSid) {
