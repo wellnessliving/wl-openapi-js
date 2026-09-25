@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260924225902
+// OpenAPI spec version: 1.1.20260925131908
 // Build date: 2026-09-25
-// Endpoints: 654
+// Endpoints: 655
 // Enums: 215
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -2710,26 +2710,6 @@ export var WlFieldFieldLevelEnum;
     /** The field is asked, and a value is required */
     WlFieldFieldLevelEnum[WlFieldFieldLevelEnum["REQUIRED"] = 3] = "REQUIRED";
 })(WlFieldFieldLevelEnum || (WlFieldFieldLevelEnum = {}));
-/** List of sources from where the user registers. */
-export var WlProfileRegisterSourceSid;
-(function (WlProfileRegisterSourceSid) {
-    /** Source when a user registers while booking a service */
-    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["BOOKING"] = 4] = "BOOKING";
-    /** Source when a user registers during purchase or booking */
-    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["BOOKING_AND_PURCHASE"] = 1] = "BOOKING_AND_PURCHASE";
-    /** Source when a guest (an unregistered visitor) books a service or makes a purchase */
-    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["GUEST"] = 6] = "GUEST";
-    /** Source when a user registers while making a purchase */
-    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["PURCHASE"] = 5] = "PURCHASE";
-    /** Source when a client adds a family member (a relative profile) - directly, or as part of booking or purchase */
-    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["RELATIONSHIP"] = 7] = "RELATIONSHIP";
-    /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
-    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["SELF"] = 2] = "SELF";
-    /** Source when staff add or edit a client profile */
-    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["STAFF"] = 8] = "STAFF";
-    /** This is a service value, which means to not choose any specific source */
-    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["UNSET_VALUE"] = 3] = "UNSET_VALUE";
-})(WlProfileRegisterSourceSid || (WlProfileRegisterSourceSid = {}));
 /** Relation type between two relatives. */
 export var RsFamilyRelationSid;
 (function (RsFamilyRelationSid) {
@@ -2766,6 +2746,26 @@ export var RsFamilyRelationSid;
     /** Therapist */
     RsFamilyRelationSid[RsFamilyRelationSid["THERAPIST"] = 11] = "THERAPIST";
 })(RsFamilyRelationSid || (RsFamilyRelationSid = {}));
+/** List of sources from where the user registers. */
+export var WlProfileRegisterSourceSid;
+(function (WlProfileRegisterSourceSid) {
+    /** Source when a user registers while booking a service */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["BOOKING"] = 4] = "BOOKING";
+    /** Source when a user registers during purchase or booking */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["BOOKING_AND_PURCHASE"] = 1] = "BOOKING_AND_PURCHASE";
+    /** Source when a guest (an unregistered visitor) books a service or makes a purchase */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["GUEST"] = 6] = "GUEST";
+    /** Source when a user registers while making a purchase */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["PURCHASE"] = 5] = "PURCHASE";
+    /** Source when a client adds a family member (a relative profile) - directly, or as part of booking or purchase */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["RELATIONSHIP"] = 7] = "RELATIONSHIP";
+    /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["SELF"] = 2] = "SELF";
+    /** Source when staff add or edit a client profile */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["STAFF"] = 8] = "STAFF";
+    /** This is a service value, which means to not choose any specific source */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["UNSET_VALUE"] = 3] = "UNSET_VALUE";
+})(WlProfileRegisterSourceSid || (WlProfileRegisterSourceSid = {}));
 /** Promotion or package date start rule. */
 export var RsActivationSid;
 (function (RsActivationSid) {
@@ -7861,6 +7861,15 @@ export class WlHolidayNamespace {
         return this._client._request('/Wl/Holiday/Holiday.json', params, 'GET');
     }
 }
+export class WlEventEditorNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns everything the event setup form needs besides the event itself. */
+    setup(params) {
+        return this._client._request('/Wl/Event/Editor/Setup.json', params, 'GET');
+    }
+}
 export class WlEventBookEventViewNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7889,6 +7898,7 @@ export class WlEventBookNamespace {
 export class WlEventNamespace {
     constructor(_client) {
         this._client = _client;
+        this.editor = new WlEventEditorNamespace(this._client);
         this.book = new WlEventBookNamespace(this._client);
     }
     /** Cancels book of session {@link WlEventNamespace#eventCancel}. */

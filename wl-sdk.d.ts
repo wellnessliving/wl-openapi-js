@@ -2625,25 +2625,6 @@ export declare enum WlFieldFieldLevelEnum {
     /** The field is asked, and a value is required */
     REQUIRED = 3
 }
-/** List of sources from where the user registers. */
-export declare enum WlProfileRegisterSourceSid {
-    /** Source when a user registers while booking a service */
-    BOOKING = 4,
-    /** Source when a user registers during purchase or booking */
-    BOOKING_AND_PURCHASE = 1,
-    /** Source when a guest (an unregistered visitor) books a service or makes a purchase */
-    GUEST = 6,
-    /** Source when a user registers while making a purchase */
-    PURCHASE = 5,
-    /** Source when a client adds a family member (a relative profile) - directly, or as part of booking or purchase */
-    RELATIONSHIP = 7,
-    /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
-    SELF = 2,
-    /** Source when staff add or edit a client profile */
-    STAFF = 8,
-    /** This is a service value, which means to not choose any specific source */
-    UNSET_VALUE = 3
-}
 /** Relation type between two relatives. */
 export declare enum RsFamilyRelationSid {
     /** Care participant */
@@ -2678,6 +2659,25 @@ export declare enum RsFamilyRelationSid {
     TEACHER = 13,
     /** Therapist */
     THERAPIST = 11
+}
+/** List of sources from where the user registers. */
+export declare enum WlProfileRegisterSourceSid {
+    /** Source when a user registers while booking a service */
+    BOOKING = 4,
+    /** Source when a user registers during purchase or booking */
+    BOOKING_AND_PURCHASE = 1,
+    /** Source when a guest (an unregistered visitor) books a service or makes a purchase */
+    GUEST = 6,
+    /** Source when a user registers while making a purchase */
+    PURCHASE = 5,
+    /** Source when a client adds a family member (a relative profile) - directly, or as part of booking or purchase */
+    RELATIONSHIP = 7,
+    /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
+    SELF = 2,
+    /** Source when staff add or edit a client profile */
+    STAFF = 8,
+    /** This is a service value, which means to not choose any specific source */
+    UNSET_VALUE = 3
 }
 /** Promotion or package date start rule. */
 export declare enum RsActivationSid {
@@ -12225,6 +12225,8 @@ export interface WlProfileEditEditGetParams {
     k_business: string;
     /** The key of the user to edit. */
     uid: string;
+    /** Family role for a new user. One of {@link RsFamilyRelationSid} constants. */
+    id_family_relation?: RsFamilyRelationSid | null;
     /** Registration source ID. @see WlProfileRegisterSourceSid */
     id_register_source?: WlProfileRegisterSourceSid | null;
 }
@@ -12369,6 +12371,8 @@ export interface WlProfileEditEditByTokenGetParams {
     text_token: string;
     /** The key of the user to edit. */
     uid: string;
+    /** Family role for a new user. One of {@link RsFamilyRelationSid} constants. */
+    id_family_relation?: RsFamilyRelationSid | null;
     /** Registration source ID. @see WlProfileRegisterSourceSid */
     id_register_source?: WlProfileRegisterSourceSid | null;
 }
@@ -14201,7 +14205,7 @@ export interface WlBookProcessProcessParams {
 }
 export interface WlBookProcessProcessResponse {
     /** Relationships who clients are allowed to book for. */
-    a_family_relation_login_allow: Array<RsFamilyRelationSid> | null;
+    a_family_relation_login_allow: Array<RsFamilyRelationSid | null> | null;
     /** All the steps to be performed to make a booking. Every element has the next keys: */
     a_path: Array<{
         /** Class/Event booking process sid class. @see WlBookProcessProcessSpaSid */
@@ -14252,7 +14256,7 @@ export interface WlBookProcessProcess54Params {
 }
 export interface WlBookProcessProcess54Response {
     /** Relationships who clients are allowed to book for. */
-    a_family_relation_login_allow: Array<RsFamilyRelationSid> | null;
+    a_family_relation_login_allow: Array<RsFamilyRelationSid | null> | null;
     /** All the steps to be performed to make a booking. Every element has the next keys: */
     a_path: Array<{
         /** Class/Event booking process sid class. @see WlBookProcessProcessSpaSid */
@@ -14303,7 +14307,7 @@ export interface WlBookProcessProcess59Params {
 }
 export interface WlBookProcessProcess59Response {
     /** Relationships who clients are allowed to book for. */
-    a_family_relation_login_allow: Array<RsFamilyRelationSid> | null;
+    a_family_relation_login_allow: Array<RsFamilyRelationSid | null> | null;
     /** All the steps to be performed to make a booking. Every element has the next keys: */
     a_path: Array<{
         /** Class/Event booking process sid class. @see WlBookProcessProcessSpaSid */
@@ -18453,9 +18457,9 @@ export interface WlFamilyRelationRelation72DeleteResponse {
     /** Information about the user's relationships. Every element has the following fields: */
     a_relation: Array<{
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation: RsFamilyRelationSid;
+        id_family_relation: RsFamilyRelationSid | null;
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation_reverse: RsFamilyRelationSid;
+        id_family_relation_reverse: RsFamilyRelationSid | null;
         /** The name of the relation. */
         text_name: string;
         /** The first name of the relation. */
@@ -18476,9 +18480,9 @@ export interface WlFamilyRelationRelation72GetResponse {
     /** Information about the user's relationships. Every element has the following fields: */
     a_relation: Array<{
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation: RsFamilyRelationSid;
+        id_family_relation: RsFamilyRelationSid | null;
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation_reverse: RsFamilyRelationSid;
+        id_family_relation_reverse: RsFamilyRelationSid | null;
         /** The name of the relation. */
         text_name: string;
         /** The first name of the relation. */
@@ -18499,9 +18503,9 @@ export interface WlFamilyRelationRelation72PostResponse {
     /** Information about the user's relationships. Every element has the following fields: */
     a_relation: Array<{
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation: RsFamilyRelationSid;
+        id_family_relation: RsFamilyRelationSid | null;
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation_reverse: RsFamilyRelationSid;
+        id_family_relation_reverse: RsFamilyRelationSid | null;
         /** The name of the relation. */
         text_name: string;
         /** The first name of the relation. */
@@ -18524,9 +18528,9 @@ export interface WlFamilyRelationRelationDeleteResponse {
     /** Information about the user's relationships. Every element has the following fields: */
     a_relation: Array<{
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation: RsFamilyRelationSid;
+        id_family_relation: RsFamilyRelationSid | null;
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation_reverse: RsFamilyRelationSid;
+        id_family_relation_reverse: RsFamilyRelationSid | null;
         /** The name of the relation. */
         text_name: string;
         /** The first name of the relation. */
@@ -18547,9 +18551,9 @@ export interface WlFamilyRelationRelationGetResponse {
     /** Information about the user's relationships. Every element has the following fields: */
     a_relation: Array<{
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation: RsFamilyRelationSid;
+        id_family_relation: RsFamilyRelationSid | null;
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation_reverse: RsFamilyRelationSid;
+        id_family_relation_reverse: RsFamilyRelationSid | null;
         /** The name of the relation. */
         text_name: string;
         /** The first name of the relation. */
@@ -18570,9 +18574,9 @@ export interface WlFamilyRelationRelationPostResponse {
     /** Information about the user's relationships. Every element has the following fields: */
     a_relation: Array<{
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation: RsFamilyRelationSid;
+        id_family_relation: RsFamilyRelationSid | null;
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation_reverse: RsFamilyRelationSid;
+        id_family_relation_reverse: RsFamilyRelationSid | null;
         /** The name of the relation. */
         text_name: string;
         /** The first name of the relation. */
@@ -18587,7 +18591,7 @@ export interface WlFamilyRelationFamilyRelationParams {
 }
 export interface WlFamilyRelationFamilyRelationResponse {
     /** The relationship types in the business. */
-    a_business_relationships: Array<RsFamilyRelationSid>;
+    a_business_relationships: Array<RsFamilyRelationSid | null>;
 }
 export interface WlQuizLoginQuizLoginDeleteParams {
     /** The mode type. One of the {@link WlModeModeSid} constants. */
@@ -20385,6 +20389,78 @@ export interface WlTaskEditEditPutParams {
 export type WlTaskEditEditPutResponse = Record<string, unknown>;
 export type WlWidgetAnalyticsWidgetAnalyticsEventParams = Record<string, unknown>;
 export type WlWidgetAnalyticsWidgetAnalyticsEventResponse = Record<string, unknown>;
+export interface WlEventEditorSetupParams {
+    /** Business key. */
+    k_business: string;
+    /** Event key. */
+    k_class: string;
+}
+export interface WlEventEditorSetupResponse {
+    /** Book Now Tabs the event may be shown in. Every element is an array: */
+    a_class_tab: Array<{
+        /** `true` if the event is shown in this tab, `false` otherwise. */
+        is_selected: boolean;
+        /** Key of the tab: the ID of the tab object and the key of the tab joined with a hyphen. The key of ... */
+        s_key: string;
+        /** Title of the tab. */
+        text_title: string;
+    }>;
+    /** Business policies the form starts with. */
+    a_config: Array<unknown>;
+    /** Send rules of the client reminder. */
+    a_reminder_info: Array<unknown>;
+    /** Quick search tags of the category of the business. Every element is an array: */
+    a_search_tag: Array<{
+        /** Key of the tag. */
+        k_search_tag: string;
+        /** Title of the tag. */
+        text_title: string;
+    }>;
+    /** Store categories of the business. Every element is an array: */
+    a_shop_category: Array<{
+        /** Key of the category. */
+        k_shop_category: string;
+        /** Title of the category. */
+        text_title: string;
+    }>;
+    /** Addresses of the pages the form links to: */
+    a_url: Array<{
+        /** List of store categories. */
+        url_category_manage: string;
+        /** Client notifications. */
+        url_notification_client: string;
+        /** Client confirmation notification of an event. */
+        url_notification_confirmation: string;
+        /** Client reminder notification of an event. */
+        url_notification_reminder: string;
+        /** Staff notifications. */
+        url_notification_staff: string;
+        /** Default business policies. */
+        url_policy_manage: string;
+        /** List of products. */
+        url_product_manage: string;
+        /** List of Book-a-Spot assets. */
+        url_resource_manage: string;
+        /** Store settings that require a card at sign-up. */
+        url_ticket_card: string;
+        /** Online waiver settings. */
+        url_ticket_waiver: string;
+    }>;
+    /** Markup of the Business policies block of the form. */
+    html_policy: string;
+    /** Markup of the Prerequisites block of the form. */
+    html_prerequisite: string;
+    /** Markup of the Purchase Options block of the form. */
+    html_promotion: string;
+    /** Markup of the Quick Buy block of the form. */
+    html_quick_buy: string;
+    /** Markup of the Taxes block of the form. */
+    html_tax: string;
+    /** `true` if the Administration section may be shown, `false` otherwise. */
+    is_admin: boolean;
+    /** Currency sign of the business. */
+    text_currency: string;
+}
 export interface WlReportDashboardReportDashboardPostParams {
     /** Business key of the report. */
     k_business: string;
@@ -22616,7 +22692,7 @@ export interface WlProfileAttendanceSchedulePaymentMultipleGetResponse {
         /** Information about relation. `null` if there is no relation, in particular when appointments */
         a_relation: {
             /** Relation type between two relatives. @see RsFamilyRelationSid */
-            id_family_relation: RsFamilyRelationSid;
+            id_family_relation: RsFamilyRelationSid | null;
             /** Payer UID. */
             uid_payer: string;
         } | null;
@@ -22739,7 +22815,7 @@ export interface WlProfileAccountSelectSelectGetResponse {
     /** Array with information about current user and his relationship with sub accounts. */
     a_user: {
         /** Relation type between two relatives. @see RsFamilyRelationSid */
-        id_family_relation: RsFamilyRelationSid;
+        id_family_relation: RsFamilyRelationSid | null;
         /** Name of sub account. */
         s_name: string;
         /** UID of sub account. */
@@ -32112,6 +32188,12 @@ export declare class WlHolidayNamespace {
     /** Returns information about holiday day of business/locations. */
     holiday(params?: WlHolidayHolidayParams): Promise<WlHolidayHolidayResponse>;
 }
+export declare class WlEventEditorNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns everything the event setup form needs besides the event itself. */
+    setup(params?: WlEventEditorSetupParams): Promise<WlEventEditorSetupResponse>;
+}
 export declare class WlEventBookEventViewNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -32132,6 +32214,7 @@ export declare class WlEventBookNamespace {
 }
 export declare class WlEventNamespace {
     private readonly _client;
+    readonly editor: WlEventEditorNamespace;
     readonly book: WlEventBookNamespace;
     constructor(_client: WlClient);
     /** Cancels book of session {@link WlEventNamespace#eventCancel}. */

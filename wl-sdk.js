@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260924225902
+ * Spec version: 1.1.20260925131908
  * Build date:   2026-09-25
- * Endpoints:    654
+ * Endpoints:    655
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260924225902';
+  WlClient.SPEC_VERSION = '1.1.20260925131908';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (654 total)
+  // Generated API methods (655 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -3781,6 +3781,7 @@
    *  correct fields, validation rules, and inheritance options for the business.
    *
    * @param {Object} [params] Request parameters.
+   * @param {?number} [params.id_family_relation] Family role for a new user. One of {@link WlClient.RsFamilyRelationSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
@@ -3882,6 +3883,7 @@
    *  correct fields, validation rules, and inheritance options for the business.
    *
    * @param {Object} [params] Request parameters.
+   * @param {?number} [params.id_family_relation] Family role for a new user. One of {@link WlClient.RsFamilyRelationSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
@@ -5201,7 +5203,7 @@
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
    * @returns {Promise<Object>} Response data.
-   *  `a_family_relation_login_allow` {?number[]} Relationships who clients are allowed to book for.
+   *  `a_family_relation_login_allow` {??number[]} Relationships who clients are allowed to book for.
    *  `a_path` {Object[]} All the steps to be performed to make a booking. Every element has the next k...
    *  `id_pay_require` {number} List of possible modes to require amount while booking a class. See {@link WlClient.WlClassesRequirePaySid}.
    *  `is_age_require` {boolean} `true` if this class has age restriction and requires user to specify age. `f...
@@ -5237,7 +5239,7 @@
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
    * @returns {Promise<Object>} Response data.
-   *  `a_family_relation_login_allow` {?number[]} Relationships who clients are allowed to book for.
+   *  `a_family_relation_login_allow` {??number[]} Relationships who clients are allowed to book for.
    *  `a_path` {Object[]} All the steps to be performed to make a booking. Every element has the next k...
    *  `id_pay_require` {number} List of possible modes to require amount while booking a class. See {@link WlClient.WlClassesRequirePaySid}.
    *  `is_age_require` {boolean} `true` if this class has age restriction and requires user to specify age. `f...
@@ -5260,8 +5262,9 @@
   /**
    * Returns the booking wizard steps, adjusting the path when the service is already booked for a family member.
    *
-   * Delegates to the parent implementation and then, when family-relation booking is enabled and the service is
-   * already booked for the selected relative, trims the wizard path down to only the relation and detail steps.
+   * Delegates to the parent implementation and then, when family-relation or guest booking is enabled and the
+   * service is already booked for the selected client, trims the wizard path down to only the relation and detail
+   * steps.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
@@ -5272,7 +5275,7 @@
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
    * @param {string} params.uid The client key for which the booking is being made.
    * @returns {Promise<Object>} Response data.
-   *  `a_family_relation_login_allow` {?number[]} Relationships who clients are allowed to book for.
+   *  `a_family_relation_login_allow` {??number[]} Relationships who clients are allowed to book for.
    *  `a_path` {Object[]} All the steps to be performed to make a booking. Every element has the next k...
    *  `id_pay_require` {number} List of possible modes to require amount while booking a class. See {@link WlClient.WlClassesRequirePaySid}.
    *  `is_age_require` {boolean} `true` if this class has age restriction and requires user to specify age. `f...
@@ -7015,7 +7018,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @returns {Promise<Object>} Response data.
-   *  `a_business_relationships` {number[]} The relationship types in the business.
+   *  `a_business_relationships` {?number[]} The relationship types in the business.
    */
   WlClient.prototype.wlFamilyRelationFamilyRelation = function(params)
   {
@@ -7933,6 +7936,38 @@
   WlClient.prototype.wlWidgetAnalyticsWidgetAnalyticsEvent = function(params)
   {
     return this.request('/Wl/Widget/Analytics/WidgetAnalyticsEvent.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns everything the event setup form needs besides the event itself.
+   *
+   * The form is rendered by the client, so this endpoint answers with data: the lists the Book Now Tab, the quick
+   * search tag and the store category pickers are filled from, the business policies the Business policies section
+   * starts with, the send rules of the client reminder, the currency sign, whether the Administration section may
+   * be shown, the addresses of the pages the form links to and the markup of the blocks that have no template on
+   * the client.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_class Event key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_class_tab` {Object[]} Book Now Tabs the event may be shown in. Every element is an array:
+   *  `a_config` {*[]} Business policies the form starts with.
+   *  `a_reminder_info` {*[]} Send rules of the client reminder.
+   *  `a_search_tag` {Object[]} Quick search tags of the category of the business. Every element is an array:
+   *  `a_shop_category` {Object[]} Store categories of the business. Every element is an array:
+   *  `a_url` {Object[]} Addresses of the pages the form links to:
+   *  `html_policy` {string} Markup of the Business policies block of the form.
+   *  `html_prerequisite` {string} Markup of the Prerequisites block of the form.
+   *  `html_promotion` {string} Markup of the Purchase Options block of the form.
+   *  `html_quick_buy` {string} Markup of the Quick Buy block of the form.
+   *  `html_tax` {string} Markup of the Taxes block of the form.
+   *  `is_admin` {boolean} `true` if the Administration section may be shown, `false` otherwise.
+   *  `text_currency` {string} Currency sign of the business.
+   */
+  WlClient.prototype.wlEventEditorSetup = function(params)
+  {
+    return this.request('/Wl/Event/Editor/Setup.json', params || {}, 'GET');
   };
 
   /**
@@ -17117,30 +17152,6 @@
   });
 
   /**
-   * List of sources from where the user registers.
-   *
-   * @enum {number}
-   */
-  WlClient.WlProfileRegisterSourceSid = Object.freeze({
-    /** Source when a user registers while booking a service */
-    BOOKING: 4,
-    /** Source when a user registers during purchase or booking */
-    BOOKING_AND_PURCHASE: 1,
-    /** Source when a guest (an unregistered visitor) books a service or makes a purchase */
-    GUEST: 6,
-    /** Source when a user registers while making a purchase */
-    PURCHASE: 5,
-    /** Source when a client adds a family member (a relative profile) - directly, or as part of booking or purchase */
-    RELATIONSHIP: 7,
-    /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
-    SELF: 2,
-    /** Source when staff add or edit a client profile */
-    STAFF: 8,
-    /** This is a service value, which means to not choose any specific source */
-    UNSET_VALUE: 3,
-  });
-
-  /**
    * Relation type between two relatives.
    *
    * @enum {number}
@@ -17178,6 +17189,30 @@
     TEACHER: 13,
     /** Therapist */
     THERAPIST: 11,
+  });
+
+  /**
+   * List of sources from where the user registers.
+   *
+   * @enum {number}
+   */
+  WlClient.WlProfileRegisterSourceSid = Object.freeze({
+    /** Source when a user registers while booking a service */
+    BOOKING: 4,
+    /** Source when a user registers during purchase or booking */
+    BOOKING_AND_PURCHASE: 1,
+    /** Source when a guest (an unregistered visitor) books a service or makes a purchase */
+    GUEST: 6,
+    /** Source when a user registers while making a purchase */
+    PURCHASE: 5,
+    /** Source when a client adds a family member (a relative profile) - directly, or as part of booking or purchase */
+    RELATIONSHIP: 7,
+    /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
+    SELF: 2,
+    /** Source when staff add or edit a client profile */
+    STAFF: 8,
+    /** This is a service value, which means to not choose any specific source */
+    UNSET_VALUE: 3,
   });
 
   /**
