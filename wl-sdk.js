@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260925074216
+ * Spec version: 1.1.20260925092616
  * Build date:   2026-09-25
  * Endpoints:    653
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260925074216';
+  WlClient.SPEC_VERSION = '1.1.20260925092616';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (653 total)
@@ -6199,8 +6199,9 @@
   /**
    * Returns the booking wizard steps, adjusting the path when the service is already booked for a family member.
    *
-   * Delegates to the parent implementation and then, when family-relation booking is enabled and the service is
-   * already booked for the selected relative, trims the wizard path down to only the relation and detail steps.
+   * Delegates to the parent implementation and then, when family-relation or guest booking is enabled and the
+   * service is already booked for the selected client, trims the wizard path down to only the relation and detail
+   * steps.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
