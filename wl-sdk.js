@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260925133808
+ * Spec version: 1.1.20260926114457
  * Build date:   2026-09-26
  * Endpoints:    655
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260925133808';
+  WlClient.SPEC_VERSION = '1.1.20260926114457';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (655 total)
@@ -2726,16 +2726,15 @@
   };
 
   /**
-   * Returns a fixed connection value and, when requested, selected findings.
+   * Collects findings for the requested calendar date.
+   *
+   * Searches every registered problem source using the requested date and optional text filter.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number[]} params.a_id_source IDs of finding sources from {@link WlClient.CoreAILogTriageTriageSourceSid}.
-   * @param {boolean} params.is_finding `true` returns findings; otherwise `false` performs only the connection check.
-   * @param {string} params.s_date_mask Date/time mask accepted by LogSearchQuery.
+   * @param {string} params.dl_date Calendar date to collect findings for. Empty string selects the current UTC date.
    * @param {string} params.text_search Optional case-insensitive message substring.
    * @returns {Promise<Object>} Response data.
    *  `a_finding` {Object[]} Grouped findings.
-   *  `i_result` {number} Connection check value.
    */
   WlClient.prototype.coreAILogTriageConnectionCheck = function(params)
   {
@@ -7952,8 +7951,7 @@
    * @param {string} params.k_class Event key.
    * @returns {Promise<Object>} Response data.
    *  `a_class_tab` {Object[]} Book Now Tabs the event may be shown in. Every element is an array:
-   *  `a_config` {*[]} Business policies the form starts with.
-   *  `a_reminder_info` {*[]} Send rules of the client reminder.
+   *  `a_reminder_info` {Object} Send rules of the client reminder. Keys are:
    *  `a_search_tag` {Object[]} Quick search tags of the category of the business. Every element is an array:
    *  `a_shop_category` {Object[]} Store categories of the business. Every element is an array:
    *  `a_url` {Object[]} Addresses of the pages the form links to:
@@ -14092,7 +14090,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (232 total)
+  // Enum constants (231 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -16859,24 +16857,6 @@
     PAYCHOICE: 7,
     /** Payment gateway for `stripe.com` */
     STRIPE_COM: 10,
-  });
-
-  /**
-   * Sources from which log triage findings can be collected.
-   *
-   * @enum {number}
-   */
-  WlClient.CoreAILogTriageTriageSourceSid = Object.freeze({
-    /** Erroneous asynchronous tasks */
-    ASYNC_TASK: 5,
-    /** Erroneous background tasks */
-    BACKGROUND_TASK: 4,
-    /** PHP error log represented by DebugPhpLog */
-    ERROR_LOG: 1,
-    /** Slow-operation log represented by DebugSlowLog */
-    SLOW_LOG: 2,
-    /** Aggregated usage statistics */
-    WATCH_USAGE_STAT: 3,
   });
 
   /**

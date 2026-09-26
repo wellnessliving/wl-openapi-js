@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260925133808
+// OpenAPI spec version: 1.1.20260926114457
 // Build date: 2026-09-26
 // Endpoints: 655
-// Enums: 215
+// Enums: 214
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (215 total) ---
+// --- Enum types (214 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -2480,20 +2480,6 @@ export var ThothPayProcessorPayProcessorSid;
     /** Payment gateway for `stripe.com` */
     ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["STRIPE_COM"] = 10] = "STRIPE_COM";
 })(ThothPayProcessorPayProcessorSid || (ThothPayProcessorPayProcessorSid = {}));
-/** Sources from which log triage findings can be collected. */
-export var CoreAILogTriageTriageSourceSid;
-(function (CoreAILogTriageTriageSourceSid) {
-    /** Erroneous asynchronous tasks */
-    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ASYNC_TASK"] = 5] = "ASYNC_TASK";
-    /** Erroneous background tasks */
-    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["BACKGROUND_TASK"] = 4] = "BACKGROUND_TASK";
-    /** PHP error log represented by DebugPhpLog */
-    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ERROR_LOG"] = 1] = "ERROR_LOG";
-    /** Slow-operation log represented by DebugSlowLog */
-    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["SLOW_LOG"] = 2] = "SLOW_LOG";
-    /** Aggregated usage statistics */
-    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["WATCH_USAGE_STAT"] = 3] = "WATCH_USAGE_STAT";
-})(CoreAILogTriageTriageSourceSid || (CoreAILogTriageTriageSourceSid = {}));
 /** List of image types. */
 export var CoreDriveDriveTypeSid;
 (function (CoreDriveDriveTypeSid) {
@@ -5742,7 +5728,7 @@ export class CoreAILogTriageNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns a fixed connection value and, when requested, selected findings. */
+    /** Collects findings for the requested calendar date. */
     connectionCheck(params) {
         return this._client._request('/Core/AI/LogTriage/ConnectionCheck.json', params, 'GET');
     }

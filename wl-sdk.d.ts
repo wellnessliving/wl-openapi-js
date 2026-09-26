@@ -2410,19 +2410,6 @@ export declare enum ThothPayProcessorPayProcessorSid {
     /** Payment gateway for `stripe.com` */
     STRIPE_COM = 10
 }
-/** Sources from which log triage findings can be collected. */
-export declare enum CoreAILogTriageTriageSourceSid {
-    /** Erroneous asynchronous tasks */
-    ASYNC_TASK = 5,
-    /** Erroneous background tasks */
-    BACKGROUND_TASK = 4,
-    /** PHP error log represented by DebugPhpLog */
-    ERROR_LOG = 1,
-    /** Slow-operation log represented by DebugSlowLog */
-    SLOW_LOG = 2,
-    /** Aggregated usage statistics */
-    WATCH_USAGE_STAT = 3
-}
 /** List of image types. */
 export declare enum CoreDriveDriveTypeSid {
     /** Bmp image */
@@ -9590,21 +9577,17 @@ export interface WlPayMethodListResponse {
     }>;
 }
 export interface CoreAILogTriageConnectionCheckParams {
-    /** IDs of finding sources from {@link CoreAILogTriageTriageSourceSid}. */
-    a_id_source: Array<CoreAILogTriageTriageSourceSid>;
-    /** `true` returns findings; otherwise `false` performs only the connection check. */
-    is_finding: boolean;
-    /** Date/time mask accepted by LogSearchQuery. */
-    s_date_mask: string;
+    /** Calendar date to collect findings for. Empty string selects the current UTC date. */
+    dl_date: string;
     /** Optional case-insensitive message substring. */
     text_search: string;
 }
 export interface CoreAILogTriageConnectionCheckResponse {
     /** Grouped findings. */
     a_finding: Array<{
-        /** Local date of the first usage-statistics record. */
+        /** Date of the first usage-statistics record. */
         dl_first_seen: string;
-        /** Local date of the last usage-statistics record. */
+        /** Date of the last usage-statistics record. */
         dl_last_seen: string;
         /** UTC date/time of the first matching log or async-task record. Empty for background tasks. */
         dtu_first_seen: string;
@@ -9614,8 +9597,8 @@ export interface CoreAILogTriageConnectionCheckResponse {
         i_occurrence_count: number;
         /** Usage-statistics priority multiplier. Present for the usage-statistics source. */
         i_priority_multiplier: number;
-        /** Sources from which log triage findings can be collected. @see CoreAILogTriageTriageSourceSid */
-        id_source: CoreAILogTriageTriageSourceSid;
+        /** Base class for log-triage problem searchers. */
+        cid_source: number;
         /** Usage-statistics object. Present for the usage-statistics source. */
         s_object: string;
         /** Usage-statistics aggregation period. Present for the usage-statistics source. */
@@ -9625,8 +9608,6 @@ export interface CoreAILogTriageConnectionCheckResponse {
         /** Log message or task description. Present for log and task sources. */
         text_message: string;
     }>;
-    /** Connection check value. */
-    i_result: number;
 }
 export interface CoreRequestApiKeySecretParams {
     /** The CSRF code from the client side. */
@@ -20405,10 +20386,34 @@ export interface WlEventEditorSetupResponse {
         /** Title of the tab. */
         text_title: string;
     }>;
-    /** Business policies the form starts with. */
-    a_config: Array<unknown>;
-    /** Send rules of the client reminder. */
-    a_reminder_info: Array<unknown>;
+    /** Send rules of the client reminder. Keys are: */
+    a_reminder_info: {
+        /** Times the reminder is sent at, the earliest one first. Every element is an array: */
+        a_config: {
+            /** Number of the units of time the reminder is sent before the session. */
+            i_before: number;
+            /** A class for managing time intervals. @see ADurationSid */
+            id_duration_delay: ADurationSid;
+            /** Title of the unit of time. */
+            text_time: string;
+        };
+        /** Number of the client types the reminder is sent to. */
+        i_login_type: number;
+        /** Number of the client types of the business. */
+        i_login_type_all: number;
+        /** Number of the client groups the reminder is sent to. */
+        i_member_group: number;
+        /** Number of the client groups of the business. */
+        i_member_group_all: number;
+        /** `true` if the reminder is sent to certain client types only, `false` otherwise. */
+        is_login_type: boolean;
+        /** `true` if every client type of the business is selected, `false` otherwise. */
+        is_login_type_all: boolean;
+        /** `true` if the reminder is sent to certain client groups only, `false` otherwise. */
+        is_member_group: boolean;
+        /** `true` if every client group of the business is selected, `false` otherwise. */
+        is_member_group_all: boolean;
+    };
     /** Quick search tags of the category of the business. Every element is an array: */
     a_search_tag: Array<{
         /** Key of the tag. */
@@ -30787,7 +30792,7 @@ export declare class CoreGeoNamespace {
 export declare class CoreAILogTriageNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Returns a fixed connection value and, when requested, selected findings. */
+    /** Collects findings for the requested calendar date. */
     connectionCheck(params?: CoreAILogTriageConnectionCheckParams): Promise<CoreAILogTriageConnectionCheckResponse>;
 }
 export declare class CoreAINamespace {
