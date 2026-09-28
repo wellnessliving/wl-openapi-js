@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260928113324
+// OpenAPI spec version: 1.1.20260928174128
 // Build date: 2026-09-28
-// Endpoints: 655
+// Endpoints: 656
 // Enums: 214
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -8919,8 +8919,12 @@ export class WlCatalogCatalogListNamespace {
         this._client = _client;
     }
     /** Retrieves an information about current sale item. */
-    element(params) {
+    elementGet(params) {
         return this._client._request('/Wl/Catalog/CatalogList/Element.json', params, 'GET');
+    }
+    /** Displays information about a certain item in the store. */
+    elementPost(params) {
+        return this._client._request('/Wl/Catalog/CatalogList/Element.json', params, 'POST');
     }
     /** Retrieves a list of all sale items. */
     list(params) {

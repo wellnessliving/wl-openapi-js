@@ -7711,6 +7711,8 @@ export interface WlEventEventListGetResponse {
             a_repeat: Record<string, unknown>;
             /** List of staff members providing event session. */
             a_staff_member: Record<string, unknown>;
+            /** List of location keys where the virtual service can be booked from other locations. */
+            a_virtual_location: Array<string>;
             /** End date of the schedule in `MySql` format. */
             dl_end: string;
             /** Start date of the schedule in `MySql` format. */
@@ -14605,7 +14607,7 @@ export interface WlCatalogPaymentPaymentResponse {
     /** The purchase key created during payment. */
     k_purchase: string;
 }
-export interface WlCatalogCatalogListElementParams {
+export interface WlCatalogCatalogListElementGetParams {
     /** Information about the discount code: */
     a_discount_code: {
         /** The fixed amount of the discount. */
@@ -14655,7 +14657,7 @@ export interface WlCatalogCatalogListElementParams {
     /** A list of goods to get information for. Every element must contain the next keys: */
     text_item?: string | null;
 }
-export interface WlCatalogCatalogListElementResponse {
+export interface WlCatalogCatalogListElementGetResponse {
     /** The age restriction configuration. */
     a_age_restriction: {
         /** Minimum age for service (years part). */
@@ -14813,7 +14815,7 @@ export interface WlCatalogCatalogListElementResponse {
             /** This applies to enrollment/event items. */
             is_ticket: boolean;
         };
-        /** Information about promotion guest pass. The same structure as {@link WlCatalogCatalogListElementR... */
+        /** Information about promotion guest pass. The same structure as {@link WlCatalogCatalogListElementG... */
         a_guest_pass: {
             /** Number of times guest pass can be used per period. `null` for unlimited guest pass. */
             i_limit: number | null;
@@ -14845,7 +14847,319 @@ export interface WlCatalogCatalogListElementResponse {
             /** Link to the variant file. */
             s_url: string;
         };
-        /** Tax amounts keyed by tax key. The same structure as {@link WlCatalogCatalogListElementResponse.a_... */
+        /** Tax amounts keyed by tax key. The same structure as {@link WlCatalogCatalogListElementGetResponse... */
+        a_tax: Array<string>;
+        /** A list of Purchase Option view types. @see WlCatalogPurchaseOptionViewSid */
+        id_purchase_option_view: WlCatalogPurchaseOptionViewSid;
+        /** The discount code amount. */
+        m_discount_code: string;
+        /** The discount amount for the client type. */
+        m_discount_login: string;
+        /** Additional information about the sale item. For example, information about 'introductory offer'. */
+        s_comment: string;
+        /** The price of the sale item in a human-readable format. */
+        s_price: string;
+        /** The category title of the sale item. */
+        s_sale: string;
+        /** The title of the sale item. */
+        s_title: string;
+    }>;
+    /** A list of the item's taxes. */
+    a_tax: Array<string>;
+    /** The price of the sale item. */
+    f_price: string | null;
+    /** The price of the sale item, including tax. */
+    f_price_include: string | null;
+    /** The retail price of the product. This will be empty if this isn't a product. */
+    f_price_retail_product: string;
+    /** Full price of event. This will be empty if this isn't an event. */
+    f_price_total_enrollment: string;
+    /** The tax amount. */
+    f_tax: string | null;
+    /** The sale item description. */
+    html_description: string | null;
+    /** Special instructions for the sale item. */
+    html_special: string | null;
+    /** A list of purchase types. @see RsPurchaseItemSid */
+    id_purchase_item: RsPurchaseItemSid;
+    /** A list of Purchase Option view types. @see WlCatalogPurchaseOptionViewSid */
+    id_purchase_option_view: WlCatalogPurchaseOptionViewSid;
+    /** List of sale categories on the store page. @see RsSaleSid */
+    id_sale: RsSaleSid | null;
+    /** If `true`, the item requires a contract. Otherwise, this will be `false`. */
+    is_contract: boolean;
+    /** The item key. */
+    k_id: string;
+    /** The product option key. */
+    k_shop_product_option: string | null;
+    /** The discount amount for a discount code. */
+    m_discount_code: string;
+    /** The discount amount for a user's type. */
+    m_discount_login: string;
+    /** The price on the price tag. */
+    m_price: string;
+    /** The price, including taxes. */
+    m_price_include: string;
+    /** The tax amount. */
+    m_tax: string;
+    /** Additional comment(s). */
+    s_comment: string;
+    /** The price of the sale item in a human-readable format. */
+    s_price: string | null;
+    /** The category title of the sale item. */
+    s_sale: string | null;
+    /** The sale item title. */
+    s_title: string | null;
+    /** The price on the price tag, with the currency sign. */
+    text_price: string;
+    /** The title of the item category. */
+    text_sale: string;
+    /** The item title. */
+    text_title: string;
+    /** A detailed description. */
+    xml_description: string | null;
+    /** Special instructions. */
+    xml_special: string | null;
+}
+export interface WlCatalogCatalogListElementPostParams {
+    /** Information about the discount code: */
+    a_discount_code: {
+        /** The fixed amount of the discount. */
+        f_amount: string;
+        /** The percentage amount of the discount. */
+        f_percent: string;
+        /** Limitation. */
+        i_limit: number;
+        /** The discount code key. */
+        k_discount_code: string;
+        /** The discount code value. */
+        s_discount_code: string;
+    };
+    /** The list of items grouped by sale categories on the store page. */
+    a_sale_id_group: Array<{
+        /** List of sale categories on the store page. @see RsSaleSid */
+        id_sale: RsSaleSid | null;
+        /** The primary key of item. */
+        k_id: string;
+        /** The product option key or `0` for any other cases. */
+        k_shop_product_option: string;
+    }>;
+    /** The image height in pixels. Specify this value if you need the image to be returned in a specific... */
+    i_image_height: number;
+    /** The image width in pixels. Specify this value if you need the image to be returned in a specific ... */
+    i_image_width: number;
+    /** The promotion image height in pixels. Specify this value if you need the image to be returned in ... */
+    i_promotion_image_height: number;
+    /** The promotion image width in pixels. Specify this value if you need the image to be returned in a... */
+    i_promotion_image_width: number;
+    /** The ID of item category. @see RsSaleSid */
+    id_sale: RsSaleSid | null;
+    /** Determines whether the API is called in the backend mode. */
+    is_backend: boolean;
+    /** The business key. */
+    k_business: string;
+    /** The item key. */
+    k_id: string;
+    /** The location key. */
+    k_location: string;
+    /** The UID of a customer (user) for whom the purchase is made. This is used in the backend to calcul... */
+    uid_customer: string;
+    /** The client prorate date. */
+    dl_client_prorate?: string | null;
+    /** The product option key. */
+    k_shop_product_option?: string | null;
+}
+export interface WlCatalogCatalogListElementPostResponse {
+    /** The age restriction configuration. */
+    a_age_restriction: {
+        /** Minimum age for service (years part). */
+        i_age_from: number;
+        /** Minimum age for service (months part). */
+        i_age_from_month: number;
+        /** Minimum age for service (years part). */
+        i_age_from_year: number;
+        /** Maximum age for service (years part). */
+        i_age_to: number;
+        /** Maximum age for service (months part). */
+        i_age_to_month: number;
+        /** Maximum age for service (years part). */
+        i_age_to_year: number;
+        /** Is service public even if user does not meet age requirements or not? */
+        is_age_public: boolean;
+        /** Whether months are enabled for age restrictions. */
+        is_month_enabled: boolean;
+    } | null;
+    /** Additional information specific for the item. */
+    a_data: {
+        /** Access to services for a purchase option. */
+        a_service_access: Array<number>;
+        /** This applies only for promotions. */
+        is_renew_public: boolean;
+        /** This applies only for coupons. Coupon components information. Each element will contain the follo... */
+        a_component: {
+            /** Program types. @see RsProgramSid */
+            id_program: RsProgramSid;
+            /** A list of purchase types. @see RsPurchaseItemSid */
+            id_purchase_item: RsPurchaseItemSid;
+            /** List of sale categories on the store page. @see RsSaleSid */
+            id_sale: RsSaleSid | null;
+            /** The identifier of the item. */
+            k_id: string;
+            /** The title of the item. */
+            text_title: string;
+        };
+        /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
+        a_staff: {
+            /** @deprecated Legacy staff key.  Deprecated, use `uid_staff`. */
+            k_staff: string;
+            /** Staff user key. */
+            uid_staff: string;
+            /** Staff last name. */
+            text_family: string;
+            /** Staff display name. */
+            text_staff: string;
+        };
+        /** Date of expiration of coupon, local date in MySQL format. */
+        dl_expire: string;
+        /** Current date, local date in MySQL format. */
+        dl_now: string;
+        /** Date to activate the coupon on, local date in MySQL format. */
+        dl_start: string;
+        /** Number of periods the coupon is active. Type of a period is specified by `id_duration`. */
+        i_duration: number;
+        /** Coupon date start rule. @see WlCouponEditActivationSid */
+        id_activation: WlCouponEditActivationSid;
+        /** A class for managing time intervals. @see ADurationSid */
+        id_duration: ADurationSid;
+        /** Class to process string identifiers for duration types @see WlCouponEditDurationTypeSid */
+        id_duration_type: WlCouponEditDurationTypeSid;
+        /** Whether to display individual prices for each item in the package. */
+        is_price_breakdown: boolean;
+        /** This applies to enrollment/event items. */
+        is_ticket: boolean;
+    };
+    /** Information about promotion guest pass. Empty array if promotion does not have guest pass or */
+    a_guest_pass: {
+        /** Number of times guest pass can be used per period. `null` for unlimited guest pass. */
+        i_limit: number | null;
+        /** Number of times guest pass can be used per day. `null` for limited guest pass. */
+        i_limit_daily: number | null;
+        /** Number of periods after which guest pass limits are reset. `null` for unlimited guest pass. */
+        i_period: number | null;
+        /** A class for managing time intervals. @see ADurationSid */
+        id_period: ADurationSid;
+        /** Guest Pass reset type. @see WlPromotionGuestPassGuestPassResetTypeSid */
+        id_reset_type: WlPromotionGuestPassGuestPassResetTypeSid | null;
+        /** Guest pass promotion key. */
+        k_promotion_guest: string;
+        /** Formatted guest pass limits. */
+        text_limit: string;
+        /** Guest pass promotion title. */
+        text_title: string;
+    };
+    /** Image information: */
+    a_image: {
+        /** The height in pixels. */
+        i_height: number;
+        /** The width in pixels. */
+        i_width: number;
+        /** `true` - the item has no image (in this case, ignore the other keys of this array). */
+        is_empty: boolean;
+        /** The image URL. */
+        s_url: string;
+    };
+    /** List of images. */
+    a_image_list: Array<{
+        /** The height in pixels. */
+        i_height: number;
+        /** The width in pixels. */
+        i_width: number;
+        /** `true` - the item has no image (in this case, ignore the other keys of this array). */
+        is_empty: boolean;
+        /** The image URL. */
+        s_url: string;
+    }>;
+    /** A list of installment plans. Each element has the following next keys: */
+    a_installment_template: Array<{
+        /** The number of payments. */
+        i_count: number;
+        /** A class for managing time intervals. @see ADurationSid */
+        id_duration: ADurationSid;
+        /** The number of periods specified by `id_period` between individual payments. */
+        i_period: number;
+        /** The payment currency Key. */
+        k_currency: string;
+        /** The key of the installment plan template. */
+        k_pay_installment_template: string;
+        /** The amount of the installment plan. */
+        m_amount: string;
+        /** The title of the installment plan. */
+        s_duration: string;
+    }>;
+    /** The list of information pertaining to the specified item. */
+    a_item: Array<{
+        /** Contains additional data for the sale item. The same structure as {@link WlCatalogCatalogListElem... */
+        a_data: {
+            /** Access to services for a purchase option. */
+            a_service_access: Array<number>;
+            /** This applies only for promotions. */
+            is_renew_public: boolean;
+            /** This applies only for coupons. Coupon components information. Each element will contain the follo... */
+            a_component: Record<string, unknown>;
+            /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
+            a_staff: Record<string, unknown>;
+            /** Date of expiration of coupon, local date in MySQL format. */
+            dl_expire: string;
+            /** Current date, local date in MySQL format. */
+            dl_now: string;
+            /** Date to activate the coupon on, local date in MySQL format. */
+            dl_start: string;
+            /** Number of periods the coupon is active. Type of a period is specified by `id_duration`. */
+            i_duration: number;
+            /** Coupon date start rule. @see WlCouponEditActivationSid */
+            id_activation: WlCouponEditActivationSid;
+            /** A class for managing time intervals. @see ADurationSid */
+            id_duration: ADurationSid;
+            /** Class to process string identifiers for duration types @see WlCouponEditDurationTypeSid */
+            id_duration_type: WlCouponEditDurationTypeSid;
+            /** Whether to display individual prices for each item in the package. */
+            is_price_breakdown: boolean;
+            /** This applies to enrollment/event items. */
+            is_ticket: boolean;
+        };
+        /** Information about promotion guest pass. The same structure as {@link WlCatalogCatalogListElementG... */
+        a_guest_pass: {
+            /** Number of times guest pass can be used per period. `null` for unlimited guest pass. */
+            i_limit: number | null;
+            /** Number of times guest pass can be used per day. `null` for limited guest pass. */
+            i_limit_daily: number | null;
+            /** Number of periods after which guest pass limits are reset. `null` for unlimited guest pass. */
+            i_period: number | null;
+            /** A class for managing time intervals. @see ADurationSid */
+            id_period: ADurationSid;
+            /** Guest Pass reset type. @see WlPromotionGuestPassGuestPassResetTypeSid */
+            id_reset_type: WlPromotionGuestPassGuestPassResetTypeSid | null;
+            /** Guest pass promotion key. */
+            k_promotion_guest: string;
+            /** Formatted guest pass limits. */
+            text_limit: string;
+            /** Guest pass promotion title. */
+            text_title: string;
+        };
+        /** Contains information about one image connected to a sale item. */
+        a_image: {
+            /** Information about the image. */
+            a_image: Record<string, unknown>;
+            /** Height of the variant image. */
+            i_height: number;
+            /** Width of the variant image. */
+            i_width: number;
+            /** `true` if the image file does not exist, `false` - otherwise. */
+            is_empty: boolean;
+            /** Link to the variant file. */
+            s_url: string;
+        };
+        /** Tax amounts keyed by tax key. The same structure as {@link WlCatalogCatalogListElementGetResponse... */
         a_tax: Array<string>;
         /** A list of Purchase Option view types. @see WlCatalogPurchaseOptionViewSid */
         id_purchase_option_view: WlCatalogPurchaseOptionViewSid;
@@ -18310,12 +18624,20 @@ export interface WlAppointmentInfoInfoResponse {
     }>;
     /** Date/time of appointment in location timezone. */
     dt_date_local: string;
+    /** Background color of the appointment on the schedule (RGB). */
+    i_color_background: number;
+    /** Border color of the appointment on the schedule (RGB). */
+    i_color_border: number;
     /** Appointment duration (in minutes). */
     i_duration: number | null;
     /** Index of booked asset. */
     i_index: number | null;
     /** The possible payment types an appointment can have. @see RsAppointmentPaySid */
     id_appointment_pay: RsAppointmentPaySid;
+    /** List of possible value of virtual integrations. @see WlVirtualVirtualProviderSid */
+    id_virtual_provider: WlVirtualVirtualProviderSid | null;
+    /** Whether the service is virtual. */
+    is_virtual: boolean;
     /** Location key. */
     k_location: string;
     /** Purchased promotion which provides this appointment. */
@@ -32878,7 +33200,9 @@ export declare class WlCatalogCatalogListNamespace {
     private readonly _client;
     constructor(_client: WlClient);
     /** Retrieves an information about current sale item. */
-    element(params?: WlCatalogCatalogListElementParams): Promise<WlCatalogCatalogListElementResponse>;
+    elementGet(params?: WlCatalogCatalogListElementGetParams): Promise<WlCatalogCatalogListElementGetResponse>;
+    /** Displays information about a certain item in the store. */
+    elementPost(params?: WlCatalogCatalogListElementPostParams): Promise<WlCatalogCatalogListElementPostResponse>;
     /** Retrieves a list of all sale items. */
     list(params?: WlCatalogCatalogListListParams): Promise<WlCatalogCatalogListListResponse>;
     /** Gets store products by shop category. */
