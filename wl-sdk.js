@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260928112220
+ * Spec version: 1.1.20260928125400
  * Build date:   2026-09-28
- * Endpoints:    653
+ * Endpoints:    654
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260928112220';
+  WlClient.SPEC_VERSION = '1.1.20260928125400';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (653 total)
+  // Generated API methods (654 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -6399,9 +6399,59 @@
    *  `k_id` {string} The item key.
    *  `...` {*}
    */
-  WlClient.prototype.wlCatalogCatalogListElement = function(params)
+  WlClient.prototype.wlCatalogCatalogListElementGet = function(params)
   {
     return this.request('/Wl/Catalog/CatalogList/Element.json', params || {}, 'GET');
+  };
+
+  /**
+   * Displays information about a certain item in the store.
+   *
+   * Works exactly as `get()` method.
+   * This method is added so that batched item identifiers can be sent in the request body
+   * rather than as URL query parameters, avoiding URL length limits.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {Object} params.a_discount_code Information about the discount code:
+   * @param {Object[]} params.a_sale_id_group The list of items grouped by sale categories on the store page.
+   * @param {?string} [params.dl_client_prorate] The client prorate date.
+   * @param {number} params.i_image_height The image height in pixels. Specify this value if you need the image to be returned in a specific...
+   * @param {number} params.i_image_width The image width in pixels. Specify this value if you need the image to be returned in a specific ...
+   * @param {number} params.i_promotion_image_height The promotion image height in pixels. Specify this value if you need the image to be returned in ...
+   * @param {number} params.i_promotion_image_width The promotion image width in pixels. Specify this value if you need the image to be returned in a...
+   * @param {number} params.id_sale The ID of item category. See {@link WlClient.RsSaleSid}.
+   * @param {boolean} params.is_backend Determines whether the API is called in the backend mode.
+   * @param {string} params.k_business The business key.
+   * @param {string} params.k_id The item key.
+   * @param {string} params.k_location The location key.
+   * @param {?string} [params.k_shop_product_option] The product option key.
+   * @param {string} params.uid_customer The UID of a customer (user) for whom the purchase is made. This is used in the backend to calcul...
+   * @returns {Promise<Object>} Response data.
+   *  `a_age_restriction` {?Object} The age restriction configuration.
+   *  `a_data` {Object} Additional information specific for the item.
+   *  `a_guest_pass` {Object} Information about promotion guest pass. Empty array if promotion does not hav...
+   *  `a_image` {Object} Image information:
+   *  `a_image_list` {Object[]} List of images.
+   *  `a_installment_template` {Object[]} A list of installment plans. Each element has the following next keys:
+   *  `a_item` {Object[]} The list of information pertaining to the specified item.
+   *  `a_tax` {string[]} A list of the item's taxes.
+   *  `f_price` {?string} The price of the sale item.
+   *  `f_price_include` {?string} The price of the sale item, including tax.
+   *  `f_price_retail_product` {string} The retail price of the product. This will be empty if this isn't a product.
+   *  `f_price_total_enrollment` {string} Full price of event. This will be empty if this isn't an event.
+   *  `f_tax` {?string} The tax amount.
+   *  `html_description` {?string} The sale item description.
+   *  `html_special` {?string} Special instructions for the sale item.
+   *  `id_purchase_item` {number} A list of purchase types. See {@link WlClient.RsPurchaseItemSid}.
+   *  `id_purchase_option_view` {number} A list of Purchase Option view types. See {@link WlClient.WlCatalogPurchaseOptionViewSid}.
+   *  `id_sale` {number} List of sale categories on the store page. See {@link WlClient.RsSaleSid}.
+   *  `is_contract` {boolean} If `true`, the item requires a contract. Otherwise, this will be `false`.
+   *  `k_id` {string} The item key.
+   *  `...` {*}
+   */
+  WlClient.prototype.wlCatalogCatalogListElementPost = function(params)
+  {
+    return this.request('/Wl/Catalog/CatalogList/Element.json', params || {}, 'POST');
   };
 
   /**
@@ -6744,14 +6794,14 @@
    *  `i_duration` {?number} Appointment duration (in minutes).
    *  `i_index` {?number} Index of booked asset.
    *  `id_appointment_pay` {number} The possible payment types an appointment can have. See {@link WlClient.RsAppointmentPaySid}.
+   *  `id_virtual_provider` {?number} List of possible value of virtual integrations. See {@link WlClient.WlVirtualVirtualProviderSid}.
+   *  `is_virtual` {boolean} Whether the service is virtual.
    *  `k_location` {string} Location key.
    *  `k_login_promotion` {?string} Purchased promotion which provides this appointment.
    *  `k_resource` {?string} Asset key.
    *  `k_resource_type` {?string} Asset category key.
    *  `k_service` {?string} Service key.
    *  `k_service_category` {?string} Service category key.
-   *  `k_session_pass` {?string} Purchased drop-in which provides this appointment.
-   *  `k_staff` {string} Staff member who conducts this appointment.
    *  `...` {*}
    */
   WlClient.prototype.wlAppointmentInfoInfo = function(params)
@@ -18257,6 +18307,18 @@
   });
 
   /**
+   * List of possible value of virtual integrations.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVirtualVirtualProviderSid = Object.freeze({
+    /** Virtual integration non implemented */
+    NON_INTEGRATED: 2,
+    /** Virtual Zoom service integration */
+    ZOOM: 1,
+  });
+
+  /**
    * A list of bookable types.
    *
    * @enum {number}
@@ -18832,18 +18894,6 @@
     WAIT_LIST_LIMIT_MAX: 21,
     /** Client has unsigned waiver */
     WAIVER_NX: 23,
-  });
-
-  /**
-   * List of possible value of virtual integrations.
-   *
-   * @enum {number}
-   */
-  WlClient.WlVirtualVirtualProviderSid = Object.freeze({
-    /** Virtual integration non implemented */
-    NON_INTEGRATED: 2,
-    /** Virtual Zoom service integration */
-    ZOOM: 1,
   });
 
   /**

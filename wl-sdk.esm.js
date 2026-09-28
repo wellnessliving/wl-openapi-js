@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260928112220
+// OpenAPI spec version: 1.1.20260928125400
 // Build date: 2026-09-28
-// Endpoints: 653
+// Endpoints: 654
 // Enums: 211
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -3694,6 +3694,14 @@ export var RsAppointmentPaySid;
     /** Nothing was paid */
     RsAppointmentPaySid[RsAppointmentPaySid["NONE"] = 1] = "NONE";
 })(RsAppointmentPaySid || (RsAppointmentPaySid = {}));
+/** List of possible value of virtual integrations. */
+export var WlVirtualVirtualProviderSid;
+(function (WlVirtualVirtualProviderSid) {
+    /** Virtual integration non implemented */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["NON_INTEGRATED"] = 2] = "NON_INTEGRATED";
+    /** Virtual Zoom service integration */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
+})(WlVirtualVirtualProviderSid || (WlVirtualVirtualProviderSid = {}));
 /** A list of bookable types. */
 export var WlServiceBookableSid;
 (function (WlServiceBookableSid) {
@@ -4252,14 +4260,6 @@ export var WlScheduleClassViewDenyReasonSid;
     /** Client has unsigned waiver */
     WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["WAIVER_NX"] = 23] = "WAIVER_NX";
 })(WlScheduleClassViewDenyReasonSid || (WlScheduleClassViewDenyReasonSid = {}));
-/** List of possible value of virtual integrations. */
-export var WlVirtualVirtualProviderSid;
-(function (WlVirtualVirtualProviderSid) {
-    /** Virtual integration non implemented */
-    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["NON_INTEGRATED"] = 2] = "NON_INTEGRATED";
-    /** Virtual Zoom service integration */
-    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
-})(WlVirtualVirtualProviderSid || (WlVirtualVirtualProviderSid = {}));
 /** Time intervals on schedule for cells. */
 export var WlScheduleDesignIntervalSid;
 (function (WlScheduleDesignIntervalSid) {
@@ -8743,8 +8743,12 @@ export class WlCatalogCatalogListNamespace {
         this._client = _client;
     }
     /** Retrieves an information about current sale item. */
-    element(params) {
+    elementGet(params) {
         return this._client._request('/Wl/Catalog/CatalogList/Element.json', params, 'GET');
+    }
+    /** Displays information about a certain item in the store. */
+    elementPost(params) {
+        return this._client._request('/Wl/Catalog/CatalogList/Element.json', params, 'POST');
     }
     /** Retrieves a list of all sale items. */
     list(params) {
