@@ -17234,6 +17234,10 @@ export interface WlAppointmentInfoInfoResponse {
     }>;
     /** Date/time of appointment in location timezone. */
     dt_date_local: string;
+    /** Background color of the appointment on the schedule (RGB). */
+    i_color_background: number;
+    /** Border color of the appointment on the schedule (RGB). */
+    i_color_border: number;
     /** Appointment duration (in minutes). */
     i_duration: number | null;
     /** Index of booked asset. */

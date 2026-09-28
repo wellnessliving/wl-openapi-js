@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20260928091620
+ * Spec version: 1.1.20260928112220
  * Build date:   2026-09-28
  * Endpoints:    653
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260928091620';
+  WlClient.SPEC_VERSION = '1.1.20260928112220';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (653 total)
@@ -6739,6 +6739,8 @@
    *  `a_resource` {Object[]} List of assets used by this appointment. Each element contains:
    *  `a_shop_product_option` {Object[]} List of appointment add-ons. Every element has next keys:
    *  `dt_date_local` {string} Date/time of appointment in location timezone.
+   *  `i_color_background` {number} Background color of the appointment on the schedule (RGB).
+   *  `i_color_border` {number} Border color of the appointment on the schedule (RGB).
    *  `i_duration` {?number} Appointment duration (in minutes).
    *  `i_index` {?number} Index of booked asset.
    *  `id_appointment_pay` {number} The possible payment types an appointment can have. See {@link WlClient.RsAppointmentPaySid}.
@@ -6750,8 +6752,6 @@
    *  `k_service_category` {?string} Service category key.
    *  `k_session_pass` {?string} Purchased drop-in which provides this appointment.
    *  `k_staff` {string} Staff member who conducts this appointment.
-   *  `text_title` {string} Title of the appointment.
-   *  `uid_appointment` {string} User for whom this appointment was booked.
    *  `...` {*}
    */
   WlClient.prototype.wlAppointmentInfoInfo = function(params)
