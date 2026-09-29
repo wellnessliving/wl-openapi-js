@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260928125400
-// Build date: 2026-09-28
-// Endpoints: 654
-// Enums: 211
+// OpenAPI spec version: 1.1.20260929031005
+// Build date: 2026-09-29
+// Endpoints: 660
+// Enums: 213
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (211 total) ---
+// --- Enum types (213 total) ---
 /** Experience types for class sessions to differentiate virtual and in-person sessions. */
 export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
 (function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
@@ -2476,6 +2476,22 @@ export var CoreAILogTriageTriageSourceSid;
     /** Aggregated usage statistics */
     CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["WATCH_USAGE_STAT"] = 3] = "WATCH_USAGE_STAT";
 })(CoreAILogTriageTriageSourceSid || (CoreAILogTriageTriageSourceSid = {}));
+/** `WebAuthn` `credentialDeviceType` values, per the `WebAuthn` specification. */
+export var CorePassportPasskeyPasskeyDeviceTypeEnum;
+(function (CorePassportPasskeyPasskeyDeviceTypeEnum) {
+    /** The credential is bound to a single physical authenticator and cannot be backed up or */
+    CorePassportPasskeyPasskeyDeviceTypeEnum[CorePassportPasskeyPasskeyDeviceTypeEnum["SINGLE_DEVICE"] = 1] = "SINGLE_DEVICE";
+    /** The credential can be backed up and synced across multiple devices, for example through */
+    CorePassportPasskeyPasskeyDeviceTypeEnum[CorePassportPasskeyPasskeyDeviceTypeEnum["MULTI_DEVICE"] = 2] = "MULTI_DEVICE";
+})(CorePassportPasskeyPasskeyDeviceTypeEnum || (CorePassportPasskeyPasskeyDeviceTypeEnum = {}));
+/** Statuses of a registered passkey credential. */
+export var CorePassportPasskeyPasskeyCredentialStatusEnum;
+(function (CorePassportPasskeyPasskeyCredentialStatusEnum) {
+    /** The credential is active and may be used to sign in */
+    CorePassportPasskeyPasskeyCredentialStatusEnum[CorePassportPasskeyPasskeyCredentialStatusEnum["ACTIVE"] = 1] = "ACTIVE";
+    /** The credential was revoked by its owner and may no longer be used to sign in */
+    CorePassportPasskeyPasskeyCredentialStatusEnum[CorePassportPasskeyPasskeyCredentialStatusEnum["REVOKED"] = 2] = "REVOKED";
+})(CorePassportPasskeyPasskeyCredentialStatusEnum || (CorePassportPasskeyPasskeyCredentialStatusEnum = {}));
 /** List of responses for Google Captcha token. */
 export var CoreGoogleCaptchaCaptchaResponseSid;
 (function (CoreGoogleCaptchaCaptchaResponseSid) {
@@ -10451,6 +10467,35 @@ export class CorePassportChangePasswordNamespace {
         return this._client._request('/Core/Passport/ChangePassword/ChangePasswordBegin.json', params, 'POST');
     }
 }
+export class CorePassportPasskeyNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Starts the authentication ceremony. */
+    passkeyEnterGet(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyEnter.json', params, 'GET');
+    }
+    /** Finishes the authentication ceremony. */
+    passkeyEnterPost(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyEnter.json', params, 'POST');
+    }
+    /** Starts the registration ceremony. */
+    passkeyRegisterGet(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyRegister.json', params, 'GET');
+    }
+    /** Finishes the registration ceremony. */
+    passkeyRegisterPost(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyRegister.json', params, 'POST');
+    }
+    /** Revokes one of the signed-in user's passkey credentials. */
+    passkeyCredentialDelete(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'DELETE');
+    }
+    /** Lists the signed-in user's registered passkey credentials. */
+    passkeyCredentialGet(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'GET');
+    }
+}
 export class CorePassportUserEmailNamespace {
     constructor(_client) {
         this._client = _client;
@@ -10486,6 +10531,7 @@ export class CorePassportNamespace {
         this._client = _client;
         this.login = new CorePassportLoginNamespace(this._client);
         this.changePassword = new CorePassportChangePasswordNamespace(this._client);
+        this.passkey = new CorePassportPasskeyNamespace(this._client);
         this.user = new CorePassportUserNamespace(this._client);
         this.enter = new CorePassportEnterNamespace(this._client);
     }
