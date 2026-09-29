@@ -9614,7 +9614,7 @@ export interface CoreAILogTriageConnectionCheckResponse {
         /** Usage-statistics priority multiplier. Present for the usage-statistics source. */
         i_priority_multiplier: number;
         /** Base class for log-triage problem searchers. */
-        cid_source: number;
+        cid_problem: number;
         /** Usage-statistics object. Present for the usage-statistics source. */
         s_object: string;
         /** Usage-statistics aggregation period. Present for the usage-statistics source. */
