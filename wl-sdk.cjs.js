@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20260929110416
+// OpenAPI spec version: 1.1.20260930024256
 // Build date: 2026-09-30
 // Endpoints: 660
 // Enums: 213
@@ -10906,7 +10906,7 @@ class CorePassportPasskeyNamespace {
     passkeyCredentialDelete(params) {
         return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'DELETE');
     }
-    /** Lists the signed-in user's registered passkey credentials. */
+    /** Lists the user's registered passkey credentials. */
     passkeyCredentialGet(params) {
         return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'GET');
     }
