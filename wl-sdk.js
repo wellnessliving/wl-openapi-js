@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260930020613
+ * Spec version: 1.1.20260930103155
  * Build date:   2026-09-30
- * Endpoints:    662
+ * Endpoints:    667
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260930020613';
+  WlClient.SPEC_VERSION = '1.1.20260930103155';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (662 total)
+  // Generated API methods (667 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -6255,6 +6255,37 @@
   };
 
   /**
+   * Returns everything the class setup form needs besides the class itself.
+   *
+   * The form is rendered by the client, so this endpoint answers with data: the lists the Book Now Tab, the quick
+   * search tag and the store category pickers are filled from, the business policies the Business policies section
+   * starts with, the send rules of the client reminder, the currency sign, whether the Administration section may
+   * be shown, the addresses of the pages the form links to and the markup of the blocks that have no template on
+   * the client.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_class Class key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_class_tab` {Object[]} Book Now Tabs the class may be shown in. Every element is an array:
+   *  `a_reminder_info` {Object} Send rules of the client reminder. Keys are:
+   *  `a_search_tag` {Object[]} Quick search tags of the category of the business. Every element is an array:
+   *  `a_shop_category` {Object[]} Store categories of the business. Every element is an array:
+   *  `a_url` {Object[]} Addresses of the pages the form links to:
+   *  `html_policy` {string} Markup of the Business policies block of the form.
+   *  `html_prerequisite` {string} Markup of the Prerequisites block of the form.
+   *  `html_promotion` {string} Markup of the Purchase Options block of the form.
+   *  `html_quick_buy` {string} Markup of the Quick Buy block of the form.
+   *  `html_tax` {string} Markup of the Taxes block of the form.
+   *  `is_admin` {boolean} `true` if the Administration section may be shown, `false` otherwise.
+   *  `text_currency` {string} Currency sign of the business.
+   */
+  WlClient.prototype.wlClassesEditorSetup = function(params)
+  {
+    return this.request('/Wl/Classes/Editor/Setup.json', params || {}, 'GET');
+  };
+
+  /**
    * Gets list of coupons.
    *
    * Used to populate the gift card picker in the store and booking flows. Returns all gift card types
@@ -6709,6 +6740,92 @@
   WlClient.prototype.wlBillingBulkBulkBillingUser = function(params)
   {
     return this.request('/Wl/Billing/Bulk/BulkBillingUser.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Removes a custom billing code from the central list of the business.
+   *
+   * The code is not deleted - it stays on every receipt and invoice it has already been used on, and it keeps its
+   * value occupied. Adding the same value again brings this very code back, see `put()`.
+   * Removing a code that is removed already does nothing.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_code Key of the custom billing code.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlBillingCodeBillingCodeDelete = function(params)
+  {
+    return this.request('/Wl/Billing/Code/BillingCode.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Returns a single custom billing code of the business.
+   *
+   * A removed code is returned as well, with {@link WlClient#wlBillingCodeBillingCodeGet} set - it is still shown on the
+   * receipts it has been applied to.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_code Key of the custom billing code.
+   * @returns {Promise<Object>} Response data.
+   *  `is_remove` {boolean} Whether the code is removed from the central list of the business.
+   *  `text_code` {string} Code value, as it is printed on receipts and invoices.
+   *  `text_description` {string} Description of the code.
+   */
+  WlClient.prototype.wlBillingCodeBillingCodeGet = function(params)
+  {
+    return this.request('/Wl/Billing/Code/BillingCode.json', params || {}, 'GET');
+  };
+
+  /**
+   * Edits the value and the description of a custom billing code of the business.
+   *
+   * The new value applies going forward only - every receipt and invoice that has already been generated with the
+   * old value keeps it.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_code Key of the custom billing code.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlBillingCodeBillingCodePost = function(params)
+  {
+    return this.request('/Wl/Billing/Code/BillingCode.json', params || {}, 'POST');
+  };
+
+  /**
+   * Adds a custom billing code to the central list of the business.
+   *
+   * If the business has removed a code with this value before, that code is brought back with the new description
+   * instead of a second code with the same value being created, and {@link WlClient#wlBillingCodeBillingCodeGet} returns the key
+   * of that very code.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `k_code` {string} Key of the custom billing code.
+   */
+  WlClient.prototype.wlBillingCodeBillingCodePut = function(params)
+  {
+    return this.request('/Wl/Billing/Code/BillingCode.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Gets the billing code list of the business.
+   *
+   * The list contains the custom codes of the business for now, and is meant to become the single place a client
+   * asks for codes, with the diagnostic codes of the read-only ICD-10-CM reference library to be returned
+   * from here as well.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_code` {Object[]} Billing codes of the business.
+   */
+  WlClient.prototype.wlBillingCodeBillingCodeList = function(params)
+  {
+    return this.request('/Wl/Billing/Code/BillingCodeList.json', params || {}, 'GET');
   };
 
   /**
@@ -8088,37 +8205,6 @@
   WlClient.prototype.wlWidgetAnalyticsWidgetAnalyticsEvent = function(params)
   {
     return this.request('/Wl/Widget/Analytics/WidgetAnalyticsEvent.json', params || {}, 'POST');
-  };
-
-  /**
-   * Returns everything the event setup form needs besides the event itself.
-   *
-   * The form is rendered by the client, so this endpoint answers with data: the lists the Book Now Tab, the quick
-   * search tag and the store category pickers are filled from, the business policies the Business policies section
-   * starts with, the send rules of the client reminder, the currency sign, whether the Administration section may
-   * be shown, the addresses of the pages the form links to and the markup of the blocks that have no template on
-   * the client.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_class Event key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_class_tab` {Object[]} Book Now Tabs the event may be shown in. Every element is an array:
-   *  `a_reminder_info` {Object} Send rules of the client reminder. Keys are:
-   *  `a_search_tag` {Object[]} Quick search tags of the category of the business. Every element is an array:
-   *  `a_shop_category` {Object[]} Store categories of the business. Every element is an array:
-   *  `a_url` {Object[]} Addresses of the pages the form links to:
-   *  `html_policy` {string} Markup of the Business policies block of the form.
-   *  `html_prerequisite` {string} Markup of the Prerequisites block of the form.
-   *  `html_promotion` {string} Markup of the Purchase Options block of the form.
-   *  `html_quick_buy` {string} Markup of the Quick Buy block of the form.
-   *  `html_tax` {string} Markup of the Taxes block of the form.
-   *  `is_admin` {boolean} `true` if the Administration section may be shown, `false` otherwise.
-   *  `text_currency` {string} Currency sign of the business.
-   */
-  WlClient.prototype.wlEventEditorSetup = function(params)
-  {
-    return this.request('/Wl/Event/Editor/Setup.json', params || {}, 'GET');
   };
 
   /**

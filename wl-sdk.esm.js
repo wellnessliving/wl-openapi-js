@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260930020613
+// OpenAPI spec version: 1.1.20260930103155
 // Build date: 2026-09-30
-// Endpoints: 662
+// Endpoints: 667
 // Enums: 216
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -7893,15 +7893,6 @@ export class WlHolidayNamespace {
         return this._client._request('/Wl/Holiday/Holiday.json', params, 'GET');
     }
 }
-export class WlEventEditorNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns everything the event setup form needs besides the event itself. */
-    setup(params) {
-        return this._client._request('/Wl/Event/Editor/Setup.json', params, 'GET');
-    }
-}
 export class WlEventBookEventViewNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7930,7 +7921,6 @@ export class WlEventBookNamespace {
 export class WlEventNamespace {
     constructor(_client) {
         this._client = _client;
-        this.editor = new WlEventEditorNamespace(this._client);
         this.book = new WlEventBookNamespace(this._client);
     }
     /** Cancels book of session {@link WlEventNamespace#eventCancel}. */
@@ -9179,6 +9169,15 @@ export class WlClassesPromotionNamespace {
         return this._client._request('/Wl/Classes/Promotion/ClassPromotion.json', params, 'GET');
     }
 }
+export class WlClassesEditorNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns everything the class setup form needs besides the class itself. */
+    setup(params) {
+        return this._client._request('/Wl/Classes/Editor/Setup.json', params, 'GET');
+    }
+}
 export class WlClassesPeriodModifyNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9205,6 +9204,7 @@ export class WlClassesNamespace {
         this.info = new WlClassesInfoNamespace(this._client);
         this.classView = new WlClassesClassViewNamespace(this._client);
         this.promotion = new WlClassesPromotionNamespace(this._client);
+        this.editor = new WlClassesEditorNamespace(this._client);
         this.period = new WlClassesPeriodNamespace(this._client);
     }
 }
@@ -9313,10 +9313,36 @@ export class WlBillingBulkNamespace {
         return this._client._request('/Wl/Billing/Bulk/BulkBillingUser.json', params, 'DELETE');
     }
 }
+export class WlBillingCodeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes a custom billing code from the central list of the business. */
+    billingCodeDelete(params) {
+        return this._client._request('/Wl/Billing/Code/BillingCode.json', params, 'DELETE');
+    }
+    /** Returns a single custom billing code of the business. */
+    billingCodeGet(params) {
+        return this._client._request('/Wl/Billing/Code/BillingCode.json', params, 'GET');
+    }
+    /** Edits the value and the description of a custom billing code of the business. */
+    billingCodePost(params) {
+        return this._client._request('/Wl/Billing/Code/BillingCode.json', params, 'POST');
+    }
+    /** Adds a custom billing code to the central list of the business. */
+    billingCodePut(params) {
+        return this._client._request('/Wl/Billing/Code/BillingCode.json', params, 'PUT');
+    }
+    /** Gets the billing code list of the business. */
+    billingCodeList(params) {
+        return this._client._request('/Wl/Billing/Code/BillingCodeList.json', params, 'GET');
+    }
+}
 export class WlBillingNamespace {
     constructor(_client) {
         this._client = _client;
         this.bulk = new WlBillingBulkNamespace(this._client);
+        this.code = new WlBillingCodeNamespace(this._client);
     }
 }
 export class WlAppointmentWaitListNamespace {

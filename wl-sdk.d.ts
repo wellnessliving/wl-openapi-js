@@ -16674,6 +16674,102 @@ export interface WlClassesPromotionClassPromotionResponse {
     /** The default promotion key. */
     k_promotion_default: string | null;
 }
+export interface WlClassesEditorSetupParams {
+    /** Business key. */
+    k_business: string;
+    /** Class key. */
+    k_class: string;
+}
+export interface WlClassesEditorSetupResponse {
+    /** Book Now Tabs the class may be shown in. Every element is an array: */
+    a_class_tab: Array<{
+        /** `true` if the class is shown in this tab, `false` otherwise. */
+        is_selected: boolean;
+        /** Key of the tab: the ID of the tab object and the key of the tab joined with a hyphen. The key of ... */
+        s_key: string;
+        /** Title of the tab. */
+        text_title: string;
+    }>;
+    /** Send rules of the client reminder. Keys are: */
+    a_reminder_info: {
+        /** Times the reminder is sent at, the earliest one first. Every element is an array: */
+        a_config: {
+            /** Number of the units of time the reminder is sent before the session. */
+            i_before: number;
+            /** A class for managing time intervals. @see ADurationSid */
+            id_duration_delay: ADurationSid;
+            /** Title of the unit of time. */
+            text_time: string;
+        };
+        /** Number of the client types the reminder is sent to. */
+        i_login_type: number;
+        /** Number of the client types of the business. */
+        i_login_type_all: number;
+        /** Number of the client groups the reminder is sent to. */
+        i_member_group: number;
+        /** Number of the client groups of the business. */
+        i_member_group_all: number;
+        /** `true` if the reminder is sent to certain client types only, `false` otherwise. */
+        is_login_type: boolean;
+        /** `true` if every client type of the business is selected, `false` otherwise. */
+        is_login_type_all: boolean;
+        /** `true` if the reminder is sent to certain client groups only, `false` otherwise. */
+        is_member_group: boolean;
+        /** `true` if every client group of the business is selected, `false` otherwise. */
+        is_member_group_all: boolean;
+    };
+    /** Quick search tags of the category of the business. Every element is an array: */
+    a_search_tag: Array<{
+        /** Key of the tag. */
+        k_search_tag: string;
+        /** Title of the tag. */
+        text_title: string;
+    }>;
+    /** Store categories of the business. Every element is an array: */
+    a_shop_category: Array<{
+        /** Key of the category. */
+        k_shop_category: string;
+        /** Title of the category. */
+        text_title: string;
+    }>;
+    /** Addresses of the pages the form links to: */
+    a_url: Array<{
+        /** List of store categories. */
+        url_category_manage: string;
+        /** Client notifications. */
+        url_notification_client: string;
+        /** Client confirmation notification of a class. */
+        url_notification_confirmation: string;
+        /** Client reminder notification of a class. */
+        url_notification_reminder: string;
+        /** Staff notifications. */
+        url_notification_staff: string;
+        /** Default business policies. */
+        url_policy_manage: string;
+        /** List of products. */
+        url_product_manage: string;
+        /** List of Book-a-Spot assets. */
+        url_resource_manage: string;
+        /** Store settings that require a card at sign-up. */
+        url_ticket_card: string;
+        /** Online waiver settings. */
+        url_ticket_waiver: string;
+    }>;
+    /** Markup of the Business policies block of the form. */
+    html_policy: string;
+    /** Markup of the Prerequisites block of the form. */
+    html_prerequisite: string;
+    /** Markup of the Purchase Options block of the form. */
+    html_promotion: string;
+    /** Markup of the Quick Buy block of the form. */
+    html_quick_buy: string;
+    /** Markup of the Taxes block of the form. */
+    html_tax: string;
+    /** `true` if the Administration section may be shown, `false` otherwise. */
+    is_admin: boolean;
+    /** Currency sign of the business. */
+    text_currency: string;
+}
 export interface WlCouponCouponListListParams {
     /** Whether to return franchisee-created coupons (if business is franchisor). */
     is_franchise: boolean;
@@ -18223,6 +18319,57 @@ export interface WlBillingBulkBulkBillingUserParams {
     uid: string;
 }
 export type WlBillingBulkBulkBillingUserResponse = Record<string, unknown>;
+export interface WlBillingCodeBillingCodeDeleteParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the custom billing code. */
+    k_code: string;
+}
+export type WlBillingCodeBillingCodeDeleteResponse = Record<string, unknown>;
+export interface WlBillingCodeBillingCodeGetParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the custom billing code. */
+    k_code: string;
+}
+export interface WlBillingCodeBillingCodeGetResponse {
+    /** Whether the code is removed from the central list of the business. */
+    is_remove: boolean;
+    /** Code value, as it is printed on receipts and invoices. */
+    text_code: string;
+    /** Description of the code. */
+    text_description: string;
+}
+export interface WlBillingCodeBillingCodePostParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the custom billing code. */
+    k_code: string;
+}
+export type WlBillingCodeBillingCodePostResponse = Record<string, unknown>;
+export interface WlBillingCodeBillingCodePutParams {
+    /** Business key. */
+    k_business: string;
+}
+export interface WlBillingCodeBillingCodePutResponse {
+    /** Key of the custom billing code. */
+    k_code: string;
+}
+export interface WlBillingCodeBillingCodeListParams {
+    /** Business key. */
+    k_business: string;
+}
+export interface WlBillingCodeBillingCodeListResponse {
+    /** Billing codes of the business. */
+    a_code: Array<{
+        /** Key of the code. */
+        k_code: string;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code the business typed in. */
+        text_description: string;
+    }>;
+}
 export interface WlAppointmentWaitListAppointmentWaitListParams {
     /** Appointment key. */
     k_appointment: string;
@@ -20759,102 +20906,6 @@ export interface WlTaskEditEditPutParams {
 export type WlTaskEditEditPutResponse = Record<string, unknown>;
 export type WlWidgetAnalyticsWidgetAnalyticsEventParams = Record<string, unknown>;
 export type WlWidgetAnalyticsWidgetAnalyticsEventResponse = Record<string, unknown>;
-export interface WlEventEditorSetupParams {
-    /** Business key. */
-    k_business: string;
-    /** Event key. */
-    k_class: string;
-}
-export interface WlEventEditorSetupResponse {
-    /** Book Now Tabs the event may be shown in. Every element is an array: */
-    a_class_tab: Array<{
-        /** `true` if the event is shown in this tab, `false` otherwise. */
-        is_selected: boolean;
-        /** Key of the tab: the ID of the tab object and the key of the tab joined with a hyphen. The key of ... */
-        s_key: string;
-        /** Title of the tab. */
-        text_title: string;
-    }>;
-    /** Send rules of the client reminder. Keys are: */
-    a_reminder_info: {
-        /** Times the reminder is sent at, the earliest one first. Every element is an array: */
-        a_config: {
-            /** Number of the units of time the reminder is sent before the session. */
-            i_before: number;
-            /** A class for managing time intervals. @see ADurationSid */
-            id_duration_delay: ADurationSid;
-            /** Title of the unit of time. */
-            text_time: string;
-        };
-        /** Number of the client types the reminder is sent to. */
-        i_login_type: number;
-        /** Number of the client types of the business. */
-        i_login_type_all: number;
-        /** Number of the client groups the reminder is sent to. */
-        i_member_group: number;
-        /** Number of the client groups of the business. */
-        i_member_group_all: number;
-        /** `true` if the reminder is sent to certain client types only, `false` otherwise. */
-        is_login_type: boolean;
-        /** `true` if every client type of the business is selected, `false` otherwise. */
-        is_login_type_all: boolean;
-        /** `true` if the reminder is sent to certain client groups only, `false` otherwise. */
-        is_member_group: boolean;
-        /** `true` if every client group of the business is selected, `false` otherwise. */
-        is_member_group_all: boolean;
-    };
-    /** Quick search tags of the category of the business. Every element is an array: */
-    a_search_tag: Array<{
-        /** Key of the tag. */
-        k_search_tag: string;
-        /** Title of the tag. */
-        text_title: string;
-    }>;
-    /** Store categories of the business. Every element is an array: */
-    a_shop_category: Array<{
-        /** Key of the category. */
-        k_shop_category: string;
-        /** Title of the category. */
-        text_title: string;
-    }>;
-    /** Addresses of the pages the form links to: */
-    a_url: Array<{
-        /** List of store categories. */
-        url_category_manage: string;
-        /** Client notifications. */
-        url_notification_client: string;
-        /** Client confirmation notification of an event. */
-        url_notification_confirmation: string;
-        /** Client reminder notification of an event. */
-        url_notification_reminder: string;
-        /** Staff notifications. */
-        url_notification_staff: string;
-        /** Default business policies. */
-        url_policy_manage: string;
-        /** List of products. */
-        url_product_manage: string;
-        /** List of Book-a-Spot assets. */
-        url_resource_manage: string;
-        /** Store settings that require a card at sign-up. */
-        url_ticket_card: string;
-        /** Online waiver settings. */
-        url_ticket_waiver: string;
-    }>;
-    /** Markup of the Business policies block of the form. */
-    html_policy: string;
-    /** Markup of the Prerequisites block of the form. */
-    html_prerequisite: string;
-    /** Markup of the Purchase Options block of the form. */
-    html_promotion: string;
-    /** Markup of the Quick Buy block of the form. */
-    html_quick_buy: string;
-    /** Markup of the Taxes block of the form. */
-    html_tax: string;
-    /** `true` if the Administration section may be shown, `false` otherwise. */
-    is_admin: boolean;
-    /** Currency sign of the business. */
-    text_currency: string;
-}
 export interface WlReportDashboardReportDashboardPostParams {
     /** Business key of the report. */
     k_business: string;
@@ -32599,12 +32650,6 @@ export declare class WlHolidayNamespace {
     /** Returns information about holiday day of business/locations. */
     holiday(params?: WlHolidayHolidayParams): Promise<WlHolidayHolidayResponse>;
 }
-export declare class WlEventEditorNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns everything the event setup form needs besides the event itself. */
-    setup(params?: WlEventEditorSetupParams): Promise<WlEventEditorSetupResponse>;
-}
 export declare class WlEventBookEventViewNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -32625,7 +32670,6 @@ export declare class WlEventBookNamespace {
 }
 export declare class WlEventNamespace {
     private readonly _client;
-    readonly editor: WlEventEditorNamespace;
     readonly book: WlEventBookNamespace;
     constructor(_client: WlClient);
     /** Cancels book of session {@link WlEventNamespace#eventCancel}. */
@@ -33431,6 +33475,12 @@ export declare class WlClassesPromotionNamespace {
     /** Returns list of promotions that can be used to pay for the class / event. */
     classPromotion(params?: WlClassesPromotionClassPromotionParams): Promise<WlClassesPromotionClassPromotionResponse>;
 }
+export declare class WlClassesEditorNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns everything the class setup form needs besides the class itself. */
+    setup(params?: WlClassesEditorSetupParams): Promise<WlClassesEditorSetupResponse>;
+}
 export declare class WlClassesPeriodModifyNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -33450,6 +33500,7 @@ export declare class WlClassesNamespace {
     readonly info: WlClassesInfoNamespace;
     readonly classView: WlClassesClassViewNamespace;
     readonly promotion: WlClassesPromotionNamespace;
+    readonly editor: WlClassesEditorNamespace;
     readonly period: WlClassesPeriodNamespace;
     constructor(_client: WlClient);
 }
@@ -33524,9 +33575,24 @@ export declare class WlBillingBulkNamespace {
     /** Removes the client from the batch so that they are not billed. */
     bulkBillingUser(params?: WlBillingBulkBulkBillingUserParams): Promise<WlBillingBulkBulkBillingUserResponse>;
 }
+export declare class WlBillingCodeNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Removes a custom billing code from the central list of the business. */
+    billingCodeDelete(params?: WlBillingCodeBillingCodeDeleteParams): Promise<WlBillingCodeBillingCodeDeleteResponse>;
+    /** Returns a single custom billing code of the business. */
+    billingCodeGet(params?: WlBillingCodeBillingCodeGetParams): Promise<WlBillingCodeBillingCodeGetResponse>;
+    /** Edits the value and the description of a custom billing code of the business. */
+    billingCodePost(params?: WlBillingCodeBillingCodePostParams): Promise<WlBillingCodeBillingCodePostResponse>;
+    /** Adds a custom billing code to the central list of the business. */
+    billingCodePut(params?: WlBillingCodeBillingCodePutParams): Promise<WlBillingCodeBillingCodePutResponse>;
+    /** Gets the billing code list of the business. */
+    billingCodeList(params?: WlBillingCodeBillingCodeListParams): Promise<WlBillingCodeBillingCodeListResponse>;
+}
 export declare class WlBillingNamespace {
     private readonly _client;
     readonly bulk: WlBillingBulkNamespace;
+    readonly code: WlBillingCodeNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlAppointmentWaitListNamespace {
