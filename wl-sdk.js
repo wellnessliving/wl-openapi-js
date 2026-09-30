@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20260929150439
- * Build date:   2026-09-29
+ * Spec version: 1.1.20260930011726
+ * Build date:   2026-09-30
  * Endpoints:    662
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20260929150439';
+  WlClient.SPEC_VERSION = '1.1.20260930011726';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (662 total)
@@ -2888,11 +2888,12 @@
   /**
    * Revokes one of the signed-in user's passkey credentials.
    *
-   * Marks the credential as revoked rather than deleting the row.  Only a credential owned by the signed-in user can be
-   * revoked - specifying another user's credential key has no effect.
+   * Marks the credential as revoked rather than deleting the row.  A credential owned by another user can not be
+   * revoked.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_passkey_credential Key of the credential to revoke.
+   * @param {string} params.uid Key of the user whose passkey credentials to manage. `'0'` or empty string to use the
    * @returns {Promise<Object>} Response data.
    */
   WlClient.prototype.corePassportPasskeyPasskeyCredentialDelete = function(params)
@@ -2901,11 +2902,12 @@
   };
 
   /**
-   * Lists the signed-in user's registered passkey credentials.
+   * Lists the user's registered passkey credentials.
    *
    * Includes revoked credentials.
    *
    * @param {Object} [params] Request parameters.
+   * @param {string} params.uid Key of the user whose passkey credentials to manage. `'0'` or empty string to use the
    * @returns {Promise<Object>} Response data.
    *  `a_credential` {Object[]} List of the signed-in user's registered passkey credentials.
    */

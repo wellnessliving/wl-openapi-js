@@ -1,7 +1,7 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20260929150439
-// Build date: 2026-09-29
+// OpenAPI spec version: 1.1.20260930011726
+// Build date: 2026-09-30
 // Endpoints: 662
 // Enums: 216
 export class WlApiError extends Error {
@@ -5851,7 +5851,7 @@ export class CorePassportPasskeyNamespace {
     passkeyCredentialDelete(params) {
         return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'DELETE');
     }
-    /** Lists the signed-in user's registered passkey credentials. */
+    /** Lists the user's registered passkey credentials. */
     passkeyCredentialGet(params) {
         return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'GET');
     }

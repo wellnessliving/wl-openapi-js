@@ -9691,9 +9691,14 @@ export type CorePassportPasskeyPasskeyRegisterPostResponse = Record<string, unkn
 export interface CorePassportPasskeyPasskeyCredentialDeleteParams {
     /** Key of the credential to revoke. */
     k_passkey_credential: string;
+    /** Key of the user whose passkey credentials to manage. `'0'` or empty string to use the */
+    uid: string;
 }
 export type CorePassportPasskeyPasskeyCredentialDeleteResponse = Record<string, unknown>;
-export type CorePassportPasskeyPasskeyCredentialGetParams = Record<string, unknown>;
+export interface CorePassportPasskeyPasskeyCredentialGetParams {
+    /** Key of the user whose passkey credentials to manage. `'0'` or empty string to use the */
+    uid: string;
+}
 export interface CorePassportPasskeyPasskeyCredentialGetResponse {
     /** List of the signed-in user's registered passkey credentials. */
     a_credential: Array<{
@@ -31246,7 +31251,7 @@ export declare class CorePassportPasskeyNamespace {
     passkeyRegisterPost(params?: CorePassportPasskeyPasskeyRegisterPostParams): Promise<CorePassportPasskeyPasskeyRegisterPostResponse>;
     /** Revokes one of the signed-in user's passkey credentials. */
     passkeyCredentialDelete(params?: CorePassportPasskeyPasskeyCredentialDeleteParams): Promise<CorePassportPasskeyPasskeyCredentialDeleteResponse>;
-    /** Lists the signed-in user's registered passkey credentials. */
+    /** Lists the user's registered passkey credentials. */
     passkeyCredentialGet(params?: CorePassportPasskeyPasskeyCredentialGetParams): Promise<CorePassportPasskeyPasskeyCredentialGetResponse>;
 }
 export declare class CorePassportChangePasswordNamespace {
