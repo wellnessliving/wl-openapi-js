@@ -17638,7 +17638,7 @@ export interface WlAppointmentInfoInfoResponse {
     /** Purchased drop-in which provides this appointment. */
     k_session_pass: string | null;
     /** Staff member who conducts this appointment. */
-    k_staff: string;
+    k_staff: string | null;
     /** Title of the appointment. */
     text_title: string;
     /** User for whom this appointment was booked. */
