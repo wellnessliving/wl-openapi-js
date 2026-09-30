@@ -14072,6 +14072,10 @@ export interface WlBusinessDesignBusinessDesignResponse {
         s_color_submenu_hover: string;
         /** Press color of submenu in front end menu. */
         s_color_submenu_press: string;
+        /** Meta Conversion API Access Token. Empty string if CAPI not used or application that made request ... */
+        s_fb_capi_access_token: string;
+        /** Meta Conversion API Test Event Code. Optional, used for QA in Meta Events Manager. Empty string i... */
+        s_fb_capi_test_event_code: string;
         /** Facebook Pixel ID. Used for Facebook analytics tracking. Empty string if tracking is disabled. */
         s_fb_pixel_id: string;
         /** Google Analytics Tracking ID. Used for Google Analytics tracking. Empty string if tracking is dis... */
