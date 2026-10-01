@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261001093151
+ * Spec version: 1.1.20261001100308
  * Build date:   2026-10-01
  * Endpoints:    660
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261001093151';
+  WlClient.SPEC_VERSION = '1.1.20261001100308';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (660 total)
@@ -19757,6 +19757,10 @@
    * @enum {number}
    */
   WlClient.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = Object.freeze({
+    /** Chat Agent (Bundle) */
+    CHAT_AGENT_BUNDLE: 8,
+    /** Chat Agent (Bundle) Trial */
+    CHAT_AGENT_BUNDLE_TRIAL: 9,
     /** Dental Phone Agent */
     DENTAL_PHONE_AGENT: 5,
     /** None */
@@ -20009,6 +20013,14 @@
     BASIC: 2,
     /** Basic */
     BASIC_LARGE: 6,
+    /** Presence (Bundle add-on) */
+    BUNDLE_ADDON: 9,
+    /** Presence (Bundle add-on) Trial */
+    BUNDLE_ADDON_TRIAL: 10,
+    /** Presence (Bundle) */
+    BUNDLE_FULL: 8,
+    /** Presence (Bundle) Trial */
+    BUNDLE_FULL_TRIAL: 11,
     /** Enterprise */
     ENTERPRISE: 4,
     /** None */

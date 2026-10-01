@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261001093151
+// OpenAPI spec version: 1.1.20261001100308
 // Build date: 2026-10-01
 // Endpoints: 660
 // Enums: 213
@@ -4903,6 +4903,10 @@ var WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid;
 /** List of possible plans for AiAgentSubscription subscription. */
 var WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid;
 (function (WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid) {
+    /** Chat Agent (Bundle) */
+    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["CHAT_AGENT_BUNDLE"] = 8] = "CHAT_AGENT_BUNDLE";
+    /** Chat Agent (Bundle) Trial */
+    WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["CHAT_AGENT_BUNDLE_TRIAL"] = 9] = "CHAT_AGENT_BUNDLE_TRIAL";
     /** Dental Phone Agent */
     WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid[WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid["DENTAL_PHONE_AGENT"] = 5] = "DENTAL_PHONE_AGENT";
     /** None */
@@ -5087,6 +5091,14 @@ var WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid;
     WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["BASIC"] = 2] = "BASIC";
     /** Basic */
     WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["BASIC_LARGE"] = 6] = "BASIC_LARGE";
+    /** Presence (Bundle add-on) */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["BUNDLE_ADDON"] = 9] = "BUNDLE_ADDON";
+    /** Presence (Bundle add-on) Trial */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["BUNDLE_ADDON_TRIAL"] = 10] = "BUNDLE_ADDON_TRIAL";
+    /** Presence (Bundle) */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["BUNDLE_FULL"] = 8] = "BUNDLE_FULL";
+    /** Presence (Bundle) Trial */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["BUNDLE_FULL_TRIAL"] = 11] = "BUNDLE_FULL_TRIAL";
     /** Enterprise */
     WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["ENTERPRISE"] = 4] = "ENTERPRISE";
     /** None */
