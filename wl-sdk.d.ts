@@ -4748,6 +4748,10 @@ export declare enum WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptio
 }
 /** List of possible plans for AiAgentSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid {
+    /** Chat Agent (Bundle) */
+    CHAT_AGENT_BUNDLE = 8,
+    /** Chat Agent (Bundle) Trial */
+    CHAT_AGENT_BUNDLE_TRIAL = 9,
     /** Dental Phone Agent */
     DENTAL_PHONE_AGENT = 5,
     /** None */
@@ -4906,6 +4910,14 @@ export declare enum WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid {
     BASIC = 2,
     /** Basic */
     BASIC_LARGE = 6,
+    /** Presence (Bundle add-on) */
+    BUNDLE_ADDON = 9,
+    /** Presence (Bundle add-on) Trial */
+    BUNDLE_ADDON_TRIAL = 10,
+    /** Presence (Bundle) */
+    BUNDLE_FULL = 8,
+    /** Presence (Bundle) Trial */
+    BUNDLE_FULL_TRIAL = 11,
     /** Enterprise */
     ENTERPRISE = 4,
     /** None */
