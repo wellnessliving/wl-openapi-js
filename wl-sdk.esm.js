@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261001140335
+// OpenAPI spec version: 1.1.20261002104206
 // Build date: 2026-10-02
-// Endpoints: 667
+// Endpoints: 668
 // Enums: 216
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -1933,6 +1933,8 @@ export var RsPurchaseItemSid;
     RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE_DEPOSIT"] = 20] = "RESOURCE_DEPOSIT";
     /** Purchase item for appointments */
     RsPurchaseItemSid[RsPurchaseItemSid["SERVICE"] = 6] = "SERVICE";
+    /** Ticket purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TICKET"] = 29] = "TICKET";
     /** Tuition purchase item */
     RsPurchaseItemSid[RsPurchaseItemSid["TUITION"] = 26] = "TUITION";
     /** Tuition fee purchase item */
@@ -2563,6 +2565,8 @@ export var RsSaleSid;
     RsSaleSid[RsSaleSid["PROMOTION_VIDEO"] = 13] = "PROMOTION_VIDEO";
     /** Products: water, t-shirts, etc. That is available for quick buy */
     RsSaleSid[RsSaleSid["QUICK_BUY"] = 10] = "QUICK_BUY";
+    /** Ticket for a ticketed event */
+    RsSaleSid[RsSaleSid["TICKET"] = 16] = "TICKET";
     /** Tuition */
     RsSaleSid[RsSaleSid["TUITION"] = 14] = "TUITION";
     /** Tuition fees */
@@ -5752,6 +5756,15 @@ export class CoreGeoNamespace {
         return this._client._request('/Core/Geo/Combobox.json', params, 'GET');
     }
 }
+export class CoreTimingNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Logs component load timing entries reported by browser. */
+    componentTiming(params) {
+        return this._client._request('/Core/Timing/ComponentTiming.json', params, 'POST');
+    }
+}
 export class CoreAILogTriageNamespace {
     constructor(_client) {
         this._client = _client;
@@ -5989,6 +6002,7 @@ export class CoreNamespace {
         this.sid = new CoreSidNamespace(this._client);
         this.webSocket = new CoreWebSocketNamespace(this._client);
         this.geo = new CoreGeoNamespace(this._client);
+        this.timing = new CoreTimingNamespace(this._client);
         this.aI = new CoreAINamespace(this._client);
         this.testing = new CoreTestingNamespace(this._client);
         this.passport = new CorePassportNamespace(this._client);

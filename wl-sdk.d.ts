@@ -1894,6 +1894,8 @@ export declare enum RsPurchaseItemSid {
     RESOURCE_DEPOSIT = 20,
     /** Purchase item for appointments */
     SERVICE = 6,
+    /** Ticket purchase item */
+    TICKET = 29,
     /** Tuition purchase item */
     TUITION = 26,
     /** Tuition fee purchase item */
@@ -2487,6 +2489,8 @@ export declare enum RsSaleSid {
     PROMOTION_VIDEO = 13,
     /** Products: water, t-shirts, etc. That is available for quick buy */
     QUICK_BUY = 10,
+    /** Ticket for a ticketed event */
+    TICKET = 16,
     /** Tuition */
     TUITION = 14,
     /** Tuition fees */
@@ -5645,6 +5649,8 @@ export interface CoreGeoComboboxResponse {
         s_key: string;
     }>;
 }
+export type CoreTimingComponentTimingParams = Record<string, unknown>;
+export type CoreTimingComponentTimingResponse = Record<string, unknown>;
 export interface SocialMicrosoftLoginDeleteParams {
     /** The client for whom the Microsoft account will be unlinked. */
     uid: string;
@@ -31245,6 +31251,12 @@ export declare class CoreGeoNamespace {
     /** Returns a list of cities to show in combobox list. */
     combobox(params?: CoreGeoComboboxParams): Promise<CoreGeoComboboxResponse>;
 }
+export declare class CoreTimingNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Logs component load timing entries reported by browser. */
+    componentTiming(params?: CoreTimingComponentTimingParams): Promise<CoreTimingComponentTimingResponse>;
+}
 export declare class CoreAILogTriageNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -31409,6 +31421,7 @@ export declare class CoreNamespace {
     readonly sid: CoreSidNamespace;
     readonly webSocket: CoreWebSocketNamespace;
     readonly geo: CoreGeoNamespace;
+    readonly timing: CoreTimingNamespace;
     readonly aI: CoreAINamespace;
     readonly testing: CoreTestingNamespace;
     readonly passport: CorePassportNamespace;
