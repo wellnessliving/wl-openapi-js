@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261002104206
+ * Spec version: 1.1.20261002112130
  * Build date:   2026-10-02
  * Endpoints:    668
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261002104206';
+  WlClient.SPEC_VERSION = '1.1.20261002112130';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (668 total)
@@ -11376,6 +11376,7 @@
    * @param {string} params.uid The ID of the user who performed the actions.
    * @returns {Promise<Object>} Response data.
    *  `a_tax_data` {Object} Contains information about calculated taxes.
+   *  `a_tickets` {*[][]} List of ticket options available for booking the event. Empty if the sale ite...
    *  `is_ticket` {boolean} `true` if the sale item is a ticketed event, `false` otherwise.
    *  `m_prorate` {string} The prorated amount.
    *  `m_subtotal` {string} The amount of the sale item, excluding taxes.
@@ -13083,6 +13084,7 @@
    *  `a_schedule` {Object[]} A list of event sessions. Every element has the following next keys:
    *  `a_shop_category` {string[]} IDs of online store category.
    *  `a_staff_logo` {Object} Photos of staff members. Keys are the keys of staff members. The values are t...
+   *  `a_tickets` {*[][]} List of ticket options available for booking the event. Empty if the event is...
    *  `a_timezone_info` {Object[]} Timezone information for all timezones used in the event schedule.
    *  `a_visits_required` {Object[]} A list of classes and events that clients should attend before this one.
    *  `dt_book_date` {?string} That date that should be used to go to the booking wizard.
@@ -13091,7 +13093,6 @@
    *  `dt_start` {string} The start date of the event.
    *  `hide_application` {boolean} Whether event will be hidden in the White Label mobile application.
    *  `html_description` {?string} The description of the event.
-   *  `html_special` {string} Special instruction for the event.
    *  `...` {*}
    */
   WlClient.prototype.wlEventBookEventViewElement = function(params)
@@ -13115,6 +13116,7 @@
    *  `a_event` {string[]} A list of event identifiers.
    *  `a_event_available` {Object} Event availability map.
    *  `a_event_ticket` {Object} Ticketed event map.
+   *  `a_event_ticket_option` {Object} Ticket option map.
    *  `is_virtual_service` {boolean} `true` if exist at least one virtual event
    */
   WlClient.prototype.wlEventBookEventListList = function(params)

@@ -7771,6 +7771,8 @@ export interface WlEventEventListGetResponse {
             /** Name of the tag. */
             text_title: string;
         };
+        /** List of ticket options available for booking the event. Empty if the event is not a ticketed */
+        a_tickets: Array<Array<unknown>>;
         /** Whether event can be booked or not. */
         can_book: boolean;
         /** Whether current user can cancel already booked event. */
@@ -14814,6 +14816,8 @@ export interface WlCatalogCatalogListElementGetResponse {
         is_price_breakdown: boolean;
         /** This applies to enrollment/event items. */
         is_ticket: boolean;
+        /** List of ticket options available for booking the event. Empty if the item is not a */
+        a_tickets: Array<Array<unknown>>;
     };
     /** Information about promotion guest pass. Empty array if promotion does not have guest pass or */
     a_guest_pass: {
@@ -14903,6 +14907,8 @@ export interface WlCatalogCatalogListElementGetResponse {
             is_price_breakdown: boolean;
             /** This applies to enrollment/event items. */
             is_ticket: boolean;
+            /** List of ticket options available for booking the event. Empty if the item is not a */
+            a_tickets: Array<Array<unknown>>;
         };
         /** Information about promotion guest pass. The same structure as {@link WlCatalogCatalogListElementG... */
         a_guest_pass: {
@@ -15126,6 +15132,8 @@ export interface WlCatalogCatalogListElementPostResponse {
         is_price_breakdown: boolean;
         /** This applies to enrollment/event items. */
         is_ticket: boolean;
+        /** List of ticket options available for booking the event. Empty if the item is not a */
+        a_tickets: Array<Array<unknown>>;
     };
     /** Information about promotion guest pass. Empty array if promotion does not have guest pass or */
     a_guest_pass: {
@@ -15215,6 +15223,8 @@ export interface WlCatalogCatalogListElementPostResponse {
             is_price_breakdown: boolean;
             /** This applies to enrollment/event items. */
             is_ticket: boolean;
+            /** List of ticket options available for booking the event. Empty if the item is not a */
+            a_tickets: Array<Array<unknown>>;
         };
         /** Information about promotion guest pass. The same structure as {@link WlCatalogCatalogListElementG... */
         a_guest_pass: {
@@ -15348,6 +15358,8 @@ export interface WlCatalogCatalogListListResponse {
         a_location: Array<string>;
         /** Shop category keys the item belongs to. */
         a_shop_category: Array<string>;
+        /** List of ticket options available for booking the event. Empty if the item is not a */
+        a_tickets: Array<Array<unknown>>;
         /** UTC creation date of the item in MySQL format. */
         dtu_create: string;
         /** The item price. */
@@ -15379,6 +15391,8 @@ export interface WlCatalogCatalogListListResponse {
         a_location: Array<string>;
         /** Shop category keys the item belongs to. */
         a_shop_category: Array<string>;
+        /** List of ticket options available for booking the event. Empty if the item is not a */
+        a_tickets: Array<Array<unknown>>;
         /** UTC creation date of the item in MySQL format. */
         dtu_create: string;
         /** The item price. */
@@ -25720,6 +25734,8 @@ export interface WlCatalogStaffAppCatalogViewCatalogViewResponse {
         /** The tax name. */
         s_tax: string;
     };
+    /** List of ticket options available for booking the event. Empty if the sale item is not a */
+    a_tickets: Array<Array<unknown>>;
     /** `true` if the sale item is a ticketed event, `false` otherwise. */
     is_ticket: boolean;
     /** The prorated amount. */
@@ -29435,6 +29451,8 @@ export interface WlEventBookEventViewElementResponse {
             /** URL to image. */
             url_logo: string;
         };
+        /** List of ticket options available for booking the event. Empty if the event is not a */
+        a_tickets: Array<Array<unknown>>;
         /** Date/time of first event session. */
         dt_book_date: string;
         /** Early date of event purchase. */
@@ -29580,6 +29598,8 @@ export interface WlEventBookEventViewElementResponse {
         /** URL to image. */
         url_logo: string;
     };
+    /** List of ticket options available for booking the event. Empty if the event is not a ticketed */
+    a_tickets: Array<Array<unknown>>;
     /** Timezone information for all timezones used in the event schedule. */
     a_timezone_info: Array<{
         /** UTC offset in hours for this timezone. */
@@ -29698,6 +29718,8 @@ export interface WlEventBookEventListListResponse {
     a_event_available: Record<string, unknown>;
     /** Ticketed event map. */
     a_event_ticket: Record<string, unknown>;
+    /** Ticket option map. */
+    a_event_ticket_option: Record<string, unknown>;
     /** `true` if exist at least one virtual event */
     is_virtual_service: boolean;
 }
