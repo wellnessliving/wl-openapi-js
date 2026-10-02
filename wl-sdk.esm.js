@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261002112130
+// OpenAPI spec version: 1.1.20261002120859
 // Build date: 2026-10-02
 // Endpoints: 668
-// Enums: 216
+// Enums: 220
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (216 total) ---
+// --- Enum types (220 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -4334,6 +4334,52 @@ export var WlServiceBookableSid;
     /** Nobody can book */
     WlServiceBookableSid[WlServiceBookableSid["NONE"] = 2] = "NONE";
 })(WlServiceBookableSid || (WlServiceBookableSid = {}));
+/** A list of resource selection type. */
+export var WlResourceResourceClientControlSid;
+(function (WlResourceResourceClientControlSid) {
+    /** Means that client cannot select resource during booking process */
+    WlResourceResourceClientControlSid[WlResourceResourceClientControlSid["OFF"] = 2] = "OFF";
+    /** Means that client can select resource during booking process */
+    WlResourceResourceClientControlSid[WlResourceResourceClientControlSid["ON"] = 1] = "ON";
+})(WlResourceResourceClientControlSid || (WlResourceResourceClientControlSid = {}));
+/** A list of resource usage types. */
+export var WlResourceResourceUseSid;
+(function (WlResourceResourceUseSid) {
+    /** Means that resource used in individual usage */
+    WlResourceResourceUseSid[WlResourceResourceUseSid["INDIVIDUAL"] = 1] = "INDIVIDUAL";
+    /** Resource is reserved for the entire class */
+    WlResourceResourceUseSid[WlResourceResourceUseSid["SHARE"] = 2] = "SHARE";
+})(WlResourceResourceUseSid || (WlResourceResourceUseSid = {}));
+/** Age restriction statuses. */
+export var WlServiceAgeRestrictionStatusSid;
+(function (WlServiceAgeRestrictionStatusSid) {
+    /** Client age must be between limits */
+    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["AGE_BETWEEN"] = 2] = "AGE_BETWEEN";
+    /** Client is available to book service */
+    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["AVAILABLE"] = 1] = "AVAILABLE";
+    /** Client age must be less then max age */
+    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["MAX_AGE"] = 3] = "MAX_AGE";
+    /** Client age must be great then min age */
+    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["MIN_AGE"] = 4] = "MIN_AGE";
+})(WlServiceAgeRestrictionStatusSid || (WlServiceAgeRestrictionStatusSid = {}));
+/** Type of the event, which defines how clients book it and how they pay for it. */
+export var WlClassesEditEventTypeEnum;
+(function (WlClassesEditEventTypeEnum) {
+    /** Clients book the event once and attend every session in the schedule */
+    WlClassesEditEventTypeEnum[WlClassesEditEventTypeEnum["BLOCK"] = 2] = "BLOCK";
+    /** Clients pick which sessions to book and can pay per session */
+    WlClassesEditEventTypeEnum[WlClassesEditEventTypeEnum["NON_BLOCK"] = 1] = "NON_BLOCK";
+    /** Tickets are sold for a set number of seats and are paid up front. Anyone can buy a ticket, */
+    WlClassesEditEventTypeEnum[WlClassesEditEventTypeEnum["TICKETED"] = 3] = "TICKETED";
+})(WlClassesEditEventTypeEnum || (WlClassesEditEventTypeEnum = {}));
+/** List of possible value of virtual integrations. */
+export var WlVirtualVirtualProviderSid;
+(function (WlVirtualVirtualProviderSid) {
+    /** Virtual integration non implemented */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["NON_INTEGRATED"] = 2] = "NON_INTEGRATED";
+    /** Virtual Zoom service integration */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
+})(WlVirtualVirtualProviderSid || (WlVirtualVirtualProviderSid = {}));
 /** List of possible types of Gift Cards. */
 export var WlCouponTypeSid;
 (function (WlCouponTypeSid) {
@@ -4486,14 +4532,6 @@ export var WlScheduleClassViewDenyReasonSid;
     /** Client has unsigned waiver */
     WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["WAIVER_NX"] = 23] = "WAIVER_NX";
 })(WlScheduleClassViewDenyReasonSid || (WlScheduleClassViewDenyReasonSid = {}));
-/** List of possible value of virtual integrations. */
-export var WlVirtualVirtualProviderSid;
-(function (WlVirtualVirtualProviderSid) {
-    /** Virtual integration non implemented */
-    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["NON_INTEGRATED"] = 2] = "NON_INTEGRATED";
-    /** Virtual Zoom service integration */
-    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
-})(WlVirtualVirtualProviderSid || (WlVirtualVirtualProviderSid = {}));
 /** The possible payment types an appointment can have. */
 export var RsAppointmentPaySid;
 (function (RsAppointmentPaySid) {
@@ -9199,9 +9237,9 @@ export class WlClassesEditorNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns everything the class setup form needs besides the class itself. */
-    setup(params) {
-        return this._client._request('/Wl/Classes/Editor/Setup.json', params, 'GET');
+    /** Returns everything the class setup form needs. */
+    classEditor(params) {
+        return this._client._request('/Wl/Classes/Editor/ClassEditor.json', params, 'GET');
     }
 }
 export class WlClassesPeriodModifyNamespace {

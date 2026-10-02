@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261002112130
+ * Spec version: 1.1.20261002120859
  * Build date:   2026-10-02
  * Endpoints:    668
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261002112130';
+  WlClient.SPEC_VERSION = '1.1.20261002120859';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (668 total)
@@ -6273,34 +6273,42 @@
   };
 
   /**
-   * Returns everything the class setup form needs besides the class itself.
+   * Returns everything the class setup form needs.
    *
-   * The form is rendered by the client, so this endpoint answers with data: the lists the Book Now Tab, the quick
-   * search tag and the store category pickers are filled from, the business policies the Business policies section
-   * starts with, the send rules of the client reminder, the currency sign, whether the Administration section may
-   * be shown, the addresses of the pages the form links to and the markup of the blocks that have no template on
-   * the client.
+   * The form is rendered by the client, so this endpoint answers with data: the fields of the class section by
+   * section, the lists the Book Now Tab, the quick search tag and the store category pickers are filled from, the
+   * send rules of the client reminder, the currency sign, whether the Administration section may be shown, the
+   * addresses of the pages the form links to and the markup of the blocks that have no template on the client.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_class Class key.
    * @returns {Promise<Object>} Response data.
-   *  `a_class_tab` {Object[]} Book Now Tabs the class may be shown in. Every element is an array:
+   *  `a_class_tab` {string[]} Keys of the Book Now Tabs the class is shown in.
+   *  `a_class_tab_list` {Object[]} Book Now Tabs the class may be shown in. Every element is an array:
+   *  `a_login_type` {string[]} Keys of the client types that may book the class.
+   *  `a_login_type_staff` {string[]} Keys of the client types staff may book into the class.
+   *  `a_member_group` {string[]} Keys of the client groups that may book the class.
    *  `a_reminder_info` {Object} Send rules of the client reminder. Keys are:
-   *  `a_search_tag` {Object[]} Quick search tags of the category of the business. Every element is an array:
-   *  `a_shop_category` {Object[]} Store categories of the business. Every element is an array:
+   *  `a_resource_type` {Object[]} Book-a-Spot asset categories the class requires. Every element is an array:
+   *  `a_search_tag` {string[]} Keys of the quick search tags of the class.
+   *  `a_search_tag_list` {Object[]} Quick search tags of the category of the business. Every element is an array:
+   *  `a_shop_category` {string[]} Keys of the store categories the event is listed under.
+   *  `a_shop_category_list` {Object[]} Store categories of the business. Every element is an array:
+   *  `a_tag` {string[]} Keys of the revenue categories the drop-in revenue of the class is tracked un...
+   *  `a_ticket_option` {Object[]} Ticket types of a ticketed event, in the order they are offered. Every elemen...
    *  `a_url` {Object[]} Addresses of the pages the form links to:
-   *  `html_policy` {string} Markup of the Business policies block of the form.
-   *  `html_prerequisite` {string} Markup of the Prerequisites block of the form.
-   *  `html_promotion` {string} Markup of the Purchase Options block of the form.
-   *  `html_quick_buy` {string} Markup of the Quick Buy block of the form.
-   *  `html_tax` {string} Markup of the Taxes block of the form.
-   *  `is_admin` {boolean} `true` if the Administration section may be shown, `false` otherwise.
-   *  `text_currency` {string} Currency sign of the business.
+   *  `dl_early` {string} Last day of the early bird discount in MySQL format.
+   *  `f_deposit` {string} Deposit a client leaves while booking the event.
+   *  `f_early` {string} Early bird discount of the event.
+   *  `f_price` {string} Price of one session of the event.
+   *  `f_price_total` {string} Price of the whole event.
+   *  `hide_application` {boolean} `true` if the event is hidden in the White Label Achieve Client App, `false` ...
+   *  `...` {*}
    */
-  WlClient.prototype.wlClassesEditorSetup = function(params)
+  WlClient.prototype.wlClassesEditorClassEditor = function(params)
   {
-    return this.request('/Wl/Classes/Editor/Setup.json', params || {}, 'GET');
+    return this.request('/Wl/Classes/Editor/ClassEditor.json', params || {}, 'GET');
   };
 
   /**
@@ -14349,7 +14357,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (233 total)
+  // Enum constants (237 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -19177,6 +19185,72 @@
   });
 
   /**
+   * A list of resource selection type.
+   *
+   * @enum {number}
+   */
+  WlClient.WlResourceResourceClientControlSid = Object.freeze({
+    /** Means that client cannot select resource during booking process */
+    OFF: 2,
+    /** Means that client can select resource during booking process */
+    ON: 1,
+  });
+
+  /**
+   * A list of resource usage types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlResourceResourceUseSid = Object.freeze({
+    /** Means that resource used in individual usage */
+    INDIVIDUAL: 1,
+    /** Resource is reserved for the entire class */
+    SHARE: 2,
+  });
+
+  /**
+   * Age restriction statuses.
+   *
+   * @enum {number}
+   */
+  WlClient.WlServiceAgeRestrictionStatusSid = Object.freeze({
+    /** Client age must be between limits */
+    AGE_BETWEEN: 2,
+    /** Client is available to book service */
+    AVAILABLE: 1,
+    /** Client age must be less then max age */
+    MAX_AGE: 3,
+    /** Client age must be great then min age */
+    MIN_AGE: 4,
+  });
+
+  /**
+   * Type of the event, which defines how clients book it and how they pay for it.
+   *
+   * @enum {number}
+   */
+  WlClient.WlClassesEditEventTypeEnum = Object.freeze({
+    /** Clients book the event once and attend every session in the schedule */
+    BLOCK: 2,
+    /** Clients pick which sessions to book and can pay per session */
+    NON_BLOCK: 1,
+    /** Tickets are sold for a set number of seats and are paid up front. Anyone can buy a ticket, */
+    TICKETED: 3,
+  });
+
+  /**
+   * List of possible value of virtual integrations.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVirtualVirtualProviderSid = Object.freeze({
+    /** Virtual integration non implemented */
+    NON_INTEGRATED: 2,
+    /** Virtual Zoom service integration */
+    ZOOM: 1,
+  });
+
+  /**
    * List of possible types of Gift Cards.
    *
    * @enum {number}
@@ -19362,18 +19436,6 @@
     WAIT_LIST_LIMIT_MAX: 21,
     /** Client has unsigned waiver */
     WAIVER_NX: 23,
-  });
-
-  /**
-   * List of possible value of virtual integrations.
-   *
-   * @enum {number}
-   */
-  WlClient.WlVirtualVirtualProviderSid = Object.freeze({
-    /** Virtual integration non implemented */
-    NON_INTEGRATED: 2,
-    /** Virtual Zoom service integration */
-    ZOOM: 1,
   });
 
   /**
