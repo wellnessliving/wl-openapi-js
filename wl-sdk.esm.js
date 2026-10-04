@@ -1,7 +1,7 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
 // OpenAPI spec version: 1.1.20261002140818
-// Build date: 2026-10-03
+// Build date: 2026-10-04
 // Endpoints: 668
 // Enums: 220
 export class WlApiError extends Error {
