@@ -9671,10 +9671,10 @@ export interface CoreAILogTriageConnectionCheckResponse {
         cid_problem: number;
         /** Usage-statistics object. Present for the usage-statistics source. */
         s_object: string;
-        /** Usage-statistics aggregation period. Present for the usage-statistics source. */
-        s_period: string;
-        /** Usage-statistics priority. Present for the usage-statistics source. */
-        s_priority: string;
+        /** Usage-statistics aggregation period. One of TriageWatchUsagePeriodEnum */
+        eid_period: number;
+        /** Usage-statistics priority. One of TriageUrgencyEnum cases. Present for */
+        eid_priority: number;
         /** Log message or task description. Present for log and task sources. */
         text_message: string;
     }>;
