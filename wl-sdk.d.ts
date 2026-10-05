@@ -27744,6 +27744,8 @@ export interface WlAppointmentBookAssetAssetListResponse {
         id_service_require: RsServiceRequireSid;
         /** Determines whether this service can't be booked due to age restrictions. */
         is_age_restricted: boolean;
+        /** Whether clients can book this asset on behalf of a guest. */
+        is_book_for_guest: boolean;
         /** Quick book tab key. */
         k_class_tab: string;
         /** The resource key. */
