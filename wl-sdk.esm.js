@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261005094649
+// OpenAPI spec version: 1.1.20261005132913
 // Build date: 2026-10-05
-// Endpoints: 668
+// Endpoints: 669
 // Enums: 220
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -32,6 +32,26 @@ export var WlTaskTaskStatusSid;
     /** Task in progress */
     WlTaskTaskStatusSid[WlTaskTaskStatusSid["PROGRESS"] = 2] = "PROGRESS";
 })(WlTaskTaskStatusSid || (WlTaskTaskStatusSid = {}));
+/** Possible states of the visit: book, attended, cancelled, etc. */
+export var WlVisitVisitSid;
+(function (WlVisitVisitSid) {
+    /** Client has attended the session */
+    WlVisitVisitSid[WlVisitVisitSid["ATTEND"] = 3] = "ATTEND";
+    /** Active reservation means that user is going to attend the session */
+    WlVisitVisitSid[WlVisitVisitSid["BOOK"] = 1] = "BOOK";
+    /** Client has cancelled the reservation in time and without penalty */
+    WlVisitVisitSid[WlVisitVisitSid["CANCEL"] = 6] = "CANCEL";
+    /** Client has cancelled his reservation too late */
+    WlVisitVisitSid[WlVisitVisitSid["PENALTY"] = 4] = "PENALTY";
+    /** This state means that visit is registered, but it is unknown is it {@link WlVisitVisitSid} */
+    WlVisitVisitSid[WlVisitVisitSid["PENDING"] = 7] = "PENDING";
+    /** Visit was removed */
+    WlVisitVisitSid[WlVisitVisitSid["REMOVE"] = 8] = "REMOVE";
+    /** Client has missed the session without cancellation */
+    WlVisitVisitSid[WlVisitVisitSid["TRUANCY"] = 5] = "TRUANCY";
+    /** Reservation in a wait list means that user is going to attend the session if someone will cancel his reservation */
+    WlVisitVisitSid[WlVisitVisitSid["WAIT"] = 2] = "WAIT";
+})(WlVisitVisitSid || (WlVisitVisitSid = {}));
 /** Class to work with gender string identifiers. */
 export var WlGenderGenderSid;
 (function (WlGenderGenderSid) {
@@ -1182,26 +1202,6 @@ export var ThothPayProcessorNuveiCodeCSResponseSid;
     /** No relationship between register and terminal */
     ThothPayProcessorNuveiCodeCSResponseSid[ThothPayProcessorNuveiCodeCSResponseSid["UNMAPPED"] = 19] = "UNMAPPED";
 })(ThothPayProcessorNuveiCodeCSResponseSid || (ThothPayProcessorNuveiCodeCSResponseSid = {}));
-/** Possible states of the visit: book, attended, cancelled, etc. */
-export var WlVisitVisitSid;
-(function (WlVisitVisitSid) {
-    /** Client has attended the session */
-    WlVisitVisitSid[WlVisitVisitSid["ATTEND"] = 3] = "ATTEND";
-    /** Active reservation means that user is going to attend the session */
-    WlVisitVisitSid[WlVisitVisitSid["BOOK"] = 1] = "BOOK";
-    /** Client has cancelled the reservation in time and without penalty */
-    WlVisitVisitSid[WlVisitVisitSid["CANCEL"] = 6] = "CANCEL";
-    /** Client has cancelled his reservation too late */
-    WlVisitVisitSid[WlVisitVisitSid["PENALTY"] = 4] = "PENALTY";
-    /** This state means that visit is registered, but it is unknown is it {@link WlVisitVisitSid} */
-    WlVisitVisitSid[WlVisitVisitSid["PENDING"] = 7] = "PENDING";
-    /** Visit was removed */
-    WlVisitVisitSid[WlVisitVisitSid["REMOVE"] = 8] = "REMOVE";
-    /** Client has missed the session without cancellation */
-    WlVisitVisitSid[WlVisitVisitSid["TRUANCY"] = 5] = "TRUANCY";
-    /** Reservation in a wait list means that user is going to attend the session if someone will cancel his reservation */
-    WlVisitVisitSid[WlVisitVisitSid["WAIT"] = 2] = "WAIT";
-})(WlVisitVisitSid || (WlVisitVisitSid = {}));
 /** List of all custom imports that are supported by system. */
 export var WlImportCustomCustomSid;
 (function (WlImportCustomCustomSid) {
@@ -7971,6 +7971,15 @@ export class WlHolidayNamespace {
         return this._client._request('/Wl/Holiday/Holiday.json', params, 'GET');
     }
 }
+export class WlTicketNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks in the ticket. */
+    ticketScan(params) {
+        return this._client._request('/Wl/Ticket/TicketScan.json', params, 'POST');
+    }
+}
 export class WlEventBookEventViewNamespace {
     constructor(_client) {
         this._client = _client;
@@ -10737,6 +10746,7 @@ export class WlNamespace {
         this.sms = new WlSmsNamespace(this._client);
         this.visit = new WlVisitNamespace(this._client);
         this.holiday = new WlHolidayNamespace(this._client);
+        this.ticket = new WlTicketNamespace(this._client);
         this.event = new WlEventNamespace(this._client);
         this.report = new WlReportNamespace(this._client);
         this.feedback = new WlFeedbackNamespace(this._client);

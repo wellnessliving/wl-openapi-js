@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261005094649
+ * Spec version: 1.1.20261005132913
  * Build date:   2026-10-05
- * Endpoints:    668
+ * Endpoints:    669
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261005094649';
+  WlClient.SPEC_VERSION = '1.1.20261005132913';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (668 total)
+  // Generated API methods (669 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -1328,6 +1328,31 @@
   WlClient.prototype.wlHolidayHoliday = function(params)
   {
     return this.request('/Wl/Holiday/Holiday.json', params || {}, 'GET');
+  };
+
+  /**
+   * Checks in the ticket.
+   *
+   * Validates the business and the access of the current user to it, finds the ticket, checks it against the
+   * session sent by the client, and marks its visit as attended.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `dtu_attend` {?string} Time when the ticket has been checked in, in UTC and MySQL format.
+   *  `dtu_cancel` {?string} Time when the visit of the ticket has been cancelled, in UTC and MySQL format.
+   *  `dtu_session_end` {string} End of the session the ticket is for, in UTC and MySQL format.
+   *  `dtu_session_start` {string} Start of the session the ticket is for, in UTC and MySQL format.
+   *  `i_attend` {number} Number of the tickets already checked in for the session, including this one.
+   *  `i_sold` {number} Number of the tickets sold for the session: not cancelled ones.
+   *  `k_class_period_ticket` {string} Key of the class period the session of the ticket belongs to.
+   *  `k_ticket_item` {string} Key of the ticket.
+   *  `k_visit` {string} Key of the visit booked with the ticket.
+   *  `text_ticket_code` {string} Short code of the ticket in the format for displaying, for example `4829-1736`.
+   *  `text_title` {string} Name of the event the ticket is for.
+   */
+  WlClient.prototype.wlTicketTicketScan = function(params)
+  {
+    return this.request('/Wl/Ticket/TicketScan.json', params || {}, 'POST');
   };
 
   /**
@@ -6298,7 +6323,7 @@
    *  `a_tag` {string[]} Keys of the revenue categories the drop-in revenue of the class is tracked un...
    *  `a_ticket_option` {Object[]} Ticket types of a ticketed event, in the order they are offered. Every elemen...
    *  `a_url` {Object[]} Addresses of the pages the form links to:
-   *  `dl_early` {string} Last day of the early bird discount in MySQL format.
+   *  `dl_early` {string} Last day of the early bird discount.
    *  `f_deposit` {string} Deposit a client leaves while booking the event.
    *  `f_early` {string} Early bird discount of the event.
    *  `f_price` {string} Price of one session of the event.
@@ -6846,8 +6871,9 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
+   * @param {string} params.k_service Service key. If set, only the codes that are applied to this service by default are returned.
    * @returns {Promise<Object>} Response data.
-   *  `a_code` {Object[]} Billing codes of the business.
+   *  `a_code` {*[][]} Billing codes of the business.
    */
   WlClient.prototype.wlBillingCodeBillingCodeList = function(params)
   {
@@ -14388,6 +14414,30 @@
   });
 
   /**
+   * Possible states of the visit: book, attended, cancelled, etc.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVisitVisitSid = Object.freeze({
+    /** Client has attended the session */
+    ATTEND: 3,
+    /** Active reservation means that user is going to attend the session */
+    BOOK: 1,
+    /** Client has cancelled the reservation in time and without penalty */
+    CANCEL: 6,
+    /** Client has cancelled his reservation too late */
+    PENALTY: 4,
+    /** This state means that visit is registered, but it is unknown is it {@link WlClient.WlVisitVisitSid} */
+    PENDING: 7,
+    /** Visit was removed */
+    REMOVE: 8,
+    /** Client has missed the session without cancellation */
+    TRUANCY: 5,
+    /** Reservation in a wait list means that user is going to attend the session if someone will cancel his reservation */
+    WAIT: 2,
+  });
+
+  /**
    * Class to work with gender string identifiers.
    *
    * @enum {number}
@@ -15575,30 +15625,6 @@
     UNABLE_TO_PROCESS: 18,
     /** No relationship between register and terminal */
     UNMAPPED: 19,
-  });
-
-  /**
-   * Possible states of the visit: book, attended, cancelled, etc.
-   *
-   * @enum {number}
-   */
-  WlClient.WlVisitVisitSid = Object.freeze({
-    /** Client has attended the session */
-    ATTEND: 3,
-    /** Active reservation means that user is going to attend the session */
-    BOOK: 1,
-    /** Client has cancelled the reservation in time and without penalty */
-    CANCEL: 6,
-    /** Client has cancelled his reservation too late */
-    PENALTY: 4,
-    /** This state means that visit is registered, but it is unknown is it {@link WlClient.WlVisitVisitSid} */
-    PENDING: 7,
-    /** Visit was removed */
-    REMOVE: 8,
-    /** Client has missed the session without cancellation */
-    TRUANCY: 5,
-    /** Reservation in a wait list means that user is going to attend the session if someone will cancel his reservation */
-    WAIT: 2,
   });
 
   /**

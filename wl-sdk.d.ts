@@ -35,6 +35,25 @@ export declare enum WlTaskTaskStatusSid {
     /** Task in progress */
     PROGRESS = 2
 }
+/** Possible states of the visit: book, attended, cancelled, etc. */
+export declare enum WlVisitVisitSid {
+    /** Client has attended the session */
+    ATTEND = 3,
+    /** Active reservation means that user is going to attend the session */
+    BOOK = 1,
+    /** Client has cancelled the reservation in time and without penalty */
+    CANCEL = 6,
+    /** Client has cancelled his reservation too late */
+    PENALTY = 4,
+    /** This state means that visit is registered, but it is unknown is it {@link WlVisitVisitSid} */
+    PENDING = 7,
+    /** Visit was removed */
+    REMOVE = 8,
+    /** Client has missed the session without cancellation */
+    TRUANCY = 5,
+    /** Reservation in a wait list means that user is going to attend the session if someone will cancel his reservation */
+    WAIT = 2
+}
 /** Class to work with gender string identifiers. */
 export declare enum WlGenderGenderSid {
     /** Female gender */
@@ -1174,25 +1193,6 @@ export declare enum ThothPayProcessorNuveiCodeCSResponseSid {
     UNABLE_TO_PROCESS = 18,
     /** No relationship between register and terminal */
     UNMAPPED = 19
-}
-/** Possible states of the visit: book, attended, cancelled, etc. */
-export declare enum WlVisitVisitSid {
-    /** Client has attended the session */
-    ATTEND = 3,
-    /** Active reservation means that user is going to attend the session */
-    BOOK = 1,
-    /** Client has cancelled the reservation in time and without penalty */
-    CANCEL = 6,
-    /** Client has cancelled his reservation too late */
-    PENALTY = 4,
-    /** This state means that visit is registered, but it is unknown is it {@link WlVisitVisitSid} */
-    PENDING = 7,
-    /** Visit was removed */
-    REMOVE = 8,
-    /** Client has missed the session without cancellation */
-    TRUANCY = 5,
-    /** Reservation in a wait list means that user is going to attend the session if someone will cancel his reservation */
-    WAIT = 2
 }
 /** List of all custom imports that are supported by system. */
 export declare enum WlImportCustomCustomSid {
@@ -5516,6 +5516,17 @@ export interface CoreWebSocketSubscribeResponse {
         /** Key of the changed task. */
         k_task: string;
     } | {
+        /** Time when the ticket has been checked in, in UTC and MySQL format. */
+        dtu_attend: string | null;
+        /** Number of the tickets checked in for the session, including this one. */
+        i_attend: number;
+        /** Number of the tickets sold for the session. */
+        i_sold: number;
+        /** Possible states of the visit: book, attended, cancelled, etc. @see WlVisitVisitSid */
+        id_visit: WlVisitVisitSid;
+        /** Key of the ticket that has been checked in. */
+        k_ticket_item: string;
+    } | {
         /** New information for messenger. */
         a_data: Record<string, unknown>;
     } | {
@@ -7700,6 +7711,31 @@ export interface WlHolidayHolidayResponse {
     is_business_holiday: boolean;
     /** The message used for the business's closed day on the date {@link WlHolidayNamespace#holiday}. */
     text_business_title: string;
+}
+export type WlTicketTicketScanParams = Record<string, unknown>;
+export interface WlTicketTicketScanResponse {
+    /** Time when the ticket has been checked in, in UTC and MySQL format. */
+    dtu_attend: string | null;
+    /** Time when the visit of the ticket has been cancelled, in UTC and MySQL format. */
+    dtu_cancel: string | null;
+    /** End of the session the ticket is for, in UTC and MySQL format. */
+    dtu_session_end: string;
+    /** Start of the session the ticket is for, in UTC and MySQL format. */
+    dtu_session_start: string;
+    /** Number of the tickets already checked in for the session, including this one. */
+    i_attend: number;
+    /** Number of the tickets sold for the session: not cancelled ones. */
+    i_sold: number;
+    /** Key of the class period the session of the ticket belongs to. */
+    k_class_period_ticket: string;
+    /** Key of the ticket. */
+    k_ticket_item: string;
+    /** Key of the visit booked with the ticket. */
+    k_visit: string;
+    /** Short code of the ticket in the format for displaying, for example `4829-1736`. */
+    text_ticket_code: string;
+    /** Name of the event the ticket is for. */
+    text_title: string;
 }
 export interface WlEventEventCancelParams {
     /** `true` is late cancel, `false` reservation is not late cancel. */
@@ -16871,7 +16907,7 @@ export interface WlClassesEditorClassEditorResponse {
         /** Online waiver settings. */
         url_ticket_waiver: string;
     }>;
-    /** Last day of the early bird discount in MySQL format. */
+    /** Last day of the early bird discount. */
     dl_early: string;
     /** Deposit a client leaves while booking the event. */
     f_deposit: string;
@@ -16907,16 +16943,16 @@ export interface WlClassesEditorClassEditorResponse {
     i_capacity: number;
     /** Number of tickets that may be sold for each instance of a ticketed event. */
     i_capacity_ticket: number;
-    /** Maximum length of `s_description`. */
+    /** Maximum length of description. */
     i_description_limit: number;
     /** Maximum number of make-up sessions a client may take. */
     i_makeup_cap: number;
     /** Number of tickets that may be bought in one order of a ticketed event. */
     i_order_limit: number;
-    /** Maximum length of `xml_terms`. */
-    i_terms_limit: number;
     /** Age restriction statuses. @see WlServiceAgeRestrictionStatusSid */
     id_age_restrict: WlServiceAgeRestrictionStatusSid;
+    /** A list of bookable types. @see WlServiceBookableSid */
+    id_bookable: WlServiceBookableSid;
     /** Type of the event, which defines how clients book it and how they pay for it. @see WlClassesEditEventTypeEnum */
     id_event_type: WlClassesEditEventTypeEnum;
     /** A list of types of visit note. @see WlVisitNoteSidNoteSid */
@@ -16933,12 +16969,16 @@ export interface WlClassesEditorClassEditorResponse {
     is_age_public: boolean;
     /** `true` if the class has an age restriction, `false` otherwise. */
     is_age_restrict: boolean;
-    /** `true` if the birth date is a required field of the client profile of the business, `false` other... */
+    /** `true` if the birthdate is a required field of the client profile of the business, `false` otherw... */
     is_birthday_require: boolean;
-    /** Who may book the class online. */
-    is_bookable: number;
     /** `true` if staff may book any client type into the class, `false` if only the client types of */
     is_bookable_staff: boolean;
+    /** `true` if a client pays for the event with a Purchase Option only, `false` otherwise. */
+    is_buy_promotion: boolean;
+    /** `true` if a client buys one session of the event at a time, `false` otherwise. */
+    is_buy_single: boolean;
+    /** `true` if a client buys the whole event at once, `false` otherwise. */
+    is_buy_total: boolean;
     /** `true` if the clients of the class receive the default client notifications, `false` otherwise. */
     is_client_notification: boolean;
     /** `true` if the class has policies of its own, `false` if it follows the policies of the business. */
@@ -16999,9 +17039,7 @@ export interface WlClassesEditorClassEditorResponse {
     k_tag_primary: string;
     /** Revenue the business earns per client per session of an event offered on Wellhub. */
     m_revenue_gym_pass: string;
-    /** How a client pays for the event: `0` for a single session, `1` for the whole event, `2` for a Pur... */
-    not_single_buy: number;
-    /** Color of the event on the schedule in hex format, with a leading `#`. */
+    /** Color of the event on the schedule in hex format. */
     s_color_background: string;
     /** Description of the event. */
     s_description: string;
@@ -18606,17 +18644,12 @@ export interface WlBillingCodeBillingCodePutResponse {
 export interface WlBillingCodeBillingCodeListParams {
     /** Business key. */
     k_business: string;
+    /** Service key. If set, only the codes that are applied to this service by default are returned. */
+    k_service: string;
 }
 export interface WlBillingCodeBillingCodeListResponse {
     /** Billing codes of the business. */
-    a_code: Array<{
-        /** Key of the code. */
-        k_code: string;
-        /** Code value, as it is printed on receipts and invoices. */
-        text_code: string;
-        /** Description of the code the business typed in. */
-        text_description: string;
-    }>;
+    a_code: Array<Array<unknown>>;
 }
 export interface WlAppointmentWaitListAppointmentWaitListParams {
     /** Appointment key. */
@@ -32920,6 +32953,12 @@ export declare class WlHolidayNamespace {
     /** Returns information about holiday day of business/locations. */
     holiday(params?: WlHolidayHolidayParams): Promise<WlHolidayHolidayResponse>;
 }
+export declare class WlTicketNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Checks in the ticket. */
+    ticketScan(params?: WlTicketTicketScanParams): Promise<WlTicketTicketScanResponse>;
+}
 export declare class WlEventBookEventViewNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -34749,6 +34788,7 @@ export declare class WlNamespace {
     readonly sms: WlSmsNamespace;
     readonly visit: WlVisitNamespace;
     readonly holiday: WlHolidayNamespace;
+    readonly ticket: WlTicketNamespace;
     readonly event: WlEventNamespace;
     readonly report: WlReportNamespace;
     readonly feedback: WlFeedbackNamespace;
