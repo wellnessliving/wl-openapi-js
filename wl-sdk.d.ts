@@ -23172,6 +23172,13 @@ export interface WlLoginAttendanceAddAddPostParams {
     uid_client: string;
 }
 export interface WlLoginAttendanceAddAddPostResponse {
+    /** A list of sessions that are being booked asynchronously in the background. */
+    a_book_background: Array<{
+        /** The date and time of the session in UTC. */
+        dt_date: string;
+        /** The class period key. Primary key in RsClassPeriodSql table. */
+        k_class_period: string;
+    }> | null;
     /** Possible states of the visit: book, attended, cancelled, etc. @see WlVisitVisitSid */
     id_visit: WlVisitVisitSid;
     /** If `true`, the visit was automatically paid for in any available way during the booking. */

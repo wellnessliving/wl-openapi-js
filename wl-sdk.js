@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261005073801
+ * Spec version: 1.1.20261005084808
  * Build date:   2026-10-05
  * Endpoints:    668
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261005073801';
+  WlClient.SPEC_VERSION = '1.1.20261005084808';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (668 total)
@@ -9962,6 +9962,7 @@
    * @param {string} params.k_class_period The class period key.
    * @param {string} params.uid_client The client user key.
    * @returns {Promise<Object>} Response data.
+   *  `a_book_background` {?Object[]} A list of sessions that are being booked asynchronously in the background.
    *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc. See {@link WlClient.WlVisitVisitSid}.
    *  `is_paid` {boolean} If `true`, the visit was automatically paid for in any available way during t...
    *  `k_visit` {string} The key of the booked visit. This will be set on success.
