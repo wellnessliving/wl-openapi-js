@@ -3773,6 +3773,8 @@ export declare enum WlPrivilegePrivilegeSid {
     APPOINTMENT_PERIOD = 51,
     /** View appointment */
     APPOINTMENT_VIEW = 52,
+    /** Ability to assign billing and diagnostic codes to appointments */
+    BILLING_CODE_ASSIGN = 252,
     /** Ability to book clients outside their current paid period */
     BOOK_OUTSIDE_PAID_PERIOD = 141,
     /** Ability to book clients over capacity during or after the services have been scheduled */

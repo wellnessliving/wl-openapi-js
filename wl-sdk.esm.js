@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261005134253
+// OpenAPI spec version: 1.1.20261005141059
 // Build date: 2026-10-05
 // Endpoints: 669
 // Enums: 220
@@ -3893,6 +3893,8 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["APPOINTMENT_PERIOD"] = 51] = "APPOINTMENT_PERIOD";
     /** View appointment */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["APPOINTMENT_VIEW"] = 52] = "APPOINTMENT_VIEW";
+    /** Ability to assign billing and diagnostic codes to appointments */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["BILLING_CODE_ASSIGN"] = 252] = "BILLING_CODE_ASSIGN";
     /** Ability to book clients outside their current paid period */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["BOOK_OUTSIDE_PAID_PERIOD"] = 141] = "BOOK_OUTSIDE_PAID_PERIOD";
     /** Ability to book clients over capacity during or after the services have been scheduled */
