@@ -23176,7 +23176,7 @@ export interface WlLoginAttendanceAddAddPostResponse {
     a_book_background: Array<{
         /** The date and time of the session in UTC. */
         dt_date: string;
-        /** The class period key. Primary key in RsClassPeriodSql table. */
+        /** The class period key. */
         k_class_period: string;
     }> | null;
     /** Possible states of the visit: book, attended, cancelled, etc. @see WlVisitVisitSid */
