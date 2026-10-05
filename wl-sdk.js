@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261004090534
- * Build date:   2026-10-04
+ * Spec version: 1.1.20261005073801
+ * Build date:   2026-10-05
  * Endpoints:    668
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261004090534';
+  WlClient.SPEC_VERSION = '1.1.20261005073801';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (668 total)
@@ -18032,6 +18032,20 @@
     GYM_VISIT: 32,
     /** Client sent an invite */
     INVITE_SEND: 14,
+    /** Lead stage was changed by an automation step */
+    LEAD_STAGE_AUTOMATION: 57,
+    /** Lead stage was changed when a client met an automation exit criterion */
+    LEAD_STAGE_AUTOMATION_EXIT: 58,
+    /** Lead stage was changed when a client completed an automation */
+    LEAD_STAGE_AUTOMATION_FINISH: 59,
+    /** Lead stage was set when the lead was created */
+    LEAD_STAGE_CREATED: 60,
+    /** Lead stage was changed because the previous stage was deleted */
+    LEAD_STAGE_DELETE: 61,
+    /** Lead stage was changed manually by a staff member */
+    LEAD_STAGE_MANUAL: 62,
+    /** Lead stage was changed when the client joined a client group */
+    LEAD_STAGE_MEMBER_GROUP: 63,
     /** The user shared location item into Facebook */
     LOCATION_SHARE_FACEBOOK: 39,
     /** The user shared location item into Twitter */

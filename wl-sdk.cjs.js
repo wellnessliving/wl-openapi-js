@@ -1,8 +1,8 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261004090534
-// Build date: 2026-10-04
+// OpenAPI spec version: 1.1.20261005073801
+// Build date: 2026-10-05
 // Endpoints: 668
 // Enums: 220
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -3311,6 +3311,20 @@ var RsLoginActivityTypeSid;
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["GYM_VISIT"] = 32] = "GYM_VISIT";
     /** Client sent an invite */
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["INVITE_SEND"] = 14] = "INVITE_SEND";
+    /** Lead stage was changed by an automation step */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_AUTOMATION"] = 57] = "LEAD_STAGE_AUTOMATION";
+    /** Lead stage was changed when a client met an automation exit criterion */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_AUTOMATION_EXIT"] = 58] = "LEAD_STAGE_AUTOMATION_EXIT";
+    /** Lead stage was changed when a client completed an automation */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_AUTOMATION_FINISH"] = 59] = "LEAD_STAGE_AUTOMATION_FINISH";
+    /** Lead stage was set when the lead was created */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_CREATED"] = 60] = "LEAD_STAGE_CREATED";
+    /** Lead stage was changed because the previous stage was deleted */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_DELETE"] = 61] = "LEAD_STAGE_DELETE";
+    /** Lead stage was changed manually by a staff member */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_MANUAL"] = 62] = "LEAD_STAGE_MANUAL";
+    /** Lead stage was changed when the client joined a client group */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_MEMBER_GROUP"] = 63] = "LEAD_STAGE_MEMBER_GROUP";
     /** The user shared location item into Facebook */
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["LOCATION_SHARE_FACEBOOK"] = 39] = "LOCATION_SHARE_FACEBOOK";
     /** The user shared location item into Twitter */

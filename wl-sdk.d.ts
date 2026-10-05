@@ -3202,6 +3202,20 @@ export declare enum RsLoginActivityTypeSid {
     GYM_VISIT = 32,
     /** Client sent an invite */
     INVITE_SEND = 14,
+    /** Lead stage was changed by an automation step */
+    LEAD_STAGE_AUTOMATION = 57,
+    /** Lead stage was changed when a client met an automation exit criterion */
+    LEAD_STAGE_AUTOMATION_EXIT = 58,
+    /** Lead stage was changed when a client completed an automation */
+    LEAD_STAGE_AUTOMATION_FINISH = 59,
+    /** Lead stage was set when the lead was created */
+    LEAD_STAGE_CREATED = 60,
+    /** Lead stage was changed because the previous stage was deleted */
+    LEAD_STAGE_DELETE = 61,
+    /** Lead stage was changed manually by a staff member */
+    LEAD_STAGE_MANUAL = 62,
+    /** Lead stage was changed when the client joined a client group */
+    LEAD_STAGE_MEMBER_GROUP = 63,
     /** The user shared location item into Facebook */
     LOCATION_SHARE_FACEBOOK = 39,
     /** The user shared location item into Twitter */
@@ -9669,12 +9683,12 @@ export interface CoreAILogTriageConnectionCheckResponse {
         i_priority_multiplier: number;
         /** Base class for log-triage problem searchers. */
         cid_problem: number;
-        /** Usage-statistics object. Present for the usage-statistics source. */
+        /** Usage-statistics object: a slash-delimited category and resource identifier, for example */
         s_object: string;
         /** Usage-statistics aggregation period. One of TriageWatchUsagePeriodEnum */
         eid_period: number;
-        /** Usage-statistics priority. One of TriageUrgencyEnum cases. Present for */
-        eid_priority: number;
+        /** Usage-statistics urgency. One of TriageUrgencyEnum cases. Present for */
+        eid_urgency: number;
         /** Log message or task description. Present for log and task sources. */
         text_message: string;
     }>;
