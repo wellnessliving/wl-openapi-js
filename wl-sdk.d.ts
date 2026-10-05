@@ -18649,7 +18649,16 @@ export interface WlBillingCodeBillingCodeListParams {
 }
 export interface WlBillingCodeBillingCodeListResponse {
     /** Billing codes of the business. */
-    a_code: Array<Array<unknown>>;
+    a_code: Array<{
+        /** List of services the code is applied to by default. */
+        a_service: Array<string>;
+        /** Key of the code. */
+        k_code: string;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code the business typed in. */
+        text_description: string;
+    }>;
 }
 export interface WlAppointmentWaitListAppointmentWaitListParams {
     /** Appointment key. */
@@ -28971,6 +28980,8 @@ export interface WlAppointmentBookAssetAssetListResponse {
         id_service_require: RsServiceRequireSid;
         /** Determines whether this service can't be booked due to age restrictions. */
         is_age_restricted: boolean;
+        /** Whether clients can book this asset on behalf of a guest. */
+        is_book_for_guest: boolean;
         /** Quick book tab key. */
         k_class_tab: string;
         /** The resource key. */

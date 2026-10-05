@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261005132913
+ * Spec version: 1.1.20261005134253
  * Build date:   2026-10-05
  * Endpoints:    669
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261005132913';
+  WlClient.SPEC_VERSION = '1.1.20261005134253';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (669 total)
@@ -6873,7 +6873,7 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.k_service Service key. If set, only the codes that are applied to this service by default are returned.
    * @returns {Promise<Object>} Response data.
-   *  `a_code` {*[][]} Billing codes of the business.
+   *  `a_code` {Object[]} Billing codes of the business.
    */
   WlClient.prototype.wlBillingCodeBillingCodeList = function(params)
   {
