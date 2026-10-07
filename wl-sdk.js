@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261007092555
+ * Spec version: 1.1.20261007102043
  * Build date:   2026-10-07
  * Endpoints:    670
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261007092555';
+  WlClient.SPEC_VERSION = '1.1.20261007102043';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (670 total)
@@ -4847,6 +4847,8 @@
   /**
    * Finds out what moving the client into the lead stage is going to do.
    *
+   * The client must not be in the stage yet. The caller is expected to ask only about a stage the client is not in yet.
+   *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_lead_stage Key of the lead stage to move the client into.
@@ -6885,7 +6887,8 @@
    * Gets the billing code list of the business.
    *
    * The list contains the custom codes of the business and the diagnostic codes of the read-only ICD-10-CM
-   * reference library, the descriptions of the latter in the language of the request.
+   * reference library, the descriptions of the latter in the language of the request. The diagnostic codes are
+   * returned only if the business has turned on ICD diagnostic codes.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
