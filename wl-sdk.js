@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261006144814
+ * Spec version: 1.1.20261007085458
  * Build date:   2026-10-07
  * Endpoints:    670
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261006144814';
+  WlClient.SPEC_VERSION = '1.1.20261007085458';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (670 total)
@@ -6884,13 +6884,12 @@
   /**
    * Gets the billing code list of the business.
    *
-   * The list contains the custom codes of the business for now, and is meant to become the single place a client
-   * asks for codes, with the diagnostic codes of the read-only ICD-10-CM reference library to be returned
-   * from here as well.
+   * The list contains the custom codes of the business and the diagnostic codes of the read-only ICD-10-CM
+   * reference library, the descriptions of the latter in the language of the request.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @param {string} params.k_service Service key. If set, only the codes that are applied to this service by default are returned.
+   * @param {string} params.k_service Service key. If set, only the codes that are applied to this service by default are returned. Sys...
    * @returns {Promise<Object>} Response data.
    *  `a_code` {Object[]} Billing codes of the business.
    */

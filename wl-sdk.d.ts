@@ -18678,19 +18678,21 @@ export interface WlBillingCodeBillingCodePutResponse {
 export interface WlBillingCodeBillingCodeListParams {
     /** Business key. */
     k_business: string;
-    /** Service key. If set, only the codes that are applied to this service by default are returned. */
+    /** Service key. If set, only the codes that are applied to this service by default are returned. Sys... */
     k_service: string;
 }
 export interface WlBillingCodeBillingCodeListResponse {
     /** Billing codes of the business. */
     a_code: Array<{
-        /** List of services the code is applied to by default. */
+        /** List of services the code is applied to by default. Always empty for a system code: system codes ... */
         a_service: Array<string>;
-        /** Key of the code. */
+        /** `true` for a custom code of the business, `false` for a system code of the ICD-10-CM reference li... */
+        is_custom: boolean;
+        /** Key of the code. Keys of the custom and of the system codes never clash. */
         k_code: string;
         /** Code value, as it is printed on receipts and invoices. */
         text_code: string;
-        /** Description of the code the business typed in. */
+        /** Description of the code. The business typed it in for a custom code. For a system code it comes f... */
         text_description: string;
     }>;
 }
