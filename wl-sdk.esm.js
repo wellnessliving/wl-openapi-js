@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261007133420
+// OpenAPI spec version: 1.1.20261007134440
 // Build date: 2026-10-07
-// Endpoints: 669
+// Endpoints: 670
 // Enums: 220
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -7980,6 +7980,10 @@ export class WlTicketNamespace {
     /** Checks in the ticket. */
     ticketScan(params) {
         return this._client._request('/Wl/Ticket/TicketScan.json', params, 'POST');
+    }
+    /** Returns tickets and orders of the session. */
+    ticketList(params) {
+        return this._client._request('/Wl/Ticket/TicketList.json', params, 'GET');
     }
 }
 export class WlEventBookEventViewNamespace {

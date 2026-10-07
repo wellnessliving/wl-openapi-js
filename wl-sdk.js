@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261007133420
+ * Spec version: 1.1.20261007134440
  * Build date:   2026-10-07
- * Endpoints:    669
+ * Endpoints:    670
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261007133420';
+  WlClient.SPEC_VERSION = '1.1.20261007134440';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (669 total)
+  // Generated API methods (670 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -1343,7 +1343,7 @@
    *  `dtu_session_end` {string} End of the session the ticket is for, in UTC and MySQL format.
    *  `dtu_session_start` {string} Start of the session the ticket is for, in UTC and MySQL format.
    *  `i_attend` {number} Number of the tickets already checked in for the session, including this one.
-   *  `i_sold` {number} Number of the tickets sold for the session: not cancelled ones.
+   *  `i_sold` {number} Number of the tickets sold for the session: not cancelled ones, including tho...
    *  `k_class_period_ticket` {string} Key of the class period the session of the ticket belongs to.
    *  `k_ticket_item` {string} Key of the ticket.
    *  `k_visit` {string} Key of the visit booked with the ticket.
@@ -1353,6 +1353,36 @@
   WlClient.prototype.wlTicketTicketScan = function(params)
   {
     return this.request('/Wl/Ticket/TicketScan.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns tickets and orders of the session.
+   *
+   * Returns every ticket of the session, cancelled ones included, the orders they belong to, the counters of the
+   * session, and the data needed to show the session: its name, location, start and end.
+   * Requires access of the current staff member to the business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.dtu_start Start of the session, in UTC, MySQL format.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_class_period Key of the class period the session belongs to.
+   * @returns {Promise<Object>} Response data.
+   *  `a_location` {Object} Location of the session. Has the next structure:
+   *  `a_order` {Object[]} Orders of the session, from the most recent purchase to the oldest one. Every...
+   *  `a_ticket` {Object[]} Tickets of the session, cancelled ones included. Every item has the next stru...
+   *  `dtl_end` {string} End of the session, in the local time of the location, MySQL format.
+   *  `dtl_start` {string} Start of the session, in the local time of the location, MySQL format.
+   *  `i_attend` {number} Number of tickets of the session that are checked in.
+   *  `i_capacity` {number} Number of tickets that can be sold for the event.
+   *  `i_sold` {number} Number of tickets sold for the session, not counting cancelled ones.
+   *  `is_sell` {boolean} Whether tickets of the session can still be sold: there are free seats, and t...
+   *  `k_currency` {string} Key of the currency of all amounts of the answer.
+   *  `m_total` {string} Total paid for the tickets of the session, net of refunds. Decimal string, in...
+   *  `text_title` {string} Name of the event, with no date in it.
+   */
+  WlClient.prototype.wlTicketTicketList = function(params)
+  {
+    return this.request('/Wl/Ticket/TicketList.json', params || {}, 'GET');
   };
 
   /**

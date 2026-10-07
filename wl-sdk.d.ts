@@ -7726,7 +7726,7 @@ export interface WlTicketTicketScanResponse {
     dtu_session_start: string;
     /** Number of the tickets already checked in for the session, including this one. */
     i_attend: number;
-    /** Number of the tickets sold for the session: not cancelled ones. */
+    /** Number of the tickets sold for the session: not cancelled ones, including those whose holders hav... */
     i_sold: number;
     /** Key of the class period the session of the ticket belongs to. */
     k_class_period_ticket: string;
@@ -7737,6 +7737,92 @@ export interface WlTicketTicketScanResponse {
     /** Short code of the ticket in the format for displaying, for example `4829-1736`. */
     text_ticket_code: string;
     /** Name of the event the ticket is for. */
+    text_title: string;
+}
+export interface WlTicketTicketListParams {
+    /** Start of the session, in UTC, MySQL format. */
+    dtu_start: string;
+    /** Business key. */
+    k_business: string;
+    /** Key of the class period the session belongs to. */
+    k_class_period: string;
+}
+export interface WlTicketTicketListResponse {
+    /** Location of the session. Has the next structure: */
+    a_location: {
+        /** Location key. */
+        k_location: string;
+        /** Title of the location. */
+        text_title: string;
+    };
+    /** Orders of the session, from the most recent purchase to the oldest one. Every item has the next s... */
+    a_order: Array<{
+        /** Ticket types of the order, not counting cancelled tickets. Every item has the next structure: */
+        a_type: {
+            /** Number of not cancelled tickets of this type in the order. */
+            i_count: number;
+            /** Key of the ticket type. Key of the ticket type. */
+            k_ticket_option: string;
+            /** Name of the ticket type. */
+            text_title: string;
+        };
+        /** Time when the order was bought, in the local time of the location, MySQL format. */
+        dtl_purchase: string;
+        /** Number of tickets of the order that are checked in. */
+        i_attend: number;
+        /** Number of tickets in the order, cancelled ones included. */
+        i_ticket: number;
+        /** `true` if the order was bought by a guest, who has no profile. In this case `text_name` is empty. */
+        is_guest: boolean;
+        /** Number of the order: key of the purchase the tickets were bought with. Key of the purchase. */
+        k_purchase: string;
+        /** Total paid for the tickets of the order, net of refunds, with the currency */
+        m_total: string;
+        /** Full name of the buyer. Empty for a guest. */
+        text_name: string;
+    }>;
+    /** Tickets of the session, cancelled ones included. Every item has the next structure: */
+    a_ticket: Array<{
+        /** Time of the check-in, in the local time of the location, MySQL format. `null` if the ticket is not */
+        dtl_attend: string | null;
+        /** Time of the cancellation, in the local time of the location, MySQL format. `null` if the ticket i... */
+        dtl_cancel: string | null;
+        /** Position of the ticket in the order, starting from 1. */
+        i_order: number;
+        /** Number of tickets in the order, cancelled ones included. */
+        i_order_size: number;
+        /** Whether the ticket is checked in. A cancelled ticket is never checked in. */
+        is_attend: boolean;
+        /** Whether the ticket is cancelled: voided, or refunded with the seat returned. */
+        is_cancel: boolean;
+        /** Order of the ticket, see {@link WlTicketTicketListResponse.a_order}. */
+        k_purchase: string;
+        /** Key of the ticket, the one {@link WlTicketNamespace#ticketScan} takes. */
+        k_ticket_item: string;
+        /** Key of the ticket type. Key of the ticket type. */
+        k_ticket_option: string;
+        /** Number of the ticket: its short code in the format for displaying, for example `4829-1736`. Empty... */
+        text_ticket_code: string;
+        /** Name of the ticket type. */
+        text_type: string;
+    }>;
+    /** End of the session, in the local time of the location, MySQL format. */
+    dtl_end: string;
+    /** Start of the session, in the local time of the location, MySQL format. */
+    dtl_start: string;
+    /** Number of tickets of the session that are checked in. */
+    i_attend: number;
+    /** Number of tickets that can be sold for the event. */
+    i_capacity: number;
+    /** Number of tickets sold for the session, not counting cancelled ones. */
+    i_sold: number;
+    /** Whether tickets of the session can still be sold: there are free seats, and the session has not e... */
+    is_sell: boolean;
+    /** Key of the currency of all amounts of the answer. */
+    k_currency: string;
+    /** Total paid for the tickets of the session, net of refunds. Decimal string, in the currency */
+    m_total: string;
+    /** Name of the event, with no date in it. */
     text_title: string;
 }
 export interface WlEventEventCancelParams {
@@ -32973,6 +33059,8 @@ export declare class WlTicketNamespace {
     constructor(_client: WlClient);
     /** Checks in the ticket. */
     ticketScan(params?: WlTicketTicketScanParams): Promise<WlTicketTicketScanResponse>;
+    /** Returns tickets and orders of the session. */
+    ticketList(params?: WlTicketTicketListParams): Promise<WlTicketTicketListResponse>;
 }
 export declare class WlEventBookEventViewNamespace {
     private readonly _client;
