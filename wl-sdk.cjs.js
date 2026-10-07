@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261007124609
+// OpenAPI spec version: 1.1.20261007131145
 // Build date: 2026-10-07
-// Endpoints: 670
+// Endpoints: 669
 // Enums: 220
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsScheduleTimeSid = exports.WlEventDenyReasonSid = exports.RsPurchaseItemSid = exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.CoreSidYesNoSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.AFlagSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsPrivilegeRoleSid = exports.RsPayMethodSid = exports.RsProjectSid = exports.RsHomeTourSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AGenderSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlTaskTaskStatusSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlApiError = void 0;
@@ -6963,10 +6963,6 @@ class WlLeadStageNamespace {
     /** Sets the lead stage of the client. */
     leadStageUser(params) {
         return this._client._request('/Wl/Lead/Stage/LeadStageUser.json', params, 'POST');
-    }
-    /** Finds out what moving the client into the lead stage is going to do. */
-    leadStageImpact(params) {
-        return this._client._request('/Wl/Lead/Stage/LeadStageImpact.json', params, 'GET');
     }
 }
 exports.WlLeadStageNamespace = WlLeadStageNamespace;

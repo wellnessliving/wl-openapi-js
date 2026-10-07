@@ -13883,38 +13883,6 @@ export interface WlLeadStageLeadStageUserParams {
     uid: string;
 }
 export type WlLeadStageLeadStageUserResponse = Record<string, unknown>;
-export interface WlLeadStageLeadStageImpactParams {
-    /** Business key. */
-    k_business: string;
-    /** Key of the lead stage to move the client into. */
-    k_lead_stage: string;
-    /** Key of the client who is moved. */
-    uid: string;
-}
-export interface WlLeadStageLeadStageImpactResponse {
-    /** Automations the client is added to by the change. */
-    a_automation_start: Array<{
-        /** Automation key. */
-        k_automation: string;
-        /** Name of the automation. */
-        text_title: string;
-    }>;
-    /** Automations the client is removed from by the change. */
-    a_automation_stop: Array<{
-        /** Automation key. */
-        k_automation: string;
-        /** Name of the stage the automation moves the client into when the client leaves it. Empty string wh... */
-        text_lead_stage_exit: string;
-        /** Name of the automation. */
-        text_title: string;
-    }>;
-    /** Types of lead stages. @see WlLeadStageLeadStageTypeSid */
-    id_lead_stage_type: WlLeadStageLeadStageTypeSid;
-    /** Whether the change must be confirmed by the staff member. */
-    is_confirm: boolean;
-    /** First name of the client, or the full name if the client has no first name. */
-    text_name_first: string;
-}
 export interface WlLeadSourceLeadSourceElementDeleteParams {
     /** Key of the lead source. */
     k_lead_source_replace: string;
@@ -32261,8 +32229,6 @@ export declare class WlLeadStageNamespace {
     leadStageList(params?: WlLeadStageLeadStageListParams): Promise<WlLeadStageLeadStageListResponse>;
     /** Sets the lead stage of the client. */
     leadStageUser(params?: WlLeadStageLeadStageUserParams): Promise<WlLeadStageLeadStageUserResponse>;
-    /** Finds out what moving the client into the lead stage is going to do. */
-    leadStageImpact(params?: WlLeadStageLeadStageImpactParams): Promise<WlLeadStageLeadStageImpactResponse>;
 }
 export declare class WlLeadSourceNamespace {
     private readonly _client;

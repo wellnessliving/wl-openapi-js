@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261007124609
+ * Spec version: 1.1.20261007131145
  * Build date:   2026-10-07
- * Endpoints:    670
+ * Endpoints:    669
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261007124609';
+  WlClient.SPEC_VERSION = '1.1.20261007131145';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (670 total)
+  // Generated API methods (669 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -4842,27 +4842,6 @@
   WlClient.prototype.wlLeadStageLeadStageUser = function(params)
   {
     return this.request('/Wl/Lead/Stage/LeadStageUser.json', params || {}, 'POST');
-  };
-
-  /**
-   * Finds out what moving the client into the lead stage is going to do.
-   *
-   * The client must not be in the stage yet. The caller is expected to ask only about a stage the client is not in yet.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_lead_stage Key of the lead stage to move the client into.
-   * @param {string} params.uid Key of the client who is moved.
-   * @returns {Promise<Object>} Response data.
-   *  `a_automation_start` {Object[]} Automations the client is added to by the change.
-   *  `a_automation_stop` {Object[]} Automations the client is removed from by the change.
-   *  `id_lead_stage_type` {number} Types of lead stages. See {@link WlClient.WlLeadStageLeadStageTypeSid}.
-   *  `is_confirm` {boolean} Whether the change must be confirmed by the staff member.
-   *  `text_name_first` {string} First name of the client, or the full name if the client has no first name.
-   */
-  WlClient.prototype.wlLeadStageLeadStageImpact = function(params)
-  {
-    return this.request('/Wl/Lead/Stage/LeadStageImpact.json', params || {}, 'GET');
   };
 
   /**
