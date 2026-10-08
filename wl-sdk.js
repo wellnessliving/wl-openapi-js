@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261008133158
+ * Spec version: 1.1.20261008154631
  * Build date:   2026-10-08
- * Endpoints:    670
+ * Endpoints:    671
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261008133158';
+  WlClient.SPEC_VERSION = '1.1.20261008154631';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (670 total)
+  // Generated API methods (671 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -6331,8 +6331,8 @@
   /**
    * Returns everything the class setup form needs.
    *
-   * The form is rendered by the client, so this endpoint answers with data: the fields of the class section by
-   * section, the lists the Book Now Tab, the quick search tag and the store category pickers are filled from, the
+   * The form is rendered by the client, so this endpoint answers with data: the settings of the class, the lists the
+   * Book Now Tab, the quick search tag and the store category pickers are filled from, the
    * send rules of the client reminder, the currency sign, whether the Administration section may be shown, the
    * addresses of the pages the form links to and the markup of the blocks that have no template on the client.
    *
@@ -6340,31 +6340,50 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.k_class Class key.
    * @returns {Promise<Object>} Response data.
-   *  `a_class_tab` {string[]} Keys of the Book Now Tabs the class is shown in.
+   *  `a_class` {Object} Settings of the class the form edits.
    *  `a_class_tab_list` {Object[]} Book Now Tabs the class may be shown in. Every element is an array:
-   *  `a_login_type` {string[]} Keys of the client types that may book the class.
-   *  `a_login_type_staff` {string[]} Keys of the client types staff may book into the class.
-   *  `a_member_group` {string[]} Keys of the client groups that may book the class.
    *  `a_reminder_info` {Object} Send rules of the client reminder. Keys are:
-   *  `a_resource_type` {Object[]} Book-a-Spot asset categories the class requires. Every element is an array:
-   *  `a_search_tag` {string[]} Keys of the quick search tags of the class.
    *  `a_search_tag_list` {Object[]} Quick search tags of the category of the business. Every element is an array:
-   *  `a_shop_category` {string[]} Keys of the store categories the event is listed under.
    *  `a_shop_category_list` {Object[]} Store categories of the business. Every element is an array:
-   *  `a_tag` {string[]} Keys of the revenue categories the drop-in revenue of the class is tracked un...
-   *  `a_ticket_option` {Object[]} Ticket types of a ticketed event, in the order they are offered. Every elemen...
    *  `a_url` {Object[]} Addresses of the pages the form links to:
-   *  `dl_early` {string} Last day of the early bird discount.
-   *  `f_deposit` {string} Deposit a client leaves while booking the event.
-   *  `f_early` {string} Early bird discount of the event.
-   *  `f_price` {string} Price of one session of the event.
-   *  `f_price_total` {string} Price of the whole event.
-   *  `hide_application` {boolean} `true` if the event is hidden in the White Label Achieve Client App, `false` ...
+   *  `html_policy` {string} Markup of the Business policies block of the form.
+   *  `html_prerequisite` {string} Markup of the Prerequisites block of the form.
+   *  `html_promotion` {string} Markup of the Purchase Options block of the form.
+   *  `html_quick_buy` {string} Markup of the Quick Buy block of the form.
+   *  `html_tax` {string} Markup of the Taxes block of the form.
+   *  `i_description_limit` {number} Maximum length of description.
+   *  `is_admin` {boolean} `true` if the Administration section may be shown, `false` otherwise.
+   *  `is_birthday_require` {boolean} `true` if the birthdate is a required field of the client profile of the busi...
+   *  `is_currency_before` {boolean} `true` if the sign of the currency of the business is written before the amou...
+   *  `is_event_type_lock` {boolean} `true` if the event may no longer be turned into a ticketed one, or back from...
+   *  `is_fitlive` {boolean} `true` if the business may use the FitLIVE virtual provider, `false` otherwise.
+   *  `is_gym_pass_support` {boolean} `true` if the business may offer the class on Wellhub, `false` otherwise.
+   *  `is_ticket_card_require` {boolean} `true` if a new client of the business must add a card at sign-up, `false` ot...
+   *  `is_ticket_waiver_require` {boolean} `true` if a new client of the business must sign a waiver, `false` otherwise.
    *  `...` {*}
    */
-  WlClient.prototype.wlClassesEditorClassEditor = function(params)
+  WlClient.prototype.wlClassesEditorClassEditorGet = function(params)
   {
     return this.request('/Wl/Classes/Editor/ClassEditor.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves the class.
+   *
+   * Creates the class while {@link WlClient#wlClassesEditorClassEditorGet} is empty, and changes the class otherwise. The settings
+   * come in {@link WlClient#wlClassesEditorClassEditorGet}, which has the same fields the load answers with. The key of the class
+   * that has been written is answered with in {@link WlClient#wlClassesEditorClassEditorGet}. An error of a field is reported
+   * with the name of the field on the form, one error for every field that failed.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_class Class key.
+   * @returns {Promise<Object>} Response data.
+   *  `k_class_save` {string} Key of the class the save wrote.
+   */
+  WlClient.prototype.wlClassesEditorClassEditorPost = function(params)
+  {
+    return this.request('/Wl/Classes/Editor/ClassEditor.json', params || {}, 'POST');
   };
 
   /**
@@ -11448,6 +11467,7 @@
    *  `m_subtotal` {string} The amount of the sale item, excluding taxes.
    *  `m_tax` {string} The calculated amount of tax.
    *  `m_total` {string} The calculated amount of the sale item, including taxes.
+   *  `xml_terms` {string} The text of the terms and conditions for the sale item.
    */
   WlClient.prototype.wlCatalogStaffAppCatalogViewCatalogView = function(params)
   {
@@ -19261,46 +19281,6 @@
   });
 
   /**
-   * A list of resource selection type.
-   *
-   * @enum {number}
-   */
-  WlClient.WlResourceResourceClientControlSid = Object.freeze({
-    /** Means that client cannot select resource during booking process */
-    OFF: 2,
-    /** Means that client can select resource during booking process */
-    ON: 1,
-  });
-
-  /**
-   * A list of resource usage types.
-   *
-   * @enum {number}
-   */
-  WlClient.WlResourceResourceUseSid = Object.freeze({
-    /** Means that resource used in individual usage */
-    INDIVIDUAL: 1,
-    /** Resource is reserved for the entire class */
-    SHARE: 2,
-  });
-
-  /**
-   * Age restriction statuses.
-   *
-   * @enum {number}
-   */
-  WlClient.WlServiceAgeRestrictionStatusSid = Object.freeze({
-    /** Client age must be between limits */
-    AGE_BETWEEN: 2,
-    /** Client is available to book service */
-    AVAILABLE: 1,
-    /** Client age must be less then max age */
-    MAX_AGE: 3,
-    /** Client age must be great then min age */
-    MIN_AGE: 4,
-  });
-
-  /**
    * Type of the event, which defines how clients book it and how they pay for it.
    *
    * @enum {number}
@@ -19324,6 +19304,46 @@
     NON_INTEGRATED: 2,
     /** Virtual Zoom service integration */
     ZOOM: 1,
+  });
+
+  /**
+   * Age restriction statuses.
+   *
+   * @enum {number}
+   */
+  WlClient.WlServiceAgeRestrictionStatusSid = Object.freeze({
+    /** Client age must be between limits */
+    AGE_BETWEEN: 2,
+    /** Client is available to book service */
+    AVAILABLE: 1,
+    /** Client age must be less then max age */
+    MAX_AGE: 3,
+    /** Client age must be great then min age */
+    MIN_AGE: 4,
+  });
+
+  /**
+   * A list of resource selection type.
+   *
+   * @enum {number}
+   */
+  WlClient.WlResourceResourceClientControlSid = Object.freeze({
+    /** Means that client cannot select resource during booking process */
+    OFF: 2,
+    /** Means that client can select resource during booking process */
+    ON: 1,
+  });
+
+  /**
+   * A list of resource usage types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlResourceResourceUseSid = Object.freeze({
+    /** Means that resource used in individual usage */
+    INDIVIDUAL: 1,
+    /** Resource is reserved for the entire class */
+    SHARE: 2,
   });
 
   /**

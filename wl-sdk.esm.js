@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261008133158
+// OpenAPI spec version: 1.1.20261008154631
 // Build date: 2026-10-08
-// Endpoints: 670
+// Endpoints: 671
 // Enums: 220
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -4352,34 +4352,6 @@ export var WlServiceBookableSid;
     /** Nobody can book */
     WlServiceBookableSid[WlServiceBookableSid["NONE"] = 2] = "NONE";
 })(WlServiceBookableSid || (WlServiceBookableSid = {}));
-/** A list of resource selection type. */
-export var WlResourceResourceClientControlSid;
-(function (WlResourceResourceClientControlSid) {
-    /** Means that client cannot select resource during booking process */
-    WlResourceResourceClientControlSid[WlResourceResourceClientControlSid["OFF"] = 2] = "OFF";
-    /** Means that client can select resource during booking process */
-    WlResourceResourceClientControlSid[WlResourceResourceClientControlSid["ON"] = 1] = "ON";
-})(WlResourceResourceClientControlSid || (WlResourceResourceClientControlSid = {}));
-/** A list of resource usage types. */
-export var WlResourceResourceUseSid;
-(function (WlResourceResourceUseSid) {
-    /** Means that resource used in individual usage */
-    WlResourceResourceUseSid[WlResourceResourceUseSid["INDIVIDUAL"] = 1] = "INDIVIDUAL";
-    /** Resource is reserved for the entire class */
-    WlResourceResourceUseSid[WlResourceResourceUseSid["SHARE"] = 2] = "SHARE";
-})(WlResourceResourceUseSid || (WlResourceResourceUseSid = {}));
-/** Age restriction statuses. */
-export var WlServiceAgeRestrictionStatusSid;
-(function (WlServiceAgeRestrictionStatusSid) {
-    /** Client age must be between limits */
-    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["AGE_BETWEEN"] = 2] = "AGE_BETWEEN";
-    /** Client is available to book service */
-    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["AVAILABLE"] = 1] = "AVAILABLE";
-    /** Client age must be less then max age */
-    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["MAX_AGE"] = 3] = "MAX_AGE";
-    /** Client age must be great then min age */
-    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["MIN_AGE"] = 4] = "MIN_AGE";
-})(WlServiceAgeRestrictionStatusSid || (WlServiceAgeRestrictionStatusSid = {}));
 /** Type of the event, which defines how clients book it and how they pay for it. */
 export var WlClassesEditEventTypeEnum;
 (function (WlClassesEditEventTypeEnum) {
@@ -4398,6 +4370,34 @@ export var WlVirtualVirtualProviderSid;
     /** Virtual Zoom service integration */
     WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
 })(WlVirtualVirtualProviderSid || (WlVirtualVirtualProviderSid = {}));
+/** Age restriction statuses. */
+export var WlServiceAgeRestrictionStatusSid;
+(function (WlServiceAgeRestrictionStatusSid) {
+    /** Client age must be between limits */
+    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["AGE_BETWEEN"] = 2] = "AGE_BETWEEN";
+    /** Client is available to book service */
+    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["AVAILABLE"] = 1] = "AVAILABLE";
+    /** Client age must be less then max age */
+    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["MAX_AGE"] = 3] = "MAX_AGE";
+    /** Client age must be great then min age */
+    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["MIN_AGE"] = 4] = "MIN_AGE";
+})(WlServiceAgeRestrictionStatusSid || (WlServiceAgeRestrictionStatusSid = {}));
+/** A list of resource selection type. */
+export var WlResourceResourceClientControlSid;
+(function (WlResourceResourceClientControlSid) {
+    /** Means that client cannot select resource during booking process */
+    WlResourceResourceClientControlSid[WlResourceResourceClientControlSid["OFF"] = 2] = "OFF";
+    /** Means that client can select resource during booking process */
+    WlResourceResourceClientControlSid[WlResourceResourceClientControlSid["ON"] = 1] = "ON";
+})(WlResourceResourceClientControlSid || (WlResourceResourceClientControlSid = {}));
+/** A list of resource usage types. */
+export var WlResourceResourceUseSid;
+(function (WlResourceResourceUseSid) {
+    /** Means that resource used in individual usage */
+    WlResourceResourceUseSid[WlResourceResourceUseSid["INDIVIDUAL"] = 1] = "INDIVIDUAL";
+    /** Resource is reserved for the entire class */
+    WlResourceResourceUseSid[WlResourceResourceUseSid["SHARE"] = 2] = "SHARE";
+})(WlResourceResourceUseSid || (WlResourceResourceUseSid = {}));
 /** List of possible types of Gift Cards. */
 export var WlCouponTypeSid;
 (function (WlCouponTypeSid) {
@@ -9269,8 +9269,12 @@ export class WlClassesEditorNamespace {
         this._client = _client;
     }
     /** Returns everything the class setup form needs. */
-    classEditor(params) {
+    classEditorGet(params) {
         return this._client._request('/Wl/Classes/Editor/ClassEditor.json', params, 'GET');
+    }
+    /** Saves the class. */
+    classEditorPost(params) {
+        return this._client._request('/Wl/Classes/Editor/ClassEditor.json', params, 'POST');
     }
 }
 export class WlClassesPeriodModifyNamespace {

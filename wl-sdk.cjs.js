@@ -1,14 +1,14 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261008133158
+// OpenAPI spec version: 1.1.20261008154631
 // Build date: 2026-10-08
-// Endpoints: 670
+// Endpoints: 671
 // Enums: 220
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsScheduleTimeSid = exports.WlEventDenyReasonSid = exports.RsPurchaseItemSid = exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.CoreSidYesNoSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.AFlagSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsPrivilegeRoleSid = exports.RsPayMethodSid = exports.RsProjectSid = exports.RsHomeTourSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AGenderSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlTaskTaskStatusSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlApiError = void 0;
 exports.WlProfileAttachAttachPreviewSid = exports.RsLoginActivityTypeSid = exports.WlDesignIconSid = exports.RsMailSid = exports.RsCommissionTypeSid = exports.RsActivationSid = exports.WlProfileRegisterSourceSid = exports.RsFamilyRelationSid = exports.WlFieldFieldLevelEnum = exports.WlLoginTypeClientTypeSid = exports.WlVisitPassProspectSid = exports.WlProfileSensorSensorTypesSid = exports.CoreQuizResponseResponseStatusSid = exports.WlMemberProgressFieldTypeSid = exports.WlMemberProgressFieldMeasurementSid = exports.WlMemberProgressFieldProgressFieldSid = exports.RsServiceSid = exports.WlVisitNoteSidNoteSid = exports.RsSaleSid = exports.WlPromotionPayPromotionPayHoldSid = exports.CoreGoogleCaptchaCaptchaResponseSid = exports.CoreDriveDriveTypeSid = exports.CorePassportPasskeyPasskeyCredentialStatusEnum = exports.CorePassportPasskeyPasskeyDeviceTypeEnum = exports.ThothPayProcessorPayProcessorSid = exports.ThothWlPayCordovaCordovaCcrDeviceSid = exports.ThothPayProcessorTerminalTerminalTypeSid = exports.ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = exports.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = exports.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = exports.RsPayOwnerSid = exports.ThothPayProcessorStripeComPaymentIntentStatusSid = exports.RsPayActorSid = exports.ThothPayProcessorTerminalTerminalStatusSid = exports.ThothPayProcessorStripeComTerminalStripeReaderModelSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.WlAnnouncementSortFieldSid = exports.WlAnnouncementAnnouncementStatusEnum = exports.RsReviewStatusSid = exports.WlVideoCatalogFilterSortFilterSortSid = exports.CoreSidSortOrderSid = exports.WlVideoVideoSourceSid = exports.WlVideoVideoEmbedSourceSid = exports.WlBusinessFranchiseTravelTravelModeSid = exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = exports.RsPlaceSid = exports.RsCurrencySid = exports.RsSkinSid = void 0;
-exports.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = exports.RsRewardActionCategorySid = exports.RsRewardScoreSid = exports.WlResourceImageImageIconSid = exports.WlResourceLayoutShapeLayoutShapeSid = exports.WlCatalogQuickPurchaseTypeSid = exports.WlQuizResponseSourceSid = exports.WlUserTrackingFlowSid = exports.RsAppointmentPaySid = exports.WlScheduleClassViewDenyReasonSid = exports.WlResourceResourceCategoryEnum = exports.WlScheduleDesignWeekDaySid = exports.WlScheduleDesignOptionSid = exports.WlScheduleDesignCellSid = exports.WlScheduleDesignIntervalSid = exports.RsProgramCategorySid = exports.WlPromotionEditLimitCycleSid = exports.WlCouponTypeSid = exports.WlVirtualVirtualProviderSid = exports.WlClassesEditEventTypeEnum = exports.WlServiceAgeRestrictionStatusSid = exports.WlResourceResourceUseSid = exports.WlResourceResourceClientControlSid = exports.WlServiceBookableSid = exports.WlPrivilegePrivilegeSid = exports.RsStaffPaySid = exports.ASocialSid = exports.WlShopCategoryShopCategorySortSid = exports.WlCatalogPurchaseOptionViewSid = exports.WlPromotionGuestPassGuestPassResetTypeSid = exports.WlCouponEditDurationTypeSid = exports.WlCouponEditActivationSid = exports.WlCollectorDebtStatusSid = exports.RsFacilitySid = exports.RsAgeSid = exports.WlClassesRequirePaySid = exports.WlBookProcessProcessSpaSid = exports.RsRepeatEndSid = exports.RsBusinessDesignLogoStyleSid = exports.RsBusinessDesignLogoPositionSid = exports.RsPageFrontendHeaderLayoutSid = exports.WlBusinessPolicyChargeSid = exports.WlBusinessPolicyBlameSid = exports.WlLeadStageLeadStageSystemSid = exports.WlLeadStageLeadStageTypeSid = exports.WlLeadStageLeadStageShapeSid = exports.WlLocationFlagFlagSourceEnum = exports.RsLoginNoteFlagSid = exports.RsLoginNoteAccessSid = exports.RsProfileNoteSid = void 0;
+exports.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = exports.RsRewardActionCategorySid = exports.RsRewardScoreSid = exports.WlResourceImageImageIconSid = exports.WlResourceLayoutShapeLayoutShapeSid = exports.WlCatalogQuickPurchaseTypeSid = exports.WlQuizResponseSourceSid = exports.WlUserTrackingFlowSid = exports.RsAppointmentPaySid = exports.WlScheduleClassViewDenyReasonSid = exports.WlResourceResourceCategoryEnum = exports.WlScheduleDesignWeekDaySid = exports.WlScheduleDesignOptionSid = exports.WlScheduleDesignCellSid = exports.WlScheduleDesignIntervalSid = exports.RsProgramCategorySid = exports.WlPromotionEditLimitCycleSid = exports.WlCouponTypeSid = exports.WlResourceResourceUseSid = exports.WlResourceResourceClientControlSid = exports.WlServiceAgeRestrictionStatusSid = exports.WlVirtualVirtualProviderSid = exports.WlClassesEditEventTypeEnum = exports.WlServiceBookableSid = exports.WlPrivilegePrivilegeSid = exports.RsStaffPaySid = exports.ASocialSid = exports.WlShopCategoryShopCategorySortSid = exports.WlCatalogPurchaseOptionViewSid = exports.WlPromotionGuestPassGuestPassResetTypeSid = exports.WlCouponEditDurationTypeSid = exports.WlCouponEditActivationSid = exports.WlCollectorDebtStatusSid = exports.RsFacilitySid = exports.RsAgeSid = exports.WlClassesRequirePaySid = exports.WlBookProcessProcessSpaSid = exports.RsRepeatEndSid = exports.RsBusinessDesignLogoStyleSid = exports.RsBusinessDesignLogoPositionSid = exports.RsPageFrontendHeaderLayoutSid = exports.WlBusinessPolicyChargeSid = exports.WlBusinessPolicyBlameSid = exports.WlLeadStageLeadStageSystemSid = exports.WlLeadStageLeadStageTypeSid = exports.WlLeadStageLeadStageShapeSid = exports.WlLocationFlagFlagSourceEnum = exports.RsLoginNoteFlagSid = exports.RsLoginNoteAccessSid = exports.RsProfileNoteSid = void 0;
 exports.RsClassModifyActionSid = exports.RsTaxSid = exports.WlShopProductPurchaseRestrictionSid = exports.WlDiscountDiscountRuleSid = exports.WlBookProcessProcessCheckSid = exports.WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid = exports.WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = exports.WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = exports.WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = exports.WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = exports.WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.WlBusinessAccountSubscriptionApiApiSubscriptionSid = exports.WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = exports.WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = exports.WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = exports.WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid = exports.WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = exports.WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = exports.WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = exports.WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid = exports.WlBusinessAccountSubscriptionSmsSmsSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = exports.WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = exports.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = exports.WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid = exports.WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = exports.WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = exports.WlBusinessCustomTermsCustomTermSid = exports.WlLoginAttendanceAddOptionSid = exports.WlLoginPromotionConvertConvertWhenSid = exports.WlPromotionConvertPromotionConvertSid = exports.RsPayAccountChargeSid = exports.RsPayBankAchTypeSid = exports.RsPayBankAchHolderSid = exports.WlSocialShareShareObjectSid = exports.WlReviewReviewListReviewOrderSid = exports.WlVideoWatchWatchSourceSid = exports.WlBusinessFranchiseLocationBusinessFranchiseLocationSid = exports.WlIntegrationAutymateAutymateAccessModeSid = exports.WlIntegrationAutymateAutymateStatusSid = exports.WlAiAgentPhoneCallOutcomeEnum = exports.WlReceptionDesignCheckInSoundSid = exports.WlReceptionApplicationMemberInfoIconSid = exports.WlReceptionApplicationMemberInfoColorSid = exports.WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = exports.RsReportCategorySid = exports.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = exports.WlWidgetAnalyticsWidgetAnalyticsEventSid = void 0;
 exports.CorePassportEnterNamespace = exports.CorePassportEnterJwtNamespace = exports.CorePassportUserNamespace = exports.CorePassportUserEmailNamespace = exports.CorePassportChangePasswordNamespace = exports.CorePassportPasskeyNamespace = exports.CorePassportLoginNamespace = exports.CorePassportLoginSignOutNamespace = exports.CorePassportLoginRegisterNamespace = exports.CorePassportLoginEnterNamespace = exports.CorePassportLoginEnterQuickNamespace = exports.CoreTestingNamespace = exports.CoreTestingAutomationNamespace = exports.CoreAINamespace = exports.CoreAILogTriageNamespace = exports.CoreTimingNamespace = exports.CoreGeoNamespace = exports.CoreGeoRegionNamespace = exports.CoreWebSocketNamespace = exports.CoreSidNamespace = exports.CoreGoogleNamespace = exports.CoreGoogleCaptchaNamespace = exports.CoreCaptchaNamespace = exports.CorePushNamespace = exports.CoreDebugNamespace = exports.CoreRequestNamespace = exports.CoreRequestTokenNamespace = exports.CoreRequestApiNamespace = exports.CoreRequestApiApplicationNamespace = exports.CoreRequestApiApplicationCredentialNamespace = exports.WlLoginPromotionGuestPassInviteInviteStatusEnum = exports.RsPayBankAchSecSid = exports.RsPayBankSid = exports.RsPayModeSid = exports.WlCardCardSystemSid = exports.WlSkinApplicationUpgradeAppUpdateTypeEnum = exports.WlSkinApplicationResourceApplicationCategorySid = exports.WlPassportLoginEnterOtpDeliveryStrategyEnum = exports.WlReceptionRosterDirectSid = exports.WlShareShareSid = exports.WlSearchSearchOperationSid = exports.WlMemberGroupShapeSid = exports.WlLeadConversionLeadConversionTypeSid = exports.RsServicePriceSid = exports.WlLoginLoginRoleSid = exports.RsAppointmentEditConflictSid = exports.RsServiceRequireSid = exports.WlServiceServiceBookFlowSid = exports.WlPageBackendFeatureFeatureSid = exports.RsClassModifyModeSid = void 0;
 exports.WlProfileAttendanceNamespace = exports.WlProfileAttendanceScheduleNamespace = exports.WlProfileAttendanceScheduleFrontendNamespace = exports.WlProfileContractNamespace = exports.WlProfileContractContractAllNamespace = exports.WlProfilePurchaseNamespace = exports.WlProfileRankNamespace = exports.WlProfileEditNamespace = exports.WlProfileEditEmailNamespace = exports.WlLoginNamespace = exports.WlLoginProductNamespace = exports.WlLoginTypeNamespace = exports.WlLoginCouponNamespace = exports.WlLoginAgreeNamespace = exports.WlLoginPermissionNamespace = exports.WlLoginPermissionAccessNamespace = exports.WlLoginCodeNamespace = exports.WlLoginMailNamespace = exports.WlLoginAttendanceNamespace = exports.WlLoginAttendanceStaffAppNamespace = exports.WlLoginAttendanceStaffAppVirtualNamespace = exports.WlLoginAttendanceAddNamespace = exports.WlLoginSearchNamespace = exports.WlLoginSearchStaffAppNamespace = exports.WlLoginRankNamespace = exports.WlLoginAddNamespace = exports.WlLoginPromotionNamespace = exports.WlLoginPromotionConvertNamespace = exports.WlLoginPromotionGuestPassNamespace = exports.WlLoginPromotionGuestPassClaimNamespace = exports.WlLoginPromotionGuestPassApplyNamespace = exports.WlLoginPromotionGuestPassInviteNamespace = exports.WlLoginMemberNamespace = exports.WlLoginMemberDynamicIdNamespace = exports.SocialNamespace = exports.SocialGoogleNamespace = exports.SocialGooglePlusNamespace = exports.SocialAppleNamespace = exports.SocialAppleLoginNamespace = exports.SocialFacebookNamespace = exports.SocialFacebookLoginNamespace = exports.SocialMicrosoftNamespace = exports.CoreNamespace = exports.CoreSpaNamespace = exports.CoreSpaApplicationNamespace = exports.CoreLocaleNamespace = exports.CoreLocaleLanguageNamespace = exports.CoreDriveNamespace = exports.CoreDriveImageUploadNamespace = exports.CorePassportNamespace = void 0;
@@ -4368,34 +4368,6 @@ var WlServiceBookableSid;
     /** Nobody can book */
     WlServiceBookableSid[WlServiceBookableSid["NONE"] = 2] = "NONE";
 })(WlServiceBookableSid || (exports.WlServiceBookableSid = WlServiceBookableSid = {}));
-/** A list of resource selection type. */
-var WlResourceResourceClientControlSid;
-(function (WlResourceResourceClientControlSid) {
-    /** Means that client cannot select resource during booking process */
-    WlResourceResourceClientControlSid[WlResourceResourceClientControlSid["OFF"] = 2] = "OFF";
-    /** Means that client can select resource during booking process */
-    WlResourceResourceClientControlSid[WlResourceResourceClientControlSid["ON"] = 1] = "ON";
-})(WlResourceResourceClientControlSid || (exports.WlResourceResourceClientControlSid = WlResourceResourceClientControlSid = {}));
-/** A list of resource usage types. */
-var WlResourceResourceUseSid;
-(function (WlResourceResourceUseSid) {
-    /** Means that resource used in individual usage */
-    WlResourceResourceUseSid[WlResourceResourceUseSid["INDIVIDUAL"] = 1] = "INDIVIDUAL";
-    /** Resource is reserved for the entire class */
-    WlResourceResourceUseSid[WlResourceResourceUseSid["SHARE"] = 2] = "SHARE";
-})(WlResourceResourceUseSid || (exports.WlResourceResourceUseSid = WlResourceResourceUseSid = {}));
-/** Age restriction statuses. */
-var WlServiceAgeRestrictionStatusSid;
-(function (WlServiceAgeRestrictionStatusSid) {
-    /** Client age must be between limits */
-    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["AGE_BETWEEN"] = 2] = "AGE_BETWEEN";
-    /** Client is available to book service */
-    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["AVAILABLE"] = 1] = "AVAILABLE";
-    /** Client age must be less then max age */
-    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["MAX_AGE"] = 3] = "MAX_AGE";
-    /** Client age must be great then min age */
-    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["MIN_AGE"] = 4] = "MIN_AGE";
-})(WlServiceAgeRestrictionStatusSid || (exports.WlServiceAgeRestrictionStatusSid = WlServiceAgeRestrictionStatusSid = {}));
 /** Type of the event, which defines how clients book it and how they pay for it. */
 var WlClassesEditEventTypeEnum;
 (function (WlClassesEditEventTypeEnum) {
@@ -4414,6 +4386,34 @@ var WlVirtualVirtualProviderSid;
     /** Virtual Zoom service integration */
     WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
 })(WlVirtualVirtualProviderSid || (exports.WlVirtualVirtualProviderSid = WlVirtualVirtualProviderSid = {}));
+/** Age restriction statuses. */
+var WlServiceAgeRestrictionStatusSid;
+(function (WlServiceAgeRestrictionStatusSid) {
+    /** Client age must be between limits */
+    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["AGE_BETWEEN"] = 2] = "AGE_BETWEEN";
+    /** Client is available to book service */
+    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["AVAILABLE"] = 1] = "AVAILABLE";
+    /** Client age must be less then max age */
+    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["MAX_AGE"] = 3] = "MAX_AGE";
+    /** Client age must be great then min age */
+    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["MIN_AGE"] = 4] = "MIN_AGE";
+})(WlServiceAgeRestrictionStatusSid || (exports.WlServiceAgeRestrictionStatusSid = WlServiceAgeRestrictionStatusSid = {}));
+/** A list of resource selection type. */
+var WlResourceResourceClientControlSid;
+(function (WlResourceResourceClientControlSid) {
+    /** Means that client cannot select resource during booking process */
+    WlResourceResourceClientControlSid[WlResourceResourceClientControlSid["OFF"] = 2] = "OFF";
+    /** Means that client can select resource during booking process */
+    WlResourceResourceClientControlSid[WlResourceResourceClientControlSid["ON"] = 1] = "ON";
+})(WlResourceResourceClientControlSid || (exports.WlResourceResourceClientControlSid = WlResourceResourceClientControlSid = {}));
+/** A list of resource usage types. */
+var WlResourceResourceUseSid;
+(function (WlResourceResourceUseSid) {
+    /** Means that resource used in individual usage */
+    WlResourceResourceUseSid[WlResourceResourceUseSid["INDIVIDUAL"] = 1] = "INDIVIDUAL";
+    /** Resource is reserved for the entire class */
+    WlResourceResourceUseSid[WlResourceResourceUseSid["SHARE"] = 2] = "SHARE";
+})(WlResourceResourceUseSid || (exports.WlResourceResourceUseSid = WlResourceResourceUseSid = {}));
 /** List of possible types of Gift Cards. */
 var WlCouponTypeSid;
 (function (WlCouponTypeSid) {
@@ -9568,8 +9568,12 @@ class WlClassesEditorNamespace {
         this._client = _client;
     }
     /** Returns everything the class setup form needs. */
-    classEditor(params) {
+    classEditorGet(params) {
         return this._client._request('/Wl/Classes/Editor/ClassEditor.json', params, 'GET');
+    }
+    /** Saves the class. */
+    classEditorPost(params) {
+        return this._client._request('/Wl/Classes/Editor/ClassEditor.json', params, 'POST');
     }
 }
 exports.WlClassesEditorNamespace = WlClassesEditorNamespace;
