@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261008113201
+ * Spec version: 1.1.20261008133158
  * Build date:   2026-10-08
  * Endpoints:    670
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261008113201';
+  WlClient.SPEC_VERSION = '1.1.20261008133158';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (670 total)
@@ -18798,6 +18798,8 @@
     APPOINTMENT_VIEW: 52,
     /** Ability to assign billing and diagnostic codes to appointments */
     BILLING_CODE_ASSIGN: 252,
+    /** Ability to add a temporary custom billing code at the appointment booking */
+    BILLING_CODE_TEMPORARY: 253,
     /** Ability to book clients outside their current paid period */
     BOOK_OUTSIDE_PAID_PERIOD: 141,
     /** Ability to book clients over capacity during or after the services have been scheduled */

@@ -3775,6 +3775,8 @@ export declare enum WlPrivilegePrivilegeSid {
     APPOINTMENT_VIEW = 52,
     /** Ability to assign billing and diagnostic codes to appointments */
     BILLING_CODE_ASSIGN = 252,
+    /** Ability to add a temporary custom billing code at the appointment booking */
+    BILLING_CODE_TEMPORARY = 253,
     /** Ability to book clients outside their current paid period */
     BOOK_OUTSIDE_PAID_PERIOD = 141,
     /** Ability to book clients over capacity during or after the services have been scheduled */
@@ -7943,6 +7945,15 @@ export interface WlEventEventListGetResponse {
             /** Name of the tag. */
             text_title: string;
         };
+        /** Returns how many tickets can be sold for the ticketed event the class belongs to, and how */
+        a_ticket_inventory?: {
+            /** Total number of tickets that can be sold for the event. */
+            i_capacity: number;
+            /** Number of tickets still available to sell. */
+            i_remain: number;
+            /** Maximum number of tickets that can be ordered for the event in one purchase. `0` if there is no l... */
+            i_order_limit: number;
+        } | null;
         /** List of ticket options available for booking the event. Empty if the event is not a ticketed */
         a_tickets: Array<Array<unknown>>;
         /** Whether event can be booked or not. */
@@ -18493,6 +18504,8 @@ export interface WlSchedulePagePageElementResponse {
     is_event: boolean;
     /** `true` - service is in progress; `false` - otherwise. */
     is_in_progress: boolean;
+    /** `true` if the visit has been paid for (via a purchase option, session pass, or single purchase). */
+    is_paid: boolean;
     /** `true` - service is virtual; `false` - otherwise. */
     is_virtual: boolean;
     /** The appointment key. */
