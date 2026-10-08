@@ -14430,6 +14430,25 @@ export interface WlBookProcessProcessGroupResponse {
     a_login_activity_book: Array<string>;
     /** Primary keys of bookings made. */
     a_visit: Array<string>;
+    /** Values are arrays with next keys: */
+    a_visit_payment: Array<{
+        /** `true` if the visit is free; `false` otherwise. */
+        is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
+        /** `true` whether the booked slot was waitlisted; `false` otherwise. */
+        is_waitlist: boolean;
+        /** Applied user's purchase option. */
+        k_login_promotion: string;
+        /** Purchase option. */
+        k_promotion: string;
+        /** Applied session pass. */
+        k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
+        /** Purchase option title. */
+        text_promotion: string;
+    }>;
     /** The key of the user's activity corresponding to the purchase made. */
     k_login_activity_purchase: string | null;
 }
@@ -23967,6 +23986,8 @@ export interface WlBookProcessPaymentPaymentResponse {
     a_visit_payment: Array<{
         /** `true` if the visit is free; `false` otherwise. */
         is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
         /** `true` whether the booked slot was waitlisted; `false` otherwise. */
         is_waitlist: boolean;
         /** Applied user's purchase option. */
@@ -23975,6 +23996,8 @@ export interface WlBookProcessPaymentPaymentResponse {
         k_promotion: string;
         /** Applied session pass. */
         k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
         /** Purchase option title. */
         text_promotion: string;
     }>;
@@ -25022,6 +25045,8 @@ export interface WlBookProcessInfoInfoPostResponse {
     a_visit_payment: Array<{
         /** `true` if the visit is free; `false` otherwise. */
         is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
         /** `true` whether the booked slot was waitlisted; `false` otherwise. */
         is_waitlist: boolean;
         /** Applied user's purchase option. */
@@ -25030,6 +25055,8 @@ export interface WlBookProcessInfoInfoPostResponse {
         k_promotion: string;
         /** Applied session pass. */
         k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
         /** Purchase option title. */
         text_promotion: string;
     }>;
@@ -25219,6 +25246,8 @@ export interface WlBookProcessInfoInfo54PostResponse {
     a_visit_payment: Array<{
         /** `true` if the visit is free; `false` otherwise. */
         is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
         /** `true` whether the booked slot was waitlisted; `false` otherwise. */
         is_waitlist: boolean;
         /** Applied user's purchase option. */
@@ -25227,6 +25256,8 @@ export interface WlBookProcessInfoInfo54PostResponse {
         k_promotion: string;
         /** Applied session pass. */
         k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
         /** Purchase option title. */
         text_promotion: string;
     }>;
@@ -25305,6 +25336,8 @@ export interface WlBookProcessStoreStoreResponse {
     a_visit_payment: Array<{
         /** `true` if the visit is free; `false` otherwise. */
         is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
         /** `true` whether the booked slot was waitlisted; `false` otherwise. */
         is_waitlist: boolean;
         /** Applied user's purchase option. */
@@ -25313,6 +25346,8 @@ export interface WlBookProcessStoreStoreResponse {
         k_promotion: string;
         /** Applied session pass. */
         k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
         /** Purchase option title. */
         text_promotion: string;
     }>;
@@ -28246,6 +28281,8 @@ export interface WlAppointmentBookFinishFinishPostResponse {
     a_visit_payment: Array<{
         /** `true` if the visit is free; `false` otherwise. */
         is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
         /** `true` whether the booked slot was waitlisted; `false` otherwise. */
         is_waitlist: boolean;
         /** Applied user's purchase option. */
@@ -28254,6 +28291,8 @@ export interface WlAppointmentBookFinishFinishPostResponse {
         k_promotion: string;
         /** Applied session pass. */
         k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
         /** Purchase option title. */
         text_promotion: string;
     }>;
@@ -28388,6 +28427,8 @@ export interface WlAppointmentBookFinishFinish47PostResponse {
     a_visit_payment: Array<{
         /** `true` if the visit is free; `false` otherwise. */
         is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
         /** `true` whether the booked slot was waitlisted; `false` otherwise. */
         is_waitlist: boolean;
         /** Applied user's purchase option. */
@@ -28396,6 +28437,8 @@ export interface WlAppointmentBookFinishFinish47PostResponse {
         k_promotion: string;
         /** Applied session pass. */
         k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
         /** Purchase option title. */
         text_promotion: string;
     }>;

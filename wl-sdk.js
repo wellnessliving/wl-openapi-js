@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261008095740
+ * Spec version: 1.1.20261008113201
  * Build date:   2026-10-08
  * Endpoints:    670
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261008095740';
+  WlClient.SPEC_VERSION = '1.1.20261008113201';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (670 total)
@@ -5354,6 +5354,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_login_activity_book` {string[]} Primary keys of users' activity that correspond to bookings made.
    *  `a_visit` {string[]} Primary keys of bookings made.
+   *  `a_visit_payment` {Object[]} Values are arrays with next keys:
    *  `k_login_activity_purchase` {?string} The key of the user's activity corresponding to the purchase made.
    */
   WlClient.prototype.wlBookProcessProcessGroup = function(params)
