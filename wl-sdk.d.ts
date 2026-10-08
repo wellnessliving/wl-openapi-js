@@ -20101,6 +20101,8 @@ export interface WlSchedulePagePageElementResponse {
     is_event: boolean;
     /** `true` - service is in progress; `false` - otherwise. */
     is_in_progress: boolean;
+    /** `true` if the visit has been paid for (via a purchase option, session pass, or single purchase). */
+    is_paid: boolean;
     /** `true` - service is virtual; `false` - otherwise. */
     is_virtual: boolean;
     /** The appointment key. */
