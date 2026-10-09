@@ -18859,8 +18859,6 @@ export interface WlBillingCodeBillingCodePutResponse {
 export interface WlBillingCodeBillingCodeListParams {
     /** Business key. */
     k_business: string;
-    /** Service key. If set, only the codes that are applied to this service by default are returned. Sys... */
-    k_service: string;
 }
 export interface WlBillingCodeBillingCodeListResponse {
     /** Billing codes of the business. */
@@ -29570,6 +29568,47 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignPostParams {
     k_visit: string;
 }
 export type WlVisitBillingCodeVisitBillingCodeAssignPostResponse = Record<string, unknown>;
+export interface WlVisitBillingCodeVisitBillingCodeDefaultParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the service of the visit being booked. Required if {@link WlVisitBillingCodeNamespace#visi... */
+    k_service: string;
+    /** Key of an existing visit. Its service, staff member and client are taken from the visit. Empty st... */
+    k_visit: string;
+    /** Key of the client of the visit being booked. Used only if {@link WlVisitBillingCodeNamespace#visi... */
+    uid_client: string;
+    /** Key of the staff member of the visit being booked. Required if {@link WlVisitBillingCodeNamespace... */
+    uid_staff: string;
+}
+export interface WlVisitBillingCodeVisitBillingCodeDefaultResponse {
+    /** Codes applied by default to the service of the visit, sorted by the code value. Empty if the visi... */
+    a_code_service: Array<{
+        /** Always `true`: only custom codes can be default codes of a service. */
+        is_custom: boolean;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code. */
+        text_description: string;
+    }>;
+    /** Default code of the staff member of the visit: a list of one code, or an empty list if the staff ... */
+    a_code_staff: Array<{
+        /** Always `true`: only a custom code can be the default code of a staff member. */
+        is_custom: boolean;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code. */
+        text_description: string;
+    }>;
+    /** Codes most used for the visits of the client, the most used first. */
+    a_code_top: Array<{
+        /** `true` for a custom code of the business or a temporary code, `false` for an ICD-10-CM diagnostic... */
+        is_custom: boolean;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code. `null` for a temporary code. */
+        text_description: string | null;
+    }>;
+}
 export interface WlRewardActionCategoryListCategoryListParams {
     /** ID of a business to show information for. */
     k_business: string;
@@ -33247,6 +33286,8 @@ export declare class WlVisitBillingCodeNamespace {
     visitBillingCodeAssignGet(params?: WlVisitBillingCodeVisitBillingCodeAssignGetParams): Promise<WlVisitBillingCodeVisitBillingCodeAssignGetResponse>;
     /** Applies billing codes to a visit. */
     visitBillingCodeAssignPost(params?: WlVisitBillingCodeVisitBillingCodeAssignPostParams): Promise<WlVisitBillingCodeVisitBillingCodeAssignPostResponse>;
+    /** Returns the codes suggested for a visit. */
+    visitBillingCodeDefault(params?: WlVisitBillingCodeVisitBillingCodeDefaultParams): Promise<WlVisitBillingCodeVisitBillingCodeDefaultResponse>;
 }
 export declare class WlVisitBillingNamespace {
     private readonly _client;

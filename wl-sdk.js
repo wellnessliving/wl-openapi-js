@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261009143903
+ * Spec version: 1.1.20261009150819
  * Build date:   2026-10-09
- * Endpoints:    673
+ * Endpoints:    674
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261009143903';
+  WlClient.SPEC_VERSION = '1.1.20261009150819';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (673 total)
+  // Generated API methods (674 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -6922,7 +6922,6 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @param {string} params.k_service Service key. If set, only the codes that are applied to this service by default are returned. Sys...
    * @returns {Promise<Object>} Response data.
    *  `a_code` {Object[]} Billing codes of the business.
    */
@@ -12913,6 +12912,28 @@
   WlClient.prototype.wlVisitBillingCodeVisitBillingCodeAssignPost = function(params)
   {
     return this.request('/Wl/Visit/Billing/Code/VisitBillingCodeAssign.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns the codes suggested for a visit.
+   *
+   * The default codes of the service and of the staff member, and up to 5 codes most used for the client, each list
+   * separately. The current staff member must be able to assign billing codes to appointments.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_service Key of the service of the visit being booked. Required if {@link WlClient#wlVisitBillingCodeVisit...
+   * @param {string} params.k_visit Key of an existing visit. Its service, staff member and client are taken from the visit. Empty st...
+   * @param {string} params.uid_client Key of the client of the visit being booked. Used only if {@link WlClient#wlVisitBillingCodeVisit...
+   * @param {string} params.uid_staff Key of the staff member of the visit being booked. Required if {@link WlClient#wlVisitBillingCode...
+   * @returns {Promise<Object>} Response data.
+   *  `a_code_service` {Object[]} Codes applied by default to the service of the visit, sorted by the code valu...
+   *  `a_code_staff` {Object[]} Default code of the staff member of the visit: a list of one code, or an empt...
+   *  `a_code_top` {Object[]} Codes most used for the visits of the client, the most used first.
+   */
+  WlClient.prototype.wlVisitBillingCodeVisitBillingCodeDefault = function(params)
+  {
+    return this.request('/Wl/Visit/Billing/Code/VisitBillingCodeDefault.json', params || {}, 'GET');
   };
 
   /**

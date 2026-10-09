@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261009143903
+// OpenAPI spec version: 1.1.20261009150819
 // Build date: 2026-10-09
-// Endpoints: 673
+// Endpoints: 674
 // Enums: 221
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -7977,6 +7977,10 @@ export class WlVisitBillingCodeNamespace {
     /** Applies billing codes to a visit. */
     visitBillingCodeAssignPost(params) {
         return this._client._request('/Wl/Visit/Billing/Code/VisitBillingCodeAssign.json', params, 'POST');
+    }
+    /** Returns the codes suggested for a visit. */
+    visitBillingCodeDefault(params) {
+        return this._client._request('/Wl/Visit/Billing/Code/VisitBillingCodeDefault.json', params, 'GET');
     }
 }
 export class WlVisitBillingNamespace {
