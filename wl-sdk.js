@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261009131241
+ * Spec version: 1.1.20261009143903
  * Build date:   2026-10-09
  * Endpoints:    673
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261009131241';
+  WlClient.SPEC_VERSION = '1.1.20261009143903';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (673 total)
@@ -2255,15 +2255,16 @@
   };
 
   /**
-   * Returns the data required to render the site footer for the given business.
+   * Loads the data required to render the site footer for the given business.
    *
    * Loads the business's white-label status and derives whether the "Powered by WellnessLiving"
-   * branding and the Terms and Conditions link should be shown in the footer.
+   * branding and the Terms and Conditions link should be shown in the footer. The result is stored in
+   * {@link WlClient#thothLayoutBeFooterFooter}.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key to get footer data for.
    * @returns {Promise<Object>} Response data.
-   *  `show_term` {boolean} `true` to show the "Powered by WellnessLiving" branding and Terms & Condition...
+   *  `show_term` {boolean} Whether the "Powered by WellnessLiving" branding and Terms & Conditions links...
    */
   WlClient.prototype.thothLayoutBeFooterFooter = function(params)
   {

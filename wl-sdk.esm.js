@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261009131241
+// OpenAPI spec version: 1.1.20261009143903
 // Build date: 2026-10-09
 // Endpoints: 673
 // Enums: 221
@@ -10873,7 +10873,7 @@ export class ThothLayoutBeFooterNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns the data required to render the site footer for the given business. */
+    /** Loads the data required to render the site footer for the given business. */
     footer(params) {
         return this._client._request('/Thoth/LayoutBe/Footer/Footer.json', params, 'GET');
     }

@@ -9184,7 +9184,7 @@ export interface ThothLayoutBeFooterFooterParams {
     k_business: string;
 }
 export interface ThothLayoutBeFooterFooterResponse {
-    /** `true` to show the "Powered by WellnessLiving" branding and Terms & Conditions links in the footer; */
+    /** Whether the "Powered by WellnessLiving" branding and Terms & Conditions links are shown in the fo... */
     show_term: boolean;
 }
 export interface WlHardwareStripeComStripeComHardwareElementDeleteParams {
@@ -35180,7 +35180,7 @@ export declare class ThothExplorerSearchNamespace {
 export declare class ThothLayoutBeFooterNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Returns the data required to render the site footer for the given business. */
+    /** Loads the data required to render the site footer for the given business. */
     footer(params?: ThothLayoutBeFooterFooterParams): Promise<ThothLayoutBeFooterFooterResponse>;
 }
 export declare class ThothLayoutBeNamespace {
