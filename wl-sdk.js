@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261009095334
+ * Spec version: 1.1.20261009104030
  * Build date:   2026-10-09
  * Endpoints:    673
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261009095334';
+  WlClient.SPEC_VERSION = '1.1.20261009104030';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (673 total)
@@ -11463,13 +11463,12 @@
    * @param {string} params.uid The ID of the user who performed the actions.
    * @returns {Promise<Object>} Response data.
    *  `a_tax_data` {Object} Contains information about calculated taxes.
-   *  `a_tickets` {*[][]} List of ticket options available for booking the event. Empty if the sale ite...
+   *  `a_tickets` {Object[]} List of ticket options available for booking the event. Empty if the sale ite...
    *  `is_ticket` {boolean} `true` if the sale item is a ticketed event, `false` otherwise.
    *  `m_prorate` {string} The prorated amount.
    *  `m_subtotal` {string} The amount of the sale item, excluding taxes.
    *  `m_tax` {string} The calculated amount of tax.
    *  `m_total` {string} The calculated amount of the sale item, including taxes.
-   *  `xml_terms` {string} The text of the terms and conditions for the sale item.
    */
   WlClient.prototype.wlCatalogStaffAppCatalogViewCatalogView = function(params)
   {
@@ -13210,7 +13209,7 @@
    *  `a_schedule` {Object[]} A list of event sessions. Every element has the following next keys:
    *  `a_shop_category` {string[]} IDs of online store category.
    *  `a_staff_logo` {Object} Photos of staff members. Keys are the keys of staff members. The values are t...
-   *  `a_tickets` {*[][]} List of ticket options available for booking the event. Empty if the event is...
+   *  `a_tickets` {Object[]} List of ticket options available for booking the event. Empty if the event is...
    *  `a_timezone_info` {Object[]} Timezone information for all timezones used in the event schedule.
    *  `a_visits_required` {Object[]} A list of classes and events that clients should attend before this one.
    *  `dt_book_date` {?string} That date that should be used to go to the booking wizard.

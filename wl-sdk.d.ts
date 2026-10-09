@@ -7786,7 +7786,7 @@ export interface WlTicketTicketListResponse {
         a_type: {
             /** Number of not cancelled tickets of this type in the order. */
             i_count: number;
-            /** Key of the ticket type. Key of the ticket type. */
+            /** Key of the ticket type. */
             k_ticket_option: string;
             /** Name of the ticket type. */
             text_title: string;
@@ -7824,8 +7824,14 @@ export interface WlTicketTicketListResponse {
         k_purchase: string;
         /** Key of the ticket, the one {@link WlTicketNamespace#ticketScan} takes. */
         k_ticket_item: string;
-        /** Key of the ticket type. Key of the ticket type. */
+        /** Key of the ticket type. */
         k_ticket_option: string;
+        /** Amount refunded for this ticket. The refunds of the purchase item of the ticket. If several ticke... */
+        m_refund: string;
+        /** Price of the ticket: how much was paid for it, not net of refunds. Decimal string, in the currency */
+        m_price: string;
+        /** Full name of the holder of the ticket: the person who has claimed it. Empty if nobody has claimed... */
+        text_holder: string;
         /** Number of the ticket: its short code in the format for displaying, for example `4829-1736`. Empty... */
         text_ticket_code: string;
         /** Name of the ticket type. */
@@ -7978,7 +7984,14 @@ export interface WlEventEventListGetResponse {
             i_order_limit: number;
         } | null;
         /** List of ticket options available for booking the event. Empty if the event is not a ticketed */
-        a_tickets: Array<Array<unknown>>;
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. Primary key in TicketOptionsRouteSql. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** Ticket option name. */
+            text_title: string;
+        };
         /** Whether event can be booked or not. */
         can_book: boolean;
         /** Whether current user can cancel already booked event. */
@@ -15040,7 +15053,14 @@ export interface WlCatalogCatalogListElementGetResponse {
         /** This applies to enrollment/event items. */
         is_ticket: boolean;
         /** List of ticket options available for booking the event. Empty if the item is not a */
-        a_tickets: Array<Array<unknown>>;
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** Ticket option name. */
+            text_title: string;
+        };
     };
     /** Information about promotion guest pass. Empty array if promotion does not have guest pass or */
     a_guest_pass: {
@@ -15131,7 +15151,7 @@ export interface WlCatalogCatalogListElementGetResponse {
             /** This applies to enrollment/event items. */
             is_ticket: boolean;
             /** List of ticket options available for booking the event. Empty if the item is not a */
-            a_tickets: Array<Array<unknown>>;
+            a_tickets: Record<string, unknown>;
         };
         /** Information about promotion guest pass. The same structure as {@link WlCatalogCatalogListElementG... */
         a_guest_pass: {
@@ -15356,7 +15376,14 @@ export interface WlCatalogCatalogListElementPostResponse {
         /** This applies to enrollment/event items. */
         is_ticket: boolean;
         /** List of ticket options available for booking the event. Empty if the item is not a */
-        a_tickets: Array<Array<unknown>>;
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** Ticket option name. */
+            text_title: string;
+        };
     };
     /** Information about promotion guest pass. Empty array if promotion does not have guest pass or */
     a_guest_pass: {
@@ -15447,7 +15474,7 @@ export interface WlCatalogCatalogListElementPostResponse {
             /** This applies to enrollment/event items. */
             is_ticket: boolean;
             /** List of ticket options available for booking the event. Empty if the item is not a */
-            a_tickets: Array<Array<unknown>>;
+            a_tickets: Record<string, unknown>;
         };
         /** Information about promotion guest pass. The same structure as {@link WlCatalogCatalogListElementG... */
         a_guest_pass: {
@@ -15582,7 +15609,14 @@ export interface WlCatalogCatalogListListResponse {
         /** Shop category keys the item belongs to. */
         a_shop_category: Array<string>;
         /** List of ticket options available for booking the event. Empty if the item is not a */
-        a_tickets: Array<Array<unknown>>;
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** Ticket option name. */
+            text_title: string;
+        };
         /** UTC creation date of the item in MySQL format. */
         dtu_create: string;
         /** The item price. */
@@ -15615,7 +15649,14 @@ export interface WlCatalogCatalogListListResponse {
         /** Shop category keys the item belongs to. */
         a_shop_category: Array<string>;
         /** List of ticket options available for booking the event. Empty if the item is not a */
-        a_tickets: Array<Array<unknown>>;
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** Ticket option name. */
+            text_title: string;
+        };
         /** UTC creation date of the item in MySQL format. */
         dtu_create: string;
         /** The item price. */
@@ -26188,7 +26229,14 @@ export interface WlCatalogStaffAppCatalogViewCatalogViewResponse {
         s_tax: string;
     };
     /** List of ticket options available for booking the event. Empty if the sale item is not a */
-    a_tickets: Array<Array<unknown>>;
+    a_tickets: Array<{
+        /** Globally unique identifier of the ticket option. Primary key in TicketOptionsRouteSql. */
+        k_ticket_option: string;
+        /** One ticket price. */
+        m_price: string;
+        /** Ticket option name. */
+        text_title: string;
+    }>;
     /** `true` if the sale item is a ticketed event, `false` otherwise. */
     is_ticket: boolean;
     /** The prorated amount. */
@@ -26199,8 +26247,6 @@ export interface WlCatalogStaffAppCatalogViewCatalogViewResponse {
     m_tax: string;
     /** The calculated amount of the sale item, including taxes. */
     m_total: string;
-    /** The text of the terms and conditions for the sale item. */
-    xml_terms: string;
 }
 export interface WlCatalogViewImageImageParams {
     /** ID of sale category. One of {@link RsSaleSid}. */
@@ -29954,7 +30000,14 @@ export interface WlEventBookEventViewElementResponse {
             url_logo: string;
         };
         /** List of ticket options available for booking the event. Empty if the event is not a */
-        a_tickets: Array<Array<unknown>>;
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** Ticket option name. */
+            text_title: string;
+        };
         /** Date/time of first event session. */
         dt_book_date: string;
         /** Early date of event purchase. */
@@ -30101,7 +30154,14 @@ export interface WlEventBookEventViewElementResponse {
         url_logo: string;
     };
     /** List of ticket options available for booking the event. Empty if the event is not a ticketed */
-    a_tickets: Array<Array<unknown>>;
+    a_tickets: Array<{
+        /** Globally unique identifier of the ticket option. Primary key in TicketOptionsRouteSql. */
+        k_ticket_option: string;
+        /** One ticket price. */
+        m_price: string;
+        /** Ticket option name. */
+        text_title: string;
+    }>;
     /** Timezone information for all timezones used in the event schedule. */
     a_timezone_info: Array<{
         /** UTC offset in hours for this timezone. */
