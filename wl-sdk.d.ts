@@ -4779,6 +4779,29 @@ export declare enum WlBusinessCustomTermsCustomTermSid {
     /** Staff */
     STAFF = 1
 }
+/** Preset options for the {@link WlBusinessCustomTermsCustomTermSid} custom term. */
+export declare enum WlBusinessCustomTermsClassTermOptionSid {
+    /** Activity */
+    ACTIVITY = 1,
+    /** Class */
+    CLASS_TERM = 2,
+    /** Course */
+    COURSE = 3,
+    /** Group Session */
+    GROUP_SESSION = 4,
+    /** Lesson */
+    LESSON = 5,
+    /** Practice */
+    PRACTICE = 6,
+    /** Program */
+    PROGRAM = 7,
+    /** Session */
+    SESSION = 8,
+    /** Training */
+    TRAINING = 9,
+    /** Workshop */
+    WORKSHOP = 10
+}
 /** List of possible plans for CollectionsSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid {
     /** None */
@@ -9814,8 +9837,6 @@ export interface CoreAILogTriageConnectionCheckResponse {
         dtu_last_seen: string;
         /** Number of matching records. */
         i_occurrence_count: number;
-        /** Usage-statistics priority multiplier. Present for the usage-statistics source. */
-        i_priority_multiplier: number;
         /** Base class for log-triage problem searchers. */
         cid_problem: number;
         /** Usage-statistics object: a slash-delimited category and resource identifier, for example */
@@ -29468,6 +29489,43 @@ export interface WlVisitNoteEditEditPostParams {
     k_visit: string;
 }
 export type WlVisitNoteEditEditPostResponse = Record<string, unknown>;
+export interface WlVisitBillingCodeVisitBillingCodeAssignGetParams {
+    /** Business key. */
+    k_business: string;
+    /** Visit key. */
+    k_visit: string;
+}
+export interface WlVisitBillingCodeVisitBillingCodeAssignGetResponse {
+    /** Billing codes applied to the visit, the custom codes first, each type sorted by the code value. */
+    a_code: Array<{
+        /** `true` for a custom code of the business or a temporary code for this visit only, `false` for an ... */
+        is_custom: boolean;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code as it was when the code was applied. `null` for a temporary code. */
+        text_description: string | null;
+    }>;
+    /** History of the changes of the billing codes of the visit, the latest change first: a record per a... */
+    a_history: Array<{
+        /** Date and time of the change in UTC. */
+        dtu_change: string;
+        /** What changed. */
+        text_log: string;
+        /** Reason of the change the staff member gave. `null` if no reason was given. */
+        text_reason: string | null;
+        /** Signature of the staff member who made the change. `null` if no signature was given, or if the bu... */
+        text_signature: string | null;
+        /** Key of the staff member who made the change. `null` if the user is deleted. */
+        uid_staff: string | null;
+    }>;
+}
+export interface WlVisitBillingCodeVisitBillingCodeAssignPostParams {
+    /** Business key. */
+    k_business: string;
+    /** Visit key. */
+    k_visit: string;
+}
+export type WlVisitBillingCodeVisitBillingCodeAssignPostResponse = Record<string, unknown>;
 export interface WlRewardActionCategoryListCategoryListParams {
     /** ID of a business to show information for. */
     k_business: string;
@@ -33124,11 +33182,25 @@ export declare class WlVisitNoteNamespace {
     readonly edit: WlVisitNoteEditNamespace;
     constructor(_client: WlClient);
 }
+export declare class WlVisitBillingCodeNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the billing codes applied to a visit and the history of their changes. */
+    visitBillingCodeAssignGet(params?: WlVisitBillingCodeVisitBillingCodeAssignGetParams): Promise<WlVisitBillingCodeVisitBillingCodeAssignGetResponse>;
+    /** Applies billing codes to a visit. */
+    visitBillingCodeAssignPost(params?: WlVisitBillingCodeVisitBillingCodeAssignPostParams): Promise<WlVisitBillingCodeVisitBillingCodeAssignPostResponse>;
+}
+export declare class WlVisitBillingNamespace {
+    private readonly _client;
+    readonly code: WlVisitBillingCodeNamespace;
+    constructor(_client: WlClient);
+}
 export declare class WlVisitNamespace {
     private readonly _client;
     readonly pay: WlVisitPayNamespace;
     readonly blame: WlVisitBlameNamespace;
     readonly note: WlVisitNoteNamespace;
+    readonly billing: WlVisitBillingNamespace;
     constructor(_client: WlClient);
     /** Gets visit status. */
     visitStatusGet(params?: WlVisitVisitStatusGetParams): Promise<WlVisitVisitStatusGetResponse>;

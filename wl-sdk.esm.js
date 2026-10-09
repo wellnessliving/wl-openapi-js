@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261008154631
+// OpenAPI spec version: 1.1.20261009091135
 // Build date: 2026-10-09
-// Endpoints: 671
-// Enums: 220
+// Endpoints: 673
+// Enums: 221
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (220 total) ---
+// --- Enum types (221 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -4944,6 +4944,30 @@ export var WlBusinessCustomTermsCustomTermSid;
     /** Staff */
     WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["STAFF"] = 1] = "STAFF";
 })(WlBusinessCustomTermsCustomTermSid || (WlBusinessCustomTermsCustomTermSid = {}));
+/** Preset options for the {@link WlBusinessCustomTermsCustomTermSid} custom term. */
+export var WlBusinessCustomTermsClassTermOptionSid;
+(function (WlBusinessCustomTermsClassTermOptionSid) {
+    /** Activity */
+    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["ACTIVITY"] = 1] = "ACTIVITY";
+    /** Class */
+    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["CLASS_TERM"] = 2] = "CLASS_TERM";
+    /** Course */
+    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["COURSE"] = 3] = "COURSE";
+    /** Group Session */
+    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["GROUP_SESSION"] = 4] = "GROUP_SESSION";
+    /** Lesson */
+    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["LESSON"] = 5] = "LESSON";
+    /** Practice */
+    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["PRACTICE"] = 6] = "PRACTICE";
+    /** Program */
+    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["PROGRAM"] = 7] = "PROGRAM";
+    /** Session */
+    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["SESSION"] = 8] = "SESSION";
+    /** Training */
+    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["TRAINING"] = 9] = "TRAINING";
+    /** Workshop */
+    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["WORKSHOP"] = 10] = "WORKSHOP";
+})(WlBusinessCustomTermsClassTermOptionSid || (WlBusinessCustomTermsClassTermOptionSid = {}));
 /** List of possible plans for CollectionsSubscription subscription. */
 export var WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid;
 (function (WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid) {
@@ -7942,12 +7966,32 @@ export class WlVisitNoteNamespace {
         this.edit = new WlVisitNoteEditNamespace(this._client);
     }
 }
+export class WlVisitBillingCodeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the billing codes applied to a visit and the history of their changes. */
+    visitBillingCodeAssignGet(params) {
+        return this._client._request('/Wl/Visit/Billing/Code/VisitBillingCodeAssign.json', params, 'GET');
+    }
+    /** Applies billing codes to a visit. */
+    visitBillingCodeAssignPost(params) {
+        return this._client._request('/Wl/Visit/Billing/Code/VisitBillingCodeAssign.json', params, 'POST');
+    }
+}
+export class WlVisitBillingNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.code = new WlVisitBillingCodeNamespace(this._client);
+    }
+}
 export class WlVisitNamespace {
     constructor(_client) {
         this._client = _client;
         this.pay = new WlVisitPayNamespace(this._client);
         this.blame = new WlVisitBlameNamespace(this._client);
         this.note = new WlVisitNoteNamespace(this._client);
+        this.billing = new WlVisitBillingNamespace(this._client);
     }
     /** Gets visit status. */
     visitStatusGet(params) {

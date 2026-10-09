@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261008154631
+ * Spec version: 1.1.20261009091135
  * Build date:   2026-10-09
- * Endpoints:    671
+ * Endpoints:    673
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261008154631';
+  WlClient.SPEC_VERSION = '1.1.20261009091135';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (671 total)
+  // Generated API methods (673 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -10297,6 +10297,8 @@
   /**
    * Saves {@link WlClient#wlBusinessCustomTermsCustomTerms} as the custom terms of {@link WlClient#wlBusinessCustomTermsCustomTerms}.
    *
+   * Validates every posted term slot and its selected option, then writes.
+   *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
    */
@@ -12876,6 +12878,44 @@
   };
 
   /**
+   * Returns the billing codes applied to a visit and the history of their changes.
+   *
+   * A staff member who can not assign billing codes gets the custom codes only, without the diagnostic codes and
+   * without the history.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_visit Visit key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_code` {Object[]} Billing codes applied to the visit, the custom codes first, each type sorted ...
+   *  `a_history` {Object[]} History of the changes of the billing codes of the visit, the latest change f...
+   */
+  WlClient.prototype.wlVisitBillingCodeVisitBillingCodeAssignGet = function(params)
+  {
+    return this.request('/Wl/Visit/Billing/Code/VisitBillingCodeAssign.json', params || {}, 'GET');
+  };
+
+  /**
+   * Applies billing codes to a visit.
+   *
+   * The given list replaces the codes of the visit as a whole. A code the visit has already keeps the type and the
+   * description it was applied with. A new code is looked up in the billing code list of the business first, then
+   * among the ICD-10-CM diagnostic codes if the business has turned them on. A code found nowhere is a temporary
+   * code for this visit only: it requires the access to create temporary codes, and it is not added to the billing
+   * code list. Every added and every removed code is logged with the reason and, if the business requires it, the
+   * signature.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_visit Visit key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlVisitBillingCodeVisitBillingCodeAssignPost = function(params)
+  {
+    return this.request('/Wl/Visit/Billing/Code/VisitBillingCodeAssign.json', params || {}, 'POST');
+  };
+
+  /**
    * Retrieves all reward action categories for business specified in
   {@link WlClient#wlRewardActionCategoryListCategoryList}.
    *
@@ -14435,7 +14475,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (237 total)
+  // Enum constants (239 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -20046,6 +20086,34 @@
     CLIENT: 4,
     /** Staff */
     STAFF: 1,
+  });
+
+  /**
+   * Preset options for the {@link WlClient.WlBusinessCustomTermsCustomTermSid} custom term.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessCustomTermsClassTermOptionSid = Object.freeze({
+    /** Activity */
+    ACTIVITY: 1,
+    /** Class */
+    CLASS_TERM: 2,
+    /** Course */
+    COURSE: 3,
+    /** Group Session */
+    GROUP_SESSION: 4,
+    /** Lesson */
+    LESSON: 5,
+    /** Practice */
+    PRACTICE: 6,
+    /** Program */
+    PROGRAM: 7,
+    /** Session */
+    SESSION: 8,
+    /** Training */
+    TRAINING: 9,
+    /** Workshop */
+    WORKSHOP: 10,
   });
 
   /**
