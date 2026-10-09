@@ -18869,8 +18869,6 @@ export interface WlBillingCodeBillingCodeListResponse {
         a_service: Array<string>;
         /** `true` for a custom code of the business, `false` for a system code of the ICD-10-CM reference li... */
         is_custom: boolean;
-        /** Key of the code. Keys of the custom and of the system codes never clash. */
-        k_code: string;
         /** Code value, as it is printed on receipts and invoices. */
         text_code: string;
         /** Description of the code. The business typed it in for a custom code. For a system code it comes f... */
