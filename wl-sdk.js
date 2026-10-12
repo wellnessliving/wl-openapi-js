@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261012100219
+ * Spec version: 1.1.20261012133405
  * Build date:   2026-10-12
  * Endpoints:    674
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261012100219';
+  WlClient.SPEC_VERSION = '1.1.20261012133405';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (674 total)
@@ -14496,7 +14496,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (239 total)
+  // Enum constants (241 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -19405,6 +19405,32 @@
     INDIVIDUAL: 1,
     /** Resource is reserved for the entire class */
     SHARE: 2,
+  });
+
+  /**
+   * Meaning of the early bird amount that is stored in RsClassEarlySql.
+   *
+   * @enum {number}
+   */
+  WlClient.WlClassesEditEarlyAmountEnum = Object.freeze({
+    /** The amount is a discount in the currency of the business */
+    DISCOUNT: 2,
+    /** The amount is a discount in percent of the regular price of the event */
+    PERCENT: 3,
+    /** The amount is the price that replaces the regular price of the event */
+    PRICE: 1,
+  });
+
+  /**
+   * The way the end of the early bird period is specified for the event.
+   *
+   * @enum {number}
+   */
+  WlClient.WlClassesEditEarlyPeriodEnum = Object.freeze({
+    /** The period ends a certain amount of time before the event starts */
+    BEFORE: 2,
+    /** The period ends on the date */
+    DATE: 1,
   });
 
   /**

@@ -4272,6 +4272,22 @@ export declare enum WlResourceResourceUseSid {
     /** Resource is reserved for the entire class */
     SHARE = 2
 }
+/** Meaning of the early bird amount that is stored in RsClassEarlySql. */
+export declare enum WlClassesEditEarlyAmountEnum {
+    /** The amount is a discount in the currency of the business */
+    DISCOUNT = 2,
+    /** The amount is a discount in percent of the regular price of the event */
+    PERCENT = 3,
+    /** The amount is the price that replaces the regular price of the event */
+    PRICE = 1
+}
+/** The way the end of the early bird period is specified for the event. */
+export declare enum WlClassesEditEarlyPeriodEnum {
+    /** The period ends a certain amount of time before the event starts */
+    BEFORE = 2,
+    /** The period ends on the date */
+    DATE = 1
+}
 /** List of possible types of Gift Cards. */
 export declare enum WlCouponTypeSid {
     /** Amount Gift Card */
@@ -17096,7 +17112,7 @@ export interface WlClassesEditorClassEditorGetResponse {
             dl_early: string;
             /** Deposit a client leaves while booking the class. */
             f_deposit: string;
-            /** Early bird price of the class. */
+            /** Early bird amount of the class. */
             f_early: string;
             /** Price of one session of the class. */
             f_price: string;
@@ -17104,6 +17120,14 @@ export interface WlClassesEditorClassEditorGetResponse {
             f_price_total: string;
             /** `true` if the price of a single session is hidden from a client who has an applicable Purchase Op... */
             hide_price: boolean;
+            /** How long before the class starts the early bird period ends. */
+            i_early_duration: number;
+            /** Meaning of the early bird amount that is stored in RsClassEarlySql. @see WlClassesEditEarlyAmountEnum */
+            id_early_amount: WlClassesEditEarlyAmountEnum;
+            /** A class for managing time intervals. @see ADurationSid */
+            id_early_duration: ADurationSid;
+            /** The way the end of the early bird period is specified for the event. @see WlClassesEditEarlyPeriodEnum */
+            id_early_period: WlClassesEditEarlyPeriodEnum;
             /** List of possible modes to require amount while booking a class. @see WlClassesRequirePaySid */
             id_pay_require: WlClassesRequirePaySid;
             /** `true` if a client pays for the class with a Purchase Option only, `false` otherwise. */
@@ -17116,6 +17140,8 @@ export interface WlClassesEditorClassEditorGetResponse {
             is_deposit_percent: boolean;
             /** `true` if the class has an early bird discount, `false` otherwise. */
             is_early: boolean;
+            /** `true` if `f_early` is a percent of the price of the class, `false` if it is an amount */
+            is_early_percent: boolean;
             /** `true` if taxes are applied to the sales of the class, `false` otherwise. */
             is_tax_enable: boolean;
             /** Last day of the early bird discount as the calendar of the form shows it. */

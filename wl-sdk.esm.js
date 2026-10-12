@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261012100219
+// OpenAPI spec version: 1.1.20261012133405
 // Build date: 2026-10-12
 // Endpoints: 674
-// Enums: 221
+// Enums: 223
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (221 total) ---
+// --- Enum types (223 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -4398,6 +4398,24 @@ export var WlResourceResourceUseSid;
     /** Resource is reserved for the entire class */
     WlResourceResourceUseSid[WlResourceResourceUseSid["SHARE"] = 2] = "SHARE";
 })(WlResourceResourceUseSid || (WlResourceResourceUseSid = {}));
+/** Meaning of the early bird amount that is stored in RsClassEarlySql. */
+export var WlClassesEditEarlyAmountEnum;
+(function (WlClassesEditEarlyAmountEnum) {
+    /** The amount is a discount in the currency of the business */
+    WlClassesEditEarlyAmountEnum[WlClassesEditEarlyAmountEnum["DISCOUNT"] = 2] = "DISCOUNT";
+    /** The amount is a discount in percent of the regular price of the event */
+    WlClassesEditEarlyAmountEnum[WlClassesEditEarlyAmountEnum["PERCENT"] = 3] = "PERCENT";
+    /** The amount is the price that replaces the regular price of the event */
+    WlClassesEditEarlyAmountEnum[WlClassesEditEarlyAmountEnum["PRICE"] = 1] = "PRICE";
+})(WlClassesEditEarlyAmountEnum || (WlClassesEditEarlyAmountEnum = {}));
+/** The way the end of the early bird period is specified for the event. */
+export var WlClassesEditEarlyPeriodEnum;
+(function (WlClassesEditEarlyPeriodEnum) {
+    /** The period ends a certain amount of time before the event starts */
+    WlClassesEditEarlyPeriodEnum[WlClassesEditEarlyPeriodEnum["BEFORE"] = 2] = "BEFORE";
+    /** The period ends on the date */
+    WlClassesEditEarlyPeriodEnum[WlClassesEditEarlyPeriodEnum["DATE"] = 1] = "DATE";
+})(WlClassesEditEarlyPeriodEnum || (WlClassesEditEarlyPeriodEnum = {}));
 /** List of possible types of Gift Cards. */
 export var WlCouponTypeSid;
 (function (WlCouponTypeSid) {
