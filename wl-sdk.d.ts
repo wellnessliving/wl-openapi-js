@@ -5521,7 +5521,7 @@ export interface CoreSidCoreSidResponse {
 export type CoreWebSocketSubscribeParams = Record<string, unknown>;
 export interface CoreWebSocketSubscribeResponse {
     /** All messages in queue. Key is a message key. Value is message data. */
-    a_message_broadcast: Array<{
+    a_message_broadcast: Array<Record<string, unknown> | {
         /** The count with unread alert for the user. */
         i_unread_alert: number;
         /** Whether message is active. This is needed to avoid showing previous messages on page reload. */
@@ -5570,7 +5570,7 @@ export interface CoreWebSocketSubscribeResponse {
     } | {
         /** New title of the business. */
         text_title: string;
-    } | Record<string, unknown> | {
+    } | {
         /** New data of changes schedule item: */
         a_visit: Record<string, unknown>;
     } | {
