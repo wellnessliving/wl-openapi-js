@@ -26381,6 +26381,8 @@ export interface WlAppointmentBookScheduleDayTimeResponse {
         uid_staff: string;
         /** String representation of appointment schedule time. */
         s_title: string;
+        /** User key of the staff member the system would assign for this time if the client booked with any ... */
+        uid_staff_suggest: string;
     };
     /** The date to show the available appointment booking schedule. */
     dt_date: string;
@@ -26502,6 +26504,8 @@ export interface WlAppointmentBookScheduleCalendar73Response {
         uid_staff: string;
         /** String representation of appointment schedule time. */
         s_title: string;
+        /** User key of the staff member the system would assign for this time if the client booked with any ... */
+        uid_staff_suggest: string;
     };
     /** Information about timezone. */
     a_timezone_data: {
@@ -26608,6 +26612,8 @@ export interface WlAppointmentBookScheduleDayTime73Response {
         uid_staff: string;
         /** String representation of appointment schedule time. */
         s_title: string;
+        /** User key of the staff member the system would assign for this time if the client booked with any ... */
+        uid_staff_suggest: string;
     };
     /** The date to show the available appointment booking schedule. */
     dt_date: string;
@@ -26708,6 +26714,8 @@ export interface WlAppointmentBookScheduleCalendarResponse {
         uid_staff: string;
         /** String representation of appointment schedule time. */
         s_title: string;
+        /** User key of the staff member the system would assign for this time if the client booked with any ... */
+        uid_staff_suggest: string;
     };
     /** Information about timezone. */
     a_timezone_data: {
