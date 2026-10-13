@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261013130930
+ * Spec version: 1.1.20261013133633
  * Build date:   2026-10-13
  * Endpoints:    675
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261013130930';
+  WlClient.SPEC_VERSION = '1.1.20261013133633';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (675 total)
@@ -6930,13 +6930,18 @@
    *
    * The list contains the custom codes of the business and the diagnostic codes of the read-only ICD-10-CM
    * reference library, the descriptions of the latter in the language of the request. The diagnostic codes are
-   * returned only if the business has turned on ICD diagnostic codes.
+   * returned only if the business has turned on ICD diagnostic codes. A search ranks the codes it has found, and a
+   * search that has found nothing gets the nearest codes instead. The answer is one page of the codes.
    *
    * @param {Object} [params] Request parameters.
+   * @param {number} params.i_limit Number of the codes to return: the size of a page of the list.
+   * @param {number} params.i_page Number of the page of the list to return, `1` for the first one.
    * @param {string} params.k_business Business key.
-   * @param {string} params.text_search Part of a code value or of a description to search for, in any case. Empty string to get the whol...
+   * @param {string} params.text_search Text to search for, in any case: the value of a code, a part of a description, or plain words. Em...
    * @returns {Promise<Object>} Response data.
    *  `a_code` {Object[]} Billing codes of the business.
+   *  `a_code_similar` {Object[]} Up to `SIMILAR_MAX` codes nearest to the search, the nearest first.
+   *  `i_count` {number} Number of the codes that answer the request, the page not applied.
    */
   WlClient.prototype.wlBillingCodeBillingCodeList = function(params)
   {

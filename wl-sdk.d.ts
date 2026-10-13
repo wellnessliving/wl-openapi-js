@@ -8005,6 +8005,8 @@ export interface WlEventEventListGetResponse {
             k_ticket_option: string;
             /** One ticket price. */
             m_price: string;
+            /** One ticket price with the early bird applied. `null` if the event has no early bird. */
+            m_price_early: number | null;
             /** Ticket option name. */
             text_title: string;
         };
@@ -18943,9 +18945,13 @@ export interface WlBillingCodeBillingCodePutResponse {
     k_code: string;
 }
 export interface WlBillingCodeBillingCodeListParams {
+    /** Number of the codes to return: the size of a page of the list. */
+    i_limit: number;
+    /** Number of the page of the list to return, `1` for the first one. */
+    i_page: number;
     /** Business key. */
     k_business: string;
-    /** Part of a code value or of a description to search for, in any case. Empty string to get the whol... */
+    /** Text to search for, in any case: the value of a code, a part of a description, or plain words. Em... */
     text_search: string;
 }
 export interface WlBillingCodeBillingCodeListResponse {
@@ -18960,6 +18966,19 @@ export interface WlBillingCodeBillingCodeListResponse {
         /** Description of the code. The business typed it in for a custom code. For a system code it comes f... */
         text_description: string;
     }>;
+    /** Up to `SIMILAR_MAX` codes nearest to the search, the nearest first. */
+    a_code_similar: Array<{
+        /** List of services the code is applied to by default. Always empty for a system code: system codes ... */
+        a_service: Array<string>;
+        /** `true` for a custom code of the business, `false` for a system code of the ICD-10-CM reference li... */
+        is_custom: boolean;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code. The business typed it in for a custom code. For a system code it comes f... */
+        text_description: string;
+    }>;
+    /** Number of the codes that answer the request, the page not applied. */
+    i_count: number;
 }
 export interface WlAppointmentWaitListAppointmentWaitListParams {
     /** Appointment key. */
@@ -26336,6 +26355,8 @@ export interface WlCatalogStaffAppCatalogViewCatalogViewResponse {
         k_ticket_option: string;
         /** One ticket price. */
         m_price: string;
+        /** One ticket price with the early bird applied. `null` if the event has no early bird. */
+        m_price_early: number | null;
         /** Ticket option name. */
         text_title: string;
     }>;
@@ -30315,6 +30336,8 @@ export interface WlEventBookEventViewElementResponse {
         k_ticket_option: string;
         /** One ticket price. */
         m_price: string;
+        /** One ticket price with the early bird applied. `null` if the event has no early bird. */
+        m_price_early: number | null;
         /** Ticket option name. */
         text_title: string;
     }>;
