@@ -16587,6 +16587,15 @@ export interface WlCatalogCatalogListElementGetResponse {
             /** Link to the variant file. */
             s_url: string;
         };
+        /** Purchase errors for this item. The same structure as {@link WlCatalogCatalogListElementGetRespons... */
+        a_purchase_error: {
+            /** A machine-readable error code identifying the restriction type. */
+            text_code: string;
+            /** The field associated with the error. Empty string if not applicable. */
+            text_field: string;
+            /** A human-readable error message describing the restriction. */
+            text_message: string;
+        };
         /** Tax amounts keyed by tax key. The same structure as {@link WlCatalogCatalogListElementGetResponse... */
         a_tax: Array<string>;
         /** A list of Purchase Option view types. @see WlCatalogPurchaseOptionViewSid */
@@ -16603,6 +16612,15 @@ export interface WlCatalogCatalogListElementGetResponse {
         s_sale: string;
         /** The title of the sale item. */
         s_title: string;
+    }>;
+    /** A list of purchase errors that would prevent this item from being purchased by the current user. */
+    a_purchase_error: Array<{
+        /** A machine-readable error code identifying the restriction type. */
+        text_code: string;
+        /** The field associated with the error. Empty string if not applicable. */
+        text_field: string;
+        /** A human-readable error message describing the restriction. */
+        text_message: string;
     }>;
     /** A list of the item's taxes. */
     a_tax: Array<string>;
@@ -16895,6 +16913,15 @@ export interface WlCatalogCatalogListElementPostResponse {
             /** Link to the variant file. */
             s_url: string;
         };
+        /** Purchase errors for this item. The same structure as {@link WlCatalogCatalogListElementGetRespons... */
+        a_purchase_error: {
+            /** A machine-readable error code identifying the restriction type. */
+            text_code: string;
+            /** The field associated with the error. Empty string if not applicable. */
+            text_field: string;
+            /** A human-readable error message describing the restriction. */
+            text_message: string;
+        };
         /** Tax amounts keyed by tax key. The same structure as {@link WlCatalogCatalogListElementGetResponse... */
         a_tax: Array<string>;
         /** A list of Purchase Option view types. @see WlCatalogPurchaseOptionViewSid */
@@ -16911,6 +16938,15 @@ export interface WlCatalogCatalogListElementPostResponse {
         s_sale: string;
         /** The title of the sale item. */
         s_title: string;
+    }>;
+    /** A list of purchase errors that would prevent this item from being purchased by the current user. */
+    a_purchase_error: Array<{
+        /** A machine-readable error code identifying the restriction type. */
+        text_code: string;
+        /** The field associated with the error. Empty string if not applicable. */
+        text_field: string;
+        /** A human-readable error message describing the restriction. */
+        text_message: string;
     }>;
     /** A list of the item's taxes. */
     a_tax: Array<string>;
