@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261013143439
+ * Spec version: 1.1.20261013160257
  * Build date:   2026-10-13
  * Endpoints:    675
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261013143439';
+  WlClient.SPEC_VERSION = '1.1.20261013160257';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (675 total)
@@ -13274,15 +13274,15 @@
    *  `a_schedule` {Object[]} A list of event sessions. Every element has the following next keys:
    *  `a_shop_category` {string[]} IDs of online store category.
    *  `a_staff_logo` {Object} Photos of staff members. Keys are the keys of staff members. The values are t...
+   *  `a_ticket_inventory` {*[]} How many tickets can be sold for the ticketed event and how many of those are...
    *  `a_tickets` {Object[]} List of ticket options available for booking the event. Empty if the event is...
    *  `a_timezone_info` {Object[]} Timezone information for all timezones used in the event schedule.
    *  `a_visits_required` {Object[]} A list of classes and events that clients should attend before this one.
    *  `dt_book_date` {?string} That date that should be used to go to the booking wizard.
-   *  `dt_early` {?string} The early registration date of the event.
+   *  `dt_early` {?string} The last date when the early bird price is applied, in MySQL date format. `nu...
    *  `dt_end` {string} The end date of the event.
    *  `dt_start` {string} The start date of the event.
    *  `hide_application` {boolean} Whether event will be hidden in the White Label mobile application.
-   *  `html_description` {?string} The description of the event.
    *  `...` {*}
    */
   WlClient.prototype.wlEventBookEventViewElement = function(params)

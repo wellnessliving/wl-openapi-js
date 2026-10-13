@@ -7978,6 +7978,8 @@ export interface WlEventEventListGetResponse {
             k_location: string;
             /** Resource key, which has category {@link WlResourceResourceCategoryEnum}. */
             k_resource_location: string;
+            /** Identifier of the timezone of the location of the session (for example `America/New_York`). */
+            s_timezone_location: string;
             /** Location title. */
             text_location: string;
             /** Room where the session takes place. */
@@ -8003,11 +8005,11 @@ export interface WlEventEventListGetResponse {
         } | null;
         /** List of ticket options available for booking the event. Empty if the event is not a ticketed */
         a_tickets: {
-            /** Globally unique identifier of the ticket option. Primary key in TicketOptionsRouteSql. */
+            /** Globally unique identifier of the ticket option. */
             k_ticket_option: string;
             /** One ticket price. */
             m_price: string;
-            /** One ticket price with the early bird applied. `null` if the event has no early bird. */
+            /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
             m_price_early: number | null;
             /** Ticket option name. */
             text_title: string;
@@ -8016,8 +8018,8 @@ export interface WlEventEventListGetResponse {
         can_book: boolean;
         /** Whether current user can cancel already booked event. */
         can_cancel: boolean;
-        /** End date, when early bird price ends in `MySql` format. */
-        dl_early: string;
+        /** The last date when the early bird price is applied, in `MySql` date format. `null` if the event has */
+        dl_early?: string | null;
         /** End date of the scheduled session in `MySql` format. */
         dl_end: string;
         /** Local date of the closest session of the event. */
@@ -17729,12 +17731,16 @@ export interface WlScheduleClassViewClassViewGetResponse {
         };
         /** List of tags. */
         a_tag: Array<number>;
+        /** Ticket options available for booking the event. Empty if the event is not a ticketed event. */
+        a_tickets: Array<Array<unknown>>;
         /** Whether current client can book class. */
         can_book: boolean;
         /** Session date/time in UTC. */
         dt_date_global: string;
         /** Start date in local time. */
         dt_date_local: string;
+        /** The last date when the early bird price is applied, in MySQL date format, the date itself include... */
+        dt_early: string | null;
         /** Reason why client can not book class. Not empty only if `can_book` is `false`. */
         html_deny_reason: string;
         /** Class description. */
@@ -17769,6 +17775,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
         i_wait_limit: number | null;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
+        /** `true` if the event is a block event: all its sessions are booked together. `false` for a non-blo... */
+        is_block: boolean;
         /** Whether current class was booked by current client. */
         is_book: boolean;
         /** Allow clients to book on behalf of a guest. */
@@ -17781,6 +17789,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
         is_event: boolean;
         /** `true` if this class can be paid with promotion only; `false` otherwise. */
         is_promotion_only: boolean;
+        /** `true` if the event is a ticketed event; `false` otherwise. */
+        is_ticket: boolean;
         /** `true` if class is virtual, `false` otherwise. */
         is_virtual: boolean;
         /** `true` if user can take place in wait list only; `false` otherwise. */
@@ -17793,6 +17803,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
         m_price: string;
         /** Class duration. In human readable format. */
         s_duration: string;
+        /** Identifier of the timezone of the location of the session (for example `America/New_York`). Unlike */
+        s_timezone_location: string;
         /** Class name. */
         s_title: string;
         /** Class room. */
@@ -17852,12 +17864,16 @@ export interface WlScheduleClassViewClassViewGetResponse {
             a_search_tag: Record<string, unknown>;
             /** List of tags. */
             a_tag: Array<number>;
+            /** Ticket options available for booking the event. Empty if the event is not a ticketed event. */
+            a_tickets: Array<Array<unknown>>;
             /** Whether current client can book class. */
             can_book: boolean;
             /** Session date/time in UTC. */
             dt_date_global: string;
             /** Start date in local time. */
             dt_date_local: string;
+            /** The last date when the early bird price is applied, in MySQL date format, the date itself include... */
+            dt_early: string | null;
             /** Reason why client can not book class. Not empty only if `can_book` is `false`. */
             html_deny_reason: string;
             /** Class description. */
@@ -17892,6 +17908,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
             i_wait_limit: number | null;
             /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
             id_deny_reason: WlScheduleClassViewDenyReasonSid;
+            /** `true` if the event is a block event: all its sessions are booked together. `false` for a non-blo... */
+            is_block: boolean;
             /** Whether current class was booked by current client. */
             is_book: boolean;
             /** Allow clients to book on behalf of a guest. */
@@ -17904,6 +17922,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
             is_event: boolean;
             /** `true` if this class can be paid with promotion only; `false` otherwise. */
             is_promotion_only: boolean;
+            /** `true` if the event is a ticketed event; `false` otherwise. */
+            is_ticket: boolean;
             /** `true` if class is virtual, `false` otherwise. */
             is_virtual: boolean;
             /** `true` if user can take place in wait list only; `false` otherwise. */
@@ -17916,6 +17936,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
             m_price: string;
             /** Class duration. In human readable format. */
             s_duration: string;
+            /** Identifier of the timezone of the location of the session (for example `America/New_York`). Unlike */
+            s_timezone_location: string;
             /** Class name. */
             s_title: string;
             /** Class room. */
@@ -18074,12 +18096,16 @@ export interface WlScheduleClassViewClassViewPostResponse {
         };
         /** List of tags. */
         a_tag: Array<number>;
+        /** Ticket options available for booking the event. Empty if the event is not a ticketed event. */
+        a_tickets: Array<Array<unknown>>;
         /** Whether current client can book class. */
         can_book: boolean;
         /** Session date/time in UTC. */
         dt_date_global: string;
         /** Start date in local time. */
         dt_date_local: string;
+        /** The last date when the early bird price is applied, in MySQL date format, the date itself include... */
+        dt_early: string | null;
         /** Reason why client can not book class. Not empty only if `can_book` is `false`. */
         html_deny_reason: string;
         /** Class description. */
@@ -18114,6 +18140,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
         i_wait_limit: number | null;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
+        /** `true` if the event is a block event: all its sessions are booked together. `false` for a non-blo... */
+        is_block: boolean;
         /** Whether current class was booked by current client. */
         is_book: boolean;
         /** Allow clients to book on behalf of a guest. */
@@ -18126,6 +18154,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
         is_event: boolean;
         /** `true` if this class can be paid with promotion only; `false` otherwise. */
         is_promotion_only: boolean;
+        /** `true` if the event is a ticketed event; `false` otherwise. */
+        is_ticket: boolean;
         /** `true` if class is virtual, `false` otherwise. */
         is_virtual: boolean;
         /** `true` if user can take place in wait list only; `false` otherwise. */
@@ -18138,6 +18168,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
         m_price: string;
         /** Class duration. In human readable format. */
         s_duration: string;
+        /** Identifier of the timezone of the location of the session (for example `America/New_York`). Unlike */
+        s_timezone_location: string;
         /** Class name. */
         s_title: string;
         /** Class room. */
@@ -18197,12 +18229,16 @@ export interface WlScheduleClassViewClassViewPostResponse {
             a_search_tag: Record<string, unknown>;
             /** List of tags. */
             a_tag: Array<number>;
+            /** Ticket options available for booking the event. Empty if the event is not a ticketed event. */
+            a_tickets: Array<Array<unknown>>;
             /** Whether current client can book class. */
             can_book: boolean;
             /** Session date/time in UTC. */
             dt_date_global: string;
             /** Start date in local time. */
             dt_date_local: string;
+            /** The last date when the early bird price is applied, in MySQL date format, the date itself include... */
+            dt_early: string | null;
             /** Reason why client can not book class. Not empty only if `can_book` is `false`. */
             html_deny_reason: string;
             /** Class description. */
@@ -18237,6 +18273,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
             i_wait_limit: number | null;
             /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
             id_deny_reason: WlScheduleClassViewDenyReasonSid;
+            /** `true` if the event is a block event: all its sessions are booked together. `false` for a non-blo... */
+            is_block: boolean;
             /** Whether current class was booked by current client. */
             is_book: boolean;
             /** Allow clients to book on behalf of a guest. */
@@ -18249,6 +18287,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
             is_event: boolean;
             /** `true` if this class can be paid with promotion only; `false` otherwise. */
             is_promotion_only: boolean;
+            /** `true` if the event is a ticketed event; `false` otherwise. */
+            is_ticket: boolean;
             /** `true` if class is virtual, `false` otherwise. */
             is_virtual: boolean;
             /** `true` if user can take place in wait list only; `false` otherwise. */
@@ -18261,6 +18301,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
             m_price: string;
             /** Class duration. In human readable format. */
             s_duration: string;
+            /** Identifier of the timezone of the location of the session (for example `America/New_York`). Unlike */
+            s_timezone_location: string;
             /** Class name. */
             s_title: string;
             /** Class room. */
@@ -18414,6 +18456,8 @@ export interface WlScheduleClassListClassList68Response {
         i_wait_spot: number;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
+        /** `true` if the event is a block event: all its sessions are booked together. `false` for a non-blo... */
+        is_block: boolean;
         /** Whether current class was booked by current client. Only present if */
         is_book: boolean | null;
         /** Whether the age restriction of the class is shown to clients. */
@@ -18428,6 +18472,8 @@ export interface WlScheduleClassListClassList68Response {
         is_event: boolean;
         /** Whether special instructions are configured for this session and are visible to the current client. */
         is_special_instructions: boolean;
+        /** `true` if the event is a ticketed event; `false` otherwise. */
+        is_ticket: boolean;
         /** If `true`, this class is virtual. Otherwise, this will be `false`. */
         is_virtual: boolean;
         /** `true` if the current client (`uid`) is on the wait list for this session; `false` otherwise. */
@@ -26353,11 +26399,11 @@ export interface WlCatalogStaffAppCatalogViewCatalogViewResponse {
     };
     /** List of ticket options available for booking the event. Empty if the sale item is not a */
     a_tickets: Array<{
-        /** Globally unique identifier of the ticket option. Primary key in TicketOptionsRouteSql. */
+        /** Globally unique identifier of the ticket option. */
         k_ticket_option: string;
         /** One ticket price. */
         m_price: string;
-        /** One ticket price with the early bird applied. `null` if the event has no early bird. */
+        /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
         m_price_early: number | null;
         /** Ticket option name. */
         text_title: string;
@@ -30162,6 +30208,8 @@ export interface WlEventBookEventViewElementResponse {
             s_time: string;
             /** The name of the timezone in which the session is held. */
             s_timezone: string;
+            /** Identifier of the timezone of the location of the session (for example `America/New_York`). Unlike */
+            s_timezone_location: string;
             /** The room of the event. */
             text_room: string;
         };
@@ -30178,19 +30226,30 @@ export interface WlEventBookEventViewElementResponse {
             /** URL to image. */
             url_logo: string;
         };
+        /** How many tickets can be sold for the event and how many of those are still available. Empty if the */
+        a_ticket_inventory: {
+            /** Total number of tickets that can be sold for the event. */
+            i_capacity: number;
+            /** Maximum number of tickets that can be ordered in one purchase. `0` if there is no limit. */
+            i_order_limit: number;
+            /** Number of tickets still available to sell. `0` if the event is sold out. */
+            i_remain: number;
+        };
         /** List of ticket options available for booking the event. Empty if the event is not a */
         a_tickets: {
             /** Globally unique identifier of the ticket option. */
             k_ticket_option: string;
             /** One ticket price. */
             m_price: string;
+            /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the */
+            m_price_early: number | null;
             /** Ticket option name. */
             text_title: string;
         };
         /** Date/time of first event session. */
         dt_book_date: string;
-        /** Early date of event purchase. */
-        dt_early: string;
+        /** The last date when the early bird price is applied, the date itself included. `null` if the event... */
+        dt_early: string | null;
         /** End date of the event instance. */
         dt_end: string;
         /** Date of first event session. */
@@ -30225,6 +30284,12 @@ export interface WlEventBookEventViewElementResponse {
         is_policy_custom: boolean;
         /** `true` if the event is a ticketed event; `false` otherwise. */
         is_ticket: boolean;
+        /** `true` if a client can buy tickets without creating an account; `false` otherwise. */
+        is_ticket_guest_allowed: boolean;
+        /** `true` if a client must accept the terms and conditions before buying a ticket; `false` otherwise. */
+        is_ticket_terms: boolean;
+        /** `true` if a client can reserve tickets without payment and pay at the door; `false` otherwise. */
+        is_ticket_unpaid_allowed: boolean;
         /** `true` if event is virtual; `false` otherwise. */
         is_virtual: boolean;
         /** Key of first event session. */
@@ -30241,6 +30306,8 @@ export interface WlEventBookEventViewElementResponse {
         s_title: string;
         /** Description of event. Ready to put into browser. */
         xml_description: string;
+        /** Terms and conditions of a ticketed event as HTML. Empty if there are none. */
+        xml_ticket_terms: string;
     }>;
     /** A list of installment plans. Each element has the following next keys: */
     a_installment_template: Array<{
@@ -30316,6 +30383,8 @@ export interface WlEventBookEventViewElementResponse {
         s_time: string;
         /** The name of the timezone in which the session is held. */
         s_timezone: string;
+        /** Identifier of the timezone of the location of the session (for example `America/New_York`). Unlike */
+        s_timezone_location: string;
         /** The room of the event. */
         text_room: string;
     }>;
@@ -30332,13 +30401,15 @@ export interface WlEventBookEventViewElementResponse {
         /** URL to image. */
         url_logo: string;
     };
+    /** How many tickets can be sold for the ticketed event and how many of those are still available. */
+    a_ticket_inventory: Array<unknown>;
     /** List of ticket options available for booking the event. Empty if the event is not a ticketed */
     a_tickets: Array<{
-        /** Globally unique identifier of the ticket option. Primary key in TicketOptionsRouteSql. */
+        /** Globally unique identifier of the ticket option. */
         k_ticket_option: string;
         /** One ticket price. */
         m_price: string;
-        /** One ticket price with the early bird applied. `null` if the event has no early bird. */
+        /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
         m_price_early: number | null;
         /** Ticket option name. */
         text_title: string;
@@ -30367,7 +30438,7 @@ export interface WlEventBookEventViewElementResponse {
     }>;
     /** That date that should be used to go to the booking wizard. */
     dt_book_date: string | null;
-    /** The early registration date of the event. */
+    /** The last date when the early bird price is applied, in MySQL date format. `null` if the event has... */
     dt_early: string | null;
     /** The end date of the event. */
     dt_end: string;
@@ -30419,6 +30490,12 @@ export interface WlEventBookEventViewElementResponse {
     is_single_session_buy: boolean;
     /** `true` if this event is a ticketed event, `false` otherwise. */
     is_ticket: boolean;
+    /** `true` if a client can buy tickets without creating an account. `false` if the event is not */
+    is_ticket_guest_allowed: boolean;
+    /** `true` if a client must accept terms and conditions before buying a ticket, see */
+    is_ticket_terms: boolean;
+    /** `true` if a client can reserve tickets without payment and pay at the door. `false` if the event */
+    is_ticket_unpaid_allowed: boolean;
     /** `true` if event is virtual; `false` otherwise. */
     is_virtual: boolean;
     /** The ID of the session which should be used to go to the booking wizard. */
@@ -30443,6 +30520,8 @@ export interface WlEventBookEventViewElementResponse {
     url_book: string | null;
     /** The description of the event. */
     xml_description: string | null;
+    /** Terms and conditions as HTML that a client must accept before buying a ticket. Empty if the event */
+    xml_ticket_terms: string;
 }
 export interface WlEventBookEventListListParams {
     /** Defines how the event availability flag filter should be applied. @see AFlagSid */
