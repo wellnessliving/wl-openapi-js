@@ -29695,6 +29695,15 @@ export interface WlVisitBillingCodeVisitBillingCodeDefaultParams {
     uid_staff: string;
 }
 export interface WlVisitBillingCodeVisitBillingCodeDefaultResponse {
+    /** Codes last applied for the visits of the client, the most recently applied first. */
+    a_code_recent: Array<{
+        /** `true` for a custom code of the business or a temporary code, `false` for an ICD-10-CM diagnostic... */
+        is_custom: boolean;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code. `null` for a temporary code. */
+        text_description: string | null;
+    }>;
     /** Codes applied by default to the service of the visit, sorted by the code value. Empty if the visi... */
     a_code_service: Array<{
         /** Always `true`: only custom codes can be default codes of a service. */
@@ -29712,15 +29721,6 @@ export interface WlVisitBillingCodeVisitBillingCodeDefaultResponse {
         text_code: string;
         /** Description of the code. */
         text_description: string;
-    }>;
-    /** Codes last applied for the visits of the client, the most recently applied first. */
-    a_code_top: Array<{
-        /** `true` for a custom code of the business or a temporary code, `false` for an ICD-10-CM diagnostic... */
-        is_custom: boolean;
-        /** Code value, as it is printed on receipts and invoices. */
-        text_code: string;
-        /** Description of the code. `null` for a temporary code. */
-        text_description: string | null;
     }>;
 }
 export interface WlRewardActionCategoryListCategoryListParams {

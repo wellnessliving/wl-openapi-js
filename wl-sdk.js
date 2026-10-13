@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261013094952
+ * Spec version: 1.1.20261013102231
  * Build date:   2026-10-13
  * Endpoints:    675
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261013094952';
+  WlClient.SPEC_VERSION = '1.1.20261013102231';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (675 total)
@@ -12961,9 +12961,9 @@
    * @param {string} params.uid_client Key of the client of the visit being booked. Used only if {@link WlClient#wlVisitBillingCodeVisit...
    * @param {string} params.uid_staff Key of the staff member of the visit being booked. Required if {@link WlClient#wlVisitBillingCode...
    * @returns {Promise<Object>} Response data.
+   *  `a_code_recent` {Object[]} Codes last applied for the visits of the client, the most recently applied fi...
    *  `a_code_service` {Object[]} Codes applied by default to the service of the visit, sorted by the code valu...
    *  `a_code_staff` {Object[]} Default code of the staff member of the visit: a list of one code, or an empt...
-   *  `a_code_top` {Object[]} Codes last applied for the visits of the client, the most recently applied fi...
    */
   WlClient.prototype.wlVisitBillingCodeVisitBillingCodeDefault = function(params)
   {
