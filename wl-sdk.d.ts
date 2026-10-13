@@ -4272,7 +4272,7 @@ export declare enum WlResourceResourceUseSid {
     /** Resource is reserved for the entire class */
     SHARE = 2
 }
-/** Meaning of the early bird amount that is stored in RsClassEarlySql. */
+/** Meaning of the early bird amount. */
 export declare enum WlClassesEditEarlyAmountEnum {
     /** The amount is a discount in the currency of the business */
     DISCOUNT = 2,
@@ -9246,6 +9246,10 @@ export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams = Record<s
 export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiUpdateOrderParams = Record<string, unknown>;
 export interface ThothPayProcessorNuveiNuveiUpdateOrderResponse {
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
     /** Error message. */
     text_message: string | null;
 }
@@ -9255,6 +9259,10 @@ export interface WlPayProcessorNuveiNuveiTransactionStartResponse {
     id_card_type: ThothWlPayBankCardCardTypeEnum | null;
     /** Key of payment transaction that was created. */
     k_pay_transaction: string | null;
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
     /** Error message. */
     text_message: string | null;
 }
@@ -9262,6 +9270,10 @@ export type ThothPayProcessorNuveiNuveiOpenOrderParams = Record<string, unknown>
 export interface ThothPayProcessorNuveiNuveiOpenOrderResponse {
     /** Key of payment transaction that was created. */
     k_pay_transaction: string | null;
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
     /** The order ID provided by Nuvei. */
     s_nuvei_order: string | null;
     /** The session identifier to be used by the request that processes the newly opened order. */
@@ -9313,6 +9325,10 @@ export interface WlPayProcessorStripeComStripeComPayInitResponse {
     id_status: ThothPayProcessorStripeComPaymentIntentStatusSid;
     /** Key of payment transaction that was created. */
     k_pay_transaction: string | null;
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
     /** Payment Intent client secret key. */
     s_client_secret: string;
     /** Payment intent ID. */
@@ -9630,6 +9646,10 @@ export interface WlPayFormEnvironmentResponse {
     is_save_optional: boolean;
     /** Determines whether newly added payment sources should be saved. This will be `true` if payment so... */
     is_save_source: boolean;
+    /** Whether a card-present (POS) source at this business can never carry a surcharge (SAL-1314, FR-00... */
+    is_surcharge_card_present_blocked: boolean;
+    /** Whether the business's ECOMMERCE processor implements the SAL-1314 card-type contract. */
+    is_surcharge_tender_contract: boolean;
     /** Whether tips are accepted. */
     is_tip: boolean;
     /** Surcharge amount for payment with card represented as a fixed amount. */
@@ -9757,6 +9777,10 @@ export interface WlPayFormEnvironmentUserResponse {
     is_save_optional: boolean;
     /** Determines whether newly added payment sources should be saved. This will be `true` if payment so... */
     is_save_source: boolean;
+    /** Whether a card-present (POS) source at this business can never carry a surcharge (SAL-1314, FR-00... */
+    is_surcharge_card_present_blocked: boolean;
+    /** Whether the business's ECOMMERCE processor implements the SAL-1314 card-type contract. */
+    is_surcharge_tender_contract: boolean;
     /** Whether tips are accepted. */
     is_tip: boolean;
     /** Surcharge amount for payment with card represented as a fixed amount. */
@@ -15201,6 +15225,15 @@ export interface WlCatalogCatalogListElementGetResponse {
             /** Link to the variant file. */
             s_url: string;
         };
+        /** Purchase errors for this item. The same structure as {@link WlCatalogCatalogListElementGetRespons... */
+        a_purchase_error: {
+            /** A machine-readable error code identifying the restriction type. */
+            text_code: string;
+            /** The field associated with the error. Empty string if not applicable. */
+            text_field: string;
+            /** A human-readable error message describing the restriction. */
+            text_message: string;
+        };
         /** Tax amounts keyed by tax key. The same structure as {@link WlCatalogCatalogListElementGetResponse... */
         a_tax: Array<string>;
         /** A list of Purchase Option view types. @see WlCatalogPurchaseOptionViewSid */
@@ -15217,6 +15250,15 @@ export interface WlCatalogCatalogListElementGetResponse {
         s_sale: string;
         /** The title of the sale item. */
         s_title: string;
+    }>;
+    /** A list of purchase errors that would prevent this item from being purchased by the current user. */
+    a_purchase_error: Array<{
+        /** A machine-readable error code identifying the restriction type. */
+        text_code: string;
+        /** The field associated with the error. Empty string if not applicable. */
+        text_field: string;
+        /** A human-readable error message describing the restriction. */
+        text_message: string;
     }>;
     /** A list of the item's taxes. */
     a_tax: Array<string>;
@@ -15524,6 +15566,15 @@ export interface WlCatalogCatalogListElementPostResponse {
             /** Link to the variant file. */
             s_url: string;
         };
+        /** Purchase errors for this item. The same structure as {@link WlCatalogCatalogListElementGetRespons... */
+        a_purchase_error: {
+            /** A machine-readable error code identifying the restriction type. */
+            text_code: string;
+            /** The field associated with the error. Empty string if not applicable. */
+            text_field: string;
+            /** A human-readable error message describing the restriction. */
+            text_message: string;
+        };
         /** Tax amounts keyed by tax key. The same structure as {@link WlCatalogCatalogListElementGetResponse... */
         a_tax: Array<string>;
         /** A list of Purchase Option view types. @see WlCatalogPurchaseOptionViewSid */
@@ -15540,6 +15591,15 @@ export interface WlCatalogCatalogListElementPostResponse {
         s_sale: string;
         /** The title of the sale item. */
         s_title: string;
+    }>;
+    /** A list of purchase errors that would prevent this item from being purchased by the current user. */
+    a_purchase_error: Array<{
+        /** A machine-readable error code identifying the restriction type. */
+        text_code: string;
+        /** The field associated with the error. Empty string if not applicable. */
+        text_field: string;
+        /** A human-readable error message describing the restriction. */
+        text_message: string;
     }>;
     /** A list of the item's taxes. */
     a_tax: Array<string>;
@@ -17122,7 +17182,7 @@ export interface WlClassesEditorClassEditorGetResponse {
             hide_price: boolean;
             /** How long before the class starts the early bird period ends. */
             i_early_duration: number;
-            /** Meaning of the early bird amount that is stored in RsClassEarlySql. @see WlClassesEditEarlyAmountEnum */
+            /** Meaning of the early bird amount. @see WlClassesEditEarlyAmountEnum */
             id_early_amount: WlClassesEditEarlyAmountEnum;
             /** A class for managing time intervals. @see ADurationSid */
             id_early_duration: ADurationSid;
@@ -18885,6 +18945,8 @@ export interface WlBillingCodeBillingCodePutResponse {
 export interface WlBillingCodeBillingCodeListParams {
     /** Business key. */
     k_business: string;
+    /** Part of a code value or of a description to search for, in any case. Empty string to get the whol... */
+    text_search: string;
 }
 export interface WlBillingCodeBillingCodeListResponse {
     /** Billing codes of the business. */
@@ -22831,6 +22893,24 @@ export interface WlPayAddressWidgetWidgetEditResponse {
     html_phone_mask: string;
     /** Mask for phone entering. */
     text_phone_mask: string;
+}
+export interface WlPayFormSurchargeSurchargeTenderParams {
+    /** Payment method the card would be charged with. @see RsPayMethodSid */
+    id_pay_method: RsPayMethodSid | null;
+    /** Business key. */
+    k_business: string;
+    /** Currency key. */
+    k_currency: string;
+    /** Location key. */
+    k_location: string;
+    /** Key of a saved card to preview. */
+    k_pay_bank?: string | null;
+    /** First digits of a newly-typed card number (at least 6). */
+    s_bin?: string | null;
+}
+export interface WlPayFormSurchargeSurchargeTenderResponse {
+    /** Whether a surcharge is allowed for the card identified by SurchargeTenderApi::$s_bin or */
+    is_allowed: boolean;
 }
 export interface WlPayBankCardListParams {
     /** ID of current business. */
@@ -26952,6 +27032,8 @@ export interface WlAppointmentBookScheduleCalendar73Response {
         uid_staff: string;
         /** String representation of appointment schedule time. */
         s_title: string;
+        /** User key of the staff member the system would assign for this time if the client booked with any ... */
+        uid_staff_suggest: string;
     };
     /** Information about timezone. */
     a_timezone_data: {
@@ -27058,6 +27140,8 @@ export interface WlAppointmentBookScheduleDayTime73Response {
         uid_staff: string;
         /** String representation of appointment schedule time. */
         s_title: string;
+        /** User key of the staff member the system would assign for this time if the client booked with any ... */
+        uid_staff_suggest: string;
     };
     /** The date to show the available appointment booking schedule. */
     dt_date: string;
@@ -27133,6 +27217,8 @@ export interface WlAppointmentBookScheduleDayTimeResponse {
         uid_staff: string;
         /** String representation of appointment schedule time. */
         s_title: string;
+        /** User key of the staff member the system would assign for this time if the client booked with any ... */
+        uid_staff_suggest: string;
     };
     /** The date to show the available appointment booking schedule. */
     dt_date: string;
@@ -27256,6 +27342,8 @@ export interface WlAppointmentBookScheduleCalendarResponse {
         uid_staff: string;
         /** String representation of appointment schedule time. */
         s_title: string;
+        /** User key of the staff member the system would assign for this time if the client booked with any ... */
+        uid_staff_suggest: string;
     };
     /** Information about timezone. */
     a_timezone_data: {
@@ -29625,7 +29713,7 @@ export interface WlVisitBillingCodeVisitBillingCodeDefaultResponse {
         /** Description of the code. */
         text_description: string;
     }>;
-    /** Codes most used for the visits of the client, the most used first. */
+    /** Codes last applied for the visits of the client, the most recently applied first. */
     a_code_top: Array<{
         /** `true` for a custom code of the business or a temporary code, `false` for an ICD-10-CM diagnostic... */
         is_custom: boolean;
@@ -30600,6 +30688,10 @@ export interface ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransa
     id_response: ThothPayProcessorNuveiCodeCSResponseSid | null;
     /** Key of payment transaction that was created. */
     k_pay_transaction: string | null;
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
     /** The request exchange identification. */
     s_exchange_identification: string;
     /** Error message. */
@@ -33746,8 +33838,15 @@ export declare class WlPayAddressNamespace {
     /** Returns default payment address data that is retrieved from user profile. */
     profile(params?: WlPayAddressProfileParams): Promise<WlPayAddressProfileResponse>;
 }
+export declare class WlPayFormSurchargeNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Previews whether a surcharge is allowed for a card. */
+    surchargeTender(params?: WlPayFormSurchargeSurchargeTenderParams): Promise<WlPayFormSurchargeSurchargeTenderResponse>;
+}
 export declare class WlPayFormNamespace {
     private readonly _client;
+    readonly surcharge: WlPayFormSurchargeNamespace;
     constructor(_client: WlClient);
     /** Returns information about payment environment. */
     /** @deprecated */

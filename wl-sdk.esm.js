@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261012162714
+// OpenAPI spec version: 1.1.20261013094952
 // Build date: 2026-10-13
-// Endpoints: 674
+// Endpoints: 675
 // Enums: 223
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -4398,7 +4398,7 @@ export var WlResourceResourceUseSid;
     /** Resource is reserved for the entire class */
     WlResourceResourceUseSid[WlResourceResourceUseSid["SHARE"] = 2] = "SHARE";
 })(WlResourceResourceUseSid || (WlResourceResourceUseSid = {}));
-/** Meaning of the early bird amount that is stored in RsClassEarlySql. */
+/** Meaning of the early bird amount. */
 export var WlClassesEditEarlyAmountEnum;
 (function (WlClassesEditEarlyAmountEnum) {
     /** The amount is a discount in the currency of the business */
@@ -8691,9 +8691,19 @@ export class WlPayAddressNamespace {
         return this._client._request('/Wl/Pay/Address/Profile.json', params, 'GET');
     }
 }
+export class WlPayFormSurchargeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Previews whether a surcharge is allowed for a card. */
+    surchargeTender(params) {
+        return this._client._request('/Wl/Pay/Form/Surcharge/SurchargeTender.json', params, 'GET');
+    }
+}
 export class WlPayFormNamespace {
     constructor(_client) {
         this._client = _client;
+        this.surcharge = new WlPayFormSurchargeNamespace(this._client);
     }
     /** Returns information about payment environment. */
     /** @deprecated */

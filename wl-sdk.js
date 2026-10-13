@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261012162714
+ * Spec version: 1.1.20261013094952
  * Build date:   2026-10-13
- * Endpoints:    674
+ * Endpoints:    675
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261012162714';
+  WlClient.SPEC_VERSION = '1.1.20261013094952';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (674 total)
+  // Generated API methods (675 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2362,6 +2362,8 @@
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
+   *  `m_amount` {?string} Payment amount.
+   *  `m_surcharge` {?string} Surcharge amount.
    *  `text_message` {?string} Error message.
    */
   WlClient.prototype.thothPayProcessorNuveiNuveiUpdateOrder = function(params)
@@ -2384,6 +2386,8 @@
    * @returns {Promise<Object>} Response data.
    *  `id_card_type` {?number} An enum of credit card types. See {@link WlClient.ThothWlPayBankCardCardTypeEnum}.
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `m_amount` {?string} Payment amount.
+   *  `m_surcharge` {?string} Surcharge amount.
    *  `text_message` {?string} Error message.
    */
   WlClient.prototype.wlPayProcessorNuveiNuveiTransactionStart = function(params)
@@ -2401,6 +2405,8 @@
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `m_amount` {?string} Payment amount.
+   *  `m_surcharge` {?string} Surcharge amount.
    *  `s_nuvei_order` {?string} The order ID provided by Nuvei.
    *  `s_nuvei_session` {?string} The session identifier to be used by the request that processes the newly ope...
    *  `text_message` {?string} Error message.
@@ -2458,6 +2464,8 @@
    * @returns {Promise<Object>} Response data.
    *  `id_status` {number} Statuses of payment intents. See {@link WlClient.ThothPayProcessorStripeComPaymentIntentStatusSid}.
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `m_amount` {?string} Payment amount.
+   *  `m_surcharge` {?string} Surcharge amount.
    *  `s_client_secret` {string} Payment Intent client secret key.
    *  `s_payment_intent` {string} Payment intent ID.
    *  `text_message` {?string} Error message.
@@ -2679,6 +2687,8 @@
    *  `id_locale` {number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
    *  `is_save_optional` {boolean} `true` if clients can choose whether their banking and credit card informatio...
    *  `is_save_source` {boolean} Determines whether newly added payment sources should be saved. This will be ...
+   *  `is_surcharge_card_present_blocked` {boolean} Whether a card-present (POS) source at this business can never carry a surcha...
+   *  `is_surcharge_tender_contract` {boolean} Whether the business's ECOMMERCE processor implements the SAL-1314 card-type ...
    *  `is_tip` {boolean} Whether tips are accepted.
    *  `m_surcharge` {?string} Surcharge amount for payment with card represented as a fixed amount.
    *  `m_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a fixed amount.
@@ -2713,6 +2723,8 @@
    *  `id_locale` {number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
    *  `is_save_optional` {boolean} `true` if clients can choose whether their banking and credit card informatio...
    *  `is_save_source` {boolean} Determines whether newly added payment sources should be saved. This will be ...
+   *  `is_surcharge_card_present_blocked` {boolean} Whether a card-present (POS) source at this business can never carry a surcha...
+   *  `is_surcharge_tender_contract` {boolean} Whether the business's ECOMMERCE processor implements the SAL-1314 card-type ...
    *  `is_tip` {boolean} Whether tips are accepted.
    *  `m_surcharge` {?string} Surcharge amount for payment with card represented as a fixed amount.
    *  `m_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a fixed amount.
@@ -5763,6 +5775,7 @@
    *  `a_image_list` {Object[]} List of images.
    *  `a_installment_template` {Object[]} A list of installment plans. Each element has the following next keys:
    *  `a_item` {Object[]} The list of information pertaining to the specified item.
+   *  `a_purchase_error` {Object[]} A list of purchase errors that would prevent this item from being purchased b...
    *  `a_tax` {string[]} A list of the item's taxes.
    *  `f_price` {?string} The price of the sale item.
    *  `f_price_include` {?string} The price of the sale item, including tax.
@@ -5775,7 +5788,6 @@
    *  `id_purchase_option_view` {number} A list of Purchase Option view types. See {@link WlClient.WlCatalogPurchaseOptionViewSid}.
    *  `id_sale` {?number} List of sale categories on the store page. See {@link WlClient.RsSaleSid}.
    *  `is_contract` {boolean} If `true`, the item requires a contract. Otherwise, this will be `false`.
-   *  `k_id` {string} The item key.
    *  `...` {*}
    */
   WlClient.prototype.wlCatalogCatalogListElementGet = function(params)
@@ -5813,6 +5825,7 @@
    *  `a_image_list` {Object[]} List of images.
    *  `a_installment_template` {Object[]} A list of installment plans. Each element has the following next keys:
    *  `a_item` {Object[]} The list of information pertaining to the specified item.
+   *  `a_purchase_error` {Object[]} A list of purchase errors that would prevent this item from being purchased b...
    *  `a_tax` {string[]} A list of the item's taxes.
    *  `f_price` {?string} The price of the sale item.
    *  `f_price_include` {?string} The price of the sale item, including tax.
@@ -5825,7 +5838,6 @@
    *  `id_purchase_option_view` {number} A list of Purchase Option view types. See {@link WlClient.WlCatalogPurchaseOptionViewSid}.
    *  `id_sale` {?number} List of sale categories on the store page. See {@link WlClient.RsSaleSid}.
    *  `is_contract` {boolean} If `true`, the item requires a contract. Otherwise, this will be `false`.
-   *  `k_id` {string} The item key.
    *  `...` {*}
    */
   WlClient.prototype.wlCatalogCatalogListElementPost = function(params)
@@ -6922,6 +6934,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
+   * @param {string} params.text_search Part of a code value or of a description to search for, in any case. Empty string to get the whol...
    * @returns {Promise<Object>} Response data.
    *  `a_code` {Object[]} Billing codes of the business.
    */
@@ -9574,6 +9587,27 @@
   WlClient.prototype.wlPayAddressWidgetWidgetEdit = function(params)
   {
     return this.request('/Wl/Pay/Address/Widget/WidgetEdit.json', params || {}, 'GET');
+  };
+
+  /**
+   * Previews whether a surcharge is allowed for a card.
+   *
+   * Called while the client is typing a card number, or has selected a saved card, so the browser can show the
+   * correct total and lock the surcharge switch before the card is actually charged (SAL-1314 step 10).
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {?number} params.id_pay_method Payment method the card would be charged with. See {@link WlClient.RsPayMethodSid}.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_currency Currency key.
+   * @param {string} params.k_location Location key.
+   * @param {?string} [params.k_pay_bank] Key of a saved card to preview.
+   * @param {?string} [params.s_bin] First digits of a newly-typed card number (at least 6).
+   * @returns {Promise<Object>} Response data.
+   *  `is_allowed` {boolean} Whether a surcharge is allowed for the card identified by SurchargeTenderApi:...
+   */
+  WlClient.prototype.wlPayFormSurchargeSurchargeTender = function(params)
+  {
+    return this.request('/Wl/Pay/Form/Surcharge/SurchargeTender.json', params || {}, 'GET');
   };
 
   /**
@@ -12917,8 +12951,8 @@
   /**
    * Returns the codes suggested for a visit.
    *
-   * The default codes of the service and of the staff member, and up to 5 codes most used for the client, each list
-   * separately. The current staff member must be able to assign billing codes to appointments.
+   * The default codes of the service and of the staff member, and up to 5 codes last applied for the client, each
+   * list separately. The current staff member must be able to assign billing codes to appointments.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
@@ -12929,7 +12963,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_code_service` {Object[]} Codes applied by default to the service of the visit, sorted by the code valu...
    *  `a_code_staff` {Object[]} Default code of the staff member of the visit: a list of one code, or an empt...
-   *  `a_code_top` {Object[]} Codes most used for the visits of the client, the most used first.
+   *  `a_code_top` {Object[]} Codes last applied for the visits of the client, the most recently applied fi...
    */
   WlClient.prototype.wlVisitBillingCodeVisitBillingCodeDefault = function(params)
   {
@@ -13521,6 +13555,8 @@
    * @returns {Promise<Object>} Response data.
    *  `id_response` {?number} CS Response code class. See {@link WlClient.ThothPayProcessorNuveiCodeCSResponseSid}.
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `m_amount` {?string} Payment amount.
+   *  `m_surcharge` {?string} Surcharge amount.
    *  `s_exchange_identification` {string} The request exchange identification.
    *  `text_message` {?string} Error message.
    */
@@ -19408,7 +19444,7 @@
   });
 
   /**
-   * Meaning of the early bird amount that is stored in RsClassEarlySql.
+   * Meaning of the early bird amount.
    *
    * @enum {number}
    */
