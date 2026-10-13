@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261013113608
+ * Spec version: 1.1.20261013120019
  * Build date:   2026-10-13
  * Endpoints:    675
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261013113608';
+  WlClient.SPEC_VERSION = '1.1.20261013120019';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (675 total)
@@ -12937,7 +12937,7 @@
    * description it was applied with. A new code is looked up in the billing code list of the business first, then
    * among the ICD-10-CM diagnostic codes if the business has turned them on. A code found nowhere is a temporary
    * code for this visit only: it requires the access to create temporary codes, and it is not added to the billing
-   * code list. Every added and every removed code is logged with the reason and, if the business requires it, the
+   * code list. Every added and every removed code is logged with the reason and, if a signature is required, the
    * signature.
    * ...
    *
