@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261013105321
+ * Spec version: 1.1.20261013113608
  * Build date:   2026-10-13
  * Endpoints:    675
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261013105321';
+  WlClient.SPEC_VERSION = '1.1.20261013113608';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (675 total)
@@ -12914,7 +12914,8 @@
    * Returns the billing codes applied to a visit and the history of their changes.
    *
    * A staff member who can not assign billing codes gets the custom codes only, without the diagnostic codes and
-   * without the history.
+   * without the history. The answer carries the version of the codes, which must be posted back to change them,
+   * see {@link WlClient#wlVisitBillingCodeVisitBillingCodeAssignGet}.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
@@ -12922,6 +12923,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_code` {Object[]} Billing codes applied to the visit, the custom codes first, each type sorted ...
    *  `a_history` {Object[]} History of the changes of the billing codes of the visit, the latest change f...
+   *  `s_version` {string} Version of the billing codes of the visit: a value that changes every time th...
    */
   WlClient.prototype.wlVisitBillingCodeVisitBillingCodeAssignGet = function(params)
   {
@@ -12937,11 +12939,13 @@
    * code for this visit only: it requires the access to create temporary codes, and it is not added to the billing
    * code list. Every added and every removed code is logged with the reason and, if the business requires it, the
    * signature.
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @param {string} params.k_visit Visit key.
    * @returns {Promise<Object>} Response data.
+   *  `s_version` {string} Version of the billing codes of the visit: a value that changes every time th...
    */
   WlClient.prototype.wlVisitBillingCodeVisitBillingCodeAssignPost = function(params)
   {

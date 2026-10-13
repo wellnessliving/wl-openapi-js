@@ -29674,6 +29674,8 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignGetResponse {
         /** Key of the staff member who made the change. `null` if the user is deleted. */
         uid_staff: string | null;
     }>;
+    /** Version of the billing codes of the visit: a value that changes every time the codes of the visit... */
+    s_version: string;
 }
 export interface WlVisitBillingCodeVisitBillingCodeAssignPostParams {
     /** Business key. */
@@ -29681,7 +29683,10 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignPostParams {
     /** Visit key. */
     k_visit: string;
 }
-export type WlVisitBillingCodeVisitBillingCodeAssignPostResponse = Record<string, unknown>;
+export interface WlVisitBillingCodeVisitBillingCodeAssignPostResponse {
+    /** Version of the billing codes of the visit: a value that changes every time the codes of the visit... */
+    s_version: string;
+}
 export interface WlVisitBillingCodeVisitBillingCodeDefaultParams {
     /** Business key. */
     k_business: string;
