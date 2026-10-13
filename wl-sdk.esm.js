@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261013133633
+// OpenAPI spec version: 1.1.20261013143439
 // Build date: 2026-10-13
 // Endpoints: 675
 // Enums: 223
@@ -3185,6 +3185,8 @@ export var RsMailSid;
     RsMailSid[RsMailSid["TASK_ASSIGN"] = 104] = "TASK_ASSIGN";
     /** Send a copy of waiver */
     RsMailSid[RsMailSid["TERM_COPY"] = 99] = "TERM_COPY";
+    /** Sent after a ticketed event is purchased */
+    RsMailSid[RsMailSid["TICKET_PURCHASE"] = 225] = "TICKET_PURCHASE";
     /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
     RsMailSid[RsMailSid["USER_CAMPAIGN"] = 112] = "USER_CAMPAIGN";
     /** Request a video subscription */

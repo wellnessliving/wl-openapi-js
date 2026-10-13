@@ -3094,6 +3094,8 @@ export declare enum RsMailSid {
     TASK_ASSIGN = 104,
     /** Send a copy of waiver */
     TERM_COPY = 99,
+    /** Sent after a ticketed event is purchased */
+    TICKET_PURCHASE = 225,
     /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
     USER_CAMPAIGN = 112,
     /** Request a video subscription */
