@@ -10725,6 +10725,8 @@ export interface WlLoginAttendanceAttendanceInfoResponse {
     id_service: RsServiceSid;
     /** Whether this service be carried out in Zoom. */
     is_start_virtual_service: boolean;
+    /** Whether the session belongs to a ticketed event. */
+    is_ticket: boolean;
     /** Class identifier. Not empty if service is class or event reservation. */
     k_class: string;
     /** Location identifier. */
@@ -10842,6 +10844,8 @@ export interface WlLoginAttendanceAttendanceInfoByTokenResponse {
     id_service: RsServiceSid;
     /** Whether this service be carried out in Zoom. */
     is_start_virtual_service: boolean;
+    /** Whether the session belongs to a ticketed event. */
+    is_ticket: boolean;
     /** Class identifier. Not empty if service is class or event reservation. */
     k_class: string;
     /** Location identifier. */

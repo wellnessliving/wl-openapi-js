@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261014133610
+ * Spec version: 1.1.20261014145008
  * Build date:   2026-10-14
  * Endpoints:    677
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261014133610';
+  WlClient.SPEC_VERSION = '1.1.20261014145008';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (677 total)
@@ -3705,10 +3705,10 @@
    *  `id_note` {number} A list of types of visit note. See {@link WlClient.WlVisitNoteSidNoteSid}.
    *  `id_service` {number} Identifiers for services types. See {@link WlClient.RsServiceSid}.
    *  `is_start_virtual_service` {boolean} Whether this service be carried out in Zoom.
+   *  `is_ticket` {boolean} Whether the session belongs to a ticketed event.
    *  `k_class` {string} Class identifier. Not empty if service is class or event reservation.
    *  `k_location` {string} Location identifier.
    *  `k_resource` {string} Resource identifier. Not empty if service is asset reservation.
-   *  `k_service` {string} Service identifier. Not empty if service is appointment reservation.
    *  `...` {*}
    */
   WlClient.prototype.wlLoginAttendanceAttendanceInfo = function(params)
@@ -3746,10 +3746,10 @@
    *  `id_note` {number} A list of types of visit note. See {@link WlClient.WlVisitNoteSidNoteSid}.
    *  `id_service` {number} Identifiers for services types. See {@link WlClient.RsServiceSid}.
    *  `is_start_virtual_service` {boolean} Whether this service be carried out in Zoom.
+   *  `is_ticket` {boolean} Whether the session belongs to a ticketed event.
    *  `k_class` {string} Class identifier. Not empty if service is class or event reservation.
    *  `k_location` {string} Location identifier.
    *  `k_resource` {string} Resource identifier. Not empty if service is asset reservation.
-   *  `k_service` {string} Service identifier. Not empty if service is appointment reservation.
    *  `...` {*}
    */
   WlClient.prototype.wlLoginAttendanceAttendanceInfoByToken = function(params)
