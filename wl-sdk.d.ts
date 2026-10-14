@@ -4299,6 +4299,15 @@ export declare enum WlClassesEditEarlyPeriodEnum {
     /** The period ends on the date */
     DATE = 1
 }
+/** Event time enrollment rules. */
+export declare enum WlClassesEditEnrollTimeSid {
+    /** Deny enrollment of the event that is in progress */
+    PROGRESS_DENY = 1,
+    /** Allow enrollment to event in progress with full payment */
+    PROGRESS_FULL = 3,
+    /** Allow enrollment to event in progress with prorated payment */
+    PROGRESS_PRORATE = 2
+}
 /** List of possible types of Gift Cards. */
 export declare enum WlCouponTypeSid {
     /** Amount Gift Card */
@@ -17227,6 +17236,8 @@ export interface WlClassesEditorClassEditorGetResponse {
             id_early_duration: ADurationSid;
             /** The way the end of the early bird period is specified for the event. @see WlClassesEditEarlyPeriodEnum */
             id_early_period: WlClassesEditEarlyPeriodEnum;
+            /** Event time enrollment rules. @see WlClassesEditEnrollTimeSid */
+            id_enroll_time: WlClassesEditEnrollTimeSid;
             /** List of possible modes to require amount while booking a class. @see WlClassesRequirePaySid */
             id_pay_require: WlClassesRequirePaySid;
             /** `true` if a client pays for the class with a Purchase Option only, `false` otherwise. */
@@ -29770,7 +29781,7 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignGetParams {
     k_visit: string;
 }
 export interface WlVisitBillingCodeVisitBillingCodeAssignGetResponse {
-    /** Billing codes applied to the visit, the custom codes first, each type sorted by the code value. */
+    /** Billing codes applied to the visit, the diagnostic codes first, each type sorted by the code value. */
     a_code: Array<{
         /** `true` for a custom code of the business or a temporary code for this visit only, `false` for an ... */
         is_custom: boolean;

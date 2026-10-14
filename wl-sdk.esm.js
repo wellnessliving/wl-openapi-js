@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261014092324
+// OpenAPI spec version: 1.1.20261014103525
 // Build date: 2026-10-14
 // Endpoints: 677
-// Enums: 224
+// Enums: 225
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (224 total) ---
+// --- Enum types (225 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -4428,6 +4428,16 @@ export var WlClassesEditEarlyPeriodEnum;
     /** The period ends on the date */
     WlClassesEditEarlyPeriodEnum[WlClassesEditEarlyPeriodEnum["DATE"] = 1] = "DATE";
 })(WlClassesEditEarlyPeriodEnum || (WlClassesEditEarlyPeriodEnum = {}));
+/** Event time enrollment rules. */
+export var WlClassesEditEnrollTimeSid;
+(function (WlClassesEditEnrollTimeSid) {
+    /** Deny enrollment of the event that is in progress */
+    WlClassesEditEnrollTimeSid[WlClassesEditEnrollTimeSid["PROGRESS_DENY"] = 1] = "PROGRESS_DENY";
+    /** Allow enrollment to event in progress with full payment */
+    WlClassesEditEnrollTimeSid[WlClassesEditEnrollTimeSid["PROGRESS_FULL"] = 3] = "PROGRESS_FULL";
+    /** Allow enrollment to event in progress with prorated payment */
+    WlClassesEditEnrollTimeSid[WlClassesEditEnrollTimeSid["PROGRESS_PRORATE"] = 2] = "PROGRESS_PRORATE";
+})(WlClassesEditEnrollTimeSid || (WlClassesEditEnrollTimeSid = {}));
 /** List of possible types of Gift Cards. */
 export var WlCouponTypeSid;
 (function (WlCouponTypeSid) {

@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261014092324
+ * Spec version: 1.1.20261014103525
  * Build date:   2026-10-14
  * Endpoints:    677
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261014092324';
+  WlClient.SPEC_VERSION = '1.1.20261014103525';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (677 total)
@@ -12958,7 +12958,7 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.k_visit Visit key.
    * @returns {Promise<Object>} Response data.
-   *  `a_code` {Object[]} Billing codes applied to the visit, the custom codes first, each type sorted ...
+   *  `a_code` {Object[]} Billing codes applied to the visit, the diagnostic codes first, each type sor...
    *  `a_history` {Object[]} History of the changes of the billing codes of the visit, the latest change f...
    *  `s_version` {string} Version of the billing codes of the visit: a value that changes every time th...
    */
@@ -14573,7 +14573,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (242 total)
+  // Enum constants (243 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -19524,6 +19524,20 @@
     BEFORE: 2,
     /** The period ends on the date */
     DATE: 1,
+  });
+
+  /**
+   * Event time enrollment rules.
+   *
+   * @enum {number}
+   */
+  WlClient.WlClassesEditEnrollTimeSid = Object.freeze({
+    /** Deny enrollment of the event that is in progress */
+    PROGRESS_DENY: 1,
+    /** Allow enrollment to event in progress with full payment */
+    PROGRESS_FULL: 3,
+    /** Allow enrollment to event in progress with prorated payment */
+    PROGRESS_PRORATE: 2,
   });
 
   /**
