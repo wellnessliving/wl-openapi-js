@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261013214854
- * Build date:   2026-10-13
- * Endpoints:    675
+ * Spec version: 1.1.20261014073055
+ * Build date:   2026-10-14
+ * Endpoints:    677
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261013214854';
+  WlClient.SPEC_VERSION = '1.1.20261014073055';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (675 total)
+  // Generated API methods (677 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -4292,6 +4292,7 @@
    * @param {string} params.uid The key of the current user.
    * @returns {Promise<Object>} Response data.
    *  `a_contract_list` {Object} List of contracts required at once, if the purchase option requires agreement...
+   *  `has_signature` {boolean} Whether the agreement requires a signature.
    *  `html_contract` {string} The text of the contract.
    *  `i_minor_age` {number} Age of minor which documents can be signed by parent or legal guardian.
    *  `text_title` {string} Title of purchase option.
@@ -5967,6 +5968,19 @@
   WlClient.prototype.wlCatalogQuizQuiz = function(params)
   {
     return this.request('/Wl/Catalog/Quiz/Quiz.json', params || {}, 'GET');
+  };
+
+  /**
+   * Performs {@link WlClient#wlCatalogTermsTerms} for every item of {@link WlClient#wlCatalogTermsTerms}.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.id_place From where request comes. One of {@link WlClient.RsPlaceSid}.
+   * @returns {Promise<Object>} Response data.
+   *  `url_list` {string} Link to the catalog list. Set only if the cart became empty after
+   */
+  WlClient.prototype.wlCatalogTermsTerms = function(params)
+  {
+    return this.request('/Wl/Catalog/Terms/Terms.json', params || {}, 'POST');
   };
 
   /**
@@ -10334,14 +10348,32 @@
   };
 
   /**
-   * Saves {@link WlClient#wlBusinessCustomTermsCustomTerms} as the custom terms of {@link WlClient#wlBusinessCustomTermsCustomTerms}.
+   * Returns the current value of every term slot of {@link WlClient#wlBusinessCustomTermsCustomTermsGet}.
+   *
+   * No access check - the terms a business picked (e.g. "Session" instead of "Class") are not sensitive, and
+   * public-facing pages (the booking widget, for example) need them to render their own wording for a client
+   * who is not signed in.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_term_option` {Object[]} Current value of every term slot. Returned by `get()`, posted to
+   */
+  WlClient.prototype.wlBusinessCustomTermsCustomTermsGet = function(params)
+  {
+    return this.request('/Wl/Business/Custom/Terms/CustomTerms.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves {@link WlClient#wlBusinessCustomTermsCustomTermsGet} as the custom terms of {@link WlClient#wlBusinessCustomTermsCustomTermsGet}.
    *
    * Validates every posted term slot and its selected option, then writes.
    *
-   * @param {Object} [params] Request body fields.
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
    * @returns {Promise<Object>} Response data.
    */
-  WlClient.prototype.wlBusinessCustomTermsCustomTerms = function(params)
+  WlClient.prototype.wlBusinessCustomTermsCustomTermsPost = function(params)
   {
     return this.request('/Wl/Business/Custom/Terms/CustomTerms.json', params || {}, 'POST');
   };
@@ -14541,7 +14573,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (241 total)
+  // Enum constants (242 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -18861,6 +18893,20 @@
   });
 
   /**
+   * Action that a client or staff performs with terms and conditions of cart items.
+   *
+   * @enum {number}
+   */
+  WlClient.WlCatalogTermsTermsActionSid = Object.freeze({
+    /** Terms and conditions are accepted */
+    AGREE: 1,
+    /** Terms and conditions are declined, so items are removed from the cart */
+    DECLINE: 2,
+    /** Terms and conditions are skipped by staff in the point of sale */
+    SKIP: 3,
+  });
+
+  /**
    * A list of supported social networks.
    *
    * @enum {number}
@@ -20187,27 +20233,41 @@
    *
    * @enum {number}
    */
-  WlClient.WlBusinessCustomTermsClassTermOptionSid = Object.freeze({
-    /** Activity */
-    ACTIVITY: 1,
-    /** Class */
-    CLASS_TERM: 2,
-    /** Course */
-    COURSE: 3,
-    /** Group Session */
-    GROUP_SESSION: 4,
-    /** Lesson */
-    LESSON: 5,
-    /** Practice */
-    PRACTICE: 6,
-    /** Program */
-    PROGRAM: 7,
-    /** Session */
-    SESSION: 8,
-    /** Training */
-    TRAINING: 9,
-    /** Workshop */
-    WORKSHOP: 10,
+  WlClient.WlBusinessCustomTermsClientTermOptionSid = Object.freeze({
+    /** Athlete */
+    ATHLETE: 1,
+    /** Cadet */
+    CADET: 2,
+    /** Camper */
+    CAMPER: 3,
+    /** Care Recipient */
+    CARE_RECIPIENT: 4,
+    /** Child */
+    CHILD: 5,
+    /** Client */
+    CLIENT: 6,
+    /** Customer */
+    CUSTOMER: 7,
+    /** Dancer */
+    DANCER: 8,
+    /** Family */
+    FAMILY: 9,
+    /** Guest */
+    GUEST: 10,
+    /** Member */
+    MEMBER: 11,
+    /** Ninja */
+    NINJA: 12,
+    /** Participant */
+    PARTICIPANT: 13,
+    /** Patient */
+    PATIENT: 14,
+    /** Patron */
+    PATRON: 15,
+    /** Resident */
+    RESIDENT: 16,
+    /** Student */
+    STUDENT: 17,
   });
 
   /**

@@ -3725,6 +3725,15 @@ export declare enum WlShopCategoryShopCategorySortSid {
     /** Sort by name/title */
     NAME = 1
 }
+/** Action that a client or staff performs with terms and conditions of cart items. */
+export declare enum WlCatalogTermsTermsActionSid {
+    /** Terms and conditions are accepted */
+    AGREE = 1,
+    /** Terms and conditions are declined, so items are removed from the cart */
+    DECLINE = 2,
+    /** Terms and conditions are skipped by staff in the point of sale */
+    SKIP = 3
+}
 /** A list of supported social networks. */
 export declare enum ASocialSid {
     /** Facebook social network */
@@ -4798,27 +4807,41 @@ export declare enum WlBusinessCustomTermsCustomTermSid {
     STAFF = 1
 }
 /** Preset options for the {@link WlBusinessCustomTermsCustomTermSid} custom term. */
-export declare enum WlBusinessCustomTermsClassTermOptionSid {
-    /** Activity */
-    ACTIVITY = 1,
-    /** Class */
-    CLASS_TERM = 2,
-    /** Course */
-    COURSE = 3,
-    /** Group Session */
-    GROUP_SESSION = 4,
-    /** Lesson */
-    LESSON = 5,
-    /** Practice */
-    PRACTICE = 6,
-    /** Program */
-    PROGRAM = 7,
-    /** Session */
-    SESSION = 8,
-    /** Training */
-    TRAINING = 9,
-    /** Workshop */
-    WORKSHOP = 10
+export declare enum WlBusinessCustomTermsClientTermOptionSid {
+    /** Athlete */
+    ATHLETE = 1,
+    /** Cadet */
+    CADET = 2,
+    /** Camper */
+    CAMPER = 3,
+    /** Care Recipient */
+    CARE_RECIPIENT = 4,
+    /** Child */
+    CHILD = 5,
+    /** Client */
+    CLIENT = 6,
+    /** Customer */
+    CUSTOMER = 7,
+    /** Dancer */
+    DANCER = 8,
+    /** Family */
+    FAMILY = 9,
+    /** Guest */
+    GUEST = 10,
+    /** Member */
+    MEMBER = 11,
+    /** Ninja */
+    NINJA = 12,
+    /** Participant */
+    PARTICIPANT = 13,
+    /** Patient */
+    PATIENT = 14,
+    /** Patron */
+    PATRON = 15,
+    /** Resident */
+    RESIDENT = 16,
+    /** Student */
+    STUDENT = 17
 }
 /** List of possible plans for CollectionsSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid {
@@ -13182,6 +13205,8 @@ export interface WlProfileContractContractGetResponse {
         /** Key of the visitor this contract applies to. */
         uid: string;
     };
+    /** Whether the agreement requires a signature. */
+    has_signature: boolean;
     /** The text of the contract. */
     html_contract: string;
     /** Age of minor which documents can be signed by parent or legal guardian. */
@@ -16010,6 +16035,14 @@ export interface WlCatalogQuizQuizResponse {
         /** Quiz title. */
         text_title: string;
     };
+}
+export interface WlCatalogTermsTermsParams {
+    /** From where request comes. One of {@link RsPlaceSid}. */
+    id_place: RsPlaceSid;
+}
+export interface WlCatalogTermsTermsResponse {
+    /** Link to the catalog list. Set only if the cart became empty after */
+    url_list: string;
 }
 export interface WlPurchaseItemPurchaseItemListParams {
     /** Define a different type result of API. For economy of traffic `false` it means in response will l... */
@@ -24023,8 +24056,24 @@ export interface WlProfileFormResponseResponseListResponse {
     /** Whether response can be viewed by current user. */
     can_view: boolean;
 }
-export type WlBusinessCustomTermsCustomTermsParams = Record<string, unknown>;
-export type WlBusinessCustomTermsCustomTermsResponse = Record<string, unknown>;
+export interface WlBusinessCustomTermsCustomTermsGetParams {
+    /** Business key. */
+    k_business: string;
+}
+export interface WlBusinessCustomTermsCustomTermsGetResponse {
+    /** Current value of every term slot. Returned by `get()`, posted to */
+    a_term_option: Array<{
+        /** Term slots available on the Custom Terms settings page. @see WlBusinessCustomTermsCustomTermSid */
+        id_term: WlBusinessCustomTermsCustomTermSid;
+        /** Preset options for the {@link WlBusinessCustomTermsCustomTermSid} custom term. @see WlBusinessCustomTermsClientTermOptionSid */
+        id_term_option?: WlBusinessCustomTermsClientTermOptionSid | null;
+    }>;
+}
+export interface WlBusinessCustomTermsCustomTermsPostParams {
+    /** Business key. */
+    k_business: string;
+}
+export type WlBusinessCustomTermsCustomTermsPostResponse = Record<string, unknown>;
 export type WlBusinessSmsPinSmsPinDeleteParams = Record<string, unknown>;
 export type WlBusinessSmsPinSmsPinDeleteResponse = Record<string, unknown>;
 export type WlBusinessSmsPinSmsPinPostParams = Record<string, unknown>;
@@ -33035,8 +33084,10 @@ export declare class WlBusinessSelectNamespace {
 export declare class WlBusinessCustomTermsNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Saves {@link WlBusinessCustomTermsNamespace#customTerms} as the custom terms of {@link WlBusinessCustomTermsNamespace#customTerms}. */
-    customTerms(params?: WlBusinessCustomTermsCustomTermsParams): Promise<WlBusinessCustomTermsCustomTermsResponse>;
+    /** Returns the current value of every term slot of {@link WlBusinessCustomTermsNamespace#customTermsGet}. */
+    customTermsGet(params?: WlBusinessCustomTermsCustomTermsGetParams): Promise<WlBusinessCustomTermsCustomTermsGetResponse>;
+    /** Saves {@link WlBusinessCustomTermsCustomTermsGetResponse.a_term_option} as the custom terms of {@link WlBusinessCustomTermsNamespace#customTermsGet}. */
+    customTermsPost(params?: WlBusinessCustomTermsCustomTermsPostParams): Promise<WlBusinessCustomTermsCustomTermsPostResponse>;
 }
 export declare class WlBusinessCustomNamespace {
     private readonly _client;
@@ -34258,6 +34309,12 @@ export declare class WlCatalogQuizNamespace {
     /** Gets quizzes for the selected purchase options. */
     quiz(params?: WlCatalogQuizQuizParams): Promise<WlCatalogQuizQuizResponse>;
 }
+export declare class WlCatalogTermsNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Performs {@link WlCatalogTermsNamespace#terms} for every item of {@link WlCatalogTermsNamespace#terms}. */
+    terms(params?: WlCatalogTermsTermsParams): Promise<WlCatalogTermsTermsResponse>;
+}
 export declare class WlCatalogStaffAppCatalogCommissionNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -34321,6 +34378,7 @@ export declare class WlCatalogNamespace {
     readonly catalogList: WlCatalogCatalogListNamespace;
     readonly cart: WlCatalogCartNamespace;
     readonly quiz: WlCatalogQuizNamespace;
+    readonly terms: WlCatalogTermsNamespace;
     readonly staffApp: WlCatalogStaffAppNamespace;
     readonly view: WlCatalogViewNamespace;
     constructor(_client: WlClient);

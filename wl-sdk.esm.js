@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261013214854
-// Build date: 2026-10-13
-// Endpoints: 675
-// Enums: 223
+// OpenAPI spec version: 1.1.20261014073055
+// Build date: 2026-10-14
+// Endpoints: 677
+// Enums: 224
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (223 total) ---
+// --- Enum types (224 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -3842,6 +3842,16 @@ export var WlShopCategoryShopCategorySortSid;
     /** Sort by name/title */
     WlShopCategoryShopCategorySortSid[WlShopCategoryShopCategorySortSid["NAME"] = 1] = "NAME";
 })(WlShopCategoryShopCategorySortSid || (WlShopCategoryShopCategorySortSid = {}));
+/** Action that a client or staff performs with terms and conditions of cart items. */
+export var WlCatalogTermsTermsActionSid;
+(function (WlCatalogTermsTermsActionSid) {
+    /** Terms and conditions are accepted */
+    WlCatalogTermsTermsActionSid[WlCatalogTermsTermsActionSid["AGREE"] = 1] = "AGREE";
+    /** Terms and conditions are declined, so items are removed from the cart */
+    WlCatalogTermsTermsActionSid[WlCatalogTermsTermsActionSid["DECLINE"] = 2] = "DECLINE";
+    /** Terms and conditions are skipped by staff in the point of sale */
+    WlCatalogTermsTermsActionSid[WlCatalogTermsTermsActionSid["SKIP"] = 3] = "SKIP";
+})(WlCatalogTermsTermsActionSid || (WlCatalogTermsTermsActionSid = {}));
 /** A list of supported social networks. */
 export var ASocialSid;
 (function (ASocialSid) {
@@ -4965,29 +4975,43 @@ export var WlBusinessCustomTermsCustomTermSid;
     WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["STAFF"] = 1] = "STAFF";
 })(WlBusinessCustomTermsCustomTermSid || (WlBusinessCustomTermsCustomTermSid = {}));
 /** Preset options for the {@link WlBusinessCustomTermsCustomTermSid} custom term. */
-export var WlBusinessCustomTermsClassTermOptionSid;
-(function (WlBusinessCustomTermsClassTermOptionSid) {
-    /** Activity */
-    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["ACTIVITY"] = 1] = "ACTIVITY";
-    /** Class */
-    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["CLASS_TERM"] = 2] = "CLASS_TERM";
-    /** Course */
-    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["COURSE"] = 3] = "COURSE";
-    /** Group Session */
-    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["GROUP_SESSION"] = 4] = "GROUP_SESSION";
-    /** Lesson */
-    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["LESSON"] = 5] = "LESSON";
-    /** Practice */
-    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["PRACTICE"] = 6] = "PRACTICE";
-    /** Program */
-    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["PROGRAM"] = 7] = "PROGRAM";
-    /** Session */
-    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["SESSION"] = 8] = "SESSION";
-    /** Training */
-    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["TRAINING"] = 9] = "TRAINING";
-    /** Workshop */
-    WlBusinessCustomTermsClassTermOptionSid[WlBusinessCustomTermsClassTermOptionSid["WORKSHOP"] = 10] = "WORKSHOP";
-})(WlBusinessCustomTermsClassTermOptionSid || (WlBusinessCustomTermsClassTermOptionSid = {}));
+export var WlBusinessCustomTermsClientTermOptionSid;
+(function (WlBusinessCustomTermsClientTermOptionSid) {
+    /** Athlete */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["ATHLETE"] = 1] = "ATHLETE";
+    /** Cadet */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CADET"] = 2] = "CADET";
+    /** Camper */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CAMPER"] = 3] = "CAMPER";
+    /** Care Recipient */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CARE_RECIPIENT"] = 4] = "CARE_RECIPIENT";
+    /** Child */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CHILD"] = 5] = "CHILD";
+    /** Client */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CLIENT"] = 6] = "CLIENT";
+    /** Customer */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CUSTOMER"] = 7] = "CUSTOMER";
+    /** Dancer */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["DANCER"] = 8] = "DANCER";
+    /** Family */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["FAMILY"] = 9] = "FAMILY";
+    /** Guest */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["GUEST"] = 10] = "GUEST";
+    /** Member */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["MEMBER"] = 11] = "MEMBER";
+    /** Ninja */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["NINJA"] = 12] = "NINJA";
+    /** Participant */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["PARTICIPANT"] = 13] = "PARTICIPANT";
+    /** Patient */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["PATIENT"] = 14] = "PATIENT";
+    /** Patron */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["PATRON"] = 15] = "PATRON";
+    /** Resident */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["RESIDENT"] = 16] = "RESIDENT";
+    /** Student */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["STUDENT"] = 17] = "STUDENT";
+})(WlBusinessCustomTermsClientTermOptionSid || (WlBusinessCustomTermsClientTermOptionSid = {}));
 /** List of possible plans for CollectionsSubscription subscription. */
 export var WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid;
 (function (WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid) {
@@ -7277,8 +7301,12 @@ export class WlBusinessCustomTermsNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Saves {@link WlBusinessCustomTermsNamespace#customTerms} as the custom terms of {@link WlBusinessCustomTermsNamespace#customTerms}. */
-    customTerms(params) {
+    /** Returns the current value of every term slot of {@link WlBusinessCustomTermsNamespace#customTermsGet}. */
+    customTermsGet(params) {
+        return this._client._request('/Wl/Business/Custom/Terms/CustomTerms.json', params, 'GET');
+    }
+    /** Saves {@link WlBusinessCustomTermsCustomTermsGetResponse.a_term_option} as the custom terms of {@link WlBusinessCustomTermsNamespace#customTermsGet}. */
+    customTermsPost(params) {
         return this._client._request('/Wl/Business/Custom/Terms/CustomTerms.json', params, 'POST');
     }
 }
@@ -9166,6 +9194,15 @@ export class WlCatalogQuizNamespace {
         return this._client._request('/Wl/Catalog/Quiz/Quiz.json', params, 'GET');
     }
 }
+export class WlCatalogTermsNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Performs {@link WlCatalogTermsNamespace#terms} for every item of {@link WlCatalogTermsNamespace#terms}. */
+    terms(params) {
+        return this._client._request('/Wl/Catalog/Terms/Terms.json', params, 'POST');
+    }
+}
 export class WlCatalogStaffAppCatalogCommissionNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9253,6 +9290,7 @@ export class WlCatalogNamespace {
         this.catalogList = new WlCatalogCatalogListNamespace(this._client);
         this.cart = new WlCatalogCartNamespace(this._client);
         this.quiz = new WlCatalogQuizNamespace(this._client);
+        this.terms = new WlCatalogTermsNamespace(this._client);
         this.staffApp = new WlCatalogStaffAppNamespace(this._client);
         this.view = new WlCatalogViewNamespace(this._client);
     }
