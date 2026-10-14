@@ -8042,7 +8042,7 @@ export interface WlEventEventListGetResponse {
             /** One ticket price. */
             m_price: string;
             /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
-            m_price_early: number | null;
+            m_price_early: string | null;
             /** Ticket option name. */
             text_title: string;
         };
@@ -17776,7 +17776,16 @@ export interface WlScheduleClassViewClassViewGetResponse {
         /** List of tags. */
         a_tag: Array<number>;
         /** Ticket options available for booking the event. Empty if the event is not a ticketed event. */
-        a_tickets: Array<Array<unknown>>;
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
+            m_price_early: string | null;
+            /** Ticket option name. */
+            text_title: string;
+        };
         /** Whether current client can book class. */
         can_book: boolean;
         /** Session date/time in UTC. */
@@ -17909,7 +17918,7 @@ export interface WlScheduleClassViewClassViewGetResponse {
             /** List of tags. */
             a_tag: Array<number>;
             /** Ticket options available for booking the event. Empty if the event is not a ticketed event. */
-            a_tickets: Array<Array<unknown>>;
+            a_tickets: Record<string, unknown>;
             /** Whether current client can book class. */
             can_book: boolean;
             /** Session date/time in UTC. */
@@ -18141,7 +18150,16 @@ export interface WlScheduleClassViewClassViewPostResponse {
         /** List of tags. */
         a_tag: Array<number>;
         /** Ticket options available for booking the event. Empty if the event is not a ticketed event. */
-        a_tickets: Array<Array<unknown>>;
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
+            m_price_early: string | null;
+            /** Ticket option name. */
+            text_title: string;
+        };
         /** Whether current client can book class. */
         can_book: boolean;
         /** Session date/time in UTC. */
@@ -18274,7 +18292,7 @@ export interface WlScheduleClassViewClassViewPostResponse {
             /** List of tags. */
             a_tag: Array<number>;
             /** Ticket options available for booking the event. Empty if the event is not a ticketed event. */
-            a_tickets: Array<Array<unknown>>;
+            a_tickets: Record<string, unknown>;
             /** Whether current client can book class. */
             can_book: boolean;
             /** Session date/time in UTC. */
@@ -26464,7 +26482,7 @@ export interface WlCatalogStaffAppCatalogViewCatalogViewResponse {
         /** One ticket price. */
         m_price: string;
         /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
-        m_price_early: number | null;
+        m_price_early: string | null;
         /** Ticket option name. */
         text_title: string;
     }>;
@@ -30302,7 +30320,7 @@ export interface WlEventBookEventViewElementResponse {
             /** One ticket price. */
             m_price: string;
             /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the */
-            m_price_early: number | null;
+            m_price_early: string | null;
             /** Ticket option name. */
             text_title: string;
         };
@@ -30462,7 +30480,14 @@ export interface WlEventBookEventViewElementResponse {
         url_logo: string;
     };
     /** How many tickets can be sold for the ticketed event and how many of those are still available. */
-    a_ticket_inventory: Array<unknown>;
+    a_ticket_inventory: {
+        /** Total number of tickets that can be sold for the event. */
+        i_capacity: number;
+        /** Number of tickets still available to sell. */
+        i_remain: number;
+        /** Maximum number of tickets that can be ordered for the event in one purchase. `0` if there is no l... */
+        i_order_limit: number;
+    };
     /** List of ticket options available for booking the event. Empty if the event is not a ticketed */
     a_tickets: Array<{
         /** Globally unique identifier of the ticket option. */
@@ -30470,7 +30495,7 @@ export interface WlEventBookEventViewElementResponse {
         /** One ticket price. */
         m_price: string;
         /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
-        m_price_early: number | null;
+        m_price_early: string | null;
         /** Ticket option name. */
         text_title: string;
     }>;
