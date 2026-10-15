@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261015132750
+ * Spec version: 1.1.20261015154806
  * Build date:   2026-10-15
- * Endpoints:    677
+ * Endpoints:    678
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261015132750';
+  WlClient.SPEC_VERSION = '1.1.20261015154806';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (677 total)
+  // Generated API methods (678 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -1383,6 +1383,23 @@
   WlClient.prototype.wlTicketTicketList = function(params)
   {
     return this.request('/Wl/Ticket/TicketList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Undoes the check-in of the ticket.
+   *
+   * Validates the business and the access of the current user to it, finds the ticket, checks it against the
+   * session sent by the client, and returns its visit from attended to booked. Takes the same critical section as
+   * {@link WlClient#wlTicketTicketScan}, so a check-in and an undo of the same ticket never run at the same time.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `i_attend` {number} Number of the tickets checked in for the session after the call.
+   *  `i_sold` {number} Number of the tickets sold for the session: not cancelled ones, including tho...
+   */
+  WlClient.prototype.wlTicketTicketUndo = function(params)
+  {
+    return this.request('/Wl/Ticket/TicketUndo.json', params || {}, 'POST');
   };
 
   /**

@@ -7906,6 +7906,13 @@ export interface WlTicketTicketListResponse {
     /** Name of the event, with no date in it. */
     text_title: string;
 }
+export type WlTicketTicketUndoParams = Record<string, unknown>;
+export interface WlTicketTicketUndoResponse {
+    /** Number of the tickets checked in for the session after the call. */
+    i_attend: number;
+    /** Number of the tickets sold for the session: not cancelled ones, including those whose holders hav... */
+    i_sold: number;
+}
 export interface WlEventEventCancelParams {
     /** `true` is late cancel, `false` reservation is not late cancel. */
     is_late_cancel: boolean;
@@ -33641,6 +33648,8 @@ export declare class WlTicketNamespace {
     ticketScan(params?: WlTicketTicketScanParams): Promise<WlTicketTicketScanResponse>;
     /** Returns tickets and orders of the session. */
     ticketList(params?: WlTicketTicketListParams): Promise<WlTicketTicketListResponse>;
+    /** Undoes the check-in of the ticket. */
+    ticketUndo(params?: WlTicketTicketUndoParams): Promise<WlTicketTicketUndoResponse>;
 }
 export declare class WlEventBookEventViewNamespace {
     private readonly _client;
