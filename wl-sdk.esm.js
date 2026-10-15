@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261015154806
+// OpenAPI spec version: 1.1.20261015160019
 // Build date: 2026-10-15
-// Endpoints: 678
+// Endpoints: 679
 // Enums: 225
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -8081,9 +8081,19 @@ export class WlHolidayNamespace {
         return this._client._request('/Wl/Holiday/Holiday.json', params, 'GET');
     }
 }
+export class WlTicketPurchaseNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Sends the confirmation of the purchase with the tickets. */
+    ticketPurchaseMail(params) {
+        return this._client._request('/Wl/Ticket/Purchase/TicketPurchaseMail.json', params, 'POST');
+    }
+}
 export class WlTicketNamespace {
     constructor(_client) {
         this._client = _client;
+        this.purchase = new WlTicketPurchaseNamespace(this._client);
     }
     /** Checks in the ticket. */
     ticketScan(params) {

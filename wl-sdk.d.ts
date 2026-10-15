@@ -21635,6 +21635,8 @@ export interface WlTaskEditEditPutParams {
     k_task?: string | null;
 }
 export type WlTaskEditEditPutResponse = Record<string, unknown>;
+export type WlTicketPurchaseTicketPurchaseMailParams = Record<string, unknown>;
+export type WlTicketPurchaseTicketPurchaseMailResponse = Record<string, unknown>;
 export type WlWidgetAnalyticsWidgetAnalyticsEventParams = Record<string, unknown>;
 export type WlWidgetAnalyticsWidgetAnalyticsEventResponse = Record<string, unknown>;
 export interface WlReportDashboardReportDashboardPostParams {
@@ -33641,8 +33643,15 @@ export declare class WlHolidayNamespace {
     /** Returns information about holiday day of business/locations. */
     holiday(params?: WlHolidayHolidayParams): Promise<WlHolidayHolidayResponse>;
 }
+export declare class WlTicketPurchaseNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Sends the confirmation of the purchase with the tickets. */
+    ticketPurchaseMail(params?: WlTicketPurchaseTicketPurchaseMailParams): Promise<WlTicketPurchaseTicketPurchaseMailResponse>;
+}
 export declare class WlTicketNamespace {
     private readonly _client;
+    readonly purchase: WlTicketPurchaseNamespace;
     constructor(_client: WlClient);
     /** Checks in the ticket. */
     ticketScan(params?: WlTicketTicketScanParams): Promise<WlTicketTicketScanResponse>;

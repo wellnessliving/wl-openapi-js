@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261015154806
+ * Spec version: 1.1.20261015160019
  * Build date:   2026-10-15
- * Endpoints:    678
+ * Endpoints:    679
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261015154806';
+  WlClient.SPEC_VERSION = '1.1.20261015160019';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (678 total)
+  // Generated API methods (679 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -8341,6 +8341,17 @@
   WlClient.prototype.wlTaskEditEditPut = function(params)
   {
     return this.request('/Wl/Task/Edit/Edit.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Sends the confirmation of the purchase with the tickets.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlTicketPurchaseTicketPurchaseMail = function(params)
+  {
+    return this.request('/Wl/Ticket/Purchase/TicketPurchaseMail.json', params || {}, 'POST');
   };
 
   /**
