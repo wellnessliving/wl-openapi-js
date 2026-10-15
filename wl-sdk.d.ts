@@ -5345,7 +5345,7 @@ export interface ThothLayoutBeFooterFooterParams {
     k_business: string;
 }
 export interface ThothLayoutBeFooterFooterResponse {
-    /** `true` to show the "Powered by WellnessLiving" branding and Terms & Conditions links in the footer; */
+    /** Whether the "Powered by WellnessLiving" branding and Terms & Conditions links are shown in the fo... */
     show_term: boolean;
 }
 export interface WlHardwareStripeComStripeComHardwareElementDeleteParams {
@@ -15526,6 +15526,15 @@ export interface WlCatalogCatalogListElementGetResponse {
             /** Link to the variant file. */
             s_url: string;
         };
+        /** Purchase errors for this item. The same structure as {@link WlCatalogCatalogListElementGetRespons... */
+        a_purchase_error: {
+            /** A machine-readable error code identifying the restriction type. */
+            text_code: string;
+            /** The field associated with the error. Empty string if not applicable. */
+            text_field: string;
+            /** A human-readable error message describing the restriction. */
+            text_message: string;
+        };
         /** Tax amounts keyed by tax key. The same structure as {@link WlCatalogCatalogListElementGetResponse... */
         a_tax: Array<string>;
         /** A list of Purchase Option view types. @see WlCatalogPurchaseOptionViewSid */
@@ -15542,6 +15551,15 @@ export interface WlCatalogCatalogListElementGetResponse {
         s_sale: string;
         /** The title of the sale item. */
         s_title: string;
+    }>;
+    /** A list of purchase errors that would prevent this item from being purchased by the current user. */
+    a_purchase_error: Array<{
+        /** A machine-readable error code identifying the restriction type. */
+        text_code: string;
+        /** The field associated with the error. Empty string if not applicable. */
+        text_field: string;
+        /** A human-readable error message describing the restriction. */
+        text_message: string;
     }>;
     /** A list of the item's taxes. */
     a_tax: Array<string>;
@@ -15834,6 +15852,15 @@ export interface WlCatalogCatalogListElementPostResponse {
             /** Link to the variant file. */
             s_url: string;
         };
+        /** Purchase errors for this item. The same structure as {@link WlCatalogCatalogListElementGetRespons... */
+        a_purchase_error: {
+            /** A machine-readable error code identifying the restriction type. */
+            text_code: string;
+            /** The field associated with the error. Empty string if not applicable. */
+            text_field: string;
+            /** A human-readable error message describing the restriction. */
+            text_message: string;
+        };
         /** Tax amounts keyed by tax key. The same structure as {@link WlCatalogCatalogListElementGetResponse... */
         a_tax: Array<string>;
         /** A list of Purchase Option view types. @see WlCatalogPurchaseOptionViewSid */
@@ -15850,6 +15877,15 @@ export interface WlCatalogCatalogListElementPostResponse {
         s_sale: string;
         /** The title of the sale item. */
         s_title: string;
+    }>;
+    /** A list of purchase errors that would prevent this item from being purchased by the current user. */
+    a_purchase_error: Array<{
+        /** A machine-readable error code identifying the restriction type. */
+        text_code: string;
+        /** The field associated with the error. Empty string if not applicable. */
+        text_field: string;
+        /** A human-readable error message describing the restriction. */
+        text_message: string;
     }>;
     /** A list of the item's taxes. */
     a_tax: Array<string>;
@@ -20062,6 +20098,8 @@ export interface WlSchedulePagePageElementResponse {
     is_event: boolean;
     /** `true` - service is in progress; `false` - otherwise. */
     is_in_progress: boolean;
+    /** `true` if the visit has been paid for (via a purchase option, session pass, or single purchase). */
+    is_paid: boolean;
     /** `true` - service is virtual; `false` - otherwise. */
     is_virtual: boolean;
     /** The appointment key. */
@@ -26387,6 +26425,8 @@ export interface WlAppointmentBookScheduleDayTimeResponse {
         uid_staff: string;
         /** String representation of appointment schedule time. */
         s_title: string;
+        /** User key of the staff member the system would assign for this time if the client booked with any ... */
+        uid_staff_suggest: string;
     };
     /** The date to show the available appointment booking schedule. */
     dt_date: string;
@@ -26508,6 +26548,8 @@ export interface WlAppointmentBookScheduleCalendar73Response {
         uid_staff: string;
         /** String representation of appointment schedule time. */
         s_title: string;
+        /** User key of the staff member the system would assign for this time if the client booked with any ... */
+        uid_staff_suggest: string;
     };
     /** Information about timezone. */
     a_timezone_data: {
@@ -26614,6 +26656,8 @@ export interface WlAppointmentBookScheduleDayTime73Response {
         uid_staff: string;
         /** String representation of appointment schedule time. */
         s_title: string;
+        /** User key of the staff member the system would assign for this time if the client booked with any ... */
+        uid_staff_suggest: string;
     };
     /** The date to show the available appointment booking schedule. */
     dt_date: string;
@@ -26714,6 +26758,8 @@ export interface WlAppointmentBookScheduleCalendarResponse {
         uid_staff: string;
         /** String representation of appointment schedule time. */
         s_title: string;
+        /** User key of the staff member the system would assign for this time if the client booked with any ... */
+        uid_staff_suggest: string;
     };
     /** Information about timezone. */
     a_timezone_data: {
@@ -30827,7 +30873,7 @@ export declare class ThothExplorerSearchNamespace {
 export declare class ThothLayoutBeFooterNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Returns the data required to render the site footer for the given business. */
+    /** Loads the data required to render the site footer for the given business. */
     footer(params?: ThothLayoutBeFooterFooterParams): Promise<ThothLayoutBeFooterFooterResponse>;
 }
 export declare class ThothLayoutBeNamespace {

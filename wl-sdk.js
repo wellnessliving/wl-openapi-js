@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20261008053848
+ * Spec version: 1.1.20261015060208
  * Build date:   2026-10-15
  * Endpoints:    660
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261008053848';
+  WlClient.SPEC_VERSION = '1.1.20261015060208';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (660 total)
@@ -246,15 +246,16 @@
   };
 
   /**
-   * Returns the data required to render the site footer for the given business.
+   * Loads the data required to render the site footer for the given business.
    *
    * Loads the business's white-label status and derives whether the "Powered by WellnessLiving"
-   * branding and the Terms and Conditions link should be shown in the footer.
+   * branding and the Terms and Conditions link should be shown in the footer. The result is stored in
+   * {@link WlClient#thothLayoutBeFooterFooter}.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key to get footer data for.
    * @returns {Promise<Object>} Response data.
-   *  `show_term` {boolean} `true` to show the "Powered by WellnessLiving" branding and Terms & Condition...
+   *  `show_term` {boolean} Whether the "Powered by WellnessLiving" branding and Terms & Conditions links...
    */
   WlClient.prototype.thothLayoutBeFooterFooter = function(params)
   {
@@ -5629,6 +5630,7 @@
    *  `a_image_list` {Object[]} List of images.
    *  `a_installment_template` {Object[]} A list of installment plans. Each element has the following next keys:
    *  `a_item` {Object[]} The list of information pertaining to the specified item.
+   *  `a_purchase_error` {Object[]} A list of purchase errors that would prevent this item from being purchased b...
    *  `a_tax` {string[]} A list of the item's taxes.
    *  `f_price` {?string} The price of the sale item.
    *  `f_price_include` {?string} The price of the sale item, including tax.
@@ -5641,7 +5643,6 @@
    *  `id_purchase_option_view` {number} A list of Purchase Option view types. See {@link WlClient.WlCatalogPurchaseOptionViewSid}.
    *  `id_sale` {?number} List of sale categories on the store page. See {@link WlClient.RsSaleSid}.
    *  `is_contract` {boolean} If `true`, the item requires a contract. Otherwise, this will be `false`.
-   *  `k_id` {string} The item key.
    *  `...` {*}
    */
   WlClient.prototype.wlCatalogCatalogListElementGet = function(params)
@@ -5679,6 +5680,7 @@
    *  `a_image_list` {Object[]} List of images.
    *  `a_installment_template` {Object[]} A list of installment plans. Each element has the following next keys:
    *  `a_item` {Object[]} The list of information pertaining to the specified item.
+   *  `a_purchase_error` {Object[]} A list of purchase errors that would prevent this item from being purchased b...
    *  `a_tax` {string[]} A list of the item's taxes.
    *  `f_price` {?string} The price of the sale item.
    *  `f_price_include` {?string} The price of the sale item, including tax.
@@ -5691,7 +5693,6 @@
    *  `id_purchase_option_view` {number} A list of Purchase Option view types. See {@link WlClient.WlCatalogPurchaseOptionViewSid}.
    *  `id_sale` {?number} List of sale categories on the store page. See {@link WlClient.RsSaleSid}.
    *  `is_contract` {boolean} If `true`, the item requires a contract. Otherwise, this will be `false`.
-   *  `k_id` {string} The item key.
    *  `...` {*}
    */
   WlClient.prototype.wlCatalogCatalogListElementPost = function(params)
