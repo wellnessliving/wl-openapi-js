@@ -6563,9 +6563,9 @@ export interface WlAlertAlertListGetResponse {
         i_difference: number;
         /** Determines whether the alert was read by the user. */
         is_read: boolean;
-        /** Alert key.  table. */
+        /** Alert key. */
         k_alert: string;
-        /** Business key.  table. */
+        /** Business key. */
         k_business: string;
         /** Icon class. See AlertAbstract::CSS_CLASS. */
         s_icon_class: string;
@@ -15109,7 +15109,7 @@ export interface WlCatalogCatalogListElementGetResponse {
         };
         /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
         a_staff: {
-            /** @deprecated Legacy staff key.  Deprecated, use `uid_staff`. */
+            /** <b style="color: red">Deprecated.</b> Legacy staff key. */
             k_staff: string;
             /** Staff user key. */
             uid_staff: string;
@@ -15450,7 +15450,7 @@ export interface WlCatalogCatalogListElementPostResponse {
         };
         /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
         a_staff: {
-            /** @deprecated Legacy staff key.  Deprecated, use `uid_staff`. */
+            /** <b style="color: red">Deprecated.</b> Legacy staff key. */
             k_staff: string;
             /** Staff user key. */
             uid_staff: string;
@@ -16870,9 +16870,9 @@ export interface WlClassesClassListListParams {
 export interface WlClassesClassListListResponse {
     /** List of classes and events. */
     a_class: Array<{
-        /** List of class book now tabs, where this class is presented. Each element is */
+        /** List of class book now tabs, where this class is presented. Each element is class tab key */
         a_class_tab: Array<string>;
-        /** List of event book now tabs, where this event is presented. Each element is */
+        /** List of event book now tabs, where this event is presented. Each element is class tab key */
         a_event_tab: Array<string>;
         /** The ending date of the class/event. */
         dl_end: string;
@@ -17616,7 +17616,7 @@ export interface WlScheduleWorkingTimeStaffWorkingResponse {
             };
             /** Working hours. Each element: */
             a_work: {
-                /** Services that affect this hours. Primary keys in  table. */
+                /** Services that affect this hours. */
                 a_service: Array<string> | null;
                 /** Date when created period. */
                 dtu_create: string;
@@ -19177,7 +19177,7 @@ export interface WlAppointmentWaitListAppointmentWaitListResponse {
         is_paid: boolean;
         /** Whether is awaiting for user confirmation. */
         is_wait_confirm: boolean;
-        /** Visit key.  table. */
+        /** Visit key. */
         k_visit: string;
     }>;
     /** Whether or not to send email notification. */
@@ -26118,18 +26118,18 @@ export interface WlCatalogStaffAppCatalogCommissionCatalogCommissionResponse {
             f_rate: string;
             /** String identifiers for tax type. @see RsCommissionTypeSid */
             id_commission_type: RsCommissionTypeSid;
-            /** `true` - if it is default commission for the staff,`false` - otherwise. */
+            /** `true` - if it is default commission for the staff, `false` - otherwise. */
             is_default: boolean;
             /** Title of the commission. */
             html_commission: string;
-            /** Staff pay key.  table. */
+            /** Staff pay key. */
             k_staff_pay: string;
         };
-        /** [Deprecated]Staff key. */
+        /** <b style="color: red">Deprecated</b> Staff key. */
         k_staff: string;
         /** Name of staff. */
         html_name: string;
-        /** User key.  table. */
+        /** User key. */
         uid: string;
     }>;
 }
@@ -27177,7 +27177,7 @@ export interface WlAppointmentBookScheduleCalendar73Response {
         i_wait: number;
         /** Whether the appointment can be booked only in a wait list. */
         is_waitlist: boolean;
-        /** @deprecated If this time is already occupied by any client and staff member (but service capacity... */
+        /** <b style="color: red">Deprecated.</b> If this time is already occupied by any client and staff me... */
         k_staff: string;
         /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
         uid_staff: string;
@@ -27285,7 +27285,7 @@ export interface WlAppointmentBookScheduleDayTime73Response {
         i_wait: number;
         /** Whether the appointment can be booked only in a wait list. */
         is_waitlist: boolean;
-        /** @deprecated If this time is already occupied by any client and staff member (but service capacity... */
+        /** <b style="color: red">Deprecated.</b> If this time is already occupied by any client and staff me... */
         k_staff: string;
         /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
         uid_staff: string;
@@ -27362,7 +27362,7 @@ export interface WlAppointmentBookScheduleDayTimeResponse {
         i_wait: number;
         /** Whether the appointment can be booked only in a wait list. */
         is_waitlist: boolean;
-        /** @deprecated If this time is already occupied by any client and staff member (but service capacity... */
+        /** <b style="color: red">Deprecated.</b> If this time is already occupied by any client and staff me... */
         k_staff: string;
         /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
         uid_staff: string;
@@ -27487,7 +27487,7 @@ export interface WlAppointmentBookScheduleCalendarResponse {
         i_wait: number;
         /** Whether the appointment can be booked only in a wait list. */
         is_waitlist: boolean;
-        /** @deprecated If this time is already occupied by any client and staff member (but service capacity... */
+        /** <b style="color: red">Deprecated.</b> If this time is already occupied by any client and staff me... */
         k_staff: string;
         /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
         uid_staff: string;
@@ -28852,7 +28852,7 @@ export interface WlAppointmentBookStaffListResponse {
         is_daily_limit: boolean;
         /** Whether staff member available only for wait list booking. */
         is_wait_list: boolean;
-        /** @deprecated Legacy staff key.  Returned only for allow-listed apps. */
+        /** <b style="color: red">Deprecated.</b> Legacy staff key.  Returned only for allow-listed apps. */
         k_staff: string;
         /** Position of the staff member in the business. */
         s_position: string;
@@ -28907,7 +28907,7 @@ export interface WlAppointmentBookStaffStaffListResponse {
         is_daily_limit: boolean;
         /** Whether staff member available only for wait list booking. */
         is_wait_list: boolean;
-        /** @deprecated Legacy staff key.  Returned only for allow-listed apps. */
+        /** <b style="color: red">Deprecated.</b> Legacy staff key.  Returned only for allow-listed apps. */
         k_staff: string;
         /** Position of the staff member in the business. */
         s_position: string;
@@ -30428,7 +30428,7 @@ export interface WlEventBookEventViewElementResponse {
         };
         /** A list of staff members who conduct the session. Every element has the following next keys: */
         a_staff: {
-            /** @deprecated Legacy staff key. Returned only for applications from allow-list. */
+            /** <b style="color: red">Deprecated.</b> Legacy staff key. Returned only for applications from allow... */
             k_staff: string;
             /** The staff member name. */
             s_name: string;
@@ -31506,7 +31506,7 @@ export interface WlBusinessSmsChatDialogDialogListResponse {
         text_date_last_sms: string;
         /** The text of the last SMS from the client. */
         text_last_sms: string;
-        /** UID of the client.  table. */
+        /** UID of the client. */
         uid: string;
         /** The link to logo the client. */
         url_profile_logo: string;
@@ -31533,7 +31533,7 @@ export interface WlBusinessSmsChatDialogMessageHistoryResponse {
         is_automated: boolean;
         /** `true` if staff member sent SMS, `false` - if the client sent the SMS. */
         is_outbound: boolean;
-        /** The key of SMS history.  table. */
+        /** The key of SMS history. */
         k_sms_history: string;
         /** The day when SMS messages were sent. */
         text_date: string;
