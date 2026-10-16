@@ -14380,6 +14380,8 @@ export interface WlBusinessDesignBusinessDesignResponse {
         is_class_quick: boolean;
         /** `true` to display only available spots (e.g., "3 spots left"); */
         is_class_spot_only: boolean;
+        /** Whether Meta Conversion API Access Token is set. */
+        is_fb_capi_access_token: boolean;
         /** If `true`, the business name will be shown. */
         is_show_name: boolean;
         /** Background color of frontend. */
@@ -14408,7 +14410,7 @@ export interface WlBusinessDesignBusinessDesignResponse {
         s_fb_capi_access_token: string;
         /** Meta Conversion API Test Event Code. Optional, used for QA in Meta Events Manager. Empty string i... */
         s_fb_capi_test_event_code: string;
-        /** Facebook Pixel ID. Used for Facebook analytics tracking. Empty string if tracking is disabled. */
+        /** Meta Pixel ID. Used for Meta analytics tracking. Empty string if tracking is disabled. */
         s_fb_pixel_id: string;
         /** Google Analytics Tracking ID. Used for Google Analytics tracking. Empty string if tracking is dis... */
         s_ga_tracking_id: string;
