@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261016130159
+ * Spec version: 1.1.20261016133910
  * Build date:   2026-10-16
  * Endpoints:    679
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261016130159';
+  WlClient.SPEC_VERSION = '1.1.20261016133910';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (679 total)
@@ -6387,6 +6387,7 @@
    *  `a_class` {Object} Settings of the class the form edits.
    *  `a_class_tab_list` {Object[]} Book Now Tabs the class may be shown in. Every element is an array:
    *  `a_reminder_info` {Object} Send rules of the client reminder. Keys are:
+   *  `a_replace_available` {Object[]} Classes and events of the business that a client may use a make-up session on...
    *  `a_search_tag_list` {Object[]} Quick search tags of the category of the business. Every element is an array:
    *  `a_shop_category_list` {Object[]} Store categories of the business. Every element is an array:
    *  `a_url` {Object[]} Addresses of the pages the form links to:
@@ -6403,7 +6404,6 @@
    *  `is_fitlive` {boolean} `true` if the business may use the FitLIVE virtual provider, `false` otherwise.
    *  `is_gym_pass_support` {boolean} `true` if the business may offer the class on Wellhub, `false` otherwise.
    *  `is_ticket_card_require` {boolean} `true` if a new client of the business must add a card at sign-up, `false` ot...
-   *  `is_ticket_waiver_require` {boolean} `true` if a new client of the business must sign a waiver, `false` otherwise.
    *  `...` {*}
    */
   WlClient.prototype.wlClassesEditorClassEditorGet = function(params)

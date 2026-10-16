@@ -17165,6 +17165,8 @@ export interface WlClassesEditorClassEditorGetResponse {
         };
         /** Settings of the way the class is attended. */
         o_attendance: {
+            /** Classes and events a client may transfer a missed session of this one to as a make-up. */
+            a_replace: Array<string>;
             /** Book-a-Spot asset categories the class requires. */
             a_resource_type: {
                 /** A list of resource selection type. @see WlResourceResourceClientControlSid */
@@ -17180,7 +17182,7 @@ export interface WlClassesEditorClassEditorGetResponse {
             is_prerequisite: boolean;
             /** `true` if staff may sell products from the attendance list of the class, `false` otherwise. */
             is_quick_buy: boolean;
-            /** `true` if the number of the make-up sessions of the class is limited, `false` otherwise. */
+            /** `true` if a client may transfer a missed session of this class to an eligible make-up class or ev... */
             is_replace: boolean;
             /** `true` if the class requires Book-a-Spot assets, `false` otherwise. */
             is_resource_type: boolean;
@@ -17342,6 +17344,22 @@ export interface WlClassesEditorClassEditorGetResponse {
         /** `true` if every client group of the business is selected, `false` otherwise. */
         is_member_group_all: boolean;
     };
+    /** Classes and events of the business that a client may use a make-up session on, grouped by service. */
+    a_replace_available: Array<{
+        /** Classes or events of the group. Every element is an array: */
+        a_list: {
+            /** Key of the class or event. */
+            k_id: string;
+            /** Title of the class or event. */
+            text_title: string;
+        };
+        /** Level of the group. Always `1`, there is only one level of groups. */
+        i_level: number;
+        /** Key of the group. */
+        text_group_key: string;
+        /** Title of the group. */
+        text_title: string;
+    }>;
     /** Quick search tags of the category of the business. Every element is an array: */
     a_search_tag_list: Array<{
         /** Key of the tag. */
