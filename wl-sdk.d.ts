@@ -7803,6 +7803,8 @@ export interface WlTicketTicketScanResponse {
     i_attend: number;
     /** Number of the tickets sold for the session: not cancelled ones, including those whose holders hav... */
     i_sold: number;
+    /** Whether the ticket is paid. */
+    is_paid: boolean;
     /** Key of the class period the session of the ticket belongs to. */
     k_class_period_ticket: string;
     /** Key of the ticket. */
@@ -7843,6 +7845,8 @@ export interface WlTicketTicketListResponse {
         };
         /** Time when the order was bought, in the local time of the location, MySQL format. */
         dtl_purchase: string;
+        /** `true` if the buyer agreed to the terms and conditions of the event. `false` if the terms were sk... */
+        has_terms_agree: boolean;
         /** Number of tickets of the order that are checked in. */
         i_attend: number;
         /** Number of tickets in the order, cancelled ones included. */
@@ -7870,6 +7874,8 @@ export interface WlTicketTicketListResponse {
         is_attend: boolean;
         /** Whether the ticket is cancelled: voided, or refunded with the seat returned. */
         is_cancel: boolean;
+        /** Whether the ticket is paid. `false` if it was reserved to be paid at the door: its session pass i... */
+        is_paid: boolean;
         /** Order of the ticket, see {@link WlTicketTicketListResponse.a_order}. */
         k_purchase: string;
         /** Key of the ticket, the one {@link WlTicketNamespace#ticketScan} takes. */
@@ -13225,8 +13231,6 @@ export interface WlProfileContractContractGetResponse {
         /** Key of the visitor this contract applies to. */
         uid: string;
     };
-    /** Whether the agreement requires a signature. */
-    has_signature: boolean;
     /** The text of the contract. */
     html_contract: string;
     /** Age of minor which documents can be signed by parent or legal guardian. */

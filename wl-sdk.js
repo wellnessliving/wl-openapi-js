@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261016082805
+ * Spec version: 1.1.20261016095112
  * Build date:   2026-10-16
  * Endpoints:    679
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261016082805';
+  WlClient.SPEC_VERSION = '1.1.20261016095112';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (679 total)
@@ -1344,6 +1344,7 @@
    *  `dtu_session_start` {string} Start of the session the ticket is for, in UTC and MySQL format.
    *  `i_attend` {number} Number of the tickets already checked in for the session, including this one.
    *  `i_sold` {number} Number of the tickets sold for the session: not cancelled ones, including tho...
+   *  `is_paid` {boolean} Whether the ticket is paid.
    *  `k_class_period_ticket` {string} Key of the class period the session of the ticket belongs to.
    *  `k_ticket_item` {string} Key of the ticket.
    *  `k_visit` {string} Key of the visit booked with the ticket.
@@ -4309,7 +4310,6 @@
    * @param {string} params.uid The key of the current user.
    * @returns {Promise<Object>} Response data.
    *  `a_contract_list` {Object} List of contracts required at once, if the purchase option requires agreement...
-   *  `has_signature` {boolean} Whether the agreement requires a signature.
    *  `html_contract` {string} The text of the contract.
    *  `i_minor_age` {number} Age of minor which documents can be signed by parent or legal guardian.
    *  `text_title` {string} Title of purchase option.
