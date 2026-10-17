@@ -4823,8 +4823,6 @@ export declare enum WlBusinessCustomTermsClientTermOptionSid {
     CADET = 2,
     /** Camper */
     CAMPER = 3,
-    /** Care Recipient */
-    CARE_RECIPIENT = 4,
     /** Child */
     CHILD = 5,
     /** Client */
@@ -4850,7 +4848,9 @@ export declare enum WlBusinessCustomTermsClientTermOptionSid {
     /** Resident */
     RESIDENT = 16,
     /** Student */
-    STUDENT = 17
+    STUDENT = 17,
+    /** Swimmer */
+    SWIMMER = 4
 }
 /** List of possible plans for CollectionsSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid {

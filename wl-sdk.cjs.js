@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261017130702
+// OpenAPI spec version: 1.1.20261017144104
 // Build date: 2026-10-17
 // Endpoints: 681
 // Enums: 225
@@ -5010,8 +5010,6 @@ var WlBusinessCustomTermsClientTermOptionSid;
     WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CADET"] = 2] = "CADET";
     /** Camper */
     WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CAMPER"] = 3] = "CAMPER";
-    /** Care Recipient */
-    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CARE_RECIPIENT"] = 4] = "CARE_RECIPIENT";
     /** Child */
     WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CHILD"] = 5] = "CHILD";
     /** Client */
@@ -5038,6 +5036,8 @@ var WlBusinessCustomTermsClientTermOptionSid;
     WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["RESIDENT"] = 16] = "RESIDENT";
     /** Student */
     WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["STUDENT"] = 17] = "STUDENT";
+    /** Swimmer */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["SWIMMER"] = 4] = "SWIMMER";
 })(WlBusinessCustomTermsClientTermOptionSid || (exports.WlBusinessCustomTermsClientTermOptionSid = WlBusinessCustomTermsClientTermOptionSid = {}));
 /** List of possible plans for CollectionsSubscription subscription. */
 var WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid;
