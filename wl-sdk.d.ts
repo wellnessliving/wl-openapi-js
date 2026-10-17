@@ -7851,14 +7851,35 @@ export interface WlTicketTicketListResponse {
         i_attend: number;
         /** Number of tickets in the order, cancelled ones included. */
         i_ticket: number;
+        /** `true` if the buyer has an email address on file. `false` for a guest. */
+        is_email: boolean;
         /** `true` if the order was bought by a guest, who has no profile. In this case `text_name` is empty. */
         is_guest: boolean;
         /** Number of the order: key of the purchase the tickets were bought with. Key of the purchase. */
         k_purchase: string;
+        /** Amount refunded for the tickets of the order, with the currency {@link WlTicketTicketListResponse... */
+        m_refund: string;
+        /** Amount of the tickets of the order after discounts and before taxes, with the currency */
+        m_subtotal: string;
+        /** Surcharge taken for the purchase of the order. `0` if there is none. Decimal string. */
+        m_surcharge: string;
+        /** Taxes of the tickets of the order, with the currency {@link WlTicketTicketListResponse.k_currency... */
+        m_tax: string;
         /** Total paid for the tickets of the order, net of refunds, with the currency */
         m_total: string;
         /** Full name of the buyer. Empty for a guest. */
         text_name: string;
+        /** Key of the buyer, for the link to the profile. `null` for a guest. */
+        uid: string | null;
+        /** Link to the page with all tickets of the order, to view and print them. See */
+        url_viewer: string;
+    }>;
+    /** Staff members of the session, who lead it. Every item has the next structure: */
+    a_staff: Array<{
+        /** Full name of the staff member. */
+        text_name: string;
+        /** Key of the staff member. */
+        uid: string;
     }>;
     /** Tickets of the session, cancelled ones included. Every item has the next structure: */
     a_ticket: Array<{
@@ -7876,6 +7897,8 @@ export interface WlTicketTicketListResponse {
         is_cancel: boolean;
         /** Whether the ticket is paid. `false` if it was reserved to be paid at the door: its session pass i... */
         is_paid: boolean;
+        /** Whether something was refunded for the ticket, see `m_refund`. Unlike `is_cancel`, a refunded tic... */
+        is_refund: boolean;
         /** Order of the ticket, see {@link WlTicketTicketListResponse.a_order}. */
         k_purchase: string;
         /** Key of the ticket, the one {@link WlTicketNamespace#ticketScan} takes. */
@@ -7892,6 +7915,17 @@ export interface WlTicketTicketListResponse {
         text_ticket_code: string;
         /** Name of the ticket type. */
         text_type: string;
+        /** Link to the page with this ticket for view and print. See TicketViewController::urlTicket(). */
+        url_viewer: string;
+    }>;
+    /** Ticket types of the event, including the ones with nothing sold. Hidden types are listed only if ... */
+    a_ticket_option: Array<{
+        /** Key of the ticket type. */
+        k_ticket_option: string;
+        /** Price of one ticket of the type, with the currency {@link WlTicketTicketListResponse.k_currency}.... */
+        m_price: string;
+        /** Name of the ticket type. */
+        text_title: string;
     }>;
     /** End of the session, in the local time of the location, MySQL format. */
     dtl_end: string;
@@ -7903,6 +7937,10 @@ export interface WlTicketTicketListResponse {
     i_capacity: number;
     /** Number of tickets sold for the session, not counting cancelled ones. */
     i_sold: number;
+    /** Whether the session has ended. */
+    is_past: boolean;
+    /** Whether the current staff member can see the sales report. Money fields are always returned, the ... */
+    is_sales_report: boolean;
     /** Whether tickets of the session can still be sold: there are free seats, and the session has not e... */
     is_sell: boolean;
     /** Key of the currency of all amounts of the answer. */
@@ -7911,6 +7949,8 @@ export interface WlTicketTicketListResponse {
     m_total: string;
     /** Name of the event, with no date in it. */
     text_title: string;
+    /** Link to book the session directly. Empty: the link is not provided yet. */
+    url_booking: string;
 }
 export type WlTicketTicketUndoParams = Record<string, unknown>;
 export interface WlTicketTicketUndoResponse {

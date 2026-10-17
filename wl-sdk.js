@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261016143853
+ * Spec version: 1.1.20261017064353
  * Build date:   2026-10-17
  * Endpoints:    679
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261016143853';
+  WlClient.SPEC_VERSION = '1.1.20261017064353';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (679 total)
@@ -1370,16 +1370,21 @@
    * @returns {Promise<Object>} Response data.
    *  `a_location` {Object} Location of the session. Has the next structure:
    *  `a_order` {Object[]} Orders of the session, from the most recent purchase to the oldest one. Every...
+   *  `a_staff` {Object[]} Staff members of the session, who lead it. Every item has the next structure:
    *  `a_ticket` {Object[]} Tickets of the session, cancelled ones included. Every item has the next stru...
+   *  `a_ticket_option` {Object[]} Ticket types of the event, including the ones with nothing sold. Hidden types...
    *  `dtl_end` {string} End of the session, in the local time of the location, MySQL format.
    *  `dtl_start` {string} Start of the session, in the local time of the location, MySQL format.
    *  `i_attend` {number} Number of tickets of the session that are checked in.
    *  `i_capacity` {number} Number of tickets that can be sold for the event.
    *  `i_sold` {number} Number of tickets sold for the session, not counting cancelled ones.
+   *  `is_past` {boolean} Whether the session has ended.
+   *  `is_sales_report` {boolean} Whether the current staff member can see the sales report. Money fields are a...
    *  `is_sell` {boolean} Whether tickets of the session can still be sold: there are free seats, and t...
    *  `k_currency` {string} Key of the currency of all amounts of the answer.
    *  `m_total` {string} Total paid for the tickets of the session, net of refunds. Decimal string, in...
    *  `text_title` {string} Name of the event, with no date in it.
+   *  `url_booking` {string} Link to book the session directly. Empty: the link is not provided yet.
    */
   WlClient.prototype.wlTicketTicketList = function(params)
   {
@@ -8345,6 +8350,11 @@
 
   /**
    * Sends the confirmation of the purchase with the tickets.
+   *
+   * Checks the access to the purchase, finds the order of tickets of the purchase, and sends the email with the
+   * tickets and their QR codes to the buyer, or to `text_mail` if it is given. The email is not sent if the pattern
+   * is turned off in the business, or if the buyer has turned it off in the notification settings and no address is
+   * given. The codes of the errors are listed in the description of the class.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
