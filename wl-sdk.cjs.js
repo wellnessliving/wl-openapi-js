@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261017111500
+// OpenAPI spec version: 1.1.20261017124615
 // Build date: 2026-10-17
-// Endpoints: 680
+// Endpoints: 681
 // Enums: 225
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsScheduleTimeSid = exports.WlEventDenyReasonSid = exports.RsPurchaseItemSid = exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.CoreSidYesNoSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.AFlagSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsPrivilegeRoleSid = exports.RsPayMethodSid = exports.RsProjectSid = exports.RsHomeTourSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AGenderSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlTaskTaskStatusSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlApiError = void 0;
@@ -8315,6 +8315,10 @@ class WlTicketNamespace {
     /** Undoes the check-in of the ticket. */
     ticketUndo(params) {
         return this._client._request('/Wl/Ticket/TicketUndo.json', params, 'POST');
+    }
+    /** Checks in the tickets. */
+    ticketScanList(params) {
+        return this._client._request('/Wl/Ticket/TicketScanList.json', params, 'POST');
     }
 }
 exports.WlTicketNamespace = WlTicketNamespace;

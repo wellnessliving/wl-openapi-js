@@ -7959,6 +7959,20 @@ export interface WlTicketTicketUndoResponse {
     /** Number of the tickets sold for the session: not cancelled ones, including those whose holders hav... */
     i_sold: number;
 }
+export type WlTicketTicketScanListParams = Record<string, unknown>;
+export interface WlTicketTicketScanListResponse {
+    /** Outcome of every ticket of the request, in the order of {@link WlTicketNamespace#ticketScanList} ... */
+    a_result: Array<{
+        /** Outcome of the ticket, see the description of the class. */
+        id_outcome: string;
+        /** Key of the ticket, as it was sent. */
+        k_ticket_item: string;
+    }>;
+    /** Number of the tickets already checked in for the session, after the call. Returned once for the w... */
+    i_attend: number;
+    /** Number of the tickets sold for the session, after the call: not cancelled ones, including those w... */
+    i_sold: number;
+}
 export interface WlEventEventCancelParams {
     /** `true` is late cancel, `false` reservation is not late cancel. */
     is_late_cancel: boolean;
@@ -33746,6 +33760,8 @@ export declare class WlTicketNamespace {
     ticketList(params?: WlTicketTicketListParams): Promise<WlTicketTicketListResponse>;
     /** Undoes the check-in of the ticket. */
     ticketUndo(params?: WlTicketTicketUndoParams): Promise<WlTicketTicketUndoResponse>;
+    /** Checks in the tickets. */
+    ticketScanList(params?: WlTicketTicketScanListParams): Promise<WlTicketTicketScanListResponse>;
 }
 export declare class WlEventBookEventViewNamespace {
     private readonly _client;

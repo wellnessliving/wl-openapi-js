@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261017111500
+ * Spec version: 1.1.20261017124615
  * Build date:   2026-10-17
- * Endpoints:    680
+ * Endpoints:    681
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261017111500';
+  WlClient.SPEC_VERSION = '1.1.20261017124615';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (680 total)
+  // Generated API methods (681 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -1406,6 +1406,23 @@
   WlClient.prototype.wlTicketTicketUndo = function(params)
   {
     return this.request('/Wl/Ticket/TicketUndo.json', params || {}, 'POST');
+  };
+
+  /**
+   * Checks in the tickets.
+   *
+   * Validates the business and the access of the current user to it once for the whole call, then checks in every
+   * ticket on its own and loads the counters of the session once, after all of them.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `a_result` {Object[]} Outcome of every ticket of the request, in the order of {@link WlClient#wlTic...
+   *  `i_attend` {number} Number of the tickets already checked in for the session, after the call. Ret...
+   *  `i_sold` {number} Number of the tickets sold for the session, after the call: not cancelled one...
+   */
+  WlClient.prototype.wlTicketTicketScanList = function(params)
+  {
+    return this.request('/Wl/Ticket/TicketScanList.json', params || {}, 'POST');
   };
 
   /**
