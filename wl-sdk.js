@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261017064353
+ * Spec version: 1.1.20261017111500
  * Build date:   2026-10-17
- * Endpoints:    679
+ * Endpoints:    680
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261017064353';
+  WlClient.SPEC_VERSION = '1.1.20261017111500';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (679 total)
+  // Generated API methods (680 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -13975,6 +13975,26 @@
   };
 
   /**
+   * Returns a list of login promotions with available guest passes for a visit.
+   *
+   * Searches for members who have active class memberships with guest pass balance
+   * applicable to the class and location of the given visit. Each result item represents
+   * one eligible login promotion, not one user: if a member has several qualifying memberships,
+   * each appears as a separate item.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_visit_search Visit key of the attendee for whom the list of guest passes is requested.
+   * @param {string} params.text_search Text to search guest pass hosts by (for example, a member name).
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_promotion` {Object[]} A list of login promotions with available guest passes for the given visit.
+   */
+  WlClient.prototype.wlLoginPromotionGuestPassApplyApplyGet = function(params)
+  {
+    return this.request('/Wl/Login/Promotion/GuestPass/Apply/Apply.json', params || {}, 'GET');
+  };
+
+  /**
    * Applies the guest pass of the specified login promotion to the attendee's visit.
    *
    * If the visit is already paid (with a regular session pass or an existing guest pass),
@@ -13984,7 +14004,7 @@
    * @param {string} params.k_business Business key.
    * @returns {Promise<Object>} Response data.
    */
-  WlClient.prototype.wlLoginPromotionGuestPassApplyApply = function(params)
+  WlClient.prototype.wlLoginPromotionGuestPassApplyApplyPost = function(params)
   {
     return this.request('/Wl/Login/Promotion/GuestPass/Apply/Apply.json', params || {}, 'POST');
   };

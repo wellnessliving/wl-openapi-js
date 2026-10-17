@@ -31386,11 +31386,32 @@ export interface WlLoginPromotionGuestPassInviteInvitePutParams {
     s_secret: string;
 }
 export type WlLoginPromotionGuestPassInviteInvitePutResponse = Record<string, unknown>;
-export interface WlLoginPromotionGuestPassApplyApplyParams {
+export interface WlLoginPromotionGuestPassApplyApplyGetParams {
+    /** Business key. */
+    k_business: string;
+    /** Visit key of the attendee for whom the list of guest passes is requested. */
+    k_visit_search: string;
+    /** Text to search guest pass hosts by (for example, a member name). */
+    text_search: string;
+}
+export interface WlLoginPromotionGuestPassApplyApplyGetResponse {
+    /** A list of login promotions with available guest passes for the given visit. */
+    a_login_promotion: Array<{
+        /** Login promotion key. */
+        k_login_promotion: string;
+        /** Remaining guest pass balance description for this login promotion. */
+        text_description: string;
+        /** Name of the host member who owns this guest pass. */
+        text_title: string;
+        /** Key of the host member who owns this guest pass. */
+        uid: string;
+    }>;
+}
+export interface WlLoginPromotionGuestPassApplyApplyPostParams {
     /** Business key. */
     k_business: string;
 }
-export type WlLoginPromotionGuestPassApplyApplyResponse = Record<string, unknown>;
+export type WlLoginPromotionGuestPassApplyApplyPostResponse = Record<string, unknown>;
 export type WlLoginPromotionGuestPassClaimClaimParams = Record<string, unknown>;
 export type WlLoginPromotionGuestPassClaimClaimResponse = Record<string, unknown>;
 export interface WlLoginAttendanceStaffAppVirtualJoinParams {
@@ -32534,8 +32555,10 @@ export declare class WlLoginPromotionGuestPassInviteNamespace {
 export declare class WlLoginPromotionGuestPassApplyNamespace {
     private readonly _client;
     constructor(_client: WlClient);
+    /** Returns a list of login promotions with available guest passes for a visit. */
+    applyGet(params?: WlLoginPromotionGuestPassApplyApplyGetParams): Promise<WlLoginPromotionGuestPassApplyApplyGetResponse>;
     /** Applies the guest pass of the specified login promotion to the attendee's visit. */
-    apply(params?: WlLoginPromotionGuestPassApplyApplyParams): Promise<WlLoginPromotionGuestPassApplyApplyResponse>;
+    applyPost(params?: WlLoginPromotionGuestPassApplyApplyPostParams): Promise<WlLoginPromotionGuestPassApplyApplyPostResponse>;
 }
 export declare class WlLoginPromotionGuestPassClaimNamespace {
     private readonly _client;

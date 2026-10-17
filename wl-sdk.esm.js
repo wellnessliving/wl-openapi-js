@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261017064353
+// OpenAPI spec version: 1.1.20261017111500
 // Build date: 2026-10-17
-// Endpoints: 679
+// Endpoints: 680
 // Enums: 225
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -6289,8 +6289,12 @@ export class WlLoginPromotionGuestPassApplyNamespace {
     constructor(_client) {
         this._client = _client;
     }
+    /** Returns a list of login promotions with available guest passes for a visit. */
+    applyGet(params) {
+        return this._client._request('/Wl/Login/Promotion/GuestPass/Apply/Apply.json', params, 'GET');
+    }
     /** Applies the guest pass of the specified login promotion to the attendee's visit. */
-    apply(params) {
+    applyPost(params) {
         return this._client._request('/Wl/Login/Promotion/GuestPass/Apply/Apply.json', params, 'POST');
     }
 }
