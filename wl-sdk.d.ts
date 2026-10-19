@@ -23131,7 +23131,7 @@ export interface WlPayFormSurchargeSurchargeTenderParams {
     s_bin?: string | null;
 }
 export interface WlPayFormSurchargeSurchargeTenderResponse {
-    /** Whether a surcharge is allowed for the card identified by SurchargeTenderApi::$s_bin or */
+    /** Whether a surcharge is allowed for the card identified by */
     is_allowed: boolean;
 }
 export interface WlPayBankCardListParams {

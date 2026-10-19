@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261019134417
+ * Spec version: 1.1.20261019223129
  * Build date:   2026-10-19
  * Endpoints:    685
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261019134417';
+  WlClient.SPEC_VERSION = '1.1.20261019223129';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (685 total)
@@ -9681,7 +9681,7 @@
    * @param {?string} [params.k_pay_bank] Key of a saved card to preview.
    * @param {?string} [params.s_bin] First digits of a newly-typed card number (at least 6).
    * @returns {Promise<Object>} Response data.
-   *  `is_allowed` {boolean} Whether a surcharge is allowed for the card identified by SurchargeTenderApi:...
+   *  `is_allowed` {boolean} Whether a surcharge is allowed for the card identified by
    */
   WlClient.prototype.wlPayFormSurchargeSurchargeTender = function(params)
   {
