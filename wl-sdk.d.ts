@@ -3725,6 +3725,15 @@ export declare enum WlShopCategoryShopCategorySortSid {
     /** Sort by name/title */
     NAME = 1
 }
+/** List of quick purchase item types. */
+export declare enum WlCatalogQuickPurchaseTypeSid {
+    /** Classes */
+    CLASSES = 224,
+    /** Resource */
+    RESOURCE = 681,
+    /** Service */
+    SERVICE = 690
+}
 /** Action that a client or staff performs with terms and conditions of cart items. */
 export declare enum WlCatalogTermsTermsActionSid {
     /** Terms and conditions are accepted */
@@ -4487,15 +4496,6 @@ export declare enum WlQuizResponseSourceSid {
     PURCHASE = 4,
     /** Quiz response received during registration process */
     REGISTRATION = 3
-}
-/** List of quick purchase item types. */
-export declare enum WlCatalogQuickPurchaseTypeSid {
-    /** Classes */
-    CLASSES = 224,
-    /** Resource */
-    RESOURCE = 681,
-    /** Service */
-    SERVICE = 690
 }
 /** Types of the shapes. */
 export declare enum WlResourceLayoutShapeLayoutShapeSid {
@@ -17463,8 +17463,10 @@ export interface WlClassesEditorClassEditorGetResponse {
     html_quick_buy: string;
     /** Markup of the Taxes block of the form. */
     html_tax: string;
-    /** Maximum length of description. */
+    /** Maximum length of the description of a class that is not virtual. */
     i_description_limit: number;
+    /** Maximum length of the description of a virtual class. */
+    i_description_limit_virtual: number;
     /** `true` if the Administration section may be shown, `false` otherwise. */
     is_admin: boolean;
     /** `true` if the birthdate is a required field of the client profile of the business, `false` otherw... */
@@ -24085,6 +24087,22 @@ export interface WlProfileAttendanceSchedulePaymentMultiplePostParams {
 export interface WlProfileAttendanceSchedulePaymentMultiplePostResponse {
     /** Url for redirect after applying existing purchase options. */
     url_redirect: string;
+}
+export interface WlProfileOverviewQuickContactQuickContactOptionParams {
+    /** Business key. */
+    k_business: string;
+    /** Client user key. */
+    uid: string;
+}
+export interface WlProfileOverviewQuickContactQuickContactOptionResponse {
+    /** Whether the Brivo mobile pass invitation action is available for this client. */
+    is_brivo: boolean;
+    /** Whether the Password Reset email action is available for this client. */
+    is_password_reset: boolean;
+    /** Whether the Welcome email action is available for this client. */
+    is_welcome: boolean;
+    /** Whether the Welcome email has already been sent to this client. */
+    is_welcome_sent: boolean;
 }
 export interface WlProfileAccountSelectSelectGetParams {
     /** Business to retrieve relationship information. */
@@ -30902,6 +30920,28 @@ export interface WlSkinApplicationConnectApplicationConnectResponse {
     /** Key of the created or updated application. */
     k_spa_application: string;
 }
+export interface WlDoorAccessBrivoInvitationBrivoUserInvitationGetParams {
+    /** Business key. */
+    k_business: string;
+    /** UID of a user for whom an invitation should be sent. */
+    uid: string;
+}
+export interface WlDoorAccessBrivoInvitationBrivoUserInvitationGetResponse {
+    /** Whether the client has a Brivo invitation, and is present in the client's group with Brivo invita... */
+    has_brivo_invitation: boolean;
+    /** This will be `true` an invitation is redeemed see BrivoInvitationStatusEnum, `false` otherwise. */
+    is_redeem: boolean;
+}
+export interface WlDoorAccessBrivoInvitationBrivoUserInvitationPostParams {
+    /** Business key. */
+    k_business: string;
+    /** UID of a user for whom an invitation should be sent. */
+    uid: string;
+}
+export interface WlDoorAccessBrivoInvitationBrivoUserInvitationPostResponse {
+    /** This will be `true` an invitation is redeemed see BrivoInvitationStatusEnum, `false` otherwise. */
+    is_redeem: boolean;
+}
 export interface WlInsuranceEnrollmentFieldEnrollmentFieldListGetParams {
     /** The key of the business in which the enrollment is performed. */
     k_business: string;
@@ -32845,8 +32885,15 @@ export declare class WlProfileAttendanceNamespace {
     /** Returns a list of visits that overlap with the specified service, class, resource, or time data. */
     attendanceOverlap(params?: WlProfileAttendanceAttendanceOverlapParams): Promise<WlProfileAttendanceAttendanceOverlapResponse>;
 }
+export declare class WlProfileOverviewQuickContactNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns notification availability flags for the specified client. */
+    quickContactOption(params?: WlProfileOverviewQuickContactQuickContactOptionParams): Promise<WlProfileOverviewQuickContactQuickContactOptionResponse>;
+}
 export declare class WlProfileOverviewNamespace {
     private readonly _client;
+    readonly quickContact: WlProfileOverviewQuickContactNamespace;
     constructor(_client: WlClient);
     /** This method is called to process POST query. */
     sendMail(params?: WlProfileOverviewSendMailParams): Promise<WlProfileOverviewSendMailResponse>;
@@ -35591,6 +35638,24 @@ export declare class WlPageNamespace {
     readonly backend: WlPageBackendNamespace;
     constructor(_client: WlClient);
 }
+export declare class WlDoorAccessBrivoInvitationNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the redemption status of the Brivo mobile pass invitation. */
+    brivoUserInvitationGet(params?: WlDoorAccessBrivoInvitationBrivoUserInvitationGetParams): Promise<WlDoorAccessBrivoInvitationBrivoUserInvitationGetResponse>;
+    /** Sends a Brivo mobile pass invitation to a client. */
+    brivoUserInvitationPost(params?: WlDoorAccessBrivoInvitationBrivoUserInvitationPostParams): Promise<WlDoorAccessBrivoInvitationBrivoUserInvitationPostResponse>;
+}
+export declare class WlDoorAccessBrivoNamespace {
+    private readonly _client;
+    readonly invitation: WlDoorAccessBrivoInvitationNamespace;
+    constructor(_client: WlClient);
+}
+export declare class WlDoorAccessNamespace {
+    private readonly _client;
+    readonly brivo: WlDoorAccessBrivoNamespace;
+    constructor(_client: WlClient);
+}
 export declare class WlNamespace {
     private readonly _client;
     readonly login: WlLoginNamespace;
@@ -35658,6 +35723,7 @@ export declare class WlNamespace {
     readonly google: WlGoogleNamespace;
     readonly social: WlSocialNamespace;
     readonly page: WlPageNamespace;
+    readonly doorAccess: WlDoorAccessNamespace;
     constructor(_client: WlClient);
 }
 export declare class ThothExplorerSearchClassSessionNamespace {

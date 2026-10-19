@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261019105130
+ * Spec version: 1.1.20261019121039
  * Build date:   2026-10-19
- * Endpoints:    681
+ * Endpoints:    684
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261019105130';
+  WlClient.SPEC_VERSION = '1.1.20261019121039';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (681 total)
+  // Generated API methods (684 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -6012,6 +6012,10 @@
   /**
    * Performs {@link WlClient#wlCatalogTermsTerms} for every item of {@link WlClient#wlCatalogTermsTerms}.
    *
+   * Agreeing or skipping marks the cart items as resolved, so the client can proceed to checkout. Declining removes
+   * the items from the cart, and {@link WlClient#wlCatalogTermsTerms} is returned if the cart became empty. Skipping is
+   * available only in the point of sale.
+   *
    * @param {Object} [params] Request parameters.
    * @param {number} params.id_place From where request comes. One of {@link WlClient.RsPlaceSid}.
    * @returns {Promise<Object>} Response data.
@@ -6418,14 +6422,14 @@
    *  `html_promotion` {string} Markup of the Purchase Options block of the form.
    *  `html_quick_buy` {string} Markup of the Quick Buy block of the form.
    *  `html_tax` {string} Markup of the Taxes block of the form.
-   *  `i_description_limit` {number} Maximum length of description.
+   *  `i_description_limit` {number} Maximum length of the description of a class that is not virtual.
+   *  `i_description_limit_virtual` {number} Maximum length of the description of a virtual class.
    *  `is_admin` {boolean} `true` if the Administration section may be shown, `false` otherwise.
    *  `is_birthday_require` {boolean} `true` if the birthdate is a required field of the client profile of the busi...
    *  `is_currency_before` {boolean} `true` if the sign of the currency of the business is written before the amou...
    *  `is_event_type_lock` {boolean} `true` if the event may no longer be turned into a ticketed one, or back from...
    *  `is_fitlive` {boolean} `true` if the business may use the FitLIVE virtual provider, `false` otherwise.
    *  `is_gym_pass_support` {boolean} `true` if the business may offer the class on Wellhub, `false` otherwise.
-   *  `is_ticket_card_require` {boolean} `true` if a new client of the business must add a card at sign-up, `false` ot...
    *  `...` {*}
    */
   WlClient.prototype.wlClassesEditorClassEditorGet = function(params)
@@ -10342,6 +10346,27 @@
   };
 
   /**
+   * Returns notification availability flags for the specified client.
+   *
+   * Checks whether the Welcome email, Password Reset email and Brivo mobile pass invitation
+   * actions are available for the client identified by {@link WlClient#wlProfileOverviewQuickContactQuickContactOption}
+   * and {@link WlClient#wlProfileOverviewQuickContactQuickContactOption}.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.uid Client user key.
+   * @returns {Promise<Object>} Response data.
+   *  `is_brivo` {boolean} Whether the Brivo mobile pass invitation action is available for this client.
+   *  `is_password_reset` {boolean} Whether the Password Reset email action is available for this client.
+   *  `is_welcome` {boolean} Whether the Welcome email action is available for this client.
+   *  `is_welcome_sent` {boolean} Whether the Welcome email has already been sent to this client.
+   */
+  WlClient.prototype.wlProfileOverviewQuickContactQuickContactOption = function(params)
+  {
+    return this.request('/Wl/Profile/Overview/QuickContact/QuickContactOption.json', params || {}, 'GET');
+  };
+
+  /**
    * Retrieves information about user specified in {@link WlClient#wlProfileAccountSelectSelectGet}
   and his relationship with sub accounts.
    *
@@ -13602,6 +13627,43 @@
   WlClient.prototype.wlSkinApplicationConnectApplicationConnect = function(params)
   {
     return this.request('/Wl/Skin/Application/Connect/ApplicationConnect.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns the redemption status of the Brivo mobile pass invitation.
+   *
+   * Sets {@link WlClient#wlDoorAccessBrivoInvitationBrivoUserInvitationGet} to `true` if an invitation is redeemed,
+   * and to `false` otherwise. Retrieves an invitation status from the database; when it is not
+   * redeemed, the invitation data is retrieved from Brivo. Controls the time of the last update
+   * of the invitation data and updates it if necessary.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.uid UID of a user for whom an invitation should be sent.
+   * @returns {Promise<Object>} Response data.
+   *  `has_brivo_invitation` {boolean} Whether the client has a Brivo invitation, and is present in the client's gro...
+   *  `is_redeem` {boolean} This will be `true` an invitation is redeemed see BrivoInvitationStatusEnum, ...
+   */
+  WlClient.prototype.wlDoorAccessBrivoInvitationBrivoUserInvitationGet = function(params)
+  {
+    return this.request('/Wl/DoorAccess/Brivo/Invitation/BrivoUserInvitation.json', params || {}, 'GET');
+  };
+
+  /**
+   * Sends a Brivo mobile pass invitation to a client.
+   *
+   * Processes a request for Brivo mobile pass invitation for a client. If the invitation
+   * has not been redeemed, schedules a task to send it.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.uid UID of a user for whom an invitation should be sent.
+   * @returns {Promise<Object>} Response data.
+   *  `is_redeem` {boolean} This will be `true` an invitation is redeemed see BrivoInvitationStatusEnum, ...
+   */
+  WlClient.prototype.wlDoorAccessBrivoInvitationBrivoUserInvitationPost = function(params)
+  {
+    return this.request('/Wl/DoorAccess/Brivo/Invitation/BrivoUserInvitation.json', params || {}, 'POST');
   };
 
   /**
@@ -18968,6 +19030,20 @@
   });
 
   /**
+   * List of quick purchase item types.
+   *
+   * @enum {number}
+   */
+  WlClient.WlCatalogQuickPurchaseTypeSid = Object.freeze({
+    /** Classes */
+    CLASSES: 224,
+    /** Resource */
+    RESOURCE: 681,
+    /** Service */
+    SERVICE: 690,
+  });
+
+  /**
    * Action that a client or staff performs with terms and conditions of cart items.
    *
    * @enum {number}
@@ -19853,20 +19929,6 @@
     PURCHASE: 4,
     /** Quiz response received during registration process */
     REGISTRATION: 3,
-  });
-
-  /**
-   * List of quick purchase item types.
-   *
-   * @enum {number}
-   */
-  WlClient.WlCatalogQuickPurchaseTypeSid = Object.freeze({
-    /** Classes */
-    CLASSES: 224,
-    /** Resource */
-    RESOURCE: 681,
-    /** Service */
-    SERVICE: 690,
   });
 
   /**

@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261019105130
+// OpenAPI spec version: 1.1.20261019121039
 // Build date: 2026-10-19
-// Endpoints: 681
+// Endpoints: 684
 // Enums: 225
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -3842,6 +3842,16 @@ export var WlShopCategoryShopCategorySortSid;
     /** Sort by name/title */
     WlShopCategoryShopCategorySortSid[WlShopCategoryShopCategorySortSid["NAME"] = 1] = "NAME";
 })(WlShopCategoryShopCategorySortSid || (WlShopCategoryShopCategorySortSid = {}));
+/** List of quick purchase item types. */
+export var WlCatalogQuickPurchaseTypeSid;
+(function (WlCatalogQuickPurchaseTypeSid) {
+    /** Classes */
+    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["CLASSES"] = 224] = "CLASSES";
+    /** Resource */
+    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["RESOURCE"] = 681] = "RESOURCE";
+    /** Service */
+    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["SERVICE"] = 690] = "SERVICE";
+})(WlCatalogQuickPurchaseTypeSid || (WlCatalogQuickPurchaseTypeSid = {}));
 /** Action that a client or staff performs with terms and conditions of cart items. */
 export var WlCatalogTermsTermsActionSid;
 (function (WlCatalogTermsTermsActionSid) {
@@ -4630,16 +4640,6 @@ export var WlQuizResponseSourceSid;
     /** Quiz response received during registration process */
     WlQuizResponseSourceSid[WlQuizResponseSourceSid["REGISTRATION"] = 3] = "REGISTRATION";
 })(WlQuizResponseSourceSid || (WlQuizResponseSourceSid = {}));
-/** List of quick purchase item types. */
-export var WlCatalogQuickPurchaseTypeSid;
-(function (WlCatalogQuickPurchaseTypeSid) {
-    /** Classes */
-    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["CLASSES"] = 224] = "CLASSES";
-    /** Resource */
-    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["RESOURCE"] = 681] = "RESOURCE";
-    /** Service */
-    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["SERVICE"] = 690] = "SERVICE";
-})(WlCatalogQuickPurchaseTypeSid || (WlCatalogQuickPurchaseTypeSid = {}));
 /** Types of the shapes. */
 export var WlResourceLayoutShapeLayoutShapeSid;
 (function (WlResourceLayoutShapeLayoutShapeSid) {
@@ -6719,9 +6719,19 @@ export class WlProfileAttendanceNamespace {
         return this._client._request('/Wl/Profile/Attendance/AttendanceOverlap.json', params, 'GET');
     }
 }
+export class WlProfileOverviewQuickContactNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns notification availability flags for the specified client. */
+    quickContactOption(params) {
+        return this._client._request('/Wl/Profile/Overview/QuickContact/QuickContactOption.json', params, 'GET');
+    }
+}
 export class WlProfileOverviewNamespace {
     constructor(_client) {
         this._client = _client;
+        this.quickContact = new WlProfileOverviewQuickContactNamespace(this._client);
     }
     /** This method is called to process POST query. */
     sendMail(params) {
@@ -10888,6 +10898,31 @@ export class WlPageNamespace {
         this.backend = new WlPageBackendNamespace(this._client);
     }
 }
+export class WlDoorAccessBrivoInvitationNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the redemption status of the Brivo mobile pass invitation. */
+    brivoUserInvitationGet(params) {
+        return this._client._request('/Wl/DoorAccess/Brivo/Invitation/BrivoUserInvitation.json', params, 'GET');
+    }
+    /** Sends a Brivo mobile pass invitation to a client. */
+    brivoUserInvitationPost(params) {
+        return this._client._request('/Wl/DoorAccess/Brivo/Invitation/BrivoUserInvitation.json', params, 'POST');
+    }
+}
+export class WlDoorAccessBrivoNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.invitation = new WlDoorAccessBrivoInvitationNamespace(this._client);
+    }
+}
+export class WlDoorAccessNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.brivo = new WlDoorAccessBrivoNamespace(this._client);
+    }
+}
 export class WlNamespace {
     constructor(_client) {
         this._client = _client;
@@ -10956,6 +10991,7 @@ export class WlNamespace {
         this.google = new WlGoogleNamespace(this._client);
         this.social = new WlSocialNamespace(this._client);
         this.page = new WlPageNamespace(this._client);
+        this.doorAccess = new WlDoorAccessNamespace(this._client);
     }
 }
 export class ThothExplorerSearchClassSessionNamespace {
