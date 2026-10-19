@@ -15176,7 +15176,7 @@ export interface WlCatalogCatalogListElementGetResponse {
         };
         /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
         a_staff: {
-            /** <b style="color: red">Deprecated.</b> Legacy staff key. */
+            /** **DEPRECATED** Legacy staff key. */
             k_staff: string;
             /** Staff user key. */
             uid_staff: string;
@@ -15517,7 +15517,7 @@ export interface WlCatalogCatalogListElementPostResponse {
         };
         /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
         a_staff: {
-            /** <b style="color: red">Deprecated.</b> Legacy staff key. */
+            /** **DEPRECATED** Legacy staff key. */
             k_staff: string;
             /** Staff user key. */
             uid_staff: string;
@@ -26208,7 +26208,7 @@ export interface WlCatalogStaffAppCatalogCommissionCatalogCommissionParams {
 export interface WlCatalogStaffAppCatalogCommissionCatalogCommissionResponse {
     /** Default staff commission for current client. Includes: */
     a_commission_default: Array<{
-        /** <b>Deprecated.</b> Staff key. */
+        /** **DEPRECATED** Staff key. */
         k_staff: string;
         /** Staff pay key. */
         k_staff_pay: string;
@@ -26230,7 +26230,7 @@ export interface WlCatalogStaffAppCatalogCommissionCatalogCommissionResponse {
             /** Staff pay key. */
             k_staff_pay: string;
         };
-        /** <b style="color: red">Deprecated</b> Staff key. */
+        /** **DEPRECATED** Staff key. */
         k_staff: string;
         /** Name of staff. */
         html_name: string;
@@ -27282,7 +27282,7 @@ export interface WlAppointmentBookScheduleCalendar73Response {
         i_wait: number;
         /** Whether the appointment can be booked only in a wait list. */
         is_waitlist: boolean;
-        /** <b style="color: red">Deprecated.</b> If this time is already occupied by any client and staff me... */
+        /** **DEPRECATED** If this time is already occupied by any client and staff member */
         k_staff: string;
         /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
         uid_staff: string;
@@ -27390,7 +27390,7 @@ export interface WlAppointmentBookScheduleDayTime73Response {
         i_wait: number;
         /** Whether the appointment can be booked only in a wait list. */
         is_waitlist: boolean;
-        /** <b style="color: red">Deprecated.</b> If this time is already occupied by any client and staff me... */
+        /** **DEPRECATED** If this time is already occupied by any client and staff member */
         k_staff: string;
         /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
         uid_staff: string;
@@ -27467,7 +27467,7 @@ export interface WlAppointmentBookScheduleDayTimeResponse {
         i_wait: number;
         /** Whether the appointment can be booked only in a wait list. */
         is_waitlist: boolean;
-        /** <b style="color: red">Deprecated.</b> If this time is already occupied by any client and staff me... */
+        /** **DEPRECATED** If this time is already occupied by any client and staff member */
         k_staff: string;
         /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
         uid_staff: string;
@@ -27592,7 +27592,7 @@ export interface WlAppointmentBookScheduleCalendarResponse {
         i_wait: number;
         /** Whether the appointment can be booked only in a wait list. */
         is_waitlist: boolean;
-        /** <b style="color: red">Deprecated.</b> If this time is already occupied by any client and staff me... */
+        /** **DEPRECATED** If this time is already occupied by any client and staff member */
         k_staff: string;
         /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
         uid_staff: string;
@@ -28957,7 +28957,7 @@ export interface WlAppointmentBookStaffListResponse {
         is_daily_limit: boolean;
         /** Whether staff member available only for wait list booking. */
         is_wait_list: boolean;
-        /** <b style="color: red">Deprecated.</b> Legacy staff key.  Returned only for allow-listed apps. */
+        /** **DEPRECATED** Legacy staff key.  Returned only for allow-listed apps. */
         k_staff: string;
         /** Position of the staff member in the business. */
         s_position: string;
@@ -29012,7 +29012,7 @@ export interface WlAppointmentBookStaffStaffListResponse {
         is_daily_limit: boolean;
         /** Whether staff member available only for wait list booking. */
         is_wait_list: boolean;
-        /** <b style="color: red">Deprecated.</b> Legacy staff key.  Returned only for allow-listed apps. */
+        /** **DEPRECATED** Legacy staff key.  Returned only for allow-listed apps. */
         k_staff: string;
         /** Position of the staff member in the business. */
         s_position: string;
@@ -30533,7 +30533,7 @@ export interface WlEventBookEventViewElementResponse {
         };
         /** A list of staff members who conduct the session. Every element has the following next keys: */
         a_staff: {
-            /** <b style="color: red">Deprecated.</b> Legacy staff key. Returned only for applications from allow... */
+            /** **DEPRECATED** Legacy staff key. Returned only for applications from allow-list. */
             k_staff: string;
             /** The staff member name. */
             s_name: string;
