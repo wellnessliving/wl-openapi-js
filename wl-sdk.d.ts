@@ -28599,6 +28599,36 @@ export interface WlAppointmentBookServiceServiceListResponse {
     /** Location to show available appointment booking schedule. */
     k_location: string;
 }
+export interface WlAppointmentBookServiceServiceListBusinessParams {
+    /** The business key. */
+    k_business: string;
+}
+export interface WlAppointmentBookServiceServiceListBusinessResponse {
+    /** A list of service categories of the business. */
+    a_category: Array<{
+        /** List of location keys where this category has at least one active service. */
+        a_location: Array<string>;
+        /** Sort order of the category. */
+        i_sort: number;
+        /** Service category key. */
+        k_service_category: string;
+        /** Service category title. */
+        s_title: string;
+    }>;
+    /** A list of appointment services of the business. */
+    a_service: Array<{
+        /** List of location keys where this service is available. */
+        a_location: Array<string>;
+        /** Sort order of the service within its category. */
+        i_sort: number;
+        /** Service key. */
+        k_service: string;
+        /** Service category key. */
+        k_service_category: string;
+        /** Service title. */
+        s_service: string;
+    }>;
+}
 export interface WlAppointmentBookFinishFinishGetParams {
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
@@ -34897,6 +34927,8 @@ export declare class WlAppointmentBookServiceNamespace {
     /** Retrieves information about services in the current service category. */
     /** @deprecated */
     serviceList(params?: WlAppointmentBookServiceServiceListParams): Promise<WlAppointmentBookServiceServiceListResponse>;
+    /** Retrieves the full list of appointment services and categories for a business. */
+    serviceListBusiness(params?: WlAppointmentBookServiceServiceListBusinessParams): Promise<WlAppointmentBookServiceServiceListBusinessResponse>;
 }
 export declare class WlAppointmentBookFinishNamespace {
     private readonly _client;

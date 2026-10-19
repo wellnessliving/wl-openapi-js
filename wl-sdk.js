@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261019131733
+ * Spec version: 1.1.20261019133303
  * Build date:   2026-10-19
- * Endpoints:    684
+ * Endpoints:    685
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261019131733';
+  WlClient.SPEC_VERSION = '1.1.20261019133303';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (684 total)
+  // Generated API methods (685 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -12382,6 +12382,26 @@
   WlClient.prototype.wlAppointmentBookServiceServiceList = function(params)
   {
     return this.request('/Wl/Appointment/Book/Service/ServiceList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Retrieves the full list of appointment services and categories for a business.
+   *
+   * Returns all active appointment services and their categories across every location of the business.
+   * Each service and category includes an array of location keys where it is available.
+   * All active services are returned: unlike the location-scoped list, the result is not filtered by class tab
+   * or by online bookability, and removed locations are skipped.
+   * The caller must be a staff member or admin of the business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business The business key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_category` {Object[]} A list of service categories of the business.
+   *  `a_service` {Object[]} A list of appointment services of the business.
+   */
+  WlClient.prototype.wlAppointmentBookServiceServiceListBusiness = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Service/ServiceListBusiness.json', params || {}, 'GET');
   };
 
   /**
