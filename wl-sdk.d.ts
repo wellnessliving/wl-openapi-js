@@ -7871,7 +7871,7 @@ export interface WlTicketTicketListResponse {
         text_name: string;
         /** Key of the buyer, for the link to the profile. `null` for a guest. */
         uid: string | null;
-        /** Link to the page with all tickets of the order, to view and print them. See */
+        /** Link to the page with all tickets of the order, to view and print them. . */
         url_viewer: string;
     }>;
     /** Staff members of the session, who lead it. Every item has the next structure: */
@@ -7915,7 +7915,7 @@ export interface WlTicketTicketListResponse {
         text_ticket_code: string;
         /** Name of the ticket type. */
         text_type: string;
-        /** Link to the page with this ticket for view and print. See TicketViewController::urlTicket(). */
+        /** Link to the page with this ticket for view and print. */
         url_viewer: string;
     }>;
     /** Ticket types of the event, including the ones with nothing sold. Hidden types are listed only if ... */
@@ -7964,7 +7964,7 @@ export interface WlTicketTicketScanListResponse {
     /** Outcome of every ticket of the request, in the order of {@link WlTicketNamespace#ticketScanList} ... */
     a_result: Array<{
         /** Outcome of the ticket, see the description of the class. */
-        id_outcome: string;
+        sid_outcome: string;
         /** Key of the ticket, as it was sent. */
         k_ticket_item: string;
     }>;
