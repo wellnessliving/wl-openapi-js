@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261020024444
+ * Spec version: 1.1.20261020041714
  * Build date:   2026-10-20
  * Endpoints:    684
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261020024444';
+  WlClient.SPEC_VERSION = '1.1.20261020041714';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (684 total)
@@ -2582,114 +2582,6 @@
   };
 
   /**
-   * Gets a secret from a connection token for the Stripe Terminal SDK.
-   *
-   * Validates the business merchant, the payer, and that the currency supports point-of-sale payments, then
-   * creates a Stripe Terminal connection token, optionally scoped to the given location, and returns its secret.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   *  `s_secret` {string} Connection token secret key.
-   */
-  WlClient.prototype.wlPayProcessorStripeComStripeComConnectionToken = function(params)
-  {
-    return this.request('/Wl/Pay/Processor/StripeCom/StripeComConnectionToken.json', params || {}, 'POST');
-  };
-
-  /**
-   * Gets Stripe charge information.
-   *
-   * Validates the business merchant and payer, retrieves the charge from Stripe by its charge id,
-   * and returns the payment method used along with the payment method details captured at the time
-   * of the transaction.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_currency ID of the currency. See {@link WlClient.CoreLocaleCurrencySid}.
-   * @param {number} params.id_pay_actor ID of the actor. See {@link WlClient.RsPayActorSid}.
-   * @param {string} params.k_business Key of the business.
-   * @param {string} params.k_business_merchant Key of the business merchant to get the public key for.
-   * @param {string} params.s_charge Charge id to get data for.
-   * @param {string} params.uid_purchase Payment owner user key.
-   * @returns {Promise<Object>} Response data.
-   *  `o_payment_method_details` {Object} Details about the payment method at the time of the transaction:
-   *  `s_payment_method` {string} ID of the payment method used in this charge.
-   */
-  WlClient.prototype.wlPayProcessorStripeComStripeComCharge = function(params)
-  {
-    return this.request('/Wl/Pay/Processor/StripeCom/StripeComCharge.json', params || {}, 'GET');
-  };
-
-  /**
-   * Initializes a `Stripe` payment.
-   *
-   * Starts a payment transaction and creates a not-captured Payment Intent at `stripe.com`, returning
-   *  its status and client secret to continue the payment flow on the frontend.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   *  `id_status` {number} Statuses of payment intents. See {@link WlClient.ThothPayProcessorStripeComPaymentIntentStatusSid}.
-   *  `k_pay_transaction` {?string} Key of payment transaction that was created.
-   *  `m_amount` {?string} Payment amount.
-   *  `m_surcharge` {?string} Surcharge amount.
-   *  `s_client_secret` {string} Payment Intent client secret key.
-   *  `s_payment_intent` {string} Payment intent ID.
-   *  `text_message` {?string} Error message.
-   */
-  WlClient.prototype.wlPayProcessorStripeComStripeComPayInit = function(params)
-  {
-    return this.request('/Wl/Pay/Processor/StripeCom/StripeComPayInit.json', params || {}, 'POST');
-  };
-
-  /**
-   * Updates a `Stripe` Payment Intent.
-   *
-   * Adjusts the amount and surcharge of the Payment Intent created for the Stripe Payment Element
-   *  form when the cart contents change, keeping the underlying payment transaction in sync.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number} params.id_pay_actor ID of the actor. One of {@link WlClient.RsPayActorSid} constants.
-   * @param {string} params.k_business Key of the business to update Payment Intent for.
-   * @param {string} params.k_business_merchant Key of the business merchant to update Payment Intent for.
-   * @param {string} params.k_pay_transaction Key of the payment transaction to update.
-   * @param {string} params.s_payment_intent Payment intent ID to update.
-   * @param {?string} [params.uid_purchase] Payment owner user key.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlPayProcessorStripeComPaymentIntentUpdate = function(params)
-  {
-    return this.request('/Wl/Pay/Processor/StripeCom/PaymentIntentUpdate.json', params || {}, 'POST');
-  };
-
-  /**
-   * Gets the `Stripe` public key for a merchant.
-   *
-   * Returns the publishable key configured for the business merchant, so it can be used by the
-   *  frontend to initialize `Stripe` payment elements.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   *  `s_public` {?string} Merchant public key.
-   */
-  WlClient.prototype.wlPayProcessorStripeComStripeComKey = function(params)
-  {
-    return this.request('/Wl/Pay/Processor/StripeCom/StripeComKey.json', params || {}, 'POST');
-  };
-
-  /**
-   * Cancels a `Stripe` Payment Intent.
-   *
-   * Verifies that the Payment Intent belongs to the current payer authentication session, then
-   *  refunds the associated payment transaction to release the reserved amount.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.wlPayProcessorStripeComStripeComPaymentIntentCancel = function(params)
-  {
-    return this.request('/Wl/Pay/Processor/StripeCom/StripeComPaymentIntentCancel.json', params || {}, 'POST');
-  };
-
-  /**
    * Checks `CyberSource` Payer Authentication enrollment.
    *
    * Verifies whether the payer must complete additional authentication steps for the transaction
@@ -2793,8 +2685,6 @@
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
-   *  `m_amount` {?string} Payment amount.
-   *  `m_surcharge` {?string} Surcharge amount.
    *  `text_message` {?string} Error message.
    */
   WlClient.prototype.thothPayProcessorNuveiNuveiUpdateOrder = function(params)
@@ -2817,8 +2707,6 @@
    * @returns {Promise<Object>} Response data.
    *  `id_card_type` {?number} An enum of credit card types. See {@link WlClient.ThothWlPayBankCardCardTypeEnum}.
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
-   *  `m_amount` {?string} Payment amount.
-   *  `m_surcharge` {?string} Surcharge amount.
    *  `text_message` {?string} Error message.
    */
   WlClient.prototype.wlPayProcessorNuveiNuveiTransactionStart = function(params)
@@ -2836,8 +2724,6 @@
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
-   *  `m_amount` {?string} Payment amount.
-   *  `m_surcharge` {?string} Surcharge amount.
    *  `s_nuvei_order` {?string} The order ID provided by Nuvei.
    *  `s_nuvei_session` {?string} The session identifier to be used by the request that processes the newly ope...
    *  `text_message` {?string} Error message.
@@ -2845,6 +2731,112 @@
   WlClient.prototype.thothPayProcessorNuveiNuveiOpenOrder = function(params)
   {
     return this.request('/Thoth/PayProcessor/Nuvei/NuveiOpenOrder.json', params || {}, 'POST');
+  };
+
+  /**
+   * Gets Stripe charge information.
+   *
+   * Validates the business merchant and payer, retrieves the charge from Stripe by its charge id,
+   * and returns the payment method used along with the payment method details captured at the time
+   * of the transaction.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.id_currency ID of the currency. See {@link WlClient.CoreLocaleCurrencySid}.
+   * @param {number} params.id_pay_actor ID of the actor. See {@link WlClient.RsPayActorSid}.
+   * @param {string} params.k_business Key of the business.
+   * @param {string} params.k_business_merchant Key of the business merchant to get the public key for.
+   * @param {string} params.s_charge Charge id to get data for.
+   * @param {string} params.uid_purchase Payment owner user key.
+   * @returns {Promise<Object>} Response data.
+   *  `o_payment_method_details` {Object} Details about the payment method at the time of the transaction:
+   *  `s_payment_method` {string} ID of the payment method used in this charge.
+   */
+  WlClient.prototype.wlPayProcessorStripeComStripeComCharge = function(params)
+  {
+    return this.request('/Wl/Pay/Processor/StripeCom/StripeComCharge.json', params || {}, 'GET');
+  };
+
+  /**
+   * Gets a secret from a connection token for the Stripe Terminal SDK.
+   *
+   * Validates the business merchant, the payer, and that the currency supports point-of-sale payments, then
+   * creates a Stripe Terminal connection token, optionally scoped to the given location, and returns its secret.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `s_secret` {string} Connection token secret key.
+   */
+  WlClient.prototype.wlPayProcessorStripeComStripeComConnectionToken = function(params)
+  {
+    return this.request('/Wl/Pay/Processor/StripeCom/StripeComConnectionToken.json', params || {}, 'POST');
+  };
+
+  /**
+   * Initializes a `Stripe` payment.
+   *
+   * Starts a payment transaction and creates a not-captured Payment Intent at `stripe.com`, returning
+   *  its status and client secret to continue the payment flow on the frontend.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `id_status` {number} Statuses of payment intents. See {@link WlClient.ThothPayProcessorStripeComPaymentIntentStatusSid}.
+   *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `s_client_secret` {string} Payment Intent client secret key.
+   *  `s_payment_intent` {string} Payment intent ID.
+   *  `text_message` {?string} Error message.
+   */
+  WlClient.prototype.wlPayProcessorStripeComStripeComPayInit = function(params)
+  {
+    return this.request('/Wl/Pay/Processor/StripeCom/StripeComPayInit.json', params || {}, 'POST');
+  };
+
+  /**
+   * Updates a `Stripe` Payment Intent.
+   *
+   * Adjusts the amount and surcharge of the Payment Intent created for the Stripe Payment Element
+   *  form when the cart contents change, keeping the underlying payment transaction in sync.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number} params.id_pay_actor ID of the actor. One of {@link WlClient.RsPayActorSid} constants.
+   * @param {string} params.k_business Key of the business to update Payment Intent for.
+   * @param {string} params.k_business_merchant Key of the business merchant to update Payment Intent for.
+   * @param {string} params.k_pay_transaction Key of the payment transaction to update.
+   * @param {string} params.s_payment_intent Payment intent ID to update.
+   * @param {?string} [params.uid_purchase] Payment owner user key.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlPayProcessorStripeComPaymentIntentUpdate = function(params)
+  {
+    return this.request('/Wl/Pay/Processor/StripeCom/PaymentIntentUpdate.json', params || {}, 'POST');
+  };
+
+  /**
+   * Gets the `Stripe` public key for a merchant.
+   *
+   * Returns the publishable key configured for the business merchant, so it can be used by the
+   *  frontend to initialize `Stripe` payment elements.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `s_public` {?string} Merchant public key.
+   */
+  WlClient.prototype.wlPayProcessorStripeComStripeComKey = function(params)
+  {
+    return this.request('/Wl/Pay/Processor/StripeCom/StripeComKey.json', params || {}, 'POST');
+  };
+
+  /**
+   * Cancels a `Stripe` Payment Intent.
+   *
+   * Verifies that the Payment Intent belongs to the current payer authentication session, then
+   *  refunds the associated payment transaction to release the reserved amount.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlPayProcessorStripeComStripeComPaymentIntentCancel = function(params)
+  {
+    return this.request('/Wl/Pay/Processor/StripeCom/StripeComPaymentIntentCancel.json', params || {}, 'POST');
   };
 
   /**
@@ -13904,8 +13896,6 @@
    * @returns {Promise<Object>} Response data.
    *  `id_response` {?number} CS Response code class. See {@link WlClient.ThothPayProcessorNuveiCodeCSResponseSid}.
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
-   *  `m_amount` {?string} Payment amount.
-   *  `m_surcharge` {?string} Surcharge amount.
    *  `s_exchange_identification` {string} The request exchange identification.
    *  `text_message` {?string} Error message.
    */
@@ -17383,9 +17373,9 @@
    *
    * @enum {number}
    */
-  WlClient.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = Object.freeze({
-    /** Terminals that work via Stripe javascript SDK */
-    JS_SDK: 2,
+  WlClient.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = Object.freeze({
+    /** Card terminals that work via OMNI Channel API */
+    OMNICHANNEL: 2,
     /** Magtek USB */
     MAGTEK_USB: 1,
   });
@@ -17395,9 +17385,9 @@
    *
    * @enum {number}
    */
-  WlClient.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = Object.freeze({
-    /** Card terminals that work via OMNI Channel API */
-    OMNICHANNEL: 2,
+  WlClient.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = Object.freeze({
+    /** Terminals that work via Stripe javascript SDK */
+    JS_SDK: 2,
     /** Magtek USB */
     MAGTEK_USB: 1,
   });

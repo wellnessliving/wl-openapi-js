@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261020024444
+// OpenAPI spec version: 1.1.20261020041714
 // Build date: 2026-10-20
 // Endpoints: 684
 // Enums: 225
@@ -2409,14 +2409,6 @@ export var ThothWlPayCordovaCordovaCcrDeviceSid;
     ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["VIRTUAL"] = 10] = "VIRTUAL";
 })(ThothWlPayCordovaCordovaCcrDeviceSid || (ThothWlPayCordovaCordovaCcrDeviceSid = {}));
 /** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
-export var ThothPayProcessorStripeComTerminalStripeTerminalTypeSid;
-(function (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid) {
-    /** Terminals that work via Stripe javascript SDK */
-    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["JS_SDK"] = 2] = "JS_SDK";
-    /** Magtek USB */
-    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
-})(ThothPayProcessorStripeComTerminalStripeTerminalTypeSid || (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = {}));
-/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
 export var ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid;
 (function (ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid) {
     /** Card terminals that work via OMNI Channel API */
@@ -2424,6 +2416,14 @@ export var ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid;
     /** Magtek USB */
     ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid[ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
 })(ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid || (ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = {}));
+/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
+export var ThothPayProcessorStripeComTerminalStripeTerminalTypeSid;
+(function (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid) {
+    /** Terminals that work via Stripe javascript SDK */
+    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["JS_SDK"] = 2] = "JS_SDK";
+    /** Magtek USB */
+    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
+})(ThothPayProcessorStripeComTerminalStripeTerminalTypeSid || (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = {}));
 /** A list of payment gateways or processors. */
 export var ThothPayProcessorPayProcessorSid;
 (function (ThothPayProcessorPayProcessorSid) {
@@ -8832,35 +8832,6 @@ export class WlPayMethodNamespace {
         return this._client._request('/Wl/Pay/Method/List.json', params, 'GET');
     }
 }
-export class WlPayProcessorStripeComNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets a secret from a connection token for the Stripe Terminal SDK. */
-    stripeComConnectionToken(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComConnectionToken.json', params, 'POST');
-    }
-    /** Gets Stripe charge information. */
-    stripeComCharge(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComCharge.json', params, 'GET');
-    }
-    /** Initializes a `Stripe` payment. */
-    stripeComPayInit(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPayInit.json', params, 'POST');
-    }
-    /** Updates a `Stripe` Payment Intent. */
-    paymentIntentUpdate(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/PaymentIntentUpdate.json', params, 'POST');
-    }
-    /** Gets the `Stripe` public key for a merchant. */
-    stripeComKey(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComKey.json', params, 'POST');
-    }
-    /** Cancels a `Stripe` Payment Intent. */
-    stripeComPaymentIntentCancel(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPaymentIntentCancel.json', params, 'POST');
-    }
-}
 export class WlPayProcessorCyberSourceNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8892,12 +8863,41 @@ export class WlPayProcessorNuveiNamespace {
         return this._client._request('/Wl/Pay/Processor/Nuvei/NuveiTransactionStart.json', params, 'POST');
     }
 }
+export class WlPayProcessorStripeComNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets Stripe charge information. */
+    stripeComCharge(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComCharge.json', params, 'GET');
+    }
+    /** Gets a secret from a connection token for the Stripe Terminal SDK. */
+    stripeComConnectionToken(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComConnectionToken.json', params, 'POST');
+    }
+    /** Initializes a `Stripe` payment. */
+    stripeComPayInit(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPayInit.json', params, 'POST');
+    }
+    /** Updates a `Stripe` Payment Intent. */
+    paymentIntentUpdate(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/PaymentIntentUpdate.json', params, 'POST');
+    }
+    /** Gets the `Stripe` public key for a merchant. */
+    stripeComKey(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComKey.json', params, 'POST');
+    }
+    /** Cancels a `Stripe` Payment Intent. */
+    stripeComPaymentIntentCancel(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPaymentIntentCancel.json', params, 'POST');
+    }
+}
 export class WlPayProcessorNamespace {
     constructor(_client) {
         this._client = _client;
-        this.stripeCom = new WlPayProcessorStripeComNamespace(this._client);
         this.cyberSource = new WlPayProcessorCyberSourceNamespace(this._client);
         this.nuvei = new WlPayProcessorNuveiNamespace(this._client);
+        this.stripeCom = new WlPayProcessorStripeComNamespace(this._client);
     }
 }
 export class WlPayTransactionReportNamespace {

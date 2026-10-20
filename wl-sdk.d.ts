@@ -2345,16 +2345,16 @@ export declare enum ThothWlPayCordovaCordovaCcrDeviceSid {
     VIRTUAL = 10
 }
 /** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
-export declare enum ThothPayProcessorStripeComTerminalStripeTerminalTypeSid {
-    /** Terminals that work via Stripe javascript SDK */
-    JS_SDK = 2,
+export declare enum ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid {
+    /** Card terminals that work via OMNI Channel API */
+    OMNICHANNEL = 2,
     /** Magtek USB */
     MAGTEK_USB = 1
 }
 /** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
-export declare enum ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid {
-    /** Card terminals that work via OMNI Channel API */
-    OMNICHANNEL = 2,
+export declare enum ThothPayProcessorStripeComTerminalStripeTerminalTypeSid {
+    /** Terminals that work via Stripe javascript SDK */
+    JS_SDK = 2,
     /** Magtek USB */
     MAGTEK_USB = 1
 }
@@ -9461,6 +9461,22 @@ export interface WlPayFormEnvironmentResponse {
         /** Whether `MagTek` USB reader is supported. */
         is_support_magtek: boolean;
     } | {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location?: {
+            /** Terminal lists grouped by connection type. */
+            a_terminal: Record<string, unknown>;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether card swipe can be cancelled from the POS terminal. */
+        can_cancel_swipe_from_pos: boolean;
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | {
         /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
         id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
         /** NMI SDK key for the card reader plugin. */
@@ -9475,22 +9491,6 @@ export interface WlPayFormEnvironmentResponse {
             /** Display name of the location. */
             text_location_name: string;
         };
-        /** Whether the card expiry date entry is required. */
-        has_expire_date: boolean;
-        /** Whether the card reader selection UI is shown. */
-        has_readers_selection: boolean;
-        /** Whether `MagTek` USB reader is supported. */
-        is_support_magtek: boolean;
-    } | {
-        /** Terminal configuration keyed by location key. */
-        a_terminal_location?: {
-            /** Terminal lists grouped by connection type. */
-            a_terminal: Record<string, unknown>;
-            /** Display name of the location. */
-            text_location_name: string;
-        };
-        /** Whether card swipe can be cancelled from the POS terminal. */
-        can_cancel_swipe_from_pos: boolean;
         /** Whether the card expiry date entry is required. */
         has_expire_date: boolean;
         /** Whether the card reader selection UI is shown. */
@@ -9588,6 +9588,22 @@ export interface WlPayFormEnvironmentUserResponse {
         /** Whether `MagTek` USB reader is supported. */
         is_support_magtek: boolean;
     } | {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location?: {
+            /** Terminal lists grouped by connection type. */
+            a_terminal: Record<string, unknown>;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether card swipe can be cancelled from the POS terminal. */
+        can_cancel_swipe_from_pos: boolean;
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | {
         /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
         id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
         /** NMI SDK key for the card reader plugin. */
@@ -9602,22 +9618,6 @@ export interface WlPayFormEnvironmentUserResponse {
             /** Display name of the location. */
             text_location_name: string;
         };
-        /** Whether the card expiry date entry is required. */
-        has_expire_date: boolean;
-        /** Whether the card reader selection UI is shown. */
-        has_readers_selection: boolean;
-        /** Whether `MagTek` USB reader is supported. */
-        is_support_magtek: boolean;
-    } | {
-        /** Terminal configuration keyed by location key. */
-        a_terminal_location?: {
-            /** Terminal lists grouped by connection type. */
-            a_terminal: Record<string, unknown>;
-            /** Display name of the location. */
-            text_location_name: string;
-        };
-        /** Whether card swipe can be cancelled from the POS terminal. */
-        can_cancel_swipe_from_pos: boolean;
         /** Whether the card expiry date entry is required. */
         has_expire_date: boolean;
         /** Whether the card reader selection UI is shown. */
@@ -9819,83 +9819,6 @@ export interface WlPayMethodListResponse {
         s_title: string;
     }>;
 }
-export type WlPayProcessorStripeComStripeComConnectionTokenParams = Record<string, unknown>;
-export interface WlPayProcessorStripeComStripeComConnectionTokenResponse {
-    /** Connection token secret key. */
-    s_secret: string;
-}
-export interface WlPayProcessorStripeComStripeComChargeParams {
-    /** ID of the currency. @see CoreLocaleCurrencySid */
-    id_currency: CoreLocaleCurrencySid;
-    /** ID of the actor. @see RsPayActorSid */
-    id_pay_actor: RsPayActorSid;
-    /** Key of the business. */
-    k_business: string;
-    /** Key of the business merchant to get the public key for. */
-    k_business_merchant: string;
-    /** Charge id to get data for. */
-    s_charge: string;
-    /** Payment owner user key. */
-    uid_purchase: string;
-}
-export interface WlPayProcessorStripeComStripeComChargeResponse {
-    /** Details about the payment method at the time of the transaction: */
-    o_payment_method_details: {
-        /** ID of a card payment method generated. */
-        s_generated_card_id: string;
-        /** Card brand, like visa or mastercard. */
-        text_brand: string;
-        /** The cardholder name as read from the card. */
-        text_cardholder_name: string;
-        /** Two-digit number representing the card's expiration month. */
-        text_exp_month: string;
-        /** Four-digit number representing the card's expiration year. */
-        text_exp_year: string;
-        /** Last four digits of the card number. */
-        text_last4: string;
-    };
-    /** ID of the payment method used in this charge. */
-    s_payment_method: string;
-}
-export type WlPayProcessorStripeComStripeComPayInitParams = Record<string, unknown>;
-export interface WlPayProcessorStripeComStripeComPayInitResponse {
-    /** Statuses of payment intents. @see ThothPayProcessorStripeComPaymentIntentStatusSid */
-    id_status: ThothPayProcessorStripeComPaymentIntentStatusSid;
-    /** Key of payment transaction that was created. */
-    k_pay_transaction: string | null;
-    /** Payment amount. */
-    m_amount: string | null;
-    /** Surcharge amount. */
-    m_surcharge: string | null;
-    /** Payment Intent client secret key. */
-    s_client_secret: string;
-    /** Payment intent ID. */
-    s_payment_intent: string;
-    /** Error message. */
-    text_message: string | null;
-}
-export interface WlPayProcessorStripeComPaymentIntentUpdateParams {
-    /** ID of the actor. One of {@link RsPayActorSid} constants. */
-    id_pay_actor: RsPayActorSid;
-    /** Key of the business to update Payment Intent for. */
-    k_business: string;
-    /** Key of the business merchant to update Payment Intent for. */
-    k_business_merchant: string;
-    /** Key of the payment transaction to update. */
-    k_pay_transaction: string;
-    /** Payment intent ID to update. */
-    s_payment_intent: string;
-    /** Payment owner user key. */
-    uid_purchase?: string | null;
-}
-export type WlPayProcessorStripeComPaymentIntentUpdateResponse = Record<string, unknown>;
-export type WlPayProcessorStripeComStripeComKeyParams = Record<string, unknown>;
-export interface WlPayProcessorStripeComStripeComKeyResponse {
-    /** Merchant public key. */
-    s_public: string | null;
-}
-export type WlPayProcessorStripeComStripeComPaymentIntentCancelParams = Record<string, unknown>;
-export type WlPayProcessorStripeComStripeComPaymentIntentCancelResponse = Record<string, unknown>;
 export type WlPayProcessorCyberSourceCsPaEnrollmentParams = Record<string, unknown>;
 export interface WlPayProcessorCyberSourceCsPaEnrollmentResponse {
     /** JSON Web Token to include into the request to the second frame. */
@@ -9933,10 +9856,6 @@ export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams = Record<s
 export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiUpdateOrderParams = Record<string, unknown>;
 export interface ThothPayProcessorNuveiNuveiUpdateOrderResponse {
-    /** Payment amount. */
-    m_amount: string | null;
-    /** Surcharge amount. */
-    m_surcharge: string | null;
     /** Error message. */
     text_message: string | null;
 }
@@ -9946,10 +9865,6 @@ export interface WlPayProcessorNuveiNuveiTransactionStartResponse {
     id_card_type: ThothWlPayBankCardCardTypeEnum | null;
     /** Key of payment transaction that was created. */
     k_pay_transaction: string | null;
-    /** Payment amount. */
-    m_amount: string | null;
-    /** Surcharge amount. */
-    m_surcharge: string | null;
     /** Error message. */
     text_message: string | null;
 }
@@ -9957,10 +9872,6 @@ export type ThothPayProcessorNuveiNuveiOpenOrderParams = Record<string, unknown>
 export interface ThothPayProcessorNuveiNuveiOpenOrderResponse {
     /** Key of payment transaction that was created. */
     k_pay_transaction: string | null;
-    /** Payment amount. */
-    m_amount: string | null;
-    /** Surcharge amount. */
-    m_surcharge: string | null;
     /** The order ID provided by Nuvei. */
     s_nuvei_order: string | null;
     /** The session identifier to be used by the request that processes the newly opened order. */
@@ -9968,6 +9879,79 @@ export interface ThothPayProcessorNuveiNuveiOpenOrderResponse {
     /** Error message. */
     text_message: string | null;
 }
+export interface WlPayProcessorStripeComStripeComChargeParams {
+    /** ID of the currency. @see CoreLocaleCurrencySid */
+    id_currency: CoreLocaleCurrencySid;
+    /** ID of the actor. @see RsPayActorSid */
+    id_pay_actor: RsPayActorSid;
+    /** Key of the business. */
+    k_business: string;
+    /** Key of the business merchant to get the public key for. */
+    k_business_merchant: string;
+    /** Charge id to get data for. */
+    s_charge: string;
+    /** Payment owner user key. */
+    uid_purchase: string;
+}
+export interface WlPayProcessorStripeComStripeComChargeResponse {
+    /** Details about the payment method at the time of the transaction: */
+    o_payment_method_details: {
+        /** ID of a card payment method generated. */
+        s_generated_card_id: string;
+        /** Card brand, like visa or mastercard. */
+        text_brand: string;
+        /** The cardholder name as read from the card. */
+        text_cardholder_name: string;
+        /** Two-digit number representing the card's expiration month. */
+        text_exp_month: string;
+        /** Four-digit number representing the card's expiration year. */
+        text_exp_year: string;
+        /** Last four digits of the card number. */
+        text_last4: string;
+    };
+    /** ID of the payment method used in this charge. */
+    s_payment_method: string;
+}
+export type WlPayProcessorStripeComStripeComConnectionTokenParams = Record<string, unknown>;
+export interface WlPayProcessorStripeComStripeComConnectionTokenResponse {
+    /** Connection token secret key. */
+    s_secret: string;
+}
+export type WlPayProcessorStripeComStripeComPayInitParams = Record<string, unknown>;
+export interface WlPayProcessorStripeComStripeComPayInitResponse {
+    /** Statuses of payment intents. @see ThothPayProcessorStripeComPaymentIntentStatusSid */
+    id_status: ThothPayProcessorStripeComPaymentIntentStatusSid;
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string | null;
+    /** Payment Intent client secret key. */
+    s_client_secret: string;
+    /** Payment intent ID. */
+    s_payment_intent: string;
+    /** Error message. */
+    text_message: string | null;
+}
+export interface WlPayProcessorStripeComPaymentIntentUpdateParams {
+    /** ID of the actor. One of {@link RsPayActorSid} constants. */
+    id_pay_actor: RsPayActorSid;
+    /** Key of the business to update Payment Intent for. */
+    k_business: string;
+    /** Key of the business merchant to update Payment Intent for. */
+    k_business_merchant: string;
+    /** Key of the payment transaction to update. */
+    k_pay_transaction: string;
+    /** Payment intent ID to update. */
+    s_payment_intent: string;
+    /** Payment owner user key. */
+    uid_purchase?: string | null;
+}
+export type WlPayProcessorStripeComPaymentIntentUpdateResponse = Record<string, unknown>;
+export type WlPayProcessorStripeComStripeComKeyParams = Record<string, unknown>;
+export interface WlPayProcessorStripeComStripeComKeyResponse {
+    /** Merchant public key. */
+    s_public: string | null;
+}
+export type WlPayProcessorStripeComStripeComPaymentIntentCancelParams = Record<string, unknown>;
+export type WlPayProcessorStripeComStripeComPaymentIntentCancelResponse = Record<string, unknown>;
 export interface CoreTestingAutomationCacheFlushParams {
     /** Name of the action to perform within this endpoint. */
     s_action: string;
@@ -31287,10 +31271,6 @@ export interface ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransa
     id_response: ThothPayProcessorNuveiCodeCSResponseSid | null;
     /** Key of payment transaction that was created. */
     k_pay_transaction: string | null;
-    /** Payment amount. */
-    m_amount: string | null;
-    /** Surcharge amount. */
-    m_surcharge: string | null;
     /** The request exchange identification. */
     s_exchange_identification: string;
     /** Error message. */
@@ -34259,22 +34239,6 @@ export declare class WlPayMethodNamespace {
     /** Returns list of active payment methods data. */
     list(params?: WlPayMethodListParams): Promise<WlPayMethodListResponse>;
 }
-export declare class WlPayProcessorStripeComNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets a secret from a connection token for the Stripe Terminal SDK. */
-    stripeComConnectionToken(params?: WlPayProcessorStripeComStripeComConnectionTokenParams): Promise<WlPayProcessorStripeComStripeComConnectionTokenResponse>;
-    /** Gets Stripe charge information. */
-    stripeComCharge(params?: WlPayProcessorStripeComStripeComChargeParams): Promise<WlPayProcessorStripeComStripeComChargeResponse>;
-    /** Initializes a `Stripe` payment. */
-    stripeComPayInit(params?: WlPayProcessorStripeComStripeComPayInitParams): Promise<WlPayProcessorStripeComStripeComPayInitResponse>;
-    /** Updates a `Stripe` Payment Intent. */
-    paymentIntentUpdate(params?: WlPayProcessorStripeComPaymentIntentUpdateParams): Promise<WlPayProcessorStripeComPaymentIntentUpdateResponse>;
-    /** Gets the `Stripe` public key for a merchant. */
-    stripeComKey(params?: WlPayProcessorStripeComStripeComKeyParams): Promise<WlPayProcessorStripeComStripeComKeyResponse>;
-    /** Cancels a `Stripe` Payment Intent. */
-    stripeComPaymentIntentCancel(params?: WlPayProcessorStripeComStripeComPaymentIntentCancelParams): Promise<WlPayProcessorStripeComStripeComPaymentIntentCancelResponse>;
-}
 export declare class WlPayProcessorCyberSourceNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -34294,11 +34258,27 @@ export declare class WlPayProcessorNuveiNamespace {
     /** @deprecated */
     nuveiTransactionStart(params?: WlPayProcessorNuveiNuveiTransactionStartParams): Promise<WlPayProcessorNuveiNuveiTransactionStartResponse>;
 }
+export declare class WlPayProcessorStripeComNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets Stripe charge information. */
+    stripeComCharge(params?: WlPayProcessorStripeComStripeComChargeParams): Promise<WlPayProcessorStripeComStripeComChargeResponse>;
+    /** Gets a secret from a connection token for the Stripe Terminal SDK. */
+    stripeComConnectionToken(params?: WlPayProcessorStripeComStripeComConnectionTokenParams): Promise<WlPayProcessorStripeComStripeComConnectionTokenResponse>;
+    /** Initializes a `Stripe` payment. */
+    stripeComPayInit(params?: WlPayProcessorStripeComStripeComPayInitParams): Promise<WlPayProcessorStripeComStripeComPayInitResponse>;
+    /** Updates a `Stripe` Payment Intent. */
+    paymentIntentUpdate(params?: WlPayProcessorStripeComPaymentIntentUpdateParams): Promise<WlPayProcessorStripeComPaymentIntentUpdateResponse>;
+    /** Gets the `Stripe` public key for a merchant. */
+    stripeComKey(params?: WlPayProcessorStripeComStripeComKeyParams): Promise<WlPayProcessorStripeComStripeComKeyResponse>;
+    /** Cancels a `Stripe` Payment Intent. */
+    stripeComPaymentIntentCancel(params?: WlPayProcessorStripeComStripeComPaymentIntentCancelParams): Promise<WlPayProcessorStripeComStripeComPaymentIntentCancelResponse>;
+}
 export declare class WlPayProcessorNamespace {
     private readonly _client;
-    readonly stripeCom: WlPayProcessorStripeComNamespace;
     readonly cyberSource: WlPayProcessorCyberSourceNamespace;
     readonly nuvei: WlPayProcessorNuveiNamespace;
+    readonly stripeCom: WlPayProcessorStripeComNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlPayTransactionReportNamespace {
