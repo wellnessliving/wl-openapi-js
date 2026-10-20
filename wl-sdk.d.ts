@@ -25048,6 +25048,19 @@ export interface WlAppointmentBookAssetAssetListResponse {
             /** This will be `true` if age restrictions are public and available. Otherwise, this will be `false`... */
             is_age_public: boolean;
         };
+        /** The asset's effective booking window policy. */
+        a_config: {
+            /** Member group overrides for the advance booking window, keyed by member group key. */
+            a_member_group_book_window: Record<string, unknown>;
+            /** The minimum time before a session starts that a booking can be made. */
+            i_book_before: number;
+            /** The maximum advance booking window duration. */
+            i_book_future: number;
+            /** A class for managing time intervals. @see ADurationSid */
+            id_book_before: ADurationSid;
+            /** A class for managing time intervals. @see ADurationSid */
+            id_book_future: ADurationSid;
+        };
         /** The key of service. */
         a_class_tab: Array<string>;
         /** A list of links to create a booking from a direct link (direct booking URL). */
