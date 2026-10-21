@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261021032851
+// OpenAPI spec version: 1.1.20261021063602
 // Build date: 2026-10-21
-// Endpoints: 684
+// Endpoints: 685
 // Enums: 225
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -8672,9 +8672,19 @@ export class WlHardwareNamespace {
         this.stripeCom = new WlHardwareStripeComNamespace(this._client);
     }
 }
+export class WlPayFormSurchargeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Previews whether a surcharge is allowed for a card. */
+    surchargeTender(params) {
+        return this._client._request('/Wl/Pay/Form/Surcharge/SurchargeTender.json', params, 'GET');
+    }
+}
 export class WlPayFormNamespace {
     constructor(_client) {
         this._client = _client;
+        this.surcharge = new WlPayFormSurchargeNamespace(this._client);
     }
     /** Returns information about payment environment. */
     /** @deprecated */

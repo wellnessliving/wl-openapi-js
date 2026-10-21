@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261021032851
+ * Spec version: 1.1.20261021063602
  * Build date:   2026-10-21
- * Endpoints:    684
+ * Endpoints:    685
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261021032851';
+  WlClient.SPEC_VERSION = '1.1.20261021063602';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (684 total)
+  // Generated API methods (685 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2418,6 +2418,8 @@
    *  `id_locale` {number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
    *  `is_save_optional` {boolean} `true` if clients can choose whether their banking and credit card informatio...
    *  `is_save_source` {boolean} Determines whether newly added payment sources should be saved. This will be ...
+   *  `is_surcharge_card_present_blocked` {boolean} Whether a card-present (POS) source at this business can never carry a surcha...
+   *  `is_surcharge_tender_contract` {boolean} Whether the business's ECOMMERCE processor implements the SAL-1314 card-type ...
    *  `is_tip` {boolean} Whether tips are accepted.
    *  `m_surcharge` {?string} Surcharge amount for payment with card represented as a fixed amount.
    *  `m_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a fixed amount.
@@ -2452,6 +2454,8 @@
    *  `id_locale` {number} A list of locales. See {@link WlClient.CoreLocaleLocaleSid}.
    *  `is_save_optional` {boolean} `true` if clients can choose whether their banking and credit card informatio...
    *  `is_save_source` {boolean} Determines whether newly added payment sources should be saved. This will be ...
+   *  `is_surcharge_card_present_blocked` {boolean} Whether a card-present (POS) source at this business can never carry a surcha...
+   *  `is_surcharge_tender_contract` {boolean} Whether the business's ECOMMERCE processor implements the SAL-1314 card-type ...
    *  `is_tip` {boolean} Whether tips are accepted.
    *  `m_surcharge` {?string} Surcharge amount for payment with card represented as a fixed amount.
    *  `m_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a fixed amount.
@@ -2685,6 +2689,8 @@
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
+   *  `m_amount` {?string} Payment amount.
+   *  `m_surcharge` {?string} Surcharge amount.
    *  `text_message` {?string} Error message.
    */
   WlClient.prototype.thothPayProcessorNuveiNuveiUpdateOrder = function(params)
@@ -2707,6 +2713,8 @@
    * @returns {Promise<Object>} Response data.
    *  `id_card_type` {?number} An enum of credit card types. See {@link WlClient.ThothWlPayBankCardCardTypeEnum}.
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `m_amount` {?string} Payment amount.
+   *  `m_surcharge` {?string} Surcharge amount.
    *  `text_message` {?string} Error message.
    */
   WlClient.prototype.wlPayProcessorNuveiNuveiTransactionStart = function(params)
@@ -2724,6 +2732,8 @@
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `m_amount` {?string} Payment amount.
+   *  `m_surcharge` {?string} Surcharge amount.
    *  `s_nuvei_order` {?string} The order ID provided by Nuvei.
    *  `s_nuvei_session` {?string} The session identifier to be used by the request that processes the newly ope...
    *  `text_message` {?string} Error message.
@@ -2781,6 +2791,8 @@
    * @returns {Promise<Object>} Response data.
    *  `id_status` {number} Statuses of payment intents. See {@link WlClient.ThothPayProcessorStripeComPaymentIntentStatusSid}.
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `m_amount` {?string} Payment amount.
+   *  `m_surcharge` {?string} Surcharge amount.
    *  `s_client_secret` {string} Payment Intent client secret key.
    *  `s_payment_intent` {string} Payment intent ID.
    *  `text_message` {?string} Error message.
@@ -9622,6 +9634,27 @@
   };
 
   /**
+   * Previews whether a surcharge is allowed for a card.
+   *
+   * Called while the client is typing a card number, or has selected a saved card, so the browser can show the
+   * correct total and lock the surcharge switch before the card is actually charged (SAL-1314 step 10).
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {?number} params.id_pay_method Payment method the card would be charged with. See {@link WlClient.RsPayMethodSid}.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_currency Currency key.
+   * @param {string} params.k_location Location key.
+   * @param {?string} [params.k_pay_bank] Key of a saved card to preview.
+   * @param {?string} [params.s_bin] First digits of a newly-typed card number (at least 6).
+   * @returns {Promise<Object>} Response data.
+   *  `is_allowed` {boolean} Whether a surcharge is allowed for the card identified by
+   */
+  WlClient.prototype.wlPayFormSurchargeSurchargeTender = function(params)
+  {
+    return this.request('/Wl/Pay/Form/Surcharge/SurchargeTender.json', params || {}, 'GET');
+  };
+
+  /**
    * Gets data for "edit payment address" widget.
    *
    * Returns the list of geographic regions and phone number format masks configured for the given business locale.
@@ -13896,6 +13929,8 @@
    * @returns {Promise<Object>} Response data.
    *  `id_response` {?number} CS Response code class. See {@link WlClient.ThothPayProcessorNuveiCodeCSResponseSid}.
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
+   *  `m_amount` {?string} Payment amount.
+   *  `m_surcharge` {?string} Surcharge amount.
    *  `s_exchange_identification` {string} The request exchange identification.
    *  `text_message` {?string} Error message.
    */
