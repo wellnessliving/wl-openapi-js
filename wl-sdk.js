@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261021082044
+ * Spec version: 1.1.20261021143241
  * Build date:   2026-10-21
  * Endpoints:    685
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261021082044';
+  WlClient.SPEC_VERSION = '1.1.20261021143241';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (685 total)
@@ -16268,6 +16268,412 @@
   });
 
   /**
+   * Mail types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsMailSid = Object.freeze({
+    /** Sent when a client abandons a checkout (used in automations) */
+    ABANDONED_CHECKOUT: 220,
+    /** Sent by CASSI phone agent, when client requests a booking url */
+    AI_LINK_BOOK: 206,
+    /** Sent by CASSI phone agent, when client requests a purchase url */
+    AI_LINK_PURCHASE: 207,
+    /** Appointment approved by staff */
+    APPOINTMENT_APPROVE_STAFF: 71,
+    /** Sent when the AI Agent successfully books an appointment */
+    APPOINTMENT_BOOKED_AI: 198,
+    /** Appointment Cancelled by Client - Early */
+    APPOINTMENT_CANCEL_EARLY_USER: 33,
+    /** Appointment Cancelled by Client - Late */
+    APPOINTMENT_CANCEL_LATE_USER: 35,
+    /** Appointment Cancelled Notification - Staff */
+    APPOINTMENT_CANCEL_STAFF: 32,
+    /** Sends to the client when appointment has been cancelled by staff */
+    APPOINTMENT_CANCEL_STAFF_USER: 80,
+    /** Sends to the clients when appointment information has been changed */
+    APPOINTMENT_CHANGE_GENERAL_CLIENT: 114,
+    /** Sends to the staff members when appointment information has been changed */
+    APPOINTMENT_CHANGE_GENERAL_STAFF: 113,
+    /** Appointment Change Notification - Staff */
+    APPOINTMENT_CHANGE_STAFF: 36,
+    /** Appointment Change Notification - Client */
+    APPOINTMENT_CHANGE_USER: 37,
+    /** New Appointment Notification - Staff */
+    APPOINTMENT_CREATE_STAFF: 31,
+    /** Appointment Confirmation */
+    APPOINTMENT_CREATE_USER: 30,
+    /** Multiple Appointment Confirmation (Client) */
+    APPOINTMENT_CREATE_USER_MULTIPLE: 211,
+    /** Notification to a customer about an appointment that has been canceled because not paid */
+    APPOINTMENT_PAY_CANCEL: 189,
+    /** Notification to a customer about mandatory payment for an appointment */
+    APPOINTMENT_PAY_PAY: 188,
+    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
+    APPOINTMENT_REPEAT_CANCEL_CLIENT: 103,
+    /** Sends one email to staff when several sessions of one or several appointments or single session of recurring */
+    APPOINTMENT_REPEAT_CANCEL_STAFF: 105,
+    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
+    APPOINTMENT_REPEAT_CANCEL_USER: 131,
+    /** Sent to staff when the AI Agent receives an appointment request */
+    APPOINTMENT_REQUEST_AI: 200,
+    /** Requested appointment has been denied */
+    APPOINTMENT_REQUEST_DENY: 88,
+    /** Appointment has been requested */
+    APPOINTMENT_REQUEST_STAFF: 89,
+    /** Appointment has been requested */
+    APPOINTMENT_REQUEST_USER: 90,
+    /** Appointment Wait List Cancellation */
+    APPOINTMENT_WAIT_REMOVE: 195,
+    /** Sent to staff when the AI Agent logs a billing or payment query */
+    BILLING_RELATED_QUERY: 204,
+    /** Class Booking Confirmation */
+    BOOK_ADD_CLASS: 1,
+    /** Class Booking Notification - Staff */
+    BOOK_ADD_STAFF: 47,
+    /** Sent if a client cancels a booking (used in automations) */
+    BOOK_CANCEL: 210,
+    /** Class Booking (Reservation) Cancelled by Staff */
+    BOOK_CANCEL_ADMIN_CLASS: 23,
+    /** Enrollment Booking Cancelled by Staff */
+    BOOK_CANCEL_ADMIN_ENROLLMENT: 57,
+    /** Enrollment Session Cancellation Notification */
+    BOOK_CANCEL_ENROLLMENT_SESSION: 128,
+    /** Class Cancelled by Client - Early */
+    BOOK_CANCEL_FREE_CLASS: 3,
+    /** Enrollment Cancelled by Client - Early */
+    BOOK_CANCEL_FREE_ENROLLMENT: 58,
+    /** Class Cancelled By Client - Late */
+    BOOK_CANCEL_PENALTY_CLASS: 4,
+    /** Enrollment Cancelled By Client - Late */
+    BOOK_CANCEL_PENALTY_ENROLLMENT: 59,
+    /** Class Booking Cancellation Notification - Staff */
+    BOOK_CANCEL_STAFF: 48,
+    /** Enrollment Booking Confirmation */
+    BOOK_ENROLLMENT: 69,
+    /** Enrollment Booking Cancellation Notification - Staff */
+    BOOK_ENROLLMENT_CANCEL_STAFF: 92,
+    /** Enrollment Booking Notification - Staff */
+    BOOK_ENROLLMENT_STAFF: 91,
+    /** Thanks for your interest */
+    BOOK_FIRST: 73,
+    /** Appointment Wait List Promotion (Client Confirmation Required) */
+    BOOK_PROMOTE_CONFIRM_APPOINTMENT: 169,
+    /** Waitlist Promotion (Client Confirmation Required) */
+    BOOK_PROMOTE_CONFIRM_CLASS: 53,
+    /** Waitlist Promotion (Client Confirmation Required) */
+    BOOK_PROMOTE_CONFIRM_ENROLLMENT: 60,
+    /** Appointment Wait List Promotion (Confirmation not Required) */
+    BOOK_PROMOTE_DIRECT_APPOINTMENT: 168,
+    /** Waitlist Promotion (Client Confirmation Not Required) */
+    BOOK_PROMOTE_DIRECT_CLASS: 8,
+    /** Waitlist Promotion (Client Confirmation Not Required) */
+    BOOK_PROMOTE_DIRECT_ENROLLMENT: 61,
+    /** Class Reminder */
+    BOOK_REMIND_CLASS: 25,
+    /** Enrollment Reminder */
+    BOOK_REMIND_ENROLLMENT: 62,
+    /** Appointment Reminder - Staff */
+    BOOK_REMIND_SERVICE_STAFF: 27,
+    /** Appointment Reminder */
+    BOOK_REMIND_SERVICE_USER: 26,
+    /** Class Booking Confirmation */
+    BOOK_REPEAT_ADD: 101,
+    /** Class Booking Cancelled */
+    BOOK_REPEAT_CANCEL: 102,
+    /** Recurrent Class Reservation Wait List */
+    BOOK_REPEAT_WAIT: 166,
+    /** Class Review Request */
+    BOOK_VISIT: 39,
+    /** Appointment Reservation Wait List */
+    BOOK_WAIT_APPOINTMENT: 165,
+    /** Class Reservation Wait List */
+    BOOK_WAIT_CLASS: 2,
+    /** Enrollment Reservation Wait List */
+    BOOK_WAIT_ENROLLMENT: 63,
+    /** Sent when a business account or location is churned */
+    BUSINESS_ACCOUNT_CHURN: 154,
+    /** Sent to business owner if payment for account failed */
+    BUSINESS_ACCOUNT_PAY_FAIL: 82,
+    /** Sent to business owners as notification in one day before payment for account */
+    BUSINESS_ACCOUNT_PAY_NOTIFY: 83,
+    /** Sent to business owner on successful payment for account */
+    BUSINESS_ACCOUNT_PAY_OK: 81,
+    /** Sent when the monthly postcard limit is exceeded */
+    BUSINESS_ACCOUNT_POSTCARD_LIMIT: 155,
+    /** Sent when subscription price has been overridden and is less than the configured notification threshold */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT: 158,
+    /** Sent when subscription price has been overridden twice or more */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE: 151,
+    /** Sent when a subscription payment is marked as paid */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT: 156,
+    /** Sent when subscription skip payment setting has been changed */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP: 134,
+    /** Sent when a new subscription has been added, and the business is paying for fewer locations than they have */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING: 152,
+    /** Sent when a user signs up for the virtual service */
+    BUSINESS_ACCOUNT_VIRTUAL_SIGNUP: 157,
+    /** Sent when a business adds more licenses to their `FitLIVE` subscription */
+    BUSINESS_ACCOUNT_VIRTUAL_UPGRADE: 175,
+    /** Sends to client after the first-level onboarding, providing them with login information */
+    BUSINESS_CREATE: 192,
+    /** Email sales@wellnessliving.com when user changes Message Center plan */
+    BUSINESS_MESSAGE_SUBSCRIBE: 164,
+    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to all businesses accounts */
+    BUSINESS_PARTNER_BANNER: 179,
+    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to business account */
+    BUSINESS_PARTNER_BANNER_CUSTOMER: 180,
+    /** Email to the admins that business staff member wants to take a part in the partner program */
+    BUSINESS_PARTNER_ENROLL: 119,
+    /** Email to the staff members of the partner business when a new lead comes in through his partnership */
+    BUSINESS_PARTNER_REFERRAL_MAIL_NEW: 143,
+    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to partner business */
+    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER: 145,
+    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to referral business */
+    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL: 148,
+    /** Email to the staff members of the partner business when a referral reaches a certain period of paid subscription */
+    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER: 146,
+    /** Email to the staff members of the referred business when they reaches a certain period of paid subscription */
+    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL: 147,
+    /** Email to the staff members of the partner business when a referral has been subscribed */
+    BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE: 144,
+    /** Business registered its business phone number */
+    BUSINESS_PHONE: 139,
+    /** Sent when send/receive SMS in Two-Way SMS chat */
+    BUSINESS_SMS_CHAT: 141,
+    /** Sent to staff when the AI Agent captures a cancellation request */
+    CANCELLATION_REQUEST_AI: 202,
+    /** Sent to staff when CAASI receives a request for booking */
+    CLASS_BOOK_AI: 201,
+    /** Alerts staff that the AI Agent has completed a class booking for a client */
+    CLASS_BOOKED_AI: 199,
+    /** Class Type Modified Has Changed */
+    CLASS_EDIT_CLASS: 24,
+    /** Enrollment Type Modified Has Changed */
+    CLASS_EDIT_ENROLLMENT: 64,
+    /** Class cancelled by staff */
+    CLASS_PERIOD_CANCEL_CLASS: 16,
+    /** Enrollment cancelled by staff */
+    CLASS_PERIOD_CANCEL_ENROLLMENT: 66,
+    /** Class Schedule Details Changed Modified */
+    CLASS_PERIOD_CHANGE_CLASS: 17,
+    /** Enrollment Schedule Details Changed Modified */
+    CLASS_PERIOD_CHANGE_ENROLLMENT: 65,
+    /** Class Cancellation Notification - Staff */
+    CLASSES_CANCEL_STAFF: 135,
+    /** Class Schedule Details Changed */
+    CLASSES_PERIOD_CHANGE_CLASSES_STAFF: 100,
+    /** Email to the business members with information about newly added class schedule */
+    CLASSES_PROMOTE: 109,
+    /** A reminder for the staff about an upcoming recurrent class */
+    CLASSES_STAFF_RECURRENT: 124,
+    /** A notification to the staff about a cancellation of a recurrent class */
+    CLASSES_STAFF_RECURRENT_CANCEL: 125,
+    /** Staff member that conducts the class is changed (a new staff member is added, or an existing staff member is substituted) */
+    CLASSES_STAFF_SUBSTITUTION: 110,
+    /** Send to the staff a remind about an upcoming class session */
+    CLASSES_STAFF_SUBSTITUTION_REMIND: 117,
+    /** Sent to the client after a video uploaded to an attendance list is published */
+    CLASSES_VIDEO_PUBLISH: 161,
+    /** Automated marketing email sent on the client's birthday */
+    CLIENT_BIRTHDAY: 221,
+    /** Send a copy of contract */
+    CONTRACT_COPY: 98,
+    /** Sent after purchase of coupon */
+    COUPON_PURCHASE: 84,
+    /** Enrollment Session(s) Booking Confirmation */
+    EVENT_BOOK_SESSION_CLIENT: 129,
+    /** Enrollment Session(s) Booking Notification - Staff */
+    EVENT_BOOK_SESSION_STAFF: 130,
+    /** Email to the business members with information about newly added event schedule */
+    EVENT_PROMOTE: 160,
+    /** Sent to the client after a video uploaded to an attendance list is published */
+    EVENT_VIDEO_PUBLISH: 162,
+    /** Staff sent feedback with some comment */
+    FEEDBACK_DIALOG: 133,
+    /** New Comment on Logged Result */
+    FITBUILDER_MAIL_COMMENT: 182,
+    /** New Likes on Comment */
+    FITBUILDER_MAIL_LIKE: 183,
+    /** Thumbs up on Logged Result */
+    FITBUILDER_MAIL_THUMB: 184,
+    /** Workout of the day */
+    FITBUILDER_MAIL_WORKOUT: 185,
+    /** Guest Pass invitation expired */
+    GUEST_PASS_EXPIRED: 218,
+    /** Guest Pass invitation sent */
+    GUEST_PASS_INVITATION: 217,
+    /** Guest Pass invitation reminder */
+    GUEST_PASS_REMINDER: 219,
+    /** For staff members to send emails to support using the help popup */
+    HELP_POPUP_EMAIL: 150,
+    /** Sent when a business enrolls in Autymate */
+    INTEGRATION_AUTYMATE_ENROLLMENT: 176,
+    /** Sent when a business subscribes to collections */
+    INTEGRATION_COLLECTION_ALDOUS: 178,
+    /** Email, which is sent when a customer has connected a paid Zoom account */
+    INTEGRATION_ZOOM_CONFIRMATION: 138,
+    /** Request a demo from landing page */
+    LANDING_CONTACT: 97,
+    /** Sent to staff member informing them that a new client has entered their information into the Lead Capture Widget */
+    LEAD_ADDED_STAFF: 163,
+    /** Sent to the client after they fill out a Lead Capture Form on the website of a business */
+    LEAD_CAPTURE: 87,
+    /** Sent to staff when CAASI captures a new lead from a conversation, */
+    LEAD_CAPTURE_AI: 197,
+    /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
+    LEAD_STAGE_UPDATED: 224,
+    /** Sent to client on annual anniversary of the Member Since date */
+    LOGIN_ANNIVERSARY: 96,
+    /** Attendance List */
+    LOGIN_ATTENDANCE: 42,
+    /** Sent when user long time did not visit location, and it not has active promotion */
+    LOGIN_BACK: 79,
+    /** Email to send on the day, when client has birthday */
+    LOGIN_BIRTHDAY: 49,
+    /** Clients Payment Card expires this month */
+    LOGIN_CARD_EXPIRE: 51,
+    /** Email address confirmation */
+    LOGIN_MAIL_CONFIRM: 123,
+    /** Custom Client Email #1 */
+    LOGIN_MESSAGE: 22,
+    /** Client no show */
+    LOGIN_PENALTY_APPOINTMENT: 72,
+    /** Client no show */
+    LOGIN_PENALTY_CLASS: 15,
+    /** Client no show */
+    LOGIN_PENALTY_ENROLLMENT: 67,
+    /** Billed to Account. Sent to the client when any purchase was billed to their account balance */
+    LOGIN_PURCHASE_ACCOUNT: 159,
+    /** Sent to a client when they haven't visited in a set number of days, */
+    LOGIN_RETENTION: 50,
+    /** Sent to the client when a new account statement becomes available */
+    LOGIN_STATEMENT_NEW: 213,
+    /** Sent to all new users after they create an account for the first time */
+    LOGIN_WELCOME: 9,
+    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
+    MARKETING_AUTOMATION_NOTIFY_STAFF: 223,
+    /** Client added to a member group */
+    MEMBER_GROUP_USER_ADD: 214,
+    /** Client removed from a member group */
+    MEMBER_GROUP_USER_REMOVE: 215,
+    /** Sent to staff when the AI Agent logs a membership or purchase query */
+    MEMBERSHIP_QUERY: 203,
+    /** Sent OTP code by sms or email to validate phone number or email address */
+    NOTIFICATION_OTP: 191,
+    /** Sent OTP code by sms and email for the user sign in */
+    PASSPORT_LOGIN_ENTER: 187,
+    /** Notification about email address is changed due to merge */
+    PASSPORT_LOGIN_MERGE: 205,
+    /** E-mail with a list of user's payment account transactions for last `62` days */
+    PAY_ACCOUNT_INVOICE: 85,
+    /** Automatic payment success */
+    PAY_AUTOMATIC_SUCCESS: 116,
+    /** Transaction failed */
+    PAY_TRANSACTION_FAIL: 181,
+    /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
+    PHONE_AGENT_CALL_RECEIVED: 222,
+    /** Request a custom website subscription */
+    PRESENCE_ACTIVATE: 137,
+    /** Sent after purchase of product */
+    PRODUCT_PURCHASE: 127,
+    /** Email to inform user that they email is changed */
+    PROFILE_MAIL_CHANGE: 93,
+    /** Email to confirm new email address after it was changed */
+    PROFILE_MAIL_CONFIRM: 86,
+    /** Mail to inform the user that their password has been changed */
+    PROFILE_PASSWORD_CHANGE: 111,
+    /** Mail containing reset password link to allow the user to change their password */
+    PROFILE_PASSWORD_RESET: 142,
+    /** Few Pass Visits Remaining */
+    PROMOTION_LOW: 43,
+    /** Sent when membership is canceled */
+    PROMOTION_MEMBERSHIP_CANCEL: 153,
+    /** Sent to staff when membership is canceled */
+    PROMOTION_MEMBERSHIP_CANCEL_STAFF: 193,
+    /** Sent when membership expires */
+    PROMOTION_MEMBERSHIP_EXPIRE: 77,
+    /** Membership Payment - Billed to Account */
+    PROMOTION_MEMBERSHIP_PAY_ACCOUNT: 106,
+    /** Automatic Payment Failed */
+    PROMOTION_MEMBERSHIP_PAY_FAIL: 55,
+    /** Membership Payment Confirmation */
+    PROMOTION_MEMBERSHIP_PAY_OK: 56,
+    /** Sent to the customer after their membership is renewed */
+    PROMOTION_MEMBERSHIP_REACTIVATE: 75,
+    /** Sent before certain count of days before membership renews */
+    PROMOTION_MEMBERSHIP_RENEW: 78,
+    /** Sent after purchase of promotion */
+    PROMOTION_PURCHASE: 76,
+    /** Receipt sent after purchase of promotion */
+    PROMOTION_RECEIPT: 136,
+    /** Sent after a client attended a visit using a purchase option (used in automations) */
+    PROMOTION_USED: 212,
+    /** Sent to the customer when a promotion is paused */
+    PURCHASE_HOLD: 194,
+    /** Sends to the clients when purchase option hold expiring soon */
+    PURCHASE_HOLD_EXPIRING: 186,
+    /** Purchase Receipt */
+    PURCHASE_PAYMENT: 52,
+    /** Purchase Receipt */
+    PURCHASE_PAYMENT_ACCOUNT: 107,
+    /** Purchase Receipt */
+    PURCHASE_PAYMENT_POS: 115,
+    /** Sent to Business Owner when the re-order level has been reached for some product */
+    PURCHASE_PRODUCT_INVENTORY: 95,
+    /** Thanks for purchasing an introductory offer */
+    PURCHASE_PROMOTION_INTRODUCTORY: 74,
+    /** Send refund receipt */
+    PURCHASE_REFUND: 108,
+    /** Quiz form submission - Client */
+    QUIZ_FORM_SUBMITTION: 172,
+    /** Email to wellnessliving team when user changes Quiz Subscription plan */
+    QUIZ_INDEX: 174,
+    /** Quiz submitted - Staff */
+    QUIZ_NOTIFICATION: 171,
+    /** Quiz submitted - Staff */
+    QUIZ_NOTIFICATION_REMIND: 173,
+    /** Email to wellnessliving team when businesses perform actions which is exporting data */
+    REPORT_EXPORT: 177,
+    /** New Customer Review - Staff */
+    REVIEW_ADD: 38,
+    /** Owner Replied to Review */
+    REVIEW_REPLY: 45,
+    /** Client left a review */
+    REVIEW_USER_LEFT: 216,
+    /** Event redeems a reward (points or prizes) for client */
+    REWARD_PRIZE_CLIENT: 120,
+    /** Event redeems a reward (points or prizes) for staff */
+    REWARD_PRIZE_STAFF: 121,
+    /** Sale Has Been Made */
+    SALE_STAFF: 126,
+    /** Sent after booking a service (used in automations) */
+    SERVICE_BOOK: 208,
+    /** Event when finished push certification for ios devices */
+    SKIN_APPLICATION_CONNECT: 122,
+    /** Notifies staff when CAASI captures a client request for a staff connect, */
+    STAFF_CALLBACK_REQUEST: 196,
+    /** Sends when task assigned to staff */
+    TASK_ASSIGN: 104,
+    /** Send a copy of waiver */
+    TERM_COPY: 99,
+    /** Sent after a ticketed event is purchased */
+    TICKET_PURCHASE: 225,
+    /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
+    USER_CAMPAIGN: 112,
+    /** Request a video subscription */
+    VIDEO_SUBSCRIPTION_UPGRADE: 140,
+    /** Sent after visit the service */
+    VISIT_CAMPAIGN: 94,
+    /** Sent if a client does not show up to a service reserved by (used in automations) */
+    VISIT_NOSHOW: 209,
+    /** Visit receipt */
+    VISIT_RECEIPT_RECEIPT: 190,
+    /** Email, which is sent when a Zoom license is lack */
+    ZOOM_LICENSE_LACK: 149,
+  });
+
+  /**
    * A list of services.
    *
    * @enum {number}
@@ -17895,412 +18301,6 @@
     FLAT: 1,
     /** Percent type */
     PERCENT: 2,
-  });
-
-  /**
-   * Mail types.
-   *
-   * @enum {number}
-   */
-  WlClient.RsMailSid = Object.freeze({
-    /** Sent when a client abandons a checkout (used in automations) */
-    ABANDONED_CHECKOUT: 220,
-    /** Sent by CASSI phone agent, when client requests a booking url */
-    AI_LINK_BOOK: 206,
-    /** Sent by CASSI phone agent, when client requests a purchase url */
-    AI_LINK_PURCHASE: 207,
-    /** Appointment approved by staff */
-    APPOINTMENT_APPROVE_STAFF: 71,
-    /** Sent when the AI Agent successfully books an appointment */
-    APPOINTMENT_BOOKED_AI: 198,
-    /** Appointment Cancelled by Client - Early */
-    APPOINTMENT_CANCEL_EARLY_USER: 33,
-    /** Appointment Cancelled by Client - Late */
-    APPOINTMENT_CANCEL_LATE_USER: 35,
-    /** Appointment Cancelled Notification - Staff */
-    APPOINTMENT_CANCEL_STAFF: 32,
-    /** Sends to the client when appointment has been cancelled by staff */
-    APPOINTMENT_CANCEL_STAFF_USER: 80,
-    /** Sends to the clients when appointment information has been changed */
-    APPOINTMENT_CHANGE_GENERAL_CLIENT: 114,
-    /** Sends to the staff members when appointment information has been changed */
-    APPOINTMENT_CHANGE_GENERAL_STAFF: 113,
-    /** Appointment Change Notification - Staff */
-    APPOINTMENT_CHANGE_STAFF: 36,
-    /** Appointment Change Notification - Client */
-    APPOINTMENT_CHANGE_USER: 37,
-    /** New Appointment Notification - Staff */
-    APPOINTMENT_CREATE_STAFF: 31,
-    /** Appointment Confirmation */
-    APPOINTMENT_CREATE_USER: 30,
-    /** Multiple Appointment Confirmation (Client) */
-    APPOINTMENT_CREATE_USER_MULTIPLE: 211,
-    /** Notification to a customer about an appointment that has been canceled because not paid */
-    APPOINTMENT_PAY_CANCEL: 189,
-    /** Notification to a customer about mandatory payment for an appointment */
-    APPOINTMENT_PAY_PAY: 188,
-    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
-    APPOINTMENT_REPEAT_CANCEL_CLIENT: 103,
-    /** Sends one email to staff when several sessions of one or several appointments or single session of recurring */
-    APPOINTMENT_REPEAT_CANCEL_STAFF: 105,
-    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
-    APPOINTMENT_REPEAT_CANCEL_USER: 131,
-    /** Sent to staff when the AI Agent receives an appointment request */
-    APPOINTMENT_REQUEST_AI: 200,
-    /** Requested appointment has been denied */
-    APPOINTMENT_REQUEST_DENY: 88,
-    /** Appointment has been requested */
-    APPOINTMENT_REQUEST_STAFF: 89,
-    /** Appointment has been requested */
-    APPOINTMENT_REQUEST_USER: 90,
-    /** Appointment Wait List Cancellation */
-    APPOINTMENT_WAIT_REMOVE: 195,
-    /** Sent to staff when the AI Agent logs a billing or payment query */
-    BILLING_RELATED_QUERY: 204,
-    /** Class Booking Confirmation */
-    BOOK_ADD_CLASS: 1,
-    /** Class Booking Notification - Staff */
-    BOOK_ADD_STAFF: 47,
-    /** Sent if a client cancels a booking (used in automations) */
-    BOOK_CANCEL: 210,
-    /** Class Booking (Reservation) Cancelled by Staff */
-    BOOK_CANCEL_ADMIN_CLASS: 23,
-    /** Enrollment Booking Cancelled by Staff */
-    BOOK_CANCEL_ADMIN_ENROLLMENT: 57,
-    /** Enrollment Session Cancellation Notification */
-    BOOK_CANCEL_ENROLLMENT_SESSION: 128,
-    /** Class Cancelled by Client - Early */
-    BOOK_CANCEL_FREE_CLASS: 3,
-    /** Enrollment Cancelled by Client - Early */
-    BOOK_CANCEL_FREE_ENROLLMENT: 58,
-    /** Class Cancelled By Client - Late */
-    BOOK_CANCEL_PENALTY_CLASS: 4,
-    /** Enrollment Cancelled By Client - Late */
-    BOOK_CANCEL_PENALTY_ENROLLMENT: 59,
-    /** Class Booking Cancellation Notification - Staff */
-    BOOK_CANCEL_STAFF: 48,
-    /** Enrollment Booking Confirmation */
-    BOOK_ENROLLMENT: 69,
-    /** Enrollment Booking Cancellation Notification - Staff */
-    BOOK_ENROLLMENT_CANCEL_STAFF: 92,
-    /** Enrollment Booking Notification - Staff */
-    BOOK_ENROLLMENT_STAFF: 91,
-    /** Thanks for your interest */
-    BOOK_FIRST: 73,
-    /** Appointment Wait List Promotion (Client Confirmation Required) */
-    BOOK_PROMOTE_CONFIRM_APPOINTMENT: 169,
-    /** Waitlist Promotion (Client Confirmation Required) */
-    BOOK_PROMOTE_CONFIRM_CLASS: 53,
-    /** Waitlist Promotion (Client Confirmation Required) */
-    BOOK_PROMOTE_CONFIRM_ENROLLMENT: 60,
-    /** Appointment Wait List Promotion (Confirmation not Required) */
-    BOOK_PROMOTE_DIRECT_APPOINTMENT: 168,
-    /** Waitlist Promotion (Client Confirmation Not Required) */
-    BOOK_PROMOTE_DIRECT_CLASS: 8,
-    /** Waitlist Promotion (Client Confirmation Not Required) */
-    BOOK_PROMOTE_DIRECT_ENROLLMENT: 61,
-    /** Class Reminder */
-    BOOK_REMIND_CLASS: 25,
-    /** Enrollment Reminder */
-    BOOK_REMIND_ENROLLMENT: 62,
-    /** Appointment Reminder - Staff */
-    BOOK_REMIND_SERVICE_STAFF: 27,
-    /** Appointment Reminder */
-    BOOK_REMIND_SERVICE_USER: 26,
-    /** Class Booking Confirmation */
-    BOOK_REPEAT_ADD: 101,
-    /** Class Booking Cancelled */
-    BOOK_REPEAT_CANCEL: 102,
-    /** Recurrent Class Reservation Wait List */
-    BOOK_REPEAT_WAIT: 166,
-    /** Class Review Request */
-    BOOK_VISIT: 39,
-    /** Appointment Reservation Wait List */
-    BOOK_WAIT_APPOINTMENT: 165,
-    /** Class Reservation Wait List */
-    BOOK_WAIT_CLASS: 2,
-    /** Enrollment Reservation Wait List */
-    BOOK_WAIT_ENROLLMENT: 63,
-    /** Sent when a business account or location is churned */
-    BUSINESS_ACCOUNT_CHURN: 154,
-    /** Sent to business owner if payment for account failed */
-    BUSINESS_ACCOUNT_PAY_FAIL: 82,
-    /** Sent to business owners as notification in one day before payment for account */
-    BUSINESS_ACCOUNT_PAY_NOTIFY: 83,
-    /** Sent to business owner on successful payment for account */
-    BUSINESS_ACCOUNT_PAY_OK: 81,
-    /** Sent when the monthly postcard limit is exceeded */
-    BUSINESS_ACCOUNT_POSTCARD_LIMIT: 155,
-    /** Sent when subscription price has been overridden and is less than the configured notification threshold */
-    BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT: 158,
-    /** Sent when subscription price has been overridden twice or more */
-    BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE: 151,
-    /** Sent when a subscription payment is marked as paid */
-    BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT: 156,
-    /** Sent when subscription skip payment setting has been changed */
-    BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP: 134,
-    /** Sent when a new subscription has been added, and the business is paying for fewer locations than they have */
-    BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING: 152,
-    /** Sent when a user signs up for the virtual service */
-    BUSINESS_ACCOUNT_VIRTUAL_SIGNUP: 157,
-    /** Sent when a business adds more licenses to their `FitLIVE` subscription */
-    BUSINESS_ACCOUNT_VIRTUAL_UPGRADE: 175,
-    /** Sends to client after the first-level onboarding, providing them with login information */
-    BUSINESS_CREATE: 192,
-    /** Email sales@wellnessliving.com when user changes Message Center plan */
-    BUSINESS_MESSAGE_SUBSCRIBE: 164,
-    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to all businesses accounts */
-    BUSINESS_PARTNER_BANNER: 179,
-    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to business account */
-    BUSINESS_PARTNER_BANNER_CUSTOMER: 180,
-    /** Email to the admins that business staff member wants to take a part in the partner program */
-    BUSINESS_PARTNER_ENROLL: 119,
-    /** Email to the staff members of the partner business when a new lead comes in through his partnership */
-    BUSINESS_PARTNER_REFERRAL_MAIL_NEW: 143,
-    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to partner business */
-    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER: 145,
-    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to referral business */
-    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL: 148,
-    /** Email to the staff members of the partner business when a referral reaches a certain period of paid subscription */
-    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER: 146,
-    /** Email to the staff members of the referred business when they reaches a certain period of paid subscription */
-    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL: 147,
-    /** Email to the staff members of the partner business when a referral has been subscribed */
-    BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE: 144,
-    /** Business registered its business phone number */
-    BUSINESS_PHONE: 139,
-    /** Sent when send/receive SMS in Two-Way SMS chat */
-    BUSINESS_SMS_CHAT: 141,
-    /** Sent to staff when the AI Agent captures a cancellation request */
-    CANCELLATION_REQUEST_AI: 202,
-    /** Sent to staff when CAASI receives a request for booking */
-    CLASS_BOOK_AI: 201,
-    /** Alerts staff that the AI Agent has completed a class booking for a client */
-    CLASS_BOOKED_AI: 199,
-    /** Class Type Modified Has Changed */
-    CLASS_EDIT_CLASS: 24,
-    /** Enrollment Type Modified Has Changed */
-    CLASS_EDIT_ENROLLMENT: 64,
-    /** Class cancelled by staff */
-    CLASS_PERIOD_CANCEL_CLASS: 16,
-    /** Enrollment cancelled by staff */
-    CLASS_PERIOD_CANCEL_ENROLLMENT: 66,
-    /** Class Schedule Details Changed Modified */
-    CLASS_PERIOD_CHANGE_CLASS: 17,
-    /** Enrollment Schedule Details Changed Modified */
-    CLASS_PERIOD_CHANGE_ENROLLMENT: 65,
-    /** Class Cancellation Notification - Staff */
-    CLASSES_CANCEL_STAFF: 135,
-    /** Class Schedule Details Changed */
-    CLASSES_PERIOD_CHANGE_CLASSES_STAFF: 100,
-    /** Email to the business members with information about newly added class schedule */
-    CLASSES_PROMOTE: 109,
-    /** A reminder for the staff about an upcoming recurrent class */
-    CLASSES_STAFF_RECURRENT: 124,
-    /** A notification to the staff about a cancellation of a recurrent class */
-    CLASSES_STAFF_RECURRENT_CANCEL: 125,
-    /** Staff member that conducts the class is changed (a new staff member is added, or an existing staff member is substituted) */
-    CLASSES_STAFF_SUBSTITUTION: 110,
-    /** Send to the staff a remind about an upcoming class session */
-    CLASSES_STAFF_SUBSTITUTION_REMIND: 117,
-    /** Sent to the client after a video uploaded to an attendance list is published */
-    CLASSES_VIDEO_PUBLISH: 161,
-    /** Automated marketing email sent on the client's birthday */
-    CLIENT_BIRTHDAY: 221,
-    /** Send a copy of contract */
-    CONTRACT_COPY: 98,
-    /** Sent after purchase of coupon */
-    COUPON_PURCHASE: 84,
-    /** Enrollment Session(s) Booking Confirmation */
-    EVENT_BOOK_SESSION_CLIENT: 129,
-    /** Enrollment Session(s) Booking Notification - Staff */
-    EVENT_BOOK_SESSION_STAFF: 130,
-    /** Email to the business members with information about newly added event schedule */
-    EVENT_PROMOTE: 160,
-    /** Sent to the client after a video uploaded to an attendance list is published */
-    EVENT_VIDEO_PUBLISH: 162,
-    /** Staff sent feedback with some comment */
-    FEEDBACK_DIALOG: 133,
-    /** New Comment on Logged Result */
-    FITBUILDER_MAIL_COMMENT: 182,
-    /** New Likes on Comment */
-    FITBUILDER_MAIL_LIKE: 183,
-    /** Thumbs up on Logged Result */
-    FITBUILDER_MAIL_THUMB: 184,
-    /** Workout of the day */
-    FITBUILDER_MAIL_WORKOUT: 185,
-    /** Guest Pass invitation expired */
-    GUEST_PASS_EXPIRED: 218,
-    /** Guest Pass invitation sent */
-    GUEST_PASS_INVITATION: 217,
-    /** Guest Pass invitation reminder */
-    GUEST_PASS_REMINDER: 219,
-    /** For staff members to send emails to support using the help popup */
-    HELP_POPUP_EMAIL: 150,
-    /** Sent when a business enrolls in Autymate */
-    INTEGRATION_AUTYMATE_ENROLLMENT: 176,
-    /** Sent when a business subscribes to collections */
-    INTEGRATION_COLLECTION_ALDOUS: 178,
-    /** Email, which is sent when a customer has connected a paid Zoom account */
-    INTEGRATION_ZOOM_CONFIRMATION: 138,
-    /** Request a demo from landing page */
-    LANDING_CONTACT: 97,
-    /** Sent to staff member informing them that a new client has entered their information into the Lead Capture Widget */
-    LEAD_ADDED_STAFF: 163,
-    /** Sent to the client after they fill out a Lead Capture Form on the website of a business */
-    LEAD_CAPTURE: 87,
-    /** Sent to staff when CAASI captures a new lead from a conversation, */
-    LEAD_CAPTURE_AI: 197,
-    /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
-    LEAD_STAGE_UPDATED: 224,
-    /** Sent to client on annual anniversary of the Member Since date */
-    LOGIN_ANNIVERSARY: 96,
-    /** Attendance List */
-    LOGIN_ATTENDANCE: 42,
-    /** Sent when user long time did not visit location, and it not has active promotion */
-    LOGIN_BACK: 79,
-    /** Email to send on the day, when client has birthday */
-    LOGIN_BIRTHDAY: 49,
-    /** Clients Payment Card expires this month */
-    LOGIN_CARD_EXPIRE: 51,
-    /** Email address confirmation */
-    LOGIN_MAIL_CONFIRM: 123,
-    /** Custom Client Email #1 */
-    LOGIN_MESSAGE: 22,
-    /** Client no show */
-    LOGIN_PENALTY_APPOINTMENT: 72,
-    /** Client no show */
-    LOGIN_PENALTY_CLASS: 15,
-    /** Client no show */
-    LOGIN_PENALTY_ENROLLMENT: 67,
-    /** Billed to Account. Sent to the client when any purchase was billed to their account balance */
-    LOGIN_PURCHASE_ACCOUNT: 159,
-    /** Sent to a client when they haven't visited in a set number of days, */
-    LOGIN_RETENTION: 50,
-    /** Sent to the client when a new account statement becomes available */
-    LOGIN_STATEMENT_NEW: 213,
-    /** Sent to all new users after they create an account for the first time */
-    LOGIN_WELCOME: 9,
-    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
-    MARKETING_AUTOMATION_NOTIFY_STAFF: 223,
-    /** Client added to a member group */
-    MEMBER_GROUP_USER_ADD: 214,
-    /** Client removed from a member group */
-    MEMBER_GROUP_USER_REMOVE: 215,
-    /** Sent to staff when the AI Agent logs a membership or purchase query */
-    MEMBERSHIP_QUERY: 203,
-    /** Sent OTP code by sms or email to validate phone number or email address */
-    NOTIFICATION_OTP: 191,
-    /** Sent OTP code by sms and email for the user sign in */
-    PASSPORT_LOGIN_ENTER: 187,
-    /** Notification about email address is changed due to merge */
-    PASSPORT_LOGIN_MERGE: 205,
-    /** E-mail with a list of user's payment account transactions for last `62` days */
-    PAY_ACCOUNT_INVOICE: 85,
-    /** Automatic payment success */
-    PAY_AUTOMATIC_SUCCESS: 116,
-    /** Transaction failed */
-    PAY_TRANSACTION_FAIL: 181,
-    /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
-    PHONE_AGENT_CALL_RECEIVED: 222,
-    /** Request a custom website subscription */
-    PRESENCE_ACTIVATE: 137,
-    /** Sent after purchase of product */
-    PRODUCT_PURCHASE: 127,
-    /** Email to inform user that they email is changed */
-    PROFILE_MAIL_CHANGE: 93,
-    /** Email to confirm new email address after it was changed */
-    PROFILE_MAIL_CONFIRM: 86,
-    /** Mail to inform the user that their password has been changed */
-    PROFILE_PASSWORD_CHANGE: 111,
-    /** Mail containing reset password link to allow the user to change their password */
-    PROFILE_PASSWORD_RESET: 142,
-    /** Few Pass Visits Remaining */
-    PROMOTION_LOW: 43,
-    /** Sent when membership is canceled */
-    PROMOTION_MEMBERSHIP_CANCEL: 153,
-    /** Sent to staff when membership is canceled */
-    PROMOTION_MEMBERSHIP_CANCEL_STAFF: 193,
-    /** Sent when membership expires */
-    PROMOTION_MEMBERSHIP_EXPIRE: 77,
-    /** Membership Payment - Billed to Account */
-    PROMOTION_MEMBERSHIP_PAY_ACCOUNT: 106,
-    /** Automatic Payment Failed */
-    PROMOTION_MEMBERSHIP_PAY_FAIL: 55,
-    /** Membership Payment Confirmation */
-    PROMOTION_MEMBERSHIP_PAY_OK: 56,
-    /** Sent to the customer after their membership is renewed */
-    PROMOTION_MEMBERSHIP_REACTIVATE: 75,
-    /** Sent before certain count of days before membership renews */
-    PROMOTION_MEMBERSHIP_RENEW: 78,
-    /** Sent after purchase of promotion */
-    PROMOTION_PURCHASE: 76,
-    /** Receipt sent after purchase of promotion */
-    PROMOTION_RECEIPT: 136,
-    /** Sent after a client attended a visit using a purchase option (used in automations) */
-    PROMOTION_USED: 212,
-    /** Sent to the customer when a promotion is paused */
-    PURCHASE_HOLD: 194,
-    /** Sends to the clients when purchase option hold expiring soon */
-    PURCHASE_HOLD_EXPIRING: 186,
-    /** Purchase Receipt */
-    PURCHASE_PAYMENT: 52,
-    /** Purchase Receipt */
-    PURCHASE_PAYMENT_ACCOUNT: 107,
-    /** Purchase Receipt */
-    PURCHASE_PAYMENT_POS: 115,
-    /** Sent to Business Owner when the re-order level has been reached for some product */
-    PURCHASE_PRODUCT_INVENTORY: 95,
-    /** Thanks for purchasing an introductory offer */
-    PURCHASE_PROMOTION_INTRODUCTORY: 74,
-    /** Send refund receipt */
-    PURCHASE_REFUND: 108,
-    /** Quiz form submission - Client */
-    QUIZ_FORM_SUBMITTION: 172,
-    /** Email to wellnessliving team when user changes Quiz Subscription plan */
-    QUIZ_INDEX: 174,
-    /** Quiz submitted - Staff */
-    QUIZ_NOTIFICATION: 171,
-    /** Quiz submitted - Staff */
-    QUIZ_NOTIFICATION_REMIND: 173,
-    /** Email to wellnessliving team when businesses perform actions which is exporting data */
-    REPORT_EXPORT: 177,
-    /** New Customer Review - Staff */
-    REVIEW_ADD: 38,
-    /** Owner Replied to Review */
-    REVIEW_REPLY: 45,
-    /** Client left a review */
-    REVIEW_USER_LEFT: 216,
-    /** Event redeems a reward (points or prizes) for client */
-    REWARD_PRIZE_CLIENT: 120,
-    /** Event redeems a reward (points or prizes) for staff */
-    REWARD_PRIZE_STAFF: 121,
-    /** Sale Has Been Made */
-    SALE_STAFF: 126,
-    /** Sent after booking a service (used in automations) */
-    SERVICE_BOOK: 208,
-    /** Event when finished push certification for ios devices */
-    SKIN_APPLICATION_CONNECT: 122,
-    /** Notifies staff when CAASI captures a client request for a staff connect, */
-    STAFF_CALLBACK_REQUEST: 196,
-    /** Sends when task assigned to staff */
-    TASK_ASSIGN: 104,
-    /** Send a copy of waiver */
-    TERM_COPY: 99,
-    /** Sent after a ticketed event is purchased */
-    TICKET_PURCHASE: 225,
-    /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
-    USER_CAMPAIGN: 112,
-    /** Request a video subscription */
-    VIDEO_SUBSCRIPTION_UPGRADE: 140,
-    /** Sent after visit the service */
-    VISIT_CAMPAIGN: 94,
-    /** Sent if a client does not show up to a service reserved by (used in automations) */
-    VISIT_NOSHOW: 209,
-    /** Visit receipt */
-    VISIT_RECEIPT_RECEIPT: 190,
-    /** Email, which is sent when a Zoom license is lack */
-    ZOOM_LICENSE_LACK: 149,
   });
 
   /**

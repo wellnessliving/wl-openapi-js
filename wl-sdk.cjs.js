@@ -1,13 +1,13 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261021082044
+// OpenAPI spec version: 1.1.20261021143241
 // Build date: 2026-10-21
 // Endpoints: 685
 // Enums: 225
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsScheduleTimeSid = exports.WlEventDenyReasonSid = exports.RsPurchaseItemSid = exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.CoreSidYesNoSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.AFlagSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsPrivilegeRoleSid = exports.RsPayMethodSid = exports.RsProjectSid = exports.RsHomeTourSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AGenderSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlTaskTaskStatusSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlApiError = void 0;
-exports.WlProfileAttachAttachPreviewSid = exports.RsLoginActivityTypeSid = exports.WlDesignIconSid = exports.RsMailSid = exports.RsCommissionTypeSid = exports.RsActivationSid = exports.WlProfileRegisterSourceSid = exports.RsFamilyRelationSid = exports.WlFieldFieldLevelEnum = exports.WlLoginTypeClientTypeSid = exports.WlVisitPassProspectSid = exports.WlProfileSensorSensorTypesSid = exports.CoreQuizResponseResponseStatusSid = exports.WlMemberProgressFieldTypeSid = exports.WlMemberProgressFieldMeasurementSid = exports.WlMemberProgressFieldProgressFieldSid = exports.RsServiceSid = exports.WlVisitNoteSidNoteSid = exports.RsSaleSid = exports.WlPromotionPayPromotionPayHoldSid = exports.CoreGoogleCaptchaCaptchaResponseSid = exports.CoreDriveDriveTypeSid = exports.CorePassportPasskeyPasskeyCredentialStatusEnum = exports.CorePassportPasskeyPasskeyDeviceTypeEnum = exports.ThothPayProcessorPayProcessorSid = exports.ThothWlPayCordovaCordovaCcrDeviceSid = exports.ThothPayProcessorTerminalTerminalTypeSid = exports.ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = exports.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = exports.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = exports.RsPayOwnerSid = exports.ThothPayProcessorStripeComPaymentIntentStatusSid = exports.RsPayActorSid = exports.ThothPayProcessorTerminalTerminalStatusSid = exports.ThothPayProcessorStripeComTerminalStripeReaderModelSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.WlAnnouncementSortFieldSid = exports.WlAnnouncementAnnouncementStatusEnum = exports.RsReviewStatusSid = exports.WlVideoCatalogFilterSortFilterSortSid = exports.CoreSidSortOrderSid = exports.WlVideoVideoSourceSid = exports.WlVideoVideoEmbedSourceSid = exports.WlBusinessFranchiseTravelTravelModeSid = exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = exports.RsPlaceSid = exports.RsCurrencySid = exports.RsSkinSid = void 0;
+exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsScheduleTimeSid = exports.WlEventDenyReasonSid = exports.RsPurchaseItemSid = exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.CoreSidYesNoSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.AFlagSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsPrivilegeRoleSid = exports.RsPayMethodSid = exports.RsProjectSid = exports.RsHomeTourSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.RsMailSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AGenderSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlTaskTaskStatusSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlApiError = void 0;
+exports.WlProfileAttachAttachPreviewSid = exports.RsLoginActivityTypeSid = exports.WlDesignIconSid = exports.RsCommissionTypeSid = exports.RsActivationSid = exports.WlProfileRegisterSourceSid = exports.RsFamilyRelationSid = exports.WlFieldFieldLevelEnum = exports.WlLoginTypeClientTypeSid = exports.WlVisitPassProspectSid = exports.WlProfileSensorSensorTypesSid = exports.CoreQuizResponseResponseStatusSid = exports.WlMemberProgressFieldTypeSid = exports.WlMemberProgressFieldMeasurementSid = exports.WlMemberProgressFieldProgressFieldSid = exports.RsServiceSid = exports.WlVisitNoteSidNoteSid = exports.RsSaleSid = exports.WlPromotionPayPromotionPayHoldSid = exports.CoreGoogleCaptchaCaptchaResponseSid = exports.CoreDriveDriveTypeSid = exports.CorePassportPasskeyPasskeyCredentialStatusEnum = exports.CorePassportPasskeyPasskeyDeviceTypeEnum = exports.ThothPayProcessorPayProcessorSid = exports.ThothWlPayCordovaCordovaCcrDeviceSid = exports.ThothPayProcessorTerminalTerminalTypeSid = exports.ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = exports.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = exports.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = exports.RsPayOwnerSid = exports.ThothPayProcessorStripeComPaymentIntentStatusSid = exports.RsPayActorSid = exports.ThothPayProcessorTerminalTerminalStatusSid = exports.ThothPayProcessorStripeComTerminalStripeReaderModelSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.WlAnnouncementSortFieldSid = exports.WlAnnouncementAnnouncementStatusEnum = exports.RsReviewStatusSid = exports.WlVideoCatalogFilterSortFilterSortSid = exports.CoreSidSortOrderSid = exports.WlVideoVideoSourceSid = exports.WlVideoVideoEmbedSourceSid = exports.WlBusinessFranchiseTravelTravelModeSid = exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = exports.RsPlaceSid = exports.RsCurrencySid = exports.RsSkinSid = exports.RsReportChartViewSid = void 0;
 exports.WlResourceLayoutShapeLayoutShapeSid = exports.WlQuizResponseSourceSid = exports.WlUserTrackingFlowSid = exports.RsAppointmentPaySid = exports.WlScheduleClassViewDenyReasonSid = exports.WlResourceResourceCategoryEnum = exports.WlScheduleDesignWeekDaySid = exports.WlScheduleDesignOptionSid = exports.WlScheduleDesignCellSid = exports.WlScheduleDesignIntervalSid = exports.RsProgramCategorySid = exports.WlPromotionEditLimitCycleSid = exports.WlCouponTypeSid = exports.WlClassesEditEnrollTimeSid = exports.WlClassesEditEarlyPeriodEnum = exports.WlClassesEditEarlyAmountEnum = exports.WlResourceResourceUseSid = exports.WlResourceResourceClientControlSid = exports.WlServiceAgeRestrictionStatusSid = exports.WlVirtualVirtualProviderSid = exports.WlClassesEditEventTypeEnum = exports.WlServiceBookableSid = exports.WlPrivilegePrivilegeSid = exports.RsStaffPaySid = exports.ASocialSid = exports.WlCatalogTermsTermsActionSid = exports.WlCatalogQuickPurchaseTypeSid = exports.WlShopCategoryShopCategorySortSid = exports.WlCatalogPurchaseOptionViewSid = exports.WlPromotionGuestPassGuestPassResetTypeSid = exports.WlCouponEditDurationTypeSid = exports.WlCouponEditActivationSid = exports.WlCollectorDebtStatusSid = exports.RsFacilitySid = exports.RsAgeSid = exports.WlClassesRequirePaySid = exports.WlBookProcessProcessSpaSid = exports.RsRepeatEndSid = exports.RsBusinessDesignLogoStyleSid = exports.RsBusinessDesignLogoPositionSid = exports.RsPageFrontendHeaderLayoutSid = exports.WlBusinessPolicyChargeSid = exports.WlBusinessPolicyBlameSid = exports.WlLeadStageLeadStageSystemSid = exports.WlLeadStageLeadStageTypeSid = exports.WlLeadStageLeadStageShapeSid = exports.WlLocationFlagFlagSourceEnum = exports.RsLoginNoteFlagSid = exports.RsLoginNoteAccessSid = exports.RsProfileNoteSid = void 0;
 exports.WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid = exports.WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = exports.WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = exports.WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = exports.WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = exports.WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.WlBusinessAccountSubscriptionApiApiSubscriptionSid = exports.WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = exports.WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = exports.WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = exports.WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid = exports.WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = exports.WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = exports.WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = exports.WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid = exports.WlBusinessAccountSubscriptionSmsSmsSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = exports.WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = exports.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = exports.WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid = exports.WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = exports.WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = exports.WlBusinessCustomTermsClientTermOptionSid = exports.WlBusinessCustomTermsCustomTermSid = exports.WlLoginAttendanceAddOptionSid = exports.WlLoginPromotionConvertConvertWhenSid = exports.WlPromotionConvertPromotionConvertSid = exports.RsPayAccountChargeSid = exports.RsPayBankAchTypeSid = exports.RsPayBankAchHolderSid = exports.WlSocialShareShareObjectSid = exports.WlReviewReviewListReviewOrderSid = exports.WlVideoWatchWatchSourceSid = exports.WlBusinessFranchiseLocationBusinessFranchiseLocationSid = exports.WlIntegrationAutymateAutymateAccessModeSid = exports.WlIntegrationAutymateAutymateStatusSid = exports.WlAiAgentPhoneCallOutcomeEnum = exports.WlReceptionDesignCheckInSoundSid = exports.WlReceptionApplicationMemberInfoIconSid = exports.WlReceptionApplicationMemberInfoColorSid = exports.WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = exports.RsReportCategorySid = exports.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = exports.WlWidgetAnalyticsWidgetAnalyticsEventSid = exports.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = exports.RsRewardActionCategorySid = exports.RsRewardScoreSid = exports.WlResourceImageImageIconSid = void 0;
 exports.CorePassportPasskeyNamespace = exports.CorePassportLoginNamespace = exports.CorePassportLoginSignOutNamespace = exports.CorePassportLoginRegisterNamespace = exports.CorePassportLoginEnterNamespace = exports.CorePassportLoginEnterQuickNamespace = exports.CoreTestingNamespace = exports.CoreTestingAutomationNamespace = exports.CoreAINamespace = exports.CoreAILogTriageNamespace = exports.CoreTimingNamespace = exports.CoreGeoNamespace = exports.CoreGeoRegionNamespace = exports.CoreWebSocketNamespace = exports.CoreSidNamespace = exports.CoreGoogleNamespace = exports.CoreGoogleCaptchaNamespace = exports.CoreCaptchaNamespace = exports.CorePushNamespace = exports.CoreDebugNamespace = exports.CoreRequestNamespace = exports.CoreRequestTokenNamespace = exports.CoreRequestApiNamespace = exports.CoreRequestApiApplicationNamespace = exports.CoreRequestApiApplicationCredentialNamespace = exports.WlLoginPromotionGuestPassInviteInviteStatusEnum = exports.RsPayBankAchSecSid = exports.RsPayBankSid = exports.RsPayModeSid = exports.WlCardCardSystemSid = exports.WlSkinApplicationUpgradeAppUpdateTypeEnum = exports.WlSkinApplicationResourceApplicationCategorySid = exports.WlPassportLoginEnterOtpDeliveryStrategyEnum = exports.WlReceptionRosterDirectSid = exports.WlShareShareSid = exports.WlSearchSearchOperationSid = exports.WlMemberGroupShapeSid = exports.WlLeadConversionLeadConversionTypeSid = exports.RsServicePriceSid = exports.WlLoginLoginRoleSid = exports.RsAppointmentEditConflictSid = exports.RsServiceRequireSid = exports.WlServiceServiceBookFlowSid = exports.WlPageBackendFeatureFeatureSid = exports.RsClassModifyModeSid = exports.RsClassModifyActionSid = exports.RsTaxSid = exports.WlShopProductPurchaseRestrictionSid = exports.WlDiscountDiscountRuleSid = exports.WlBookProcessProcessCheckSid = void 0;
@@ -1481,6 +1481,408 @@ var RsFieldTypeSid;
     /** One line text field */
     RsFieldTypeSid[RsFieldTypeSid["TEXT"] = 1] = "TEXT";
 })(RsFieldTypeSid || (exports.RsFieldTypeSid = RsFieldTypeSid = {}));
+/** Mail types. */
+var RsMailSid;
+(function (RsMailSid) {
+    /** Sent when a client abandons a checkout (used in automations) */
+    RsMailSid[RsMailSid["ABANDONED_CHECKOUT"] = 220] = "ABANDONED_CHECKOUT";
+    /** Sent by CASSI phone agent, when client requests a booking url */
+    RsMailSid[RsMailSid["AI_LINK_BOOK"] = 206] = "AI_LINK_BOOK";
+    /** Sent by CASSI phone agent, when client requests a purchase url */
+    RsMailSid[RsMailSid["AI_LINK_PURCHASE"] = 207] = "AI_LINK_PURCHASE";
+    /** Appointment approved by staff */
+    RsMailSid[RsMailSid["APPOINTMENT_APPROVE_STAFF"] = 71] = "APPOINTMENT_APPROVE_STAFF";
+    /** Sent when the AI Agent successfully books an appointment */
+    RsMailSid[RsMailSid["APPOINTMENT_BOOKED_AI"] = 198] = "APPOINTMENT_BOOKED_AI";
+    /** Appointment Cancelled by Client - Early */
+    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_EARLY_USER"] = 33] = "APPOINTMENT_CANCEL_EARLY_USER";
+    /** Appointment Cancelled by Client - Late */
+    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_LATE_USER"] = 35] = "APPOINTMENT_CANCEL_LATE_USER";
+    /** Appointment Cancelled Notification - Staff */
+    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_STAFF"] = 32] = "APPOINTMENT_CANCEL_STAFF";
+    /** Sends to the client when appointment has been cancelled by staff */
+    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_STAFF_USER"] = 80] = "APPOINTMENT_CANCEL_STAFF_USER";
+    /** Sends to the clients when appointment information has been changed */
+    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_GENERAL_CLIENT"] = 114] = "APPOINTMENT_CHANGE_GENERAL_CLIENT";
+    /** Sends to the staff members when appointment information has been changed */
+    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_GENERAL_STAFF"] = 113] = "APPOINTMENT_CHANGE_GENERAL_STAFF";
+    /** Appointment Change Notification - Staff */
+    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_STAFF"] = 36] = "APPOINTMENT_CHANGE_STAFF";
+    /** Appointment Change Notification - Client */
+    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_USER"] = 37] = "APPOINTMENT_CHANGE_USER";
+    /** New Appointment Notification - Staff */
+    RsMailSid[RsMailSid["APPOINTMENT_CREATE_STAFF"] = 31] = "APPOINTMENT_CREATE_STAFF";
+    /** Appointment Confirmation */
+    RsMailSid[RsMailSid["APPOINTMENT_CREATE_USER"] = 30] = "APPOINTMENT_CREATE_USER";
+    /** Multiple Appointment Confirmation (Client) */
+    RsMailSid[RsMailSid["APPOINTMENT_CREATE_USER_MULTIPLE"] = 211] = "APPOINTMENT_CREATE_USER_MULTIPLE";
+    /** Notification to a customer about an appointment that has been canceled because not paid */
+    RsMailSid[RsMailSid["APPOINTMENT_PAY_CANCEL"] = 189] = "APPOINTMENT_PAY_CANCEL";
+    /** Notification to a customer about mandatory payment for an appointment */
+    RsMailSid[RsMailSid["APPOINTMENT_PAY_PAY"] = 188] = "APPOINTMENT_PAY_PAY";
+    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
+    RsMailSid[RsMailSid["APPOINTMENT_REPEAT_CANCEL_CLIENT"] = 103] = "APPOINTMENT_REPEAT_CANCEL_CLIENT";
+    /** Sends one email to staff when several sessions of one or several appointments or single session of recurring */
+    RsMailSid[RsMailSid["APPOINTMENT_REPEAT_CANCEL_STAFF"] = 105] = "APPOINTMENT_REPEAT_CANCEL_STAFF";
+    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
+    RsMailSid[RsMailSid["APPOINTMENT_REPEAT_CANCEL_USER"] = 131] = "APPOINTMENT_REPEAT_CANCEL_USER";
+    /** Sent to staff when the AI Agent receives an appointment request */
+    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_AI"] = 200] = "APPOINTMENT_REQUEST_AI";
+    /** Requested appointment has been denied */
+    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_DENY"] = 88] = "APPOINTMENT_REQUEST_DENY";
+    /** Appointment has been requested */
+    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_STAFF"] = 89] = "APPOINTMENT_REQUEST_STAFF";
+    /** Appointment has been requested */
+    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_USER"] = 90] = "APPOINTMENT_REQUEST_USER";
+    /** Appointment Wait List Cancellation */
+    RsMailSid[RsMailSid["APPOINTMENT_WAIT_REMOVE"] = 195] = "APPOINTMENT_WAIT_REMOVE";
+    /** Sent to staff when the AI Agent logs a billing or payment query */
+    RsMailSid[RsMailSid["BILLING_RELATED_QUERY"] = 204] = "BILLING_RELATED_QUERY";
+    /** Class Booking Confirmation */
+    RsMailSid[RsMailSid["BOOK_ADD_CLASS"] = 1] = "BOOK_ADD_CLASS";
+    /** Class Booking Notification - Staff */
+    RsMailSid[RsMailSid["BOOK_ADD_STAFF"] = 47] = "BOOK_ADD_STAFF";
+    /** Sent if a client cancels a booking (used in automations) */
+    RsMailSid[RsMailSid["BOOK_CANCEL"] = 210] = "BOOK_CANCEL";
+    /** Class Booking (Reservation) Cancelled by Staff */
+    RsMailSid[RsMailSid["BOOK_CANCEL_ADMIN_CLASS"] = 23] = "BOOK_CANCEL_ADMIN_CLASS";
+    /** Enrollment Booking Cancelled by Staff */
+    RsMailSid[RsMailSid["BOOK_CANCEL_ADMIN_ENROLLMENT"] = 57] = "BOOK_CANCEL_ADMIN_ENROLLMENT";
+    /** Enrollment Session Cancellation Notification */
+    RsMailSid[RsMailSid["BOOK_CANCEL_ENROLLMENT_SESSION"] = 128] = "BOOK_CANCEL_ENROLLMENT_SESSION";
+    /** Class Cancelled by Client - Early */
+    RsMailSid[RsMailSid["BOOK_CANCEL_FREE_CLASS"] = 3] = "BOOK_CANCEL_FREE_CLASS";
+    /** Enrollment Cancelled by Client - Early */
+    RsMailSid[RsMailSid["BOOK_CANCEL_FREE_ENROLLMENT"] = 58] = "BOOK_CANCEL_FREE_ENROLLMENT";
+    /** Class Cancelled By Client - Late */
+    RsMailSid[RsMailSid["BOOK_CANCEL_PENALTY_CLASS"] = 4] = "BOOK_CANCEL_PENALTY_CLASS";
+    /** Enrollment Cancelled By Client - Late */
+    RsMailSid[RsMailSid["BOOK_CANCEL_PENALTY_ENROLLMENT"] = 59] = "BOOK_CANCEL_PENALTY_ENROLLMENT";
+    /** Class Booking Cancellation Notification - Staff */
+    RsMailSid[RsMailSid["BOOK_CANCEL_STAFF"] = 48] = "BOOK_CANCEL_STAFF";
+    /** Enrollment Booking Confirmation */
+    RsMailSid[RsMailSid["BOOK_ENROLLMENT"] = 69] = "BOOK_ENROLLMENT";
+    /** Enrollment Booking Cancellation Notification - Staff */
+    RsMailSid[RsMailSid["BOOK_ENROLLMENT_CANCEL_STAFF"] = 92] = "BOOK_ENROLLMENT_CANCEL_STAFF";
+    /** Enrollment Booking Notification - Staff */
+    RsMailSid[RsMailSid["BOOK_ENROLLMENT_STAFF"] = 91] = "BOOK_ENROLLMENT_STAFF";
+    /** Thanks for your interest */
+    RsMailSid[RsMailSid["BOOK_FIRST"] = 73] = "BOOK_FIRST";
+    /** Appointment Wait List Promotion (Client Confirmation Required) */
+    RsMailSid[RsMailSid["BOOK_PROMOTE_CONFIRM_APPOINTMENT"] = 169] = "BOOK_PROMOTE_CONFIRM_APPOINTMENT";
+    /** Waitlist Promotion (Client Confirmation Required) */
+    RsMailSid[RsMailSid["BOOK_PROMOTE_CONFIRM_CLASS"] = 53] = "BOOK_PROMOTE_CONFIRM_CLASS";
+    /** Waitlist Promotion (Client Confirmation Required) */
+    RsMailSid[RsMailSid["BOOK_PROMOTE_CONFIRM_ENROLLMENT"] = 60] = "BOOK_PROMOTE_CONFIRM_ENROLLMENT";
+    /** Appointment Wait List Promotion (Confirmation not Required) */
+    RsMailSid[RsMailSid["BOOK_PROMOTE_DIRECT_APPOINTMENT"] = 168] = "BOOK_PROMOTE_DIRECT_APPOINTMENT";
+    /** Waitlist Promotion (Client Confirmation Not Required) */
+    RsMailSid[RsMailSid["BOOK_PROMOTE_DIRECT_CLASS"] = 8] = "BOOK_PROMOTE_DIRECT_CLASS";
+    /** Waitlist Promotion (Client Confirmation Not Required) */
+    RsMailSid[RsMailSid["BOOK_PROMOTE_DIRECT_ENROLLMENT"] = 61] = "BOOK_PROMOTE_DIRECT_ENROLLMENT";
+    /** Class Reminder */
+    RsMailSid[RsMailSid["BOOK_REMIND_CLASS"] = 25] = "BOOK_REMIND_CLASS";
+    /** Enrollment Reminder */
+    RsMailSid[RsMailSid["BOOK_REMIND_ENROLLMENT"] = 62] = "BOOK_REMIND_ENROLLMENT";
+    /** Appointment Reminder - Staff */
+    RsMailSid[RsMailSid["BOOK_REMIND_SERVICE_STAFF"] = 27] = "BOOK_REMIND_SERVICE_STAFF";
+    /** Appointment Reminder */
+    RsMailSid[RsMailSid["BOOK_REMIND_SERVICE_USER"] = 26] = "BOOK_REMIND_SERVICE_USER";
+    /** Class Booking Confirmation */
+    RsMailSid[RsMailSid["BOOK_REPEAT_ADD"] = 101] = "BOOK_REPEAT_ADD";
+    /** Class Booking Cancelled */
+    RsMailSid[RsMailSid["BOOK_REPEAT_CANCEL"] = 102] = "BOOK_REPEAT_CANCEL";
+    /** Recurrent Class Reservation Wait List */
+    RsMailSid[RsMailSid["BOOK_REPEAT_WAIT"] = 166] = "BOOK_REPEAT_WAIT";
+    /** Class Review Request */
+    RsMailSid[RsMailSid["BOOK_VISIT"] = 39] = "BOOK_VISIT";
+    /** Appointment Reservation Wait List */
+    RsMailSid[RsMailSid["BOOK_WAIT_APPOINTMENT"] = 165] = "BOOK_WAIT_APPOINTMENT";
+    /** Class Reservation Wait List */
+    RsMailSid[RsMailSid["BOOK_WAIT_CLASS"] = 2] = "BOOK_WAIT_CLASS";
+    /** Enrollment Reservation Wait List */
+    RsMailSid[RsMailSid["BOOK_WAIT_ENROLLMENT"] = 63] = "BOOK_WAIT_ENROLLMENT";
+    /** Sent when a business account or location is churned */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_CHURN"] = 154] = "BUSINESS_ACCOUNT_CHURN";
+    /** Sent to business owner if payment for account failed */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_PAY_FAIL"] = 82] = "BUSINESS_ACCOUNT_PAY_FAIL";
+    /** Sent to business owners as notification in one day before payment for account */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_PAY_NOTIFY"] = 83] = "BUSINESS_ACCOUNT_PAY_NOTIFY";
+    /** Sent to business owner on successful payment for account */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_PAY_OK"] = 81] = "BUSINESS_ACCOUNT_PAY_OK";
+    /** Sent when the monthly postcard limit is exceeded */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_POSTCARD_LIMIT"] = 155] = "BUSINESS_ACCOUNT_POSTCARD_LIMIT";
+    /** Sent when subscription price has been overridden and is less than the configured notification threshold */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT"] = 158] = "BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT";
+    /** Sent when subscription price has been overridden twice or more */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE"] = 151] = "BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE";
+    /** Sent when a subscription payment is marked as paid */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT"] = 156] = "BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT";
+    /** Sent when subscription skip payment setting has been changed */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP"] = 134] = "BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP";
+    /** Sent when a new subscription has been added, and the business is paying for fewer locations than they have */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING"] = 152] = "BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING";
+    /** Sent when a user signs up for the virtual service */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_VIRTUAL_SIGNUP"] = 157] = "BUSINESS_ACCOUNT_VIRTUAL_SIGNUP";
+    /** Sent when a business adds more licenses to their `FitLIVE` subscription */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_VIRTUAL_UPGRADE"] = 175] = "BUSINESS_ACCOUNT_VIRTUAL_UPGRADE";
+    /** Sends to client after the first-level onboarding, providing them with login information */
+    RsMailSid[RsMailSid["BUSINESS_CREATE"] = 192] = "BUSINESS_CREATE";
+    /** Email sales@wellnessliving.com when user changes Message Center plan */
+    RsMailSid[RsMailSid["BUSINESS_MESSAGE_SUBSCRIBE"] = 164] = "BUSINESS_MESSAGE_SUBSCRIBE";
+    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to all businesses accounts */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_BANNER"] = 179] = "BUSINESS_PARTNER_BANNER";
+    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to business account */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_BANNER_CUSTOMER"] = 180] = "BUSINESS_PARTNER_BANNER_CUSTOMER";
+    /** Email to the admins that business staff member wants to take a part in the partner program */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_ENROLL"] = 119] = "BUSINESS_PARTNER_ENROLL";
+    /** Email to the staff members of the partner business when a new lead comes in through his partnership */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_NEW"] = 143] = "BUSINESS_PARTNER_REFERRAL_MAIL_NEW";
+    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to partner business */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER"] = 145] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER";
+    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to referral business */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL"] = 148] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL";
+    /** Email to the staff members of the partner business when a referral reaches a certain period of paid subscription */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER"] = 146] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER";
+    /** Email to the staff members of the referred business when they reaches a certain period of paid subscription */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL"] = 147] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL";
+    /** Email to the staff members of the partner business when a referral has been subscribed */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE"] = 144] = "BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE";
+    /** Business registered its business phone number */
+    RsMailSid[RsMailSid["BUSINESS_PHONE"] = 139] = "BUSINESS_PHONE";
+    /** Sent when send/receive SMS in Two-Way SMS chat */
+    RsMailSid[RsMailSid["BUSINESS_SMS_CHAT"] = 141] = "BUSINESS_SMS_CHAT";
+    /** Sent to staff when the AI Agent captures a cancellation request */
+    RsMailSid[RsMailSid["CANCELLATION_REQUEST_AI"] = 202] = "CANCELLATION_REQUEST_AI";
+    /** Sent to staff when CAASI receives a request for booking */
+    RsMailSid[RsMailSid["CLASS_BOOK_AI"] = 201] = "CLASS_BOOK_AI";
+    /** Alerts staff that the AI Agent has completed a class booking for a client */
+    RsMailSid[RsMailSid["CLASS_BOOKED_AI"] = 199] = "CLASS_BOOKED_AI";
+    /** Class Type Modified Has Changed */
+    RsMailSid[RsMailSid["CLASS_EDIT_CLASS"] = 24] = "CLASS_EDIT_CLASS";
+    /** Enrollment Type Modified Has Changed */
+    RsMailSid[RsMailSid["CLASS_EDIT_ENROLLMENT"] = 64] = "CLASS_EDIT_ENROLLMENT";
+    /** Class cancelled by staff */
+    RsMailSid[RsMailSid["CLASS_PERIOD_CANCEL_CLASS"] = 16] = "CLASS_PERIOD_CANCEL_CLASS";
+    /** Enrollment cancelled by staff */
+    RsMailSid[RsMailSid["CLASS_PERIOD_CANCEL_ENROLLMENT"] = 66] = "CLASS_PERIOD_CANCEL_ENROLLMENT";
+    /** Class Schedule Details Changed Modified */
+    RsMailSid[RsMailSid["CLASS_PERIOD_CHANGE_CLASS"] = 17] = "CLASS_PERIOD_CHANGE_CLASS";
+    /** Enrollment Schedule Details Changed Modified */
+    RsMailSid[RsMailSid["CLASS_PERIOD_CHANGE_ENROLLMENT"] = 65] = "CLASS_PERIOD_CHANGE_ENROLLMENT";
+    /** Class Cancellation Notification - Staff */
+    RsMailSid[RsMailSid["CLASSES_CANCEL_STAFF"] = 135] = "CLASSES_CANCEL_STAFF";
+    /** Class Schedule Details Changed */
+    RsMailSid[RsMailSid["CLASSES_PERIOD_CHANGE_CLASSES_STAFF"] = 100] = "CLASSES_PERIOD_CHANGE_CLASSES_STAFF";
+    /** Email to the business members with information about newly added class schedule */
+    RsMailSid[RsMailSid["CLASSES_PROMOTE"] = 109] = "CLASSES_PROMOTE";
+    /** A reminder for the staff about an upcoming recurrent class */
+    RsMailSid[RsMailSid["CLASSES_STAFF_RECURRENT"] = 124] = "CLASSES_STAFF_RECURRENT";
+    /** A notification to the staff about a cancellation of a recurrent class */
+    RsMailSid[RsMailSid["CLASSES_STAFF_RECURRENT_CANCEL"] = 125] = "CLASSES_STAFF_RECURRENT_CANCEL";
+    /** Staff member that conducts the class is changed (a new staff member is added, or an existing staff member is substituted) */
+    RsMailSid[RsMailSid["CLASSES_STAFF_SUBSTITUTION"] = 110] = "CLASSES_STAFF_SUBSTITUTION";
+    /** Send to the staff a remind about an upcoming class session */
+    RsMailSid[RsMailSid["CLASSES_STAFF_SUBSTITUTION_REMIND"] = 117] = "CLASSES_STAFF_SUBSTITUTION_REMIND";
+    /** Sent to the client after a video uploaded to an attendance list is published */
+    RsMailSid[RsMailSid["CLASSES_VIDEO_PUBLISH"] = 161] = "CLASSES_VIDEO_PUBLISH";
+    /** Automated marketing email sent on the client's birthday */
+    RsMailSid[RsMailSid["CLIENT_BIRTHDAY"] = 221] = "CLIENT_BIRTHDAY";
+    /** Send a copy of contract */
+    RsMailSid[RsMailSid["CONTRACT_COPY"] = 98] = "CONTRACT_COPY";
+    /** Sent after purchase of coupon */
+    RsMailSid[RsMailSid["COUPON_PURCHASE"] = 84] = "COUPON_PURCHASE";
+    /** Enrollment Session(s) Booking Confirmation */
+    RsMailSid[RsMailSid["EVENT_BOOK_SESSION_CLIENT"] = 129] = "EVENT_BOOK_SESSION_CLIENT";
+    /** Enrollment Session(s) Booking Notification - Staff */
+    RsMailSid[RsMailSid["EVENT_BOOK_SESSION_STAFF"] = 130] = "EVENT_BOOK_SESSION_STAFF";
+    /** Email to the business members with information about newly added event schedule */
+    RsMailSid[RsMailSid["EVENT_PROMOTE"] = 160] = "EVENT_PROMOTE";
+    /** Sent to the client after a video uploaded to an attendance list is published */
+    RsMailSid[RsMailSid["EVENT_VIDEO_PUBLISH"] = 162] = "EVENT_VIDEO_PUBLISH";
+    /** Staff sent feedback with some comment */
+    RsMailSid[RsMailSid["FEEDBACK_DIALOG"] = 133] = "FEEDBACK_DIALOG";
+    /** New Comment on Logged Result */
+    RsMailSid[RsMailSid["FITBUILDER_MAIL_COMMENT"] = 182] = "FITBUILDER_MAIL_COMMENT";
+    /** New Likes on Comment */
+    RsMailSid[RsMailSid["FITBUILDER_MAIL_LIKE"] = 183] = "FITBUILDER_MAIL_LIKE";
+    /** Thumbs up on Logged Result */
+    RsMailSid[RsMailSid["FITBUILDER_MAIL_THUMB"] = 184] = "FITBUILDER_MAIL_THUMB";
+    /** Workout of the day */
+    RsMailSid[RsMailSid["FITBUILDER_MAIL_WORKOUT"] = 185] = "FITBUILDER_MAIL_WORKOUT";
+    /** Guest Pass invitation expired */
+    RsMailSid[RsMailSid["GUEST_PASS_EXPIRED"] = 218] = "GUEST_PASS_EXPIRED";
+    /** Guest Pass invitation sent */
+    RsMailSid[RsMailSid["GUEST_PASS_INVITATION"] = 217] = "GUEST_PASS_INVITATION";
+    /** Guest Pass invitation reminder */
+    RsMailSid[RsMailSid["GUEST_PASS_REMINDER"] = 219] = "GUEST_PASS_REMINDER";
+    /** For staff members to send emails to support using the help popup */
+    RsMailSid[RsMailSid["HELP_POPUP_EMAIL"] = 150] = "HELP_POPUP_EMAIL";
+    /** Sent when a business enrolls in Autymate */
+    RsMailSid[RsMailSid["INTEGRATION_AUTYMATE_ENROLLMENT"] = 176] = "INTEGRATION_AUTYMATE_ENROLLMENT";
+    /** Sent when a business subscribes to collections */
+    RsMailSid[RsMailSid["INTEGRATION_COLLECTION_ALDOUS"] = 178] = "INTEGRATION_COLLECTION_ALDOUS";
+    /** Email, which is sent when a customer has connected a paid Zoom account */
+    RsMailSid[RsMailSid["INTEGRATION_ZOOM_CONFIRMATION"] = 138] = "INTEGRATION_ZOOM_CONFIRMATION";
+    /** Request a demo from landing page */
+    RsMailSid[RsMailSid["LANDING_CONTACT"] = 97] = "LANDING_CONTACT";
+    /** Sent to staff member informing them that a new client has entered their information into the Lead Capture Widget */
+    RsMailSid[RsMailSid["LEAD_ADDED_STAFF"] = 163] = "LEAD_ADDED_STAFF";
+    /** Sent to the client after they fill out a Lead Capture Form on the website of a business */
+    RsMailSid[RsMailSid["LEAD_CAPTURE"] = 87] = "LEAD_CAPTURE";
+    /** Sent to staff when CAASI captures a new lead from a conversation, */
+    RsMailSid[RsMailSid["LEAD_CAPTURE_AI"] = 197] = "LEAD_CAPTURE_AI";
+    /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
+    RsMailSid[RsMailSid["LEAD_STAGE_UPDATED"] = 224] = "LEAD_STAGE_UPDATED";
+    /** Sent to client on annual anniversary of the Member Since date */
+    RsMailSid[RsMailSid["LOGIN_ANNIVERSARY"] = 96] = "LOGIN_ANNIVERSARY";
+    /** Attendance List */
+    RsMailSid[RsMailSid["LOGIN_ATTENDANCE"] = 42] = "LOGIN_ATTENDANCE";
+    /** Sent when user long time did not visit location, and it not has active promotion */
+    RsMailSid[RsMailSid["LOGIN_BACK"] = 79] = "LOGIN_BACK";
+    /** Email to send on the day, when client has birthday */
+    RsMailSid[RsMailSid["LOGIN_BIRTHDAY"] = 49] = "LOGIN_BIRTHDAY";
+    /** Clients Payment Card expires this month */
+    RsMailSid[RsMailSid["LOGIN_CARD_EXPIRE"] = 51] = "LOGIN_CARD_EXPIRE";
+    /** Email address confirmation */
+    RsMailSid[RsMailSid["LOGIN_MAIL_CONFIRM"] = 123] = "LOGIN_MAIL_CONFIRM";
+    /** Custom Client Email #1 */
+    RsMailSid[RsMailSid["LOGIN_MESSAGE"] = 22] = "LOGIN_MESSAGE";
+    /** Client no show */
+    RsMailSid[RsMailSid["LOGIN_PENALTY_APPOINTMENT"] = 72] = "LOGIN_PENALTY_APPOINTMENT";
+    /** Client no show */
+    RsMailSid[RsMailSid["LOGIN_PENALTY_CLASS"] = 15] = "LOGIN_PENALTY_CLASS";
+    /** Client no show */
+    RsMailSid[RsMailSid["LOGIN_PENALTY_ENROLLMENT"] = 67] = "LOGIN_PENALTY_ENROLLMENT";
+    /** Billed to Account. Sent to the client when any purchase was billed to their account balance */
+    RsMailSid[RsMailSid["LOGIN_PURCHASE_ACCOUNT"] = 159] = "LOGIN_PURCHASE_ACCOUNT";
+    /** Sent to a client when they haven't visited in a set number of days, */
+    RsMailSid[RsMailSid["LOGIN_RETENTION"] = 50] = "LOGIN_RETENTION";
+    /** Sent to the client when a new account statement becomes available */
+    RsMailSid[RsMailSid["LOGIN_STATEMENT_NEW"] = 213] = "LOGIN_STATEMENT_NEW";
+    /** Sent to all new users after they create an account for the first time */
+    RsMailSid[RsMailSid["LOGIN_WELCOME"] = 9] = "LOGIN_WELCOME";
+    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
+    RsMailSid[RsMailSid["MARKETING_AUTOMATION_NOTIFY_STAFF"] = 223] = "MARKETING_AUTOMATION_NOTIFY_STAFF";
+    /** Client added to a member group */
+    RsMailSid[RsMailSid["MEMBER_GROUP_USER_ADD"] = 214] = "MEMBER_GROUP_USER_ADD";
+    /** Client removed from a member group */
+    RsMailSid[RsMailSid["MEMBER_GROUP_USER_REMOVE"] = 215] = "MEMBER_GROUP_USER_REMOVE";
+    /** Sent to staff when the AI Agent logs a membership or purchase query */
+    RsMailSid[RsMailSid["MEMBERSHIP_QUERY"] = 203] = "MEMBERSHIP_QUERY";
+    /** Sent OTP code by sms or email to validate phone number or email address */
+    RsMailSid[RsMailSid["NOTIFICATION_OTP"] = 191] = "NOTIFICATION_OTP";
+    /** Sent OTP code by sms and email for the user sign in */
+    RsMailSid[RsMailSid["PASSPORT_LOGIN_ENTER"] = 187] = "PASSPORT_LOGIN_ENTER";
+    /** Notification about email address is changed due to merge */
+    RsMailSid[RsMailSid["PASSPORT_LOGIN_MERGE"] = 205] = "PASSPORT_LOGIN_MERGE";
+    /** E-mail with a list of user's payment account transactions for last `62` days */
+    RsMailSid[RsMailSid["PAY_ACCOUNT_INVOICE"] = 85] = "PAY_ACCOUNT_INVOICE";
+    /** Automatic payment success */
+    RsMailSid[RsMailSid["PAY_AUTOMATIC_SUCCESS"] = 116] = "PAY_AUTOMATIC_SUCCESS";
+    /** Transaction failed */
+    RsMailSid[RsMailSid["PAY_TRANSACTION_FAIL"] = 181] = "PAY_TRANSACTION_FAIL";
+    /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
+    RsMailSid[RsMailSid["PHONE_AGENT_CALL_RECEIVED"] = 222] = "PHONE_AGENT_CALL_RECEIVED";
+    /** Request a custom website subscription */
+    RsMailSid[RsMailSid["PRESENCE_ACTIVATE"] = 137] = "PRESENCE_ACTIVATE";
+    /** Sent after purchase of product */
+    RsMailSid[RsMailSid["PRODUCT_PURCHASE"] = 127] = "PRODUCT_PURCHASE";
+    /** Email to inform user that they email is changed */
+    RsMailSid[RsMailSid["PROFILE_MAIL_CHANGE"] = 93] = "PROFILE_MAIL_CHANGE";
+    /** Email to confirm new email address after it was changed */
+    RsMailSid[RsMailSid["PROFILE_MAIL_CONFIRM"] = 86] = "PROFILE_MAIL_CONFIRM";
+    /** Mail to inform the user that their password has been changed */
+    RsMailSid[RsMailSid["PROFILE_PASSWORD_CHANGE"] = 111] = "PROFILE_PASSWORD_CHANGE";
+    /** Mail containing reset password link to allow the user to change their password */
+    RsMailSid[RsMailSid["PROFILE_PASSWORD_RESET"] = 142] = "PROFILE_PASSWORD_RESET";
+    /** Few Pass Visits Remaining */
+    RsMailSid[RsMailSid["PROMOTION_LOW"] = 43] = "PROMOTION_LOW";
+    /** Sent when membership is canceled */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_CANCEL"] = 153] = "PROMOTION_MEMBERSHIP_CANCEL";
+    /** Sent to staff when membership is canceled */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_CANCEL_STAFF"] = 193] = "PROMOTION_MEMBERSHIP_CANCEL_STAFF";
+    /** Sent when membership expires */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_EXPIRE"] = 77] = "PROMOTION_MEMBERSHIP_EXPIRE";
+    /** Membership Payment - Billed to Account */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_PAY_ACCOUNT"] = 106] = "PROMOTION_MEMBERSHIP_PAY_ACCOUNT";
+    /** Automatic Payment Failed */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_PAY_FAIL"] = 55] = "PROMOTION_MEMBERSHIP_PAY_FAIL";
+    /** Membership Payment Confirmation */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_PAY_OK"] = 56] = "PROMOTION_MEMBERSHIP_PAY_OK";
+    /** Sent to the customer after their membership is renewed */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_REACTIVATE"] = 75] = "PROMOTION_MEMBERSHIP_REACTIVATE";
+    /** Sent before certain count of days before membership renews */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_RENEW"] = 78] = "PROMOTION_MEMBERSHIP_RENEW";
+    /** Sent after purchase of promotion */
+    RsMailSid[RsMailSid["PROMOTION_PURCHASE"] = 76] = "PROMOTION_PURCHASE";
+    /** Receipt sent after purchase of promotion */
+    RsMailSid[RsMailSid["PROMOTION_RECEIPT"] = 136] = "PROMOTION_RECEIPT";
+    /** Sent after a client attended a visit using a purchase option (used in automations) */
+    RsMailSid[RsMailSid["PROMOTION_USED"] = 212] = "PROMOTION_USED";
+    /** Sent to the customer when a promotion is paused */
+    RsMailSid[RsMailSid["PURCHASE_HOLD"] = 194] = "PURCHASE_HOLD";
+    /** Sends to the clients when purchase option hold expiring soon */
+    RsMailSid[RsMailSid["PURCHASE_HOLD_EXPIRING"] = 186] = "PURCHASE_HOLD_EXPIRING";
+    /** Purchase Receipt */
+    RsMailSid[RsMailSid["PURCHASE_PAYMENT"] = 52] = "PURCHASE_PAYMENT";
+    /** Purchase Receipt */
+    RsMailSid[RsMailSid["PURCHASE_PAYMENT_ACCOUNT"] = 107] = "PURCHASE_PAYMENT_ACCOUNT";
+    /** Purchase Receipt */
+    RsMailSid[RsMailSid["PURCHASE_PAYMENT_POS"] = 115] = "PURCHASE_PAYMENT_POS";
+    /** Sent to Business Owner when the re-order level has been reached for some product */
+    RsMailSid[RsMailSid["PURCHASE_PRODUCT_INVENTORY"] = 95] = "PURCHASE_PRODUCT_INVENTORY";
+    /** Thanks for purchasing an introductory offer */
+    RsMailSid[RsMailSid["PURCHASE_PROMOTION_INTRODUCTORY"] = 74] = "PURCHASE_PROMOTION_INTRODUCTORY";
+    /** Send refund receipt */
+    RsMailSid[RsMailSid["PURCHASE_REFUND"] = 108] = "PURCHASE_REFUND";
+    /** Quiz form submission - Client */
+    RsMailSid[RsMailSid["QUIZ_FORM_SUBMITTION"] = 172] = "QUIZ_FORM_SUBMITTION";
+    /** Email to wellnessliving team when user changes Quiz Subscription plan */
+    RsMailSid[RsMailSid["QUIZ_INDEX"] = 174] = "QUIZ_INDEX";
+    /** Quiz submitted - Staff */
+    RsMailSid[RsMailSid["QUIZ_NOTIFICATION"] = 171] = "QUIZ_NOTIFICATION";
+    /** Quiz submitted - Staff */
+    RsMailSid[RsMailSid["QUIZ_NOTIFICATION_REMIND"] = 173] = "QUIZ_NOTIFICATION_REMIND";
+    /** Email to wellnessliving team when businesses perform actions which is exporting data */
+    RsMailSid[RsMailSid["REPORT_EXPORT"] = 177] = "REPORT_EXPORT";
+    /** New Customer Review - Staff */
+    RsMailSid[RsMailSid["REVIEW_ADD"] = 38] = "REVIEW_ADD";
+    /** Owner Replied to Review */
+    RsMailSid[RsMailSid["REVIEW_REPLY"] = 45] = "REVIEW_REPLY";
+    /** Client left a review */
+    RsMailSid[RsMailSid["REVIEW_USER_LEFT"] = 216] = "REVIEW_USER_LEFT";
+    /** Event redeems a reward (points or prizes) for client */
+    RsMailSid[RsMailSid["REWARD_PRIZE_CLIENT"] = 120] = "REWARD_PRIZE_CLIENT";
+    /** Event redeems a reward (points or prizes) for staff */
+    RsMailSid[RsMailSid["REWARD_PRIZE_STAFF"] = 121] = "REWARD_PRIZE_STAFF";
+    /** Sale Has Been Made */
+    RsMailSid[RsMailSid["SALE_STAFF"] = 126] = "SALE_STAFF";
+    /** Sent after booking a service (used in automations) */
+    RsMailSid[RsMailSid["SERVICE_BOOK"] = 208] = "SERVICE_BOOK";
+    /** Event when finished push certification for ios devices */
+    RsMailSid[RsMailSid["SKIN_APPLICATION_CONNECT"] = 122] = "SKIN_APPLICATION_CONNECT";
+    /** Notifies staff when CAASI captures a client request for a staff connect, */
+    RsMailSid[RsMailSid["STAFF_CALLBACK_REQUEST"] = 196] = "STAFF_CALLBACK_REQUEST";
+    /** Sends when task assigned to staff */
+    RsMailSid[RsMailSid["TASK_ASSIGN"] = 104] = "TASK_ASSIGN";
+    /** Send a copy of waiver */
+    RsMailSid[RsMailSid["TERM_COPY"] = 99] = "TERM_COPY";
+    /** Sent after a ticketed event is purchased */
+    RsMailSid[RsMailSid["TICKET_PURCHASE"] = 225] = "TICKET_PURCHASE";
+    /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
+    RsMailSid[RsMailSid["USER_CAMPAIGN"] = 112] = "USER_CAMPAIGN";
+    /** Request a video subscription */
+    RsMailSid[RsMailSid["VIDEO_SUBSCRIPTION_UPGRADE"] = 140] = "VIDEO_SUBSCRIPTION_UPGRADE";
+    /** Sent after visit the service */
+    RsMailSid[RsMailSid["VISIT_CAMPAIGN"] = 94] = "VISIT_CAMPAIGN";
+    /** Sent if a client does not show up to a service reserved by (used in automations) */
+    RsMailSid[RsMailSid["VISIT_NOSHOW"] = 209] = "VISIT_NOSHOW";
+    /** Visit receipt */
+    RsMailSid[RsMailSid["VISIT_RECEIPT_RECEIPT"] = 190] = "VISIT_RECEIPT_RECEIPT";
+    /** Email, which is sent when a Zoom license is lack */
+    RsMailSid[RsMailSid["ZOOM_LICENSE_LACK"] = 149] = "ZOOM_LICENSE_LACK";
+})(RsMailSid || (exports.RsMailSid = RsMailSid = {}));
 /** A list of services. */
 var WlServiceServiceSid;
 (function (WlServiceServiceSid) {
@@ -2815,408 +3217,6 @@ var RsCommissionTypeSid;
     /** Percent type */
     RsCommissionTypeSid[RsCommissionTypeSid["PERCENT"] = 2] = "PERCENT";
 })(RsCommissionTypeSid || (exports.RsCommissionTypeSid = RsCommissionTypeSid = {}));
-/** Mail types. */
-var RsMailSid;
-(function (RsMailSid) {
-    /** Sent when a client abandons a checkout (used in automations) */
-    RsMailSid[RsMailSid["ABANDONED_CHECKOUT"] = 220] = "ABANDONED_CHECKOUT";
-    /** Sent by CASSI phone agent, when client requests a booking url */
-    RsMailSid[RsMailSid["AI_LINK_BOOK"] = 206] = "AI_LINK_BOOK";
-    /** Sent by CASSI phone agent, when client requests a purchase url */
-    RsMailSid[RsMailSid["AI_LINK_PURCHASE"] = 207] = "AI_LINK_PURCHASE";
-    /** Appointment approved by staff */
-    RsMailSid[RsMailSid["APPOINTMENT_APPROVE_STAFF"] = 71] = "APPOINTMENT_APPROVE_STAFF";
-    /** Sent when the AI Agent successfully books an appointment */
-    RsMailSid[RsMailSid["APPOINTMENT_BOOKED_AI"] = 198] = "APPOINTMENT_BOOKED_AI";
-    /** Appointment Cancelled by Client - Early */
-    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_EARLY_USER"] = 33] = "APPOINTMENT_CANCEL_EARLY_USER";
-    /** Appointment Cancelled by Client - Late */
-    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_LATE_USER"] = 35] = "APPOINTMENT_CANCEL_LATE_USER";
-    /** Appointment Cancelled Notification - Staff */
-    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_STAFF"] = 32] = "APPOINTMENT_CANCEL_STAFF";
-    /** Sends to the client when appointment has been cancelled by staff */
-    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_STAFF_USER"] = 80] = "APPOINTMENT_CANCEL_STAFF_USER";
-    /** Sends to the clients when appointment information has been changed */
-    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_GENERAL_CLIENT"] = 114] = "APPOINTMENT_CHANGE_GENERAL_CLIENT";
-    /** Sends to the staff members when appointment information has been changed */
-    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_GENERAL_STAFF"] = 113] = "APPOINTMENT_CHANGE_GENERAL_STAFF";
-    /** Appointment Change Notification - Staff */
-    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_STAFF"] = 36] = "APPOINTMENT_CHANGE_STAFF";
-    /** Appointment Change Notification - Client */
-    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_USER"] = 37] = "APPOINTMENT_CHANGE_USER";
-    /** New Appointment Notification - Staff */
-    RsMailSid[RsMailSid["APPOINTMENT_CREATE_STAFF"] = 31] = "APPOINTMENT_CREATE_STAFF";
-    /** Appointment Confirmation */
-    RsMailSid[RsMailSid["APPOINTMENT_CREATE_USER"] = 30] = "APPOINTMENT_CREATE_USER";
-    /** Multiple Appointment Confirmation (Client) */
-    RsMailSid[RsMailSid["APPOINTMENT_CREATE_USER_MULTIPLE"] = 211] = "APPOINTMENT_CREATE_USER_MULTIPLE";
-    /** Notification to a customer about an appointment that has been canceled because not paid */
-    RsMailSid[RsMailSid["APPOINTMENT_PAY_CANCEL"] = 189] = "APPOINTMENT_PAY_CANCEL";
-    /** Notification to a customer about mandatory payment for an appointment */
-    RsMailSid[RsMailSid["APPOINTMENT_PAY_PAY"] = 188] = "APPOINTMENT_PAY_PAY";
-    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
-    RsMailSid[RsMailSid["APPOINTMENT_REPEAT_CANCEL_CLIENT"] = 103] = "APPOINTMENT_REPEAT_CANCEL_CLIENT";
-    /** Sends one email to staff when several sessions of one or several appointments or single session of recurring */
-    RsMailSid[RsMailSid["APPOINTMENT_REPEAT_CANCEL_STAFF"] = 105] = "APPOINTMENT_REPEAT_CANCEL_STAFF";
-    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
-    RsMailSid[RsMailSid["APPOINTMENT_REPEAT_CANCEL_USER"] = 131] = "APPOINTMENT_REPEAT_CANCEL_USER";
-    /** Sent to staff when the AI Agent receives an appointment request */
-    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_AI"] = 200] = "APPOINTMENT_REQUEST_AI";
-    /** Requested appointment has been denied */
-    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_DENY"] = 88] = "APPOINTMENT_REQUEST_DENY";
-    /** Appointment has been requested */
-    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_STAFF"] = 89] = "APPOINTMENT_REQUEST_STAFF";
-    /** Appointment has been requested */
-    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_USER"] = 90] = "APPOINTMENT_REQUEST_USER";
-    /** Appointment Wait List Cancellation */
-    RsMailSid[RsMailSid["APPOINTMENT_WAIT_REMOVE"] = 195] = "APPOINTMENT_WAIT_REMOVE";
-    /** Sent to staff when the AI Agent logs a billing or payment query */
-    RsMailSid[RsMailSid["BILLING_RELATED_QUERY"] = 204] = "BILLING_RELATED_QUERY";
-    /** Class Booking Confirmation */
-    RsMailSid[RsMailSid["BOOK_ADD_CLASS"] = 1] = "BOOK_ADD_CLASS";
-    /** Class Booking Notification - Staff */
-    RsMailSid[RsMailSid["BOOK_ADD_STAFF"] = 47] = "BOOK_ADD_STAFF";
-    /** Sent if a client cancels a booking (used in automations) */
-    RsMailSid[RsMailSid["BOOK_CANCEL"] = 210] = "BOOK_CANCEL";
-    /** Class Booking (Reservation) Cancelled by Staff */
-    RsMailSid[RsMailSid["BOOK_CANCEL_ADMIN_CLASS"] = 23] = "BOOK_CANCEL_ADMIN_CLASS";
-    /** Enrollment Booking Cancelled by Staff */
-    RsMailSid[RsMailSid["BOOK_CANCEL_ADMIN_ENROLLMENT"] = 57] = "BOOK_CANCEL_ADMIN_ENROLLMENT";
-    /** Enrollment Session Cancellation Notification */
-    RsMailSid[RsMailSid["BOOK_CANCEL_ENROLLMENT_SESSION"] = 128] = "BOOK_CANCEL_ENROLLMENT_SESSION";
-    /** Class Cancelled by Client - Early */
-    RsMailSid[RsMailSid["BOOK_CANCEL_FREE_CLASS"] = 3] = "BOOK_CANCEL_FREE_CLASS";
-    /** Enrollment Cancelled by Client - Early */
-    RsMailSid[RsMailSid["BOOK_CANCEL_FREE_ENROLLMENT"] = 58] = "BOOK_CANCEL_FREE_ENROLLMENT";
-    /** Class Cancelled By Client - Late */
-    RsMailSid[RsMailSid["BOOK_CANCEL_PENALTY_CLASS"] = 4] = "BOOK_CANCEL_PENALTY_CLASS";
-    /** Enrollment Cancelled By Client - Late */
-    RsMailSid[RsMailSid["BOOK_CANCEL_PENALTY_ENROLLMENT"] = 59] = "BOOK_CANCEL_PENALTY_ENROLLMENT";
-    /** Class Booking Cancellation Notification - Staff */
-    RsMailSid[RsMailSid["BOOK_CANCEL_STAFF"] = 48] = "BOOK_CANCEL_STAFF";
-    /** Enrollment Booking Confirmation */
-    RsMailSid[RsMailSid["BOOK_ENROLLMENT"] = 69] = "BOOK_ENROLLMENT";
-    /** Enrollment Booking Cancellation Notification - Staff */
-    RsMailSid[RsMailSid["BOOK_ENROLLMENT_CANCEL_STAFF"] = 92] = "BOOK_ENROLLMENT_CANCEL_STAFF";
-    /** Enrollment Booking Notification - Staff */
-    RsMailSid[RsMailSid["BOOK_ENROLLMENT_STAFF"] = 91] = "BOOK_ENROLLMENT_STAFF";
-    /** Thanks for your interest */
-    RsMailSid[RsMailSid["BOOK_FIRST"] = 73] = "BOOK_FIRST";
-    /** Appointment Wait List Promotion (Client Confirmation Required) */
-    RsMailSid[RsMailSid["BOOK_PROMOTE_CONFIRM_APPOINTMENT"] = 169] = "BOOK_PROMOTE_CONFIRM_APPOINTMENT";
-    /** Waitlist Promotion (Client Confirmation Required) */
-    RsMailSid[RsMailSid["BOOK_PROMOTE_CONFIRM_CLASS"] = 53] = "BOOK_PROMOTE_CONFIRM_CLASS";
-    /** Waitlist Promotion (Client Confirmation Required) */
-    RsMailSid[RsMailSid["BOOK_PROMOTE_CONFIRM_ENROLLMENT"] = 60] = "BOOK_PROMOTE_CONFIRM_ENROLLMENT";
-    /** Appointment Wait List Promotion (Confirmation not Required) */
-    RsMailSid[RsMailSid["BOOK_PROMOTE_DIRECT_APPOINTMENT"] = 168] = "BOOK_PROMOTE_DIRECT_APPOINTMENT";
-    /** Waitlist Promotion (Client Confirmation Not Required) */
-    RsMailSid[RsMailSid["BOOK_PROMOTE_DIRECT_CLASS"] = 8] = "BOOK_PROMOTE_DIRECT_CLASS";
-    /** Waitlist Promotion (Client Confirmation Not Required) */
-    RsMailSid[RsMailSid["BOOK_PROMOTE_DIRECT_ENROLLMENT"] = 61] = "BOOK_PROMOTE_DIRECT_ENROLLMENT";
-    /** Class Reminder */
-    RsMailSid[RsMailSid["BOOK_REMIND_CLASS"] = 25] = "BOOK_REMIND_CLASS";
-    /** Enrollment Reminder */
-    RsMailSid[RsMailSid["BOOK_REMIND_ENROLLMENT"] = 62] = "BOOK_REMIND_ENROLLMENT";
-    /** Appointment Reminder - Staff */
-    RsMailSid[RsMailSid["BOOK_REMIND_SERVICE_STAFF"] = 27] = "BOOK_REMIND_SERVICE_STAFF";
-    /** Appointment Reminder */
-    RsMailSid[RsMailSid["BOOK_REMIND_SERVICE_USER"] = 26] = "BOOK_REMIND_SERVICE_USER";
-    /** Class Booking Confirmation */
-    RsMailSid[RsMailSid["BOOK_REPEAT_ADD"] = 101] = "BOOK_REPEAT_ADD";
-    /** Class Booking Cancelled */
-    RsMailSid[RsMailSid["BOOK_REPEAT_CANCEL"] = 102] = "BOOK_REPEAT_CANCEL";
-    /** Recurrent Class Reservation Wait List */
-    RsMailSid[RsMailSid["BOOK_REPEAT_WAIT"] = 166] = "BOOK_REPEAT_WAIT";
-    /** Class Review Request */
-    RsMailSid[RsMailSid["BOOK_VISIT"] = 39] = "BOOK_VISIT";
-    /** Appointment Reservation Wait List */
-    RsMailSid[RsMailSid["BOOK_WAIT_APPOINTMENT"] = 165] = "BOOK_WAIT_APPOINTMENT";
-    /** Class Reservation Wait List */
-    RsMailSid[RsMailSid["BOOK_WAIT_CLASS"] = 2] = "BOOK_WAIT_CLASS";
-    /** Enrollment Reservation Wait List */
-    RsMailSid[RsMailSid["BOOK_WAIT_ENROLLMENT"] = 63] = "BOOK_WAIT_ENROLLMENT";
-    /** Sent when a business account or location is churned */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_CHURN"] = 154] = "BUSINESS_ACCOUNT_CHURN";
-    /** Sent to business owner if payment for account failed */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_PAY_FAIL"] = 82] = "BUSINESS_ACCOUNT_PAY_FAIL";
-    /** Sent to business owners as notification in one day before payment for account */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_PAY_NOTIFY"] = 83] = "BUSINESS_ACCOUNT_PAY_NOTIFY";
-    /** Sent to business owner on successful payment for account */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_PAY_OK"] = 81] = "BUSINESS_ACCOUNT_PAY_OK";
-    /** Sent when the monthly postcard limit is exceeded */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_POSTCARD_LIMIT"] = 155] = "BUSINESS_ACCOUNT_POSTCARD_LIMIT";
-    /** Sent when subscription price has been overridden and is less than the configured notification threshold */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT"] = 158] = "BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT";
-    /** Sent when subscription price has been overridden twice or more */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE"] = 151] = "BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE";
-    /** Sent when a subscription payment is marked as paid */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT"] = 156] = "BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT";
-    /** Sent when subscription skip payment setting has been changed */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP"] = 134] = "BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP";
-    /** Sent when a new subscription has been added, and the business is paying for fewer locations than they have */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING"] = 152] = "BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING";
-    /** Sent when a user signs up for the virtual service */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_VIRTUAL_SIGNUP"] = 157] = "BUSINESS_ACCOUNT_VIRTUAL_SIGNUP";
-    /** Sent when a business adds more licenses to their `FitLIVE` subscription */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_VIRTUAL_UPGRADE"] = 175] = "BUSINESS_ACCOUNT_VIRTUAL_UPGRADE";
-    /** Sends to client after the first-level onboarding, providing them with login information */
-    RsMailSid[RsMailSid["BUSINESS_CREATE"] = 192] = "BUSINESS_CREATE";
-    /** Email sales@wellnessliving.com when user changes Message Center plan */
-    RsMailSid[RsMailSid["BUSINESS_MESSAGE_SUBSCRIBE"] = 164] = "BUSINESS_MESSAGE_SUBSCRIBE";
-    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to all businesses accounts */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_BANNER"] = 179] = "BUSINESS_PARTNER_BANNER";
-    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to business account */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_BANNER_CUSTOMER"] = 180] = "BUSINESS_PARTNER_BANNER_CUSTOMER";
-    /** Email to the admins that business staff member wants to take a part in the partner program */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_ENROLL"] = 119] = "BUSINESS_PARTNER_ENROLL";
-    /** Email to the staff members of the partner business when a new lead comes in through his partnership */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_NEW"] = 143] = "BUSINESS_PARTNER_REFERRAL_MAIL_NEW";
-    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to partner business */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER"] = 145] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER";
-    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to referral business */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL"] = 148] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL";
-    /** Email to the staff members of the partner business when a referral reaches a certain period of paid subscription */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER"] = 146] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER";
-    /** Email to the staff members of the referred business when they reaches a certain period of paid subscription */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL"] = 147] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL";
-    /** Email to the staff members of the partner business when a referral has been subscribed */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE"] = 144] = "BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE";
-    /** Business registered its business phone number */
-    RsMailSid[RsMailSid["BUSINESS_PHONE"] = 139] = "BUSINESS_PHONE";
-    /** Sent when send/receive SMS in Two-Way SMS chat */
-    RsMailSid[RsMailSid["BUSINESS_SMS_CHAT"] = 141] = "BUSINESS_SMS_CHAT";
-    /** Sent to staff when the AI Agent captures a cancellation request */
-    RsMailSid[RsMailSid["CANCELLATION_REQUEST_AI"] = 202] = "CANCELLATION_REQUEST_AI";
-    /** Sent to staff when CAASI receives a request for booking */
-    RsMailSid[RsMailSid["CLASS_BOOK_AI"] = 201] = "CLASS_BOOK_AI";
-    /** Alerts staff that the AI Agent has completed a class booking for a client */
-    RsMailSid[RsMailSid["CLASS_BOOKED_AI"] = 199] = "CLASS_BOOKED_AI";
-    /** Class Type Modified Has Changed */
-    RsMailSid[RsMailSid["CLASS_EDIT_CLASS"] = 24] = "CLASS_EDIT_CLASS";
-    /** Enrollment Type Modified Has Changed */
-    RsMailSid[RsMailSid["CLASS_EDIT_ENROLLMENT"] = 64] = "CLASS_EDIT_ENROLLMENT";
-    /** Class cancelled by staff */
-    RsMailSid[RsMailSid["CLASS_PERIOD_CANCEL_CLASS"] = 16] = "CLASS_PERIOD_CANCEL_CLASS";
-    /** Enrollment cancelled by staff */
-    RsMailSid[RsMailSid["CLASS_PERIOD_CANCEL_ENROLLMENT"] = 66] = "CLASS_PERIOD_CANCEL_ENROLLMENT";
-    /** Class Schedule Details Changed Modified */
-    RsMailSid[RsMailSid["CLASS_PERIOD_CHANGE_CLASS"] = 17] = "CLASS_PERIOD_CHANGE_CLASS";
-    /** Enrollment Schedule Details Changed Modified */
-    RsMailSid[RsMailSid["CLASS_PERIOD_CHANGE_ENROLLMENT"] = 65] = "CLASS_PERIOD_CHANGE_ENROLLMENT";
-    /** Class Cancellation Notification - Staff */
-    RsMailSid[RsMailSid["CLASSES_CANCEL_STAFF"] = 135] = "CLASSES_CANCEL_STAFF";
-    /** Class Schedule Details Changed */
-    RsMailSid[RsMailSid["CLASSES_PERIOD_CHANGE_CLASSES_STAFF"] = 100] = "CLASSES_PERIOD_CHANGE_CLASSES_STAFF";
-    /** Email to the business members with information about newly added class schedule */
-    RsMailSid[RsMailSid["CLASSES_PROMOTE"] = 109] = "CLASSES_PROMOTE";
-    /** A reminder for the staff about an upcoming recurrent class */
-    RsMailSid[RsMailSid["CLASSES_STAFF_RECURRENT"] = 124] = "CLASSES_STAFF_RECURRENT";
-    /** A notification to the staff about a cancellation of a recurrent class */
-    RsMailSid[RsMailSid["CLASSES_STAFF_RECURRENT_CANCEL"] = 125] = "CLASSES_STAFF_RECURRENT_CANCEL";
-    /** Staff member that conducts the class is changed (a new staff member is added, or an existing staff member is substituted) */
-    RsMailSid[RsMailSid["CLASSES_STAFF_SUBSTITUTION"] = 110] = "CLASSES_STAFF_SUBSTITUTION";
-    /** Send to the staff a remind about an upcoming class session */
-    RsMailSid[RsMailSid["CLASSES_STAFF_SUBSTITUTION_REMIND"] = 117] = "CLASSES_STAFF_SUBSTITUTION_REMIND";
-    /** Sent to the client after a video uploaded to an attendance list is published */
-    RsMailSid[RsMailSid["CLASSES_VIDEO_PUBLISH"] = 161] = "CLASSES_VIDEO_PUBLISH";
-    /** Automated marketing email sent on the client's birthday */
-    RsMailSid[RsMailSid["CLIENT_BIRTHDAY"] = 221] = "CLIENT_BIRTHDAY";
-    /** Send a copy of contract */
-    RsMailSid[RsMailSid["CONTRACT_COPY"] = 98] = "CONTRACT_COPY";
-    /** Sent after purchase of coupon */
-    RsMailSid[RsMailSid["COUPON_PURCHASE"] = 84] = "COUPON_PURCHASE";
-    /** Enrollment Session(s) Booking Confirmation */
-    RsMailSid[RsMailSid["EVENT_BOOK_SESSION_CLIENT"] = 129] = "EVENT_BOOK_SESSION_CLIENT";
-    /** Enrollment Session(s) Booking Notification - Staff */
-    RsMailSid[RsMailSid["EVENT_BOOK_SESSION_STAFF"] = 130] = "EVENT_BOOK_SESSION_STAFF";
-    /** Email to the business members with information about newly added event schedule */
-    RsMailSid[RsMailSid["EVENT_PROMOTE"] = 160] = "EVENT_PROMOTE";
-    /** Sent to the client after a video uploaded to an attendance list is published */
-    RsMailSid[RsMailSid["EVENT_VIDEO_PUBLISH"] = 162] = "EVENT_VIDEO_PUBLISH";
-    /** Staff sent feedback with some comment */
-    RsMailSid[RsMailSid["FEEDBACK_DIALOG"] = 133] = "FEEDBACK_DIALOG";
-    /** New Comment on Logged Result */
-    RsMailSid[RsMailSid["FITBUILDER_MAIL_COMMENT"] = 182] = "FITBUILDER_MAIL_COMMENT";
-    /** New Likes on Comment */
-    RsMailSid[RsMailSid["FITBUILDER_MAIL_LIKE"] = 183] = "FITBUILDER_MAIL_LIKE";
-    /** Thumbs up on Logged Result */
-    RsMailSid[RsMailSid["FITBUILDER_MAIL_THUMB"] = 184] = "FITBUILDER_MAIL_THUMB";
-    /** Workout of the day */
-    RsMailSid[RsMailSid["FITBUILDER_MAIL_WORKOUT"] = 185] = "FITBUILDER_MAIL_WORKOUT";
-    /** Guest Pass invitation expired */
-    RsMailSid[RsMailSid["GUEST_PASS_EXPIRED"] = 218] = "GUEST_PASS_EXPIRED";
-    /** Guest Pass invitation sent */
-    RsMailSid[RsMailSid["GUEST_PASS_INVITATION"] = 217] = "GUEST_PASS_INVITATION";
-    /** Guest Pass invitation reminder */
-    RsMailSid[RsMailSid["GUEST_PASS_REMINDER"] = 219] = "GUEST_PASS_REMINDER";
-    /** For staff members to send emails to support using the help popup */
-    RsMailSid[RsMailSid["HELP_POPUP_EMAIL"] = 150] = "HELP_POPUP_EMAIL";
-    /** Sent when a business enrolls in Autymate */
-    RsMailSid[RsMailSid["INTEGRATION_AUTYMATE_ENROLLMENT"] = 176] = "INTEGRATION_AUTYMATE_ENROLLMENT";
-    /** Sent when a business subscribes to collections */
-    RsMailSid[RsMailSid["INTEGRATION_COLLECTION_ALDOUS"] = 178] = "INTEGRATION_COLLECTION_ALDOUS";
-    /** Email, which is sent when a customer has connected a paid Zoom account */
-    RsMailSid[RsMailSid["INTEGRATION_ZOOM_CONFIRMATION"] = 138] = "INTEGRATION_ZOOM_CONFIRMATION";
-    /** Request a demo from landing page */
-    RsMailSid[RsMailSid["LANDING_CONTACT"] = 97] = "LANDING_CONTACT";
-    /** Sent to staff member informing them that a new client has entered their information into the Lead Capture Widget */
-    RsMailSid[RsMailSid["LEAD_ADDED_STAFF"] = 163] = "LEAD_ADDED_STAFF";
-    /** Sent to the client after they fill out a Lead Capture Form on the website of a business */
-    RsMailSid[RsMailSid["LEAD_CAPTURE"] = 87] = "LEAD_CAPTURE";
-    /** Sent to staff when CAASI captures a new lead from a conversation, */
-    RsMailSid[RsMailSid["LEAD_CAPTURE_AI"] = 197] = "LEAD_CAPTURE_AI";
-    /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
-    RsMailSid[RsMailSid["LEAD_STAGE_UPDATED"] = 224] = "LEAD_STAGE_UPDATED";
-    /** Sent to client on annual anniversary of the Member Since date */
-    RsMailSid[RsMailSid["LOGIN_ANNIVERSARY"] = 96] = "LOGIN_ANNIVERSARY";
-    /** Attendance List */
-    RsMailSid[RsMailSid["LOGIN_ATTENDANCE"] = 42] = "LOGIN_ATTENDANCE";
-    /** Sent when user long time did not visit location, and it not has active promotion */
-    RsMailSid[RsMailSid["LOGIN_BACK"] = 79] = "LOGIN_BACK";
-    /** Email to send on the day, when client has birthday */
-    RsMailSid[RsMailSid["LOGIN_BIRTHDAY"] = 49] = "LOGIN_BIRTHDAY";
-    /** Clients Payment Card expires this month */
-    RsMailSid[RsMailSid["LOGIN_CARD_EXPIRE"] = 51] = "LOGIN_CARD_EXPIRE";
-    /** Email address confirmation */
-    RsMailSid[RsMailSid["LOGIN_MAIL_CONFIRM"] = 123] = "LOGIN_MAIL_CONFIRM";
-    /** Custom Client Email #1 */
-    RsMailSid[RsMailSid["LOGIN_MESSAGE"] = 22] = "LOGIN_MESSAGE";
-    /** Client no show */
-    RsMailSid[RsMailSid["LOGIN_PENALTY_APPOINTMENT"] = 72] = "LOGIN_PENALTY_APPOINTMENT";
-    /** Client no show */
-    RsMailSid[RsMailSid["LOGIN_PENALTY_CLASS"] = 15] = "LOGIN_PENALTY_CLASS";
-    /** Client no show */
-    RsMailSid[RsMailSid["LOGIN_PENALTY_ENROLLMENT"] = 67] = "LOGIN_PENALTY_ENROLLMENT";
-    /** Billed to Account. Sent to the client when any purchase was billed to their account balance */
-    RsMailSid[RsMailSid["LOGIN_PURCHASE_ACCOUNT"] = 159] = "LOGIN_PURCHASE_ACCOUNT";
-    /** Sent to a client when they haven't visited in a set number of days, */
-    RsMailSid[RsMailSid["LOGIN_RETENTION"] = 50] = "LOGIN_RETENTION";
-    /** Sent to the client when a new account statement becomes available */
-    RsMailSid[RsMailSid["LOGIN_STATEMENT_NEW"] = 213] = "LOGIN_STATEMENT_NEW";
-    /** Sent to all new users after they create an account for the first time */
-    RsMailSid[RsMailSid["LOGIN_WELCOME"] = 9] = "LOGIN_WELCOME";
-    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
-    RsMailSid[RsMailSid["MARKETING_AUTOMATION_NOTIFY_STAFF"] = 223] = "MARKETING_AUTOMATION_NOTIFY_STAFF";
-    /** Client added to a member group */
-    RsMailSid[RsMailSid["MEMBER_GROUP_USER_ADD"] = 214] = "MEMBER_GROUP_USER_ADD";
-    /** Client removed from a member group */
-    RsMailSid[RsMailSid["MEMBER_GROUP_USER_REMOVE"] = 215] = "MEMBER_GROUP_USER_REMOVE";
-    /** Sent to staff when the AI Agent logs a membership or purchase query */
-    RsMailSid[RsMailSid["MEMBERSHIP_QUERY"] = 203] = "MEMBERSHIP_QUERY";
-    /** Sent OTP code by sms or email to validate phone number or email address */
-    RsMailSid[RsMailSid["NOTIFICATION_OTP"] = 191] = "NOTIFICATION_OTP";
-    /** Sent OTP code by sms and email for the user sign in */
-    RsMailSid[RsMailSid["PASSPORT_LOGIN_ENTER"] = 187] = "PASSPORT_LOGIN_ENTER";
-    /** Notification about email address is changed due to merge */
-    RsMailSid[RsMailSid["PASSPORT_LOGIN_MERGE"] = 205] = "PASSPORT_LOGIN_MERGE";
-    /** E-mail with a list of user's payment account transactions for last `62` days */
-    RsMailSid[RsMailSid["PAY_ACCOUNT_INVOICE"] = 85] = "PAY_ACCOUNT_INVOICE";
-    /** Automatic payment success */
-    RsMailSid[RsMailSid["PAY_AUTOMATIC_SUCCESS"] = 116] = "PAY_AUTOMATIC_SUCCESS";
-    /** Transaction failed */
-    RsMailSid[RsMailSid["PAY_TRANSACTION_FAIL"] = 181] = "PAY_TRANSACTION_FAIL";
-    /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
-    RsMailSid[RsMailSid["PHONE_AGENT_CALL_RECEIVED"] = 222] = "PHONE_AGENT_CALL_RECEIVED";
-    /** Request a custom website subscription */
-    RsMailSid[RsMailSid["PRESENCE_ACTIVATE"] = 137] = "PRESENCE_ACTIVATE";
-    /** Sent after purchase of product */
-    RsMailSid[RsMailSid["PRODUCT_PURCHASE"] = 127] = "PRODUCT_PURCHASE";
-    /** Email to inform user that they email is changed */
-    RsMailSid[RsMailSid["PROFILE_MAIL_CHANGE"] = 93] = "PROFILE_MAIL_CHANGE";
-    /** Email to confirm new email address after it was changed */
-    RsMailSid[RsMailSid["PROFILE_MAIL_CONFIRM"] = 86] = "PROFILE_MAIL_CONFIRM";
-    /** Mail to inform the user that their password has been changed */
-    RsMailSid[RsMailSid["PROFILE_PASSWORD_CHANGE"] = 111] = "PROFILE_PASSWORD_CHANGE";
-    /** Mail containing reset password link to allow the user to change their password */
-    RsMailSid[RsMailSid["PROFILE_PASSWORD_RESET"] = 142] = "PROFILE_PASSWORD_RESET";
-    /** Few Pass Visits Remaining */
-    RsMailSid[RsMailSid["PROMOTION_LOW"] = 43] = "PROMOTION_LOW";
-    /** Sent when membership is canceled */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_CANCEL"] = 153] = "PROMOTION_MEMBERSHIP_CANCEL";
-    /** Sent to staff when membership is canceled */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_CANCEL_STAFF"] = 193] = "PROMOTION_MEMBERSHIP_CANCEL_STAFF";
-    /** Sent when membership expires */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_EXPIRE"] = 77] = "PROMOTION_MEMBERSHIP_EXPIRE";
-    /** Membership Payment - Billed to Account */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_PAY_ACCOUNT"] = 106] = "PROMOTION_MEMBERSHIP_PAY_ACCOUNT";
-    /** Automatic Payment Failed */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_PAY_FAIL"] = 55] = "PROMOTION_MEMBERSHIP_PAY_FAIL";
-    /** Membership Payment Confirmation */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_PAY_OK"] = 56] = "PROMOTION_MEMBERSHIP_PAY_OK";
-    /** Sent to the customer after their membership is renewed */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_REACTIVATE"] = 75] = "PROMOTION_MEMBERSHIP_REACTIVATE";
-    /** Sent before certain count of days before membership renews */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_RENEW"] = 78] = "PROMOTION_MEMBERSHIP_RENEW";
-    /** Sent after purchase of promotion */
-    RsMailSid[RsMailSid["PROMOTION_PURCHASE"] = 76] = "PROMOTION_PURCHASE";
-    /** Receipt sent after purchase of promotion */
-    RsMailSid[RsMailSid["PROMOTION_RECEIPT"] = 136] = "PROMOTION_RECEIPT";
-    /** Sent after a client attended a visit using a purchase option (used in automations) */
-    RsMailSid[RsMailSid["PROMOTION_USED"] = 212] = "PROMOTION_USED";
-    /** Sent to the customer when a promotion is paused */
-    RsMailSid[RsMailSid["PURCHASE_HOLD"] = 194] = "PURCHASE_HOLD";
-    /** Sends to the clients when purchase option hold expiring soon */
-    RsMailSid[RsMailSid["PURCHASE_HOLD_EXPIRING"] = 186] = "PURCHASE_HOLD_EXPIRING";
-    /** Purchase Receipt */
-    RsMailSid[RsMailSid["PURCHASE_PAYMENT"] = 52] = "PURCHASE_PAYMENT";
-    /** Purchase Receipt */
-    RsMailSid[RsMailSid["PURCHASE_PAYMENT_ACCOUNT"] = 107] = "PURCHASE_PAYMENT_ACCOUNT";
-    /** Purchase Receipt */
-    RsMailSid[RsMailSid["PURCHASE_PAYMENT_POS"] = 115] = "PURCHASE_PAYMENT_POS";
-    /** Sent to Business Owner when the re-order level has been reached for some product */
-    RsMailSid[RsMailSid["PURCHASE_PRODUCT_INVENTORY"] = 95] = "PURCHASE_PRODUCT_INVENTORY";
-    /** Thanks for purchasing an introductory offer */
-    RsMailSid[RsMailSid["PURCHASE_PROMOTION_INTRODUCTORY"] = 74] = "PURCHASE_PROMOTION_INTRODUCTORY";
-    /** Send refund receipt */
-    RsMailSid[RsMailSid["PURCHASE_REFUND"] = 108] = "PURCHASE_REFUND";
-    /** Quiz form submission - Client */
-    RsMailSid[RsMailSid["QUIZ_FORM_SUBMITTION"] = 172] = "QUIZ_FORM_SUBMITTION";
-    /** Email to wellnessliving team when user changes Quiz Subscription plan */
-    RsMailSid[RsMailSid["QUIZ_INDEX"] = 174] = "QUIZ_INDEX";
-    /** Quiz submitted - Staff */
-    RsMailSid[RsMailSid["QUIZ_NOTIFICATION"] = 171] = "QUIZ_NOTIFICATION";
-    /** Quiz submitted - Staff */
-    RsMailSid[RsMailSid["QUIZ_NOTIFICATION_REMIND"] = 173] = "QUIZ_NOTIFICATION_REMIND";
-    /** Email to wellnessliving team when businesses perform actions which is exporting data */
-    RsMailSid[RsMailSid["REPORT_EXPORT"] = 177] = "REPORT_EXPORT";
-    /** New Customer Review - Staff */
-    RsMailSid[RsMailSid["REVIEW_ADD"] = 38] = "REVIEW_ADD";
-    /** Owner Replied to Review */
-    RsMailSid[RsMailSid["REVIEW_REPLY"] = 45] = "REVIEW_REPLY";
-    /** Client left a review */
-    RsMailSid[RsMailSid["REVIEW_USER_LEFT"] = 216] = "REVIEW_USER_LEFT";
-    /** Event redeems a reward (points or prizes) for client */
-    RsMailSid[RsMailSid["REWARD_PRIZE_CLIENT"] = 120] = "REWARD_PRIZE_CLIENT";
-    /** Event redeems a reward (points or prizes) for staff */
-    RsMailSid[RsMailSid["REWARD_PRIZE_STAFF"] = 121] = "REWARD_PRIZE_STAFF";
-    /** Sale Has Been Made */
-    RsMailSid[RsMailSid["SALE_STAFF"] = 126] = "SALE_STAFF";
-    /** Sent after booking a service (used in automations) */
-    RsMailSid[RsMailSid["SERVICE_BOOK"] = 208] = "SERVICE_BOOK";
-    /** Event when finished push certification for ios devices */
-    RsMailSid[RsMailSid["SKIN_APPLICATION_CONNECT"] = 122] = "SKIN_APPLICATION_CONNECT";
-    /** Notifies staff when CAASI captures a client request for a staff connect, */
-    RsMailSid[RsMailSid["STAFF_CALLBACK_REQUEST"] = 196] = "STAFF_CALLBACK_REQUEST";
-    /** Sends when task assigned to staff */
-    RsMailSid[RsMailSid["TASK_ASSIGN"] = 104] = "TASK_ASSIGN";
-    /** Send a copy of waiver */
-    RsMailSid[RsMailSid["TERM_COPY"] = 99] = "TERM_COPY";
-    /** Sent after a ticketed event is purchased */
-    RsMailSid[RsMailSid["TICKET_PURCHASE"] = 225] = "TICKET_PURCHASE";
-    /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
-    RsMailSid[RsMailSid["USER_CAMPAIGN"] = 112] = "USER_CAMPAIGN";
-    /** Request a video subscription */
-    RsMailSid[RsMailSid["VIDEO_SUBSCRIPTION_UPGRADE"] = 140] = "VIDEO_SUBSCRIPTION_UPGRADE";
-    /** Sent after visit the service */
-    RsMailSid[RsMailSid["VISIT_CAMPAIGN"] = 94] = "VISIT_CAMPAIGN";
-    /** Sent if a client does not show up to a service reserved by (used in automations) */
-    RsMailSid[RsMailSid["VISIT_NOSHOW"] = 209] = "VISIT_NOSHOW";
-    /** Visit receipt */
-    RsMailSid[RsMailSid["VISIT_RECEIPT_RECEIPT"] = 190] = "VISIT_RECEIPT_RECEIPT";
-    /** Email, which is sent when a Zoom license is lack */
-    RsMailSid[RsMailSid["ZOOM_LICENSE_LACK"] = 149] = "ZOOM_LICENSE_LACK";
-})(RsMailSid || (exports.RsMailSid = RsMailSid = {}));
 /** List of available design icons. */
 var WlDesignIconSid;
 (function (WlDesignIconSid) {
