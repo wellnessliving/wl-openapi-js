@@ -5411,6 +5411,10 @@ export interface WlPayProcessorStripeComStripeComPayInitResponse {
     id_status: ThothPayProcessorStripeComPaymentIntentStatusSid;
     /** Key of payment transaction that was created. */
     k_pay_transaction: string | null;
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
     /** Payment Intent client secret key. */
     s_client_secret: string;
     /** Payment intent ID. */
@@ -5493,6 +5497,10 @@ export type ThothPayProcessorNuveiNuveiOpenOrderParams = Record<string, unknown>
 export interface ThothPayProcessorNuveiNuveiOpenOrderResponse {
     /** Key of payment transaction that was created. */
     k_pay_transaction: string | null;
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
     /** The order ID provided by Nuvei. */
     s_nuvei_order: string | null;
     /** The session identifier to be used by the request that processes the newly opened order. */
@@ -5508,6 +5516,10 @@ export interface WlPayProcessorNuveiNuveiTransactionStartResponse {
     id_card_type: ThothWlPayBankCardCardTypeEnum;
     /** Key of payment transaction that was created. */
     k_pay_transaction: string | null;
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
     /** Error message. */
     text_message: string | null;
 }
@@ -5515,6 +5527,10 @@ export type ThothPayProcessorNuveiNuveiTransactionCancelParams = Record<string, 
 export type ThothPayProcessorNuveiNuveiTransactionCancelResponse = Record<string, unknown>;
 export type ThothPayProcessorNuveiNuveiUpdateOrderParams = Record<string, unknown>;
 export interface ThothPayProcessorNuveiNuveiUpdateOrderResponse {
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
     /** Error message. */
     text_message: string | null;
 }
@@ -5754,6 +5770,10 @@ export interface WlPayFormEnvironmentResponse {
     is_save_optional: boolean;
     /** Determines whether newly added payment sources should be saved. This will be `true` if payment so... */
     is_save_source: boolean;
+    /** Whether a card-present (POS) source at this business can never carry a surcharge (SAL-1314, FR-00... */
+    is_surcharge_card_present_blocked: boolean;
+    /** Whether the business's ECOMMERCE processor implements the SAL-1314 card-type contract. */
+    is_surcharge_tender_contract: boolean;
     /** Whether tips are accepted. */
     is_tip: boolean;
     /** Surcharge amount for payment with card represented as a fixed amount. */
@@ -5881,6 +5901,10 @@ export interface WlPayFormEnvironmentUserResponse {
     is_save_optional: boolean;
     /** Determines whether newly added payment sources should be saved. This will be `true` if payment so... */
     is_save_source: boolean;
+    /** Whether a card-present (POS) source at this business can never carry a surcharge (SAL-1314, FR-00... */
+    is_surcharge_card_present_blocked: boolean;
+    /** Whether the business's ECOMMERCE processor implements the SAL-1314 card-type contract. */
+    is_surcharge_tender_contract: boolean;
     /** Whether tips are accepted. */
     is_tip: boolean;
     /** Surcharge amount for payment with card represented as a fixed amount. */
@@ -9666,6 +9690,24 @@ export interface WlPayTransactionReportTransactionAllPaymentResponse {
     is_more: boolean;
     /** Determines whether the report is complete. */
     is_report_complete: boolean;
+}
+export interface WlPayFormSurchargeSurchargeTenderParams {
+    /** Payment method the card would be charged with. @see RsPayMethodSid */
+    id_pay_method: RsPayMethodSid | null;
+    /** Business key. */
+    k_business: string;
+    /** Currency key. */
+    k_currency: string;
+    /** Location key. */
+    k_location: string;
+    /** Key of a saved card to preview. */
+    k_pay_bank?: string | null;
+    /** First digits of a newly-typed card number (at least 6). */
+    s_bin?: string | null;
+}
+export interface WlPayFormSurchargeSurchargeTenderResponse {
+    /** Whether a surcharge is allowed for the card identified by */
+    is_allowed: boolean;
 }
 export interface WlPayAddressWidgetWidgetEditParams {
     /** Business key. */
@@ -22243,6 +22285,10 @@ export interface ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransa
     id_response: ThothPayProcessorNuveiCodeCSResponseSid | null;
     /** Key of payment transaction that was created. */
     k_pay_transaction: string | null;
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
     /** The request exchange identification. */
     s_exchange_identification: string;
     /** Error message. */
@@ -31070,8 +31116,15 @@ export declare class WlPayBankNamespace {
     /** Sets a specified payment method as default. */
     primary(params?: WlPayBankPrimaryParams): Promise<WlPayBankPrimaryResponse>;
 }
+export declare class WlPayFormSurchargeNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Previews whether a surcharge is allowed for a card. */
+    surchargeTender(params?: WlPayFormSurchargeSurchargeTenderParams): Promise<WlPayFormSurchargeSurchargeTenderResponse>;
+}
 export declare class WlPayFormNamespace {
     private readonly _client;
+    readonly surcharge: WlPayFormSurchargeNamespace;
     constructor(_client: WlClient);
     /** Returns information about payment environment. */
     /** @deprecated */
