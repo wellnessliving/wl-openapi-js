@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261021143241
+// OpenAPI spec version: 1.1.20261021180145
 // Build date: 2026-10-21
 // Endpoints: 685
-// Enums: 225
+// Enums: 228
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (225 total) ---
+// --- Enum types (228 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -1464,6 +1464,644 @@ export var RsFieldTypeSid;
     /** One line text field */
     RsFieldTypeSid[RsFieldTypeSid["TEXT"] = 1] = "TEXT";
 })(RsFieldTypeSid || (RsFieldTypeSid = {}));
+/** Identifiers for services types. */
+export var RsServiceSid;
+(function (RsServiceSid) {
+    /** Appointments */
+    RsServiceSid[RsServiceSid["APPOINTMENT"] = 1] = "APPOINTMENT";
+    /** Classes */
+    RsServiceSid[RsServiceSid["CLASSES"] = 2] = "CLASSES";
+    /** Enrolments */
+    RsServiceSid[RsServiceSid["ENROLLMENT"] = 3] = "ENROLLMENT";
+    /** Resources */
+    RsServiceSid[RsServiceSid["RESOURCE"] = 5] = "RESOURCE";
+    /** Visits */
+    RsServiceSid[RsServiceSid["VISIT"] = 4] = "VISIT";
+})(RsServiceSid || (RsServiceSid = {}));
+/** A list of purchase types. */
+export var RsPurchaseItemSid;
+(function (RsPurchaseItemSid) {
+    /** Personal user's account refill */
+    RsPurchaseItemSid[RsPurchaseItemSid["ACCOUNT"] = 7] = "ACCOUNT";
+    /** Business account payment */
+    RsPurchaseItemSid[RsPurchaseItemSid["ACCOUNT_BUSINESS"] = 11] = "ACCOUNT_BUSINESS";
+    /** Single appointment reservation */
+    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT"] = 8] = "APPOINTMENT";
+    /** Single appointment reservation with deposit */
+    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT_DEPOSIT"] = 18] = "APPOINTMENT_DEPOSIT";
+    /** Tips for the appointment */
+    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT_TIP"] = 22] = "APPOINTMENT_TIP";
+    /** Expense that comes along with the payment business. It contains information about additional services which are */
+    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_EXPENSE"] = 16] = "BUSINESS_EXPENSE";
+    /** A skipped purchase for the business account */
+    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_SKIP"] = 17] = "BUSINESS_SKIP";
+    /** Business subscription payment */
+    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_SUBSCRIPTION"] = 23] = "BUSINESS_SUBSCRIPTION";
+    /** Single classes */
+    RsPurchaseItemSid[RsPurchaseItemSid["CLASS_PERIOD"] = 2] = "CLASS_PERIOD";
+    /** Collectors payments */
+    RsPurchaseItemSid[RsPurchaseItemSid["COLLECTOR_DEBT"] = 24] = "COLLECTOR_DEBT";
+    /** Arbitrary money withdrawal with comment */
+    RsPurchaseItemSid[RsPurchaseItemSid["COMMENT"] = 13] = "COMMENT";
+    /** Gift Cards */
+    RsPurchaseItemSid[RsPurchaseItemSid["COUPON"] = 10] = "COUPON";
+    /** Events and enrollments. Client can not book only one class, he needs to book the whole enrollment */
+    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT"] = 4] = "ENROLLMENT";
+    /** Enrollment reservation with a deposit */
+    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT_DEPOSIT"] = 19] = "ENROLLMENT_DEPOSIT";
+    /** Enrollment reservation with a discount */
+    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT_DISCOUNT"] = 21] = "ENROLLMENT_DISCOUNT";
+    /** Payment by an installment plan */
+    RsPurchaseItemSid[RsPurchaseItemSid["INSTALLMENT"] = 14] = "INSTALLMENT";
+    /** Recurrent payments */
+    RsPurchaseItemSid[RsPurchaseItemSid["MEMBERSHIP"] = 3] = "MEMBERSHIP";
+    /** Products */
+    RsPurchaseItemSid[RsPurchaseItemSid["PRODUCT"] = 9] = "PRODUCT";
+    /** Promotions */
+    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION"] = 1] = "PROMOTION";
+    /** Early cancellation fee for a memberships */
+    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION_CANCEL_FEE"] = 25] = "PROMOTION_CANCEL_FEE";
+    /** A purchase to renew a promotion */
+    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION_RENEW"] = 12] = "PROMOTION_RENEW";
+    /** A purchase to book an asset */
+    RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE"] = 15] = "RESOURCE";
+    /** A purchase to book a deposit asset */
+    RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE_DEPOSIT"] = 20] = "RESOURCE_DEPOSIT";
+    /** Purchase item for appointments */
+    RsPurchaseItemSid[RsPurchaseItemSid["SERVICE"] = 6] = "SERVICE";
+    /** Ticket purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TICKET"] = 29] = "TICKET";
+    /** Tuition purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TUITION"] = 26] = "TUITION";
+    /** Tuition fee purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TUITION_FEE"] = 27] = "TUITION_FEE";
+    /** Tuition prorate purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TUITION_PRORATE"] = 28] = "TUITION_PRORATE";
+})(RsPurchaseItemSid || (RsPurchaseItemSid = {}));
+/** A list of types of mail copies. */
+export var RsMailCopySid;
+(function (RsMailCopySid) {
+    /** Blind carbon copy */
+    RsMailCopySid[RsMailCopySid["BCC"] = 2] = "BCC";
+    /** Carbon copy */
+    RsMailCopySid[RsMailCopySid["CC"] = 1] = "CC";
+})(RsMailCopySid || (RsMailCopySid = {}));
+/** List of pay exceptions. */
+export var ThothWlPayPayExceptionSid;
+(function (ThothWlPayPayExceptionSid) {
+    /** Invalid ABA number chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ABAN_EMPTY"] = 58] = "ABAN_EMPTY";
+    /** Invalid ABA number chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ABAN_INVALID"] = 57] = "ABAN_INVALID";
+    /** User Authentication Failed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCESS_AUTHENTICATE"] = 160] = "ACCESS_AUTHENTICATE";
+    /** Authentication token is not valid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCESS_TOKEN_INVALID"] = 181] = "ACCESS_TOKEN_INVALID";
+    /** Account payment entry method is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_ENTRY_EMPTY"] = 63] = "ACCOUNT_ENTRY_EMPTY";
+    /** Account holder type is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_HOLDER_EMPTY"] = 64] = "ACCOUNT_HOLDER_EMPTY";
+    /** Account name is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_NAME_EMPTY"] = 59] = "ACCOUNT_NAME_EMPTY";
+    /** Account name is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_NAME_LONG"] = 60] = "ACCOUNT_NAME_LONG";
+    /** Account number is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_NUMBER_EMPTY"] = 61] = "ACCOUNT_NUMBER_EMPTY";
+    /** Account number invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_NUMBER_INVALID"] = 67] = "ACCOUNT_NUMBER_INVALID";
+    /** Account number is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_NUMBER_LONG"] = 62] = "ACCOUNT_NUMBER_LONG";
+    /** Account number is too short */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_NUMBER_SHORT"] = 66] = "ACCOUNT_NUMBER_SHORT";
+    /** Account owner is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_OWNER_EMPTY"] = 69] = "ACCOUNT_OWNER_EMPTY";
+    /** Account name is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_OWNER_LONG"] = 70] = "ACCOUNT_OWNER_LONG";
+    /** Account owner name does not equal billing name */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_OWNER_DOES_NOT_MATCH"] = 182] = "ACCOUNT_OWNER_DOES_NOT_MATCH";
+    /** Account type is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_TYPE_EMPTY"] = 65] = "ACCOUNT_TYPE_EMPTY";
+    /** ACH: Account Closed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E02"] = 198] = "ACH_E02";
+    /** ACH: No Account / Unable to Locate Account */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E03"] = 199] = "ACH_E03";
+    /** ACH: Invalid Account Number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E04"] = 200] = "ACH_E04";
+    /** ACH: Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E05"] = 201] = "ACH_E05";
+    /** ACH: Authorization Revoked by Customer */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E07"] = 202] = "ACH_E07";
+    /** ACH: Payment Stopped */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E08"] = 203] = "ACH_E08";
+    /** ACH: Customer Advises Originator Not Known / Not Authorized */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E10"] = 204] = "ACH_E10";
+    /** ACH: Customer Advises Entry Not in Accordance with Authorization */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E11"] = 205] = "ACH_E11";
+    /** ACH: RDFI Not Qualified to Participate */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E13"] = 206] = "ACH_E13";
+    /** ACH: Representative Payee Deceased or Unable to Continue */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E14"] = 207] = "ACH_E14";
+    /** ACH: Beneficiary or Account Holder Deceased */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E15"] = 208] = "ACH_E15";
+    /** ACH: Account Frozen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E16"] = 209] = "ACH_E16";
+    /** ACH: Invalid Account Number under Questionable Circumstances */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E17"] = 210] = "ACH_E17";
+    /** ACH: Non-Transaction Account */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E20"] = 211] = "ACH_E20";
+    /** ACH: Corporate Customer Advises Not Authorized */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E29"] = 212] = "ACH_E29";
+    /** ACH: Invalid Image */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E92"] = 213] = "ACH_E92";
+    /** ACH: Non-Negotiable */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E93"] = 214] = "ACH_E93";
+    /** ACH: Breach of Warranty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E95"] = 215] = "ACH_E95";
+    /** ACH: Counterfeit / Forgery */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E96"] = 216] = "ACH_E96";
+    /** ACH: Refer to Maker */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E97"] = 217] = "ACH_E97";
+    /** Insufficient funds */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R01"] = 124] = "ACH_R01";
+    /** Bank account closed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R02"] = 125] = "ACH_R02";
+    /** No bank account/unable to locate account */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R03"] = 126] = "ACH_R03";
+    /** Invalid bank account number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R04"] = 127] = "ACH_R04";
+    /** Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R05"] = 128] = "ACH_R05";
+    /** Returned per ODFI request */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R06"] = 129] = "ACH_R06";
+    /** Authorization revoked by customer */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R07"] = 130] = "ACH_R07";
+    /** Payment stopped */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R08"] = 131] = "ACH_R08";
+    /** Uncollected funds */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R09"] = 132] = "ACH_R09";
+    /** Customer advises not authorized */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R10"] = 133] = "ACH_R10";
+    /** Check truncation entry return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R11"] = 134] = "ACH_R11";
+    /** Branch sold to another RDFI */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R12"] = 135] = "ACH_R12";
+    /** RDFI not qualified to participate */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R13"] = 136] = "ACH_R13";
+    /** Representative payee deceased or unable to continue in that capacity */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R14"] = 137] = "ACH_R14";
+    /** Beneficiary or bank account holder */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R15"] = 138] = "ACH_R15";
+    /** Bank account frozen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R16"] = 139] = "ACH_R16";
+    /** File record edit criteria */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R17"] = 140] = "ACH_R17";
+    /** Improper effective entry date */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R18"] = 141] = "ACH_R18";
+    /** Amount field error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R19"] = 142] = "ACH_R19";
+    /** Non-payment bank account */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R20"] = 143] = "ACH_R20";
+    /** Invalid company ID number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R21"] = 144] = "ACH_R21";
+    /** Invalid individual ID number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R22"] = 145] = "ACH_R22";
+    /** Credit entry refused by receiver */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R23"] = 146] = "ACH_R23";
+    /** Duplicate entry */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R24"] = 147] = "ACH_R24";
+    /** Addenda error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R25"] = 148] = "ACH_R25";
+    /** Mandatory field error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R26"] = 149] = "ACH_R26";
+    /** Trace number error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R27"] = 150] = "ACH_R27";
+    /** Transit routing number check digit error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R28"] = 151] = "ACH_R28";
+    /** Corporate customer advises not authorized */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R29"] = 152] = "ACH_R29";
+    /** RDFI not participant in check truncation program */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R30"] = 153] = "ACH_R30";
+    /** Permissible return entry (CCD and CTX only) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R31"] = 154] = "ACH_R31";
+    /** RDFI non-settlement */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R32"] = 155] = "ACH_R32";
+    /** Return of XCK entry */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R33"] = 156] = "ACH_R33";
+    /** Limited participation RDFI */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R34"] = 157] = "ACH_R34";
+    /** Return of improper debit entry */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R35"] = 158] = "ACH_R35";
+    /** ACH: Return of Improper Credit Entry */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R36"] = 218] = "ACH_R36";
+    /** ACH: Source Document Presented for Payment */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R37"] = 219] = "ACH_R37";
+    /** ACH: Stop Payment on Source Document */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R38"] = 220] = "ACH_R38";
+    /** ACH: Improper Source Document */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R39"] = 221] = "ACH_R39";
+    /** ACH: Return of ENR Entry by Federal Government Agency */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R40"] = 222] = "ACH_R40";
+    /** ACH: Invalid Transaction Code */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R41"] = 223] = "ACH_R41";
+    /** ACH: Routing Number / Check Digit Error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R42"] = 224] = "ACH_R42";
+    /** ACH: Invalid DFI Account Number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R43"] = 225] = "ACH_R43";
+    /** ACH: Invalid Individual ID Number / Identification */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R44"] = 226] = "ACH_R44";
+    /** ACH: Invalid Individual Name / Company Name */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R45"] = 227] = "ACH_R45";
+    /** ACH: Invalid Representative Payee Indicator */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R46"] = 228] = "ACH_R46";
+    /** ACH: Duplicate Enrollment */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R47"] = 229] = "ACH_R47";
+    /** ACH: State Law Affecting RCK Acceptance */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R50"] = 230] = "ACH_R50";
+    /** ACH: Item is Ineligible, Notice Not Provided, etc */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R51"] = 231] = "ACH_R51";
+    /** ACH: Stop Payment on Item (Adjustment Entries) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R52"] = 232] = "ACH_R52";
+    /** ACH: Item and ACH Entry Presented for Payment */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R53"] = 233] = "ACH_R53";
+    /** ACH: Misrouted Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R61"] = 234] = "ACH_R61";
+    /** ACH: Incorrect Trace Number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R62"] = 235] = "ACH_R62";
+    /** ACH: Incorrect Dollar Amount */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R63"] = 236] = "ACH_R63";
+    /** ACH: Incorrect Individual Identification */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R64"] = 237] = "ACH_R64";
+    /** ACH: Incorrect Transaction Code */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R65"] = 238] = "ACH_R65";
+    /** ACH: Incorrect Company Identification */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R66"] = 239] = "ACH_R66";
+    /** ACH: Duplicate Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R67"] = 240] = "ACH_R67";
+    /** ACH: Untimely Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R68"] = 241] = "ACH_R68";
+    /** ACH: Multiple Errors */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R69"] = 242] = "ACH_R69";
+    /** ACH: Permissible Return Entry Not Accepted */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R70"] = 243] = "ACH_R70";
+    /** ACH: Misrouted Dishonored Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R71"] = 244] = "ACH_R71";
+    /** ACH: Untimely Dishonored Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R72"] = 245] = "ACH_R72";
+    /** ACH: Timely Original Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R73"] = 246] = "ACH_R73";
+    /** ACH: Corrected Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R74"] = 247] = "ACH_R74";
+    /** ACH: Return Not a Duplicate */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R75"] = 248] = "ACH_R75";
+    /** ACH: No Errors Found */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R76"] = 249] = "ACH_R76";
+    /** ACH: IAT Entry Coding Error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R80"] = 250] = "ACH_R80";
+    /** ACH: Non-Participant in IAT Program */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R81"] = 251] = "ACH_R81";
+    /** ACH: Invalid Foreign Receiving DFI Identification */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R82"] = 252] = "ACH_R82";
+    /** ACH: Foreign Receiving DFI Unable to Settle */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R83"] = 253] = "ACH_R83";
+    /** ACH: Entry Not Processed by Gateway */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R84"] = 254] = "ACH_R84";
+    /** ACH: Incorrectly Coded Outbound International Payment */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R85"] = 255] = "ACH_R85";
+    /** ACH check type or account type is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_ACCOUNT_TYPE"] = 185] = "ACH_ACCOUNT_TYPE";
+    /** ACH payment method is not supported by processor */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_SUPPORT"] = 105] = "ACH_SUPPORT";
+    /** ACH error: uncollected */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_UNCOLLECTED"] = 123] = "ACH_UNCOLLECTED";
+    /** Invalid payment address chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ADDRESS_INVALID"] = 39] = "ADDRESS_INVALID";
+    /** Chosen payment address does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ADDRESS_NX"] = 40] = "ADDRESS_NX";
+    /** Disagreement with the Payment Agreement */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AGREEMENT_DISAGREE"] = 176] = "AGREEMENT_DISAGREE";
+    /** Sum of amounts for all individual payment sources does not equal the total expected amount */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AMOUNT_CONSOLIDATE"] = 35] = "AMOUNT_CONSOLIDATE";
+    /** Total package price can't be divided equally between package items without loosing cents */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AMOUNT_CONSOLIDATE_PACKAGE"] = 191] = "AMOUNT_CONSOLIDATE_PACKAGE";
+    /** Amount was unexpectedly changed during the purchase process */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AMOUNT_CHANGE"] = 179] = "AMOUNT_CHANGE";
+    /** Amount is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AMOUNT_INVALID"] = 34] = "AMOUNT_INVALID";
+    /** Total price of cart greater than `1000000000.00` */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AMOUNT_TOTAL"] = 75] = "AMOUNT_TOTAL";
+    /** Amount equals zero */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AMOUNT_ZERO"] = 32] = "AMOUNT_ZERO";
+    /** AVS verification failed. Postal code or address are invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AVS"] = 14] = "AVS";
+    /** Invalid bank account ID */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["BANK_ACCOUNT_INVALID"] = 79] = "BANK_ACCOUNT_INVALID";
+    /** Bank account ID does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["BANK_ACCOUNT_NX"] = 80] = "BANK_ACCOUNT_NX";
+    /** Bank state branch is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["BSB_EMPTY"] = 77] = "BSB_EMPTY";
+    /** Bank state branch is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["BSB_INVALID"] = 78] = "BSB_INVALID";
+    /** This business is a lost customer */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["BUSINESS_CHURN"] = 173] = "BUSINESS_CHURN";
+    /** Client must call issuer for further information */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CALL"] = 17] = "CALL";
+    /** Card data is valid, but you can not pay with it (e.g. hold placed on card) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_DECLINE"] = 5] = "CARD_DECLINE";
+    /** Invalid payment card chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_INVALID"] = 42] = "CARD_INVALID";
+    /** Card over limit */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_LIMIT"] = 73] = "CARD_LIMIT";
+    /** Payment card nickname is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_NAME_EMPTY"] = 46] = "CARD_NAME_EMPTY";
+    /** Payment card nickname is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_NAME_LONG"] = 47] = "CARD_NAME_LONG";
+    /** The customer’s bank has declined the transaction as the credit card number has failed a security check, or the */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_NOT_HONOR"] = 71] = "CARD_NOT_HONOR";
+    /** Insufficient funds available */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_NSF"] = 72] = "CARD_NSF";
+    /** Chosen payment card does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_NX"] = 43] = "CARD_NX";
+    /** User has chosen payment card but he had no such rights */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_SELECT"] = 44] = "CARD_SELECT";
+    /** No such card issuer */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_ISSUER_INVALID"] = 184] = "CARD_ISSUER_INVALID";
+    /** Card unsupported */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_UNSUPPORTED"] = 190] = "CARD_UNSUPPORTED";
+    /** Element which should be paid with this payment has been canceled and payment should be blocked */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CANCELED"] = 177] = "CANCELED";
+    /** Comment for payment method too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COMMENT_LONG"] = 99] = "COMMENT_LONG";
+    /** Can't connect to payment gateway */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CONNECT"] = 8] = "CONNECT";
+    /** Unsupported country */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUNTRY_UNSUPPORTED"] = 164] = "COUNTRY_UNSUPPORTED";
+    /** Gift card belongs to a foreign business */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUPON_BUSINESS"] = 55] = "COUPON_BUSINESS";
+    /** Invalid payment card chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUPON_CURRENCY"] = 54] = "COUPON_CURRENCY";
+    /** Coupon is inactive */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUPON_INACTIVE"] = 97] = "COUPON_INACTIVE";
+    /** Coupon code is invalid (invalid length, or invalid characters encountered) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUPON_INVALID"] = 51] = "COUPON_INVALID";
+    /** Invalid payment card chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUPON_NX"] = 52] = "COUPON_NX";
+    /** Coupon is redeemed already */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUPON_REDEEM"] = 53] = "COUPON_REDEEM";
+    /** Card credentials (number, csc, month, year) change ability is disabled. E.g. payment processor may not support */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CREDENTIAL_SUPPORT"] = 76] = "CREDENTIAL_SUPPORT";
+    /** Invalid card security code (CSC) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CSC_EMPTY"] = 21] = "CSC_EMPTY";
+    /** Invalid card security code (CSC) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CSC_INVALID"] = 2] = "CSC_INVALID";
+    /** Card is expired */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["DATE_EXPIRE"] = 24] = "DATE_EXPIRE";
+    /** Card is inactive */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["DATE_INACTIVE"] = 163] = "DATE_INACTIVE";
+    /** Invalid Expiration Date */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["DATE_INVALID"] = 183] = "DATE_INVALID";
+    /** Month is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["DATE_MONTH"] = 22] = "DATE_MONTH";
+    /** Multiple usage of this payment method is not allowed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["DATE_YEAR"] = 23] = "DATE_YEAR";
+    /** Duplicate transaction. Transaction data that is selected for comparison is payment gateway-specific */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["DUPLICATE"] = 1] = "DUPLICATE";
+    /** Error, caused by one of the following cases: */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["FRAUD"] = 168] = "FRAUD";
+    /** Terminal that should be used for payment is not found */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["HARDWARE_NOT_FOUND"] = 196] = "HARDWARE_NOT_FOUND";
+    /** Informational field is not filled in */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INFO_EMPTY"] = 9] = "INFO_EMPTY";
+    /** Informational field is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INFO_LONG"] = 41] = "INFO_LONG";
+    /** Minimum payment amount is less then `1` */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_AMOUNT_MIN"] = 93] = "INSTALLMENT_AMOUNT_MIN";
+    /** Installment plan: Number of payment is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_COUNT_FORMAT"] = 85] = "INSTALLMENT_COUNT_FORMAT";
+    /** Installment plan: Number of payment is too large */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_COUNT_MAX"] = 87] = "INSTALLMENT_COUNT_MAX";
+    /** Installment plan: Number of payment is too small (less then 2) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_COUNT_MIN"] = 86] = "INSTALLMENT_COUNT_MIN";
+    /** Installment date is not specified */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DATE_EMPTY"] = 81] = "INSTALLMENT_DATE_EMPTY";
+    /** Installment date format is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DATE_FORMAT"] = 82] = "INSTALLMENT_DATE_FORMAT";
+    /** Installment date is too deep in the future */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DATE_FUTURE"] = 84] = "INSTALLMENT_DATE_FUTURE";
+    /** Installment date is in the past (minimum is today) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DATE_PAST"] = 83] = "INSTALLMENT_DATE_PAST";
+    /** Installment plan: Duration of a period is not allowed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DURATION_DISABLE"] = 91] = "INSTALLMENT_DURATION_DISABLE";
+    /** Installment plan: Maximum total duration of installment plan is 100 years */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DURATION_MAX"] = 92] = "INSTALLMENT_DURATION_MAX";
+    /** Installment plan: Duration of a period does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DURATION_NX"] = 90] = "INSTALLMENT_DURATION_NX";
+    /** Installment plan: Number of periods between two consecutive payments is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_PERIOD_FORMAT"] = 88] = "INSTALLMENT_PERIOD_FORMAT";
+    /** Installment plan: Number of periods between two consecutive payments is too large */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_PERIOD_MAX"] = 89] = "INSTALLMENT_PERIOD_MAX";
+    /** Template of installment plans: template is not selected */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_TEMPLATE_EMPTY"] = 95] = "INSTALLMENT_TEMPLATE_EMPTY";
+    /** Template of installment plans: ID of the template does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_TEMPLATE_NX"] = 94] = "INSTALLMENT_TEMPLATE_NX";
+    /** Internal errors that occurred in the browser (for example, some form data arrived to servers such that user should */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INTERNAL_BROWSER"] = 33] = "INTERNAL_BROWSER";
+    /** Security throttling error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INTERNAL_HIT"] = 192] = "INTERNAL_HIT";
+    /** Internal merchant error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INTERNAL_MERCHANT"] = 186] = "INTERNAL_MERCHANT";
+    /** Some strange service error (e.g. invalid merchant data passed, data format) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INTERNAL_SERVER"] = 6] = "INTERNAL_SERVER";
+    /** Payer email is required for payment, but empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["MAIL_EMPTY"] = 175] = "MAIL_EMPTY";
+    /** The associated merchant account has been closed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["MERCHANT_ACCOUNT_CLOSED"] = 189] = "MERCHANT_ACCOUNT_CLOSED";
+    /** Invalid merchant data */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["MERCHANT_INVALID"] = 7] = "MERCHANT_INVALID";
+    /** Transaction was rejected by gateway */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["MERCHANT_REJECT"] = 74] = "MERCHANT_REJECT";
+    /** Merchant has invalid settings and does not return customer vault */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["MERCHANT_SETTINGS_VAULT"] = 166] = "MERCHANT_SETTINGS_VAULT";
+    /** User has no access to the specified payment method */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["METHOD_ACCESS"] = 18] = "METHOD_ACCESS";
+    /** This method does not support authorization request */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["METHOD_AUTHORIZE"] = 96] = "METHOD_AUTHORIZE";
+    /** This payment method can not be used with this business */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["METHOD_BUSINESS"] = 19] = "METHOD_BUSINESS";
+    /** Multiple usage of this payment method is not allowed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["METHOD_MULTIPLE"] = 20] = "METHOD_MULTIPLE";
+    /** Cardholder name is not typed in */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NAME_EMPTY"] = 25] = "NAME_EMPTY";
+    /** Customer name is invalid (contains invalid characters) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NAME_INVALID"] = 106] = "NAME_INVALID";
+    /** Cardholder name is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NAME_LONG"] = 26] = "NAME_LONG";
+    /** Validation Rejection */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_900"] = 159] = "NMI_PAYSAFE_900";
+    /** Not sufficient funds (debits only) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_901"] = 110] = "NMI_PAYSAFE_901";
+    /** Payment stopped/recalled */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_903"] = 111] = "NMI_PAYSAFE_903";
+    /** Post dated/stale dated */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_904"] = 112] = "NMI_PAYSAFE_904";
+    /** Account closed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_905"] = 113] = "NMI_PAYSAFE_905";
+    /** Account transferred */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_906"] = 114] = "NMI_PAYSAFE_906";
+    /** No chequing privileges */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_907"] = 115] = "NMI_PAYSAFE_907";
+    /** Funds not cleared */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_908"] = 116] = "NMI_PAYSAFE_908";
+    /** Payor/payee deceased */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_910"] = 117] = "NMI_PAYSAFE_910";
+    /** Account frozen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_911"] = 118] = "NMI_PAYSAFE_911";
+    /** Invalid/incorrect account number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_912"] = 119] = "NMI_PAYSAFE_912";
+    /** Incorrect payor/payee name */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_914"] = 120] = "NMI_PAYSAFE_914";
+    /** Refused by payor/payee */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_915"] = 121] = "NMI_PAYSAFE_915";
+    /** No Return Agreement */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_998"] = 122] = "NMI_PAYSAFE_998";
+    /** Card number is not typed in */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NUMBER_EMPTY"] = 27] = "NUMBER_EMPTY";
+    /** Card number is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NUMBER_INVALID"] = 30] = "NUMBER_INVALID";
+    /** Card number is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NUMBER_LONG"] = 28] = "NUMBER_LONG";
+    /** Card number is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NUMBER_SHORT"] = 29] = "NUMBER_SHORT";
+    /** Some parameters client has provided are invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PARAMETER"] = 4] = "PARAMETER";
+    /** Payment form is in passive mode */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PASSIVE"] = 165] = "PASSIVE";
+    /** Error during authentication of the payer */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PAYER_AUTHENTICATION"] = 167] = "PAYER_AUTHENTICATION";
+    /** There is other process currently running to update payment. Failed to wait until it ends */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PAYMENT_UPDATE_LOCK"] = 174] = "PAYMENT_UPDATE_LOCK";
+    /** Phone number is not specified on user account */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PHONE_EMPTY"] = 107] = "PHONE_EMPTY";
+    /** Phone number is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PHONE_INVALID"] = 178] = "PHONE_INVALID";
+    /** Phone number is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PHONE_LONG"] = 108] = "PHONE_LONG";
+    /** Transaction error returned by processor */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PROCESSOR_ERROR"] = 98] = "PROCESSOR_ERROR";
+    /** Internal error at processor side has occurred */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PROCESSOR_INTERNAL"] = 109] = "PROCESSOR_INTERNAL";
+    /** Refund operation is applied too early */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REFUND_EARLY"] = 50] = "REFUND_EARLY";
+    /** Amount about to refund is larger then the current rest of the transaction */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REFUND_REST"] = 49] = "REFUND_REST";
+    /** Transaction can not be refunded because it is in an invalid status */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REFUND_STATUS"] = 48] = "REFUND_STATUS";
+    /** Invalid region chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REGION_INVALID"] = 37] = "REGION_INVALID";
+    /** Chosen region does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REGION_NX"] = 38] = "REGION_NX";
+    /** Can not repeat purchase transaction. Reference data is expired and invalid now */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REPEAT_INVALID"] = 15] = "REPEAT_INVALID";
+    /** Error during request to service. In case we have not even got response */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REQUEST"] = 12] = "REQUEST";
+    /** Too many requests */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REQUEST_THROTTLE"] = 172] = "REQUEST_THROTTLE";
+    /** Temporary service error. Repeat request */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["RETRY"] = 3] = "RETRY";
+    /** Payment is blocked due security reasons (because payment amount is too large) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["SECURITY_LARGE"] = 103] = "SECURITY_LARGE";
+    /** Only for test, when there is an error in the test that we cannot influence, for example: “server is not available” */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["SKIP_IN_TESTS"] = 188] = "SKIP_IN_TESTS";
+    /** Stripe data is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["STRIPE_EMPTY"] = 31] = "STRIPE_EMPTY";
+    /** Invalid data on magnetic stripe. Maybe some part does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["STRIPE_INVALID"] = 16] = "STRIPE_INVALID";
+    /** This recurrent payment token belongs to a different account of this merchant */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["TOKEN_ACCOUNT"] = 161] = "TOKEN_ACCOUNT";
+    /** Payment token belongs to a different merchant processor */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["TOKEN_PROCESSOR"] = 162] = "TOKEN_PROCESSOR";
+    /** Transaction does not exist. E.g. we want to make refund using nonexistent reference number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["TRANSACTION_NX"] = 13] = "TRANSACTION_NX";
+    /** Transaction is in unexpected status. For example, authorization process started but takes long time. While waiting */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["UNEXPECTED_TRANSACTION_STATUS"] = 187] = "UNEXPECTED_TRANSACTION_STATUS";
+    /** If the user who pays through the account is a debtor */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["USER_DEBTOR"] = 194] = "USER_DEBTOR";
+    /** If access denied to an anonymous user */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["USER_GUEST"] = 56] = "USER_GUEST";
+    /** Error specific for payment processors that stores payer entity */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["USER_NOT_FOUND"] = 197] = "USER_NOT_FOUND";
+    /** Some unpredicted error happened during void on processor side */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["VOID_ERROR"] = 193] = "VOID_ERROR";
+    /** Operation Void is not possible, it's too late to do it */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["VOID_LATE"] = 180] = "VOID_LATE";
+    /** Void operation can be done only for a total transaction amount and cannot be partial */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["VOID_PARTIAL"] = 100] = "VOID_PARTIAL";
+    /** Void operation is restricted by rules of the system */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["VOID_RESTRICT"] = 102] = "VOID_RESTRICT";
+    /** Void operation is not supported by the merchant processor */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["VOID_SUPPORT"] = 101] = "VOID_SUPPORT";
+    /** Timeout waiting for settlement */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["WAIT_TIMEOUT"] = 104] = "WAIT_TIMEOUT";
+    /** Incorrect payment card type specified */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["TENDER_TYPE_INVALID"] = 195] = "TENDER_TYPE_INVALID";
+})(ThothWlPayPayExceptionSid || (ThothWlPayPayExceptionSid = {}));
+/** List of outcomes of a CAASI Phone Agent call. */
+export var WlAiAgentPhoneCallOutcomeEnum;
+(function (WlAiAgentPhoneCallOutcomeEnum) {
+    /** The call was resolved by CAASI without staff involvement */
+    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["RESOLVED"] = 1] = "RESOLVED";
+    /** The call was transferred to a live staff member */
+    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["TRANSFERRED"] = 2] = "TRANSFERRED";
+    /** The caller requested a callback from staff */
+    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["CALLBACK_REQUESTED"] = 3] = "CALLBACK_REQUESTED";
+})(WlAiAgentPhoneCallOutcomeEnum || (WlAiAgentPhoneCallOutcomeEnum = {}));
+/** Possible website subscription plans. */
+export var WlBusinessAccountWebsiteSid;
+(function (WlBusinessAccountWebsiteSid) {
+    /** Basic edition */
+    WlBusinessAccountWebsiteSid[WlBusinessAccountWebsiteSid["BASIC"] = 4] = "BASIC";
+    /** Enterprise edition */
+    WlBusinessAccountWebsiteSid[WlBusinessAccountWebsiteSid["ENTERPRISE"] = 3] = "ENTERPRISE";
+    /** No payments considered */
+    WlBusinessAccountWebsiteSid[WlBusinessAccountWebsiteSid["NONE"] = 1] = "NONE";
+    /** Premium edition */
+    WlBusinessAccountWebsiteSid[WlBusinessAccountWebsiteSid["PREMIUM"] = 5] = "PREMIUM";
+    /** Professional edition */
+    WlBusinessAccountWebsiteSid[WlBusinessAccountWebsiteSid["PRO"] = 2] = "PRO";
+})(WlBusinessAccountWebsiteSid || (WlBusinessAccountWebsiteSid = {}));
+/** A class for managing time intervals. */
+export var ADurationSid;
+(function (ADurationSid) {
+    /** Days */
+    ADurationSid[ADurationSid["DAY"] = 4] = "DAY";
+    /** Hours */
+    ADurationSid[ADurationSid["HOUR"] = 3] = "HOUR";
+    /** Minutes */
+    ADurationSid[ADurationSid["MINUTE"] = 2] = "MINUTE";
+    /** Months */
+    ADurationSid[ADurationSid["MONTH"] = 5] = "MONTH";
+    /** Seconds */
+    ADurationSid[ADurationSid["SECOND"] = 1] = "SECOND";
+    /** Weeks (7 days) */
+    ADurationSid[ADurationSid["WEEK"] = 7] = "WEEK";
+    /** Two weeks (14 days) */
+    ADurationSid[ADurationSid["WEEK2"] = 9] = "WEEK2";
+    /** Foursome of weeks (28 days) */
+    ADurationSid[ADurationSid["WEEK4"] = 8] = "WEEK4";
+    /** Years */
+    ADurationSid[ADurationSid["YEAR"] = 6] = "YEAR";
+})(ADurationSid || (ADurationSid = {}));
+/** List of possible plans for FitvidSubscription subscription. */
+export var WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid;
+(function (WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid) {
+    /** Basic */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** Enterprise */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["ENTERPRISE"] = 3] = "ENTERPRISE";
+    /** None */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Premium */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["PREMIUM"] = 4] = "PREMIUM";
+})(WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid || (WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = {}));
 /** Mail types. */
 export var RsMailSid;
 (function (RsMailSid) {
@@ -2174,28 +2812,6 @@ export var AFlagSid;
     /** Records with the flag turned on */
     AFlagSid[AFlagSid["ON"] = 3] = "ON";
 })(AFlagSid || (AFlagSid = {}));
-/** A class for managing time intervals. */
-export var ADurationSid;
-(function (ADurationSid) {
-    /** Days */
-    ADurationSid[ADurationSid["DAY"] = 4] = "DAY";
-    /** Hours */
-    ADurationSid[ADurationSid["HOUR"] = 3] = "HOUR";
-    /** Minutes */
-    ADurationSid[ADurationSid["MINUTE"] = 2] = "MINUTE";
-    /** Months */
-    ADurationSid[ADurationSid["MONTH"] = 5] = "MONTH";
-    /** Seconds */
-    ADurationSid[ADurationSid["SECOND"] = 1] = "SECOND";
-    /** Weeks (7 days) */
-    ADurationSid[ADurationSid["WEEK"] = 7] = "WEEK";
-    /** Two weeks (14 days) */
-    ADurationSid[ADurationSid["WEEK2"] = 9] = "WEEK2";
-    /** Foursome of weeks (28 days) */
-    ADurationSid[ADurationSid["WEEK4"] = 8] = "WEEK4";
-    /** Years */
-    ADurationSid[ADurationSid["YEAR"] = 6] = "YEAR";
-})(ADurationSid || (ADurationSid = {}));
 /** Class to process string identifiers for duration types */
 export var RsDurationTypeSid;
 (function (RsDurationTypeSid) {
@@ -2284,66 +2900,6 @@ export var WlQuizQuizFrequencySid;
     /** Client will be asked to complete the quiz only one time when they book a service or purchase item */
     WlQuizQuizFrequencySid[WlQuizQuizFrequencySid["ONCE"] = 3] = "ONCE";
 })(WlQuizQuizFrequencySid || (WlQuizQuizFrequencySid = {}));
-/** A list of purchase types. */
-export var RsPurchaseItemSid;
-(function (RsPurchaseItemSid) {
-    /** Personal user's account refill */
-    RsPurchaseItemSid[RsPurchaseItemSid["ACCOUNT"] = 7] = "ACCOUNT";
-    /** Business account payment */
-    RsPurchaseItemSid[RsPurchaseItemSid["ACCOUNT_BUSINESS"] = 11] = "ACCOUNT_BUSINESS";
-    /** Single appointment reservation */
-    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT"] = 8] = "APPOINTMENT";
-    /** Single appointment reservation with deposit */
-    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT_DEPOSIT"] = 18] = "APPOINTMENT_DEPOSIT";
-    /** Tips for the appointment */
-    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT_TIP"] = 22] = "APPOINTMENT_TIP";
-    /** Expense that comes along with the payment business. It contains information about additional services which are */
-    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_EXPENSE"] = 16] = "BUSINESS_EXPENSE";
-    /** A skipped purchase for the business account */
-    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_SKIP"] = 17] = "BUSINESS_SKIP";
-    /** Business subscription payment */
-    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_SUBSCRIPTION"] = 23] = "BUSINESS_SUBSCRIPTION";
-    /** Single classes */
-    RsPurchaseItemSid[RsPurchaseItemSid["CLASS_PERIOD"] = 2] = "CLASS_PERIOD";
-    /** Collectors payments */
-    RsPurchaseItemSid[RsPurchaseItemSid["COLLECTOR_DEBT"] = 24] = "COLLECTOR_DEBT";
-    /** Arbitrary money withdrawal with comment */
-    RsPurchaseItemSid[RsPurchaseItemSid["COMMENT"] = 13] = "COMMENT";
-    /** Gift Cards */
-    RsPurchaseItemSid[RsPurchaseItemSid["COUPON"] = 10] = "COUPON";
-    /** Events and enrollments. Client can not book only one class, he needs to book the whole enrollment */
-    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT"] = 4] = "ENROLLMENT";
-    /** Enrollment reservation with a deposit */
-    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT_DEPOSIT"] = 19] = "ENROLLMENT_DEPOSIT";
-    /** Enrollment reservation with a discount */
-    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT_DISCOUNT"] = 21] = "ENROLLMENT_DISCOUNT";
-    /** Payment by an installment plan */
-    RsPurchaseItemSid[RsPurchaseItemSid["INSTALLMENT"] = 14] = "INSTALLMENT";
-    /** Recurrent payments */
-    RsPurchaseItemSid[RsPurchaseItemSid["MEMBERSHIP"] = 3] = "MEMBERSHIP";
-    /** Products */
-    RsPurchaseItemSid[RsPurchaseItemSid["PRODUCT"] = 9] = "PRODUCT";
-    /** Promotions */
-    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION"] = 1] = "PROMOTION";
-    /** Early cancellation fee for a memberships */
-    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION_CANCEL_FEE"] = 25] = "PROMOTION_CANCEL_FEE";
-    /** A purchase to renew a promotion */
-    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION_RENEW"] = 12] = "PROMOTION_RENEW";
-    /** A purchase to book an asset */
-    RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE"] = 15] = "RESOURCE";
-    /** A purchase to book a deposit asset */
-    RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE_DEPOSIT"] = 20] = "RESOURCE_DEPOSIT";
-    /** Purchase item for appointments */
-    RsPurchaseItemSid[RsPurchaseItemSid["SERVICE"] = 6] = "SERVICE";
-    /** Ticket purchase item */
-    RsPurchaseItemSid[RsPurchaseItemSid["TICKET"] = 29] = "TICKET";
-    /** Tuition purchase item */
-    RsPurchaseItemSid[RsPurchaseItemSid["TUITION"] = 26] = "TUITION";
-    /** Tuition fee purchase item */
-    RsPurchaseItemSid[RsPurchaseItemSid["TUITION_FEE"] = 27] = "TUITION_FEE";
-    /** Tuition prorate purchase item */
-    RsPurchaseItemSid[RsPurchaseItemSid["TUITION_PRORATE"] = 28] = "TUITION_PRORATE";
-})(RsPurchaseItemSid || (RsPurchaseItemSid = {}));
 /** Reasons why the client can't book this event. */
 export var WlEventDenyReasonSid;
 (function (WlEventDenyReasonSid) {
@@ -2982,20 +3538,6 @@ export var WlVisitNoteSidNoteSid;
     /** Accompanying medical note for the customer visit */
     WlVisitNoteSidNoteSid[WlVisitNoteSidNoteSid["SOAP"] = 1] = "SOAP";
 })(WlVisitNoteSidNoteSid || (WlVisitNoteSidNoteSid = {}));
-/** Identifiers for services types. */
-export var RsServiceSid;
-(function (RsServiceSid) {
-    /** Appointments */
-    RsServiceSid[RsServiceSid["APPOINTMENT"] = 1] = "APPOINTMENT";
-    /** Classes */
-    RsServiceSid[RsServiceSid["CLASSES"] = 2] = "CLASSES";
-    /** Enrolments */
-    RsServiceSid[RsServiceSid["ENROLLMENT"] = 3] = "ENROLLMENT";
-    /** Resources */
-    RsServiceSid[RsServiceSid["RESOURCE"] = 5] = "RESOURCE";
-    /** Visits */
-    RsServiceSid[RsServiceSid["VISIT"] = 4] = "VISIT";
-})(RsServiceSid || (RsServiceSid = {}));
 /** List of progress log fields. */
 export var WlMemberProgressFieldProgressFieldSid;
 (function (WlMemberProgressFieldProgressFieldSid) {
@@ -4840,16 +5382,6 @@ export var WlReceptionDesignCheckInSoundSid;
     /** Success sound 3 to be played when self check in succeeds */
     WlReceptionDesignCheckInSoundSid[WlReceptionDesignCheckInSoundSid["SUCCESS_SOUND_3"] = 6] = "SUCCESS_SOUND_3";
 })(WlReceptionDesignCheckInSoundSid || (WlReceptionDesignCheckInSoundSid = {}));
-/** List of outcomes of a CAASI Phone Agent call. */
-export var WlAiAgentPhoneCallOutcomeEnum;
-(function (WlAiAgentPhoneCallOutcomeEnum) {
-    /** The call was resolved by CAASI without staff involvement */
-    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["RESOLVED"] = 1] = "RESOLVED";
-    /** The call was transferred to a live staff member */
-    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["TRANSFERRED"] = 2] = "TRANSFERRED";
-    /** The caller requested a callback from staff */
-    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["CALLBACK_REQUESTED"] = 3] = "CALLBACK_REQUESTED";
-})(WlAiAgentPhoneCallOutcomeEnum || (WlAiAgentPhoneCallOutcomeEnum = {}));
 /** List of statuses of an Autymate enrollment notification. */
 export var WlIntegrationAutymateAutymateStatusSid;
 (function (WlIntegrationAutymateAutymateStatusSid) {
@@ -5198,18 +5730,6 @@ export var WlBusinessAccountSubscriptionApiApiSubscriptionSid;
     /** Premium */
     WlBusinessAccountSubscriptionApiApiSubscriptionSid[WlBusinessAccountSubscriptionApiApiSubscriptionSid["PREMIUM"] = 2] = "PREMIUM";
 })(WlBusinessAccountSubscriptionApiApiSubscriptionSid || (WlBusinessAccountSubscriptionApiApiSubscriptionSid = {}));
-/** List of possible plans for FitvidSubscription subscription. */
-export var WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid;
-(function (WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid) {
-    /** Basic */
-    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["BASIC"] = 2] = "BASIC";
-    /** Enterprise */
-    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["ENTERPRISE"] = 3] = "ENTERPRISE";
-    /** None */
-    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Premium */
-    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["PREMIUM"] = 4] = "PREMIUM";
-})(WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid || (WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = {}));
 /** List of possible plans for QuizSubscription subscription. */
 export var WlBusinessAccountSubscriptionQuizQuizSubscriptionSid;
 (function (WlBusinessAccountSubscriptionQuizQuizSubscriptionSid) {
