@@ -17881,6 +17881,8 @@ export interface WlClassesEditorClassEditorGetResponse {
             is_deposit_percent: boolean;
             /** `true` if the class has an early bird discount, `false` otherwise. */
             is_early: boolean;
+            /** `true` if `dl_early` is a date that has already passed, `false` otherwise. */
+            is_early_ended: boolean;
             /** `true` if `f_early` is a percent of the price of the class, `false` if it is an amount */
             is_early_percent: boolean;
             /** `true` if taxes are applied to the sales of the class, `false` otherwise. */
@@ -17905,8 +17907,6 @@ export interface WlClassesEditorClassEditorGetResponse {
             i_order_limit: number;
             /** `true` if a buyer of a ticket must have an account, `false` if a name and an email address are en... */
             is_account_require: boolean;
-            /** `true` if a buyer may reserve a ticket and pay for it at the door, `false` if a ticket is paid fo... */
-            is_door_pay: boolean;
             /** `true` if a buyer of a ticket must agree to terms and conditions, `false` otherwise. */
             is_terms: boolean;
             /** Terms and conditions a buyer of a ticket must agree to. */
