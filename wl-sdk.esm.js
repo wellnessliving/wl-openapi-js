@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261022094156
+// OpenAPI spec version: 1.1.20261022124203
 // Build date: 2026-10-22
-// Endpoints: 685
-// Enums: 228
+// Endpoints: 686
+// Enums: 229
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (228 total) ---
+// --- Enum types (229 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -5492,6 +5492,26 @@ export var WlLoginPromotionConvertConvertWhenSid;
     /** Purchase Option converts on the specified date and the client is charged for the new Purchase Option */
     WlLoginPromotionConvertConvertWhenSid[WlLoginPromotionConvertConvertWhenSid["SCHEDULE_PAID"] = 4] = "SCHEDULE_PAID";
 })(WlLoginPromotionConvertConvertWhenSid || (WlLoginPromotionConvertConvertWhenSid = {}));
+/** List of render modes. */
+export var CoreQuizRenderModeSid;
+(function (CoreQuizRenderModeSid) {
+    /** Mode for displaying the error message about access restriction to private quiz */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["ACCESS_DENIED_PRIVATE"] = 8] = "ACCESS_DENIED_PRIVATE";
+    /** Mode to provide ability to perform question amendment */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["AMEND"] = 5] = "AMEND";
+    /** Mode to display only part of the question with answer element */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["AMEND_ADD"] = 7] = "AMEND_ADD";
+    /** Mode to display only answer of the question without actual question information */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["ANSWER"] = 6] = "ANSWER";
+    /** Edit mode on quiz edit form */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["EDIT"] = 2] = "EDIT";
+    /** Preview mode on quiz edit form */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["PREVIEW"] = 1] = "PREVIEW";
+    /** Mode to display element with response */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["REPORT"] = 4] = "REPORT";
+    /** Response mode on the form where response expected */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["RESPONSE"] = 3] = "RESPONSE";
+})(CoreQuizRenderModeSid || (CoreQuizRenderModeSid = {}));
 /** List of options to add client to attendance list. */
 export var WlLoginAttendanceAddOptionSid;
 (function (WlLoginAttendanceAddOptionSid) {
@@ -6936,6 +6956,15 @@ export class WlLoginSearchNamespace {
         return this._client._request('/Wl/Login/Search/Concerto.json', params, 'GET');
     }
 }
+export class WlLoginAttendanceRowNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns data for a single attendance list row. */
+    row(params) {
+        return this._client._request('/Wl/Login/Attendance/Row/Row.json', params, 'GET');
+    }
+}
 export class WlLoginAttendanceAddNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6967,6 +6996,7 @@ export class WlLoginAttendanceStaffAppNamespace {
 export class WlLoginAttendanceNamespace {
     constructor(_client) {
         this._client = _client;
+        this.row = new WlLoginAttendanceRowNamespace(this._client);
         this.add = new WlLoginAttendanceAddNamespace(this._client);
         this.staffApp = new WlLoginAttendanceStaffAppNamespace(this._client);
     }

@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261022094156
+ * Spec version: 1.1.20261022124203
  * Build date:   2026-10-22
- * Endpoints:    685
+ * Endpoints:    686
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261022094156';
+  WlClient.SPEC_VERSION = '1.1.20261022124203';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (685 total)
+  // Generated API methods (686 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -10111,6 +10111,25 @@
   };
 
   /**
+   * Returns data for a single attendance list row.
+   *
+   * Loads the visit, its form statuses and the action URLs for each form
+   * that is linked to the visit. The render mode and the URLs follow the
+   * same gates as the legacy appointment panel.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.dtu_date Visit date and time in UTC, MySQL format.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_visit Visit key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_row` {Object} Data for a single attendance list row.
+   */
+  WlClient.prototype.wlLoginAttendanceRowRow = function(params)
+  {
+    return this.request('/Wl/Login/Attendance/Row/Row.json', params || {}, 'GET');
+  };
+
+  /**
    * Gets information about ability of user to pay for given session in any ways.
    *
    * Returns available Purchase Options and session passes that can be used to pay for the specified class session,
@@ -12391,7 +12410,6 @@
    * Each service and category includes an array of location keys where it is available.
    * All active services are returned: unlike the location-scoped list, the result is not filtered by class tab
    * or by online bookability, and removed locations are skipped.
-   * The caller must be a staff member or admin of the business.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
@@ -13060,6 +13078,8 @@
    * @returns {Promise<Object>} Response data.
    *  `a_code` {Object[]} Billing codes applied to the visit, the diagnostic codes first, each type sor...
    *  `a_history` {Object[]} History of the changes of the billing codes of the visit, the latest change f...
+   *  `is_signature` {boolean} `true` if the business requires a signature when diagnostic codes of a visit ...
+   *  `is_system` {boolean} `true` if the business has the diagnostic codes turned on, `false` otherwise.
    *  `s_version` {string} Version of the billing codes of the visit: a value that changes every time th...
    */
   WlClient.prototype.wlVisitBillingCodeVisitBillingCodeAssignGet = function(params)
@@ -14730,7 +14750,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (246 total)
+  // Enum constants (247 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -20913,6 +20933,30 @@
     NOW_PAID: 3,
     /** Purchase Option converts on the specified date and the client is charged for the new Purchase Option */
     SCHEDULE_PAID: 4,
+  });
+
+  /**
+   * List of render modes.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreQuizRenderModeSid = Object.freeze({
+    /** Mode for displaying the error message about access restriction to private quiz */
+    ACCESS_DENIED_PRIVATE: 8,
+    /** Mode to provide ability to perform question amendment */
+    AMEND: 5,
+    /** Mode to display only part of the question with answer element */
+    AMEND_ADD: 7,
+    /** Mode to display only answer of the question without actual question information */
+    ANSWER: 6,
+    /** Edit mode on quiz edit form */
+    EDIT: 2,
+    /** Preview mode on quiz edit form */
+    PREVIEW: 1,
+    /** Mode to display element with response */
+    REPORT: 4,
+    /** Response mode on the form where response expected */
+    RESPONSE: 3,
   });
 
   /**

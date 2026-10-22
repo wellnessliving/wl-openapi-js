@@ -5321,6 +5321,25 @@ export declare enum WlLoginPromotionConvertConvertWhenSid {
     /** Purchase Option converts on the specified date and the client is charged for the new Purchase Option */
     SCHEDULE_PAID = 4
 }
+/** List of render modes. */
+export declare enum CoreQuizRenderModeSid {
+    /** Mode for displaying the error message about access restriction to private quiz */
+    ACCESS_DENIED_PRIVATE = 8,
+    /** Mode to provide ability to perform question amendment */
+    AMEND = 5,
+    /** Mode to display only part of the question with answer element */
+    AMEND_ADD = 7,
+    /** Mode to display only answer of the question without actual question information */
+    ANSWER = 6,
+    /** Edit mode on quiz edit form */
+    EDIT = 2,
+    /** Preview mode on quiz edit form */
+    PREVIEW = 1,
+    /** Mode to display element with response */
+    REPORT = 4,
+    /** Response mode on the form where response expected */
+    RESPONSE = 3
+}
 /** List of options to add client to attendance list. */
 export declare enum WlLoginAttendanceAddOptionSid {
     /** Add client to attendance list and charge his account */
@@ -24243,6 +24262,75 @@ export interface WlLoginSearchStaffAppListResponse {
     /** If `true`, then this user can add other users via the Add Client page. */
     can_add: boolean;
 }
+export interface WlLoginAttendanceRowRowParams {
+    /** Visit date and time in UTC, MySQL format. */
+    dtu_date: string;
+    /** Business key. */
+    k_business: string;
+    /** Visit key. */
+    k_visit: string;
+}
+export interface WlLoginAttendanceRowRowResponse {
+    /** Data for a single attendance list row. */
+    a_row: {
+        /** Map of form quiz key to form data. Each value is: */
+        a_quiz: {
+            /** Status and action data for a single form: */
+            a_quiz_status: {
+                /** `true` if the current staff member may amend the completed form. */
+                can_amend: boolean;
+                /** `true` if the current staff member may complete the form. */
+                can_complete: boolean;
+                /** `true` if the current staff member may view the form response. */
+                can_view: boolean;
+                /** List of render modes. @see CoreQuizRenderModeSid */
+                id_render: CoreQuizRenderModeSid;
+                /** List of response statuses. @see CoreQuizResponseResponseStatusSid */
+                id_status: CoreQuizResponseResponseStatusSid;
+                /** `true` if the form is private. */
+                is_private: boolean;
+                /** Business key. */
+                k_business: string;
+                /** Quiz key. */
+                k_quiz: string;
+                /** Quiz login key. */
+                k_quiz_login: string;
+                /** Quiz response key. */
+                k_quiz_response: string;
+                /** Form title. */
+                text_title: string;
+                /** URL to export the completed form as CSV. Empty string if not available. */
+                url_csv: string;
+                /** Direct URL to fill in the outstanding form. Empty string if not available. */
+                url_direct: string;
+                /** URL to export the completed form as PDF. Empty string if not available. */
+                url_pdf: string;
+                /** URL to print the form. Empty string if not available. */
+                url_print: string;
+            };
+            /** Rendered HTML of the form status badge, as shown in the attendance list. */
+            html_quiz_status: string;
+        };
+        /** Visit date and time in UTC, MySQL format. */
+        dtu_date: string;
+        /** Rendered HTML of the client info icon, as shown in the attendance list. Empty string if the visit... */
+        html_icon: string;
+        /** Rendered HTML of the promotion progress bar, as shown in the attendance list. */
+        html_remain: string;
+        /** Rendered HTML of the visit note, as shown in the attendance list. */
+        html_visit_note: string;
+        /** `true` if the business has an active quiz subscription. */
+        is_quiz_subscription_active: boolean;
+        /** Business key. */
+        k_business: string;
+        /** Visit key. */
+        k_visit: string;
+        /** String identifier of the attendance list view type. Corresponds to a ListTypeSid constant. */
+        sid_list_type: string;
+        /** Client user key. */
+        uid: string;
+    };
+}
 export interface WlLoginAttendanceAddAddGetParams {
     /** The start date and time of the class in GMT and MySQL format. */
     dt_date_global: string;
@@ -30514,6 +30602,10 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignGetResponse {
         /** Key of the staff member who made the change. `null` if the user is deleted. */
         uid_staff: string | null;
     }>;
+    /** `true` if the business requires a signature when diagnostic codes of a visit are saved, `false` o... */
+    is_signature: boolean;
+    /** `true` if the business has the diagnostic codes turned on, `false` otherwise. */
+    is_system: boolean;
     /** Version of the billing codes of the visit: a value that changes every time the codes of the visit... */
     s_version: string;
 }
@@ -33272,6 +33364,12 @@ export declare class WlLoginSearchNamespace {
     /** Finds a user by their email or phone within the specified business. */
     concerto(params?: WlLoginSearchConcertoParams): Promise<WlLoginSearchConcertoResponse>;
 }
+export declare class WlLoginAttendanceRowNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns data for a single attendance list row. */
+    row(params?: WlLoginAttendanceRowRowParams): Promise<WlLoginAttendanceRowRowResponse>;
+}
 export declare class WlLoginAttendanceAddNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -33293,6 +33391,7 @@ export declare class WlLoginAttendanceStaffAppNamespace {
 }
 export declare class WlLoginAttendanceNamespace {
     private readonly _client;
+    readonly row: WlLoginAttendanceRowNamespace;
     readonly add: WlLoginAttendanceAddNamespace;
     readonly staffApp: WlLoginAttendanceStaffAppNamespace;
     constructor(_client: WlClient);
