@@ -30207,6 +30207,8 @@ export interface WlAppointmentBookAssetCategoryResponse {
     a_category: Array<{
         /** `true` - all resources are hidden in this category for White Label mobile application. `false` - ... */
         hide_application: boolean;
+        /** Layout key of the category at the location. `null` if the category has no layout. */
+        k_resource_layout: string | null;
         /** Resource type ID. */
         k_resource_type: string;
         /** Title of resource type. */
