@@ -5378,7 +5378,7 @@ export declare enum WlBusinessCustomTermsClientTermOptionSid {
     /** Student */
     STUDENT = 17,
     /** Swimmer */
-    SWIMMER = 4
+    SWIMMER = 18
 }
 /** List of possible plans for CollectionsSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid {
@@ -16312,6 +16312,15 @@ export interface WlCatalogCatalogListListResponse {
         a_location: Array<string>;
         /** Shop category keys the item belongs to. */
         a_shop_category: Array<string>;
+        /** How many tickets can be sold for the event and how many of those are still available. Empty if the */
+        a_ticket_inventory: {
+            /** Total number of tickets that can be sold for the event. */
+            i_capacity: number;
+            /** Maximum number of tickets that can be ordered in one purchase. `0` if there is no limit. */
+            i_order_limit: number;
+            /** Number of tickets still available to sell. `0` if the event is sold out. */
+            i_remain: number;
+        };
         /** List of ticket options available for booking the event. Empty if the item is not a */
         a_tickets: {
             /** Globally unique identifier of the ticket option. */
@@ -16335,6 +16344,8 @@ export interface WlCatalogCatalogListListResponse {
         is_introductory: boolean;
         /** `true` if the item is a ticketed event, `false` otherwise. */
         is_ticket: boolean;
+        /** `true` if a client can buy tickets without creating an account. `false` if the item is not a */
+        is_ticket_guest_allowed: boolean;
         /** The item key. */
         k_id: string;
         /** The primary shop category key for this item entry. */
@@ -16352,6 +16363,15 @@ export interface WlCatalogCatalogListListResponse {
         a_location: Array<string>;
         /** Shop category keys the item belongs to. */
         a_shop_category: Array<string>;
+        /** How many tickets can be sold for the event and how many of those are still available. Empty if the */
+        a_ticket_inventory: {
+            /** Total number of tickets that can be sold for the event. */
+            i_capacity: number;
+            /** Maximum number of tickets that can be ordered in one purchase. `0` if there is no limit. */
+            i_order_limit: number;
+            /** Number of tickets still available to sell. `0` if the event is sold out. */
+            i_remain: number;
+        };
         /** List of ticket options available for booking the event. Empty if the item is not a */
         a_tickets: {
             /** Globally unique identifier of the ticket option. */
@@ -16375,6 +16395,8 @@ export interface WlCatalogCatalogListListResponse {
         is_introductory: boolean;
         /** `true` if the item is a ticketed event, `false` otherwise. */
         is_ticket: boolean;
+        /** `true` if a client can buy tickets without creating an account. `false` if the item is not a */
+        is_ticket_guest_allowed: boolean;
         /** The item key. */
         k_id: string;
         /** The primary shop category key for this item entry. */
