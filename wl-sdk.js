@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261022051142
+ * Spec version: 1.1.20261022072222
  * Build date:   2026-10-22
  * Endpoints:    685
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261022051142';
+  WlClient.SPEC_VERSION = '1.1.20261022072222';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (685 total)
@@ -11323,6 +11323,8 @@
    * @returns {Promise<Object>} Response data.
    *  `a_code` {Object[]} Billing codes applied to the visit, the diagnostic codes first, each type sor...
    *  `a_history` {Object[]} History of the changes of the billing codes of the visit, the latest change f...
+   *  `is_signature` {boolean} `true` if the business requires a signature when diagnostic codes of a visit ...
+   *  `is_system` {boolean} `true` if the business has the diagnostic codes turned on, `false` otherwise.
    *  `s_version` {string} Version of the billing codes of the visit: a value that changes every time th...
    */
   WlClient.prototype.wlVisitBillingCodeVisitBillingCodeAssignGet = function(params)

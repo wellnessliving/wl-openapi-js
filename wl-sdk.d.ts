@@ -26335,6 +26335,10 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignGetResponse {
         /** Key of the staff member who made the change. `null` if the user is deleted. */
         uid_staff: string | null;
     }>;
+    /** `true` if the business requires a signature when diagnostic codes of a visit are saved, `false` o... */
+    is_signature: boolean;
+    /** `true` if the business has the diagnostic codes turned on, `false` otherwise. */
+    is_system: boolean;
     /** Version of the billing codes of the visit: a value that changes every time the codes of the visit... */
     s_version: string;
 }
