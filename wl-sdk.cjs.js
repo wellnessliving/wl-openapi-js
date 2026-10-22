@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261021170400
+// OpenAPI spec version: 1.1.20261022041107
 // Build date: 2026-10-22
 // Endpoints: 685
 // Enums: 225
@@ -5005,7 +5005,7 @@ var WlBusinessCustomTermsClientTermOptionSid;
     /** Student */
     WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["STUDENT"] = 17] = "STUDENT";
     /** Swimmer */
-    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["SWIMMER"] = 4] = "SWIMMER";
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["SWIMMER"] = 18] = "SWIMMER";
 })(WlBusinessCustomTermsClientTermOptionSid || (exports.WlBusinessCustomTermsClientTermOptionSid = WlBusinessCustomTermsClientTermOptionSid = {}));
 /** List of possible plans for SmsSubscription subscription. */
 var WlBusinessAccountSubscriptionSmsSmsSubscriptionSid;

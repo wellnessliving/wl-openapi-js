@@ -4821,7 +4821,7 @@ export declare enum WlBusinessCustomTermsClientTermOptionSid {
     /** Student */
     STUDENT = 17,
     /** Swimmer */
-    SWIMMER = 4
+    SWIMMER = 18
 }
 /** List of possible plans for SmsSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionSmsSmsSubscriptionSid {
