@@ -16066,6 +16066,11 @@ export interface WlClassesEditorClassEditorPostResponse {
     k_class_save: string;
 }
 export interface WlClassesClassListListParams {
+    /** Direct booking link parameters. */
+    a_direct_link: {
+        /** The class/event key. */
+        k_class: string;
+    };
     /** Whether all events should be returned from same enrollment block. */
     is_enrollment_block_all: boolean;
     /** Whether to include events without sessions. */
