@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261022135618
+ * Spec version: 1.1.20261023072448
  * Build date:   2026-10-23
  * Endpoints:    686
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261022135618';
+  WlClient.SPEC_VERSION = '1.1.20261023072448';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (686 total)
@@ -6302,6 +6302,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {?string[]} [params.a_class_tab] List of tabs keys.
+   * @param {Object} params.a_direct_link Direct booking link parameters.
    * @param {number} [params.id_class_tab] ID of book now tab. One of {@link WlClient.WlClassesTabTabSid} constants.
    * @param {boolean} params.is_enrollment_block_all Whether all events should be returned from same enrollment block.
    * @param {boolean} params.is_enrollment_block_empty Whether to include events without sessions.
