@@ -11670,6 +11670,8 @@ export interface WlLoginAttendanceAttendanceListResponse {
         is_early: boolean;
         /** This will be `true` if the visit is free. */
         is_free: boolean;
+        /** `true` if this visit is paid with a guest pass. */
+        is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
@@ -11930,6 +11932,8 @@ export interface WlLoginAttendanceAttendanceListResponse {
         is_early: boolean;
         /** This will be `true` if the visit is free. */
         is_free: boolean;
+        /** `true` if this visit is paid with a guest pass. */
+        is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
@@ -12190,6 +12194,8 @@ export interface WlLoginAttendanceAttendanceListResponse {
         is_early: boolean;
         /** This will be `true` if the visit is free. */
         is_free: boolean;
+        /** `true` if this visit is paid with a guest pass. */
+        is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
@@ -12476,6 +12482,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         is_early: boolean;
         /** This will be `true` if the visit is free. */
         is_free: boolean;
+        /** `true` if this visit is paid with a guest pass. */
+        is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
@@ -12736,6 +12744,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         is_early: boolean;
         /** This will be `true` if the visit is free. */
         is_free: boolean;
+        /** `true` if this visit is paid with a guest pass. */
+        is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
@@ -12996,6 +13006,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         is_early: boolean;
         /** This will be `true` if the visit is free. */
         is_free: boolean;
+        /** `true` if this visit is paid with a guest pass. */
+        is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
@@ -19164,6 +19176,8 @@ export interface WlScheduleClassListClassList68Response {
         i_day: number;
         /** The duration of the session in minutes. */
         i_duration: number;
+        /** Number of the tickets of the session that are checked in. `null` if the session is not a session ... */
+        i_ticket_attend: number | null;
         /** Number of clients in wait list. */
         i_wait: number;
         /** Limit of wait list. `null` if limit is not set. */
