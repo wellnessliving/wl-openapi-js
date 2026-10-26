@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261023152633
+ * Spec version: 1.1.20261026114613
  * Build date:   2026-10-26
  * Endpoints:    686
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261023152633';
+  WlClient.SPEC_VERSION = '1.1.20261026114613';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (686 total)
@@ -3879,6 +3879,9 @@
    *  the target profile. Attempts to redeem the code as a coupon first; if the code is not a coupon,
    *  falls back to checking it as another type of redemption code, for example a gift card number,
    *  and logs the change.
+   * 
+   * Failed attempts are limited per session, per IP address and per profile, so that codes can not be guessed.
+   * ...
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
@@ -7331,8 +7334,9 @@
    *
    * Validates that the current user has access to the target user's profile and that the payer and
    *  the target user are family relatives. Rejects the request if the payer already pays for another
-   *  user, if another user already pays for the target user, or if either user is restricted by
-   *  franchise rules. Persists the new payer relationship in a database transaction.
+   *  user, if another user already pays for the target user, if the target user pays for a purchase option of
+   *  another user, or if either user is restricted by franchise rules. Persists the new payer relationship in a
+   *  database transaction.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business ID of business to get information for.
@@ -20988,6 +20992,10 @@
     CLASS_TERM: 3,
     /** Client */
     CLIENT: 4,
+    /** Drop-in */
+    DROP_IN: 6,
+    /** Purchase Option */
+    PURCHASE_OPTION: 7,
     /** Staff */
     STAFF: 1,
   });

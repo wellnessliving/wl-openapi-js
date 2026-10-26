@@ -5359,6 +5359,10 @@ export declare enum WlBusinessCustomTermsCustomTermSid {
     CLASS_TERM = 3,
     /** Client */
     CLIENT = 4,
+    /** Drop-in */
+    DROP_IN = 6,
+    /** Purchase Option */
+    PURCHASE_OPTION = 7,
     /** Staff */
     STAFF = 1
 }

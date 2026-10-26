@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261023152633
+// OpenAPI spec version: 1.1.20261026114613
 // Build date: 2026-10-26
 // Endpoints: 686
 // Enums: 229
@@ -5533,6 +5533,10 @@ export var WlBusinessCustomTermsCustomTermSid;
     WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["CLASS_TERM"] = 3] = "CLASS_TERM";
     /** Client */
     WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["CLIENT"] = 4] = "CLIENT";
+    /** Drop-in */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["DROP_IN"] = 6] = "DROP_IN";
+    /** Purchase Option */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["PURCHASE_OPTION"] = 7] = "PURCHASE_OPTION";
     /** Staff */
     WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["STAFF"] = 1] = "STAFF";
 })(WlBusinessCustomTermsCustomTermSid || (WlBusinessCustomTermsCustomTermSid = {}));
