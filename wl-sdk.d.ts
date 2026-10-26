@@ -9974,10 +9974,14 @@ export interface WlPayProcessorStripeComStripeComPayInitResponse {
     m_amount: string | null;
     /** Surcharge amount. */
     m_surcharge: string | null;
+    /** ID of the Checkout Session when the client card form runs on a Checkout Session. */
+    s_checkout_session: string | null;
     /** Payment Intent client secret key. */
     s_client_secret: string;
     /** Payment intent ID. */
     s_payment_intent: string;
+    /** Email of the payer from the profile, for the client card form that runs on a Checkout Session. */
+    text_mail_payer: string | null;
     /** Error message. */
     text_message: string | null;
 }
@@ -9990,6 +9994,8 @@ export interface WlPayProcessorStripeComPaymentIntentUpdateParams {
     k_business_merchant: string;
     /** Key of the payment transaction to update. */
     k_pay_transaction: string;
+    /** ID of the Checkout Session to update. */
+    s_checkout_session: string;
     /** Payment intent ID to update. */
     s_payment_intent: string;
     /** Payment owner user key. */
@@ -30622,15 +30628,34 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignGetResponse {
         text_reason: string | null;
         /** Signature of the staff member who made the change. `null` if no signature was given, or if the bu... */
         text_signature: string | null;
-        /** Key of the staff member who made the change. `null` if the user is deleted. */
+        /** Key of the staff member who made the change. `null` if the user is deleted, for the codes applied by */
         uid_staff: string | null;
     }>;
+    /** Voided billing codes of the visit. */
+    a_void: Array<{
+        /** `true` for a custom code of the business or a temporary code for this visit only, `false` for an ... */
+        is_custom: boolean;
+        /** Code value, as it was printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code as it was when the code was applied. `null` for a temporary code. */
+        text_description: string | null;
+    }>;
+    /** Date and time the diagnostic codes of the visit were locked, in UTC. */
+    dtu_lock: string | null;
+    /** `true` when the diagnostic codes of the visit are locked by a staff member who signed, `false` ot... */
+    is_locked: boolean;
+    /** `true` when a receipt for this visit has been generated at least once. */
+    is_receipt_sent: boolean;
     /** `true` if the business requires a signature when diagnostic codes of a visit are saved, `false` o... */
     is_signature: boolean;
     /** `true` if the business has the diagnostic codes turned on, `false` otherwise. */
     is_system: boolean;
     /** Version of the billing codes of the visit: a value that changes every time the codes of the visit... */
     s_version: string;
+    /** Full name of the staff member who signed and locked the diagnostic codes of the visit, as it is a... */
+    text_staff_name_lock: string | null;
+    /** Key of the staff member who signed and locked the diagnostic codes of the visit. */
+    uid_staff_lock: string | null;
 }
 export interface WlVisitBillingCodeVisitBillingCodeAssignPostParams {
     /** Business key. */

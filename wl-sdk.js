@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261026114613
+ * Spec version: 1.1.20261026153209
  * Build date:   2026-10-26
  * Endpoints:    686
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261026114613';
+  WlClient.SPEC_VERSION = '1.1.20261026153209';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (686 total)
@@ -2506,8 +2506,10 @@
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
    *  `m_amount` {?string} Payment amount.
    *  `m_surcharge` {?string} Surcharge amount.
+   *  `s_checkout_session` {?string} ID of the Checkout Session when the client card form runs on a Checkout Session.
    *  `s_client_secret` {string} Payment Intent client secret key.
    *  `s_payment_intent` {string} Payment intent ID.
+   *  `text_mail_payer` {?string} Email of the payer from the profile, for the client card form that runs on a ...
    *  `text_message` {?string} Error message.
    */
   WlClient.prototype.wlPayProcessorStripeComStripeComPayInit = function(params)
@@ -2526,6 +2528,7 @@
    * @param {string} params.k_business Key of the business to update Payment Intent for.
    * @param {string} params.k_business_merchant Key of the business merchant to update Payment Intent for.
    * @param {string} params.k_pay_transaction Key of the payment transaction to update.
+   * @param {string} params.s_checkout_session ID of the Checkout Session to update.
    * @param {string} params.s_payment_intent Payment intent ID to update.
    * @param {?string} [params.uid_purchase] Payment owner user key.
    * @returns {Promise<Object>} Response data.
@@ -13083,9 +13086,15 @@
    * @returns {Promise<Object>} Response data.
    *  `a_code` {Object[]} Billing codes applied to the visit, the diagnostic codes first, each type sor...
    *  `a_history` {Object[]} History of the changes of the billing codes of the visit, the latest change f...
+   *  `a_void` {Object[]} Voided billing codes of the visit.
+   *  `dtu_lock` {?string} Date and time the diagnostic codes of the visit were locked, in UTC.
+   *  `is_locked` {boolean} `true` when the diagnostic codes of the visit are locked by a staff member wh...
+   *  `is_receipt_sent` {boolean} `true` when a receipt for this visit has been generated at least once.
    *  `is_signature` {boolean} `true` if the business requires a signature when diagnostic codes of a visit ...
    *  `is_system` {boolean} `true` if the business has the diagnostic codes turned on, `false` otherwise.
    *  `s_version` {string} Version of the billing codes of the visit: a value that changes every time th...
+   *  `text_staff_name_lock` {?string} Full name of the staff member who signed and locked the diagnostic codes of t...
+   *  `uid_staff_lock` {?string} Key of the staff member who signed and locked the diagnostic codes of the visit.
    */
   WlClient.prototype.wlVisitBillingCodeVisitBillingCodeAssignGet = function(params)
   {
