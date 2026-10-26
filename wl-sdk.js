@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261023184515
- * Build date:   2026-10-25
+ * Spec version: 1.1.20261026033231
+ * Build date:   2026-10-26
  * Endpoints:    685
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261023184515';
+  WlClient.SPEC_VERSION = '1.1.20261026033231';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (685 total)
@@ -5371,6 +5371,9 @@
    *  the target profile. Attempts to redeem the code as a coupon first; if the code is not a coupon,
    *  falls back to checking it as another type of redemption code, for example a gift card number,
    *  and logs the change.
+   * 
+   * Failed attempts are limited per session, per IP address and per profile, so that codes can not be guessed.
+   * ...
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
