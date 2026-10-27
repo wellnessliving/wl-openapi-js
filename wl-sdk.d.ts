@@ -7190,6 +7190,8 @@ export interface WlQuizQuizElement72GetParams {
     k_quiz: string;
     /** Quiz login key. */
     k_quiz_login: string;
+    /** Secret key of the quiz request given in {@link WlQuizNamespace#quizElement72Get}. */
+    s_secret: string;
     /** UID of the client for which quiz requested. */
     uid_client: string;
 }
@@ -14199,6 +14201,8 @@ export interface WlProfilePurchaseListPurchaseListElementResponse {
     s_payer: string;
     /** The title of the converted promotion. This value is used only for promotions that must be convert... */
     s_promotion_convert: string;
+    /** The full name of the user who pays for this purchase option instead of its holder. */
+    s_promotion_payer: string | null;
     /** The purchase ID number as it appears on the receipt. This value will also include the leading 0s ... */
     s_purchase: string;
     /** The name of the user who paid for this purchase. */
@@ -14215,6 +14219,8 @@ export interface WlProfilePurchaseListPurchaseListElementResponse {
     text_guest_pass: string;
     /** The key of the user who paid for this purchase. */
     uid_payer: string | null;
+    /** The key of the user who pays for this purchase option instead of its holder. */
+    uid_promotion_payer: string | null;
     /** The key of the user who paid for this purchase. */
     uid_recipient: string;
 }

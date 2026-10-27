@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261026160619
+ * Spec version: 1.1.20261027140055
  * Build date:   2026-10-27
  * Endpoints:    686
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261026160619';
+  WlClient.SPEC_VERSION = '1.1.20261027140055';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (686 total)
@@ -1038,6 +1038,7 @@
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {string} params.k_quiz_login Quiz login key.
+   * @param {string} params.s_secret Secret key of the quiz request given in {@link WlClient#wlQuizQuizElement72Get}.
    * @param {string} params.uid_client UID of the client for which quiz requested.
    * @returns {Promise<Object>} Response data.
    *  `a_access_log` {Object[]} Access log data.
