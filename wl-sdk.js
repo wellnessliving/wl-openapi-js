@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261027164617
+ * Spec version: 1.1.20261027191221
  * Build date:   2026-10-27
- * Endpoints:    685
+ * Endpoints:    691
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261027164617';
+  WlClient.SPEC_VERSION = '1.1.20261027191221';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (685 total)
+  // Generated API methods (691 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -11895,6 +11895,39 @@
   };
 
   /**
+   * Gets booking conflicts.
+   *
+   * Validates the requested date, duration, location, staff member, and either the selected
+   *  asset or service, then checks for scheduling conflicts (staff working hours, holidays,
+   *  asset availability) and, for services with an age restriction, for client age conflicts.
+   *  The result is written to {@link WlClient#wlAppointmentBookConflictConflict56}.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_product List of add-ons.
+   * @param {?Object} [params.a_repeat] Data of appointment repeat.
+   * @param {Object[]} params.a_resource List of assets.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {string} params.dt_date Date/time of appointment. In location timezone.
+   * @param {number} params.i_duration Appointment duration.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
+   * @param {string} params.k_appointment Appointment key. Empty for a new appointment.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_resource Asset key. Empty for service booking.
+   * @param {string} params.k_service Service key. Empty for asset booking.
+   * @param {string} params.k_staff Staff member key.
+   * @param {string} params.uid The user key.
+   * @param {string} params.uid_staff Staff member user ID.
+   * @returns {Promise<Object>} Response data.
+   *  `a_conflict` {Object[]} List of appointment booking conflicts.
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookConflictConflict78 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Conflict/Conflict78.json', params || {}, 'GET');
+  };
+
+  /**
    * Retrieves questions for the current service.
    *
    * Returns the list of intake questions defined for the specified service that the client must
@@ -12162,6 +12195,136 @@
   WlClient.prototype.wlAppointmentBookScheduleNextAvailableDay = function(params)
   {
     return this.request('/Wl/Appointment/Book/Schedule/NextAvailableDay.json', params || {}, 'GET');
+  };
+
+  /**
+   * Retrieves a list with all calendar days in specified period with available and unavailable appointment booking schedule.
+   *
+   * Returns each day in the requested month marked as available or unavailable for booking the given
+   *  service at the given location. Availability is determined by the business schedule, holidays,
+   *  and staff availability for the selected date range.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {string} params.dt_date The date to show the available appointment booking schedule.
+   * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
+   * @param {number} params.i_index An index of the selected asset. `0` for booking of service or if asset is not on layout.
+   * @param {number} params.id_gender_staff The ID of the staff member's gender. See {@link WlClient.AGenderSid}.
+   * @param {boolean} params.is_back_to_back Determines whether multiple appointments are booked in back-to-back mode.
+   * @param {boolean} params.is_month_view If calendar should be displayed in month view mode.
+   * @param {boolean} params.is_staff `true` if the request is made by staff member; in this case booking policy restrictions are ignored.
+   * @param {boolean} params.is_tab_all `true` - search in all tabs.
+   * @param {boolean} params.is_unavailable `true` - return service categories that have no staff members able to conduct them.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
+   * @param {?string} [params.k_class_tab] Current booking tab.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_resource The resource key to show which days are available for booking.
+   * @param {string} params.k_service The service key used for showing the available appointment booking schedule.
+   * @param {?string} [params.k_timezone] Key of timezone.
+   * @param {string} params.s_appointment The staff key to show what days are available for booking.
+   * @param {string} params.s_product A list of service add-ons keys(encoded as JSON string).
+   * @param {string} params.uid The user key.
+   * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
+   * @returns {Promise<Object>} Response data.
+   *  `a_date` {Object[]} A list with all calendar days in the specified month with
+   *  `a_time` {Object} An array with a schedule of available appointment booking times.
+   *  `a_timezone_data` {Object} Information about timezone.
+   *  `a_week_name` {Object} Array with short week day's names (2 letters, i.e. 'Fr') for calendar month v...
+   *  `can_backwards` {boolean} Whether previous calendar period can be shown (start of shown period later th...
+   *  `dt_date` {string} The date to show the available appointment booking schedule.
+   *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
+   *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
+   *  `i_week_end` {number} A class for the days of the week. See {@link WlClient.ADateWeekSid}.
+   *  `i_week_start` {number} A class for the days of the week. See {@link WlClient.ADateWeekSid}.
+   *  `is_waitlist` {boolean} Whether list of available times contains slots with only waitlist booking ava...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookScheduleCalendar78 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Schedule/Calendar78.json', params || {}, 'GET');
+  };
+
+  /**
+   * Retrieves a list of available appointment booking schedule.
+   *
+   * Returns available time slots for the specified service, location, staff member, and date range.
+   *  Each slot includes the start time, duration, available capacity, and staff information. Supports
+   *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {string} params.dt_date The date to show the available appointment booking schedule.
+   * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
+   * @param {number} params.i_index An index of the selected asset. `0` for booking of service or if asset is not on layout.
+   * @param {number} params.id_gender_staff The ID of the staff member's gender. See {@link WlClient.AGenderSid}.
+   * @param {boolean} params.is_back_to_back Determines whether multiple appointments are booked in back-to-back mode.
+   * @param {boolean} params.is_staff `true` if the request is made by staff member; in this case booking policy restrictions are ignored.
+   * @param {boolean} params.is_tab_all `true` - search in all tabs.
+   * @param {boolean} params.is_unavailable `true` - return service categories that have no staff members able to conduct them.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
+   * @param {?string} [params.k_class_tab] Current booking tab.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_resource The resource key to show which days are available for booking.
+   * @param {string} params.k_service The service key used for showing the available appointment booking schedule.
+   * @param {?string} [params.k_timezone] Key of timezone.
+   * @param {string} params.s_appointment The staff key to show what days are available for booking.
+   * @param {string} params.s_product A list of service add-ons keys(encoded as JSON string).
+   * @param {string} params.uid The user key.
+   * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
+   * @returns {Promise<Object>} Response data.
+   *  `a_time` {Object} An array with a schedule of available appointment booking times.
+   *  `dt_date` {string} The date to show the available appointment booking schedule.
+   *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
+   *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
+   *  `is_waitlist` {boolean} Whether list of available times contains slots with only waitlist booking ava...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookScheduleDayTime78 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Schedule/DayTime78.json', params || {}, 'GET');
+  };
+
+  /**
+   * Finds and returns the next available date for appointment booking starting from the given date.
+   *
+   * Searches forward from the specified start date until it finds a day with at least one available
+   *  time slot for the given service, location, and optional staff member. Returns the first available
+   *  date so the client side can pre-select it in the booking calendar. This request may take longer
+   *  than usual on production and uses an extended execution time limit.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {string} params.dt_date Start date to search next available date in MySQL format. If empty, the search will start from th...
+   * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
+   * @param {number} params.i_index An index of the selected asset. `0` for booking of service or if asset is not on layout.
+   * @param {number} params.id_gender_staff The ID of the staff member's gender. See {@link WlClient.AGenderSid}.
+   * @param {boolean} params.is_back_to_back Determines whether multiple appointments are booked in back-to-back mode.
+   * @param {boolean} params.is_staff `true` if the request is made by staff member; in this case booking policy restrictions are ignored.
+   * @param {boolean} params.is_tab_all `true` - search in all tabs.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
+   * @param {?string} [params.k_class_tab] Current booking tab.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_resource The resource key to show which days are available for booking.
+   * @param {string} params.k_service The service key used for showing the available appointment booking schedule.
+   * @param {?string} [params.k_timezone] Key of timezone.
+   * @param {string} params.s_appointment The staff key to show what days are available for booking.
+   * @param {string} params.s_product A list of service add-ons keys(encoded as JSON string).
+   * @param {string} params.uid The user key.
+   * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
+   * @returns {Promise<Object>} Response data.
+   *  `dt_date` {string} Start date to search next available date in MySQL format. If empty, the searc...
+   *  `dt_next` {string} Next available date in MySQL format.
+   *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
+   *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
+   *  `is_waitlist` {boolean} Whether list of available times contains slots with only waitlist booking ava...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookScheduleNextAvailableDay78 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Schedule/NextAvailableDay78.json', params || {}, 'GET');
   };
 
   /**
@@ -12603,6 +12766,37 @@
   };
 
   /**
+   * Retrieves an information about staff members for the current service.
+   *
+   * Returns the list of staff members who can perform the specified service at the given location
+   *  on the specified date and time. Each entry includes the staff member's name, image, gender,
+   *  and availability. An 'any staff' option is included when the service allows random staff assignment.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.dt_date The date/time of the appointment selected by user, in the location's time zone.
+   * @param {number} params.i_client Count of clients on the appointment.
+   * @param {?number} [params.i_duration_custom] Custom appointment duration in minutes.
+   * @param {number} params.id_role User role by whom this api called. See {@link WlClient.WlLoginLoginRoleSid}.
+   * @param {boolean} params.is_unavailable `true` - returns service categories that have no staff members available to conduct them.
+   * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
+   * @param {string} params.k_appointment_ignore Key of appointment which must be ignored when searches available staff.
+   * @param {string} params.k_location The key of the location.
+   * @param {string} params.k_service The key of a service for which to show information.
+   * @param {?string} [params.k_timezone] User's timezone.
+   * @param {?string} [params.uid] The user key for whom the service is booking.
+   * @returns {Promise<Object>} Response data.
+   *  `a_staff` {Object[]} A list of staff members with information about them.
+   *  `can_book_unavailable_staff` {boolean} Can staff booked unavailable staff.
+   *  `has_gender` {boolean} Determines whether to select the staff member's gender for the appointment.
+   *  `has_staff` {boolean} Determines whether to select staff member(s) for the appointment.
+   *  `is_gender_different` {boolean} Determines if the staff list has male and female members.
+   */
+  WlClient.prototype.wlAppointmentBookStaffStaffList78 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Staff/StaffList78.json', params || {}, 'GET');
+  };
+
+  /**
    * Calculates pricing information for an appointment booking, including taxes, discounts, surcharges, and totals.
    *
    * Returns the full breakdown of amounts owed for the booking, including available Purchase Options,
@@ -12906,6 +13100,31 @@
   WlClient.prototype.wlAppointmentBookProductProduct = function(params)
   {
     return this.request('/Wl/Appointment/Book/Product/Product.json', params || {}, 'GET');
+  };
+
+  /**
+   * Finds the selected add-ons that the client is not eligible for.
+   *
+   * Each add-on is checked under the restrictions of its own, independent of the appointment: the age of the client,
+   * the type and the group of the client, and the sale online. The client or the staff member who books for him
+   * removes only these add-ons from the booking, after telling the booker. The appointment and the other add-ons
+   * stay. A guest is not checked, because nothing is known about him before he signs in.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {boolean} params.is_staff Whether a staff member books for the client. `false` if the client books.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_service Key of the appointment to which the add-ons are added.
+   * @param {string} params.uid The user key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_ineligible` {Object[]} The selected add-ons that the client is not eligible for, in the order in whi...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookBlockEligible = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Block/Eligible.json', params || {}, 'GET');
   };
 
   /**

@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261027164617
+// OpenAPI spec version: 1.1.20261027191221
 // Build date: 2026-10-27
-// Endpoints: 685
+// Endpoints: 691
 // Enums: 229
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -10248,6 +10248,10 @@ export class WlAppointmentBookConflictNamespace {
     conflict(params) {
         return this._client._request('/Wl/Appointment/Book/Conflict/Conflict.json', params, 'GET');
     }
+    /** Gets booking conflicts. */
+    conflict78(params) {
+        return this._client._request('/Wl/Appointment/Book/Conflict/Conflict78.json', params, 'GET');
+    }
 }
 export class WlAppointmentBookQuestionNamespace {
     constructor(_client) {
@@ -10291,6 +10295,18 @@ export class WlAppointmentBookScheduleNamespace {
     /** Finds and returns the next available date for appointment booking starting from the given date. */
     nextAvailableDay(params) {
         return this._client._request('/Wl/Appointment/Book/Schedule/NextAvailableDay.json', params, 'GET');
+    }
+    /** Retrieves a list with all calendar days in specified period with available and unavailable appointment booking schedule. */
+    calendar78(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/Calendar78.json', params, 'GET');
+    }
+    /** Retrieves a list of available appointment booking schedule. */
+    dayTime78(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/DayTime78.json', params, 'GET');
+    }
+    /** Finds and returns the next available date for appointment booking starting from the given date. */
+    nextAvailableDay78(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/NextAvailableDay78.json', params, 'GET');
     }
 }
 export class WlAppointmentBookLocationNamespace {
@@ -10391,6 +10407,10 @@ export class WlAppointmentBookStaffNamespace {
     staffList(params) {
         return this._client._request('/Wl/Appointment/Book/Staff/StaffList.json', params, 'GET');
     }
+    /** Retrieves an information about staff members for the current service. */
+    staffList78(params) {
+        return this._client._request('/Wl/Appointment/Book/Staff/StaffList78.json', params, 'GET');
+    }
 }
 export class WlAppointmentBookPaymentNamespace {
     constructor(_client) {
@@ -10468,6 +10488,15 @@ export class WlAppointmentBookProductNamespace {
         return this._client._request('/Wl/Appointment/Book/Product/Product.json', params, 'GET');
     }
 }
+export class WlAppointmentBookBlockNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Finds the selected add-ons that the client is not eligible for. */
+    eligible(params) {
+        return this._client._request('/Wl/Appointment/Book/Block/Eligible.json', params, 'GET');
+    }
+}
 export class WlAppointmentBookNamespace {
     constructor(_client) {
         this._client = _client;
@@ -10484,6 +10513,7 @@ export class WlAppointmentBookNamespace {
         this.quiz = new WlAppointmentBookQuizNamespace(this._client);
         this.asset = new WlAppointmentBookAssetNamespace(this._client);
         this.product = new WlAppointmentBookProductNamespace(this._client);
+        this.block = new WlAppointmentBookBlockNamespace(this._client);
     }
 }
 export class WlAppointmentNamespace {
