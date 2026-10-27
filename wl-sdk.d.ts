@@ -6166,6 +6166,8 @@ export interface CoreWebSocketSubscribeResponse {
     } | {
         /** List of email domain tokens: */
         a_domain_token: Record<string, unknown>;
+        /** Number of resets of the domain that the staff of the business made in its current calendar month. */
+        i_reset_month: number;
         /** Statuses of domain verification. @see WlMailDomainDomainVerifyStatusSid */
         id_domain_status: WlMailDomainDomainVerifyStatusSid;
         /** CSS class for the icon representing the email domain status. */
@@ -6325,8 +6327,6 @@ export interface CoreGeoComboboxResponse {
         s_key: string;
     }>;
 }
-export type CoreTimingComponentTimingParams = Record<string, unknown>;
-export type CoreTimingComponentTimingResponse = Record<string, unknown>;
 export interface SocialMicrosoftLoginDeleteParams {
     /** The client for whom the Microsoft account will be unlinked. */
     uid: string;
@@ -11720,6 +11720,15 @@ export interface WlLoginAttendanceAttendanceListResponse {
         s_note: string;
         /** The description of the type of Purchase Option. This field is deprecated, use the text_ version i... */
         s_promotion: string;
+        /** The status of background booking for a multi-session block event. */
+        sid_book_background: {
+            /** No background task exists. Either all sessions were booked synchronously, or the background task ... */
+            none: string;
+            /** A background task is queued and waiting to be processed. */
+            pending: string;
+            /** A background task exists but has no scheduled date, indicating a failure. */
+            failed: string;
+        };
         /** The expiry information for the Purchase Option. */
         text_expire: string;
         /** The client first name. */
@@ -11982,6 +11991,15 @@ export interface WlLoginAttendanceAttendanceListResponse {
         s_note: string;
         /** The description of the type of Purchase Option. This field is deprecated, use the text_ version i... */
         s_promotion: string;
+        /** The status of background booking for a multi-session block event. */
+        sid_book_background: {
+            /** No background task exists. Either all sessions were booked synchronously, or the background task ... */
+            none: string;
+            /** A background task is queued and waiting to be processed. */
+            pending: string;
+            /** A background task exists but has no scheduled date, indicating a failure. */
+            failed: string;
+        };
         /** The expiry information for the Purchase Option. */
         text_expire: string;
         /** The client first name. */
@@ -12244,6 +12262,15 @@ export interface WlLoginAttendanceAttendanceListResponse {
         s_note: string;
         /** The description of the type of Purchase Option. This field is deprecated, use the text_ version i... */
         s_promotion: string;
+        /** The status of background booking for a multi-session block event. */
+        sid_book_background: {
+            /** No background task exists. Either all sessions were booked synchronously, or the background task ... */
+            none: string;
+            /** A background task is queued and waiting to be processed. */
+            pending: string;
+            /** A background task exists but has no scheduled date, indicating a failure. */
+            failed: string;
+        };
         /** The expiry information for the Purchase Option. */
         text_expire: string;
         /** The client first name. */
@@ -12532,6 +12559,15 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         s_note: string;
         /** The description of the type of Purchase Option. This field is deprecated, use the text_ version i... */
         s_promotion: string;
+        /** The status of background booking for a multi-session block event. */
+        sid_book_background: {
+            /** No background task exists. Either all sessions were booked synchronously, or the background task ... */
+            none: string;
+            /** A background task is queued and waiting to be processed. */
+            pending: string;
+            /** A background task exists but has no scheduled date, indicating a failure. */
+            failed: string;
+        };
         /** The expiry information for the Purchase Option. */
         text_expire: string;
         /** The client first name. */
@@ -12794,6 +12830,15 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         s_note: string;
         /** The description of the type of Purchase Option. This field is deprecated, use the text_ version i... */
         s_promotion: string;
+        /** The status of background booking for a multi-session block event. */
+        sid_book_background: {
+            /** No background task exists. Either all sessions were booked synchronously, or the background task ... */
+            none: string;
+            /** A background task is queued and waiting to be processed. */
+            pending: string;
+            /** A background task exists but has no scheduled date, indicating a failure. */
+            failed: string;
+        };
         /** The expiry information for the Purchase Option. */
         text_expire: string;
         /** The client first name. */
@@ -13056,6 +13101,15 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         s_note: string;
         /** The description of the type of Purchase Option. This field is deprecated, use the text_ version i... */
         s_promotion: string;
+        /** The status of background booking for a multi-session block event. */
+        sid_book_background: {
+            /** No background task exists. Either all sessions were booked synchronously, or the background task ... */
+            none: string;
+            /** A background task is queued and waiting to be processed. */
+            pending: string;
+            /** A background task exists but has no scheduled date, indicating a failure. */
+            failed: string;
+        };
         /** The expiry information for the Purchase Option. */
         text_expire: string;
         /** The client first name. */
@@ -14201,8 +14255,6 @@ export interface WlProfilePurchaseListPurchaseListElementResponse {
     s_payer: string;
     /** The title of the converted promotion. This value is used only for promotions that must be convert... */
     s_promotion_convert: string;
-    /** The full name of the user who pays for this purchase option instead of its holder. */
-    s_promotion_payer: string | null;
     /** The purchase ID number as it appears on the receipt. This value will also include the leading 0s ... */
     s_purchase: string;
     /** The name of the user who paid for this purchase. */
@@ -14217,9 +14269,11 @@ export interface WlProfilePurchaseListPurchaseListElementResponse {
     text_expire: string;
     /** Text describing guest passes available for the purchased promotion. */
     text_guest_pass: string;
+    /** The full name of the user who pays for this purchase option instead of the default payer of its h... */
+    text_promotion_payer: string | null;
     /** The key of the user who paid for this purchase. */
     uid_payer: string | null;
-    /** The key of the user who pays for this purchase option instead of its holder. */
+    /** The key of the user who pays for this purchase option instead of the default payer of its holder. */
     uid_promotion_payer: string | null;
     /** The key of the user who paid for this purchase. */
     uid_recipient: string;
@@ -33066,12 +33120,6 @@ export declare class CoreGeoNamespace {
     /** Returns a list of cities to show in combobox list. */
     combobox(params?: CoreGeoComboboxParams): Promise<CoreGeoComboboxResponse>;
 }
-export declare class CoreTimingNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Logs component load timing entries reported by browser. */
-    componentTiming(params?: CoreTimingComponentTimingParams): Promise<CoreTimingComponentTimingResponse>;
-}
 export declare class CoreAILogTriageNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -33236,7 +33284,6 @@ export declare class CoreNamespace {
     readonly sid: CoreSidNamespace;
     readonly webSocket: CoreWebSocketNamespace;
     readonly geo: CoreGeoNamespace;
-    readonly timing: CoreTimingNamespace;
     readonly aI: CoreAINamespace;
     readonly testing: CoreTestingNamespace;
     readonly passport: CorePassportNamespace;

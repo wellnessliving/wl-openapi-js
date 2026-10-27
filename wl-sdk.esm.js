@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261027140055
+// OpenAPI spec version: 1.1.20261027164617
 // Build date: 2026-10-27
-// Endpoints: 686
+// Endpoints: 685
 // Enums: 229
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -6434,15 +6434,6 @@ export class CoreGeoNamespace {
         return this._client._request('/Core/Geo/Combobox.json', params, 'GET');
     }
 }
-export class CoreTimingNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Logs component load timing entries reported by browser. */
-    componentTiming(params) {
-        return this._client._request('/Core/Timing/ComponentTiming.json', params, 'POST');
-    }
-}
 export class CoreAILogTriageNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6680,7 +6671,6 @@ export class CoreNamespace {
         this.sid = new CoreSidNamespace(this._client);
         this.webSocket = new CoreWebSocketNamespace(this._client);
         this.geo = new CoreGeoNamespace(this._client);
-        this.timing = new CoreTimingNamespace(this._client);
         this.aI = new CoreAINamespace(this._client);
         this.testing = new CoreTestingNamespace(this._client);
         this.passport = new CorePassportNamespace(this._client);

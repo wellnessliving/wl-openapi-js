@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261027140055
+ * Spec version: 1.1.20261027164617
  * Build date:   2026-10-27
- * Endpoints:    686
+ * Endpoints:    685
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261027140055';
+  WlClient.SPEC_VERSION = '1.1.20261027164617';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (686 total)
+  // Generated API methods (685 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -356,24 +356,6 @@
   WlClient.prototype.coreGeoCombobox = function(params)
   {
     return this.request('/Core/Geo/Combobox.json', params || {}, 'GET');
-  };
-
-  /**
-   * Logs component load timing entries reported by browser.
-   *
-   * Ignores requests from bots and monitoring user agents. Accepts up to `MAX_ENTRY`
-   *  entries per request, discarding any extra entries. Each entry is written to ComponentTimingLog
-   *  and reported to Cloud Watch as up to three `ComponentTime` data points (one per phase that has a value),
-   *  tagged with `Component` and `Phase` dimensions. Phases of a request entry are 'network', 'request' and
-   *  'server'. Phases of a view entry are 'render', 'startup' and 'view'. A view entry is logged as one record
-   *  together with its requests, and the requests are also reported to Cloud Watch with their own phases.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.coreTimingComponentTiming = function(params)
-  {
-    return this.request('/Core/Timing/ComponentTiming.json', params || {}, 'POST');
   };
 
   /**
