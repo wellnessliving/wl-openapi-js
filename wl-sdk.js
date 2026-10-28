@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261028120501
+ * Spec version: 1.1.20261028145446
  * Build date:   2026-10-28
  * Endpoints:    691
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261028120501';
+  WlClient.SPEC_VERSION = '1.1.20261028145446';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (691 total)
@@ -4000,6 +4000,7 @@
    * @param {Object} [params] Request parameters.
    * @param {?number} [params.id_family_relation] Family role for a new user. One of {@link WlClient.RsFamilyRelationSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
+   * @param {boolean} params.is_field_all `true` to return all active, non-removed profile fields of the business regardless of entry-point...
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.uid The key of the user to edit.
@@ -4102,6 +4103,7 @@
    * @param {Object} [params] Request parameters.
    * @param {?number} [params.id_family_relation] Family role for a new user. One of {@link WlClient.RsFamilyRelationSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
+   * @param {boolean} params.is_field_all `true` to return all active, non-removed profile fields of the business regardless of entry-point...
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.text_token The security token.
@@ -20197,6 +20199,8 @@
     NOTIFICATION_STAFF_CALLBACK_REQUEST: 216,
     /** Override late cancel and no show fees */
     OVERRIDE_FEE: 164,
+    /** Override make-up passes */
+    OVERRIDE_MAKEUP_PASS: 254,
     /** Manage partner program */
     PARTNER_PROGRAM_MANAGE: 94,
     /** Access to Payment Processing */

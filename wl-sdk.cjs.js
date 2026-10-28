@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261028120501
+// OpenAPI spec version: 1.1.20261028145446
 // Build date: 2026-10-28
 // Endpoints: 691
 // Enums: 229
@@ -4732,6 +4732,8 @@ var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["NOTIFICATION_STAFF_CALLBACK_REQUEST"] = 216] = "NOTIFICATION_STAFF_CALLBACK_REQUEST";
     /** Override late cancel and no show fees */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["OVERRIDE_FEE"] = 164] = "OVERRIDE_FEE";
+    /** Override make-up passes */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["OVERRIDE_MAKEUP_PASS"] = 254] = "OVERRIDE_MAKEUP_PASS";
     /** Manage partner program */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PARTNER_PROGRAM_MANAGE"] = 94] = "PARTNER_PROGRAM_MANAGE";
     /** Access to Payment Processing */

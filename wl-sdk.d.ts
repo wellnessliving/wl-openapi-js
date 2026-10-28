@@ -4588,6 +4588,8 @@ export declare enum WlPrivilegePrivilegeSid {
     NOTIFICATION_STAFF_CALLBACK_REQUEST = 216,
     /** Override late cancel and no show fees */
     OVERRIDE_FEE = 164,
+    /** Override make-up passes */
+    OVERRIDE_MAKEUP_PASS = 254,
     /** Manage partner program */
     PARTNER_PROGRAM_MANAGE = 94,
     /** Access to Payment Processing */
@@ -13271,6 +13273,8 @@ export interface WlLoginProductProductResponse {
     };
 }
 export interface WlProfileEditEditGetParams {
+    /** `true` to return all active, non-removed profile fields of the business regardless of entry-point... */
+    is_field_all: boolean;
     /** Indicates whether to display the form as a user or as a staff member. */
     is_staff: boolean;
     /** The key of the business you're editing. */
@@ -13415,6 +13419,8 @@ export interface WlProfileEditCreateResponse {
     uid: string;
 }
 export interface WlProfileEditEditByTokenGetParams {
+    /** `true` to return all active, non-removed profile fields of the business regardless of entry-point... */
+    is_field_all: boolean;
     /** Indicates whether to display the form as a user or as a staff member. */
     is_staff: boolean;
     /** The key of the business you're editing. */
