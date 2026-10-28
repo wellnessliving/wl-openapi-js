@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261028001304
+ * Spec version: 1.1.20261028102755
  * Build date:   2026-10-28
  * Endpoints:    691
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261028001304';
+  WlClient.SPEC_VERSION = '1.1.20261028102755';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (691 total)
@@ -13294,7 +13294,7 @@
    *  `is_receipt_sent` {boolean} `true` when a receipt for this visit has been generated at least once.
    *  `is_signature` {boolean} `true` if the business requires a signature when diagnostic codes of a visit ...
    *  `is_system` {boolean} `true` if the business has the diagnostic codes turned on, `false` otherwise.
-   *  `s_version` {string} Version of the billing codes of the visit: a value that changes every time th...
+   *  `s_code_version` {string} Version of the billing codes of the visit: a value that changes every time th...
    *  `text_staff_name_lock` {?string} Full name of the staff member who signed and locked the diagnostic codes of t...
    *  `uid_staff_lock` {?string} Key of the staff member who signed and locked the diagnostic codes of the visit.
    */
@@ -13318,7 +13318,7 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.k_visit Visit key.
    * @returns {Promise<Object>} Response data.
-   *  `s_version` {string} Version of the billing codes of the visit: a value that changes every time th...
+   *  `s_code_version` {string} Version of the billing codes of the visit: a value that changes every time th...
    */
   WlClient.prototype.wlVisitBillingCodeVisitBillingCodeAssignPost = function(params)
   {
@@ -18217,6 +18217,8 @@
     CATALOG_FOREIGN: 21,
     /** Event enrollment wizard widget */
     ENROLLMENT: 8,
+    /** Event widget built by microservice widget team */
+    EVENT_FOREIGN: 23,
     /** Fitbuilder widget */
     FITBUILDER: 17,
     /** Skin for lead tracking form */

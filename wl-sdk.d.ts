@@ -2983,6 +2983,8 @@ export declare enum RsSkinSid {
     CATALOG_FOREIGN = 21,
     /** Event enrollment wizard widget */
     ENROLLMENT = 8,
+    /** Event widget built by microservice widget team */
+    EVENT_FOREIGN = 23,
     /** Fitbuilder widget */
     FITBUILDER = 17,
     /** Skin for lead tracking form */
@@ -31142,7 +31144,7 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignGetResponse {
     /** `true` if the business has the diagnostic codes turned on, `false` otherwise. */
     is_system: boolean;
     /** Version of the billing codes of the visit: a value that changes every time the codes of the visit... */
-    s_version: string;
+    s_code_version: string;
     /** Full name of the staff member who signed and locked the diagnostic codes of the visit, as it is a... */
     text_staff_name_lock: string | null;
     /** Key of the staff member who signed and locked the diagnostic codes of the visit. */
@@ -31156,7 +31158,7 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignPostParams {
 }
 export interface WlVisitBillingCodeVisitBillingCodeAssignPostResponse {
     /** Version of the billing codes of the visit: a value that changes every time the codes of the visit... */
-    s_version: string;
+    s_code_version: string;
 }
 export interface WlVisitBillingCodeVisitBillingCodeDefaultParams {
     /** Business key. */
