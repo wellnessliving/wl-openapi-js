@@ -2200,6 +2200,8 @@ export declare enum RsSkinSid {
     CATALOG_FOREIGN = 21,
     /** Event enrollment wizard widget */
     ENROLLMENT = 8,
+    /** Event widget built by microservice widget team */
+    EVENT_FOREIGN = 23,
     /** Fitbuilder widget */
     FITBUILDER = 17,
     /** Skin for lead tracking form */

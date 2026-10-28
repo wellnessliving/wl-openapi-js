@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — production channel
-// OpenAPI spec version: 1.1.20261028034405
+// OpenAPI spec version: 1.1.20261028071149
 // Build date: 2026-10-28
 // Endpoints: 661
 // Enums: 213
@@ -2275,6 +2275,8 @@ var RsSkinSid;
     RsSkinSid[RsSkinSid["CATALOG_FOREIGN"] = 21] = "CATALOG_FOREIGN";
     /** Event enrollment wizard widget */
     RsSkinSid[RsSkinSid["ENROLLMENT"] = 8] = "ENROLLMENT";
+    /** Event widget built by microservice widget team */
+    RsSkinSid[RsSkinSid["EVENT_FOREIGN"] = 23] = "EVENT_FOREIGN";
     /** Fitbuilder widget */
     RsSkinSid[RsSkinSid["FITBUILDER"] = 17] = "FITBUILDER";
     /** Skin for lead tracking form */

@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20261028034405
+ * Spec version: 1.1.20261028071149
  * Build date:   2026-10-28
  * Endpoints:    661
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261028034405';
+  WlClient.SPEC_VERSION = '1.1.20261028071149';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (661 total)
@@ -16737,6 +16737,8 @@
     CATALOG_FOREIGN: 21,
     /** Event enrollment wizard widget */
     ENROLLMENT: 8,
+    /** Event widget built by microservice widget team */
+    EVENT_FOREIGN: 23,
     /** Fitbuilder widget */
     FITBUILDER: 17,
     /** Skin for lead tracking form */
