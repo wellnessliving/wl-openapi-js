@@ -16987,6 +16987,15 @@ export interface WlPurchaseReceiptPurchaseReceiptResponse {
             /** he URL of the image. */
             text_url: string;
         };
+        /** The tickets of the purchase item. Only available if the purchase item is a ticket. Every element ... */
+        a_ticket_list?: {
+            /** The number of the ticket. */
+            text_number: string;
+            /** The title of the event the ticket is for. */
+            text_title: string;
+            /** The URL of the page to print the ticket. The page works without a login. */
+            url_print: string;
+        };
         /** List of visit keys. Only available if the purchase item is a class period, */
         a_visit?: Array<string>;
         /** The number of items in the purchase. */
@@ -17017,8 +17026,10 @@ export interface WlPurchaseReceiptPurchaseReceiptResponse {
         text_title: string;
         /** The description of the purchase item. */
         text_description: string;
-        /** The URL to print. Only available if the purchase item is a coupon (gift card). */
+        /** The URL to print. Only available if the purchase item is a coupon (gift card) or a ticket. For a ... */
         url_print?: string;
+        /** The URL of the page with the tickets of the order. The page works without a login. Only available... */
+        url_ticket_view?: string;
     }>;
     /** The local date of the purchase in MySQL format. */
     dtl_purchase: string;
