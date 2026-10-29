@@ -11716,6 +11716,8 @@ export interface WlLoginAttendanceAttendanceListResponse {
         is_early: boolean;
         /** This will be `true` if the visit is free. */
         is_free: boolean;
+        /** `true` if this visit is paid with a guest pass. */
+        is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
@@ -11976,6 +11978,8 @@ export interface WlLoginAttendanceAttendanceListResponse {
         is_early: boolean;
         /** This will be `true` if the visit is free. */
         is_free: boolean;
+        /** `true` if this visit is paid with a guest pass. */
+        is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
@@ -12236,6 +12240,8 @@ export interface WlLoginAttendanceAttendanceListResponse {
         is_early: boolean;
         /** This will be `true` if the visit is free. */
         is_free: boolean;
+        /** `true` if this visit is paid with a guest pass. */
+        is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
@@ -12522,6 +12528,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         is_early: boolean;
         /** This will be `true` if the visit is free. */
         is_free: boolean;
+        /** `true` if this visit is paid with a guest pass. */
+        is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
@@ -12782,6 +12790,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         is_early: boolean;
         /** This will be `true` if the visit is free. */
         is_free: boolean;
+        /** `true` if this visit is paid with a guest pass. */
+        is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
@@ -13042,6 +13052,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         is_early: boolean;
         /** This will be `true` if the visit is free. */
         is_free: boolean;
+        /** `true` if this visit is paid with a guest pass. */
+        is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
@@ -27877,6 +27889,8 @@ export interface WlAppointmentBookAssetCategoryResponse {
     a_category: Array<{
         /** `true` - all resources are hidden in this category for White Label mobile application. `false` - ... */
         hide_application: boolean;
+        /** Layout key of the category at the location. `null` if the category has no layout. */
+        k_resource_layout: string | null;
         /** Resource type ID. */
         k_resource_type: string;
         /** Title of resource type. */
