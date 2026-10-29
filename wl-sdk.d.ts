@@ -10942,7 +10942,7 @@ export interface WlLoginMemberMemberValidate63Response {
         /** Human-readable field title describing what value is missing. */
         text_field_title: string;
     }>;
-    /** List of profile fields that are required but empty for this user. */
+    /** List of profile fields that are required at any client entry point but empty for this user. */
     a_empty_fields_required: Array<{
         /** List of general fields in user's profile. @see RsFieldGeneralSid */
         id_field_general: RsFieldGeneralSid;

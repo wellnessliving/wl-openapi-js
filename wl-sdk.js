@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261029160935
+ * Spec version: 1.1.20261029164210
  * Build date:   2026-10-29
  * Endpoints:    693
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261029160935';
+  WlClient.SPEC_VERSION = '1.1.20261029164210';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (693 total)
@@ -3374,7 +3374,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_empty_fields_booking` {Object[]} List of fields if the user has empty profile fields, which are required for b...
    *  `a_empty_fields_registration` {Object[]} List of fields if the user has empty profile fields, which are required for r...
-   *  `a_empty_fields_required` {Object[]} List of profile fields that are required but empty for this user.
+   *  `a_empty_fields_required` {Object[]} List of profile fields that are required at any client entry point but empty ...
    *  `has_credit_card` {boolean} `true` If the user has credit cards on profile, otherwise `false`.
    *  `has_outstanding_contract` {boolean} `true` if the user has an outstanding contract, otherwise `false`.
    *  `has_outstanding_waiver` {boolean} `true` If the user has an outstanding waiver for the business, otherwise `fal...
