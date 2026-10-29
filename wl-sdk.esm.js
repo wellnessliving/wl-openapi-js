@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261029142538
+// OpenAPI spec version: 1.1.20261029160935
 // Build date: 2026-10-29
-// Endpoints: 691
+// Endpoints: 693
 // Enums: 229
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -10344,6 +10344,10 @@ export class WlAppointmentBookPurchaseNamespace {
     purchase72(params) {
         return this._client._request('/Wl/Appointment/Book/Purchase/Purchase72.json', params, 'GET');
     }
+    /** Retrieves a list of information about available purchase options. */
+    purchase78(params) {
+        return this._client._request('/Wl/Appointment/Book/Purchase/Purchase78.json', params, 'GET');
+    }
 }
 export class WlAppointmentBookServiceNamespace {
     constructor(_client) {
@@ -10499,6 +10503,10 @@ export class WlAppointmentBookBlockNamespace {
     /** Finds the selected add-ons that the client is not eligible for. */
     eligible(params) {
         return this._client._request('/Wl/Appointment/Book/Block/Eligible.json', params, 'GET');
+    }
+    /** Lists the add-ons that can be chosen for an appointment. */
+    addonList(params) {
+        return this._client._request('/Wl/Appointment/Book/Block/AddonList.json', params, 'GET');
     }
 }
 export class WlAppointmentBookNamespace {

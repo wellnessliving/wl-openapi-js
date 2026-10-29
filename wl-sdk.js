@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261029142538
+ * Spec version: 1.1.20261029160935
  * Build date:   2026-10-29
- * Endpoints:    691
+ * Endpoints:    693
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261029142538';
+  WlClient.SPEC_VERSION = '1.1.20261029160935';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (691 total)
+  // Generated API methods (693 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -12453,6 +12453,49 @@
   };
 
   /**
+   * Retrieves a list of information about available purchase options.
+   *
+   * Extends `get()` to price an appointment that is booked as an add-on of another appointment.
+   * The price of such an appointment is Extra cost that the add-on has for its parent appointment. The regular price of
+   * the add-on is given as the old price if the add-on shows its discount and Extra cost is lower than the regular price.
+   * An add-on is a service only, and it can not require a deposit.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {Object[]} params.a_service List of selected services without current {@link WlClient#wlAppointmentBookPurchasePurchase}.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {string} params.dt_date The date to use to check for expiration of Purchase Options.
+   * @param {number} params.i_duration The asset booking duration.
+   * @param {?number} [params.i_height] Image height in pixels. Please specify this value if you need image to be returned in specific size.
+   * @param {?number} [params.i_width] Image width in pixels. Please specify this value if you need image to be returned in specific size.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {boolean} params.is_backend `true` - get all Purchase Options suitable for appointment.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {?string} [params.k_appointment] Appointment key.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {?string} [params.k_login_promotion] The Purchase Option ID used to pay for the appointment.
+   * @param {string} params.k_resource The resource key.
+   * @param {string} params.k_service The service key used to select available Purchase Options.
+   * @param {?string} [params.k_service_parent] Key of the appointment of which the service `k_service` is an add-on.
+   * @param {?string} [params.k_timezone] The timezone key for {@link WlClient#wlAppointmentBookPurchasePurchase}.
+   * @param {string} params.uid The user key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_prize` {Object} Data about the login prize which can be used to pay for service.
+   *  `a_login_promotion` {Object[]} A list of the client's login promotions that can be applied to a given service.
+   *  `a_purchase` {Object[]} An array with information about available Purchase Options.
+   *  `a_reward_prize` {Object} List of redeemable prizes which can be used to pay for service.
+   *  `a_session_pass` {Object} Session pass information in a case if user books same appointment second time...
+   *  `is_single_default` {boolean} Indicates if drop-in rate should be the default purchase option.
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   *  `k_login_promotion` {?string} The Purchase Option ID used to pay for the appointment.
+   *  `k_promotion_default` {string} Default promotion key.
+   *  `text_login_promotion` {string} Login promotion title suitable to pay for the services.
+   */
+  WlClient.prototype.wlAppointmentBookPurchasePurchase78 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Purchase/Purchase78.json', params || {}, 'GET');
+  };
+
+  /**
    * Retrieves information about services in the current service category.
    *
    * Returns all services available for booking at the given location, optionally filtered by service
@@ -13127,6 +13170,31 @@
   WlClient.prototype.wlAppointmentBookBlockEligible = function(params)
   {
     return this.request('/Wl/Appointment/Book/Block/Eligible.json', params || {}, 'GET');
+  };
+
+  /**
+   * Lists the add-ons that can be chosen for an appointment.
+   *
+   * An add-on is listed if it is linked to the appointment and its service is active and allows to be an add-on. The
+   * list is empty if the appointment does not allow add-ons. An add-on that is booked by staff only is not listed for
+   * a client. The list does not look at the age, the type and the group of the client: an add-on that the client is
+   * not eligible for is found later, when the client is known. The regular price of an add-on is given only if it is
+   * struck through, that is, Show Discount is on, the price of the add-on is fixed and Extra cost is lower.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {boolean} params.is_staff Whether a staff member books for the client. `false` if the client books.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_service Key of the appointment for which the add-ons are chosen.
+   * @param {string} params.uid The user key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_addon` {Object[]} The add-ons that can be chosen for the appointment, in the order in which the...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookBlockAddonList = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Block/AddonList.json', params || {}, 'GET');
   };
 
   /**

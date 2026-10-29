@@ -29305,6 +29305,258 @@ export interface WlAppointmentBookPurchasePurchase72Response {
     /** Login promotion title suitable to pay for the services. */
     text_login_promotion: string;
 }
+export interface WlAppointmentBookPurchasePurchase78Params {
+    /** List of selected services without current {@link WlAppointmentBookPurchaseNamespace#purchase}. */
+    a_service: Array<{
+        /** List of purchase options selected for the service. */
+        a_purchase: {
+            /** A list of purchase types. @see RsPurchaseItemSid */
+            id_purchase_item: RsPurchaseItemSid;
+            /** Purchase item key. */
+            k_id: string;
+            /** Should be `true` if this promotion is selected again, i.e. one that has already been applied to a... */
+            is_purchase_previous?: boolean;
+        };
+        /** Local date/time to check purchase options expiration. */
+        dt_date: string;
+        /** Login prize key. */
+        k_login_prize: string | null;
+        /** Login promotion key. */
+        k_login_promotion: string | null;
+        /** Service key. */
+        k_service: string;
+        /** The timezone key for `dt_date` field. */
+        k_timezone: string;
+    }>;
+    /** List of user keys to book appointments. */
+    a_uid: Array<string>;
+    /** The date to use to check for expiration of Purchase Options. */
+    dt_date: string;
+    /** The asset booking duration. */
+    i_duration: number;
+    /** The mode type. One of the {@link WlModeModeSid} constants. */
+    id_mode: WlModeModeSid;
+    /** `true` - get all Purchase Options suitable for appointment. */
+    is_backend: boolean;
+    /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
+    is_walk_in: boolean;
+    /** Location to show available appointment booking schedule. */
+    k_location: string;
+    /** The resource key. */
+    k_resource: string;
+    /** The service key used to select available Purchase Options. */
+    k_service: string;
+    /** The user key. */
+    uid: string;
+    /** Image height in pixels. Please specify this value if you need image to be returned in specific size. */
+    i_height?: number | null;
+    /** Image width in pixels. Please specify this value if you need image to be returned in specific size. */
+    i_width?: number | null;
+    /** Appointment key. */
+    k_appointment?: string | null;
+    /** The Purchase Option ID used to pay for the appointment. */
+    k_login_promotion?: string | null;
+    /** Key of the appointment of which the service `k_service` is an add-on. */
+    k_service_parent?: string | null;
+    /** The timezone key for {@link WlAppointmentBookPurchaseNamespace#purchase}. */
+    k_timezone?: string | null;
+}
+export interface WlAppointmentBookPurchasePurchase78Response {
+    /** Data about the login prize which can be used to pay for service. */
+    a_login_prize: {
+        /** Login prize remaining quantity. */
+        i_count: number;
+        /** Key of login prize. */
+        k_login_prize: string;
+        /** User friendly login prize description. */
+        text_description: string;
+    };
+    /** A list of the client's login promotions that can be applied to a given service. */
+    a_login_promotion: Array<{
+        /** Information about the Purchase Option. It contains the following information: */
+        a_login_promotion_info: {
+            /** The count of visits that the Purchase Option allows the client to make. */
+            i_limit: number;
+            /** The maximum number of minutes that current Purchase Option can be used for. */
+            i_limit_duration: number | null;
+            /** The count of the remaining visits. */
+            i_remain: number;
+            /** The number of minutes left in this Purchase Option. */
+            i_remain_duration: number | null;
+        };
+        /** The list of calendar restrictions of the Purchase Option. For example, four per week. */
+        a_visit_limit: Array<string>;
+        /** Data about the shortest restriction period: */
+        a_restrict: {
+            /** The limit of visits for the shortest restriction period. */
+            i_limit: number;
+            /** The number of remaining visits for the shortest restriction period. */
+            i_remain: number;
+            /** The description of the shortest restriction period. For example "this week" or "for a four-day pe... */
+            text_restriction: string;
+        };
+        /** Data about all restriction periods. Given as an array, where each record has the following struct... */
+        a_restrict_data: {
+            /** The count of future sessions that are paid with this Purchase Option. */
+            i_book: number;
+            /** The limit of visits for the restriction period. */
+            i_limit: number;
+            /** The number of remaining visits for the restriction period. */
+            i_remain: number;
+            /** The usage count of the Purchase Option. */
+            i_use: number;
+            /** The count of attended sessions before the last renewal. */
+            i_visit_past: number;
+            /** The description of restriction period. For example, "this week" or "for a four-day period". */
+            text_restriction: string;
+        };
+        /** The count of visits that the Purchase Option allows the client to make. */
+        i_limit: number;
+        /** The maximum number of minutes that current Purchase Option can be used for. */
+        i_limit_duration: number | null;
+        /** Priority of this promotion. Result of PromotionPrioritySid::priorityGet() method. */
+        i_promotion_priority: number;
+        /** Program types. @see RsProgramSid */
+        id_program: RsProgramSid;
+        /** `true` if this purchase option is shared from another user. */
+        is_share: boolean;
+        /** The Purchase Option login key. */
+        k_login_promotion: string;
+        /** The list of services provided by this Purchase Option. */
+        s_class_include: string;
+        /** The Purchase Option description. */
+        s_description: string;
+        /** The Purchase Option duration. */
+        s_duration: string;
+        /** The Purchase Option name. */
+        s_title: string;
+        /** If this Purchase Option is a package, then this field contains a list of Purchase Options contain... */
+        text_package_item: string;
+        /** The user key of the owner of the promotion. */
+        uid_owner: string;
+    }>;
+    /** An array with information about available Purchase Options. */
+    a_purchase: Array<{
+        /** Information describing the logo of the purchase option. This value can be false if there is no lo... */
+        a_image: {
+            /** Actual height of thumbnail image. */
+            i_height: number;
+            /** Height of original image. */
+            i_height_src: number;
+            /** Angle on which image was rotated compared to the original. */
+            i_rotate: number;
+            /** Actual width of thumbnail image. */
+            i_width: number;
+            /** Width of original image. */
+            i_width_src: number;
+            /** Whether thumbnail is a resized variant of original image. If set to `false` */
+            'is-resize': boolean;
+            /** Url to original image in file storage. */
+            'url-view': string;
+            /** Url to resized and rotated image in file storage. If size of original image is larger than specif... */
+            'url-thumbnail': string;
+        };
+        /** The set of calculated values for payment: */
+        a_payment: {
+            /** The amount of the whole discount of one purchase item. */
+            m_discount: string;
+            /** The discount amount for the client type of one purchase item. */
+            m_discount_login: string;
+        };
+        /** A list of calendar restrictions of the Purchase Option in a human-readable format, for example: '... */
+        a_visit_limit: Array<string>;
+        /** Date, when promotion expires. */
+        dt_expire: string;
+        /** Date, when promotion starts. */
+        dt_start: string;
+        /** The price of the Purchase Option. */
+        f_price: string;
+        /** Order number of the purchase option in the list. */
+        i: number;
+        /** Count of visits that purchase option allows to make. */
+        i_limit: number;
+        /** Maximum number of minutes that current promotion can be used. */
+        i_limit_duration: number | null;
+        /** Count of calendar periods (weeks, months, years) between payment for membership. */
+        i_payment_period: number;
+        /** A class for managing time intervals. @see ADurationSid */
+        id_duration: ADurationSid;
+        /** Program types. @see RsProgramSid */
+        id_program: RsProgramSid;
+        /** Program types. @see RsProgramTypeSid */
+        id_program_type: RsProgramTypeSid;
+        /** Program types. @see RsProgramTypeSid */
+        id_promotion_price: RsProgramTypeSid;
+        /** A list of purchase types. @see RsPurchaseItemSid */
+        id_purchase_item: RsPurchaseItemSid;
+        /** This will be `true` if the Purchase Option is a contract. It will `false` otherwise. */
+        is_contract: boolean;
+        /** `true` if purchase option has description. */
+        is_description: boolean;
+        /** `true` if promotion is introductory offer, `false` otherwise. */
+        is_introductory: boolean;
+        /** This will be `true` if the Purchase Option will auto-renew. It will be `false` otherwise. */
+        is_renew: boolean;
+        /** Whether Purchase Option is renewable and the "auto-renew" option should be turned on by default. */
+        is_renew_check: boolean;
+        /** This will be `true` if the Purchase Option has a duration that begins on purchase. It will be `fa... */
+        is_start: boolean;
+        /** Primary ID of the element in it's table. */
+        k_id: string;
+        /** Price of single session purchase before online discount. `null` if service does not have online d... */
+        m_price_old?: string | null;
+        /** Activation settings of the promotion. */
+        s_activation: string;
+        /** Class for designer to mark purchase options with different icons. */
+        s_class: string;
+        /** List of services included in the promotion. */
+        s_class_include: string;
+        /** Description of the purchase option. */
+        s_description: string;
+        /** Duration of the promotion. */
+        s_duration: string;
+        /** Period between payments for memberships. */
+        s_payment_duration: string;
+        /** Category of the program for promotions from {@link RsProgramCategorySid}. */
+        sid_program_category: string;
+        /** Name of the purchase option. */
+        s_title: string;
+        /** Key of the purchase option in the format [`purchase_item_id`]::[`k_id`] */
+        s_value: string;
+        /** If this promotion is a package. This field contains list of promotions contained in the package. */
+        text_package_item: string;
+    }>;
+    /** List of redeemable prizes which can be used to pay for service. */
+    a_reward_prize: {
+        /** Prize price in points. */
+        i_score: number;
+        /** Key of redeemable prize. */
+        k_reward_prize: string;
+        /** User friendly prize description. */
+        text_description: string;
+    };
+    /** Session pass information in a case if user books same appointment second time and already has Dro... */
+    a_session_pass: {
+        /** Number of remaining visits on session pass. */
+        i_remain: number;
+        /** Session pass key. */
+        k_session_pass: string;
+        /** A list of purchase types. @see RsPurchaseItemSid */
+        id_purchase_item: RsPurchaseItemSid;
+        /** Session pass title. */
+        s_title: string;
+    };
+    /** Indicates if drop-in rate should be the default purchase option. */
+    is_single_default: boolean;
+    /** Location to show available appointment booking schedule. */
+    k_location: string;
+    /** The Purchase Option ID used to pay for the appointment. */
+    k_login_promotion: string | null;
+    /** Default promotion key. */
+    k_promotion_default: string;
+    /** Login promotion title suitable to pay for the services. */
+    text_login_promotion: string;
+}
 export interface WlAppointmentBookServiceServiceList52Params {
     /** The class tab key to use to filter services. If empty, this can be found on the standard book tab. */
     a_class_tab: Array<string>;
@@ -30404,6 +30656,8 @@ export interface WlAppointmentBookPaymentPaymentMultipleGetParams {
             k_login_promotion: string;
             /** Client prorate date. Used when the purchased promotion is prorated. */
             dl_client_prorate: string;
+            /** Set it if the entry is an appointment add-on of another appointment. It is the index of the entry... */
+            i_provider_parent?: number;
             /** The key of the asset booking. */
             k_resource: string;
             /** The key of the appointment booking service. */
@@ -30932,6 +31186,39 @@ export interface WlAppointmentBookBlockEligibleResponse {
         is_restricted: boolean;
         /** Key of the add-on service. */
         k_service_addon: string;
+    }>;
+    /** Location to show available appointment booking schedule. */
+    k_location: string;
+}
+export interface WlAppointmentBookBlockAddonListParams {
+    /** List of user keys to book appointments. */
+    a_uid: Array<string>;
+    /** Whether a staff member books for the client. `false` if the client books. */
+    is_staff: boolean;
+    /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
+    is_walk_in: boolean;
+    /** Location to show available appointment booking schedule. */
+    k_location: string;
+    /** Key of the appointment for which the add-ons are chosen. */
+    k_service: string;
+    /** The user key. */
+    uid: string;
+}
+export interface WlAppointmentBookBlockAddonListResponse {
+    /** The add-ons that can be chosen for the appointment, in the order in which they are shown and run ... */
+    a_addon: Array<{
+        /** Extra time that the add-on adds to the appointment, in minutes. `0` if the add-on takes no time o... */
+        i_extra_time: number;
+        /** Key of the add-on service. */
+        k_service_addon: string;
+        /** Extra cost that the add-on adds to the price of the appointment. */
+        m_extra_cost: string;
+        /** The regular price of the add-on, shown struck through next to Extra cost. `null` if nothing is st... */
+        m_price_regular: string | null;
+        /** Short line that tells why to add the add-on. `null` if the add-on has none. */
+        text_tagline: string | null;
+        /** Title of the add-on. */
+        text_title: string;
     }>;
     /** Location to show available appointment booking schedule. */
     k_location: string;
@@ -36126,6 +36413,8 @@ export declare class WlAppointmentBookPurchaseNamespace {
     purchase(params?: WlAppointmentBookPurchasePurchaseParams): Promise<WlAppointmentBookPurchasePurchaseResponse>;
     /** Retrieves a list of information about available purchase options. */
     purchase72(params?: WlAppointmentBookPurchasePurchase72Params): Promise<WlAppointmentBookPurchasePurchase72Response>;
+    /** Retrieves a list of information about available purchase options. */
+    purchase78(params?: WlAppointmentBookPurchasePurchase78Params): Promise<WlAppointmentBookPurchasePurchase78Response>;
 }
 export declare class WlAppointmentBookServiceNamespace {
     private readonly _client;
@@ -36221,6 +36510,8 @@ export declare class WlAppointmentBookBlockNamespace {
     constructor(_client: WlClient);
     /** Finds the selected add-ons that the client is not eligible for. */
     eligible(params?: WlAppointmentBookBlockEligibleParams): Promise<WlAppointmentBookBlockEligibleResponse>;
+    /** Lists the add-ons that can be chosen for an appointment. */
+    addonList(params?: WlAppointmentBookBlockAddonListParams): Promise<WlAppointmentBookBlockAddonListResponse>;
 }
 export declare class WlAppointmentBookNamespace {
     private readonly _client;

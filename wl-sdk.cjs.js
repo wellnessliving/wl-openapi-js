@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261029142538
+// OpenAPI spec version: 1.1.20261029160935
 // Build date: 2026-10-29
-// Endpoints: 691
+// Endpoints: 693
 // Enums: 229
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CoreSidYesNoSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.AFlagSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsPrivilegeRoleSid = exports.RsPayMethodSid = exports.RsProjectSid = exports.RsHomeTourSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.RsMailSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.ADurationSid = exports.WlBusinessAccountWebsiteSid = exports.WlAiAgentPhoneCallOutcomeEnum = exports.ThothWlPayPayExceptionSid = exports.RsMailCopySid = exports.RsPurchaseItemSid = exports.RsServiceSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AGenderSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlTaskTaskStatusSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlApiError = void 0;
@@ -10680,6 +10680,10 @@ class WlAppointmentBookPurchaseNamespace {
     purchase72(params) {
         return this._client._request('/Wl/Appointment/Book/Purchase/Purchase72.json', params, 'GET');
     }
+    /** Retrieves a list of information about available purchase options. */
+    purchase78(params) {
+        return this._client._request('/Wl/Appointment/Book/Purchase/Purchase78.json', params, 'GET');
+    }
 }
 exports.WlAppointmentBookPurchaseNamespace = WlAppointmentBookPurchaseNamespace;
 class WlAppointmentBookServiceNamespace {
@@ -10844,6 +10848,10 @@ class WlAppointmentBookBlockNamespace {
     /** Finds the selected add-ons that the client is not eligible for. */
     eligible(params) {
         return this._client._request('/Wl/Appointment/Book/Block/Eligible.json', params, 'GET');
+    }
+    /** Lists the add-ons that can be chosen for an appointment. */
+    addonList(params) {
+        return this._client._request('/Wl/Appointment/Book/Block/AddonList.json', params, 'GET');
     }
 }
 exports.WlAppointmentBookBlockNamespace = WlAppointmentBookBlockNamespace;
