@@ -18136,6 +18136,40 @@ export interface WlClassesEditorClassEditorGetResponse {
         /** Online waiver settings. */
         url_ticket_waiver: string;
     }>;
+    /** Direct booking URLs of the event, one per Book Now Tab it is shown in. */
+    a_url_book: Array<{
+        /** URL to book the event. */
+        url_book: string;
+    }>;
+    /** Direct detail and checkout URLs of the event, one per instance of the event that has not ended. */
+    a_url_catalog: Array<{
+        /** End date of the instance, ready to be shown. */
+        html_end_local: string;
+        /** Start date of the instance, ready to be shown. */
+        html_start_local: string;
+        /** URL of the page of the instance in the store. */
+        url_catalog: string;
+        /** URL of the checkout of the instance. */
+        url_checkout: string;
+    }>;
+    /** Direct scanner URLs of a ticketed event, one per instance in {@link WlClassesEditorClassEditorGet... */
+    a_url_scan: Array<{
+        /** End date of the instance, ready to be shown. */
+        html_end_local: string;
+        /** Start date of the instance, ready to be shown. */
+        html_start_local: string;
+        /** URL of the page of the ticket scanner for the instance. */
+        url_scan: string;
+    }>;
+    /** Direct booking URLs of a ticketed event, one per instance in {@link WlClassesEditorClassEditorGet... */
+    a_url_ticket: Array<{
+        /** End date of the instance, ready to be shown. */
+        html_end_local: string;
+        /** Start date of the instance, ready to be shown. */
+        html_start_local: string;
+        /** URL to buy tickets for the instance. */
+        url_book: string;
+    }>;
     /** `true` if the class has a schedule, so it may not be removed until the schedule is cancelled; `fa... */
     has_schedule: boolean;
     /** Markup of the Business policies block of the form. */

@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261030131441
+ * Spec version: 1.1.20261030144708
  * Build date:   2026-10-30
  * Endpoints:    696
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261030131441';
+  WlClient.SPEC_VERSION = '1.1.20261030144708';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (696 total)
@@ -6425,6 +6425,10 @@
    *  `a_search_tag_list` {Object[]} Quick search tags of the category of the business. Every element is an array:
    *  `a_shop_category_list` {Object[]} Store categories of the business. Every element is an array:
    *  `a_url` {Object[]} Addresses of the pages the form links to:
+   *  `a_url_book` {Object[]} Direct booking URLs of the event, one per Book Now Tab it is shown in.
+   *  `a_url_catalog` {Object[]} Direct detail and checkout URLs of the event, one per instance of the event t...
+   *  `a_url_scan` {Object[]} Direct scanner URLs of a ticketed event, one per instance in {@link WlClient#...
+   *  `a_url_ticket` {Object[]} Direct booking URLs of a ticketed event, one per instance in {@link WlClient#...
    *  `has_schedule` {boolean} `true` if the class has a schedule, so it may not be removed until the schedu...
    *  `html_policy` {string} Markup of the Business policies block of the form.
    *  `html_prerequisite` {string} Markup of the Prerequisites block of the form.
@@ -6434,10 +6438,6 @@
    *  `i_description_limit` {number} Maximum length of the description of a class that is not virtual.
    *  `i_description_limit_virtual` {number} Maximum length of the description of a virtual class.
    *  `is_admin` {boolean} `true` if the Administration section may be shown, `false` otherwise.
-   *  `is_birthday_require` {boolean} `true` if the birthdate is a required field of the client profile of the busi...
-   *  `is_currency_before` {boolean} `true` if the sign of the currency of the business is written before the amou...
-   *  `is_event_type_lock` {boolean} `true` if the event may no longer be turned into a ticketed one, or back from...
-   *  `is_fitlive` {boolean} `true` if the business may use the FitLIVE virtual provider, `false` otherwise.
    *  `...` {*}
    */
   WlClient.prototype.wlClassesEditorClassEditorGet = function(params)
