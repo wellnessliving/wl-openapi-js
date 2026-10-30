@@ -3683,6 +3683,8 @@ export declare enum RsLoginActivityTypeSid {
     APPOINTMENT_BOOK_TWITTER = 48,
     /** Client cancels an appointment */
     APPOINTMENT_CANCEL = 28,
+    /** The phone number of a Phone Call appointment was set or changed */
+    APPOINTMENT_PHONE_CHANGE = 64,
     /** Client attends an appointment */
     APPOINTMENT_VISIT = 23,
     /** Client books an appointment to wait list */
@@ -4803,8 +4805,12 @@ export declare enum WlClassesEditEventTypeEnum {
 }
 /** List of possible value of virtual integrations. */
 export declare enum WlVirtualVirtualProviderSid {
+    /** The service is delivered in person */
+    IN_PERSON = 4,
     /** Virtual integration non implemented */
     NON_INTEGRATED = 2,
+    /** Staff call the client at the number given at booking */
+    PHONE_CALL = 3,
     /** Virtual Zoom service integration */
     ZOOM = 1
 }

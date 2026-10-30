@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261030103043
+ * Spec version: 1.1.20261030110834
  * Build date:   2026-10-30
  * Endpoints:    696
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261030103043';
+  WlClient.SPEC_VERSION = '1.1.20261030110834';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (696 total)
@@ -19274,6 +19274,8 @@
     APPOINTMENT_BOOK_TWITTER: 48,
     /** Client cancels an appointment */
     APPOINTMENT_CANCEL: 28,
+    /** The phone number of a Phone Call appointment was set or changed */
+    APPOINTMENT_PHONE_CHANGE: 64,
     /** Client attends an appointment */
     APPOINTMENT_VISIT: 23,
     /** Client books an appointment to wait list */
@@ -20554,8 +20556,12 @@
    * @enum {number}
    */
   WlClient.WlVirtualVirtualProviderSid = Object.freeze({
+    /** The service is delivered in person */
+    IN_PERSON: 4,
     /** Virtual integration non implemented */
     NON_INTEGRATED: 2,
+    /** Staff call the client at the number given at booking */
+    PHONE_CALL: 3,
     /** Virtual Zoom service integration */
     ZOOM: 1,
   });

@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261030103043
+// OpenAPI spec version: 1.1.20261030110834
 // Build date: 2026-10-30
 // Endpoints: 696
 // Enums: 229
@@ -3781,6 +3781,8 @@ export var RsLoginActivityTypeSid;
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_BOOK_TWITTER"] = 48] = "APPOINTMENT_BOOK_TWITTER";
     /** Client cancels an appointment */
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_CANCEL"] = 28] = "APPOINTMENT_CANCEL";
+    /** The phone number of a Phone Call appointment was set or changed */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_PHONE_CHANGE"] = 64] = "APPOINTMENT_PHONE_CHANGE";
     /** Client attends an appointment */
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_VISIT"] = 23] = "APPOINTMENT_VISIT";
     /** Client books an appointment to wait list */
@@ -4933,8 +4935,12 @@ export var WlClassesEditEventTypeEnum;
 /** List of possible value of virtual integrations. */
 export var WlVirtualVirtualProviderSid;
 (function (WlVirtualVirtualProviderSid) {
+    /** The service is delivered in person */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["IN_PERSON"] = 4] = "IN_PERSON";
     /** Virtual integration non implemented */
     WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["NON_INTEGRATED"] = 2] = "NON_INTEGRATED";
+    /** Staff call the client at the number given at booking */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["PHONE_CALL"] = 3] = "PHONE_CALL";
     /** Virtual Zoom service integration */
     WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
 })(WlVirtualVirtualProviderSid || (WlVirtualVirtualProviderSid = {}));
