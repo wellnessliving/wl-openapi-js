@@ -43,6 +43,8 @@ export declare enum WlVisitVisitSid {
     BOOK = 1,
     /** Client has cancelled the reservation in time and without penalty */
     CANCEL = 6,
+    /** Client has cancelled the reservation early and qualified for a make-up pass under the business's Make-up */
+    CANCEL_MAKEUP = 9,
     /** Client has cancelled his reservation too late */
     PENALTY = 4,
     /** This state means that visit is registered, but it is unknown is it {@link WlVisitVisitSid} */
@@ -18123,13 +18125,19 @@ export interface WlClassesEditorClassEditorGetResponse {
         url_policy_manage: string;
         /** List of products. */
         url_product_manage: string;
+        /** Removal of the class. Empty string for a new class, or when the class may not be removed. */
+        url_remove: string;
         /** List of Book-a-Spot assets. */
         url_resource_manage: string;
+        /** Schedule of the class, where its sessions are added. Empty string for a new class, or when the st... */
+        url_schedule: string;
         /** Store settings that require a card at sign-up. */
         url_ticket_card: string;
         /** Online waiver settings. */
         url_ticket_waiver: string;
     }>;
+    /** `true` if the class has a schedule, so it may not be removed until the schedule is cancelled; `fa... */
+    has_schedule: boolean;
     /** Markup of the Business policies block of the form. */
     html_policy: string;
     /** Markup of the Prerequisites block of the form. */

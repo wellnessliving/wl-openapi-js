@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261030110834
+// OpenAPI spec version: 1.1.20261030122522
 // Build date: 2026-10-30
 // Endpoints: 696
 // Enums: 229
@@ -58,6 +58,8 @@ var WlVisitVisitSid;
     WlVisitVisitSid[WlVisitVisitSid["BOOK"] = 1] = "BOOK";
     /** Client has cancelled the reservation in time and without penalty */
     WlVisitVisitSid[WlVisitVisitSid["CANCEL"] = 6] = "CANCEL";
+    /** Client has cancelled the reservation early and qualified for a make-up pass under the business's Make-up */
+    WlVisitVisitSid[WlVisitVisitSid["CANCEL_MAKEUP"] = 9] = "CANCEL_MAKEUP";
     /** Client has cancelled his reservation too late */
     WlVisitVisitSid[WlVisitVisitSid["PENALTY"] = 4] = "PENALTY";
     /** This state means that visit is registered, but it is unknown is it {@link WlVisitVisitSid} */

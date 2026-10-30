@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261030110834
+ * Spec version: 1.1.20261030122522
  * Build date:   2026-10-30
  * Endpoints:    696
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261030110834';
+  WlClient.SPEC_VERSION = '1.1.20261030122522';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (696 total)
@@ -6425,6 +6425,7 @@
    *  `a_search_tag_list` {Object[]} Quick search tags of the category of the business. Every element is an array:
    *  `a_shop_category_list` {Object[]} Store categories of the business. Every element is an array:
    *  `a_url` {Object[]} Addresses of the pages the form links to:
+   *  `has_schedule` {boolean} `true` if the class has a schedule, so it may not be removed until the schedu...
    *  `html_policy` {string} Markup of the Business policies block of the form.
    *  `html_prerequisite` {string} Markup of the Prerequisites block of the form.
    *  `html_promotion` {string} Markup of the Purchase Options block of the form.
@@ -6437,7 +6438,6 @@
    *  `is_currency_before` {boolean} `true` if the sign of the currency of the business is written before the amou...
    *  `is_event_type_lock` {boolean} `true` if the event may no longer be turned into a ticketed one, or back from...
    *  `is_fitlive` {boolean} `true` if the business may use the FitLIVE virtual provider, `false` otherwise.
-   *  `is_gym_pass_support` {boolean} `true` if the business may offer the class on Wellhub, `false` otherwise.
    *  `...` {*}
    */
   WlClient.prototype.wlClassesEditorClassEditorGet = function(params)
@@ -15134,6 +15134,8 @@
     BOOK: 1,
     /** Client has cancelled the reservation in time and without penalty */
     CANCEL: 6,
+    /** Client has cancelled the reservation early and qualified for a make-up pass under the business's Make-up */
+    CANCEL_MAKEUP: 9,
     /** Client has cancelled his reservation too late */
     PENALTY: 4,
     /** This state means that visit is registered, but it is unknown is it {@link WlClient.WlVisitVisitSid} */
