@@ -16970,6 +16970,17 @@ export interface WlPurchaseReceiptPurchaseReceiptResponse {
         /** The payment method title. */
         text_pay_method: string;
     };
+    /** Information about the payor (money owner) of the purchase. Empty when the money owner is the client. */
+    a_payor: {
+        /** The payor's address. */
+        text_address: string;
+        /** The payor's email address. */
+        text_mail: string;
+        /** The payor's name. */
+        text_name: string;
+        /** The payor's phone number. */
+        text_phone: string;
+    };
     /** Complete information about price information for the purchase. */
     a_price: {
         /** The discount amount. */
@@ -17056,6 +17067,8 @@ export interface WlPurchaseReceiptPurchaseReceiptResponse {
     text_purchase_id: string;
     /** The receipt text set in the store settings. */
     text_receipt: string;
+    /** The key of the payor (money owner) of the purchase. Primary key in  table. */
+    uid_payor: string;
     /** The URL for printing on a normal printer. */
     url_print: string;
     /** The URL for printing on a receipt printer. */

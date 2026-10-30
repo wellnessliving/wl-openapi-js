@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261030153427
+ * Spec version: 1.1.20261030164153
  * Build date:   2026-10-30
  * Endpoints:    696
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261030153427';
+  WlClient.SPEC_VERSION = '1.1.20261030164153';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (696 total)
@@ -6084,6 +6084,7 @@
    *  `a_card` {Object} Payment transaction information. Every element has the following keys:
    *  `a_customer` {Object} Information about the customer.
    *  `a_pay_method` {Object} A list of payment methods for the current purchase. Every element has the fol...
+   *  `a_payor` {Object} Information about the payor (money owner) of the purchase. Empty when the mon...
    *  `a_price` {Object} Complete information about price information for the purchase.
    *  `a_purchase_item` {Object[]} A list of purchase items. Every element has the following keys:
    *  `dtl_purchase` {string} The local date of the purchase in MySQL format.
@@ -6091,6 +6092,7 @@
    *  `html_receipt` {string} HTML representation of the purchase receipt.
    *  `text_purchase_id` {string} The normalized purchase ID.
    *  `text_receipt` {string} The receipt text set in the store settings.
+   *  `uid_payor` {string} The key of the payor (money owner) of the purchase. Primary key in  table.
    *  `url_print` {string} The URL for printing on a normal printer.
    *  `url_print_receipt` {string} The URL for printing on a receipt printer.
    */
