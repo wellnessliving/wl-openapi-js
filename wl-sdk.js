@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261030093403
+ * Spec version: 1.1.20261030103043
  * Build date:   2026-10-30
- * Endpoints:    695
+ * Endpoints:    696
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261030093403';
+  WlClient.SPEC_VERSION = '1.1.20261030103043';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (695 total)
+  // Generated API methods (696 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2142,6 +2142,22 @@
   WlClient.prototype.wlAnnouncementAnnouncementList = function(params)
   {
     return this.request('/Wl/Announcement/AnnouncementList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Releases a Zoom license used by a business.
+   *
+   * Makes the Zoom license free for other meetings and ends the meeting that runs on this license, if there is one.
+   * A license that belongs to the business can be released only by a staff member of this business.
+   * A system license can be released by a staff member of the business that uses it or by a system administrator.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business_use Business key which currently use zoom user.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlZoomZoomUserRelease = function(params)
+  {
+    return this.request('/Wl/Zoom/ZoomUserRelease.json', params || {}, 'PUT');
   };
 
   /**

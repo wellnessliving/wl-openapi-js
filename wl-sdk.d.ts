@@ -9647,6 +9647,11 @@ export interface WlAnnouncementAnnouncementListResponse {
     /** List of fields by which you can sort. @see WlAnnouncementSortFieldSid */
     id_sort_field: WlAnnouncementSortFieldSid | null;
 }
+export interface WlZoomZoomUserReleaseParams {
+    /** Business key which currently use zoom user. */
+    k_business_use: string;
+}
+export type WlZoomZoomUserReleaseResponse = Record<string, unknown>;
 export interface WlDriveProductImageUploadGetParams {
     /** Allows to give custom parameters which can be required for different types of images. */
     a_config: Array<unknown>;
@@ -35673,6 +35678,12 @@ export declare class WlAnnouncementNamespace {
     /** Returns a list of announcements for the given business and location. */
     announcementList(params?: WlAnnouncementAnnouncementListParams): Promise<WlAnnouncementAnnouncementListResponse>;
 }
+export declare class WlZoomNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Releases a Zoom license used by a business. */
+    zoomUserRelease(params?: WlZoomZoomUserReleaseParams): Promise<WlZoomZoomUserReleaseResponse>;
+}
 export declare class WlDriveNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -37265,6 +37276,7 @@ export declare class WlNamespace {
     readonly video: WlVideoNamespace;
     readonly review: WlReviewNamespace;
     readonly announcement: WlAnnouncementNamespace;
+    readonly zoom: WlZoomNamespace;
     readonly drive: WlDriveNamespace;
     readonly currency: WlCurrencyNamespace;
     readonly hardware: WlHardwareNamespace;

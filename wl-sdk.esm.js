@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261030093403
+// OpenAPI spec version: 1.1.20261030103043
 // Build date: 2026-10-30
-// Endpoints: 695
+// Endpoints: 696
 // Enums: 229
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -9171,6 +9171,15 @@ export class WlAnnouncementNamespace {
         return this._client._request('/Wl/Announcement/AnnouncementList.json', params, 'GET');
     }
 }
+export class WlZoomNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Releases a Zoom license used by a business. */
+    zoomUserRelease(params) {
+        return this._client._request('/Wl/Zoom/ZoomUserRelease.json', params, 'PUT');
+    }
+}
 export class WlDriveNamespace {
     constructor(_client) {
         this._client = _client;
@@ -11545,6 +11554,7 @@ export class WlNamespace {
         this.video = new WlVideoNamespace(this._client);
         this.review = new WlReviewNamespace(this._client);
         this.announcement = new WlAnnouncementNamespace(this._client);
+        this.zoom = new WlZoomNamespace(this._client);
         this.drive = new WlDriveNamespace(this._client);
         this.currency = new WlCurrencyNamespace(this._client);
         this.hardware = new WlHardwareNamespace(this._client);
