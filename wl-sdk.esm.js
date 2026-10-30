@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261029164210
-// Build date: 2026-10-29
-// Endpoints: 693
+// OpenAPI spec version: 1.1.20261030073937
+// Build date: 2026-10-30
+// Endpoints: 695
 // Enums: 229
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -11661,6 +11661,43 @@ export class ThothPayProcessorNamespace {
         this.nuvei = new ThothPayProcessorNuveiNamespace(this._client);
     }
 }
+export class ThothReportSalesReportClientAccountReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the payer information of the client. */
+    accountHistoryReportInfo(params) {
+        return this._client._request('/Thoth/Report/SalesReport/Client/AccountReport/AccountHistoryReportInfo.json', params, 'GET');
+    }
+}
+export class ThothReportSalesReportClientClientStatementHistoryReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the PDF of an account statement. */
+    clientStatementHistoryDownload(params) {
+        return this._client._request('/Thoth/Report/SalesReport/Client/ClientStatementHistoryReport/ClientStatementHistoryDownload.json', params, 'GET');
+    }
+}
+export class ThothReportSalesReportClientNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.accountReport = new ThothReportSalesReportClientAccountReportNamespace(this._client);
+        this.clientStatementHistoryReport = new ThothReportSalesReportClientClientStatementHistoryReportNamespace(this._client);
+    }
+}
+export class ThothReportSalesReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.client = new ThothReportSalesReportClientNamespace(this._client);
+    }
+}
+export class ThothReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.salesReport = new ThothReportSalesReportNamespace(this._client);
+    }
+}
 export class ThothReportCoreQueryEngineReportCustomizationNamespace {
     constructor(_client) {
         this._client = _client;
@@ -11698,6 +11735,7 @@ export class ThothNamespace {
         this.explorerSearch = new ThothExplorerSearchNamespace(this._client);
         this.layoutBe = new ThothLayoutBeNamespace(this._client);
         this.payProcessor = new ThothPayProcessorNamespace(this._client);
+        this.report = new ThothReportNamespace(this._client);
         this.reportCore = new ThothReportCoreNamespace(this._client);
     }
 }

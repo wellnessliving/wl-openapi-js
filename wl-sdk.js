@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261029164210
- * Build date:   2026-10-29
- * Endpoints:    693
+ * Spec version: 1.1.20261030073937
+ * Build date:   2026-10-30
+ * Endpoints:    695
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261029164210';
+  WlClient.SPEC_VERSION = '1.1.20261030073937';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (693 total)
+  // Generated API methods (695 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -14024,6 +14024,47 @@
   WlClient.prototype.wlInsuranceEnrollmentFieldEnrollmentFieldListPost = function(params)
   {
     return this.request('/Wl/Insurance/Enrollment/Field/EnrollmentFieldList.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns the payer information of the client.
+   *
+   * Tells whether the client pays for relationship members and who pays for the client.
+   * For a client paid for by another user, gives the name of the payer and the links to the payer's
+   * Balance History and Statement History pages.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {?string} [params.k_business] Business key.
+   * @param {?string} [params.uid_client] Client user key.
+   * @returns {Promise<Object>} Response data.
+   *  `is_payer` {boolean} Whether the client is currently a payer, i.e. pays for at least one relations...
+   *  `is_payer_has_history` {boolean} Whether the client has at least one past account transaction paid on behalf o...
+   *  `text_payer_name` {string} Full name of the user who pays for this client.
+   *  `uid_payer` {string} UID of the user who pays for this client.
+   *  `url_payer_balance_history` {string} URL of the payer's Balance History and Statements page.
+   *  `url_payer_statement_history` {string} URL of the payer's Statement History tab on the Balance History and Statement...
+   */
+  WlClient.prototype.thothReportSalesReportClientAccountReportAccountHistoryReportInfo = function(params)
+  {
+    return this.request('/Thoth/Report/SalesReport/Client/AccountReport/AccountHistoryReportInfo.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns the PDF of an account statement.
+   *
+   * Checks that the statement belongs to the business and that the caller has access to the profile of the client,
+   * then gives the PDF as a Base64 string together with a suggested file name.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {?string} [params.k_business] Business key.
+   * @param {?string} [params.k_statement] Statement primary key.
+   * @returns {Promise<Object>} Response data.
+   *  `s_pdf_base64` {string} Base64-encoded PDF binary content.
+   *  `text_filename` {string} Suggested file name for the downloaded PDF.
+   */
+  WlClient.prototype.thothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryDownload = function(params)
+  {
+    return this.request('/Thoth/Report/SalesReport/Client/ClientStatementHistoryReport/ClientStatementHistoryDownload.json', params || {}, 'GET');
   };
 
   /**
