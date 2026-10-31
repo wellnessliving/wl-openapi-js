@@ -11357,6 +11357,8 @@ export interface WlLoginAttendanceAttendanceInfoResponse {
     id_note: WlVisitNoteSidNoteSid;
     /** Identifiers for services types. @see RsServiceSid */
     id_service: RsServiceSid;
+    /** Whether the booking was made as a Phone Call. */
+    is_phone_call: boolean;
     /** Whether this service be carried out in Zoom. */
     is_start_virtual_service: boolean;
     /** Whether the session belongs to a ticketed event. */
@@ -11371,6 +11373,8 @@ export interface WlLoginAttendanceAttendanceInfoResponse {
     k_service: string;
     /** Location name. */
     text_location: string;
+    /** Phone number the staff calls for this Phone Call booking. */
+    text_phone: string | null;
     /** Time when service starts in format `8:00AM`. */
     text_time_end: string;
     /** Start time of the session in format '9:30AM'. */
@@ -11476,6 +11480,8 @@ export interface WlLoginAttendanceAttendanceInfoByTokenResponse {
     id_note: WlVisitNoteSidNoteSid;
     /** Identifiers for services types. @see RsServiceSid */
     id_service: RsServiceSid;
+    /** Whether the booking was made as a Phone Call. */
+    is_phone_call: boolean;
     /** Whether this service be carried out in Zoom. */
     is_start_virtual_service: boolean;
     /** Whether the session belongs to a ticketed event. */
@@ -11490,6 +11496,8 @@ export interface WlLoginAttendanceAttendanceInfoByTokenResponse {
     k_service: string;
     /** Location name. */
     text_location: string;
+    /** Phone number the staff calls for this Phone Call booking. */
+    text_phone: string | null;
     /** Time when service starts in format `8:00AM`. */
     text_time_end: string;
     /** Start time of the session in format '9:30AM'. */
@@ -11756,6 +11764,8 @@ export interface WlLoginAttendanceAttendanceListResponse {
         text_lastname: string;
         /** Any notes tied to the client. */
         text_note: string;
+        /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
+        text_phone: string | null;
         /** Title of purchase option usages of that was returned to user. */
         text_promotion_return?: string;
         /** The description of the type of Purchase Option. */
@@ -12027,6 +12037,8 @@ export interface WlLoginAttendanceAttendanceListResponse {
         text_lastname: string;
         /** Any notes tied to the client. */
         text_note: string;
+        /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
+        text_phone: string | null;
         /** Title of purchase option usages of that was returned to user. */
         text_promotion_return?: string;
         /** The description of the type of Purchase Option. */
@@ -12298,6 +12310,8 @@ export interface WlLoginAttendanceAttendanceListResponse {
         text_lastname: string;
         /** Any notes tied to the client. */
         text_note: string;
+        /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
+        text_phone: string | null;
         /** Title of purchase option usages of that was returned to user. */
         text_promotion_return?: string;
         /** The description of the type of Purchase Option. */
@@ -12595,6 +12609,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         text_lastname: string;
         /** Any notes tied to the client. */
         text_note: string;
+        /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
+        text_phone: string | null;
         /** Title of purchase option usages of that was returned to user. */
         text_promotion_return?: string;
         /** The description of the type of Purchase Option. */
@@ -12866,6 +12882,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         text_lastname: string;
         /** Any notes tied to the client. */
         text_note: string;
+        /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
+        text_phone: string | null;
         /** Title of purchase option usages of that was returned to user. */
         text_promotion_return?: string;
         /** The description of the type of Purchase Option. */
@@ -13137,6 +13155,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         text_lastname: string;
         /** Any notes tied to the client. */
         text_note: string;
+        /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
+        text_phone: string | null;
         /** Title of purchase option usages of that was returned to user. */
         text_promotion_return?: string;
         /** The description of the type of Purchase Option. */
@@ -19624,6 +19644,8 @@ export interface WlSchedulePagePageElementResponse {
     is_in_progress: boolean;
     /** `true` if the visit has been paid for (via a purchase option, session pass, or single purchase). */
     is_paid: boolean;
+    /** Whether the booking was made as a Phone Call. */
+    is_phone_call: boolean;
     /** `true` - service is virtual; `false` - otherwise. */
     is_virtual: boolean;
     /** The appointment key. */
@@ -19642,6 +19664,8 @@ export interface WlSchedulePagePageElementResponse {
     s_title: string;
     /** Location title. If the visit is assigned a resource whose category is {@link WlResourceResourceCa... */
     text_location: string;
+    /** Phone number the staff calls for this Phone Call booking. */
+    text_phone: string | null;
     /** Room where session takes place. */
     text_room: string;
     /** Timezone abbreviation. */
@@ -19676,6 +19700,10 @@ export interface WlSchedulePagePageListResponse {
         k_visit: string;
         /** Possible states of the visit: book, attended, cancelled, etc. @see WlVisitVisitSid */
         id_visit: WlVisitVisitSid;
+        /** `true` if the visit was booked as a Phone Call. This is the type of the service at the time of bo... */
+        is_phone_call: boolean;
+        /** Phone number the staff calls for a Phone Call visit, in the international E.164 format, */
+        text_phone: string | null;
     }>;
 }
 export interface WlBillingBulkPurchaseItemListGetParams {
@@ -20395,6 +20423,8 @@ export interface WlAppointmentInfoInfoResponse {
     id_appointment_pay: RsAppointmentPaySid;
     /** List of possible value of virtual integrations. @see WlVirtualVirtualProviderSid */
     id_virtual_provider: WlVirtualVirtualProviderSid | null;
+    /** Whether the booking was made as a Phone Call. */
+    is_phone_call: boolean;
     /** Whether the service is virtual. */
     is_virtual: boolean;
     /** Location key. */
@@ -20413,6 +20443,8 @@ export interface WlAppointmentInfoInfoResponse {
     k_session_pass: string | null;
     /** Staff member who conducts this appointment. */
     k_staff: string | null;
+    /** Phone number the staff calls for this Phone Call booking. */
+    text_phone: string | null;
     /** Title of the appointment. */
     text_title: string;
     /** User for whom this appointment was booked. */
@@ -20433,6 +20465,28 @@ export interface WlAppointmentRecentRecentServiceParams {
 export interface WlAppointmentRecentRecentServiceResponse {
     /** List of last booked services. */
     a_service_last: Array<string>;
+}
+export interface WlAppointmentPhonePhoneGetParams {
+    /** Business key. */
+    k_business: string;
+    /** Visit key. */
+    k_visit: string;
+    /** Key of the client of a future booking. Used only when `k_visit` is empty. */
+    uid: string;
+}
+export interface WlAppointmentPhonePhoneGetResponse {
+    /** The phone number. */
+    text_phone: string | null;
+}
+export interface WlAppointmentPhonePhonePutParams {
+    /** Business key. */
+    k_business: string;
+    /** Visit key. */
+    k_visit: string;
+}
+export interface WlAppointmentPhonePhonePutResponse {
+    /** The phone number. */
+    text_phone: string | null;
 }
 export interface WlCalendarCordovaCordovaCalendarStaffParams {
     /** Date of last sync. */
@@ -27655,6 +27709,8 @@ export interface WlScheduleScheduleListStaffAppScheduleListResponse {
         is_class_view: boolean;
         /** For appointments: `true` if appointment is paid; `false` otherwise. */
         is_pay: boolean;
+        /** For appointments: `true` if the appointment was booked as a Phone Call; `false` otherwise. */
+        is_phone_call: boolean;
         /** For appointments: `true` if appointment is recurring; `false` otherwise. */
         is_repeat: boolean;
         /** `true` if the session belongs to a ticketed event, `false` otherwise. */
@@ -27783,6 +27839,8 @@ export interface WlScheduleScheduleListStaffAppScheduleListByTokenResponse {
         is_arrive: boolean;
         /** For appointments: `true` if appointment is paid; `false` otherwise. */
         is_pay: boolean;
+        /** For appointments: `true` if the appointment was booked as a Phone Call; `false` otherwise. */
+        is_phone_call: boolean;
         /** For appointments: `true` if appointment is recurring; `false` otherwise. */
         is_repeat: boolean;
         /** `true` if the session belongs to a ticketed event, `false` otherwise. */
@@ -36456,6 +36514,14 @@ export declare class WlAppointmentRecentNamespace {
     /** Gets list of client's last booked services. */
     recentService(params?: WlAppointmentRecentRecentServiceParams): Promise<WlAppointmentRecentRecentServiceResponse>;
 }
+export declare class WlAppointmentPhoneNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the number of the visit or the default number for a future booking. */
+    phoneGet(params?: WlAppointmentPhonePhoneGetParams): Promise<WlAppointmentPhonePhoneGetResponse>;
+    /** Changes the number of the visit. */
+    phonePut(params?: WlAppointmentPhonePhonePutParams): Promise<WlAppointmentPhonePhonePutResponse>;
+}
 export declare class WlAppointmentBookConflictNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -36648,6 +36714,7 @@ export declare class WlAppointmentNamespace {
     readonly edit: WlAppointmentEditNamespace;
     readonly info: WlAppointmentInfoNamespace;
     readonly recent: WlAppointmentRecentNamespace;
+    readonly phone: WlAppointmentPhoneNamespace;
     readonly book: WlAppointmentBookNamespace;
     constructor(_client: WlClient);
 }

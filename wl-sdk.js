@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261031041955
+ * Spec version: 1.1.20261031181222
  * Build date:   2026-10-31
- * Endpoints:    696
+ * Endpoints:    698
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261031041955';
+  WlClient.SPEC_VERSION = '1.1.20261031181222';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (696 total)
+  // Generated API methods (698 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -3746,11 +3746,11 @@
    *  `i_duration` {number} Duration of the session in minutes.
    *  `id_note` {number} A list of types of visit note. See {@link WlClient.WlVisitNoteSidNoteSid}.
    *  `id_service` {number} Identifiers for services types. See {@link WlClient.RsServiceSid}.
+   *  `is_phone_call` {boolean} Whether the booking was made as a Phone Call.
    *  `is_start_virtual_service` {boolean} Whether this service be carried out in Zoom.
    *  `is_ticket` {boolean} Whether the session belongs to a ticketed event.
    *  `k_class` {string} Class identifier. Not empty if service is class or event reservation.
    *  `k_location` {string} Location identifier.
-   *  `k_resource` {string} Resource identifier. Not empty if service is asset reservation.
    *  `...` {*}
    */
   WlClient.prototype.wlLoginAttendanceAttendanceInfo = function(params)
@@ -3787,11 +3787,11 @@
    *  `i_duration` {number} Duration of the session in minutes.
    *  `id_note` {number} A list of types of visit note. See {@link WlClient.WlVisitNoteSidNoteSid}.
    *  `id_service` {number} Identifiers for services types. See {@link WlClient.RsServiceSid}.
+   *  `is_phone_call` {boolean} Whether the booking was made as a Phone Call.
    *  `is_start_virtual_service` {boolean} Whether this service be carried out in Zoom.
    *  `is_ticket` {boolean} Whether the session belongs to a ticketed event.
    *  `k_class` {string} Class identifier. Not empty if service is class or event reservation.
    *  `k_location` {string} Location identifier.
-   *  `k_resource` {string} Resource identifier. Not empty if service is asset reservation.
    *  `...` {*}
    */
   WlClient.prototype.wlLoginAttendanceAttendanceInfoByToken = function(params)
@@ -7246,13 +7246,13 @@
    *  `i_index` {?number} Index of booked asset.
    *  `id_appointment_pay` {number} The possible payment types an appointment can have. See {@link WlClient.RsAppointmentPaySid}.
    *  `id_virtual_provider` {?number} List of possible value of virtual integrations. See {@link WlClient.WlVirtualVirtualProviderSid}.
+   *  `is_phone_call` {boolean} Whether the booking was made as a Phone Call.
    *  `is_virtual` {boolean} Whether the service is virtual.
    *  `k_location` {string} Location key.
    *  `k_login_promotion` {?string} Purchased promotion which provides this appointment.
    *  `k_resource` {?string} Asset key.
    *  `k_resource_type` {?string} Asset category key.
    *  `k_service` {?string} Service key.
-   *  `k_service_category` {?string} Service category key.
    *  `...` {*}
    */
   WlClient.prototype.wlAppointmentInfoInfo = function(params)
@@ -7278,6 +7278,44 @@
   WlClient.prototype.wlAppointmentRecentRecentService = function(params)
   {
     return this.request('/Wl/Appointment/Recent/RecentService.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns the number of the visit or the default number for a future booking.
+   *
+   * The number of a visit is available to a WellnessLiving admin with the privilege `rs.appointment.edit`,
+   * to a non-staff user who is the client of the visit or who booked it, and to an active staff member only for
+   * their own appointment and with the privilege to schedule future appointments. Former staff have no access.
+   * The default number for a future booking is available to a user with the {@link WlClient.WlPrivilegePrivilegeSid}
+   * privilege for the client. The number is returned in the international E.164 format.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_visit Visit key.
+   * @param {string} params.uid Key of the client of a future booking. Used only when `k_visit` is empty.
+   * @returns {Promise<Object>} Response data.
+   *  `text_phone` {?string} The phone number.
+   */
+  WlClient.prototype.wlAppointmentPhonePhoneGet = function(params)
+  {
+    return this.request('/Wl/Appointment/Phone/Phone.json', params || {}, 'GET');
+  };
+
+  /**
+   * Changes the number of the visit.
+   *
+   * The same users have access as for reading the number of a visit. Only staff may change the number after
+   * the appointment has started. Returns the saved number in the international E.164 format.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_visit Visit key.
+   * @returns {Promise<Object>} Response data.
+   *  `text_phone` {?string} The phone number.
+   */
+  WlClient.prototype.wlAppointmentPhonePhonePut = function(params)
+  {
+    return this.request('/Wl/Appointment/Phone/Phone.json', params || {}, 'PUT');
   };
 
   /**

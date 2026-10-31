@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261031041955
+// OpenAPI spec version: 1.1.20261031181222
 // Build date: 2026-10-31
-// Endpoints: 696
+// Endpoints: 698
 // Enums: 229
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -10256,6 +10256,19 @@ export class WlAppointmentRecentNamespace {
         return this._client._request('/Wl/Appointment/Recent/RecentService.json', params, 'GET');
     }
 }
+export class WlAppointmentPhoneNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the number of the visit or the default number for a future booking. */
+    phoneGet(params) {
+        return this._client._request('/Wl/Appointment/Phone/Phone.json', params, 'GET');
+    }
+    /** Changes the number of the visit. */
+    phonePut(params) {
+        return this._client._request('/Wl/Appointment/Phone/Phone.json', params, 'PUT');
+    }
+}
 export class WlAppointmentBookConflictNamespace {
     constructor(_client) {
         this._client = _client;
@@ -10557,6 +10570,7 @@ export class WlAppointmentNamespace {
         this.edit = new WlAppointmentEditNamespace(this._client);
         this.info = new WlAppointmentInfoNamespace(this._client);
         this.recent = new WlAppointmentRecentNamespace(this._client);
+        this.phone = new WlAppointmentPhoneNamespace(this._client);
         this.book = new WlAppointmentBookNamespace(this._client);
     }
 }
