@@ -30205,6 +30205,8 @@ export interface WlAppointmentBookFinishFinishPostParams {
         k_staff?: string;
         /** The staff member conducting the appointment. */
         k_staff_date?: string;
+        /** The number to call the client at, for a Phone Call appointment. Any format is accepted. */
+        text_phone?: string;
     };
     /** List of user keys to book appointments. */
     a_uid: Array<string>;

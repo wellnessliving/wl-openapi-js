@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261031181222
- * Build date:   2026-10-31
+ * Spec version: 1.1.20261101073343
+ * Build date:   2026-11-01
  * Endpoints:    698
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261031181222';
+  WlClient.SPEC_VERSION = '1.1.20261101073343';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (698 total)
@@ -7283,9 +7283,9 @@
   /**
    * Returns the number of the visit or the default number for a future booking.
    *
-   * The number of a visit is available to a WellnessLiving admin with the privilege `rs.appointment.edit`,
-   * to a non-staff user who is the client of the visit or who booked it, and to an active staff member only for
-   * their own appointment and with the privilege to schedule future appointments. Former staff have no access.
+   * The number of a visit is shown like the phone of the client:
+   * to the client of the visit, to the user who booked it, to a WellnessLiving admin with the privilege
+   * `rs.appointment.edit` and to staff of the business with the {@link WlClient.WlPrivilegePrivilegeSid} privilege.
    * The default number for a future booking is available to a user with the {@link WlClient.WlPrivilegePrivilegeSid}
    * privilege for the client. The number is returned in the international E.164 format.
    *
@@ -7304,8 +7304,13 @@
   /**
    * Changes the number of the visit.
    *
-   * The same users have access as for reading the number of a visit. Only staff may change the number after
-   * the appointment has started. Returns the saved number in the international E.164 format.
+   * The number may be changed by the client of the visit and by the user who booked it, also if they are staff of the
+   * business (active or former), by a WellnessLiving admin with the privilege `rs.appointment.edit`, and by any other
+   * active staff member only for their own appointment and with the privilege to schedule future appointments.
+   * The number of a cancelled visit may not be changed. After the appointment has started, only a WellnessLiving
+   * admin and staff who may change the number as staff may change it; the client and the user who booked may not.
+   * The pencil to change the number in the client profile is shown by the same rule.
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
