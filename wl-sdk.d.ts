@@ -5607,6 +5607,8 @@ export declare enum WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid {
     PREMIUM = 3,
     /** Premium (Business Max) */
     PREMIUM_MAX = 7,
+    /** Presence Trial */
+    PRESENCE_TRIAL = 12,
     /** Professional */
     PROFESSIONAL = 5
 }
@@ -6465,6 +6467,11 @@ export interface WlLeadLeadGetParams {
 export interface WlLeadLeadGetResponse {
     /** A list of profile fields in the business. Every element has the following keys: */
     a_field_list: Array<{
+        /** The additional data of the field. Its keys depend on the field type. */
+        a_data: {
+            /** The number of rows of the input of a text field. Always set for text fields: */
+            i_size?: number;
+        };
         /** A list of possible options for an HTML select field. This value is only used if this field is an ... */
         a_item: {
             /** The option ID. */

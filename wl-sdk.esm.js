@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261101073343
+// OpenAPI spec version: 1.1.20261102093119
 // Build date: 2026-11-02
 // Endpoints: 698
 // Enums: 229
@@ -5801,6 +5801,8 @@ export var WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid;
     WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PREMIUM"] = 3] = "PREMIUM";
     /** Premium (Business Max) */
     WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PREMIUM_MAX"] = 7] = "PREMIUM_MAX";
+    /** Presence Trial */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PRESENCE_TRIAL"] = 12] = "PRESENCE_TRIAL";
     /** Professional */
     WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PROFESSIONAL"] = 5] = "PROFESSIONAL";
 })(WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid || (WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = {}));
