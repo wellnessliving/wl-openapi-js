@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261102101748
+ * Spec version: 1.1.20261102104845
  * Build date:   2026-11-02
- * Endpoints:    698
+ * Endpoints:    696
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261102101748';
+  WlClient.SPEC_VERSION = '1.1.20261102104845';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (698 total)
+  // Generated API methods (696 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -6406,64 +6406,6 @@
   WlClient.prototype.wlClassesPromotionClassPromotion = function(params)
   {
     return this.request('/Wl/Classes/Promotion/ClassPromotion.json', params || {}, 'GET');
-  };
-
-  /**
-   * Returns everything the class setup form needs.
-   *
-   * The form is rendered by the client, so this endpoint answers with data: the settings of the class, the lists the
-   * Book Now Tab, the quick search tag and the store category pickers are filled from, the
-   * send rules of the client reminder, the currency sign, whether the Administration section may be shown, the
-   * addresses of the pages the form links to and the markup of the blocks that have no template on the client.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_class Class key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_class` {Object} Settings of the class the form edits.
-   *  `a_class_tab_list` {Object[]} Book Now Tabs the class may be shown in. Every element is an array:
-   *  `a_reminder_info` {Object} Send rules of the client reminder. Keys are:
-   *  `a_replace_available` {Object[]} Classes and events of the business that a client may use a make-up session on...
-   *  `a_search_tag_list` {Object[]} Quick search tags of the category of the business. Every element is an array:
-   *  `a_shop_category_list` {Object[]} Store categories of the business. Every element is an array:
-   *  `a_url` {Object[]} Addresses of the pages the form links to:
-   *  `a_url_book` {Object[]} Direct booking URLs of the event, one per Book Now Tab it is shown in.
-   *  `a_url_catalog` {Object[]} Direct detail and checkout URLs of the event, one per instance of the event t...
-   *  `a_url_scan` {Object[]} Direct scanner URLs of a ticketed event, one per instance in {@link WlClient#...
-   *  `a_url_ticket` {Object[]} Direct booking URLs of a ticketed event, one per instance in {@link WlClient#...
-   *  `has_schedule` {boolean} `true` if the class has a schedule, so it may not be removed until the schedu...
-   *  `html_policy` {string} Markup of the Business policies block of the form.
-   *  `html_prerequisite` {string} Markup of the Prerequisites block of the form.
-   *  `html_promotion` {string} Markup of the Purchase Options block of the form.
-   *  `html_quick_buy` {string} Markup of the Quick Buy block of the form.
-   *  `html_tax` {string} Markup of the Taxes block of the form.
-   *  `i_description_limit` {number} Maximum length of the description of a class that is not virtual.
-   *  `i_description_limit_virtual` {number} Maximum length of the description of a virtual class.
-   *  `is_admin` {boolean} `true` if the Administration section may be shown, `false` otherwise.
-   *  `...` {*}
-   */
-  WlClient.prototype.wlClassesEditorClassEditorGet = function(params)
-  {
-    return this.request('/Wl/Classes/Editor/ClassEditor.json', params || {}, 'GET');
-  };
-
-  /**
-   * Saves the class.
-   *
-   * Creates the class while {@link WlClient#wlClassesEditorClassEditorGet} is empty, and changes the class otherwise. The settings
-   * come in {@link WlClient#wlClassesEditorClassEditorGet}, which has the same fields the load answers with. The key of the class
-   * that has been written is answered with in {@link WlClient#wlClassesEditorClassEditorGet}. An error of a field is reported
-   * with the name of the field on the form, one error for every field that failed.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_class Class key.
-   * @returns {Promise<Object>} Response data.
-   *  `k_class_save` {string} Key of the class the save wrote.
-   */
-  WlClient.prototype.wlClassesEditorClassEditorPost = function(params)
-  {
-    return this.request('/Wl/Classes/Editor/ClassEditor.json', params || {}, 'POST');
   };
 
   /**
@@ -15138,7 +15080,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (247 total)
+  // Enum constants (240 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -20584,116 +20526,6 @@
   });
 
   /**
-   * Type of the event, which defines how clients book it and how they pay for it.
-   *
-   * @enum {number}
-   */
-  WlClient.WlClassesEditEventTypeEnum = Object.freeze({
-    /** Clients book the event once and attend every session in the schedule */
-    BLOCK: 2,
-    /** Clients pick which sessions to book and can pay per session */
-    NON_BLOCK: 1,
-    /** Tickets are sold for a set number of seats and are paid up front. Anyone can buy a ticket, */
-    TICKETED: 3,
-  });
-
-  /**
-   * List of possible value of virtual integrations.
-   *
-   * @enum {number}
-   */
-  WlClient.WlVirtualVirtualProviderSid = Object.freeze({
-    /** The service is delivered in person */
-    IN_PERSON: 4,
-    /** Virtual integration non implemented */
-    NON_INTEGRATED: 2,
-    /** Staff call the client at the number given at booking */
-    PHONE_CALL: 3,
-    /** Virtual Zoom service integration */
-    ZOOM: 1,
-  });
-
-  /**
-   * Age restriction statuses.
-   *
-   * @enum {number}
-   */
-  WlClient.WlServiceAgeRestrictionStatusSid = Object.freeze({
-    /** Client age must be between limits */
-    AGE_BETWEEN: 2,
-    /** Client is available to book service */
-    AVAILABLE: 1,
-    /** Client age must be less then max age */
-    MAX_AGE: 3,
-    /** Client age must be great then min age */
-    MIN_AGE: 4,
-  });
-
-  /**
-   * A list of resource selection type.
-   *
-   * @enum {number}
-   */
-  WlClient.WlResourceResourceClientControlSid = Object.freeze({
-    /** Means that client cannot select resource during booking process */
-    OFF: 2,
-    /** Means that client can select resource during booking process */
-    ON: 1,
-  });
-
-  /**
-   * A list of resource usage types.
-   *
-   * @enum {number}
-   */
-  WlClient.WlResourceResourceUseSid = Object.freeze({
-    /** Means that resource used in individual usage */
-    INDIVIDUAL: 1,
-    /** Resource is reserved for the entire class */
-    SHARE: 2,
-  });
-
-  /**
-   * Meaning of the early bird amount.
-   *
-   * @enum {number}
-   */
-  WlClient.WlClassesEditEarlyAmountEnum = Object.freeze({
-    /** The amount is a discount in the currency of the business */
-    DISCOUNT: 2,
-    /** The amount is a discount in percent of the regular price of the event */
-    PERCENT: 3,
-    /** The amount is the price that replaces the regular price of the event */
-    PRICE: 1,
-  });
-
-  /**
-   * The way the end of the early bird period is specified for the event.
-   *
-   * @enum {number}
-   */
-  WlClient.WlClassesEditEarlyPeriodEnum = Object.freeze({
-    /** The period ends a certain amount of time before the event starts */
-    BEFORE: 2,
-    /** The period ends on the date */
-    DATE: 1,
-  });
-
-  /**
-   * Event time enrollment rules.
-   *
-   * @enum {number}
-   */
-  WlClient.WlClassesEditEnrollTimeSid = Object.freeze({
-    /** Deny enrollment of the event that is in progress */
-    PROGRESS_DENY: 1,
-    /** Allow enrollment to event in progress with full payment */
-    PROGRESS_FULL: 3,
-    /** Allow enrollment to event in progress with prorated payment */
-    PROGRESS_PRORATE: 2,
-  });
-
-  /**
    * List of possible types of Gift Cards.
    *
    * @enum {number}
@@ -20879,6 +20711,22 @@
     WAIT_LIST_LIMIT_MAX: 21,
     /** Client has unsigned waiver */
     WAIVER_NX: 23,
+  });
+
+  /**
+   * List of possible value of virtual integrations.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVirtualVirtualProviderSid = Object.freeze({
+    /** The service is delivered in person */
+    IN_PERSON: 4,
+    /** Virtual integration non implemented */
+    NON_INTEGRATED: 2,
+    /** Staff call the client at the number given at booking */
+    PHONE_CALL: 3,
+    /** Virtual Zoom service integration */
+    ZOOM: 1,
   });
 
   /**

@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261102101748
+// OpenAPI spec version: 1.1.20261102104845
 // Build date: 2026-11-02
-// Endpoints: 698
-// Enums: 229
+// Endpoints: 696
+// Enums: 222
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (229 total) ---
+// --- Enum types (222 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -4924,84 +4924,6 @@ export var WlServiceBookableSid;
     /** Nobody can book */
     WlServiceBookableSid[WlServiceBookableSid["NONE"] = 2] = "NONE";
 })(WlServiceBookableSid || (WlServiceBookableSid = {}));
-/** Type of the event, which defines how clients book it and how they pay for it. */
-export var WlClassesEditEventTypeEnum;
-(function (WlClassesEditEventTypeEnum) {
-    /** Clients book the event once and attend every session in the schedule */
-    WlClassesEditEventTypeEnum[WlClassesEditEventTypeEnum["BLOCK"] = 2] = "BLOCK";
-    /** Clients pick which sessions to book and can pay per session */
-    WlClassesEditEventTypeEnum[WlClassesEditEventTypeEnum["NON_BLOCK"] = 1] = "NON_BLOCK";
-    /** Tickets are sold for a set number of seats and are paid up front. Anyone can buy a ticket, */
-    WlClassesEditEventTypeEnum[WlClassesEditEventTypeEnum["TICKETED"] = 3] = "TICKETED";
-})(WlClassesEditEventTypeEnum || (WlClassesEditEventTypeEnum = {}));
-/** List of possible value of virtual integrations. */
-export var WlVirtualVirtualProviderSid;
-(function (WlVirtualVirtualProviderSid) {
-    /** The service is delivered in person */
-    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["IN_PERSON"] = 4] = "IN_PERSON";
-    /** Virtual integration non implemented */
-    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["NON_INTEGRATED"] = 2] = "NON_INTEGRATED";
-    /** Staff call the client at the number given at booking */
-    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["PHONE_CALL"] = 3] = "PHONE_CALL";
-    /** Virtual Zoom service integration */
-    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
-})(WlVirtualVirtualProviderSid || (WlVirtualVirtualProviderSid = {}));
-/** Age restriction statuses. */
-export var WlServiceAgeRestrictionStatusSid;
-(function (WlServiceAgeRestrictionStatusSid) {
-    /** Client age must be between limits */
-    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["AGE_BETWEEN"] = 2] = "AGE_BETWEEN";
-    /** Client is available to book service */
-    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["AVAILABLE"] = 1] = "AVAILABLE";
-    /** Client age must be less then max age */
-    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["MAX_AGE"] = 3] = "MAX_AGE";
-    /** Client age must be great then min age */
-    WlServiceAgeRestrictionStatusSid[WlServiceAgeRestrictionStatusSid["MIN_AGE"] = 4] = "MIN_AGE";
-})(WlServiceAgeRestrictionStatusSid || (WlServiceAgeRestrictionStatusSid = {}));
-/** A list of resource selection type. */
-export var WlResourceResourceClientControlSid;
-(function (WlResourceResourceClientControlSid) {
-    /** Means that client cannot select resource during booking process */
-    WlResourceResourceClientControlSid[WlResourceResourceClientControlSid["OFF"] = 2] = "OFF";
-    /** Means that client can select resource during booking process */
-    WlResourceResourceClientControlSid[WlResourceResourceClientControlSid["ON"] = 1] = "ON";
-})(WlResourceResourceClientControlSid || (WlResourceResourceClientControlSid = {}));
-/** A list of resource usage types. */
-export var WlResourceResourceUseSid;
-(function (WlResourceResourceUseSid) {
-    /** Means that resource used in individual usage */
-    WlResourceResourceUseSid[WlResourceResourceUseSid["INDIVIDUAL"] = 1] = "INDIVIDUAL";
-    /** Resource is reserved for the entire class */
-    WlResourceResourceUseSid[WlResourceResourceUseSid["SHARE"] = 2] = "SHARE";
-})(WlResourceResourceUseSid || (WlResourceResourceUseSid = {}));
-/** Meaning of the early bird amount. */
-export var WlClassesEditEarlyAmountEnum;
-(function (WlClassesEditEarlyAmountEnum) {
-    /** The amount is a discount in the currency of the business */
-    WlClassesEditEarlyAmountEnum[WlClassesEditEarlyAmountEnum["DISCOUNT"] = 2] = "DISCOUNT";
-    /** The amount is a discount in percent of the regular price of the event */
-    WlClassesEditEarlyAmountEnum[WlClassesEditEarlyAmountEnum["PERCENT"] = 3] = "PERCENT";
-    /** The amount is the price that replaces the regular price of the event */
-    WlClassesEditEarlyAmountEnum[WlClassesEditEarlyAmountEnum["PRICE"] = 1] = "PRICE";
-})(WlClassesEditEarlyAmountEnum || (WlClassesEditEarlyAmountEnum = {}));
-/** The way the end of the early bird period is specified for the event. */
-export var WlClassesEditEarlyPeriodEnum;
-(function (WlClassesEditEarlyPeriodEnum) {
-    /** The period ends a certain amount of time before the event starts */
-    WlClassesEditEarlyPeriodEnum[WlClassesEditEarlyPeriodEnum["BEFORE"] = 2] = "BEFORE";
-    /** The period ends on the date */
-    WlClassesEditEarlyPeriodEnum[WlClassesEditEarlyPeriodEnum["DATE"] = 1] = "DATE";
-})(WlClassesEditEarlyPeriodEnum || (WlClassesEditEarlyPeriodEnum = {}));
-/** Event time enrollment rules. */
-export var WlClassesEditEnrollTimeSid;
-(function (WlClassesEditEnrollTimeSid) {
-    /** Deny enrollment of the event that is in progress */
-    WlClassesEditEnrollTimeSid[WlClassesEditEnrollTimeSid["PROGRESS_DENY"] = 1] = "PROGRESS_DENY";
-    /** Allow enrollment to event in progress with full payment */
-    WlClassesEditEnrollTimeSid[WlClassesEditEnrollTimeSid["PROGRESS_FULL"] = 3] = "PROGRESS_FULL";
-    /** Allow enrollment to event in progress with prorated payment */
-    WlClassesEditEnrollTimeSid[WlClassesEditEnrollTimeSid["PROGRESS_PRORATE"] = 2] = "PROGRESS_PRORATE";
-})(WlClassesEditEnrollTimeSid || (WlClassesEditEnrollTimeSid = {}));
 /** List of possible types of Gift Cards. */
 export var WlCouponTypeSid;
 (function (WlCouponTypeSid) {
@@ -5154,6 +5076,18 @@ export var WlScheduleClassViewDenyReasonSid;
     /** Client has unsigned waiver */
     WlScheduleClassViewDenyReasonSid[WlScheduleClassViewDenyReasonSid["WAIVER_NX"] = 23] = "WAIVER_NX";
 })(WlScheduleClassViewDenyReasonSid || (WlScheduleClassViewDenyReasonSid = {}));
+/** List of possible value of virtual integrations. */
+export var WlVirtualVirtualProviderSid;
+(function (WlVirtualVirtualProviderSid) {
+    /** The service is delivered in person */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["IN_PERSON"] = 4] = "IN_PERSON";
+    /** Virtual integration non implemented */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["NON_INTEGRATED"] = 2] = "NON_INTEGRATED";
+    /** Staff call the client at the number given at booking */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["PHONE_CALL"] = 3] = "PHONE_CALL";
+    /** Virtual Zoom service integration */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
+})(WlVirtualVirtualProviderSid || (WlVirtualVirtualProviderSid = {}));
 /** The possible payment types an appointment can have. */
 export var RsAppointmentPaySid;
 (function (RsAppointmentPaySid) {
@@ -9989,19 +9923,6 @@ export class WlClassesPromotionNamespace {
         return this._client._request('/Wl/Classes/Promotion/ClassPromotion.json', params, 'GET');
     }
 }
-export class WlClassesEditorNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns everything the class setup form needs. */
-    classEditorGet(params) {
-        return this._client._request('/Wl/Classes/Editor/ClassEditor.json', params, 'GET');
-    }
-    /** Saves the class. */
-    classEditorPost(params) {
-        return this._client._request('/Wl/Classes/Editor/ClassEditor.json', params, 'POST');
-    }
-}
 export class WlClassesPeriodModifyNamespace {
     constructor(_client) {
         this._client = _client;
@@ -10028,7 +9949,6 @@ export class WlClassesNamespace {
         this.info = new WlClassesInfoNamespace(this._client);
         this.classView = new WlClassesClassViewNamespace(this._client);
         this.promotion = new WlClassesPromotionNamespace(this._client);
-        this.editor = new WlClassesEditorNamespace(this._client);
         this.period = new WlClassesPeriodNamespace(this._client);
     }
 }
