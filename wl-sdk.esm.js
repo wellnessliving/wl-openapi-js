@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261027144744
-// Build date: 2026-11-01
-// Endpoints: 685
+// OpenAPI spec version: 1.1.20261102025226
+// Build date: 2026-11-02
+// Endpoints: 686
 // Enums: 225
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -2183,6 +2183,8 @@ export var RsSkinSid;
     RsSkinSid[RsSkinSid["CATALOG_FOREIGN"] = 21] = "CATALOG_FOREIGN";
     /** Event enrollment wizard widget */
     RsSkinSid[RsSkinSid["ENROLLMENT"] = 8] = "ENROLLMENT";
+    /** Event widget built by microservice widget team */
+    RsSkinSid[RsSkinSid["EVENT_FOREIGN"] = 23] = "EVENT_FOREIGN";
     /** Fitbuilder widget */
     RsSkinSid[RsSkinSid["FITBUILDER"] = 17] = "FITBUILDER";
     /** Skin for lead tracking form */
@@ -8524,6 +8526,15 @@ export class WlSmsNamespace {
         return this._client._request('/Wl/Sms/SmsStatus.json', params, 'GET');
     }
 }
+export class WlZoomNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Releases a Zoom license used by a business. */
+    zoomUserRelease(params) {
+        return this._client._request('/Wl/Zoom/ZoomUserRelease.json', params, 'PUT');
+    }
+}
 export class WlTaxNamespace {
     constructor(_client) {
         this._client = _client;
@@ -10954,6 +10965,7 @@ export class WlNamespace {
         this.location = new WlLocationNamespace(this._client);
         this.collector = new WlCollectorNamespace(this._client);
         this.sms = new WlSmsNamespace(this._client);
+        this.zoom = new WlZoomNamespace(this._client);
         this.tax = new WlTaxNamespace(this._client);
         this.virtual = new WlVirtualNamespace(this._client);
         this.holiday = new WlHolidayNamespace(this._client);

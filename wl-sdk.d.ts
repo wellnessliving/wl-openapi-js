@@ -2129,6 +2129,8 @@ export declare enum RsSkinSid {
     CATALOG_FOREIGN = 21,
     /** Event enrollment wizard widget */
     ENROLLMENT = 8,
+    /** Event widget built by microservice widget team */
+    EVENT_FOREIGN = 23,
     /** Fitbuilder widget */
     FITBUILDER = 17,
     /** Skin for lead tracking form */
@@ -6259,6 +6261,11 @@ export interface WlLeadLeadGetParams {
 export interface WlLeadLeadGetResponse {
     /** A list of profile fields in the business. Every element has the following keys: */
     a_field_list: Array<{
+        /** The additional data of the field. Its keys depend on the field type. */
+        a_data: {
+            /** The number of rows of the input of a text field. Always set for text fields: */
+            i_size?: number;
+        };
         /** A list of possible options for an HTML select field. This value is only used if this field is an ... */
         a_item: {
             /** The option ID. */
@@ -8953,6 +8960,11 @@ export interface WlSmsSmsStatusResponse {
     /** Returns the message to be displayed when A2P10DLC registration is due for a business and the user... */
     text_a2p_registration_due_message: string | null;
 }
+export interface WlZoomZoomUserReleaseParams {
+    /** Business key which currently use zoom user. */
+    k_business_use: string;
+}
+export type WlZoomZoomUserReleaseResponse = Record<string, unknown>;
 export interface WlTaxTaxParams {
     /** The tax key to get information for. */
     k_tax: string;
@@ -15235,7 +15247,7 @@ export interface WlLoginMemberMemberValidate63Response {
         /** Human-readable field title describing what value is missing. */
         text_field_title: string;
     }>;
-    /** List of profile fields that are required but empty for this user. */
+    /** List of profile fields that are required at any client entry point but empty for this user. */
     a_empty_fields_required: Array<{
         /** List of general fields in user's profile. @see RsFieldGeneralSid */
         id_field_general: RsFieldGeneralSid;
@@ -16828,6 +16840,8 @@ export interface WlProfileAttendanceAttendanceOverlapResponse {
     is_overlap: boolean;
 }
 export interface WlProfileEditEditGetParams {
+    /** `true` to return all active, non-removed profile fields of the business regardless of entry-point... */
+    is_field_all: boolean;
     /** Indicates whether to display the form as a user or as a staff member. */
     is_staff: boolean;
     /** The key of the business you're editing. */
@@ -16972,6 +16986,8 @@ export interface WlProfileEditCreateResponse {
     uid: string;
 }
 export interface WlProfileEditEditByTokenGetParams {
+    /** `true` to return all active, non-removed profile fields of the business regardless of entry-point... */
+    is_field_all: boolean;
     /** Indicates whether to display the form as a user or as a staff member. */
     is_staff: boolean;
     /** The key of the business you're editing. */
@@ -26359,7 +26375,7 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignGetResponse {
     /** `true` if the business has the diagnostic codes turned on, `false` otherwise. */
     is_system: boolean;
     /** Version of the billing codes of the visit: a value that changes every time the codes of the visit... */
-    s_version: string;
+    s_code_version: string;
 }
 export interface WlVisitBillingCodeVisitBillingCodeAssignPostParams {
     /** Business key. */
@@ -26369,7 +26385,7 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignPostParams {
 }
 export interface WlVisitBillingCodeVisitBillingCodeAssignPostResponse {
     /** Version of the billing codes of the visit: a value that changes every time the codes of the visit... */
-    s_version: string;
+    s_code_version: string;
 }
 export interface WlVisitBillingCodeVisitBillingCodeDefaultParams {
     /** Business key. */
@@ -34114,6 +34130,12 @@ export declare class WlSmsNamespace {
     /** Returns information about SMS settings. */
     smsStatus(params?: WlSmsSmsStatusParams): Promise<WlSmsSmsStatusResponse>;
 }
+export declare class WlZoomNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Releases a Zoom license used by a business. */
+    zoomUserRelease(params?: WlZoomZoomUserReleaseParams): Promise<WlZoomZoomUserReleaseResponse>;
+}
 export declare class WlTaxNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -35743,6 +35765,7 @@ export declare class WlNamespace {
     readonly location: WlLocationNamespace;
     readonly collector: WlCollectorNamespace;
     readonly sms: WlSmsNamespace;
+    readonly zoom: WlZoomNamespace;
     readonly tax: WlTaxNamespace;
     readonly virtual: WlVirtualNamespace;
     readonly holiday: WlHolidayNamespace;

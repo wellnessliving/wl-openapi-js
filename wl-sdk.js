@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261027144744
- * Build date:   2026-11-01
- * Endpoints:    685
+ * Spec version: 1.1.20261102025226
+ * Build date:   2026-11-02
+ * Endpoints:    686
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261027144744';
+  WlClient.SPEC_VERSION = '1.1.20261102025226';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (685 total)
+  // Generated API methods (686 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -1982,6 +1982,22 @@
   WlClient.prototype.wlSmsSmsStatus = function(params)
   {
     return this.request('/Wl/Sms/SmsStatus.json', params || {}, 'GET');
+  };
+
+  /**
+   * Releases a Zoom license used by a business.
+   *
+   * Makes the Zoom license free for other meetings and ends the meeting that runs on this license, if there is one.
+   * A license that belongs to the business can be released only by a staff member of this business.
+   * A system license can be released by a staff member of the business that uses it or by a system administrator.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business_use Business key which currently use zoom user.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlZoomZoomUserRelease = function(params)
+  {
+    return this.request('/Wl/Zoom/ZoomUserRelease.json', params || {}, 'PUT');
   };
 
   /**
@@ -5183,7 +5199,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_empty_fields_booking` {Object[]} List of fields if the user has empty profile fields, which are required for b...
    *  `a_empty_fields_registration` {Object[]} List of fields if the user has empty profile fields, which are required for r...
-   *  `a_empty_fields_required` {Object[]} List of profile fields that are required but empty for this user.
+   *  `a_empty_fields_required` {Object[]} List of profile fields that are required at any client entry point but empty ...
    *  `has_credit_card` {boolean} `true` If the user has credit cards on profile, otherwise `false`.
    *  `has_outstanding_contract` {boolean} `true` if the user has an outstanding contract, otherwise `false`.
    *  `has_outstanding_waiver` {boolean} `true` If the user has an outstanding waiver for the business, otherwise `fal...
@@ -5978,6 +5994,7 @@
    * @param {Object} [params] Request parameters.
    * @param {?number} [params.id_family_relation] Family role for a new user. One of {@link WlClient.RsFamilyRelationSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
+   * @param {boolean} params.is_field_all `true` to return all active, non-removed profile fields of the business regardless of entry-point...
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.uid The key of the user to edit.
@@ -6080,6 +6097,7 @@
    * @param {Object} [params] Request parameters.
    * @param {?number} [params.id_family_relation] Family role for a new user. One of {@link WlClient.RsFamilyRelationSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
+   * @param {boolean} params.is_field_all `true` to return all active, non-removed profile fields of the business regardless of entry-point...
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.text_token The security token.
@@ -11329,7 +11347,7 @@
    *  `a_history` {Object[]} History of the changes of the billing codes of the visit, the latest change f...
    *  `is_signature` {boolean} `true` if the business requires a signature when diagnostic codes of a visit ...
    *  `is_system` {boolean} `true` if the business has the diagnostic codes turned on, `false` otherwise.
-   *  `s_version` {string} Version of the billing codes of the visit: a value that changes every time th...
+   *  `s_code_version` {string} Version of the billing codes of the visit: a value that changes every time th...
    */
   WlClient.prototype.wlVisitBillingCodeVisitBillingCodeAssignGet = function(params)
   {
@@ -11351,7 +11369,7 @@
    * @param {string} params.k_business Business key.
    * @param {string} params.k_visit Visit key.
    * @returns {Promise<Object>} Response data.
-   *  `s_version` {string} Version of the billing codes of the visit: a value that changes every time th...
+   *  `s_code_version` {string} Version of the billing codes of the visit: a value that changes every time th...
    */
   WlClient.prototype.wlVisitBillingCodeVisitBillingCodeAssignPost = function(params)
   {
@@ -17142,6 +17160,8 @@
     CATALOG_FOREIGN: 21,
     /** Event enrollment wizard widget */
     ENROLLMENT: 8,
+    /** Event widget built by microservice widget team */
+    EVENT_FOREIGN: 23,
     /** Fitbuilder widget */
     FITBUILDER: 17,
     /** Skin for lead tracking form */
