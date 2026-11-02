@@ -4211,6 +4211,15 @@ export declare enum WlCollectorDebtStatusSid {
     /** Special status of the debt to indicate that it is currently in update state */
     SYNC = 7
 }
+/** Action that a client or staff performs with terms and conditions of cart items. */
+export declare enum WlCatalogTermsTermsActionSid {
+    /** Terms and conditions are accepted */
+    AGREE = 1,
+    /** Terms and conditions are declined, so items are removed from the cart */
+    DECLINE = 2,
+    /** Terms and conditions are skipped by staff in the point of sale */
+    SKIP = 3
+}
 /** Coupon date start rule. */
 export declare enum WlCouponEditActivationSid {
     /** Number of a day of the month or of the week */
@@ -4276,15 +4285,6 @@ export declare enum WlCatalogQuickPurchaseTypeSid {
     RESOURCE = 681,
     /** Service */
     SERVICE = 690
-}
-/** Action that a client or staff performs with terms and conditions of cart items. */
-export declare enum WlCatalogTermsTermsActionSid {
-    /** Terms and conditions are accepted */
-    AGREE = 1,
-    /** Terms and conditions are declined, so items are removed from the cart */
-    DECLINE = 2,
-    /** Terms and conditions are skipped by staff in the point of sale */
-    SKIP = 3
 }
 /** A list of supported social networks. */
 export declare enum ASocialSid {

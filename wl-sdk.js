@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261102093119
+ * Spec version: 1.1.20261102095212
  * Build date:   2026-11-02
  * Endpoints:    698
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261102093119';
+  WlClient.SPEC_VERSION = '1.1.20261102095212';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (698 total)
@@ -19944,6 +19944,20 @@
   });
 
   /**
+   * Action that a client or staff performs with terms and conditions of cart items.
+   *
+   * @enum {number}
+   */
+  WlClient.WlCatalogTermsTermsActionSid = Object.freeze({
+    /** Terms and conditions are accepted */
+    AGREE: 1,
+    /** Terms and conditions are declined, so items are removed from the cart */
+    DECLINE: 2,
+    /** Terms and conditions are skipped by staff in the point of sale */
+    SKIP: 3,
+  });
+
+  /**
    * Coupon date start rule.
    *
    * @enum {number}
@@ -20037,20 +20051,6 @@
     RESOURCE: 681,
     /** Service */
     SERVICE: 690,
-  });
-
-  /**
-   * Action that a client or staff performs with terms and conditions of cart items.
-   *
-   * @enum {number}
-   */
-  WlClient.WlCatalogTermsTermsActionSid = Object.freeze({
-    /** Terms and conditions are accepted */
-    AGREE: 1,
-    /** Terms and conditions are declined, so items are removed from the cart */
-    DECLINE: 2,
-    /** Terms and conditions are skipped by staff in the point of sale */
-    SKIP: 3,
   });
 
   /**

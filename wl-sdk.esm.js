@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261102093119
+// OpenAPI spec version: 1.1.20261102095212
 // Build date: 2026-11-02
 // Endpoints: 698
 // Enums: 229
@@ -4328,6 +4328,16 @@ export var WlCollectorDebtStatusSid;
     /** Special status of the debt to indicate that it is currently in update state */
     WlCollectorDebtStatusSid[WlCollectorDebtStatusSid["SYNC"] = 7] = "SYNC";
 })(WlCollectorDebtStatusSid || (WlCollectorDebtStatusSid = {}));
+/** Action that a client or staff performs with terms and conditions of cart items. */
+export var WlCatalogTermsTermsActionSid;
+(function (WlCatalogTermsTermsActionSid) {
+    /** Terms and conditions are accepted */
+    WlCatalogTermsTermsActionSid[WlCatalogTermsTermsActionSid["AGREE"] = 1] = "AGREE";
+    /** Terms and conditions are declined, so items are removed from the cart */
+    WlCatalogTermsTermsActionSid[WlCatalogTermsTermsActionSid["DECLINE"] = 2] = "DECLINE";
+    /** Terms and conditions are skipped by staff in the point of sale */
+    WlCatalogTermsTermsActionSid[WlCatalogTermsTermsActionSid["SKIP"] = 3] = "SKIP";
+})(WlCatalogTermsTermsActionSid || (WlCatalogTermsTermsActionSid = {}));
 /** Coupon date start rule. */
 export var WlCouponEditActivationSid;
 (function (WlCouponEditActivationSid) {
@@ -4400,16 +4410,6 @@ export var WlCatalogQuickPurchaseTypeSid;
     /** Service */
     WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["SERVICE"] = 690] = "SERVICE";
 })(WlCatalogQuickPurchaseTypeSid || (WlCatalogQuickPurchaseTypeSid = {}));
-/** Action that a client or staff performs with terms and conditions of cart items. */
-export var WlCatalogTermsTermsActionSid;
-(function (WlCatalogTermsTermsActionSid) {
-    /** Terms and conditions are accepted */
-    WlCatalogTermsTermsActionSid[WlCatalogTermsTermsActionSid["AGREE"] = 1] = "AGREE";
-    /** Terms and conditions are declined, so items are removed from the cart */
-    WlCatalogTermsTermsActionSid[WlCatalogTermsTermsActionSid["DECLINE"] = 2] = "DECLINE";
-    /** Terms and conditions are skipped by staff in the point of sale */
-    WlCatalogTermsTermsActionSid[WlCatalogTermsTermsActionSid["SKIP"] = 3] = "SKIP";
-})(WlCatalogTermsTermsActionSid || (WlCatalogTermsTermsActionSid = {}));
 /** A list of supported social networks. */
 export var ASocialSid;
 (function (ASocialSid) {
