@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261102132628
+ * Spec version: 1.1.20261102134455
  * Build date:   2026-11-02
- * Endpoints:    696
+ * Endpoints:    697
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261102132628';
+  WlClient.SPEC_VERSION = '1.1.20261102134455';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (696 total)
+  // Generated API methods (697 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -11732,6 +11732,22 @@
   WlClient.prototype.wlClassesPeriodModifyModifyPost = function(params)
   {
     return this.request('/Wl/Classes/Period/Modify/Modify.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns list of events in which the current user can schedule a new instance.
+   *
+   * Used by the "Schedule event" dialog of the Schedule tab. Only active events are listed, one entry for each
+   * enrollment block. "Manage events" is not required, but the user must be able to schedule future events.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_event` {Object[]} List of events sorted by title. One entry for each enrollment block.
+   */
+  WlClient.prototype.wlClassesPeriodAddEventList = function(params)
+  {
+    return this.request('/Wl/Classes/Period/Add/EventList.json', params || {}, 'GET');
   };
 
   /**

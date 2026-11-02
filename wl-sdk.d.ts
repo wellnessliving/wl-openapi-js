@@ -27150,6 +27150,19 @@ export interface WlClassesPeriodModifyModifyPostResponse {
     /** The unique hash string. */
     s_id: string;
 }
+export interface WlClassesPeriodAddEventListParams {
+    /** Business key. */
+    k_business: string;
+}
+export interface WlClassesPeriodAddEventListResponse {
+    /** List of events sorted by title. One entry for each enrollment block. */
+    a_event: Array<{
+        /** Key of the event instance which represents the enrollment block. */
+        k_class: string;
+        /** Title of the event. */
+        text_title: string;
+    }>;
+}
 export interface WlShopCategoryStaffAppCategoryParams {
     /** Key of business to get categories for. */
     k_business: string;
@@ -35925,9 +35938,16 @@ export declare class WlClassesPeriodModifyNamespace {
     /** Makes step in wizard. */
     modifyPost(params?: WlClassesPeriodModifyModifyPostParams): Promise<WlClassesPeriodModifyModifyPostResponse>;
 }
+export declare class WlClassesPeriodAddNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns list of events in which the current user can schedule a new instance. */
+    eventList(params?: WlClassesPeriodAddEventListParams): Promise<WlClassesPeriodAddEventListResponse>;
+}
 export declare class WlClassesPeriodNamespace {
     private readonly _client;
     readonly modify: WlClassesPeriodModifyNamespace;
+    readonly add: WlClassesPeriodAddNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlClassesNamespace {

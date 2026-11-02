@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261102132628
+// OpenAPI spec version: 1.1.20261102134455
 // Build date: 2026-11-02
-// Endpoints: 696
+// Endpoints: 697
 // Enums: 222
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -9936,10 +9936,20 @@ export class WlClassesPeriodModifyNamespace {
         return this._client._request('/Wl/Classes/Period/Modify/Modify.json', params, 'POST');
     }
 }
+export class WlClassesPeriodAddNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns list of events in which the current user can schedule a new instance. */
+    eventList(params) {
+        return this._client._request('/Wl/Classes/Period/Add/EventList.json', params, 'GET');
+    }
+}
 export class WlClassesPeriodNamespace {
     constructor(_client) {
         this._client = _client;
         this.modify = new WlClassesPeriodModifyNamespace(this._client);
+        this.add = new WlClassesPeriodAddNamespace(this._client);
     }
 }
 export class WlClassesNamespace {
