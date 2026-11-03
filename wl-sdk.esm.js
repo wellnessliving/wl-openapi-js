@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261103101259
+// OpenAPI spec version: 1.1.20261103104520
 // Build date: 2026-11-03
-// Endpoints: 698
+// Endpoints: 699
 // Enums: 222
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -8616,6 +8616,10 @@ export class WlTicketNamespace {
     /** Undoes the check-in of the ticket. */
     ticketUndo(params) {
         return this._client._request('/Wl/Ticket/TicketUndo.json', params, 'POST');
+    }
+    /** Sends the tickets of the purchase. */
+    ticketMail(params) {
+        return this._client._request('/Wl/Ticket/TicketMail.json', params, 'POST');
     }
     /** Checks in the tickets. */
     ticketScanList(params) {
