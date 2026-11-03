@@ -2374,6 +2374,10 @@ export declare enum RsMailSid {
     PASSPORT_LOGIN_ENTER = 187,
     /** Notification about email address is changed due to merge */
     PASSPORT_LOGIN_MERGE = 205,
+    /** Notification to a staff member that a passkey was added to their account */
+    PASSPORT_PASSKEY_ADD = 226,
+    /** Notification to a staff member that a passkey was removed from their account */
+    PASSPORT_PASSKEY_REMOVE = 227,
     /** E-mail with a list of user's payment account transactions for last `62` days */
     PAY_ACCOUNT_INVOICE = 85,
     /** Automatic payment success */
@@ -3378,7 +3382,7 @@ export declare enum CorePassportPasskeyPasskeyDeviceTypeEnum {
 export declare enum CorePassportPasskeyPasskeyCredentialStatusEnum {
     /** The credential is active and may be used to sign in */
     ACTIVE = 1,
-    /** The credential was revoked by its owner and may no longer be used to sign in */
+    /** The credential was revoked and may no longer be used to sign in */
     REVOKED = 2
 }
 /** List of image types. */
@@ -5681,6 +5685,8 @@ export declare enum WlPageBackendFeatureFeatureSid {
     MARKETING = 12,
     /** Page with information about partner program */
     PARTNER = 19,
+    /** Passkeys of the signed-in staff member */
+    PASSKEY = 38,
     /** Presence landing page, where staff can get their custom website */
     PRESENCE = 23,
     /** Quiz form creator */
@@ -10611,13 +10617,17 @@ export interface CorePassportPasskeyPasskeyRegisterPostParams {
 }
 export type CorePassportPasskeyPasskeyRegisterPostResponse = Record<string, unknown>;
 export interface CorePassportPasskeyPasskeyCredentialDeleteParams {
-    /** Key of the credential to revoke. */
+    /** JSON-encoded structure with any additional information required by the project-specific */
+    json_context: string;
+    /** Key of the credential to revoke or to rename. */
     k_passkey_credential: string;
     /** Key of the user whose passkey credentials to manage. `'0'` or empty string to use the */
     uid: string;
 }
 export type CorePassportPasskeyPasskeyCredentialDeleteResponse = Record<string, unknown>;
 export interface CorePassportPasskeyPasskeyCredentialGetParams {
+    /** JSON-encoded structure with any additional information required by the project-specific */
+    json_context: string;
     /** Key of the user whose passkey credentials to manage. `'0'` or empty string to use the */
     uid: string;
 }
@@ -10636,10 +10646,15 @@ export interface CorePassportPasskeyPasskeyCredentialGetResponse {
         is_backed_up: boolean;
         /** Credential key. */
         k_passkey_credential: string;
-        /** User-supplied friendly label of this credential. */
+        /** Name of this credential, assigned at registration and changed by `put()`. */
         text_device: string;
     }>;
 }
+export interface CorePassportPasskeyPasskeyCredentialPutParams {
+    /** Key of the credential to revoke or to rename. */
+    k_passkey_credential: string;
+}
+export type CorePassportPasskeyPasskeyCredentialPutResponse = Record<string, unknown>;
 export interface CorePassportChangePasswordChangePasswordApplyParams {
     /** The verification code, which can be obtained from the "reset password" email link. This is a requ... */
     text_code: string;
@@ -33725,6 +33740,8 @@ export declare class CorePassportPasskeyNamespace {
     passkeyCredentialDelete(params?: CorePassportPasskeyPasskeyCredentialDeleteParams): Promise<CorePassportPasskeyPasskeyCredentialDeleteResponse>;
     /** Lists the user's registered passkey credentials. */
     passkeyCredentialGet(params?: CorePassportPasskeyPasskeyCredentialGetParams): Promise<CorePassportPasskeyPasskeyCredentialGetResponse>;
+    /** Renames one of the signed-in user's own passkey credentials. */
+    passkeyCredentialPut(params?: CorePassportPasskeyPasskeyCredentialPutParams): Promise<CorePassportPasskeyPasskeyCredentialPutResponse>;
 }
 export declare class CorePassportChangePasswordNamespace {
     private readonly _client;

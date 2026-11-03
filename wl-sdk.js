@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261103111006
+ * Spec version: 1.1.20261103114400
  * Build date:   2026-11-03
- * Endpoints:    699
+ * Endpoints:    700
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261103111006';
+  WlClient.SPEC_VERSION = '1.1.20261103114400';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (699 total)
+  // Generated API methods (700 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -3060,11 +3060,13 @@
   /**
    * Revokes one of the signed-in user's passkey credentials.
    *
-   * Marks the credential as revoked rather than deleting the row.  A credential owned by another user can not be
-   * revoked.
+   * Deletes the row of the credential. The audit of the removal is the entry of the sign-in log written by
+   * `PassportPasskey::logWrite()`, not the row. A credential of another user can be revoked only
+   * if PasskeyConfigAbstract::checkManage() allows it.
    *
    * @param {Object} [params] Request parameters.
-   * @param {string} params.k_passkey_credential Key of the credential to revoke.
+   * @param {string} params.json_context JSON-encoded structure with any additional information required by the project-specific
+   * @param {string} params.k_passkey_credential Key of the credential to revoke or to rename.
    * @param {string} params.uid Key of the user whose passkey credentials to manage. `'0'` or empty string to use the
    * @returns {Promise<Object>} Response data.
    */
@@ -3076,9 +3078,10 @@
   /**
    * Lists the user's registered passkey credentials.
    *
-   * Includes revoked credentials.
+   * Includes credentials revoked before revoking started to delete the row.
    *
    * @param {Object} [params] Request parameters.
+   * @param {string} params.json_context JSON-encoded structure with any additional information required by the project-specific
    * @param {string} params.uid Key of the user whose passkey credentials to manage. `'0'` or empty string to use the
    * @returns {Promise<Object>} Response data.
    *  `a_credential` {Object[]} List of the signed-in user's registered passkey credentials.
@@ -3086,6 +3089,22 @@
   WlClient.prototype.corePassportPasskeyPasskeyCredentialGet = function(params)
   {
     return this.request('/Core/Passport/Passkey/PasskeyCredential.json', params || {}, 'GET');
+  };
+
+  /**
+   * Renames one of the signed-in user's own passkey credentials.
+   *
+   * Saves the new name as it is entered, even if another passkey of the user has the same name, so no number is
+   * added. A passkey of another user cannot be renamed, whatever the project configuration allows to manage. The
+   * rename is not written to the sign-in log: the log has only the entries of adding and removing a passkey.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_passkey_credential Key of the credential to revoke or to rename.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.corePassportPasskeyPasskeyCredentialPut = function(params)
+  {
+    return this.request('/Core/Passport/Passkey/PasskeyCredential.json', params || {}, 'PUT');
   };
 
   /**
@@ -17652,6 +17671,10 @@
     PASSPORT_LOGIN_ENTER: 187,
     /** Notification about email address is changed due to merge */
     PASSPORT_LOGIN_MERGE: 205,
+    /** Notification to a staff member that a passkey was added to their account */
+    PASSPORT_PASSKEY_ADD: 226,
+    /** Notification to a staff member that a passkey was removed from their account */
+    PASSPORT_PASSKEY_REMOVE: 227,
     /** E-mail with a list of user's payment account transactions for last `62` days */
     PAY_ACCOUNT_INVOICE: 85,
     /** Automatic payment success */
@@ -18926,7 +18949,7 @@
   WlClient.CorePassportPasskeyPasskeyCredentialStatusEnum = Object.freeze({
     /** The credential is active and may be used to sign in */
     ACTIVE: 1,
-    /** The credential was revoked by its owner and may no longer be used to sign in */
+    /** The credential was revoked and may no longer be used to sign in */
     REVOKED: 2,
   });
 
@@ -21824,6 +21847,8 @@
     MARKETING: 12,
     /** Page with information about partner program */
     PARTNER: 19,
+    /** Passkeys of the signed-in staff member */
+    PASSKEY: 38,
     /** Presence landing page, where staff can get their custom website */
     PRESENCE: 23,
     /** Quiz form creator */

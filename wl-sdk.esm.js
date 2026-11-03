@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261103111006
+// OpenAPI spec version: 1.1.20261103114400
 // Build date: 2026-11-03
-// Endpoints: 699
+// Endpoints: 700
 // Enums: 222
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -2399,6 +2399,10 @@ export var RsMailSid;
     RsMailSid[RsMailSid["PASSPORT_LOGIN_ENTER"] = 187] = "PASSPORT_LOGIN_ENTER";
     /** Notification about email address is changed due to merge */
     RsMailSid[RsMailSid["PASSPORT_LOGIN_MERGE"] = 205] = "PASSPORT_LOGIN_MERGE";
+    /** Notification to a staff member that a passkey was added to their account */
+    RsMailSid[RsMailSid["PASSPORT_PASSKEY_ADD"] = 226] = "PASSPORT_PASSKEY_ADD";
+    /** Notification to a staff member that a passkey was removed from their account */
+    RsMailSid[RsMailSid["PASSPORT_PASSKEY_REMOVE"] = 227] = "PASSPORT_PASSKEY_REMOVE";
     /** E-mail with a list of user's payment account transactions for last `62` days */
     RsMailSid[RsMailSid["PAY_ACCOUNT_INVOICE"] = 85] = "PAY_ACCOUNT_INVOICE";
     /** Automatic payment success */
@@ -3457,7 +3461,7 @@ export var CorePassportPasskeyPasskeyCredentialStatusEnum;
 (function (CorePassportPasskeyPasskeyCredentialStatusEnum) {
     /** The credential is active and may be used to sign in */
     CorePassportPasskeyPasskeyCredentialStatusEnum[CorePassportPasskeyPasskeyCredentialStatusEnum["ACTIVE"] = 1] = "ACTIVE";
-    /** The credential was revoked by its owner and may no longer be used to sign in */
+    /** The credential was revoked and may no longer be used to sign in */
     CorePassportPasskeyPasskeyCredentialStatusEnum[CorePassportPasskeyPasskeyCredentialStatusEnum["REVOKED"] = 2] = "REVOKED";
 })(CorePassportPasskeyPasskeyCredentialStatusEnum || (CorePassportPasskeyPasskeyCredentialStatusEnum = {}));
 /** List of image types. */
@@ -5879,6 +5883,8 @@ export var WlPageBackendFeatureFeatureSid;
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["MARKETING"] = 12] = "MARKETING";
     /** Page with information about partner program */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["PARTNER"] = 19] = "PARTNER";
+    /** Passkeys of the signed-in staff member */
+    WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["PASSKEY"] = 38] = "PASSKEY";
     /** Presence landing page, where staff can get their custom website */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["PRESENCE"] = 23] = "PRESENCE";
     /** Quiz form creator */
@@ -6496,6 +6502,10 @@ export class CorePassportPasskeyNamespace {
     /** Lists the user's registered passkey credentials. */
     passkeyCredentialGet(params) {
         return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'GET');
+    }
+    /** Renames one of the signed-in user's own passkey credentials. */
+    passkeyCredentialPut(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'PUT');
     }
 }
 export class CorePassportChangePasswordNamespace {

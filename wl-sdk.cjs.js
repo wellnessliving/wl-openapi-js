@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261103111006
+// OpenAPI spec version: 1.1.20261103114400
 // Build date: 2026-11-03
-// Endpoints: 699
+// Endpoints: 700
 // Enums: 222
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CoreSidYesNoSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.AFlagSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsPrivilegeRoleSid = exports.RsPayMethodSid = exports.RsProjectSid = exports.RsHomeTourSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.RsMailSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.ADurationSid = exports.WlBusinessAccountWebsiteSid = exports.WlAiAgentPhoneCallOutcomeEnum = exports.ThothWlPayPayExceptionSid = exports.RsMailCopySid = exports.RsPurchaseItemSid = exports.RsServiceSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AGenderSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlTaskTaskStatusSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlApiError = void 0;
@@ -2416,6 +2416,10 @@ var RsMailSid;
     RsMailSid[RsMailSid["PASSPORT_LOGIN_ENTER"] = 187] = "PASSPORT_LOGIN_ENTER";
     /** Notification about email address is changed due to merge */
     RsMailSid[RsMailSid["PASSPORT_LOGIN_MERGE"] = 205] = "PASSPORT_LOGIN_MERGE";
+    /** Notification to a staff member that a passkey was added to their account */
+    RsMailSid[RsMailSid["PASSPORT_PASSKEY_ADD"] = 226] = "PASSPORT_PASSKEY_ADD";
+    /** Notification to a staff member that a passkey was removed from their account */
+    RsMailSid[RsMailSid["PASSPORT_PASSKEY_REMOVE"] = 227] = "PASSPORT_PASSKEY_REMOVE";
     /** E-mail with a list of user's payment account transactions for last `62` days */
     RsMailSid[RsMailSid["PAY_ACCOUNT_INVOICE"] = 85] = "PAY_ACCOUNT_INVOICE";
     /** Automatic payment success */
@@ -3474,7 +3478,7 @@ var CorePassportPasskeyPasskeyCredentialStatusEnum;
 (function (CorePassportPasskeyPasskeyCredentialStatusEnum) {
     /** The credential is active and may be used to sign in */
     CorePassportPasskeyPasskeyCredentialStatusEnum[CorePassportPasskeyPasskeyCredentialStatusEnum["ACTIVE"] = 1] = "ACTIVE";
-    /** The credential was revoked by its owner and may no longer be used to sign in */
+    /** The credential was revoked and may no longer be used to sign in */
     CorePassportPasskeyPasskeyCredentialStatusEnum[CorePassportPasskeyPasskeyCredentialStatusEnum["REVOKED"] = 2] = "REVOKED";
 })(CorePassportPasskeyPasskeyCredentialStatusEnum || (exports.CorePassportPasskeyPasskeyCredentialStatusEnum = CorePassportPasskeyPasskeyCredentialStatusEnum = {}));
 /** List of image types. */
@@ -5896,6 +5900,8 @@ var WlPageBackendFeatureFeatureSid;
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["MARKETING"] = 12] = "MARKETING";
     /** Page with information about partner program */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["PARTNER"] = 19] = "PARTNER";
+    /** Passkeys of the signed-in staff member */
+    WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["PASSKEY"] = 38] = "PASSKEY";
     /** Presence landing page, where staff can get their custom website */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["PRESENCE"] = 23] = "PRESENCE";
     /** Quiz form creator */
@@ -6536,6 +6542,10 @@ class CorePassportPasskeyNamespace {
     /** Lists the user's registered passkey credentials. */
     passkeyCredentialGet(params) {
         return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'GET');
+    }
+    /** Renames one of the signed-in user's own passkey credentials. */
+    passkeyCredentialPut(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'PUT');
     }
 }
 exports.CorePassportPasskeyNamespace = CorePassportPasskeyNamespace;
