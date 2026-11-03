@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261102025226
+ * Spec version: 1.1.20261103041857
  * Build date:   2026-11-03
- * Endpoints:    686
+ * Endpoints:    684
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261102025226';
+  WlClient.SPEC_VERSION = '1.1.20261103041857';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (686 total)
+  // Generated API methods (684 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2315,12 +2315,14 @@
    *
    * Loads the business's white-label status and derives whether the "Powered by WellnessLiving"
    * branding and the Terms and Conditions link should be shown in the footer. The result is stored in
-   * {@link WlClient#thothLayoutBeFooterFooter}.
+   * {@link WlClient#thothLayoutBeFooterFooter}. The URL of the tour page of the business type, which the badge links to, is
+   * loaded into {@link WlClient#thothLayoutBeFooterFooter}.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key to get footer data for.
    * @returns {Promise<Object>} Response data.
    *  `show_term` {boolean} Whether the "Powered by WellnessLiving" branding and Terms & Conditions links...
+   *  `url_tour` {string} URL of the tour page of the business type on the site of `WellnessLiving`.
    */
   WlClient.prototype.thothLayoutBeFooterFooter = function(params)
   {
@@ -5546,64 +5548,6 @@
   WlClient.prototype.wlMemberInfoInfo = function(params)
   {
     return this.request('/Wl/Member/Info/Info.json', params || {}, 'GET');
-  };
-
-  /**
-   * Returns everything the class setup form needs.
-   *
-   * The form is rendered by the client, so this endpoint answers with data: the settings of the class, the lists the
-   * Book Now Tab, the quick search tag and the store category pickers are filled from, the
-   * send rules of the client reminder, the currency sign, whether the Administration section may be shown, the
-   * addresses of the pages the form links to and the markup of the blocks that have no template on the client.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_class Class key.
-   * @returns {Promise<Object>} Response data.
-   *  `a_class` {Object} Settings of the class the form edits.
-   *  `a_class_tab_list` {Object[]} Book Now Tabs the class may be shown in. Every element is an array:
-   *  `a_reminder_info` {Object} Send rules of the client reminder. Keys are:
-   *  `a_replace_available` {Object[]} Classes and events of the business that a client may use a make-up session on...
-   *  `a_search_tag_list` {Object[]} Quick search tags of the category of the business. Every element is an array:
-   *  `a_shop_category_list` {Object[]} Store categories of the business. Every element is an array:
-   *  `a_url` {Object[]} Addresses of the pages the form links to:
-   *  `html_policy` {string} Markup of the Business policies block of the form.
-   *  `html_prerequisite` {string} Markup of the Prerequisites block of the form.
-   *  `html_promotion` {string} Markup of the Purchase Options block of the form.
-   *  `html_quick_buy` {string} Markup of the Quick Buy block of the form.
-   *  `html_tax` {string} Markup of the Taxes block of the form.
-   *  `i_description_limit` {number} Maximum length of the description of a class that is not virtual.
-   *  `i_description_limit_virtual` {number} Maximum length of the description of a virtual class.
-   *  `is_admin` {boolean} `true` if the Administration section may be shown, `false` otherwise.
-   *  `is_birthday_require` {boolean} `true` if the birthdate is a required field of the client profile of the busi...
-   *  `is_currency_before` {boolean} `true` if the sign of the currency of the business is written before the amou...
-   *  `is_event_type_lock` {boolean} `true` if the event may no longer be turned into a ticketed one, or back from...
-   *  `is_fitlive` {boolean} `true` if the business may use the FitLIVE virtual provider, `false` otherwise.
-   *  `is_gym_pass_support` {boolean} `true` if the business may offer the class on Wellhub, `false` otherwise.
-   *  `...` {*}
-   */
-  WlClient.prototype.wlClassesEditorClassEditorGet = function(params)
-  {
-    return this.request('/Wl/Classes/Editor/ClassEditor.json', params || {}, 'GET');
-  };
-
-  /**
-   * Saves the class.
-   *
-   * Creates the class while {@link WlClient#wlClassesEditorClassEditorGet} is empty, and changes the class otherwise. The settings
-   * come in {@link WlClient#wlClassesEditorClassEditorGet}, which has the same fields the load answers with. The key of the class
-   * that has been written is answered with in {@link WlClient#wlClassesEditorClassEditorGet}. An error of a field is reported
-   * with the name of the field on the form, one error for every field that failed.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {string} params.k_business Business key.
-   * @param {string} params.k_class Class key.
-   * @returns {Promise<Object>} Response data.
-   *  `k_class_save` {string} Key of the class the save wrote.
-   */
-  WlClient.prototype.wlClassesEditorClassEditorPost = function(params)
-  {
-    return this.request('/Wl/Classes/Editor/ClassEditor.json', params || {}, 'POST');
   };
 
   /**
@@ -14753,7 +14697,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (243 total)
+  // Enum constants (236 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -17801,6 +17745,20 @@
   });
 
   /**
+   * Action that a client or staff performs with terms and conditions of cart items.
+   *
+   * @enum {number}
+   */
+  WlClient.WlCatalogTermsTermsActionSid = Object.freeze({
+    /** Terms and conditions are accepted */
+    AGREE: 1,
+    /** Terms and conditions are declined, so items are removed from the cart */
+    DECLINE: 2,
+    /** Terms and conditions are skipped by staff in the point of sale */
+    SKIP: 3,
+  });
+
+  /**
    * Coupon date start rule.
    *
    * @enum {number}
@@ -17894,20 +17852,6 @@
     RESOURCE: 681,
     /** Service */
     SERVICE: 690,
-  });
-
-  /**
-   * Action that a client or staff performs with terms and conditions of cart items.
-   *
-   * @enum {number}
-   */
-  WlClient.WlCatalogTermsTermsActionSid = Object.freeze({
-    /** Terms and conditions are accepted */
-    AGREE: 1,
-    /** Terms and conditions are declined, so items are removed from the cart */
-    DECLINE: 2,
-    /** Terms and conditions are skipped by staff in the point of sale */
-    SKIP: 3,
   });
 
   /**
@@ -18141,36 +18085,6 @@
   });
 
   /**
-   * Type of the event, which defines how clients book it and how they pay for it.
-   *
-   * @enum {number}
-   */
-  WlClient.WlClassesEditEventTypeEnum = Object.freeze({
-    /** Clients book the event once and attend every session in the schedule */
-    BLOCK: 2,
-    /** Clients pick which sessions to book and can pay per session */
-    NON_BLOCK: 1,
-    /** Tickets are sold for a set number of seats and are paid up front. Anyone can buy a ticket, */
-    TICKETED: 3,
-  });
-
-  /**
-   * Age restriction statuses.
-   *
-   * @enum {number}
-   */
-  WlClient.WlServiceAgeRestrictionStatusSid = Object.freeze({
-    /** Client age must be between limits */
-    AGE_BETWEEN: 2,
-    /** Client is available to book service */
-    AVAILABLE: 1,
-    /** Client age must be less then max age */
-    MAX_AGE: 3,
-    /** Client age must be great then min age */
-    MIN_AGE: 4,
-  });
-
-  /**
    * A list of bookable types.
    *
    * @enum {number}
@@ -18182,86 +18096,6 @@
     CUSTOM: 3,
     /** Nobody can book */
     NONE: 2,
-  });
-
-  /**
-   * A list of resource selection type.
-   *
-   * @enum {number}
-   */
-  WlClient.WlResourceResourceClientControlSid = Object.freeze({
-    /** Means that client cannot select resource during booking process */
-    OFF: 2,
-    /** Means that client can select resource during booking process */
-    ON: 1,
-  });
-
-  /**
-   * A list of resource usage types.
-   *
-   * @enum {number}
-   */
-  WlClient.WlResourceResourceUseSid = Object.freeze({
-    /** Means that resource used in individual usage */
-    INDIVIDUAL: 1,
-    /** Resource is reserved for the entire class */
-    SHARE: 2,
-  });
-
-  /**
-   * Meaning of the early bird amount.
-   *
-   * @enum {number}
-   */
-  WlClient.WlClassesEditEarlyAmountEnum = Object.freeze({
-    /** The amount is a discount in the currency of the business */
-    DISCOUNT: 2,
-    /** The amount is a discount in percent of the regular price of the event */
-    PERCENT: 3,
-    /** The amount is the price that replaces the regular price of the event */
-    PRICE: 1,
-  });
-
-  /**
-   * The way the end of the early bird period is specified for the event.
-   *
-   * @enum {number}
-   */
-  WlClient.WlClassesEditEarlyPeriodEnum = Object.freeze({
-    /** The period ends a certain amount of time before the event starts */
-    BEFORE: 2,
-    /** The period ends on the date */
-    DATE: 1,
-  });
-
-  /**
-   * Event time enrollment rules.
-   *
-   * @enum {number}
-   */
-  WlClient.WlClassesEditEnrollTimeSid = Object.freeze({
-    /** Deny enrollment of the event that is in progress */
-    PROGRESS_DENY: 1,
-    /** Allow enrollment to event in progress with full payment */
-    PROGRESS_FULL: 3,
-    /** Allow enrollment to event in progress with prorated payment */
-    PROGRESS_PRORATE: 2,
-  });
-
-  /**
-   * List of possible modes to require amount while booking a class.
-   *
-   * @enum {number}
-   */
-  WlClient.WlClassesRequirePaySid = Object.freeze({
-    /** Clients can pay online or pay when they visit */
-    ADVANCE: 3,
-    /** Client should leave a deposit before booking an event */
-    DEPOSIT: 4,
-    /** Client must purchase online */
-    ONLINE: 1,
-    /** Clients can only pay when they visit. Online payment is not available */
-    VISIT: 2,
   });
 
   /**
@@ -19192,6 +19026,22 @@
     SESSION: 11,
     /** A list of possible Purchase Options to be bought */
     STORE: 3,
+  });
+
+  /**
+   * List of possible modes to require amount while booking a class.
+   *
+   * @enum {number}
+   */
+  WlClient.WlClassesRequirePaySid = Object.freeze({
+    /** Clients can pay online or pay when they visit */
+    ADVANCE: 3,
+    /** Client should leave a deposit before booking an event */
+    DEPOSIT: 4,
+    /** Client must purchase online */
+    ONLINE: 1,
+    /** Clients can only pay when they visit. Online payment is not available */
+    VISIT: 2,
   });
 
   /**

@@ -2603,6 +2603,15 @@ export declare enum WlVisitNoteSidNoteSid {
     /** Accompanying medical note for the customer visit */
     SOAP = 1
 }
+/** Action that a client or staff performs with terms and conditions of cart items. */
+export declare enum WlCatalogTermsTermsActionSid {
+    /** Terms and conditions are accepted */
+    AGREE = 1,
+    /** Terms and conditions are declined, so items are removed from the cart */
+    DECLINE = 2,
+    /** Terms and conditions are skipped by staff in the point of sale */
+    SKIP = 3
+}
 /** Coupon date start rule. */
 export declare enum WlCouponEditActivationSid {
     /** Number of a day of the month or of the week */
@@ -2668,15 +2677,6 @@ export declare enum WlCatalogQuickPurchaseTypeSid {
     RESOURCE = 681,
     /** Service */
     SERVICE = 690
-}
-/** Action that a client or staff performs with terms and conditions of cart items. */
-export declare enum WlCatalogTermsTermsActionSid {
-    /** Terms and conditions are accepted */
-    AGREE = 1,
-    /** Terms and conditions are declined, so items are removed from the cart */
-    DECLINE = 2,
-    /** Terms and conditions are skipped by staff in the point of sale */
-    SKIP = 3
 }
 /** Shapes of lead stage icons. */
 export declare enum WlLeadStageLeadStageShapeSid {
@@ -2848,26 +2848,6 @@ export declare enum WlLoginTypeClientTypeSid {
     /** Record contains type of client */
     PASSHOLDER = 2
 }
-/** Type of the event, which defines how clients book it and how they pay for it. */
-export declare enum WlClassesEditEventTypeEnum {
-    /** Clients book the event once and attend every session in the schedule */
-    BLOCK = 2,
-    /** Clients pick which sessions to book and can pay per session */
-    NON_BLOCK = 1,
-    /** Tickets are sold for a set number of seats and are paid up front. Anyone can buy a ticket, */
-    TICKETED = 3
-}
-/** Age restriction statuses. */
-export declare enum WlServiceAgeRestrictionStatusSid {
-    /** Client age must be between limits */
-    AGE_BETWEEN = 2,
-    /** Client is available to book service */
-    AVAILABLE = 1,
-    /** Client age must be less then max age */
-    MAX_AGE = 3,
-    /** Client age must be great then min age */
-    MIN_AGE = 4
-}
 /** A list of bookable types. */
 export declare enum WlServiceBookableSid {
     /** All users can book */
@@ -2876,56 +2856,6 @@ export declare enum WlServiceBookableSid {
     CUSTOM = 3,
     /** Nobody can book */
     NONE = 2
-}
-/** A list of resource selection type. */
-export declare enum WlResourceResourceClientControlSid {
-    /** Means that client cannot select resource during booking process */
-    OFF = 2,
-    /** Means that client can select resource during booking process */
-    ON = 1
-}
-/** A list of resource usage types. */
-export declare enum WlResourceResourceUseSid {
-    /** Means that resource used in individual usage */
-    INDIVIDUAL = 1,
-    /** Resource is reserved for the entire class */
-    SHARE = 2
-}
-/** Meaning of the early bird amount. */
-export declare enum WlClassesEditEarlyAmountEnum {
-    /** The amount is a discount in the currency of the business */
-    DISCOUNT = 2,
-    /** The amount is a discount in percent of the regular price of the event */
-    PERCENT = 3,
-    /** The amount is the price that replaces the regular price of the event */
-    PRICE = 1
-}
-/** The way the end of the early bird period is specified for the event. */
-export declare enum WlClassesEditEarlyPeriodEnum {
-    /** The period ends a certain amount of time before the event starts */
-    BEFORE = 2,
-    /** The period ends on the date */
-    DATE = 1
-}
-/** Event time enrollment rules. */
-export declare enum WlClassesEditEnrollTimeSid {
-    /** Deny enrollment of the event that is in progress */
-    PROGRESS_DENY = 1,
-    /** Allow enrollment to event in progress with full payment */
-    PROGRESS_FULL = 3,
-    /** Allow enrollment to event in progress with prorated payment */
-    PROGRESS_PRORATE = 2
-}
-/** List of possible modes to require amount while booking a class. */
-export declare enum WlClassesRequirePaySid {
-    /** Clients can pay online or pay when they visit */
-    ADVANCE = 3,
-    /** Client should leave a deposit before booking an event */
-    DEPOSIT = 4,
-    /** Client must purchase online */
-    ONLINE = 1,
-    /** Clients can only pay when they visit. Online payment is not available */
-    VISIT = 2
 }
 /** Promotion or package date start rule. */
 export declare enum RsActivationSid {
@@ -3756,6 +3686,17 @@ export declare enum WlBookProcessProcessSpaSid {
     SESSION = 11,
     /** A list of possible Purchase Options to be bought */
     STORE = 3
+}
+/** List of possible modes to require amount while booking a class. */
+export declare enum WlClassesRequirePaySid {
+    /** Clients can pay online or pay when they visit */
+    ADVANCE = 3,
+    /** Client should leave a deposit before booking an event */
+    DEPOSIT = 4,
+    /** Client must purchase online */
+    ONLINE = 1,
+    /** Clients can only pay when they visit. Online payment is not available */
+    VISIT = 2
 }
 /** List sources of the view video. */
 export declare enum WlVideoWatchWatchSourceSid {
@@ -9319,6 +9260,8 @@ export interface ThothLayoutBeFooterFooterParams {
 export interface ThothLayoutBeFooterFooterResponse {
     /** Whether the "Powered by WellnessLiving" branding and Terms & Conditions links are shown in the fo... */
     show_term: boolean;
+    /** URL of the tour page of the business type on the site of `WellnessLiving`. */
+    url_tour: string;
 }
 export type WlReportGeneratorQueryParams = Record<string, unknown>;
 export interface WlReportGeneratorQueryResponse {
@@ -15761,333 +15704,6 @@ export interface WlMemberInfoInfoResponse {
     url_barcode: string;
     /** URL to email. */
     url_email: string;
-}
-export interface WlClassesEditorClassEditorGetParams {
-    /** Business key. */
-    k_business: string;
-    /** Class key. */
-    k_class: string;
-}
-export interface WlClassesEditorClassEditorGetResponse {
-    /** Settings of the class the form edits. */
-    a_class: {
-        /** Number of clients that may book each session of the class. */
-        i_capacity: number;
-        /** Type of the event, which defines how clients book it and how they pay for it. @see WlClassesEditEventTypeEnum */
-        id_event_type: WlClassesEditEventTypeEnum;
-        /** A list of types of visit note. @see WlVisitNoteSidNoteSid */
-        id_note: WlVisitNoteSidNoteSid;
-        /** List of possible value of virtual integrations. @see WlVirtualVirtualProviderSid */
-        id_virtual_provider?: WlVirtualVirtualProviderSid | null;
-        /** `true` if the class has policies of its own, `false` if it follows the policies of the business. */
-        is_config_business: boolean;
-        /** Settings that tell who may book the class. */
-        o_access: {
-            /** Keys of the client types that may book the class. */
-            a_login_type: Array<string>;
-            /** Keys of the client types staff may book into the class. */
-            a_login_type_staff: Array<string>;
-            /** Keys of the client groups that may book the class. */
-            a_member_group: Array<string>;
-            /** Months above the whole years of the minimum age of a client of the class. */
-            i_age_from_month?: number | null;
-            /** Whole years of the minimum age of a client of the class. */
-            i_age_from_year?: number | null;
-            /** Months above the whole years of the maximum age of a client of the class. */
-            i_age_to_month?: number | null;
-            /** Whole years of the maximum age of a client of the class. */
-            i_age_to_year?: number | null;
-            /** Age restriction statuses. @see WlServiceAgeRestrictionStatusSid */
-            id_age_restrict: WlServiceAgeRestrictionStatusSid;
-            /** A list of bookable types. @see WlServiceBookableSid */
-            id_bookable: WlServiceBookableSid;
-            /** `true` if the class is shown to a client who does not meet its age requirement, `false` if it is ... */
-            is_age_public: boolean;
-            /** `true` if the class has an age restriction, `false` otherwise. */
-            is_age_restrict: boolean;
-            /** `true` if staff agreed to make the birthdate a required field of the client profile, `false` othe... */
-            is_birthday_update_require: boolean;
-            /** `true` if staff may book any client type into the class, `false` if only the client types of */
-            is_bookable_staff: boolean;
-            /** `true` if the class is hidden from a client who may not book it, `false` if it is shown to them. */
-            is_online_private: boolean;
-        };
-        /** Settings of the way the class is attended. */
-        o_attendance: {
-            /** Classes and events a client may transfer a missed session of this one to as a make-up. */
-            a_replace: Array<string>;
-            /** Book-a-Spot asset categories the class requires. */
-            a_resource_type: {
-                /** A list of resource selection type. @see WlResourceResourceClientControlSid */
-                id_resource_control: WlResourceResourceClientControlSid;
-                /** A list of resource usage types. @see WlResourceResourceUseSid */
-                id_resource_use: WlResourceResourceUseSid;
-                /** Key of the category. */
-                k_resource_type: string;
-            };
-            /** Maximum number of make-up sessions a client may take. */
-            i_makeup_cap: number;
-            /** `true` if a client must attend other services before booking this one, `false` otherwise. */
-            is_prerequisite: boolean;
-            /** `true` if staff may sell products from the attendance list of the class, `false` otherwise. */
-            is_quick_buy: boolean;
-            /** `true` if a client may transfer a missed session of this class to an eligible make-up class or ev... */
-            is_replace: boolean;
-            /** `true` if the class requires Book-a-Spot assets, `false` otherwise. */
-            is_resource_type: boolean;
-            /** `true` if staff may book individual sessions of a block event, `false` otherwise. */
-            is_staff_session: boolean;
-        };
-        /** Settings that tell where the class is listed. */
-        o_discovery: {
-            /** Keys of the Book Now Tabs the class is shown in. */
-            a_class_tab: Array<string>;
-            /** Keys of the quick search tags of the class. */
-            a_search_tag: Array<string>;
-            /** Keys of the store categories the class is listed under. */
-            a_shop_category: Array<string>;
-            /** Keys of the revenue categories the drop-in revenue of the class is tracked under. */
-            a_tag: Array<string>;
-            /** `true` if the class is hidden in the White Label Achieve Client App, `false` if it is shown there. */
-            hide_application: boolean;
-            /** `true` if the class is offered on Wellhub, `false` otherwise. */
-            is_gym_pass: boolean;
-            /** Key of the revenue category the drop-in revenue of the class is tracked under first of all. */
-            k_tag_primary: string;
-            /** Revenue the business earns per client per session of a class offered on Wellhub. */
-            m_revenue_gym_pass: string;
-        };
-        /** Notification settings of the class. */
-        o_notification: {
-            /** `true` if the clients of the class receive the default client notifications, `false` otherwise. */
-            is_client_notification: boolean;
-            /** `true` if the clients of the class receive a confirmation notification of its own, `false` if the... */
-            is_custom_confirmation: boolean;
-            /** `true` if the confirmation notification of the class is sent by email, `false` otherwise. */
-            is_custom_confirmation_mail: boolean;
-            /** `true` if the confirmation notification of the class is sent as a push message, `false` otherwise. */
-            is_custom_confirmation_push: boolean;
-            /** `true` if the confirmation notification of the class is sent by SMS, `false` otherwise. */
-            is_custom_confirmation_sms: boolean;
-            /** `true` if the clients of the class receive a reminder notification of its own, `false` if they re... */
-            is_custom_reminder: boolean;
-            /** `true` if the reminder notification of the class is sent by email, `false` otherwise. */
-            is_custom_reminder_mail: boolean;
-            /** `true` if the reminder notification of the class is sent as a push message, `false` otherwise. */
-            is_custom_reminder_push: boolean;
-            /** `true` if the reminder notification of the class is sent by SMS, `false` otherwise. */
-            is_custom_reminder_sms: boolean;
-            /** `true` if staff receive the default staff notifications of the class, `false` otherwise. */
-            is_staff_notification: boolean;
-        };
-        /** Pricing settings of the class. */
-        o_price: {
-            /** Last day of the early bird discount. */
-            dl_early: string;
-            /** Deposit a client leaves while booking the class. */
-            f_deposit: string;
-            /** Early bird amount of the class. */
-            f_early: string;
-            /** Price of one session of the class. */
-            f_price: string;
-            /** Price of the whole class. */
-            f_price_total: string;
-            /** `true` if the price of a single session is hidden from a client who has an applicable Purchase Op... */
-            hide_price: boolean;
-            /** How long before the class starts the early bird period ends. */
-            i_early_duration: number;
-            /** Meaning of the early bird amount. @see WlClassesEditEarlyAmountEnum */
-            id_early_amount: WlClassesEditEarlyAmountEnum;
-            /** A class for managing time intervals. @see ADurationSid */
-            id_early_duration: ADurationSid;
-            /** The way the end of the early bird period is specified for the event. @see WlClassesEditEarlyPeriodEnum */
-            id_early_period: WlClassesEditEarlyPeriodEnum;
-            /** Event time enrollment rules. @see WlClassesEditEnrollTimeSid */
-            id_enroll_time: WlClassesEditEnrollTimeSid;
-            /** List of possible modes to require amount while booking a class. @see WlClassesRequirePaySid */
-            id_pay_require: WlClassesRequirePaySid;
-            /** `true` if a client pays for the class with a Purchase Option only, `false` otherwise. */
-            is_buy_promotion: boolean;
-            /** `true` if a client buys one session of the class at a time, `false` otherwise. */
-            is_buy_single: boolean;
-            /** `true` if a client buys the whole class at once, `false` otherwise. */
-            is_buy_total: boolean;
-            /** `true` if `f_deposit` is a percent of the price of the class, `false` if it is an */
-            is_deposit_percent: boolean;
-            /** `true` if the class has an early bird discount, `false` otherwise. */
-            is_early: boolean;
-            /** `true` if `dl_early` is a date that has already passed, `false` otherwise. */
-            is_early_ended: boolean;
-            /** `true` if `f_early` is a percent of the price of the class, `false` if it is an amount */
-            is_early_percent: boolean;
-            /** `true` if taxes are applied to the sales of the class, `false` otherwise. */
-            is_tax_enable: boolean;
-            /** Last day of the early bird discount as the calendar of the form shows it. */
-            text_early: string;
-        };
-        /** Settings a ticketed event adds to the pricing settings. */
-        o_ticket: {
-            /** Ticket types of a ticketed event, in the order they are offered. */
-            a_ticket_option: {
-                /** Price of one ticket of this type. */
-                f_price: string;
-                /** `true` if at least one ticket of this type has been sold, `false` otherwise. */
-                is_sold: boolean;
-                /** Key of the type. */
-                k_ticket_option: string;
-                /** Title of the type, for example `General admission`. */
-                text_title: string;
-            };
-            /** Number of tickets that may be bought in one order. */
-            i_order_limit: number;
-            /** `true` if a buyer of a ticket must have an account, `false` if a name and an email address are en... */
-            is_account_require: boolean;
-            /** `true` if a buyer of a ticket must agree to terms and conditions, `false` otherwise. */
-            is_terms: boolean;
-            /** Terms and conditions a buyer of a ticket must agree to. */
-            xml_terms: string;
-        };
-        /** Color of the class on the schedule in hex format. */
-        s_color_background: string;
-        /** Description of the class. */
-        s_description: string;
-        /** Special instructions of the class. */
-        s_special: string;
-        /** Title of the class. */
-        s_title: string;
-        /** `true` if the special instructions may be shown publicly, `false` if only to a client who booked ... */
-        show_special_instructions: boolean;
-    };
-    /** Book Now Tabs the class may be shown in. Every element is an array: */
-    a_class_tab_list: Array<{
-        /** Key of the tab: the ID of the tab object and the key of the tab joined with a hyphen. The key of ... */
-        text_key: string;
-        /** Title of the tab. */
-        text_title: string;
-    }>;
-    /** Send rules of the client reminder. Keys are: */
-    a_reminder_info: {
-        /** Times the reminder is sent at, the earliest one first. Every element is an array: */
-        a_config: {
-            /** Number of the units of time the reminder is sent before the session. */
-            i_before: number;
-            /** A class for managing time intervals. @see ADurationSid */
-            id_duration_delay: ADurationSid;
-            /** Title of the unit of time. */
-            text_time: string;
-        };
-        /** Number of the client types the reminder is sent to. */
-        i_login_type: number;
-        /** Number of the client types of the business. */
-        i_login_type_all: number;
-        /** Number of the client groups the reminder is sent to. */
-        i_member_group: number;
-        /** Number of the client groups of the business. */
-        i_member_group_all: number;
-        /** `true` if the reminder is sent to certain client types only, `false` otherwise. */
-        is_login_type: boolean;
-        /** `true` if every client type of the business is selected, `false` otherwise. */
-        is_login_type_all: boolean;
-        /** `true` if the reminder is sent to certain client groups only, `false` otherwise. */
-        is_member_group: boolean;
-        /** `true` if every client group of the business is selected, `false` otherwise. */
-        is_member_group_all: boolean;
-    };
-    /** Classes and events of the business that a client may use a make-up session on, grouped by service. */
-    a_replace_available: Array<{
-        /** Classes or events of the group. Every element is an array: */
-        a_list: {
-            /** Key of the class or event. */
-            k_id: string;
-            /** Title of the class or event. */
-            text_title: string;
-        };
-        /** Level of the group. Always `1`, there is only one level of groups. */
-        i_level: number;
-        /** Key of the group. */
-        text_group_key: string;
-        /** Title of the group. */
-        text_title: string;
-    }>;
-    /** Quick search tags of the category of the business. Every element is an array: */
-    a_search_tag_list: Array<{
-        /** Key of the tag. */
-        k_search_tag: string;
-        /** Title of the tag. */
-        text_title: string;
-    }>;
-    /** Store categories of the business. Every element is an array: */
-    a_shop_category_list: Array<{
-        /** Key of the category. */
-        k_shop_category: string;
-        /** Title of the category. */
-        text_title: string;
-    }>;
-    /** Addresses of the pages the form links to: */
-    a_url: Array<{
-        /** List of store categories. */
-        url_category_manage: string;
-        /** Client notifications. */
-        url_notification_client: string;
-        /** Client confirmation notification of a class. */
-        url_notification_confirmation: string;
-        /** Client reminder notification of a class. */
-        url_notification_reminder: string;
-        /** Staff notifications. */
-        url_notification_staff: string;
-        /** Default business policies. */
-        url_policy_manage: string;
-        /** List of products. */
-        url_product_manage: string;
-        /** List of Book-a-Spot assets. */
-        url_resource_manage: string;
-        /** Store settings that require a card at sign-up. */
-        url_ticket_card: string;
-        /** Online waiver settings. */
-        url_ticket_waiver: string;
-    }>;
-    /** Markup of the Business policies block of the form. */
-    html_policy: string;
-    /** Markup of the Prerequisites block of the form. */
-    html_prerequisite: string;
-    /** Markup of the Purchase Options block of the form. */
-    html_promotion: string;
-    /** Markup of the Quick Buy block of the form. */
-    html_quick_buy: string;
-    /** Markup of the Taxes block of the form. */
-    html_tax: string;
-    /** Maximum length of the description of a class that is not virtual. */
-    i_description_limit: number;
-    /** Maximum length of the description of a virtual class. */
-    i_description_limit_virtual: number;
-    /** `true` if the Administration section may be shown, `false` otherwise. */
-    is_admin: boolean;
-    /** `true` if the birthdate is a required field of the client profile of the business, `false` otherw... */
-    is_birthday_require: boolean;
-    /** `true` if the sign of the currency of the business is written before the amount, `false` if it is... */
-    is_currency_before: boolean;
-    /** `true` if the event may no longer be turned into a ticketed one, or back from it, `false` otherwise. */
-    is_event_type_lock: boolean;
-    /** `true` if the business may use the FitLIVE virtual provider, `false` otherwise. */
-    is_fitlive: boolean;
-    /** `true` if the business may offer the class on Wellhub, `false` otherwise. */
-    is_gym_pass_support: boolean;
-    /** `true` if a new client of the business must add a card at sign-up, `false` otherwise. */
-    is_ticket_card_require: boolean;
-    /** `true` if a new client of the business must sign a waiver, `false` otherwise. */
-    is_ticket_waiver_require: boolean;
-    /** Currency sign of the business. */
-    text_currency: string;
-}
-export interface WlClassesEditorClassEditorPostParams {
-    /** Business key. */
-    k_business: string;
-    /** Class key. */
-    k_class: string;
-}
-export interface WlClassesEditorClassEditorPostResponse {
-    /** Key of the class the save wrote. */
-    k_class_save: string;
 }
 export interface WlClassesClassListListParams {
     /** Direct booking link parameters. */
@@ -26601,6 +26217,8 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartParams {
             k_coupon: string;
             /** The coupon amount key. */
             k_coupon_amount: string;
+            /** Key of the class the ticket is purchased for. Required for a ticket of an event with several */
+            k_class?: string;
         };
         /** Information about taxes. If not passed, no custom taxes have been applied to the sale item. */
         a_tax_custom?: {
@@ -26699,6 +26317,8 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartResponse {
             k_coupon: string;
             /** The coupon amount key. */
             k_coupon_amount: string;
+            /** Key of the class the ticket is purchased for. Required for a ticket of an event with several */
+            k_class?: string;
         };
         /** Information about taxes. If not passed, no custom taxes have been applied to the sale item. */
         a_tax_custom?: {
@@ -34939,14 +34559,6 @@ export declare class WlMemberNamespace {
     readonly progress: WlMemberProgressNamespace;
     constructor(_client: WlClient);
 }
-export declare class WlClassesEditorNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns everything the class setup form needs. */
-    classEditorGet(params?: WlClassesEditorClassEditorGetParams): Promise<WlClassesEditorClassEditorGetResponse>;
-    /** Saves the class. */
-    classEditorPost(params?: WlClassesEditorClassEditorPostParams): Promise<WlClassesEditorClassEditorPostResponse>;
-}
 export declare class WlClassesClassListNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -34988,7 +34600,6 @@ export declare class WlClassesPeriodNamespace {
 }
 export declare class WlClassesNamespace {
     private readonly _client;
-    readonly editor: WlClassesEditorNamespace;
     readonly classList: WlClassesClassListNamespace;
     readonly info: WlClassesInfoNamespace;
     readonly classView: WlClassesClassViewNamespace;
