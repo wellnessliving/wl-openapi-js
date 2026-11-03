@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261103053306
+ * Spec version: 1.1.20261103054232
  * Build date:   2026-11-03
- * Endpoints:    684
+ * Endpoints:    685
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261103053306';
+  WlClient.SPEC_VERSION = '1.1.20261103054232';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (684 total)
+  // Generated API methods (685 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -1004,6 +1004,26 @@
   WlClient.prototype.wlTicketTicketScanList = function(params)
   {
     return this.request('/Wl/Ticket/TicketScanList.json', params || {}, 'POST');
+  };
+
+  /**
+   * Sends the tickets of the purchase.
+   *
+   * Only a staff member with the store sell privilege, or a user who can access the profile of the client of the
+   * order, may send. The email goes to `text_mail` when it is sent; otherwise, if the order has a client, to the
+   * email of the account of the client; otherwise to the email of the order. After the request `text_mail` holds the
+   * address the tickets were sent to.
+   * 
+   * The code of the exception tells the client what has happened:<ul>
+   * ...
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `text_mail` {string} Email to send the tickets to.
+   */
+  WlClient.prototype.wlTicketTicketMail = function(params)
+  {
+    return this.request('/Wl/Ticket/TicketMail.json', params || {}, 'POST');
   };
 
   /**

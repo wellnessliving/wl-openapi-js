@@ -6847,6 +6847,11 @@ export interface WlTicketTicketScanListResponse {
     /** Number of the tickets sold for the session, after the call: not cancelled ones, including those w... */
     i_sold: number;
 }
+export type WlTicketTicketMailParams = Record<string, unknown>;
+export interface WlTicketTicketMailResponse {
+    /** Email to send the tickets to. */
+    text_mail: string;
+}
 export type WlTicketTicketUndoParams = Record<string, unknown>;
 export interface WlTicketTicketUndoResponse {
     /** Number of the tickets checked in for the session after the call. */
@@ -33182,6 +33187,8 @@ export declare class WlTicketNamespace {
     ticketScan(params?: WlTicketTicketScanParams): Promise<WlTicketTicketScanResponse>;
     /** Checks in the tickets. */
     ticketScanList(params?: WlTicketTicketScanListParams): Promise<WlTicketTicketScanListResponse>;
+    /** Sends the tickets of the purchase. */
+    ticketMail(params?: WlTicketTicketMailParams): Promise<WlTicketTicketMailResponse>;
     /** Undoes the check-in of the ticket. */
     ticketUndo(params?: WlTicketTicketUndoParams): Promise<WlTicketTicketUndoResponse>;
 }

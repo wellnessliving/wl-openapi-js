@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261103053306
+// OpenAPI spec version: 1.1.20261103054232
 // Build date: 2026-11-03
-// Endpoints: 684
+// Endpoints: 685
 // Enums: 218
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsPrivilegeRoleSid = exports.WlVideoCatalogFilterSortFilterSortSid = exports.CoreSidSortOrderSid = exports.WlVideoVideoSourceSid = exports.WlVideoVideoEmbedSourceSid = exports.WlClassesTabTabSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.CoreSidYesNoSid = exports.RsScheduleTimeSid = exports.ADateWeekSid = exports.WlEventDenyReasonSid = exports.AGenderSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlModeModeSid = exports.RsProgramTypeSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsProgramSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.AFlagSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.CoreAmazonRegionAmazonRegionSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlTaskTaskStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlApiError = void 0;
@@ -7734,6 +7734,10 @@ class WlTicketNamespace {
     /** Checks in the tickets. */
     ticketScanList(params) {
         return this._client._request('/Wl/Ticket/TicketScanList.json', params, 'POST');
+    }
+    /** Sends the tickets of the purchase. */
+    ticketMail(params) {
+        return this._client._request('/Wl/Ticket/TicketMail.json', params, 'POST');
     }
     /** Undoes the check-in of the ticket. */
     ticketUndo(params) {
