@@ -8242,6 +8242,24 @@ export interface WlVisitVisitTotalCountResponse {
     /** Total number of visits. */
     i_visit_total: number;
 }
+export interface WlVisitVisitRecentParams {
+    /** Business key. */
+    k_business: string;
+    /** Location key. */
+    k_location: string;
+    /** User key. */
+    uid: string;
+}
+export interface WlVisitVisitRecentResponse {
+    /** Date and time of the last attended visit in UTC, excluding today's gym visits. */
+    dtu_visit_last: string;
+    /** Number of attended visits in the last 30 days. */
+    i_visit_month: number;
+    /** Number of attended visits in the last 7 days. */
+    i_visit_week: number;
+    /** Location key of the last attended visit, excluding today's gym visits. */
+    k_location_visit_last: string;
+}
 export interface WlHolidayBulkBusinessHolidayParams {
     /** The business key. */
     k_business: string;
@@ -9814,6 +9832,8 @@ export interface ThothLayoutBeFooterFooterParams {
 export interface ThothLayoutBeFooterFooterResponse {
     /** Whether the "Powered by WellnessLiving" branding and Terms & Conditions links are shown in the fo... */
     show_term: boolean;
+    /** URL of the tour page of the business type on the site of `WellnessLiving`. */
+    url_tour: string;
 }
 export interface WlHardwareStripeComStripeComHardwareElementDeleteParams {
     /** Business key. */
@@ -15693,6 +15713,8 @@ export interface WlCatalogPaymentPaymentResponse {
     k_login_activity: string | null;
     /** The purchase key created during payment. */
     k_purchase: string;
+    /** The temporary token that gives access to the receipt of the purchase without a login. */
+    text_receipt_token: string;
 }
 export interface WlCatalogCatalogListElementGetParams {
     /** Information about the discount code: */
@@ -16874,6 +16896,8 @@ export interface WlPurchaseItemPurchaseItemListResponse {
 export interface WlPurchaseReceiptPurchaseReceiptParams {
     /** Whether {@link WlPurchaseReceiptPurchaseReceiptResponse.url_print} and {@link WlPurchaseReceiptPu... */
     is_url_public: boolean;
+    /** The temporary token that gives access to the receipt without a login. */
+    text_token: string;
     /** The key of the purchase. */
     k_purchase?: string | null;
 }
@@ -16983,10 +17007,14 @@ export interface WlPurchaseReceiptPurchaseReceiptResponse {
         };
         /** The tickets of the purchase item. Only available if the purchase item is a ticket. Every element ... */
         a_ticket_list?: {
+            /** The title of the event the ticket is for. */
+            text_event_title: string;
             /** The number of the ticket. */
             text_number: string;
-            /** The title of the event the ticket is for. */
-            text_title: string;
+            /** The title of the ticket type. */
+            text_ticket_title: string;
+            /** The URL to download the PDF file with this ticket. The file works without a login. It does not ex... */
+            url_download: string;
             /** The URL of the page to print the ticket. The page works without a login. */
             url_print: string;
         };
@@ -25984,6 +26012,8 @@ export interface WlBookProcessInfoInfo54GetParams {
     show_class_capacity: boolean;
     /** `true` to show "book for" option in booking wizard. `false` for default behavior. */
     show_relation: boolean;
+    /** `true` to include in {@link WlBookProcessInfoInfoGetResponse.a_session_all} the sessions of a non... */
+    show_session_overlap: boolean;
     /** The client key for which the booking is being made. */
     uid: string;
 }
@@ -26779,6 +26809,8 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartParams {
             k_coupon: string;
             /** The coupon amount key. */
             k_coupon_amount: string;
+            /** Key of the class the ticket is purchased for. Required for a ticket of an event with several */
+            k_class?: string;
         };
         /** Information about taxes. If not passed, no custom taxes have been applied to the sale item. */
         a_tax_custom?: {
@@ -26877,6 +26909,8 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartResponse {
             k_coupon: string;
             /** The coupon amount key. */
             k_coupon_amount: string;
+            /** Key of the class the ticket is purchased for. Required for a ticket of an event with several */
+            k_class?: string;
         };
         /** Information about taxes. If not passed, no custom taxes have been applied to the sale item. */
         a_tax_custom?: {
@@ -35057,6 +35091,8 @@ export declare class WlVisitNamespace {
     visitStatusPost(params?: WlVisitVisitStatusPostParams): Promise<WlVisitVisitStatusPostResponse>;
     /** Returns the total visit count for the user at the business. */
     visitTotalCount(params?: WlVisitVisitTotalCountParams): Promise<WlVisitVisitTotalCountResponse>;
+    /** Returns recent visit statistics for the user at the business. */
+    visitRecent(params?: WlVisitVisitRecentParams): Promise<WlVisitVisitRecentResponse>;
 }
 export declare class WlHolidayNamespace {
     private readonly _client;

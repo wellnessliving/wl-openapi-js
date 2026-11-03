@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261102134455
+ * Spec version: 1.1.20261103101259
  * Build date:   2026-11-03
- * Endpoints:    697
+ * Endpoints:    698
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261102134455';
+  WlClient.SPEC_VERSION = '1.1.20261103101259';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (697 total)
+  // Generated API methods (698 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -1278,6 +1278,28 @@
   };
 
   /**
+   * Returns recent visit statistics for the user at the business.
+   *
+   * Counts attended visits in the last 30 and 7 days and finds the last visit that is not a gym check-in
+   *  of today. The day boundaries are computed in the time zone of the location given in
+   *  {@link WlClient#wlVisitVisitRecent}.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_location Location key.
+   * @param {string} params.uid User key.
+   * @returns {Promise<Object>} Response data.
+   *  `dtu_visit_last` {string} Date and time of the last attended visit in UTC, excluding today's gym visits.
+   *  `i_visit_month` {number} Number of attended visits in the last 30 days.
+   *  `i_visit_week` {number} Number of attended visits in the last 7 days.
+   *  `k_location_visit_last` {string} Location key of the last attended visit, excluding today's gym visits.
+   */
+  WlClient.prototype.wlVisitVisitRecent = function(params)
+  {
+    return this.request('/Wl/Visit/VisitRecent.json', params || {}, 'GET');
+  };
+
+  /**
    * Returns all holiday records for all locations of the specified business.
    *
    * Retrieves the complete list of holidays across all date ranges for every location belonging to the given
@@ -2298,12 +2320,14 @@
    *
    * Loads the business's white-label status and derives whether the "Powered by WellnessLiving"
    * branding and the Terms and Conditions link should be shown in the footer. The result is stored in
-   * {@link WlClient#thothLayoutBeFooterFooter}.
+   * {@link WlClient#thothLayoutBeFooterFooter}. The URL of the tour page of the business type, which the badge links to, is
+   * loaded into {@link WlClient#thothLayoutBeFooterFooter}.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key to get footer data for.
    * @returns {Promise<Object>} Response data.
    *  `show_term` {boolean} Whether the "Powered by WellnessLiving" branding and Terms & Conditions links...
+   *  `url_tour` {string} URL of the tour page of the business type on the site of `WellnessLiving`.
    */
   WlClient.prototype.thothLayoutBeFooterFooter = function(params)
   {
@@ -5772,7 +5796,8 @@
    *
    * The checkout endpoint that finalizes a purchase in the client-facing store. Charges the client's
    * selected payment method, applies any discounts and tips, and creates the purchase record. Returns
-   * the resulting purchase key so the frontend can redirect to the confirmation page.
+   * the resulting purchase key so the frontend can redirect to the confirmation page, and the temporary token of the
+   * receipt, which lets an anonymous user, who has no access to the purchase, view the receipt.
    *
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_commission The staff commission earned for this purchase. If this isn't empty, it has the next fields:
@@ -5785,6 +5810,7 @@
    * @returns {Promise<Object>} Response data.
    *  `k_login_activity` {?string} The key of login activity.
    *  `k_purchase` {string} The purchase key created during payment.
+   *  `text_receipt_token` {string} The temporary token that gives access to the receipt of the purchase without ...
    */
   WlClient.prototype.wlCatalogPaymentPayment = function(params)
   {
@@ -6073,11 +6099,13 @@
    * Gets purchase information.
    *
    * Returns full receipt data for the specified purchase, including business details, customer information,
-   * itemized purchase items, payment methods, pricing summary, and print URLs.
+   * itemized purchase items, payment methods, pricing summary, and print URLs. The access is granted to a user who
+   * has the rights to the purchase, or to anyone who passes a valid {@link WlClient#wlPurchaseReceiptPurchaseReceipt}.
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_url_public Whether {@link WlClient#wlPurchaseReceiptPurchaseReceipt} and {@link WlClient#wlPurchaseReceiptPu...
    * @param {?string} [params.k_purchase] The key of the purchase.
+   * @param {string} params.text_token The temporary token that gives access to the receipt without a login.
    * @returns {Promise<Object>} Response data.
    *  `a_account_rest` {Object} Information about the account balance for a user's account after payment for ...
    *  `a_business` {Object} Information about the business.
@@ -11148,6 +11176,7 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_class_capacity `true` if class capacity should be shown,
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
+   * @param {boolean} params.show_session_overlap `true` to include in {@link WlClient#wlBookProcessInfoInfoGet} the sessions of a non-block event ...
    * @param {string} params.uid The client key for which the booking is being made.
    * @returns {Promise<Object>} Response data.
    *  `a_day_available` {?number[]} Week days available for recurring booking. Constants of {@link WlClient.ADate...

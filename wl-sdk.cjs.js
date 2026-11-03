@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261102134455
+// OpenAPI spec version: 1.1.20261103101259
 // Build date: 2026-11-03
-// Endpoints: 697
+// Endpoints: 698
 // Enums: 222
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CoreSidYesNoSid = exports.WlClassesTabTabSid = exports.ADateWeekSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.AFlagSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsPrivilegeRoleSid = exports.RsPayMethodSid = exports.RsProjectSid = exports.RsHomeTourSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.RsMailSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.ADurationSid = exports.WlBusinessAccountWebsiteSid = exports.WlAiAgentPhoneCallOutcomeEnum = exports.ThothWlPayPayExceptionSid = exports.RsMailCopySid = exports.RsPurchaseItemSid = exports.RsServiceSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlModeModeSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AGenderSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlTaskTaskStatusSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlApiError = void 0;
@@ -8775,6 +8775,10 @@ class WlVisitNamespace {
     /** Returns the total visit count for the user at the business. */
     visitTotalCount(params) {
         return this._client._request('/Wl/Visit/VisitTotalCount.json', params, 'GET');
+    }
+    /** Returns recent visit statistics for the user at the business. */
+    visitRecent(params) {
+        return this._client._request('/Wl/Visit/VisitRecent.json', params, 'GET');
     }
 }
 exports.WlVisitNamespace = WlVisitNamespace;

@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261102134455
+// OpenAPI spec version: 1.1.20261103101259
 // Build date: 2026-11-03
-// Endpoints: 697
+// Endpoints: 698
 // Enums: 222
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -8572,6 +8572,10 @@ export class WlVisitNamespace {
     /** Returns the total visit count for the user at the business. */
     visitTotalCount(params) {
         return this._client._request('/Wl/Visit/VisitTotalCount.json', params, 'GET');
+    }
+    /** Returns recent visit statistics for the user at the business. */
+    visitRecent(params) {
+        return this._client._request('/Wl/Visit/VisitRecent.json', params, 'GET');
     }
 }
 export class WlHolidayNamespace {
