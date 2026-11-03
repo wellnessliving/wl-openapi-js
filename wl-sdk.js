@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261103160723
+ * Spec version: 1.1.20261103171540
  * Build date:   2026-11-03
  * Endpoints:    700
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261103160723';
+  WlClient.SPEC_VERSION = '1.1.20261103171540';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (700 total)
@@ -5836,7 +5836,9 @@
    * The checkout endpoint that finalizes a purchase in the client-facing store. Charges the client's
    * selected payment method, applies any discounts and tips, and creates the purchase record. Returns
    * the resulting purchase key so the frontend can redirect to the confirmation page, and the temporary token of the
-   * receipt, which lets an anonymous user, who has no access to the purchase, view the receipt.
+   * receipt, which lets an anonymous user, who has no access to the purchase, view the receipt. For an anonymous
+   * user ({@link WlClient#wlCatalogPaymentPayment}) the session also remembers the purchase, so that user can ask for the
+   * emails of the purchase afterwards.
    *
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_commission The staff commission earned for this purchase. If this isn't empty, it has the next fields:
@@ -6173,6 +6175,11 @@
    *
    * Validates the caller's access to the purchase and sends a receipt email to the appropriate recipient
    * (staff member or client), recording the action in the mail history log.
+   * 
+   * A guest, who is not signed in, can ask for the receipt of the purchase that the guest has just made: the email
+   * goes to the address that the guest gave when buying, at most three emails for one purchase. Then the error
+   * `access` means that the session of the guest knows nothing of the purchase (the purchase was made in another
+   * ...
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
@@ -8438,7 +8445,9 @@
    * Checks the access to the purchase, finds the order of tickets of the purchase, and sends the email with the
    * tickets and their QR codes to the buyer, or to `text_mail` if it is given. The email is not sent if the pattern
    * is turned off in the business, or if the buyer has turned it off in the notification settings and no address is
-   * given. The codes of the errors are listed in the description of the class.
+   * given. A guest, who is not signed in, gets the email at the address of the order.
+   *  The codes of the errors are listed in the description of
+   * the class.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
