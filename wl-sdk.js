@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261103043416
+ * Spec version: 1.1.20261103053306
  * Build date:   2026-11-03
  * Endpoints:    684
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261103043416';
+  WlClient.SPEC_VERSION = '1.1.20261103053306';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (684 total)
@@ -12599,6 +12599,7 @@
    * @param {string} params.k_class_period Key of session which is booked.
    * @param {boolean} params.show_class_capacity `true` if class capacity should be shown,
    * @param {boolean} params.show_relation `true` to show "book for" option in booking wizard. `false` for default behavior.
+   * @param {boolean} params.show_session_overlap `true` to include in {@link WlClient#wlBookProcessInfoInfoGet} the sessions of a non-block event ...
    * @param {string} params.uid The client key for which the booking is being made.
    * @returns {Promise<Object>} Response data.
    *  `a_day_available` {?number[]} Week days available for recurring booking. Constants of {@link WlClient.ADate...

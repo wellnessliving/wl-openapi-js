@@ -28678,6 +28678,8 @@ export interface WlBookProcessInfoInfo54GetParams {
     show_class_capacity: boolean;
     /** `true` to show "book for" option in booking wizard. `false` for default behavior. */
     show_relation: boolean;
+    /** `true` to include in {@link WlBookProcessInfoInfoGetResponse.a_session_all} the sessions of a non... */
+    show_session_overlap: boolean;
     /** The client key for which the booking is being made. */
     uid: string;
 }
