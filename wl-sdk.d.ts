@@ -17025,8 +17025,8 @@ export interface WlPurchaseReceiptPurchaseReceiptResponse {
             /** he URL of the image. */
             text_url: string;
         };
-        /** The tickets of the purchase item. Only available if the purchase item is a ticket. Every element ... */
-        a_ticket_list?: {
+        /** The ticket of the purchase item. Only available if the purchase item is a ticket: one purchase it... */
+        a_ticket_info?: {
             /** The title of the event the ticket is for. */
             text_event_title: string;
             /** The number of the ticket. */
@@ -18984,6 +18984,8 @@ export interface WlScheduleClassListClassList68Response {
         i_duration: number;
         /** Number of the tickets of the session that are checked in. `null` if the session is not a session ... */
         i_ticket_attend: number | null;
+        /** Number of the tickets of the session that are sold. `null` if the session is not a session of a t... */
+        i_ticket_sold: number | null;
         /** Number of clients in wait list. */
         i_wait: number;
         /** Limit of wait list. `null` if limit is not set. */
