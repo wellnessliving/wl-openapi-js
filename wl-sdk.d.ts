@@ -5685,7 +5685,7 @@ export declare enum WlPageBackendFeatureFeatureSid {
     MARKETING = 12,
     /** Page with information about partner program */
     PARTNER = 19,
-    /** Passkeys of the signed-in staff member */
+    /** Passkeys of the staff members */
     PASSKEY = 38,
     /** Presence landing page, where staff can get their custom website */
     PRESENCE = 23,
@@ -17619,6 +17619,32 @@ export interface WlStaffStaffListStaffListResponse {
         uid_staff: string;
         /** Url link to user photo, or empty string, if photo is not loaded. */
         url_image: string;
+    }>;
+}
+export interface WlStaffPasskeyPasskeyListParams {
+    /** Key of the business whose staff passkeys to list. */
+    k_business: string;
+}
+export interface WlStaffPasskeyPasskeyListResponse {
+    /** Active staff members of the business who have at least one active passkey, sorted by name. */
+    a_staff: Array<{
+        /** Active passkeys of the staff member, in the order of creation: */
+        a_passkey: {
+            /** Date and time when the passkey was registered. */
+            dtu_create: string;
+            /** Date and time when the passkey was last used to sign in, or `null` if it was never used. */
+            dtu_last_use: string | null;
+            /** Passkey key. */
+            k_passkey_credential: string;
+            /** Name of the passkey. */
+            text_device: string;
+        };
+        /** Whether the signed-in user may remove the passkeys of this staff member. */
+        can_remove: boolean;
+        /** Full name of the staff member. */
+        text_name: string;
+        /** Staff member key. */
+        uid: string;
     }>;
 }
 export interface WlClassesClassListListParams {
@@ -34797,6 +34823,12 @@ export declare class WlStaffStaffListNamespace {
     /** Returns the list of staff members for the given business. */
     staffList(params?: WlStaffStaffListStaffListParams): Promise<WlStaffStaffListStaffListResponse>;
 }
+export declare class WlStaffPasskeyNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Lists the passkeys of the active staff members of the business. */
+    passkeyList(params?: WlStaffPasskeyPasskeyListParams): Promise<WlStaffPasskeyPasskeyListResponse>;
+}
 export declare class WlStaffScheduleAddNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -34816,6 +34848,7 @@ export declare class WlStaffNamespace {
     readonly privilege: WlStaffPrivilegeNamespace;
     readonly staffView: WlStaffStaffViewNamespace;
     readonly staffList: WlStaffStaffListNamespace;
+    readonly passkey: WlStaffPasskeyNamespace;
     readonly schedule: WlStaffScheduleNamespace;
     constructor(_client: WlClient);
     /** Update or create staff. */

@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261103202523
-// Build date: 2026-11-03
-// Endpoints: 700
+// OpenAPI spec version: 1.1.20261104044535
+// Build date: 2026-11-04
+// Endpoints: 701
 // Enums: 222
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -5883,7 +5883,7 @@ export var WlPageBackendFeatureFeatureSid;
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["MARKETING"] = 12] = "MARKETING";
     /** Page with information about partner program */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["PARTNER"] = 19] = "PARTNER";
-    /** Passkeys of the signed-in staff member */
+    /** Passkeys of the staff members */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["PASSKEY"] = 38] = "PASSKEY";
     /** Presence landing page, where staff can get their custom website */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["PRESENCE"] = 23] = "PRESENCE";
@@ -8094,6 +8094,15 @@ export class WlStaffStaffListNamespace {
         return this._client._request('/Wl/Staff/StaffList/StaffList.json', params, 'GET');
     }
 }
+export class WlStaffPasskeyNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Lists the passkeys of the active staff members of the business. */
+    passkeyList(params) {
+        return this._client._request('/Wl/Staff/Passkey/PasskeyList.json', params, 'GET');
+    }
+}
 export class WlStaffScheduleAddNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8118,6 +8127,7 @@ export class WlStaffNamespace {
         this.privilege = new WlStaffPrivilegeNamespace(this._client);
         this.staffView = new WlStaffStaffViewNamespace(this._client);
         this.staffList = new WlStaffStaffListNamespace(this._client);
+        this.passkey = new WlStaffPasskeyNamespace(this._client);
         this.schedule = new WlStaffScheduleNamespace(this._client);
     }
     /** Update or create staff. */

@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261103202523
- * Build date:   2026-11-03
- * Endpoints:    700
+ * Spec version: 1.1.20261104044535
+ * Build date:   2026-11-04
+ * Endpoints:    701
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261103202523';
+  WlClient.SPEC_VERSION = '1.1.20261104044535';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (700 total)
+  // Generated API methods (701 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -6374,6 +6374,23 @@
   WlClient.prototype.wlStaffStaffListStaffList = function(params)
   {
     return this.request('/Wl/Staff/StaffList/StaffList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Lists the passkeys of the active staff members of the business.
+   *
+   * Only staff members who have passkeys are listed. The staff members whose passkeys the signed-in user may not
+   * remove are listed too, with `can_remove` set to `false`: the user sees that they exist, and the removal stays
+   * refused by `delete()`.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the business whose staff passkeys to list.
+   * @returns {Promise<Object>} Response data.
+   *  `a_staff` {Object[]} Active staff members of the business who have at least one active passkey, so...
+   */
+  WlClient.prototype.wlStaffPasskeyPasskeyList = function(params)
+  {
+    return this.request('/Wl/Staff/Passkey/PasskeyList.json', params || {}, 'GET');
   };
 
   /**
@@ -21856,7 +21873,7 @@
     MARKETING: 12,
     /** Page with information about partner program */
     PARTNER: 19,
-    /** Passkeys of the signed-in staff member */
+    /** Passkeys of the staff members */
     PASSKEY: 38,
     /** Presence landing page, where staff can get their custom website */
     PRESENCE: 23,
