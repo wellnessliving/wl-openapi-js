@@ -13068,8 +13068,12 @@ export interface WlLeadStageLeadStageListResponse {
         i_order: number;
         /** Number of active automations which use this stage. */
         i_automation_active?: number;
-        /** Number of inactive automations which use this stage. Such an automation still refers the stage, s... */
+        /** Number of inactive automations associated with this stage, including any-stage triggers. */
         i_automation_inactive?: number;
+        /** Number of distinct active automations whose explicit stage references need updating when this stage */
+        i_automation_replace_active?: number;
+        /** Number of distinct inactive automations whose explicit stage references need updating when this s... */
+        i_automation_replace_inactive?: number;
         /** Number of client groups which convert their clients into this stage. Such a group depends on the ... */
         i_member_group?: number;
         /** Number of clients who are in this stage. */
