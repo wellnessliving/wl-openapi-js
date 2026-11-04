@@ -16624,12 +16624,14 @@ export interface WlCatalogCartCartParams {
         id_sale: RsSaleSid | null;
         /** The sale item key. */
         k_id: string;
-        /** Additional configuration. Used only for `id_sale` = {@link RsSaleSid}. */
+        /** Additional configuration. Used only for `id_sale` = {@link RsSaleSid} */
         a_config?: {
             /** List of tuition events. */
             a_event_list?: Record<string, unknown>;
             /** Registration fees for tuition participants. */
             a_registration_fee_list?: Record<string, unknown>;
+            /** Used only for `id_sale` = {@link RsSaleSid}. */
+            k_class?: string;
             /** The total amount that will be charged for the tuition item when during purchase. */
             m_checkout?: string;
             /** The part of the tuition cost that is not charged during purchase. */
@@ -16664,12 +16666,14 @@ export interface WlCatalogCartCartResponse {
         id_sale: RsSaleSid | null;
         /** The sale item key. */
         k_id: string;
-        /** Additional configuration. Used only for `id_sale` = {@link RsSaleSid}. */
+        /** Additional configuration. Used only for `id_sale` = {@link RsSaleSid} */
         a_config?: {
             /** List of tuition events. */
             a_event_list?: Record<string, unknown>;
             /** Registration fees for tuition participants. */
             a_registration_fee_list?: Record<string, unknown>;
+            /** Used only for `id_sale` = {@link RsSaleSid}. */
+            k_class?: string;
             /** The total amount that will be charged for the tuition item when during purchase. */
             m_checkout?: string;
             /** The part of the tuition cost that is not charged during purchase. */
@@ -26857,7 +26861,7 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartParams {
             k_coupon: string;
             /** The coupon amount key. */
             k_coupon_amount: string;
-            /** Key of the class the ticket is purchased for. Required for a ticket of an event with several */
+            /** Used only for `id_sale` = {@link RsSaleSid}. */
             k_class?: string;
         };
         /** Information about taxes. If not passed, no custom taxes have been applied to the sale item. */
@@ -26957,7 +26961,7 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartResponse {
             k_coupon: string;
             /** The coupon amount key. */
             k_coupon_amount: string;
-            /** Key of the class the ticket is purchased for. Required for a ticket of an event with several */
+            /** Used only for `id_sale` = {@link RsSaleSid}. */
             k_class?: string;
         };
         /** Information about taxes. If not passed, no custom taxes have been applied to the sale item. */
