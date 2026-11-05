@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261105071016
+ * Spec version: 1.1.20261105075531
  * Build date:   2026-11-05
  * Endpoints:    685
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261105071016';
+  WlClient.SPEC_VERSION = '1.1.20261105075531';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (685 total)
@@ -9940,6 +9940,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @returns {Promise<Object>} Response data.
+   *  `a_rule` {Object[]} Replacement rules that turn the default words of the system into the terms th...
    *  `a_term_option` {Object[]} Current value of every term slot. Returned by `get()`, posted to
    */
   WlClient.prototype.wlBusinessCustomTermsCustomTermsGet = function(params)
