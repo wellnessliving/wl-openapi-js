@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261105104454
+ * Spec version: 1.1.20261105132840
  * Build date:   2026-11-05
  * Endpoints:    701
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261105104454';
+  WlClient.SPEC_VERSION = '1.1.20261105132840';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (701 total)
@@ -2341,12 +2341,16 @@
    * Loads the business's white-label status and derives whether the "Powered by WellnessLiving"
    * branding and the Terms and Conditions link should be shown in the footer. The result is stored in
    * {@link WlClient#thothLayoutBeFooterFooter}. The URL of the tour page of the business type, which the badge links to, is
-   * loaded into {@link WlClient#thothLayoutBeFooterFooter}.
+   * loaded into {@link WlClient#thothLayoutBeFooterFooter}. For a business with a white-label plan of the Achieve client app the
+   * links to the app in the stores are loaded too.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key to get footer data for.
    * @returns {Promise<Object>} Response data.
+   *  `is_white_label_achieve` {boolean} Whether the business has a white-label plan of the Achieve client app.
    *  `show_term` {boolean} Whether the "Powered by WellnessLiving" branding and Terms & Conditions links...
+   *  `url_apple_store` {string} URL of the Achieve client app of the business in the Apple App Store, for exa...
+   *  `url_google_play` {string} URL of the Achieve client app of the business in Google Play, for example
    *  `url_tour` {string} URL of the tour page of the business type on the site of `WellnessLiving`.
    */
   WlClient.prototype.thothLayoutBeFooterFooter = function(params)
@@ -10548,6 +10552,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @returns {Promise<Object>} Response data.
+   *  `a_rule` {Object[]} Replacement rules that turn the default words of the system into the terms th...
    *  `a_term_option` {Object[]} Current value of every term slot. Returned by `get()`, posted to
    */
   WlClient.prototype.wlBusinessCustomTermsCustomTermsGet = function(params)

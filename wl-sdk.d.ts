@@ -9841,8 +9841,14 @@ export interface ThothLayoutBeFooterFooterParams {
     k_business: string;
 }
 export interface ThothLayoutBeFooterFooterResponse {
+    /** Whether the business has a white-label plan of the Achieve client app. */
+    is_white_label_achieve: boolean;
     /** Whether the "Powered by WellnessLiving" branding and Terms & Conditions links are shown in the fo... */
     show_term: boolean;
+    /** URL of the Achieve client app of the business in the Apple App Store, for example */
+    url_apple_store: string;
+    /** URL of the Achieve client app of the business in Google Play, for example */
+    url_google_play: string;
     /** URL of the tour page of the business type on the site of `WellnessLiving`. */
     url_tour: string;
 }
@@ -24721,6 +24727,21 @@ export interface WlBusinessCustomTermsCustomTermsGetParams {
     k_business: string;
 }
 export interface WlBusinessCustomTermsCustomTermsGetResponse {
+    /** Replacement rules that turn the default words of the system into the terms the business has chosen. */
+    a_rule: Array<{
+        /** Whether the rule matches the indefinite article ("a" or "an") before the word and replaces it too. */
+        has_article: boolean;
+        /** Whether the rule matches only if the word is the last in the text or is followed by a punctuation... */
+        has_end: boolean;
+        /** Whether `text_title` starts with a vowel sound, so the article before it is "an", not "a". Makes ... */
+        has_vowel_sound: boolean;
+        /** Replacement for the word found in lowercase ("patient"). */
+        text_lower: string;
+        /** The word to search for, in lowercase. The letter case of the text is ignored when searching. It m... */
+        text_search: string;
+        /** Replacement for the word found with a capital letter ("Patient"). For a word found in capitals us... */
+        text_title: string;
+    }>;
     /** Current value of every term slot. Returned by `get()`, posted to */
     a_term_option: Array<{
         /** Term slots available on the Custom Terms settings page. @see WlBusinessCustomTermsCustomTermSid */
