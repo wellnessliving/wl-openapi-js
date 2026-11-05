@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261105014742
+ * Spec version: 1.1.20261105104454
  * Build date:   2026-11-05
  * Endpoints:    701
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261105014742';
+  WlClient.SPEC_VERSION = '1.1.20261105104454';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (701 total)
@@ -10541,6 +10541,9 @@
    * No access check - the terms a business picked (e.g. "Session" instead of "Class") are not sensitive, and
    * public-facing pages (the booking widget, for example) need them to render their own wording for a client
    * who is not signed in.
+   * 
+   * Also returns {@link WlClient#wlBusinessCustomTermsCustomTermsGet}, the ready rules that apply the terms to the English texts of a
+   * client of the API. The rules are as public as the terms they are built from.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
