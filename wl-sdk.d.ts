@@ -16471,6 +16471,8 @@ export interface WlProfileAttendanceAttendanceOverlapResponse {
 export interface WlProfileEditEditGetParams {
     /** `true` to return all active, non-removed profile fields of the business regardless of entry-point... */
     is_field_all: boolean;
+    /** `true` to also return the profile fields that are hidden for the entry point given by */
+    is_level_all: boolean;
     /** Indicates whether to display the form as a user or as a staff member. */
     is_staff: boolean;
     /** The key of the business you're editing. */
@@ -16617,6 +16619,8 @@ export interface WlProfileEditCreateResponse {
 export interface WlProfileEditEditByTokenGetParams {
     /** `true` to return all active, non-removed profile fields of the business regardless of entry-point... */
     is_field_all: boolean;
+    /** `true` to also return the profile fields that are hidden for the entry point given by */
+    is_level_all: boolean;
     /** Indicates whether to display the form as a user or as a staff member. */
     is_staff: boolean;
     /** The key of the business you're editing. */

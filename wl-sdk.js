@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261105090809
+ * Spec version: 1.1.20261105103513
  * Build date:   2026-11-05
  * Endpoints:    685
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261105090809';
+  WlClient.SPEC_VERSION = '1.1.20261105103513';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (685 total)
@@ -5959,6 +5959,7 @@
    * @param {?number} [params.id_family_relation] Family role for a new user. One of {@link WlClient.RsFamilyRelationSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {boolean} params.is_field_all `true` to return all active, non-removed profile fields of the business regardless of entry-point...
+   * @param {boolean} params.is_level_all `true` to also return the profile fields that are hidden for the entry point given by
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.uid The key of the user to edit.
@@ -6062,6 +6063,7 @@
    * @param {?number} [params.id_family_relation] Family role for a new user. One of {@link WlClient.RsFamilyRelationSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {boolean} params.is_field_all `true` to return all active, non-removed profile fields of the business regardless of entry-point...
+   * @param {boolean} params.is_level_all `true` to also return the profile fields that are hidden for the entry point given by
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.text_token The security token.
