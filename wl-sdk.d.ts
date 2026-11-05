@@ -2382,6 +2382,10 @@ export declare enum RsMailSid {
     PAY_ACCOUNT_INVOICE = 85,
     /** Automatic payment success */
     PAY_AUTOMATIC_SUCCESS = 116,
+    /** Funds of a Stripe dispute must be moved by hand */
+    PAY_DISPUTE_FUNDS_FAIL = 228,
+    /** A client disputed a payment to the studio */
+    PAY_DISPUTE_STUDIO = 229,
     /** Transaction failed */
     PAY_TRANSACTION_FAIL = 181,
     /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
@@ -13304,6 +13308,8 @@ export interface WlLoginProductProductResponse {
 export interface WlProfileEditEditGetParams {
     /** `true` to return all active, non-removed profile fields of the business regardless of entry-point... */
     is_field_all: boolean;
+    /** `true` to also return the profile fields that are hidden for the entry point given by */
+    is_level_all: boolean;
     /** Indicates whether to display the form as a user or as a staff member. */
     is_staff: boolean;
     /** The key of the business you're editing. */
@@ -13450,6 +13456,8 @@ export interface WlProfileEditCreateResponse {
 export interface WlProfileEditEditByTokenGetParams {
     /** `true` to return all active, non-removed profile fields of the business regardless of entry-point... */
     is_field_all: boolean;
+    /** `true` to also return the profile fields that are hidden for the entry point given by */
+    is_level_all: boolean;
     /** Indicates whether to display the form as a user or as a staff member. */
     is_staff: boolean;
     /** The key of the business you're editing. */
@@ -26585,6 +26593,10 @@ export interface WlBookProcessResourceResource54GetResponse {
             a_image: Record<string, unknown>;
             /** The asset number. Actual for assets with a quantity more than `1`. */
             i_index: number;
+            /** Padding after each booking of the asset, in minutes. `0` if the asset has no padding after. */
+            i_padding_after: number;
+            /** Padding before each booking of the asset, in minutes. `0` if the asset has no padding before. */
+            i_padding_before: number;
             /** Total number of the asset spots. */
             i_quantity: number;
             /** Number of already used asset units. */
@@ -26681,6 +26693,10 @@ export interface WlBookProcessResourceResourceGetResponse {
             a_image: Record<string, unknown>;
             /** The asset number. Actual for assets with a quantity more than `1`. */
             i_index: number;
+            /** Padding after each booking of the asset, in minutes. `0` if the asset has no padding after. */
+            i_padding_after: number;
+            /** Padding before each booking of the asset, in minutes. `0` if the asset has no padding before. */
+            i_padding_before: number;
             /** Total number of the asset spots. */
             i_quantity: number;
             /** Number of already used asset units. */
@@ -27359,6 +27375,13 @@ export interface WlScheduleScheduleListStaffAppScheduleListResponse {
         };
         /** A list of assets involved in the session. */
         a_resource: Array<string>;
+        /** Padding of the assets of `a_resource`. Keys are asset keys, values are: */
+        a_resource_padding: {
+            /** Padding after each booking of the asset, in minutes. `0` if the asset has no padding after. */
+            i_padding_after: number;
+            /** Padding before each booking of the asset, in minutes. `0` if the asset has no padding before. */
+            i_padding_before: number;
+        };
         /** List of removed assets involved in the session. */
         a_resource_removed: Array<string>;
         /** A list of staff members who will conduct the session. */
@@ -30855,6 +30878,10 @@ export interface WlAppointmentBookAssetAssetListResponse {
         html_deny_reason: string;
         /** The resource name. */
         html_title: string;
+        /** Padding after each booking of the asset, in minutes. `0` if the asset has no padding after. */
+        i_padding_after: number;
+        /** Padding before each booking of the asset, in minutes. `0` if the asset has no padding before. */
+        i_padding_before: number;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
         /** A list of client booking flow types. @see RsServiceRequireSid */

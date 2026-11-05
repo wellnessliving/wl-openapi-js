@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261105132840
+// OpenAPI spec version: 1.1.20261105154125
 // Build date: 2026-11-05
 // Endpoints: 701
 // Enums: 222
@@ -2424,6 +2424,10 @@ var RsMailSid;
     RsMailSid[RsMailSid["PAY_ACCOUNT_INVOICE"] = 85] = "PAY_ACCOUNT_INVOICE";
     /** Automatic payment success */
     RsMailSid[RsMailSid["PAY_AUTOMATIC_SUCCESS"] = 116] = "PAY_AUTOMATIC_SUCCESS";
+    /** Funds of a Stripe dispute must be moved by hand */
+    RsMailSid[RsMailSid["PAY_DISPUTE_FUNDS_FAIL"] = 228] = "PAY_DISPUTE_FUNDS_FAIL";
+    /** A client disputed a payment to the studio */
+    RsMailSid[RsMailSid["PAY_DISPUTE_STUDIO"] = 229] = "PAY_DISPUTE_STUDIO";
     /** Transaction failed */
     RsMailSid[RsMailSid["PAY_TRANSACTION_FAIL"] = 181] = "PAY_TRANSACTION_FAIL";
     /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */

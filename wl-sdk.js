@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261105132840
+ * Spec version: 1.1.20261105154125
  * Build date:   2026-11-05
  * Endpoints:    701
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261105132840';
+  WlClient.SPEC_VERSION = '1.1.20261105154125';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (701 total)
@@ -4084,6 +4084,7 @@
    * @param {?number} [params.id_family_relation] Family role for a new user. One of {@link WlClient.RsFamilyRelationSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {boolean} params.is_field_all `true` to return all active, non-removed profile fields of the business regardless of entry-point...
+   * @param {boolean} params.is_level_all `true` to also return the profile fields that are hidden for the entry point given by
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.uid The key of the user to edit.
@@ -4187,6 +4188,7 @@
    * @param {?number} [params.id_family_relation] Family role for a new user. One of {@link WlClient.RsFamilyRelationSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {boolean} params.is_field_all `true` to return all active, non-removed profile fields of the business regardless of entry-point...
+   * @param {boolean} params.is_level_all `true` to also return the profile fields that are hidden for the entry point given by
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.text_token The security token.
@@ -12088,6 +12090,9 @@
    * Returns each day in the requested month marked as available or unavailable for booking the given
    *  service at the given location. Availability is determined by the business schedule, holidays,
    *  and staff availability for the selected date range.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
@@ -12135,6 +12140,9 @@
    * Returns available time slots for the specified service, location, staff member, and date range.
    *  Each slot includes the start time, duration, available capacity, and staff information. Supports
    *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
@@ -12175,6 +12183,9 @@
    * Returns available time slots for the specified service, location, staff member, and date range.
    *  Each slot includes the start time, duration, available capacity, and staff information. Supports
    *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
    * @deprecated Use {@link \Wl\Appointment\Book\Schedule\DayTime73Api}
    *
    * @param {Object} [params] Request parameters.
@@ -12237,6 +12248,9 @@
    * Returns each day in the requested month marked as available or unavailable for booking the given
    *  service at the given location. Availability is determined by the business schedule, holidays,
    *  and staff availability for the selected date range.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
    * @deprecated Use {@link \Wl\Appointment\Book\Schedule\Calendar73Api}
    *
    * @param {Object} [params] Request parameters.
@@ -12287,6 +12301,9 @@
    *  time slot for the given service, location, and optional staff member. Returns the first available
    *  date so the client side can pre-select it in the booking calendar. This request may take longer
    *  than usual on production and uses an extended execution time limit.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
@@ -12326,6 +12343,9 @@
    * Returns each day in the requested month marked as available or unavailable for booking the given
    *  service at the given location. Availability is determined by the business schedule, holidays,
    *  and staff availability for the selected date range.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
@@ -12374,6 +12394,9 @@
    * Returns available time slots for the specified service, location, staff member, and date range.
    *  Each slot includes the start time, duration, available capacity, and staff information. Supports
    *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
@@ -12416,6 +12439,9 @@
    *  time slot for the given service, location, and optional staff member. Returns the first available
    *  date so the client side can pre-select it in the booking calendar. This request may take longer
    *  than usual on production and uses an extended execution time limit.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
@@ -17713,6 +17739,10 @@
     PAY_ACCOUNT_INVOICE: 85,
     /** Automatic payment success */
     PAY_AUTOMATIC_SUCCESS: 116,
+    /** Funds of a Stripe dispute must be moved by hand */
+    PAY_DISPUTE_FUNDS_FAIL: 228,
+    /** A client disputed a payment to the studio */
+    PAY_DISPUTE_STUDIO: 229,
     /** Transaction failed */
     PAY_TRANSACTION_FAIL: 181,
     /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
