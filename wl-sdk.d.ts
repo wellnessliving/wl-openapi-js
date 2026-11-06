@@ -10661,6 +10661,8 @@ export interface CorePassportPasskeyPasskeyCredentialGetResponse {
     }>;
 }
 export interface CorePassportPasskeyPasskeyCredentialPutParams {
+    /** JSON-encoded structure with any additional information required by the project-specific */
+    json_context: string;
     /** Key of the credential to revoke or to rename. */
     k_passkey_credential: string;
 }

@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261105162213
- * Build date:   2026-11-05
+ * Spec version: 1.1.20261105235444
+ * Build date:   2026-11-06
  * Endpoints:    701
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261105162213';
+  WlClient.SPEC_VERSION = '1.1.20261105235444';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (701 total)
@@ -3103,6 +3103,7 @@
    * rename is not written to the sign-in log: the log has only the entries of adding and removing a passkey.
    *
    * @param {Object} [params] Request parameters.
+   * @param {string} params.json_context JSON-encoded structure with any additional information required by the project-specific
    * @param {string} params.k_passkey_credential Key of the credential to revoke or to rename.
    * @returns {Promise<Object>} Response data.
    */
