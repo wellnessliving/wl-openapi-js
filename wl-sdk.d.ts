@@ -1378,6 +1378,8 @@ export declare enum WlModeModeSid {
     SYSTEM = 10,
     /** Means that we did not define mode */
     UNDEFINED = 6,
+    /** Sale made automatically on wait list promotion */
+    WAIT_LIST_PROMOTION = 34,
     /** Client booked session from Attendance Web App */
     WEB_APP_ATTENDANCE = 16,
     /** Client checked-in for the session through Check-In Web App */
@@ -17667,6 +17669,8 @@ export interface WlStaffPasskeyPasskeyListResponse {
         can_remove: boolean;
         /** Full name of the staff member. */
         text_name: string;
+        /** Business role of the staff member, or an empty string if no role is assigned. */
+        text_role: string;
         /** Staff member key. */
         uid: string;
     }>;
@@ -30144,6 +30148,35 @@ export interface WlAppointmentBookFinishFinish47PostResponse {
         text_promotion: string;
     }>;
 }
+export interface WlAppointmentBookFinishClientChangeParams {
+    /** `true` if the new client is a walk-in: a client without a profile, who has no key. {@link WlAppoi... */
+    is_walk_in: boolean;
+    /** The appointment key of the original appointment whose client is being changed. */
+    k_appointment: string;
+    /** The business key. */
+    k_business: string;
+    /** The location of the original appointment and of the new booking. */
+    k_location: string;
+    /** The visit key of the original visit being cancelled. */
+    k_visit: string;
+    /** The user key of the new client to book. */
+    uid_new: string;
+    /** The user key of the original client whose visit is being cancelled. */
+    uid_original: string;
+}
+export interface WlAppointmentBookFinishClientChangeResponse {
+    /** The booked appointments. Every element has the key: */
+    a_appointment: Array<{
+        /** The appointment key. */
+        k_appointment: string;
+    }>;
+    /** The activity IDs of bookings that have been made. */
+    a_login_activity_visit: Array<string>;
+    /** The visit IDs of the newly booked appointments. */
+    a_visit: Array<string>;
+    /** Keys of booked visits. */
+    a_visit_provider: Array<Array<string>>;
+}
 export interface WlAppointmentBookStaffListParams {
     /** The date/time of the appointment selected by user, in the location's time zone. */
     dt_date: string;
@@ -36365,6 +36398,8 @@ export declare class WlAppointmentBookFinishNamespace {
     finish47Get(params?: WlAppointmentBookFinishFinish47GetParams): Promise<WlAppointmentBookFinishFinish47GetResponse>;
     /** Completes the appointment booking and logs variable counts for diagnostic purposes. */
     finish47Post(params?: WlAppointmentBookFinishFinish47PostParams): Promise<WlAppointmentBookFinishFinish47PostResponse>;
+    /** Changes the client of an appointment in one atomic transaction. */
+    clientChange(params?: WlAppointmentBookFinishClientChangeParams): Promise<WlAppointmentBookFinishClientChangeResponse>;
 }
 export declare class WlAppointmentBookStaffNamespace {
     private readonly _client;

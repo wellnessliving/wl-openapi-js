@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261106102326
+// OpenAPI spec version: 1.1.20261106142442
 // Build date: 2026-11-06
-// Endpoints: 701
+// Endpoints: 702
 // Enums: 222
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -1391,6 +1391,8 @@ export var WlModeModeSid;
     WlModeModeSid[WlModeModeSid["SYSTEM"] = 10] = "SYSTEM";
     /** Means that we did not define mode */
     WlModeModeSid[WlModeModeSid["UNDEFINED"] = 6] = "UNDEFINED";
+    /** Sale made automatically on wait list promotion */
+    WlModeModeSid[WlModeModeSid["WAIT_LIST_PROMOTION"] = 34] = "WAIT_LIST_PROMOTION";
     /** Client booked session from Attendance Web App */
     WlModeModeSid[WlModeModeSid["WEB_APP_ATTENDANCE"] = 16] = "WEB_APP_ATTENDANCE";
     /** Client checked-in for the session through Check-In Web App */
@@ -10394,6 +10396,10 @@ export class WlAppointmentBookFinishNamespace {
     /** Completes the appointment booking and logs variable counts for diagnostic purposes. */
     finish47Post(params) {
         return this._client._request('/Wl/Appointment/Book/Finish/Finish47.json', params, 'POST');
+    }
+    /** Changes the client of an appointment in one atomic transaction. */
+    clientChange(params) {
+        return this._client._request('/Wl/Appointment/Book/Finish/ClientChange.json', params, 'POST');
     }
 }
 export class WlAppointmentBookStaffNamespace {

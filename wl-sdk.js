@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261106102326
+ * Spec version: 1.1.20261106142442
  * Build date:   2026-11-06
- * Endpoints:    701
+ * Endpoints:    702
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261106102326';
+  WlClient.SPEC_VERSION = '1.1.20261106142442';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (701 total)
+  // Generated API methods (702 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -12899,6 +12899,36 @@
   };
 
   /**
+   * Changes the client of an appointment in one atomic transaction.
+   *
+   * Ends the original client's visit (an early cancel without a fee, or the denial of the request), then books
+   * the new client. If the booking fails, the whole transaction is rolled back: neither the ending of the visit
+   * nor the booking is committed.
+   * 
+   * Returns the newly booked appointment data in {@link WlClient#wlAppointmentBookFinishClientChange},
+   * {@link WlClient#wlAppointmentBookFinishClientChange}, {@link WlClient#wlAppointmentBookFinishClientChange}
+   * ...
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_walk_in `true` if the new client is a walk-in: a client without a profile, who has no key. {@link WlClien...
+   * @param {string} params.k_appointment The appointment key of the original appointment whose client is being changed.
+   * @param {string} params.k_business The business key.
+   * @param {string} params.k_location The location of the original appointment and of the new booking.
+   * @param {string} params.k_visit The visit key of the original visit being cancelled.
+   * @param {string} params.uid_new The user key of the new client to book.
+   * @param {string} params.uid_original The user key of the original client whose visit is being cancelled.
+   * @returns {Promise<Object>} Response data.
+   *  `a_appointment` {Object[]} The booked appointments. Every element has the key:
+   *  `a_login_activity_visit` {string[]} The activity IDs of bookings that have been made.
+   *  `a_visit` {string[]} The visit IDs of the newly booked appointments.
+   *  `a_visit_provider` {string[][]} Keys of booked visits.
+   */
+  WlClient.prototype.wlAppointmentBookFinishClientChange = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Finish/ClientChange.json', params || {}, 'POST');
+  };
+
+  /**
    * Retrieves an information about staff members for the current service.
    *
    * Returns the list of staff members who can perform the specified service at the given location
@@ -16676,6 +16706,8 @@
     SYSTEM: 10,
     /** Means that we did not define mode */
     UNDEFINED: 6,
+    /** Sale made automatically on wait list promotion */
+    WAIT_LIST_PROMOTION: 34,
     /** Client booked session from Attendance Web App */
     WEB_APP_ATTENDANCE: 16,
     /** Client checked-in for the session through Check-In Web App */
