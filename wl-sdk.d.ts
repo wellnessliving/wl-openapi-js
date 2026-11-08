@@ -10658,9 +10658,15 @@ export interface CorePassportPasskeyPasskeyCredentialGetResponse {
         is_backed_up: boolean;
         /** Credential key. */
         k_passkey_credential: string;
+        /** `WebAuthn` credential ID, base64url encoded without padding. Clients pass it to the signal method... */
+        s_credential_id: string;
+        /** `WebAuthn` user handle (`user.id`) stored with the passkey on the device, base64url encoded witho... */
+        s_user_handle: string;
         /** Name of this credential, assigned at registration and changed by `put()`. */
         text_device: string;
     }>;
+    /** Relying Party ID of the passkeys, the `rpId` the `WebAuthn` signal methods need. */
+    s_rp_id: string;
 }
 export interface CorePassportPasskeyPasskeyCredentialPutParams {
     /** JSON-encoded structure with any additional information required by the project-specific */

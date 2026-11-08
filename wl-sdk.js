@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261108140330
+ * Spec version: 1.1.20261108204038
  * Build date:   2026-11-08
  * Endpoints:    702
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261108140330';
+  WlClient.SPEC_VERSION = '1.1.20261108204038';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (702 total)
@@ -3089,6 +3089,7 @@
    * @param {string} params.uid Key of the user whose passkey credentials to manage. `'0'` or empty string to use the
    * @returns {Promise<Object>} Response data.
    *  `a_credential` {Object[]} List of the signed-in user's registered passkey credentials.
+   *  `s_rp_id` {string} Relying Party ID of the passkeys, the `rpId` the `WebAuthn` signal methods need.
    */
   WlClient.prototype.corePassportPasskeyPasskeyCredentialGet = function(params)
   {
