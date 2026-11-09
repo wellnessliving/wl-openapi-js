@@ -31108,6 +31108,8 @@ export interface WlAppointmentBookBlockAddonListParams {
 export interface WlAppointmentBookBlockAddonListResponse {
     /** The add-ons that can be chosen for the appointment, in the order in which they are shown and run ... */
     a_addon: Array<{
+        /** Description of the add-on service, as HTML that is ready to be shown, in the language of the curr... */
+        html_description: string;
         /** Extra time that the add-on adds to the appointment, in minutes. `0` if the add-on takes no time o... */
         i_extra_time: number;
         /** Key of the add-on service. */
@@ -31116,8 +31118,6 @@ export interface WlAppointmentBookBlockAddonListResponse {
         m_extra_cost: string;
         /** The regular price of the add-on, shown struck through next to Extra cost. `null` if nothing is st... */
         m_price_regular: string | null;
-        /** Short line that tells why to add the add-on. `null` if the add-on has none. */
-        text_tagline: string | null;
         /** Title of the add-on. */
         text_title: string;
     }>;
