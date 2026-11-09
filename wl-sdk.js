@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261109140932
+ * Spec version: 1.1.20261109203429
  * Build date:   2026-11-09
- * Endpoints:    702
+ * Endpoints:    703
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261109140932';
+  WlClient.SPEC_VERSION = '1.1.20261109203429';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (702 total)
+  // Generated API methods (703 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -6506,6 +6506,23 @@
   WlClient.prototype.wlClassesPromotionClassPromotion = function(params)
   {
     return this.request('/Wl/Classes/Promotion/ClassPromotion.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns the categories of classes and of events of a business.
+   *
+   * Every class and every event of a business belongs to one of its categories. Classes and events have separate
+   * lists of categories: `is_event` tells the kind of each category. The list has no counts and no other settings
+   * of the setup page.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the business.
+   * @returns {Promise<Object>} Response data.
+   *  `a_category` {Object[]} The categories of the business: first the categories of classes, then the cat...
+   */
+  WlClient.prototype.wlClassesCategoryCategoryList = function(params)
+  {
+    return this.request('/Wl/Classes/Category/CategoryList.json', params || {}, 'GET');
   };
 
   /**

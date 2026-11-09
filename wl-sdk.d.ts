@@ -17721,8 +17721,12 @@ export interface WlClassesClassListListResponse {
         is_remove: boolean;
         /** Class/event identifier. */
         k_class: string;
+        /** Key of the category of the class or event. Classes and events have separate lists of categories, see */
+        k_classes_category: string | null;
         /** Event Block ID. */
         k_enrollment_block: string;
+        /** Name of the category of the class or event, in the language of the request, or in the nearest lan... */
+        text_category: string | null;
         /** Class/event name. */
         text_title: string;
     }>;
@@ -17760,10 +17764,14 @@ export interface WlClassesClassListBookListResponse {
         is_online_private: boolean;
         /** The class key. */
         k_class: string;
+        /** The key of the category of the class or event, as {@link WlClassesClassListListResponse.a_class} ... */
+        k_classes_category: string | null;
         /** The enrollment block key. */
         k_enrollment_block: string;
         /** The total price for an event. */
         m_price_total: string;
+        /** The name of the category of the class or event in the language of the request, or in the nearest ... */
+        text_category: string | null;
         /** The class description. */
         text_description: string;
         /** The class name. */
@@ -17936,6 +17944,23 @@ export interface WlClassesPromotionClassPromotionResponse {
     }>;
     /** The default promotion key. */
     k_promotion_default: string | null;
+}
+export interface WlClassesCategoryCategoryListParams {
+    /** Key of the business. */
+    k_business: string;
+}
+export interface WlClassesCategoryCategoryListResponse {
+    /** The categories of the business: first the categories of classes, then the categories of events, e... */
+    a_category: Array<{
+        /** Position of the category in the list of its kind, from `1`. */
+        i_order: number;
+        /** `true` for a category of events, `false` for a category of classes. */
+        is_event: boolean;
+        /** Key of the category. */
+        k_classes_category: string;
+        /** Name of the category in the language of the request, or in the nearest language that has one. */
+        text_title: string;
+    }>;
 }
 export interface WlCouponCouponListListParams {
     /** Whether to return franchisee-created coupons (if business is franchisor). */
@@ -36122,6 +36147,12 @@ export declare class WlClassesPromotionNamespace {
     /** Returns list of promotions that can be used to pay for the class / event. */
     classPromotion(params?: WlClassesPromotionClassPromotionParams): Promise<WlClassesPromotionClassPromotionResponse>;
 }
+export declare class WlClassesCategoryNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the categories of classes and of events of a business. */
+    categoryList(params?: WlClassesCategoryCategoryListParams): Promise<WlClassesCategoryCategoryListResponse>;
+}
 export declare class WlClassesPeriodModifyNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -36148,6 +36179,7 @@ export declare class WlClassesNamespace {
     readonly info: WlClassesInfoNamespace;
     readonly classView: WlClassesClassViewNamespace;
     readonly promotion: WlClassesPromotionNamespace;
+    readonly category: WlClassesCategoryNamespace;
     readonly period: WlClassesPeriodNamespace;
     constructor(_client: WlClient);
 }
