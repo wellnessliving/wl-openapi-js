@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261108204038
- * Build date:   2026-11-08
+ * Spec version: 1.1.20261109014447
+ * Build date:   2026-11-09
  * Endpoints:    702
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261108204038';
+  WlClient.SPEC_VERSION = '1.1.20261109014447';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (702 total)
@@ -6387,7 +6387,8 @@
   /**
    * Lists the passkeys of the active staff members of the business.
    *
-   * Only staff members who have passkeys are listed. The staff members whose passkeys the signed-in user may not
+   * Only staff members who have passkeys are listed. The list does not depend on whether passkey sign-in is enabled
+   * for the business: the passkeys that exist stay visible and removable after the option is turned off. The staff members whose passkeys the signed-in user may not
    * remove are listed too, with `can_remove` set to `false`: the user sees that they exist, and the removal stays
    * refused by `delete()`.
    *
