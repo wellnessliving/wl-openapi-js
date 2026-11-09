@@ -10667,6 +10667,8 @@ export interface CorePassportPasskeyPasskeyCredentialGetResponse {
     }>;
     /** Relying Party ID of the passkeys, the `rpId` the `WebAuthn` signal methods need. */
     s_rp_id: string;
+    /** `WebAuthn` user handle (`user.id`) of the listed user, base64url encoded without padding. */
+    s_user_handle: string;
 }
 export interface CorePassportPasskeyPasskeyCredentialPutParams {
     /** JSON-encoded structure with any additional information required by the project-specific */
