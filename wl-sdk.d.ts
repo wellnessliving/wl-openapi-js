@@ -8481,21 +8481,23 @@ export interface WlTicketTicketListResponse {
         i_ticket: number;
         /** `true` if the buyer has an email address on file. `false` for a guest. */
         is_email: boolean;
-        /** `true` if the order was bought by a guest, who has no profile. In this case `text_name` is empty. */
+        /** `true` if the order was bought by a guest, who has no profile. In this case `text_name` is the na... */
         is_guest: boolean;
         /** Number of the order: key of the purchase the tickets were bought with. Key of the purchase. */
         k_purchase: string;
+        /** Discounts applied to the tickets of the order, with the currency {@link WlTicketTicketListRespons... */
+        m_discount: string;
         /** Amount refunded for the tickets of the order, with the currency {@link WlTicketTicketListResponse... */
         m_refund: string;
-        /** Amount of the tickets of the order after discounts and before taxes, with the currency */
+        /** Amount of the tickets of the order before discounts, with the currency */
         m_subtotal: string;
         /** Surcharge taken for the purchase of the order. `0` if there is none. Decimal string. */
         m_surcharge: string;
         /** Taxes of the tickets of the order, with the currency {@link WlTicketTicketListResponse.k_currency... */
         m_tax: string;
-        /** Total paid for the tickets of the order, net of refunds, with the currency */
+        /** Total paid for the tickets of the order after discounts and with taxes, net of refunds, with the ... */
         m_total: string;
-        /** Full name of the buyer. Empty for a guest. */
+        /** Full name of the buyer. For a guest, the name given at the time of the order. Empty if a guest gave */
         text_name: string;
         /** Key of the buyer, for the link to the profile. `null` for a guest. */
         uid: string | null;
@@ -22313,6 +22315,8 @@ export interface WlMemberInfoInfoResponse {
         url_profile: string;
         /** Link to user's waiver page. */
         url_waiver: string;
+        /** The client's tasks in the business, ordered by due date, keyed by task key */
+        a_task_list: Record<string, unknown>;
     } | null;
     /** List of users data. */
     a_result_list: {
@@ -22403,6 +22407,8 @@ export interface WlMemberInfoInfoResponse {
             url_profile: string;
             /** Link to user's waiver page. */
             url_waiver: string;
+            /** The client's tasks in the business, ordered by due date, keyed by task key */
+            a_task_list: Record<string, unknown>;
         };
         /** `true` - user is traveller; `false` - not traveller. */
         is_traveller: boolean;
@@ -23048,6 +23054,8 @@ export interface WlReceptionApplicationMemberInfoResponse {
         url_profile: string;
         /** Link to user's waiver page. */
         url_waiver: string;
+        /** The client's tasks in the business, ordered by due date, keyed by task key */
+        a_task_list: Record<string, unknown>;
     } | null;
     /** The options presented in the web app. */
     a_items: Array<{
@@ -23151,6 +23159,8 @@ export interface WlReceptionApplicationMemberInfoResponse {
             url_profile: string;
             /** Link to user's waiver page. */
             url_waiver: string;
+            /** The client's tasks in the business, ordered by due date, keyed by task key */
+            a_task_list: Record<string, unknown>;
         };
         /** `true` - user is traveller; `false` - not traveller. */
         is_traveller: boolean;

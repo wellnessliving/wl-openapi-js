@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261110132527
+ * Spec version: 1.1.20261110151902
  * Build date:   2026-11-10
  * Endpoints:    708
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261110132527';
+  WlClient.SPEC_VERSION = '1.1.20261110151902';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (708 total)
@@ -7359,9 +7359,9 @@
   /**
    * Returns the number of the visit or the default number for a future booking.
    *
-   * The number of a visit is shown like the phone of the client:
-   * to the client of the visit, to the user who booked it, to a WellnessLiving admin with the privilege
-   * `rs.appointment.edit` and to staff of the business with the {@link WlClient.WlPrivilegePrivilegeSid} privilege.
+   * The number of a visit is returned wherever the appointment is returned, like the meeting link of a virtual
+   * appointment: to the client of the visit, to the user who booked it, to a WellnessLiving admin with the privilege
+   * `rs.appointment.edit` and to active staff of the business.
    * The default number for a future booking is available to a user with the {@link WlClient.WlPrivilegePrivilegeSid}
    * privilege for the client. The number is returned in the international E.164 format.
    *
