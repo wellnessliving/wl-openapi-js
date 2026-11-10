@@ -8630,6 +8630,15 @@ export interface WlEventEventListGetResponse {
             /** Name of the tag. */
             text_title: string;
         };
+        /** Future sessions of this event that {@link WlEventNamespace#eventListGet} holds, booked or on the ... */
+        a_session_user: {
+            /** Date and time of the session in UTC, in `MySQL` format (for example `2026-11-05 13:00:00`). */
+            dtu_date: string;
+            /** `true` if the user is on the wait list of the session ({@link WlVisitVisitSid}). */
+            is_user_wait: boolean;
+            /** Key of the class period of the session. */
+            k_class_period: string;
+        };
         /** Returns how many tickets can be sold for the ticketed event the class belongs to, and how */
         a_ticket_inventory?: {
             /** Total number of tickets that can be sold for the event. */
