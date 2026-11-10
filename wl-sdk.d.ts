@@ -15858,6 +15858,8 @@ export interface WlMemberInfoInfoResponse {
         url_profile: string;
         /** Link to user's waiver page. */
         url_waiver: string;
+        /** The client's tasks in the business, ordered by due date, keyed by task key */
+        a_task_list: Record<string, unknown>;
     } | null;
     /** List of users data. */
     a_result_list: {
@@ -15948,6 +15950,8 @@ export interface WlMemberInfoInfoResponse {
             url_profile: string;
             /** Link to user's waiver page. */
             url_waiver: string;
+            /** The client's tasks in the business, ordered by due date, keyed by task key */
+            a_task_list: Record<string, unknown>;
         };
         /** `true` - user is traveller; `false` - not traveller. */
         is_traveller: boolean;
@@ -21860,6 +21864,8 @@ export interface WlReceptionApplicationMemberInfoResponse {
         url_profile: string;
         /** Link to user's waiver page. */
         url_waiver: string;
+        /** The client's tasks in the business, ordered by due date, keyed by task key */
+        a_task_list: Record<string, unknown>;
     } | null;
     /** The options presented in the web app. */
     a_items: Array<{
@@ -21963,6 +21969,8 @@ export interface WlReceptionApplicationMemberInfoResponse {
             url_profile: string;
             /** Link to user's waiver page. */
             url_waiver: string;
+            /** The client's tasks in the business, ordered by due date, keyed by task key */
+            a_task_list: Record<string, unknown>;
         };
         /** `true` - user is traveller; `false` - not traveller. */
         is_traveller: boolean;
