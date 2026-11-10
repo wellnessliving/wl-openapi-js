@@ -19,387 +19,6 @@ export declare class WlApiError extends Error {
     readonly errors: WlApiErrorDetail[];
     constructor(status: number, body: unknown);
 }
-/** Experience types for class sessions to differentiate virtual and in-person sessions. */
-export declare enum ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum {
-    /** In-person session at a physical location */
-    IN_PERSON = 1,
-    /** Virtual session conducted through a virtual provider */
-    VIRTUAL = 2
-}
-/** List of different types for landing pages based on business types. */
-export declare enum RsHomeTourSid {
-    /** Barbershops */
-    BARBERSHOP = 26,
-    /** Boot camps */
-    BOOTCAMP = 24,
-    /** Boxing studios */
-    BOXING = 25,
-    /** Special industry free landing page with only contact us form */
-    BUSINESS_MANAGEMENT = 21,
-    /** Health clubs */
-    CLUB = 10,
-    /** Affiliate Gym */
-    CROSSFIT = 9,
-    /** Dance studios */
-    DANCE = 11,
-    /** Dental studios */
-    DENTAL = 14,
-    /** Fitness gyms */
-    FITNESS = 6,
-    /** Functional fitness also known as functional training or functional movement */
-    FUNCTIONAL_FITNESS = 29,
-    /** Fitness gyms */
-    GYM = 22,
-    /** Health clubs */
-    HEALTH_CLUB = 23,
-    /** Health and beauty salons at one place */
-    INTEGRATIVE_HEALTH_CENTER = 30,
-    /** Martial arts */
-    MARTIAL_ART = 8,
-    /** Massage salons */
-    MASSAGE = 4,
-    /** Massage salons */
-    MEDICAL_SPA = 28,
-    /** Alternative medical offices */
-    MEDICINE_ALTERNATIVE = 15,
-    /** Hospitals and private doctors */
-    MEDICINE_TRADITIONAL = 13,
-    /** Music schools */
-    MUSIC = 19,
-    /** Personal trainings */
-    PERSONAL_TRAINING = 5,
-    /** Pilates */
-    PILATES = 7,
-    /** Play cafes */
-    PLAY_CAFE = 32,
-    /** Pole dancing studios */
-    POLE_DANCING = 18,
-    /** Salons */
-    SALON = 3,
-    /** Spa salons */
-    SPA = 2,
-    /** Spinning */
-    SPINNING = 17,
-    /** Swim schools */
-    SWIM_SCHOOL = 33,
-    /** Tattoo salons */
-    TATTOO = 31,
-    /** Tours and events */
-    TOUR = 12,
-    /** Wellness Centers */
-    WELLNESS_CENTER = 20,
-    /** Yoga */
-    YOGA = 1,
-    /** Zumba */
-    ZUMBA = 27
-}
-/** Stripe device type of reader. */
-export declare enum ThothPayProcessorStripeComTerminalStripeReaderModelSid {
-    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
-    BBPOS_WISEPAD3 = 1,
-    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
-    BBPOS_WISEPOS_E = 4,
-    /** SIMULATED Wise POS E */
-    SIMULATED_WISEPOS_E = 6,
-    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
-    STRIPE_M2 = 2
-}
-/** List of possible status of readers. */
-export declare enum ThothPayProcessorTerminalTerminalStatusSid {
-    /** Status active */
-    ACTIVE = 1,
-    /** Status inactive */
-    INACTIVE = 2,
-    /** Status setup, reader is active but not added to stripe yet */
-    SETUP = 3
-}
-/** Payment actors (staff member, user or business owner). */
-export declare enum RsPayActorSid {
-    /** Business owner */
-    BUSINESS = 3,
-    /** Staff member */
-    STAFF = 1,
-    /** User */
-    USER = 2
-}
-/** A list of currencies. */
-export declare enum CoreLocaleCurrencySid {
-    /** United Arab Emirates dirham */
-    AED = 11,
-    /** Australian dollar */
-    AUD = 6,
-    /** Bermudian Dollar */
-    BMD = 18,
-    /** Bahamian dollar */
-    BSD = 19,
-    /** Canadian dollar */
-    CAD = 4,
-    /** Egypt Pound */
-    EGP = 8,
-    /** Euro */
-    EUR = 13,
-    /** British pound */
-    GBP = 3,
-    /** Kuwaiti dinar */
-    KWD = 14,
-    /** Cayman Islands dollar */
-    KYD = 5,
-    /** Mauritian Rupee */
-    MUR = 16,
-    /** New Zealand Dollar */
-    NZD = 10,
-    /** Philippines Pesco */
-    PHP = 12,
-    /** Saudi Riyal */
-    SAR = 15,
-    /** Singapore dollar */
-    SGD = 20,
-    /** Unknown code */
-    UNKNOWN = 2,
-    /** US dollars */
-    USD = 1,
-    /** West African CFA franc */
-    XOF = 17,
-    /** South African rand */
-    ZAR = 7
-}
-/** Statuses of payment intents. */
-export declare enum ThothPayProcessorStripeComPaymentIntentStatusSid {
-    /** You may cancel a Payment Intent at any point before it is processing or succeeded. This invalidates the */
-    CANCELED = 7,
-    /** Once required actions are handled, the Payment Intent moves to processing. While for some payment methods */
-    PROCESSING = 4,
-    /** If the payment requires additional actions, such as authenticating with 3D Secure , the Payment Intent has a status */
-    REQUIRES_ACTION = 3,
-    /** Requires capture */
-    REQUIRES_CAPTURE = 6,
-    /** After the customer provides their payment information, the Payment Intent is ready to be confirmed */
-    REQUIRES_CONFIRMATION = 2,
-    /** When the Payment Intent is created, it has a status of `requires_payment_method` until a payment method is */
-    REQUIRES_PAYMENT_METHOD = 1,
-    /** A Payment Intent with a status of succeeded means that the payment flow it is driving is complete */
-    SUCCEEDED = 5
-}
-/** An enum of credit card types. */
-export declare enum ThothWlPayBankCardCardTypeEnum {
-    /** Credit Card */
-    CREDIT = 1,
-    /** Debit Card */
-    DEBIT = 2
-}
-/** A list of payment methods. */
-export declare enum RsPayMethodSid {
-    /** Payment with personal user account (rs.pay.account) */
-    ACCOUNT = 7,
-    /** ACH system (USA-specific direct banking transactions) */
-    ACH = 9,
-    /** Payment with cash */
-    CASH = 4,
-    /** Payment with a cheque */
-    CHEQUE = 5,
-    /** Payment with a coupon */
-    COUPON = 8,
-    /** Direct Entry system (australian-specific direct banking transactions) */
-    DIRECT_ENTRY = 10,
-    /** Online payment. Card not present */
-    ECOMMERCE = 2,
-    /** Payment with an external terminal */
-    EXTERNAL = 6,
-    /** Special method to be used for migration process */
-    IMPORT_ACCRUAL = 11,
-    /** Payment method at a Points of sale */
-    POS = 1
-}
-/** Lists statuses of reports from point of view of its generation. */
-export declare enum ThothReportCoreGeneratorReportGeneratorStatusSid {
-    /** Report is in an inconsistent state */
-    ABORTED = 6,
-    /** Current operation is being aborted now */
-    ABORTING = 5,
-    /** This report is being deleted now */
-    DELETING = 4,
-    /** This report is being generated now */
-    GENERATING = 2,
-    /** Generation of this report is queued */
-    QUEUED = 1,
-    /** Generation of this report is now completed */
-    READY = 3
-}
-/** A class for a list of card systems. */
-export declare enum ACardSystemSid {
-    /** American Express */
-    AMERICAN_EXPRESS = 1,
-    /** Bank of Montreal (BMO) */
-    BMO = 2,
-    /** Canadian Imperial Bank of Commerce (CIBC) */
-    CIBC = 3,
-    /** Diners Club International */
-    DINNER_CLUB = 4,
-    /** Discover */
-    DISCOVER = 5,
-    /** HSBC Bank Canada */
-    HSBC_CANADA = 6,
-    /** Japan Credit Bureau (JCB) */
-    JCB = 7,
-    /** Mastercard */
-    MASTERCARD = 8,
-    /** Royal Bank of Canada */
-    ROYAL_BANK = 9,
-    /** Scotiabank */
-    SCOTIBANK = 10,
-    /** TD Canada Trust */
-    TD_CANADA = 11,
-    /** The card system can't be determined */
-    UNDEFINED = 13,
-    /** Union Pay */
-    UNION_PAY = 14,
-    /** Visa */
-    VISA = 12
-}
-/** Paragon device type of reader. */
-export declare enum ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid {
-    /** Verifone e285 reader */
-    E285 = 1,
-    /** Verifone P200 reader */
-    P200 = 2,
-    /** Verifone P400 plus reader */
-    P400_PLUS = 3,
-    /** Verifone V200c reader */
-    V200_C = 4,
-    /** Verifone V200c plus reader */
-    V200_C_PLUS = 5,
-    /** Verifone V400c plus reader */
-    V400_C_PLUS = 7,
-    /** Verifone V400m reader */
-    V400_M = 6
-}
-/** List of supported terminal interaction types. */
-export declare enum ThothPayProcessorTerminalTerminalTypeSid {
-    /** Magtek USB */
-    MAGTEK_USB = 1
-}
-/** A list of devices supported by credit card reader plugin. */
-export declare enum ThothWlPayCordovaCordovaCcrDeviceSid {
-    /** Payment processor: Direct Connect */
-    DC_IDT_AUGUSTA = 4,
-    /** Payment processor: Direct Connect */
-    DC_IDT_BT_MAG = 5,
-    /** Payment processor: Direct Connect */
-    DC_IDT_UNI_MAG = 6,
-    /** Payment processor: Direct Connect */
-    DC_IDT_UNI_PAY = 7,
-    /** Payment processor: Direct Connect */
-    DC_MAGTEK_AUDIO = 11,
-    /** Payment processor: Paragon (ex. Direct Connect) */
-    DC_MAGTEK_BLUETOOTH = 13,
-    /** Payment processor: Direct Connect */
-    DC_MAGTEK_LIGHTNING = 12,
-    /** Payment processor: Direct Connect */
-    DC_MIURA = 8,
-    /** Payment processor: Direct Connect */
-    DC_PAX = 9,
-    /** Payment processor: NMI */
-    NMI_ENTERPRISE = 3,
-    /** Payment processor: NMI */
-    NMI_IPS = 2,
-    /** Payment processor: NMI */
-    NMI_UNIMAG = 1,
-    /** Payment processor: Stripe */
-    STRIPE_BBPOS_SIMULATED_WISEPOS_E = 17,
-    /** Payment processor: Stripe */
-    STRIPE_BBPOS_WISEPAD_3_BLUETOOTH = 14,
-    /** Payment processor: Stripe */
-    STRIPE_BBPOS_WISEPOS_E_INTERNET = 15,
-    /** Payment processor: Stripe */
-    STRIPE_READER_M2_BLUETOOTH = 16,
-    /** Virtual device for testing purposes */
-    VIRTUAL = 10
-}
-/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
-export declare enum ThothPayProcessorStripeComTerminalStripeTerminalTypeSid {
-    /** Terminals that work via Stripe javascript SDK */
-    JS_SDK = 2,
-    /** Magtek USB */
-    MAGTEK_USB = 1
-}
-/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
-export declare enum ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid {
-    /** Card terminals that work via OMNI Channel API */
-    OMNICHANNEL = 2,
-    /** Magtek USB */
-    MAGTEK_USB = 1
-}
-/** A list of payment gateways or processors. */
-export declare enum ThothPayProcessorPayProcessorSid {
-    /** Payment gateway for `cybersource.com` */
-    CYBER_SOURCE = 11,
-    /** Payment gateway for Direct Connect */
-    DIRECT_CONNECT = 9,
-    /** Payment gateway for Lucy */
-    LUCY = 2,
-    /** Payment gateway for Netbanx */
-    NETBANX = 1,
-    /** Payment gateway for NMI */
-    NMI = 6,
-    /** Payment gateway for Nuvei */
-    NUVEI = 12,
-    /** Payment gateway for Paychoice */
-    PAYCHOICE = 7,
-    /** Payment gateway for `stripe.com` */
-    STRIPE_COM = 10
-}
-/** A list of locales. */
-export declare enum CoreLocaleLocaleSid {
-    /** Australia */
-    AUSTRALIA = 4,
-    /** Bahamas */
-    BAHAMAS = 20,
-    /** Bermuda */
-    BERMUDA = 19,
-    /** Canada */
-    CANADA = 2,
-    /** Cayman Islands */
-    CAYMAN = 5,
-    /** Cyprus */
-    CYPRUS = 13,
-    /** Egypt */
-    EGYPT = 8,
-    /** Republic of Ireland */
-    IRELAND = 18,
-    /** Kuwait */
-    KUWAIT = 14,
-    /** Republic of Mauritius */
-    MAURITIUS = 16,
-    /** A special locale that can be used for testing or a business situated in an unknown region */
-    NEVERLAND = 9,
-    /** New Zealand */
-    NEW_ZEALAND = 10,
-    /** Philippines */
-    PHILIPPINES = 12,
-    /** Saudi Arabia */
-    SAUDI_ARABIA = 15,
-    /** Senegal */
-    SENEGAL = 17,
-    /** Singapore */
-    SINGAPORE = 21,
-    /** South Africa */
-    SOUTH_AFRICA = 6,
-    /** United Arab Emirates */
-    UAE = 11,
-    /** United Kingdom */
-    UK = 3,
-    /** United States of America */
-    USA = 1
-}
-/** A list of money owners from which account money can be transferred. */
-export declare enum RsPayOwnerSid {
-    /** Anonymous user (Walk-In) */
-    ANONYMOUS = 3,
-    /** Business */
-    BUSINESS = 2,
-    /** System user */
-    USER = 1
-}
 /** List of Google reCaptcha versions. */
 export declare enum CoreGoogleCaptchaCaptchaVersionSid {
     /** Version 2 (invisible) */
@@ -425,517 +44,39 @@ export declare enum WlTaskTaskStatusSid {
     /** Task in progress */
     PROGRESS = 2
 }
-/** An exception that is thrown in a case of a payment error. */
-export declare enum RsPayException {
-    /** Invalid ABA number chosen */
-    ABAN_EMPTY = 58,
-    /** Invalid ABA number chosen */
-    ABAN_INVALID = 57,
-    /** User Authentication Failed */
-    ACCESS_AUTHENTICATE = 160,
-    /** Authentication token is not valid */
-    ACCESS_TOKEN_INVALID = 181,
-    /** Account payment entry method is empty */
-    ACCOUNT_ENTRY_EMPTY = 63,
-    /** Account holder type is empty */
-    ACCOUNT_HOLDER_EMPTY = 64,
-    /** Account name is empty */
-    ACCOUNT_NAME_EMPTY = 59,
-    /** Account name is too long */
-    ACCOUNT_NAME_LONG = 60,
-    /** Account number is empty */
-    ACCOUNT_NUMBER_EMPTY = 61,
-    /** Account number invalid */
-    ACCOUNT_NUMBER_INVALID = 67,
-    /** Account number is too long */
-    ACCOUNT_NUMBER_LONG = 62,
-    /** Account number is too short */
-    ACCOUNT_NUMBER_SHORT = 66,
-    /** Account owner is empty */
-    ACCOUNT_OWNER_EMPTY = 69,
-    /** Account name is too long */
-    ACCOUNT_OWNER_LONG = 70,
-    /** Account owner name does not equal billing name */
-    ACCOUNT_OWNER_DOES_NOT_MATCH = 182,
-    /** Account type is empty */
-    ACCOUNT_TYPE_EMPTY = 65,
-    /** ACH: Account Closed */
-    ACH_E02 = 198,
-    /** ACH: No Account / Unable to Locate Account */
-    ACH_E03 = 199,
-    /** ACH: Invalid Account Number */
-    ACH_E04 = 200,
-    /** ACH: Unauthorized Debit to Consumer Account Using Corporate SEC Code */
-    ACH_E05 = 201,
-    /** ACH: Authorization Revoked by Customer */
-    ACH_E07 = 202,
-    /** ACH: Payment Stopped */
-    ACH_E08 = 203,
-    /** ACH: Customer Advises Originator Not Known / Not Authorized */
-    ACH_E10 = 204,
-    /** ACH: Customer Advises Entry Not in Accordance with Authorization */
-    ACH_E11 = 205,
-    /** ACH: RDFI Not Qualified to Participate */
-    ACH_E13 = 206,
-    /** ACH: Representative Payee Deceased or Unable to Continue */
-    ACH_E14 = 207,
-    /** ACH: Beneficiary or Account Holder Deceased */
-    ACH_E15 = 208,
-    /** ACH: Account Frozen */
-    ACH_E16 = 209,
-    /** ACH: Invalid Account Number under Questionable Circumstances */
-    ACH_E17 = 210,
-    /** ACH: Non-Transaction Account */
-    ACH_E20 = 211,
-    /** ACH: Corporate Customer Advises Not Authorized */
-    ACH_E29 = 212,
-    /** ACH: Invalid Image */
-    ACH_E92 = 213,
-    /** ACH: Non-Negotiable */
-    ACH_E93 = 214,
-    /** ACH: Breach of Warranty */
-    ACH_E95 = 215,
-    /** ACH: Counterfeit / Forgery */
-    ACH_E96 = 216,
-    /** ACH: Refer to Maker */
-    ACH_E97 = 217,
-    /** Insufficient funds */
-    ACH_R01 = 124,
-    /** Bank account closed */
-    ACH_R02 = 125,
-    /** No bank account/unable to locate account */
-    ACH_R03 = 126,
-    /** Invalid bank account number */
-    ACH_R04 = 127,
-    /** Unauthorized Debit to Consumer Account Using Corporate SEC Code */
-    ACH_R05 = 128,
-    /** Returned per ODFI request */
-    ACH_R06 = 129,
-    /** Authorization revoked by customer */
-    ACH_R07 = 130,
-    /** Payment stopped */
-    ACH_R08 = 131,
-    /** Uncollected funds */
-    ACH_R09 = 132,
-    /** Customer advises not authorized */
-    ACH_R10 = 133,
-    /** Check truncation entry return */
-    ACH_R11 = 134,
-    /** Branch sold to another RDFI */
-    ACH_R12 = 135,
-    /** RDFI not qualified to participate */
-    ACH_R13 = 136,
-    /** Representative payee deceased or unable to continue in that capacity */
-    ACH_R14 = 137,
-    /** Beneficiary or bank account holder */
-    ACH_R15 = 138,
-    /** Bank account frozen */
-    ACH_R16 = 139,
-    /** File record edit criteria */
-    ACH_R17 = 140,
-    /** Improper effective entry date */
-    ACH_R18 = 141,
-    /** Amount field error */
-    ACH_R19 = 142,
-    /** Non-payment bank account */
-    ACH_R20 = 143,
-    /** Invalid company ID number */
-    ACH_R21 = 144,
-    /** Invalid individual ID number */
-    ACH_R22 = 145,
-    /** Credit entry refused by receiver */
-    ACH_R23 = 146,
-    /** Duplicate entry */
-    ACH_R24 = 147,
-    /** Addenda error */
-    ACH_R25 = 148,
-    /** Mandatory field error */
-    ACH_R26 = 149,
-    /** Trace number error */
-    ACH_R27 = 150,
-    /** Transit routing number check digit error */
-    ACH_R28 = 151,
-    /** Corporate customer advises not authorized */
-    ACH_R29 = 152,
-    /** RDFI not participant in check truncation program */
-    ACH_R30 = 153,
-    /** Permissible return entry (CCD and CTX only) */
-    ACH_R31 = 154,
-    /** RDFI non-settlement */
-    ACH_R32 = 155,
-    /** Return of XCK entry */
-    ACH_R33 = 156,
-    /** Limited participation RDFI */
-    ACH_R34 = 157,
-    /** Return of improper debit entry */
-    ACH_R35 = 158,
-    /** ACH: Return of Improper Credit Entry */
-    ACH_R36 = 218,
-    /** ACH: Source Document Presented for Payment */
-    ACH_R37 = 219,
-    /** ACH: Stop Payment on Source Document */
-    ACH_R38 = 220,
-    /** ACH: Improper Source Document */
-    ACH_R39 = 221,
-    /** ACH: Return of ENR Entry by Federal Government Agency */
-    ACH_R40 = 222,
-    /** ACH: Invalid Transaction Code */
-    ACH_R41 = 223,
-    /** ACH: Routing Number / Check Digit Error */
-    ACH_R42 = 224,
-    /** ACH: Invalid DFI Account Number */
-    ACH_R43 = 225,
-    /** ACH: Invalid Individual ID Number / Identification */
-    ACH_R44 = 226,
-    /** ACH: Invalid Individual Name / Company Name */
-    ACH_R45 = 227,
-    /** ACH: Invalid Representative Payee Indicator */
-    ACH_R46 = 228,
-    /** ACH: Duplicate Enrollment */
-    ACH_R47 = 229,
-    /** ACH: State Law Affecting RCK Acceptance */
-    ACH_R50 = 230,
-    /** ACH: Item is Ineligible, Notice Not Provided, etc */
-    ACH_R51 = 231,
-    /** ACH: Stop Payment on Item (Adjustment Entries) */
-    ACH_R52 = 232,
-    /** ACH: Item and ACH Entry Presented for Payment */
-    ACH_R53 = 233,
-    /** ACH: Misrouted Return */
-    ACH_R61 = 234,
-    /** ACH: Incorrect Trace Number */
-    ACH_R62 = 235,
-    /** ACH: Incorrect Dollar Amount */
-    ACH_R63 = 236,
-    /** ACH: Incorrect Individual Identification */
-    ACH_R64 = 237,
-    /** ACH: Incorrect Transaction Code */
-    ACH_R65 = 238,
-    /** ACH: Incorrect Company Identification */
-    ACH_R66 = 239,
-    /** ACH: Duplicate Return */
-    ACH_R67 = 240,
-    /** ACH: Untimely Return */
-    ACH_R68 = 241,
-    /** ACH: Multiple Errors */
-    ACH_R69 = 242,
-    /** ACH: Permissible Return Entry Not Accepted */
-    ACH_R70 = 243,
-    /** ACH: Misrouted Dishonored Return */
-    ACH_R71 = 244,
-    /** ACH: Untimely Dishonored Return */
-    ACH_R72 = 245,
-    /** ACH: Timely Original Return */
-    ACH_R73 = 246,
-    /** ACH: Corrected Return */
-    ACH_R74 = 247,
-    /** ACH: Return Not a Duplicate */
-    ACH_R75 = 248,
-    /** ACH: No Errors Found */
-    ACH_R76 = 249,
-    /** ACH: IAT Entry Coding Error */
-    ACH_R80 = 250,
-    /** ACH: Non-Participant in IAT Program */
-    ACH_R81 = 251,
-    /** ACH: Invalid Foreign Receiving DFI Identification */
-    ACH_R82 = 252,
-    /** ACH: Foreign Receiving DFI Unable to Settle */
-    ACH_R83 = 253,
-    /** ACH: Entry Not Processed by Gateway */
-    ACH_R84 = 254,
-    /** ACH: Incorrectly Coded Outbound International Payment */
-    ACH_R85 = 255,
-    /** ACH check type or account type is invalid */
-    ACH_ACCOUNT_TYPE = 185,
-    /** ACH payment method is not supported by processor */
-    ACH_SUPPORT = 105,
-    /** ACH error: uncollected */
-    ACH_UNCOLLECTED = 123,
-    /** Invalid payment address chosen */
-    ADDRESS_INVALID = 39,
-    /** Chosen payment address does not exist */
-    ADDRESS_NX = 40,
-    /** Disagreement with the Payment Agreement */
-    AGREEMENT_DISAGREE = 176,
-    /** Sum of amounts for all individual payment sources does not equal the total expected amount */
-    AMOUNT_CONSOLIDATE = 35,
-    /** Total package price can't be divided equally between package items without loosing cents */
-    AMOUNT_CONSOLIDATE_PACKAGE = 191,
-    /** Amount was unexpectedly changed during the purchase process */
-    AMOUNT_CHANGE = 179,
-    /** Amount is invalid */
-    AMOUNT_INVALID = 34,
-    /** Total price of cart greater than `1000000000.00` */
-    AMOUNT_TOTAL = 75,
-    /** Amount equals zero */
-    AMOUNT_ZERO = 32,
-    /** AVS verification failed. Postal code or address are invalid */
-    AVS = 14,
-    /** Invalid bank account ID */
-    BANK_ACCOUNT_INVALID = 79,
-    /** Bank account ID does not exist */
-    BANK_ACCOUNT_NX = 80,
-    /** Bank state branch is empty */
-    BSB_EMPTY = 77,
-    /** Bank state branch is invalid */
-    BSB_INVALID = 78,
-    /** This business is a lost customer */
-    BUSINESS_CHURN = 173,
-    /** Client must call issuer for further information */
-    CALL = 17,
-    /** Card data is valid, but you can not pay with it (e.g. hold placed on card) */
-    CARD_DECLINE = 5,
-    /** Invalid payment card chosen */
-    CARD_INVALID = 42,
-    /** Card over limit */
-    CARD_LIMIT = 73,
-    /** Payment card nickname is empty */
-    CARD_NAME_EMPTY = 46,
-    /** Payment card nickname is too long */
-    CARD_NAME_LONG = 47,
-    /** The customer’s bank has declined the transaction as the credit card number has failed a security check, or the */
-    CARD_NOT_HONOR = 71,
-    /** Insufficient funds available */
-    CARD_NSF = 72,
-    /** Chosen payment card does not exist */
-    CARD_NX = 43,
-    /** User has chosen payment card but he had no such rights */
-    CARD_SELECT = 44,
-    /** No such card issuer */
-    CARD_ISSUER_INVALID = 184,
-    /** Card unsupported */
-    CARD_UNSUPPORTED = 190,
-    /** Element which should be paid with this payment has been canceled and payment should be blocked */
-    CANCELED = 177,
-    /** Comment for payment method too long */
-    COMMENT_LONG = 99,
-    /** Can't connect to payment gateway */
-    CONNECT = 8,
-    /** Unsupported country */
-    COUNTRY_UNSUPPORTED = 164,
-    /** Gift card belongs to a foreign business */
-    COUPON_BUSINESS = 55,
-    /** Invalid payment card chosen */
-    COUPON_CURRENCY = 54,
-    /** Coupon is inactive */
-    COUPON_INACTIVE = 97,
-    /** Coupon code is invalid (invalid length, or invalid characters encountered) */
-    COUPON_INVALID = 51,
-    /** Invalid payment card chosen */
-    COUPON_NX = 52,
-    /** Coupon is redeemed already */
-    COUPON_REDEEM = 53,
-    /** Card credentials (number, csc, month, year) change ability is disabled. E.g. payment processor may not support */
-    CREDENTIAL_SUPPORT = 76,
-    /** Invalid card security code (CSC) */
-    CSC_EMPTY = 21,
-    /** Invalid card security code (CSC) */
-    CSC_INVALID = 2,
-    /** Card is expired */
-    DATE_EXPIRE = 24,
-    /** Card is inactive */
-    DATE_INACTIVE = 163,
-    /** Invalid Expiration Date */
-    DATE_INVALID = 183,
-    /** Month is invalid */
-    DATE_MONTH = 22,
-    /** Multiple usage of this payment method is not allowed */
-    DATE_YEAR = 23,
-    /** Duplicate transaction. Transaction data that is selected for comparison is payment gateway-specific */
-    DUPLICATE = 1,
-    /** Error, caused by one of the following cases: */
-    FRAUD = 168,
-    /** Terminal that should be used for payment is not found */
-    HARDWARE_NOT_FOUND = 196,
-    /** Informational field is not filled in */
-    INFO_EMPTY = 9,
-    /** Informational field is too long */
-    INFO_LONG = 41,
-    /** Minimum payment amount is less then `1` */
-    INSTALLMENT_AMOUNT_MIN = 93,
-    /** Installment plan: Number of payment is invalid */
-    INSTALLMENT_COUNT_FORMAT = 85,
-    /** Installment plan: Number of payment is too large */
-    INSTALLMENT_COUNT_MAX = 87,
-    /** Installment plan: Number of payment is too small (less then 2) */
-    INSTALLMENT_COUNT_MIN = 86,
-    /** Installment date is not specified */
-    INSTALLMENT_DATE_EMPTY = 81,
-    /** Installment date format is invalid */
-    INSTALLMENT_DATE_FORMAT = 82,
-    /** Installment date is too deep in the future */
-    INSTALLMENT_DATE_FUTURE = 84,
-    /** Installment date is in the past (minimum is today) */
-    INSTALLMENT_DATE_PAST = 83,
-    /** Installment plan: Duration of a period is not allowed */
-    INSTALLMENT_DURATION_DISABLE = 91,
-    /** Installment plan: Maximum total duration of installment plan is 100 years */
-    INSTALLMENT_DURATION_MAX = 92,
-    /** Installment plan: Duration of a period does not exist */
-    INSTALLMENT_DURATION_NX = 90,
-    /** Installment plan: Number of periods between two consecutive payments is invalid */
-    INSTALLMENT_PERIOD_FORMAT = 88,
-    /** Installment plan: Number of periods between two consecutive payments is too large */
-    INSTALLMENT_PERIOD_MAX = 89,
-    /** Template of installment plans: template is not selected */
-    INSTALLMENT_TEMPLATE_EMPTY = 95,
-    /** Template of installment plans: ID of the template does not exist */
-    INSTALLMENT_TEMPLATE_NX = 94,
-    /** Internal errors that occurred in the browser (for example, some form data arrived to servers such that user should */
-    INTERNAL_BROWSER = 33,
-    /** Security throttling error */
-    INTERNAL_HIT = 192,
-    /** Internal merchant error */
-    INTERNAL_MERCHANT = 186,
-    /** Some strange service error (e.g. invalid merchant data passed, data format) */
-    INTERNAL_SERVER = 6,
-    /** Payer email is required for payment, but empty */
-    MAIL_EMPTY = 175,
-    /** The associated merchant account has been closed */
-    MERCHANT_ACCOUNT_CLOSED = 189,
-    /** Invalid merchant data */
-    MERCHANT_INVALID = 7,
-    /** Transaction was rejected by gateway */
-    MERCHANT_REJECT = 74,
-    /** Merchant has invalid settings and does not return customer vault */
-    MERCHANT_SETTINGS_VAULT = 166,
-    /** User has no access to the specified payment method */
-    METHOD_ACCESS = 18,
-    /** This method does not support authorization request */
-    METHOD_AUTHORIZE = 96,
-    /** This payment method can not be used with this business */
-    METHOD_BUSINESS = 19,
-    /** Multiple usage of this payment method is not allowed */
-    METHOD_MULTIPLE = 20,
-    /** Cardholder name is not typed in */
-    NAME_EMPTY = 25,
-    /** Customer name is invalid (contains invalid characters) */
-    NAME_INVALID = 106,
-    /** Cardholder name is too long */
-    NAME_LONG = 26,
-    /** Validation Rejection */
-    NMI_PAYSAFE_900 = 159,
-    /** Not sufficient funds (debits only) */
-    NMI_PAYSAFE_901 = 110,
-    /** Payment stopped/recalled */
-    NMI_PAYSAFE_903 = 111,
-    /** Post dated/stale dated */
-    NMI_PAYSAFE_904 = 112,
-    /** Account closed */
-    NMI_PAYSAFE_905 = 113,
-    /** Account transferred */
-    NMI_PAYSAFE_906 = 114,
-    /** No chequing privileges */
-    NMI_PAYSAFE_907 = 115,
-    /** Funds not cleared */
-    NMI_PAYSAFE_908 = 116,
-    /** Payor/payee deceased */
-    NMI_PAYSAFE_910 = 117,
-    /** Account frozen */
-    NMI_PAYSAFE_911 = 118,
-    /** Invalid/incorrect account number */
-    NMI_PAYSAFE_912 = 119,
-    /** Incorrect payor/payee name */
-    NMI_PAYSAFE_914 = 120,
-    /** Refused by payor/payee */
-    NMI_PAYSAFE_915 = 121,
-    /** No Return Agreement */
-    NMI_PAYSAFE_998 = 122,
-    /** Card number is not typed in */
-    NUMBER_EMPTY = 27,
-    /** Card number is invalid */
-    NUMBER_INVALID = 30,
-    /** Card number is too long */
-    NUMBER_LONG = 28,
-    /** Card number is too long */
-    NUMBER_SHORT = 29,
-    /** Some parameters client has provided are invalid */
-    PARAMETER = 4,
-    /** Payment form is in passive mode */
-    PASSIVE = 165,
-    /** Error during authentication of the payer */
-    PAYER_AUTHENTICATION = 167,
-    /** There is other process currently running to update payment. Failed to wait until it ends */
-    PAYMENT_UPDATE_LOCK = 174,
-    /** Phone number is not specified on user account */
-    PHONE_EMPTY = 107,
-    /** Phone number is invalid */
-    PHONE_INVALID = 178,
-    /** Phone number is too long */
-    PHONE_LONG = 108,
-    /** Transaction error returned by processor */
-    PROCESSOR_ERROR = 98,
-    /** Internal error at processor side has occurred */
-    PROCESSOR_INTERNAL = 109,
-    /** Refund operation is applied too early */
-    REFUND_EARLY = 50,
-    /** Amount about to refund is larger then the current rest of the transaction */
-    REFUND_REST = 49,
-    /** Transaction can not be refunded because it is in an invalid status */
-    REFUND_STATUS = 48,
-    /** Invalid region chosen */
-    REGION_INVALID = 37,
-    /** Chosen region does not exist */
-    REGION_NX = 38,
-    /** Can not repeat purchase transaction. Reference data is expired and invalid now */
-    REPEAT_INVALID = 15,
-    /** Error during request to service. In case we have not even got response */
-    REQUEST = 12,
-    /** Too many requests */
-    REQUEST_THROTTLE = 172,
-    /** Temporary service error. Repeat request */
-    RETRY = 3,
-    /** Payment is blocked due security reasons (because payment amount is too large) */
-    SECURITY_LARGE = 103,
-    /** Only for test, when there is an error in the test that we cannot influence, for example: “server is not available” */
-    SKIP_IN_TESTS = 188,
-    /** Stripe data is empty */
-    STRIPE_EMPTY = 31,
-    /** Invalid data on magnetic stripe. Maybe some part does not exist */
-    STRIPE_INVALID = 16,
-    /** This recurrent payment token belongs to a different account of this merchant */
-    TOKEN_ACCOUNT = 161,
-    /** Payment token belongs to a different merchant processor */
-    TOKEN_PROCESSOR = 162,
-    /** Transaction does not exist. E.g. we want to make refund using nonexistent reference number */
-    TRANSACTION_NX = 13,
-    /** Transaction is in unexpected status. For example, authorization process started but takes long time. While waiting */
-    UNEXPECTED_TRANSACTION_STATUS = 187,
-    /** If the user who pays through the account is a debtor */
-    USER_DEBTOR = 194,
-    /** If access denied to an anonymous user */
-    USER_GUEST = 56,
-    /** Error specific for payment processors that stores payer entity */
-    USER_NOT_FOUND = 197,
-    /** Some unpredicted error happened during void on processor side */
-    VOID_ERROR = 193,
-    /** Operation Void is not possible, it's too late to do it */
-    VOID_LATE = 180,
-    /** Void operation can be done only for a total transaction amount and cannot be partial */
-    VOID_PARTIAL = 100,
-    /** Void operation is restricted by rules of the system */
-    VOID_RESTRICT = 102,
-    /** Void operation is not supported by the merchant processor */
-    VOID_SUPPORT = 101,
-    /** Timeout waiting for settlement */
-    WAIT_TIMEOUT = 104,
-    /** Incorrect payment card type specified */
-    TENDER_TYPE_INVALID = 195
+/** Possible states of the visit: book, attended, cancelled, etc. */
+export declare enum WlVisitVisitSid {
+    /** Client has attended the session */
+    ATTEND = 3,
+    /** Active reservation means that user is going to attend the session */
+    BOOK = 1,
+    /** Client has cancelled the reservation in time and without penalty */
+    CANCEL = 6,
+    /** Client has cancelled his reservation too late */
+    PENALTY = 4,
+    /** This state means that visit is registered, but it is unknown is it {@link WlVisitVisitSid} */
+    PENDING = 7,
+    /** Visit was removed */
+    REMOVE = 8,
+    /** Client has missed the session without cancellation */
+    TRUANCY = 5,
+    /** Reservation in a wait list means that user is going to attend the session if someone will cancel his reservation */
+    WAIT = 2
 }
-/** Paragon ticket status. */
-export declare enum ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid {
-    /** Ticket was canceled */
-    CANCELLED = 1,
-    /** Ticket was completed */
-    COMPLETE = 2,
-    /** Ticket in error state */
-    ERROR = 3,
-    /** Ticket is processed */
-    INPROCESS = 4,
-    /** Ticket is opened */
-    OPEN = 6,
-    /** Ticket was reversed */
-    REVERSED = 7
+/** Lists statuses of reports from point of view of its generation. */
+export declare enum ThothReportCoreGeneratorReportGeneratorStatusSid {
+    /** Report is in an inconsistent state */
+    ABORTED = 6,
+    /** Current operation is being aborted now */
+    ABORTING = 5,
+    /** This report is being deleted now */
+    DELETING = 4,
+    /** This report is being generated now */
+    GENERATING = 2,
+    /** Generation of this report is queued */
+    QUEUED = 1,
+    /** Generation of this report is now completed */
+    READY = 3
 }
 /** Statuses of domain verification. */
 export declare enum WlMailDomainDomainVerifyStatusSid {
@@ -1460,6 +601,556 @@ export declare enum RsReportSid {
     /** Report with list of businesses connected to FitLIVE */
     ZOOM_SYSTEM_COUNT = 259
 }
+/** A class for a list of card systems. */
+export declare enum ACardSystemSid {
+    /** American Express */
+    AMERICAN_EXPRESS = 1,
+    /** Bank of Montreal (BMO) */
+    BMO = 2,
+    /** Canadian Imperial Bank of Commerce (CIBC) */
+    CIBC = 3,
+    /** Diners Club International */
+    DINNER_CLUB = 4,
+    /** Discover */
+    DISCOVER = 5,
+    /** HSBC Bank Canada */
+    HSBC_CANADA = 6,
+    /** Japan Credit Bureau (JCB) */
+    JCB = 7,
+    /** Mastercard */
+    MASTERCARD = 8,
+    /** Royal Bank of Canada */
+    ROYAL_BANK = 9,
+    /** Scotiabank */
+    SCOTIBANK = 10,
+    /** TD Canada Trust */
+    TD_CANADA = 11,
+    /** The card system can't be determined */
+    UNDEFINED = 13,
+    /** Union Pay */
+    UNION_PAY = 14,
+    /** Visa */
+    VISA = 12
+}
+/** An exception that is thrown in a case of a payment error. */
+export declare enum RsPayException {
+    /** Invalid ABA number chosen */
+    ABAN_EMPTY = 58,
+    /** Invalid ABA number chosen */
+    ABAN_INVALID = 57,
+    /** User Authentication Failed */
+    ACCESS_AUTHENTICATE = 160,
+    /** Authentication token is not valid */
+    ACCESS_TOKEN_INVALID = 181,
+    /** Account payment entry method is empty */
+    ACCOUNT_ENTRY_EMPTY = 63,
+    /** Account holder type is empty */
+    ACCOUNT_HOLDER_EMPTY = 64,
+    /** Account name is empty */
+    ACCOUNT_NAME_EMPTY = 59,
+    /** Account name is too long */
+    ACCOUNT_NAME_LONG = 60,
+    /** Account number is empty */
+    ACCOUNT_NUMBER_EMPTY = 61,
+    /** Account number invalid */
+    ACCOUNT_NUMBER_INVALID = 67,
+    /** Account number is too long */
+    ACCOUNT_NUMBER_LONG = 62,
+    /** Account number is too short */
+    ACCOUNT_NUMBER_SHORT = 66,
+    /** Account owner is empty */
+    ACCOUNT_OWNER_EMPTY = 69,
+    /** Account name is too long */
+    ACCOUNT_OWNER_LONG = 70,
+    /** Account owner name does not equal billing name */
+    ACCOUNT_OWNER_DOES_NOT_MATCH = 182,
+    /** Account type is empty */
+    ACCOUNT_TYPE_EMPTY = 65,
+    /** ACH: Account Closed */
+    ACH_E02 = 198,
+    /** ACH: No Account / Unable to Locate Account */
+    ACH_E03 = 199,
+    /** ACH: Invalid Account Number */
+    ACH_E04 = 200,
+    /** ACH: Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    ACH_E05 = 201,
+    /** ACH: Authorization Revoked by Customer */
+    ACH_E07 = 202,
+    /** ACH: Payment Stopped */
+    ACH_E08 = 203,
+    /** ACH: Customer Advises Originator Not Known / Not Authorized */
+    ACH_E10 = 204,
+    /** ACH: Customer Advises Entry Not in Accordance with Authorization */
+    ACH_E11 = 205,
+    /** ACH: RDFI Not Qualified to Participate */
+    ACH_E13 = 206,
+    /** ACH: Representative Payee Deceased or Unable to Continue */
+    ACH_E14 = 207,
+    /** ACH: Beneficiary or Account Holder Deceased */
+    ACH_E15 = 208,
+    /** ACH: Account Frozen */
+    ACH_E16 = 209,
+    /** ACH: Invalid Account Number under Questionable Circumstances */
+    ACH_E17 = 210,
+    /** ACH: Non-Transaction Account */
+    ACH_E20 = 211,
+    /** ACH: Corporate Customer Advises Not Authorized */
+    ACH_E29 = 212,
+    /** ACH: Invalid Image */
+    ACH_E92 = 213,
+    /** ACH: Non-Negotiable */
+    ACH_E93 = 214,
+    /** ACH: Breach of Warranty */
+    ACH_E95 = 215,
+    /** ACH: Counterfeit / Forgery */
+    ACH_E96 = 216,
+    /** ACH: Refer to Maker */
+    ACH_E97 = 217,
+    /** Insufficient funds */
+    ACH_R01 = 124,
+    /** Bank account closed */
+    ACH_R02 = 125,
+    /** No bank account/unable to locate account */
+    ACH_R03 = 126,
+    /** Invalid bank account number */
+    ACH_R04 = 127,
+    /** Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    ACH_R05 = 128,
+    /** Returned per ODFI request */
+    ACH_R06 = 129,
+    /** Authorization revoked by customer */
+    ACH_R07 = 130,
+    /** Payment stopped */
+    ACH_R08 = 131,
+    /** Uncollected funds */
+    ACH_R09 = 132,
+    /** Customer advises not authorized */
+    ACH_R10 = 133,
+    /** Check truncation entry return */
+    ACH_R11 = 134,
+    /** Branch sold to another RDFI */
+    ACH_R12 = 135,
+    /** RDFI not qualified to participate */
+    ACH_R13 = 136,
+    /** Representative payee deceased or unable to continue in that capacity */
+    ACH_R14 = 137,
+    /** Beneficiary or bank account holder */
+    ACH_R15 = 138,
+    /** Bank account frozen */
+    ACH_R16 = 139,
+    /** File record edit criteria */
+    ACH_R17 = 140,
+    /** Improper effective entry date */
+    ACH_R18 = 141,
+    /** Amount field error */
+    ACH_R19 = 142,
+    /** Non-payment bank account */
+    ACH_R20 = 143,
+    /** Invalid company ID number */
+    ACH_R21 = 144,
+    /** Invalid individual ID number */
+    ACH_R22 = 145,
+    /** Credit entry refused by receiver */
+    ACH_R23 = 146,
+    /** Duplicate entry */
+    ACH_R24 = 147,
+    /** Addenda error */
+    ACH_R25 = 148,
+    /** Mandatory field error */
+    ACH_R26 = 149,
+    /** Trace number error */
+    ACH_R27 = 150,
+    /** Transit routing number check digit error */
+    ACH_R28 = 151,
+    /** Corporate customer advises not authorized */
+    ACH_R29 = 152,
+    /** RDFI not participant in check truncation program */
+    ACH_R30 = 153,
+    /** Permissible return entry (CCD and CTX only) */
+    ACH_R31 = 154,
+    /** RDFI non-settlement */
+    ACH_R32 = 155,
+    /** Return of XCK entry */
+    ACH_R33 = 156,
+    /** Limited participation RDFI */
+    ACH_R34 = 157,
+    /** Return of improper debit entry */
+    ACH_R35 = 158,
+    /** ACH: Return of Improper Credit Entry */
+    ACH_R36 = 218,
+    /** ACH: Source Document Presented for Payment */
+    ACH_R37 = 219,
+    /** ACH: Stop Payment on Source Document */
+    ACH_R38 = 220,
+    /** ACH: Improper Source Document */
+    ACH_R39 = 221,
+    /** ACH: Return of ENR Entry by Federal Government Agency */
+    ACH_R40 = 222,
+    /** ACH: Invalid Transaction Code */
+    ACH_R41 = 223,
+    /** ACH: Routing Number / Check Digit Error */
+    ACH_R42 = 224,
+    /** ACH: Invalid DFI Account Number */
+    ACH_R43 = 225,
+    /** ACH: Invalid Individual ID Number / Identification */
+    ACH_R44 = 226,
+    /** ACH: Invalid Individual Name / Company Name */
+    ACH_R45 = 227,
+    /** ACH: Invalid Representative Payee Indicator */
+    ACH_R46 = 228,
+    /** ACH: Duplicate Enrollment */
+    ACH_R47 = 229,
+    /** ACH: State Law Affecting RCK Acceptance */
+    ACH_R50 = 230,
+    /** ACH: Item is Ineligible, Notice Not Provided, etc */
+    ACH_R51 = 231,
+    /** ACH: Stop Payment on Item (Adjustment Entries) */
+    ACH_R52 = 232,
+    /** ACH: Item and ACH Entry Presented for Payment */
+    ACH_R53 = 233,
+    /** ACH: Misrouted Return */
+    ACH_R61 = 234,
+    /** ACH: Incorrect Trace Number */
+    ACH_R62 = 235,
+    /** ACH: Incorrect Dollar Amount */
+    ACH_R63 = 236,
+    /** ACH: Incorrect Individual Identification */
+    ACH_R64 = 237,
+    /** ACH: Incorrect Transaction Code */
+    ACH_R65 = 238,
+    /** ACH: Incorrect Company Identification */
+    ACH_R66 = 239,
+    /** ACH: Duplicate Return */
+    ACH_R67 = 240,
+    /** ACH: Untimely Return */
+    ACH_R68 = 241,
+    /** ACH: Multiple Errors */
+    ACH_R69 = 242,
+    /** ACH: Permissible Return Entry Not Accepted */
+    ACH_R70 = 243,
+    /** ACH: Misrouted Dishonored Return */
+    ACH_R71 = 244,
+    /** ACH: Untimely Dishonored Return */
+    ACH_R72 = 245,
+    /** ACH: Timely Original Return */
+    ACH_R73 = 246,
+    /** ACH: Corrected Return */
+    ACH_R74 = 247,
+    /** ACH: Return Not a Duplicate */
+    ACH_R75 = 248,
+    /** ACH: No Errors Found */
+    ACH_R76 = 249,
+    /** ACH: IAT Entry Coding Error */
+    ACH_R80 = 250,
+    /** ACH: Non-Participant in IAT Program */
+    ACH_R81 = 251,
+    /** ACH: Invalid Foreign Receiving DFI Identification */
+    ACH_R82 = 252,
+    /** ACH: Foreign Receiving DFI Unable to Settle */
+    ACH_R83 = 253,
+    /** ACH: Entry Not Processed by Gateway */
+    ACH_R84 = 254,
+    /** ACH: Incorrectly Coded Outbound International Payment */
+    ACH_R85 = 255,
+    /** ACH check type or account type is invalid */
+    ACH_ACCOUNT_TYPE = 185,
+    /** ACH payment method is not supported by processor */
+    ACH_SUPPORT = 105,
+    /** ACH error: uncollected */
+    ACH_UNCOLLECTED = 123,
+    /** Invalid payment address chosen */
+    ADDRESS_INVALID = 39,
+    /** Chosen payment address does not exist */
+    ADDRESS_NX = 40,
+    /** Disagreement with the Payment Agreement */
+    AGREEMENT_DISAGREE = 176,
+    /** Sum of amounts for all individual payment sources does not equal the total expected amount */
+    AMOUNT_CONSOLIDATE = 35,
+    /** Total package price can't be divided equally between package items without loosing cents */
+    AMOUNT_CONSOLIDATE_PACKAGE = 191,
+    /** Amount was unexpectedly changed during the purchase process */
+    AMOUNT_CHANGE = 179,
+    /** Amount is invalid */
+    AMOUNT_INVALID = 34,
+    /** Total price of cart greater than `1000000000.00` */
+    AMOUNT_TOTAL = 75,
+    /** Amount equals zero */
+    AMOUNT_ZERO = 32,
+    /** AVS verification failed. Postal code or address are invalid */
+    AVS = 14,
+    /** Invalid bank account ID */
+    BANK_ACCOUNT_INVALID = 79,
+    /** Bank account ID does not exist */
+    BANK_ACCOUNT_NX = 80,
+    /** Bank state branch is empty */
+    BSB_EMPTY = 77,
+    /** Bank state branch is invalid */
+    BSB_INVALID = 78,
+    /** This business is a lost customer */
+    BUSINESS_CHURN = 173,
+    /** Client must call issuer for further information */
+    CALL = 17,
+    /** Card data is valid, but you can not pay with it (e.g. hold placed on card) */
+    CARD_DECLINE = 5,
+    /** Invalid payment card chosen */
+    CARD_INVALID = 42,
+    /** Card over limit */
+    CARD_LIMIT = 73,
+    /** Payment card nickname is empty */
+    CARD_NAME_EMPTY = 46,
+    /** Payment card nickname is too long */
+    CARD_NAME_LONG = 47,
+    /** The customer’s bank has declined the transaction as the credit card number has failed a security check, or the */
+    CARD_NOT_HONOR = 71,
+    /** Insufficient funds available */
+    CARD_NSF = 72,
+    /** Chosen payment card does not exist */
+    CARD_NX = 43,
+    /** User has chosen payment card but he had no such rights */
+    CARD_SELECT = 44,
+    /** No such card issuer */
+    CARD_ISSUER_INVALID = 184,
+    /** Card unsupported */
+    CARD_UNSUPPORTED = 190,
+    /** Element which should be paid with this payment has been canceled and payment should be blocked */
+    CANCELED = 177,
+    /** Comment for payment method too long */
+    COMMENT_LONG = 99,
+    /** Can't connect to payment gateway */
+    CONNECT = 8,
+    /** Unsupported country */
+    COUNTRY_UNSUPPORTED = 164,
+    /** Gift card belongs to a foreign business */
+    COUPON_BUSINESS = 55,
+    /** Invalid payment card chosen */
+    COUPON_CURRENCY = 54,
+    /** Coupon is inactive */
+    COUPON_INACTIVE = 97,
+    /** Coupon code is invalid (invalid length, or invalid characters encountered) */
+    COUPON_INVALID = 51,
+    /** Invalid payment card chosen */
+    COUPON_NX = 52,
+    /** Coupon is redeemed already */
+    COUPON_REDEEM = 53,
+    /** Card credentials (number, csc, month, year) change ability is disabled. E.g. payment processor may not support */
+    CREDENTIAL_SUPPORT = 76,
+    /** Invalid card security code (CSC) */
+    CSC_EMPTY = 21,
+    /** Invalid card security code (CSC) */
+    CSC_INVALID = 2,
+    /** Card is expired */
+    DATE_EXPIRE = 24,
+    /** Card is inactive */
+    DATE_INACTIVE = 163,
+    /** Invalid Expiration Date */
+    DATE_INVALID = 183,
+    /** Month is invalid */
+    DATE_MONTH = 22,
+    /** Multiple usage of this payment method is not allowed */
+    DATE_YEAR = 23,
+    /** Duplicate transaction. Transaction data that is selected for comparison is payment gateway-specific */
+    DUPLICATE = 1,
+    /** Error, caused by one of the following cases: */
+    FRAUD = 168,
+    /** Terminal that should be used for payment is not found */
+    HARDWARE_NOT_FOUND = 196,
+    /** Informational field is not filled in */
+    INFO_EMPTY = 9,
+    /** Informational field is too long */
+    INFO_LONG = 41,
+    /** Minimum payment amount is less then `1` */
+    INSTALLMENT_AMOUNT_MIN = 93,
+    /** Installment plan: Number of payment is invalid */
+    INSTALLMENT_COUNT_FORMAT = 85,
+    /** Installment plan: Number of payment is too large */
+    INSTALLMENT_COUNT_MAX = 87,
+    /** Installment plan: Number of payment is too small (less then 2) */
+    INSTALLMENT_COUNT_MIN = 86,
+    /** Installment date is not specified */
+    INSTALLMENT_DATE_EMPTY = 81,
+    /** Installment date format is invalid */
+    INSTALLMENT_DATE_FORMAT = 82,
+    /** Installment date is too deep in the future */
+    INSTALLMENT_DATE_FUTURE = 84,
+    /** Installment date is in the past (minimum is today) */
+    INSTALLMENT_DATE_PAST = 83,
+    /** Installment plan: Duration of a period is not allowed */
+    INSTALLMENT_DURATION_DISABLE = 91,
+    /** Installment plan: Maximum total duration of installment plan is 100 years */
+    INSTALLMENT_DURATION_MAX = 92,
+    /** Installment plan: Duration of a period does not exist */
+    INSTALLMENT_DURATION_NX = 90,
+    /** Installment plan: Number of periods between two consecutive payments is invalid */
+    INSTALLMENT_PERIOD_FORMAT = 88,
+    /** Installment plan: Number of periods between two consecutive payments is too large */
+    INSTALLMENT_PERIOD_MAX = 89,
+    /** Template of installment plans: template is not selected */
+    INSTALLMENT_TEMPLATE_EMPTY = 95,
+    /** Template of installment plans: ID of the template does not exist */
+    INSTALLMENT_TEMPLATE_NX = 94,
+    /** Internal errors that occurred in the browser (for example, some form data arrived to servers such that user should */
+    INTERNAL_BROWSER = 33,
+    /** Security throttling error */
+    INTERNAL_HIT = 192,
+    /** Internal merchant error */
+    INTERNAL_MERCHANT = 186,
+    /** Some strange service error (e.g. invalid merchant data passed, data format) */
+    INTERNAL_SERVER = 6,
+    /** Payer email is required for payment, but empty */
+    MAIL_EMPTY = 175,
+    /** The associated merchant account has been closed */
+    MERCHANT_ACCOUNT_CLOSED = 189,
+    /** Invalid merchant data */
+    MERCHANT_INVALID = 7,
+    /** Transaction was rejected by gateway */
+    MERCHANT_REJECT = 74,
+    /** Merchant has invalid settings and does not return customer vault */
+    MERCHANT_SETTINGS_VAULT = 166,
+    /** User has no access to the specified payment method */
+    METHOD_ACCESS = 18,
+    /** This method does not support authorization request */
+    METHOD_AUTHORIZE = 96,
+    /** This payment method can not be used with this business */
+    METHOD_BUSINESS = 19,
+    /** Multiple usage of this payment method is not allowed */
+    METHOD_MULTIPLE = 20,
+    /** Cardholder name is not typed in */
+    NAME_EMPTY = 25,
+    /** Customer name is invalid (contains invalid characters) */
+    NAME_INVALID = 106,
+    /** Cardholder name is too long */
+    NAME_LONG = 26,
+    /** Validation Rejection */
+    NMI_PAYSAFE_900 = 159,
+    /** Not sufficient funds (debits only) */
+    NMI_PAYSAFE_901 = 110,
+    /** Payment stopped/recalled */
+    NMI_PAYSAFE_903 = 111,
+    /** Post dated/stale dated */
+    NMI_PAYSAFE_904 = 112,
+    /** Account closed */
+    NMI_PAYSAFE_905 = 113,
+    /** Account transferred */
+    NMI_PAYSAFE_906 = 114,
+    /** No chequing privileges */
+    NMI_PAYSAFE_907 = 115,
+    /** Funds not cleared */
+    NMI_PAYSAFE_908 = 116,
+    /** Payor/payee deceased */
+    NMI_PAYSAFE_910 = 117,
+    /** Account frozen */
+    NMI_PAYSAFE_911 = 118,
+    /** Invalid/incorrect account number */
+    NMI_PAYSAFE_912 = 119,
+    /** Incorrect payor/payee name */
+    NMI_PAYSAFE_914 = 120,
+    /** Refused by payor/payee */
+    NMI_PAYSAFE_915 = 121,
+    /** No Return Agreement */
+    NMI_PAYSAFE_998 = 122,
+    /** Card number is not typed in */
+    NUMBER_EMPTY = 27,
+    /** Card number is invalid */
+    NUMBER_INVALID = 30,
+    /** Card number is too long */
+    NUMBER_LONG = 28,
+    /** Card number is too long */
+    NUMBER_SHORT = 29,
+    /** Some parameters client has provided are invalid */
+    PARAMETER = 4,
+    /** Payment form is in passive mode */
+    PASSIVE = 165,
+    /** Error during authentication of the payer */
+    PAYER_AUTHENTICATION = 167,
+    /** There is other process currently running to update payment. Failed to wait until it ends */
+    PAYMENT_UPDATE_LOCK = 174,
+    /** Phone number is not specified on user account */
+    PHONE_EMPTY = 107,
+    /** Phone number is invalid */
+    PHONE_INVALID = 178,
+    /** Phone number is too long */
+    PHONE_LONG = 108,
+    /** Transaction error returned by processor */
+    PROCESSOR_ERROR = 98,
+    /** Internal error at processor side has occurred */
+    PROCESSOR_INTERNAL = 109,
+    /** Refund operation is applied too early */
+    REFUND_EARLY = 50,
+    /** Amount about to refund is larger then the current rest of the transaction */
+    REFUND_REST = 49,
+    /** Transaction can not be refunded because it is in an invalid status */
+    REFUND_STATUS = 48,
+    /** Invalid region chosen */
+    REGION_INVALID = 37,
+    /** Chosen region does not exist */
+    REGION_NX = 38,
+    /** Can not repeat purchase transaction. Reference data is expired and invalid now */
+    REPEAT_INVALID = 15,
+    /** Error during request to service. In case we have not even got response */
+    REQUEST = 12,
+    /** Too many requests */
+    REQUEST_THROTTLE = 172,
+    /** Temporary service error. Repeat request */
+    RETRY = 3,
+    /** Payment is blocked due security reasons (because payment amount is too large) */
+    SECURITY_LARGE = 103,
+    /** Only for test, when there is an error in the test that we cannot influence, for example: “server is not available” */
+    SKIP_IN_TESTS = 188,
+    /** Stripe data is empty */
+    STRIPE_EMPTY = 31,
+    /** Invalid data on magnetic stripe. Maybe some part does not exist */
+    STRIPE_INVALID = 16,
+    /** This recurrent payment token belongs to a different account of this merchant */
+    TOKEN_ACCOUNT = 161,
+    /** Payment token belongs to a different merchant processor */
+    TOKEN_PROCESSOR = 162,
+    /** Transaction does not exist. E.g. we want to make refund using nonexistent reference number */
+    TRANSACTION_NX = 13,
+    /** Transaction is in unexpected status. For example, authorization process started but takes long time. While waiting */
+    UNEXPECTED_TRANSACTION_STATUS = 187,
+    /** If the user who pays through the account is a debtor */
+    USER_DEBTOR = 194,
+    /** If access denied to an anonymous user */
+    USER_GUEST = 56,
+    /** Error specific for payment processors that stores payer entity */
+    USER_NOT_FOUND = 197,
+    /** Some unpredicted error happened during void on processor side */
+    VOID_ERROR = 193,
+    /** Operation Void is not possible, it's too late to do it */
+    VOID_LATE = 180,
+    /** Void operation can be done only for a total transaction amount and cannot be partial */
+    VOID_PARTIAL = 100,
+    /** Void operation is restricted by rules of the system */
+    VOID_RESTRICT = 102,
+    /** Void operation is not supported by the merchant processor */
+    VOID_SUPPORT = 101,
+    /** Timeout waiting for settlement */
+    WAIT_TIMEOUT = 104,
+    /** Incorrect payment card type specified */
+    TENDER_TYPE_INVALID = 195
+}
+/** Paragon ticket status. */
+export declare enum ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid {
+    /** Ticket was canceled */
+    CANCELLED = 1,
+    /** Ticket was completed */
+    COMPLETE = 2,
+    /** Ticket in error state */
+    ERROR = 3,
+    /** Ticket is processed */
+    INPROCESS = 4,
+    /** Ticket is opened */
+    OPEN = 6,
+    /** Ticket was reversed */
+    REVERSED = 7
+}
+/** An enum of credit card types. */
+export declare enum ThothWlPayBankCardCardTypeEnum {
+    /** Credit Card */
+    CREDIT = 1,
+    /** Debit Card */
+    DEBIT = 2
+}
 /** CS Response code class. */
 export declare enum ThothPayProcessorNuveiCodeCSResponseSid {
     /** Service has been successfully provided */
@@ -1503,25 +1194,6 @@ export declare enum ThothPayProcessorNuveiCodeCSResponseSid {
     /** No relationship between register and terminal */
     UNMAPPED = 19
 }
-/** Possible states of the visit: book, attended, cancelled, etc. */
-export declare enum WlVisitVisitSid {
-    /** Client has attended the session */
-    ATTEND = 3,
-    /** Active reservation means that user is going to attend the session */
-    BOOK = 1,
-    /** Client has cancelled the reservation in time and without penalty */
-    CANCEL = 6,
-    /** Client has cancelled his reservation too late */
-    PENALTY = 4,
-    /** This state means that visit is registered, but it is unknown is it {@link WlVisitVisitSid} */
-    PENDING = 7,
-    /** Visit was removed */
-    REMOVE = 8,
-    /** Client has missed the session without cancellation */
-    TRUANCY = 5,
-    /** Reservation in a wait list means that user is going to attend the session if someone will cancel his reservation */
-    WAIT = 2
-}
 /** List of all custom imports that are supported by system. */
 export declare enum WlImportCustomCustomSid {
     /** Creates recurring appointments with no end date */
@@ -1564,6 +1236,49 @@ export declare enum WlImportCustomCustomSid {
     REFUND = 2,
     /** Custom import which allows to import client reward balance */
     REWARD = 3
+}
+/** A list of locales. */
+export declare enum CoreLocaleLocaleSid {
+    /** Australia */
+    AUSTRALIA = 4,
+    /** Bahamas */
+    BAHAMAS = 20,
+    /** Bermuda */
+    BERMUDA = 19,
+    /** Canada */
+    CANADA = 2,
+    /** Cayman Islands */
+    CAYMAN = 5,
+    /** Cyprus */
+    CYPRUS = 13,
+    /** Egypt */
+    EGYPT = 8,
+    /** Republic of Ireland */
+    IRELAND = 18,
+    /** Kuwait */
+    KUWAIT = 14,
+    /** Republic of Mauritius */
+    MAURITIUS = 16,
+    /** A special locale that can be used for testing or a business situated in an unknown region */
+    NEVERLAND = 9,
+    /** New Zealand */
+    NEW_ZEALAND = 10,
+    /** Philippines */
+    PHILIPPINES = 12,
+    /** Saudi Arabia */
+    SAUDI_ARABIA = 15,
+    /** Senegal */
+    SENEGAL = 17,
+    /** Singapore */
+    SINGAPORE = 21,
+    /** South Africa */
+    SOUTH_AFRICA = 6,
+    /** United Arab Emirates */
+    UAE = 11,
+    /** United Kingdom */
+    UK = 3,
+    /** United States of America */
+    USA = 1
 }
 /** String identifiers for gender. */
 export declare enum AGenderSid {
@@ -1702,6 +1417,70 @@ export declare enum RsProgramTypeSid {
     PASS = 2,
     /** Special WellnessLiving promote passes that allow to visit specific classes to get acquainted with the business */
     PROSPECT = 5
+}
+/** A list of currencies. */
+export declare enum CoreLocaleCurrencySid {
+    /** United Arab Emirates dirham */
+    AED = 11,
+    /** Australian dollar */
+    AUD = 6,
+    /** Bermudian Dollar */
+    BMD = 18,
+    /** Bahamian dollar */
+    BSD = 19,
+    /** Canadian dollar */
+    CAD = 4,
+    /** Egypt Pound */
+    EGP = 8,
+    /** Euro */
+    EUR = 13,
+    /** British pound */
+    GBP = 3,
+    /** Kuwaiti dinar */
+    KWD = 14,
+    /** Cayman Islands dollar */
+    KYD = 5,
+    /** Mauritian Rupee */
+    MUR = 16,
+    /** New Zealand Dollar */
+    NZD = 10,
+    /** Philippines Pesco */
+    PHP = 12,
+    /** Saudi Riyal */
+    SAR = 15,
+    /** Singapore dollar */
+    SGD = 20,
+    /** Unknown code */
+    UNKNOWN = 2,
+    /** US dollars */
+    USD = 1,
+    /** West African CFA franc */
+    XOF = 17,
+    /** South African rand */
+    ZAR = 7
+}
+/** A list of payment methods. */
+export declare enum RsPayMethodSid {
+    /** Payment with personal user account (rs.pay.account) */
+    ACCOUNT = 7,
+    /** ACH system (USA-specific direct banking transactions) */
+    ACH = 9,
+    /** Payment with cash */
+    CASH = 4,
+    /** Payment with a cheque */
+    CHEQUE = 5,
+    /** Payment with a coupon */
+    COUPON = 8,
+    /** Direct Entry system (australian-specific direct banking transactions) */
+    DIRECT_ENTRY = 10,
+    /** Online payment. Card not present */
+    ECOMMERCE = 2,
+    /** Payment with an external terminal */
+    EXTERNAL = 6,
+    /** Special method to be used for migration process */
+    IMPORT_ACCRUAL = 11,
+    /** Payment method at a Points of sale */
+    POS = 1
 }
 /** List of intents of the user in the business. */
 export declare enum WlLoginMemberIntentsMemberIntentsSid {
@@ -1933,16 +1712,60 @@ export declare enum RsReportChartViewSid {
     /** Year-by-year comparisons in the column chart */
     YEAR_COLUMN = 4
 }
-/** List of image types. */
-export declare enum CoreDriveDriveTypeSid {
-    /** Bmp image */
-    BMP = 4,
-    /** Gif image */
-    GIF = 1,
-    /** Jpeg image */
-    JPEG = 2,
-    /** Png image */
-    PNG = 3
+/** Reasons why the client can't book this event. */
+export declare enum WlEventDenyReasonSid {
+    /** User is trying to book on behalf of another client, but does not have permission to do so */
+    ACCESS_DENIED = 1,
+    /** Manual restriction to book business, location or a certain class */
+    ACCESS_LIMITED = 2,
+    /** The business can not take one more client because of business subscription limitations */
+    ACCOUNT_LIMIT = 3,
+    /** Class is not available for certain age */
+    AGE_RESTRICTION = 4,
+    /** Liability Release needs to be agreed */
+    AGREE_NX = 5,
+    /** Client has unpaid fees */
+    BALANCE_NEGATIVE = 22,
+    /** It's too early to book a class */
+    BOOK_EARLY = 7,
+    /** It's too late to book a class */
+    BOOK_LATE = 8,
+    /** User's visit overlaps with another visit */
+    BOOK_OVERLAP = 25,
+    /** User's pricing options do not allow booking another visit within a certain period because of pricing option limitations */
+    BOOK_RESTRICT = 9,
+    /** Client is already booked for this session */
+    BOOKED_ALREADY = 6,
+    /** Business is inactive */
+    BUSINESS_INACTIVE = 10,
+    /** Class is canceled */
+    CLASS_CANCELED = 11,
+    /** Class is finished */
+    CLASS_FINISHED = 26,
+    /** Class is full */
+    CLASS_FULL = 14,
+    /** Class does not exist anymore */
+    CLASS_NOT_AVAILABLE_ANYMORE = 15,
+    /** Client is flagged at location */
+    CLIENT_FLAGGED = 12,
+    /** Credit card is required for booking services */
+    CREDIT_CARD_REQUIRE = 13,
+    /** Business is closed */
+    HOLIDAY = 16,
+    /** Login is required */
+    LOGIN_REQUIRED = 17,
+    /** Online booking is disabled for the class */
+    NOT_BOOKABLE = 18,
+    /** Online booking is disabled for this type of client */
+    NOT_BOOKABLE_BY_TYPE = 24,
+    /** Required personal details missing */
+    USER_INFO_MISSING = 19,
+    /** Visit to another class is required first */
+    VISIT_BEFORE = 20,
+    /** The wait list is full */
+    WAIT_LIST_LIMIT_MAX = 21,
+    /** Client has unsigned waiver */
+    WAIVER_NX = 23
 }
 /** A class for the days of the week. */
 export declare enum ADateWeekSid {
@@ -1969,6 +1792,13 @@ export declare enum RsScheduleTimeSid {
     EVENING = 3,
     /** Morning */
     MORNING = 1
+}
+/** A list of two answers for any question: Yes or No. */
+export declare enum CoreSidYesNoSid {
+    /** The answer is "no" */
+    NO = 2,
+    /** The answer is "yes" */
+    YES = 1
 }
 /** A list of currency codes. */
 export declare enum RsCurrencySid {
@@ -2172,19 +2002,14 @@ export declare enum RsPurchaseItemSid {
     RESOURCE_DEPOSIT = 20,
     /** Purchase item for appointments */
     SERVICE = 6,
+    /** Ticket purchase item */
+    TICKET = 29,
     /** Tuition purchase item */
     TUITION = 26,
     /** Tuition fee purchase item */
     TUITION_FEE = 27,
     /** Tuition prorate purchase item */
     TUITION_PRORATE = 28
-}
-/** A list of two answers for any question: Yes or No. */
-export declare enum CoreSidYesNoSid {
-    /** The answer is "no" */
-    NO = 2,
-    /** The answer is "yes" */
-    YES = 1
 }
 /** A list of skin types. */
 export declare enum RsSkinSid {
@@ -2237,6 +2062,73 @@ export declare enum WlClassesTabTabSid {
     SERVICE = 3,
     /** Classes */
     TRAINING = 1
+}
+/** List of different types for landing pages based on business types. */
+export declare enum RsHomeTourSid {
+    /** Barbershops */
+    BARBERSHOP = 26,
+    /** Boot camps */
+    BOOTCAMP = 24,
+    /** Boxing studios */
+    BOXING = 25,
+    /** Special industry free landing page with only contact us form */
+    BUSINESS_MANAGEMENT = 21,
+    /** Health clubs */
+    CLUB = 10,
+    /** Affiliate Gym */
+    CROSSFIT = 9,
+    /** Dance studios */
+    DANCE = 11,
+    /** Dental studios */
+    DENTAL = 14,
+    /** Fitness gyms */
+    FITNESS = 6,
+    /** Functional fitness also known as functional training or functional movement */
+    FUNCTIONAL_FITNESS = 29,
+    /** Fitness gyms */
+    GYM = 22,
+    /** Health clubs */
+    HEALTH_CLUB = 23,
+    /** Health and beauty salons at one place */
+    INTEGRATIVE_HEALTH_CENTER = 30,
+    /** Martial arts */
+    MARTIAL_ART = 8,
+    /** Massage salons */
+    MASSAGE = 4,
+    /** Massage salons */
+    MEDICAL_SPA = 28,
+    /** Alternative medical offices */
+    MEDICINE_ALTERNATIVE = 15,
+    /** Hospitals and private doctors */
+    MEDICINE_TRADITIONAL = 13,
+    /** Music schools */
+    MUSIC = 19,
+    /** Personal trainings */
+    PERSONAL_TRAINING = 5,
+    /** Pilates */
+    PILATES = 7,
+    /** Play cafes */
+    PLAY_CAFE = 32,
+    /** Pole dancing studios */
+    POLE_DANCING = 18,
+    /** Salons */
+    SALON = 3,
+    /** Spa salons */
+    SPA = 2,
+    /** Spinning */
+    SPINNING = 17,
+    /** Swim schools */
+    SWIM_SCHOOL = 33,
+    /** Tattoo salons */
+    TATTOO = 31,
+    /** Tours and events */
+    TOUR = 12,
+    /** Wellness Centers */
+    WELLNESS_CENTER = 20,
+    /** Yoga */
+    YOGA = 1,
+    /** Zumba */
+    ZUMBA = 27
 }
 /** List of different directories, which can use wellnessliving as a source of data. */
 export declare enum RsProjectSid {
@@ -2368,41 +2260,159 @@ export declare enum RsReviewStatusSid {
     /** Publish */
     PUBLISH = 3
 }
-/** List of page transaction type. */
-export declare enum RsPayAccountChargeSid {
-    /** Account charging using payment form */
-    AUTO = 1,
-    /** Manual account charge by admin */
-    CREDIT = 3,
-    /** Manual account withdrawal by admin */
-    DEBIT = 2
+/** Experience types for class sessions to differentiate virtual and in-person sessions. */
+export declare enum ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum {
+    /** In-person session at a physical location */
+    IN_PERSON = 1,
+    /** Virtual session conducted through a virtual provider */
+    VIRTUAL = 2
 }
-/** A list of account holder types which can be chosen. */
-export declare enum RsPayBankAchHolderSid {
-    /** Account holder is a business */
+/** Stripe device type of reader. */
+export declare enum ThothPayProcessorStripeComTerminalStripeReaderModelSid {
+    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
+    BBPOS_WISEPAD3 = 1,
+    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
+    BBPOS_WISEPOS_E = 4,
+    /** SIMULATED Wise POS E */
+    SIMULATED_WISEPOS_E = 6,
+    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
+    STRIPE_M2 = 2
+}
+/** List of possible status of readers. */
+export declare enum ThothPayProcessorTerminalTerminalStatusSid {
+    /** Status active */
+    ACTIVE = 1,
+    /** Status inactive */
+    INACTIVE = 2,
+    /** Status setup, reader is active but not added to stripe yet */
+    SETUP = 3
+}
+/** Payment actors (staff member, user or business owner). */
+export declare enum RsPayActorSid {
+    /** Business owner */
+    BUSINESS = 3,
+    /** Staff member */
+    STAFF = 1,
+    /** User */
+    USER = 2
+}
+/** Statuses of payment intents. */
+export declare enum ThothPayProcessorStripeComPaymentIntentStatusSid {
+    /** You may cancel a Payment Intent at any point before it is processing or succeeded. This invalidates the */
+    CANCELED = 7,
+    /** Once required actions are handled, the Payment Intent moves to processing. While for some payment methods */
+    PROCESSING = 4,
+    /** If the payment requires additional actions, such as authenticating with 3D Secure , the Payment Intent has a status */
+    REQUIRES_ACTION = 3,
+    /** Requires capture */
+    REQUIRES_CAPTURE = 6,
+    /** After the customer provides their payment information, the Payment Intent is ready to be confirmed */
+    REQUIRES_CONFIRMATION = 2,
+    /** When the Payment Intent is created, it has a status of `requires_payment_method` until a payment method is */
+    REQUIRES_PAYMENT_METHOD = 1,
+    /** A Payment Intent with a status of succeeded means that the payment flow it is driving is complete */
+    SUCCEEDED = 5
+}
+/** Paragon device type of reader. */
+export declare enum ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid {
+    /** Verifone e285 reader */
+    E285 = 1,
+    /** Verifone P200 reader */
+    P200 = 2,
+    /** Verifone P400 plus reader */
+    P400_PLUS = 3,
+    /** Verifone V200c reader */
+    V200_C = 4,
+    /** Verifone V200c plus reader */
+    V200_C_PLUS = 5,
+    /** Verifone V400c plus reader */
+    V400_C_PLUS = 7,
+    /** Verifone V400m reader */
+    V400_M = 6
+}
+/** List of supported terminal interaction types. */
+export declare enum ThothPayProcessorTerminalTerminalTypeSid {
+    /** Magtek USB */
+    MAGTEK_USB = 1
+}
+/** A list of devices supported by credit card reader plugin. */
+export declare enum ThothWlPayCordovaCordovaCcrDeviceSid {
+    /** Payment processor: Direct Connect */
+    DC_IDT_AUGUSTA = 4,
+    /** Payment processor: Direct Connect */
+    DC_IDT_BT_MAG = 5,
+    /** Payment processor: Direct Connect */
+    DC_IDT_UNI_MAG = 6,
+    /** Payment processor: Direct Connect */
+    DC_IDT_UNI_PAY = 7,
+    /** Payment processor: Direct Connect */
+    DC_MAGTEK_AUDIO = 11,
+    /** Payment processor: Paragon (ex. Direct Connect) */
+    DC_MAGTEK_BLUETOOTH = 13,
+    /** Payment processor: Direct Connect */
+    DC_MAGTEK_LIGHTNING = 12,
+    /** Payment processor: Direct Connect */
+    DC_MIURA = 8,
+    /** Payment processor: Direct Connect */
+    DC_PAX = 9,
+    /** Payment processor: NMI */
+    NMI_ENTERPRISE = 3,
+    /** Payment processor: NMI */
+    NMI_IPS = 2,
+    /** Payment processor: NMI */
+    NMI_UNIMAG = 1,
+    /** Payment processor: Stripe */
+    STRIPE_BBPOS_SIMULATED_WISEPOS_E = 17,
+    /** Payment processor: Stripe */
+    STRIPE_BBPOS_WISEPAD_3_BLUETOOTH = 14,
+    /** Payment processor: Stripe */
+    STRIPE_BBPOS_WISEPOS_E_INTERNET = 15,
+    /** Payment processor: Stripe */
+    STRIPE_READER_M2_BLUETOOTH = 16,
+    /** Virtual device for testing purposes */
+    VIRTUAL = 10
+}
+/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
+export declare enum ThothPayProcessorStripeComTerminalStripeTerminalTypeSid {
+    /** Terminals that work via Stripe javascript SDK */
+    JS_SDK = 2,
+    /** Magtek USB */
+    MAGTEK_USB = 1
+}
+/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
+export declare enum ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid {
+    /** Card terminals that work via OMNI Channel API */
+    OMNICHANNEL = 2,
+    /** Magtek USB */
+    MAGTEK_USB = 1
+}
+/** A list of payment gateways or processors. */
+export declare enum ThothPayProcessorPayProcessorSid {
+    /** Payment gateway for `cybersource.com` */
+    CYBER_SOURCE = 11,
+    /** Payment gateway for Direct Connect */
+    DIRECT_CONNECT = 9,
+    /** Payment gateway for Lucy */
+    LUCY = 2,
+    /** Payment gateway for Netbanx */
+    NETBANX = 1,
+    /** Payment gateway for NMI */
+    NMI = 6,
+    /** Payment gateway for Nuvei */
+    NUVEI = 12,
+    /** Payment gateway for Paychoice */
+    PAYCHOICE = 7,
+    /** Payment gateway for `stripe.com` */
+    STRIPE_COM = 10
+}
+/** A list of money owners from which account money can be transferred. */
+export declare enum RsPayOwnerSid {
+    /** Anonymous user (Walk-In) */
+    ANONYMOUS = 3,
+    /** Business */
     BUSINESS = 2,
-    /** Account holder is a person */
-    PERSONAL = 1
-}
-/** A list of account types which can be chosen. */
-export declare enum RsPayBankAchTypeSid {
-    /** Checking account */
-    CHECKING = 1,
-    /** Savings account */
-    SAVINGS = 2
-}
-/** Sources from which log triage findings can be collected. */
-export declare enum CoreAILogTriageTriageSourceSid {
-    /** Erroneous asynchronous tasks */
-    ASYNC_TASK = 5,
-    /** Erroneous background tasks */
-    BACKGROUND_TASK = 4,
-    /** PHP error log represented by DebugPhpLog */
-    ERROR_LOG = 1,
-    /** Slow-operation log represented by DebugSlowLog */
-    SLOW_LOG = 2,
-    /** Aggregated usage statistics */
-    WATCH_USAGE_STAT = 3
+    /** System user */
+    USER = 1
 }
 /** `WebAuthn` `credentialDeviceType` values, per the `WebAuthn` specification. */
 export declare enum CorePassportPasskeyPasskeyDeviceTypeEnum {
@@ -2417,6 +2427,17 @@ export declare enum CorePassportPasskeyPasskeyCredentialStatusEnum {
     ACTIVE = 1,
     /** The credential was revoked by its owner and may no longer be used to sign in */
     REVOKED = 2
+}
+/** List of image types. */
+export declare enum CoreDriveDriveTypeSid {
+    /** Bmp image */
+    BMP = 4,
+    /** Gif image */
+    GIF = 1,
+    /** Jpeg image */
+    JPEG = 2,
+    /** Png image */
+    PNG = 3
 }
 /** List of responses for Google Captcha token. */
 export declare enum CoreGoogleCaptchaCaptchaResponseSid {
@@ -2457,6 +2478,10 @@ export declare enum WlPrivilegePrivilegeSid {
     APPOINTMENT_PERIOD = 51,
     /** View appointment */
     APPOINTMENT_VIEW = 52,
+    /** Ability to assign billing and diagnostic codes to appointments */
+    BILLING_CODE_ASSIGN = 252,
+    /** Ability to add a temporary custom billing code at the appointment booking */
+    BILLING_CODE_TEMPORARY = 253,
     /** Ability to book clients outside their current paid period */
     BOOK_OUTSIDE_PAID_PERIOD = 141,
     /** Ability to book clients over capacity during or after the services have been scheduled */
@@ -2595,6 +2620,10 @@ export declare enum WlPrivilegePrivilegeSid {
     IMPORT_CLIENT = 215,
     /** Set up and modify Autymate integration */
     INTEGRATION_AUTYMATE = 163,
+    /** Access to view Bridge Athletic integration */
+    INTEGRATION_BRIDGE_ATHLETIC_ACCESS = 251,
+    /** Access to set up and change Bridge Athletic integration */
+    INTEGRATION_BRIDGE_ATHLETIC_MANAGE = 250,
     /** Set up and modify Brivo integration */
     INTEGRATION_BRIVO = 179,
     /** Access to set up and change quickbooks integration */
@@ -3325,6 +3354,8 @@ export declare enum RsMailSid {
     TASK_ASSIGN = 104,
     /** Send a copy of waiver */
     TERM_COPY = 99,
+    /** Sent after a ticketed event is purchased */
+    TICKET_PURCHASE = 225,
     /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
     USER_CAMPAIGN = 112,
     /** Request a video subscription */
@@ -3417,6 +3448,8 @@ export declare enum RsSaleSid {
     PROMOTION_VIDEO = 13,
     /** Products: water, t-shirts, etc. That is available for quick buy */
     QUICK_BUY = 10,
+    /** Ticket for a ticketed event */
+    TICKET = 16,
     /** Tuition */
     TUITION = 14,
     /** Tuition fees */
@@ -3764,6 +3797,20 @@ export declare enum RsLoginActivityTypeSid {
     GYM_VISIT = 32,
     /** Client sent an invite */
     INVITE_SEND = 14,
+    /** Lead stage was changed by an automation step */
+    LEAD_STAGE_AUTOMATION = 57,
+    /** Lead stage was changed when a client met an automation exit criterion */
+    LEAD_STAGE_AUTOMATION_EXIT = 58,
+    /** Lead stage was changed when a client completed an automation */
+    LEAD_STAGE_AUTOMATION_FINISH = 59,
+    /** Lead stage was set when the lead was created */
+    LEAD_STAGE_CREATED = 60,
+    /** Lead stage was changed because the previous stage was deleted */
+    LEAD_STAGE_DELETE = 61,
+    /** Lead stage was changed manually by a staff member */
+    LEAD_STAGE_MANUAL = 62,
+    /** Lead stage was changed when the client joined a client group */
+    LEAD_STAGE_MEMBER_GROUP = 63,
     /** The user shared location item into Facebook */
     LOCATION_SHARE_FACEBOOK = 39,
     /** The user shared location item into Twitter */
@@ -3855,14 +3902,42 @@ export declare enum WlLocationFlagFlagSourceEnum {
     /** Flag is set because user is sent to collections. This means user has debt and cannot make new purchases */
     COLLECTIONS = 1
 }
+/** Level at which a client profile field is asked at a given collection entry point. */
+export declare enum WlFieldFieldLevelEnum {
+    /** The field is not asked at this entry point */
+    DONT_ASK = 1,
+    /** The field is asked, but a value is not required */
+    OPTIONAL = 2,
+    /** The field is asked, and a value is required */
+    REQUIRED = 3
+}
 /** List of sources from where the user registers. */
 export declare enum WlProfileRegisterSourceSid {
+    /** Source when a user registers while booking a service */
+    BOOKING = 4,
     /** Source when a user registers during purchase or booking */
     BOOKING_AND_PURCHASE = 1,
+    /** Source when a guest (an unregistered visitor) books a service or makes a purchase */
+    GUEST = 6,
+    /** Source when a user registers while making a purchase */
+    PURCHASE = 5,
+    /** Source when a client adds a family member (a relative profile) - directly, or as part of booking or purchase */
+    RELATIONSHIP = 7,
     /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
     SELF = 2,
+    /** Source when staff add or edit a client profile */
+    STAFF = 8,
     /** This is a service value, which means to not choose any specific source */
     UNSET_VALUE = 3
+}
+/** Action that a client or staff performs with terms and conditions of cart items. */
+export declare enum WlCatalogTermsTermsActionSid {
+    /** Terms and conditions are accepted */
+    AGREE = 1,
+    /** Terms and conditions are declined, so items are removed from the cart */
+    DECLINE = 2,
+    /** Terms and conditions are skipped by staff in the point of sale */
+    SKIP = 3
 }
 /** Coupon date start rule. */
 export declare enum WlCouponEditActivationSid {
@@ -3920,6 +3995,15 @@ export declare enum WlShopCategoryShopCategorySortSid {
     PRICE = 4,
     /** Sort by name/title */
     NAME = 1
+}
+/** List of quick purchase item types. */
+export declare enum WlCatalogQuickPurchaseTypeSid {
+    /** Classes */
+    CLASSES = 224,
+    /** Resource */
+    RESOURCE = 681,
+    /** Service */
+    SERVICE = 690
 }
 /** Different user flows that can be tracked. */
 export declare enum WlUserTrackingFlowSid {
@@ -4041,15 +4125,6 @@ export declare enum WlQuizResponseSourceSid {
     PURCHASE = 4,
     /** Quiz response received during registration process */
     REGISTRATION = 3
-}
-/** List of quick purchase item types. */
-export declare enum WlCatalogQuickPurchaseTypeSid {
-    /** Classes */
-    CLASSES = 224,
-    /** Resource */
-    RESOURCE = 681,
-    /** Service */
-    SERVICE = 690
 }
 /** Widget analytics checkout types. */
 export declare enum WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid {
@@ -4618,65 +4693,28 @@ export declare enum WlSocialShareShareObjectSid {
     /** Review */
     REVIEW = 2
 }
-/** A list of card types. */
-export declare enum WlCardCardSystemSid {
-    /** American Express */
-    AMERICAN_EXPRESS = 1,
-    /** Bank of Montreal (BMO) */
-    BMO = 2,
-    /** Canadian Imperial Bank of Commerce (CIBC) */
-    CIBC = 3,
-    /** Diners Club International */
-    DINNER_CLUB = 4,
-    /** Discover */
-    DISCOVER = 5,
-    /** HSBC Bank Canada */
-    HSBC_CANADA = 6,
-    /** Japan Credit Bureau (JCB) */
-    JCB = 7,
-    /** Mastercard */
-    MASTERCARD = 8,
-    /** Royal Bank of Canada */
-    ROYAL_BANK = 9,
-    /** Scotiabank */
-    SCOTIBANK = 10,
-    /** TD Canada Trust */
-    TD_CANADA = 11,
-    /** The card system can't be determined */
-    UNDEFINED = 13,
-    /** Union Pay */
-    UNION_PAY = 14,
-    /** Visa */
-    VISA = 12
+/** List of page transaction type. */
+export declare enum RsPayAccountChargeSid {
+    /** Account charging using payment form */
+    AUTO = 1,
+    /** Manual account charge by admin */
+    CREDIT = 3,
+    /** Manual account withdrawal by admin */
+    DEBIT = 2
 }
-/** A list of modes in which payment form can be shown. */
-export declare enum RsPayModeSid {
-    /** The form is show in the mobile device */
-    MOBILE = 2,
-    /** A form is shown in a simple mode */
-    SIMPLE = 3,
-    /** A form is shown in the web browser */
-    WEB = 1
+/** A list of account holder types which can be chosen. */
+export declare enum RsPayBankAchHolderSid {
+    /** Account holder is a business */
+    BUSINESS = 2,
+    /** Account holder is a person */
+    PERSONAL = 1
 }
-/** A list of bank account types. */
-export declare enum RsPayBankSid {
-    /** Bank account for ACH direct bank transactions. USA-specific system */
-    ACH = 2,
-    /** A credit card */
-    CARD = 1,
-    /** Bank account for Direct Entry direct bank transactions.  Australian-specific system */
-    DIRECT_ENTRY = 3
-}
-/** A list of SEC codes which can be chosen. */
-export declare enum RsPayBankAchSecSid {
-    /** Corporate bank account */
-    CCD = 4,
-    /** Prearranged Payment & Deposit */
-    PPD = 2,
-    /** Telephone Initiated Entry */
-    TEL = 3,
-    /** Web Initiated Entry */
-    WEB = 1
+/** A list of account types which can be chosen. */
+export declare enum RsPayBankAchTypeSid {
+    /** Checking account */
+    CHECKING = 1,
+    /** Savings account */
+    SAVINGS = 2
 }
 /** List of different OTP code delivery strategies. */
 export declare enum WlPassportLoginEnterOtpDeliveryStrategyEnum {
@@ -4979,6 +5017,63 @@ export declare enum WlBusinessAccountSubscriptionAssetAssetSubscriptionSid {
     /** Professional */
     PROFESSIONAL = 2
 }
+/** List of possible plans for BridgeAthleticSubscription subscription. */
+export declare enum WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid {
+    /** Free */
+    FREE = 2,
+    /** None */
+    NONE = 1
+}
+/** Term slots available on the Custom Terms settings page. */
+export declare enum WlBusinessCustomTermsCustomTermSid {
+    /** Appointment */
+    APPOINTMENT = 2,
+    /** Business */
+    BUSINESS = 5,
+    /** Class */
+    CLASS_TERM = 3,
+    /** Client */
+    CLIENT = 4,
+    /** Staff */
+    STAFF = 1
+}
+/** Preset options for the {@link WlBusinessCustomTermsCustomTermSid} custom term. */
+export declare enum WlBusinessCustomTermsClientTermOptionSid {
+    /** Athlete */
+    ATHLETE = 1,
+    /** Cadet */
+    CADET = 2,
+    /** Camper */
+    CAMPER = 3,
+    /** Child */
+    CHILD = 5,
+    /** Client */
+    CLIENT = 6,
+    /** Customer */
+    CUSTOMER = 7,
+    /** Dancer */
+    DANCER = 8,
+    /** Family */
+    FAMILY = 9,
+    /** Guest */
+    GUEST = 10,
+    /** Member */
+    MEMBER = 11,
+    /** Ninja */
+    NINJA = 12,
+    /** Participant */
+    PARTICIPANT = 13,
+    /** Patient */
+    PATIENT = 14,
+    /** Patron */
+    PATRON = 15,
+    /** Resident */
+    RESIDENT = 16,
+    /** Student */
+    STUDENT = 17,
+    /** Swimmer */
+    SWIMMER = 18
+}
 /** List of available features in the system that can be shown in owner's header. */
 export declare enum WlPageBackendFeatureFeatureSid {
     /** Ai Agent */
@@ -5270,6 +5365,66 @@ export declare enum WlReceptionRosterDirectSid {
     /** Redirect user to upcoming schedule */
     SCHEDULE = 2
 }
+/** A list of card types. */
+export declare enum WlCardCardSystemSid {
+    /** American Express */
+    AMERICAN_EXPRESS = 1,
+    /** Bank of Montreal (BMO) */
+    BMO = 2,
+    /** Canadian Imperial Bank of Commerce (CIBC) */
+    CIBC = 3,
+    /** Diners Club International */
+    DINNER_CLUB = 4,
+    /** Discover */
+    DISCOVER = 5,
+    /** HSBC Bank Canada */
+    HSBC_CANADA = 6,
+    /** Japan Credit Bureau (JCB) */
+    JCB = 7,
+    /** Mastercard */
+    MASTERCARD = 8,
+    /** Royal Bank of Canada */
+    ROYAL_BANK = 9,
+    /** Scotiabank */
+    SCOTIBANK = 10,
+    /** TD Canada Trust */
+    TD_CANADA = 11,
+    /** The card system can't be determined */
+    UNDEFINED = 13,
+    /** Union Pay */
+    UNION_PAY = 14,
+    /** Visa */
+    VISA = 12
+}
+/** A list of modes in which payment form can be shown. */
+export declare enum RsPayModeSid {
+    /** The form is show in the mobile device */
+    MOBILE = 2,
+    /** A form is shown in a simple mode */
+    SIMPLE = 3,
+    /** A form is shown in the web browser */
+    WEB = 1
+}
+/** A list of bank account types. */
+export declare enum RsPayBankSid {
+    /** Bank account for ACH direct bank transactions. USA-specific system */
+    ACH = 2,
+    /** A credit card */
+    CARD = 1,
+    /** Bank account for Direct Entry direct bank transactions.  Australian-specific system */
+    DIRECT_ENTRY = 3
+}
+/** A list of SEC codes which can be chosen. */
+export declare enum RsPayBankAchSecSid {
+    /** Corporate bank account */
+    CCD = 4,
+    /** Prearranged Payment & Deposit */
+    PPD = 2,
+    /** Telephone Initiated Entry */
+    TEL = 3,
+    /** Web Initiated Entry */
+    WEB = 1
+}
 /** Lifecycle state of a guest pass invitation. */
 export declare enum WlLoginPromotionGuestPassInviteInviteStatusEnum {
     /** Guest attended the visit booked with the guest pass */
@@ -5296,727 +5451,6 @@ export declare enum WlLoginPromotionGuestPassInviteInviteStatusEnum {
     PENDING = 12,
     /** Guest is on the waitlist for the class session booked with the guest pass */
     WAITLISTED = 11
-}
-export interface ThothExplorerSearchClassSessionClassSessionSearchParams {
-    /** List of business keys to search by. */
-    a_business: Array<string>;
-    /** List of experience types to search by. Each value is one of {@link ThothExplorerSearchClassSessio... */
-    a_experience_type: Array<ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum>;
-    /** List of home tour activity types to search by. Each value is from {@link RsHomeTourSid}. */
-    a_home_tour: Array<RsHomeTourSid>;
-    /** List of location keys to search by. */
-    a_location: Array<string>;
-    /** List of location ratings to search by. Values are integers from 1 to 5, or `null`/`0` for unrated... */
-    a_location_rating: Array<number> | Array<string>;
-    /** List of staff user keys to search by. Each value is a user key (uid) of a staff member. */
-    a_staff_uid: Array<string>;
-    /** Start date of the session search date range in MySQL format (`Y-m-d`). Required. */
-    dl_begin?: string | null;
-    /** End date of the session search date range in MySQL format (`Y-m-d`). Required. */
-    dl_end?: string | null;
-    /** Latitude coordinate for search. Required. */
-    f_latitude?: number | null;
-    /** Longitude coordinate for search. Required. */
-    f_longitude?: number | null;
-    /** Search radius in kilometers. Required. */
-    f_radius?: number | null;
-    /** Maximum price to search by (inclusive). Decimal string in dollars (e.g. `"100.00"`). */
-    m_price_max?: string | null;
-    /** Minimum price to search by (inclusive). Decimal string in dollars (e.g. `"0.00"`). */
-    m_price_min?: string | null;
-}
-export interface ThothExplorerSearchClassSessionClassSessionSearchResponse {
-    /** List of found class sessions. */
-    a_class_session: {
-        /** Date and time when booking for this session starts in UTC. `null` if there is no "too early" limi... */
-        dtu_book_begin: string | null;
-        /** Date and time when booking for this session ends in UTC. `null` if there is no "too late" limitat... */
-        dtu_book_end: string | null;
-        /** Date and time of the session in UTC. */
-        dtu_session: string;
-        /** Class key. */
-        k_class: string;
-        /** Class period key. */
-        k_class_period: string;
-        /** Class session key. */
-        k_class_period_session: string;
-    };
-}
-export interface ThothLayoutBeFooterFooterParams {
-    /** Business key to get footer data for. */
-    k_business: string;
-}
-export interface ThothLayoutBeFooterFooterResponse {
-    /** Whether the "Powered by WellnessLiving" branding and Terms & Conditions links are shown in the fo... */
-    show_term: boolean;
-}
-export interface WlHardwareStripeComStripeComHardwareElementDeleteParams {
-    /** Business key. */
-    k_business: string;
-    /** Terminal key. */
-    k_terminal?: string | null;
-}
-export type WlHardwareStripeComStripeComHardwareElementDeleteResponse = Record<string, unknown>;
-export interface WlHardwareStripeComStripeComHardwareElementGetParams {
-    /** Business key. */
-    k_business: string;
-    /** Terminal key. */
-    k_terminal?: string | null;
-}
-export interface WlHardwareStripeComStripeComHardwareElementGetResponse {
-    /** Stripe device type of reader. @see ThothPayProcessorStripeComTerminalStripeReaderModelSid */
-    id_model: ThothPayProcessorStripeComTerminalStripeReaderModelSid;
-    /** List of possible status of readers. @see ThothPayProcessorTerminalTerminalStatusSid */
-    id_status: ThothPayProcessorTerminalTerminalStatusSid;
-    /** IP address of terminal. */
-    ip_terminal: string | null;
-    /** Location key. */
-    k_location: string;
-    /** Label of the terminal. */
-    text_label: string;
-    /** Location name. */
-    text_location: string | null;
-}
-export interface WlHardwareStripeComStripeComHardwareElementPostParams {
-    /** Business key. */
-    k_business: string;
-    /** Terminal key. */
-    k_terminal?: string | null;
-}
-export interface WlHardwareStripeComStripeComHardwareElementPostResponse {
-    /** Terminal key. */
-    k_terminal: string | null;
-}
-export interface WlPayProcessorStripeComPaymentIntentUpdateParams {
-    /** ID of the actor. One of {@link RsPayActorSid} constants. */
-    id_pay_actor: RsPayActorSid;
-    /** Key of the business to update Payment Intent for. */
-    k_business: string;
-    /** Key of the business merchant to update Payment Intent for. */
-    k_business_merchant: string;
-    /** Key of the payment transaction to update. */
-    k_pay_transaction: string;
-    /** Payment intent ID to update. */
-    s_payment_intent: string;
-    /** Payment owner user key. */
-    uid_purchase?: string | null;
-}
-export type WlPayProcessorStripeComPaymentIntentUpdateResponse = Record<string, unknown>;
-export type WlPayProcessorStripeComStripeComKeyParams = Record<string, unknown>;
-export interface WlPayProcessorStripeComStripeComKeyResponse {
-    /** Merchant public key. */
-    s_public: string | null;
-}
-export type WlPayProcessorStripeComStripeComPayInitParams = Record<string, unknown>;
-export interface WlPayProcessorStripeComStripeComPayInitResponse {
-    /** Statuses of payment intents. @see ThothPayProcessorStripeComPaymentIntentStatusSid */
-    id_status: ThothPayProcessorStripeComPaymentIntentStatusSid;
-    /** Key of payment transaction that was created. */
-    k_pay_transaction: string | null;
-    /** Payment amount. */
-    m_amount: string | null;
-    /** Surcharge amount. */
-    m_surcharge: string | null;
-    /** Payment Intent client secret key. */
-    s_client_secret: string;
-    /** Payment intent ID. */
-    s_payment_intent: string;
-    /** Error message. */
-    text_message: string | null;
-}
-export type WlPayProcessorStripeComStripeComPaymentIntentCancelParams = Record<string, unknown>;
-export type WlPayProcessorStripeComStripeComPaymentIntentCancelResponse = Record<string, unknown>;
-export interface WlPayProcessorStripeComStripeComChargeParams {
-    /** ID of the currency. @see CoreLocaleCurrencySid */
-    id_currency: CoreLocaleCurrencySid;
-    /** ID of the actor. @see RsPayActorSid */
-    id_pay_actor: RsPayActorSid;
-    /** Key of the business. */
-    k_business: string;
-    /** Key of the business merchant to get the public key for. */
-    k_business_merchant: string;
-    /** Charge id to get data for. */
-    s_charge: string;
-    /** Payment owner user key. */
-    uid_purchase: string;
-}
-export interface WlPayProcessorStripeComStripeComChargeResponse {
-    /** Details about the payment method at the time of the transaction: */
-    o_payment_method_details: {
-        /** ID of a card payment method generated. */
-        s_generated_card_id: string;
-        /** Card brand, like visa or mastercard. */
-        text_brand: string;
-        /** The cardholder name as read from the card. */
-        text_cardholder_name: string;
-        /** Two-digit number representing the card's expiration month. */
-        text_exp_month: string;
-        /** Four-digit number representing the card's expiration year. */
-        text_exp_year: string;
-        /** Last four digits of the card number. */
-        text_last4: string;
-    };
-    /** ID of the payment method used in this charge. */
-    s_payment_method: string;
-}
-export type WlPayProcessorStripeComStripeComConnectionTokenParams = Record<string, unknown>;
-export interface WlPayProcessorStripeComStripeComConnectionTokenResponse {
-    /** Connection token secret key. */
-    s_secret: string;
-}
-export type WlPayProcessorCyberSourceCsPaSetupParams = Record<string, unknown>;
-export interface WlPayProcessorCyberSourceCsPaSetupResponse {
-    /** Key of payment transaction that was created. */
-    k_pay_transaction: string;
-    /** JWT token, as returned by Cyber Source. */
-    s_jwt: string;
-    /** Reference ID, as returned by Cyber Source. */
-    s_reference: string;
-    /** Device collection URL, as returned by Cyber Source. */
-    url_collection: string;
-}
-export type WlPayProcessorCyberSourceCsCaptureContextParams = Record<string, unknown>;
-export interface WlPayProcessorCyberSourceCsCaptureContextResponse {
-    /** Microform Integration JavaScript library integrity property value. */
-    s_client_library_integrity: string | null;
-    /** Contents of the key. */
-    s_key: string | null;
-    /** ID of the key. */
-    s_key_id: string | null;
-    /** Microform Integration JavaScript library url. */
-    url_client_library: string | null;
-}
-export type WlPayProcessorCyberSourceCsPaEnrollmentParams = Record<string, unknown>;
-export interface WlPayProcessorCyberSourceCsPaEnrollmentResponse {
-    /** JSON Web Token to include into the request to the second frame. */
-    s_jwt: string | null;
-    /** URL for frontend interaction. */
-    url_interact: string | null;
-}
-export type WlPayProcessorCyberSourceCsPaValidateParams = Record<string, unknown>;
-export type WlPayProcessorCyberSourceCsPaValidateResponse = Record<string, unknown>;
-export type ThothPayProcessorNuveiNuveiOpenOrderParams = Record<string, unknown>;
-export interface ThothPayProcessorNuveiNuveiOpenOrderResponse {
-    /** Key of payment transaction that was created. */
-    k_pay_transaction: string | null;
-    /** Payment amount. */
-    m_amount: string | null;
-    /** Surcharge amount. */
-    m_surcharge: string | null;
-    /** The order ID provided by Nuvei. */
-    s_nuvei_order: string | null;
-    /** The session identifier to be used by the request that processes the newly opened order. */
-    s_nuvei_session: string | null;
-    /** Error message. */
-    text_message: string | null;
-}
-export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams = Record<string, unknown>;
-export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse = Record<string, unknown>;
-export type WlPayProcessorNuveiNuveiTransactionStartParams = Record<string, unknown>;
-export interface WlPayProcessorNuveiNuveiTransactionStartResponse {
-    /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
-    id_card_type: ThothWlPayBankCardCardTypeEnum;
-    /** Key of payment transaction that was created. */
-    k_pay_transaction: string | null;
-    /** Payment amount. */
-    m_amount: string | null;
-    /** Surcharge amount. */
-    m_surcharge: string | null;
-    /** Error message. */
-    text_message: string | null;
-}
-export type ThothPayProcessorNuveiNuveiTransactionCancelParams = Record<string, unknown>;
-export type ThothPayProcessorNuveiNuveiTransactionCancelResponse = Record<string, unknown>;
-export type ThothPayProcessorNuveiNuveiUpdateOrderParams = Record<string, unknown>;
-export interface ThothPayProcessorNuveiNuveiUpdateOrderResponse {
-    /** Payment amount. */
-    m_amount: string | null;
-    /** Surcharge amount. */
-    m_surcharge: string | null;
-    /** Error message. */
-    text_message: string | null;
-}
-export type WlReportGeneratorQueryParams = Record<string, unknown>;
-export interface WlReportGeneratorQueryResponse {
-    /** A list of dynamic fields in this report. */
-    a_dynamic: Array<{
-        /** Fields of the complex cell. */
-        a_cell: Array<Record<string, unknown>>;
-        /** Elements of a customization from that are required by this filter field. */
-        a_customization_element: Array<Array<unknown>>;
-        /** A list of scalar types of values that this field can get. */
-        a_type: Array<unknown>;
-        /** Whether this field is dynamic or static. */
-        is_dynamic: boolean;
-        /** Whether this field is used for export. */
-        is_export?: boolean | null;
-        /** Whether this field should be hidden by default. It can later be shown by using the customization ... */
-        is_hide_by_default: boolean;
-        /** Whether this field should be hidden if the entire column is empty. */
-        is_hide_if_empty: boolean;
-        /** Whether this field is nullable. */
-        is_null: boolean;
-        /** Whether the ordering by this field is available. */
-        is_order?: boolean | null;
-        /** Whether this field should be shown during report render. */
-        is_show: boolean;
-        /** Whether this field is stored in the report storage. */
-        is_store: boolean;
-        /** Argument for the MySQL function `cast()`. */
-        s_cast?: string | null;
-        /** Name of a cell class. */
-        s_class?: Record<string, unknown> | null;
-        /** CSS class that is used for formatting of this field. */
-        s_class_css: string;
-        /** Name of formatting method that is used for formatting of this field during export. */
-        s_format?: string | null;
-        /** Name of a public property in which value of this field is stored. */
-        s_name: string;
-        /** A string by which report columns are sorted. */
-        s_sort: string;
-        /** Type of this field, as specified in its PHP doc. */
-        s_type: string;
-        /** Data to derive title of a column which values are represented by this report field. */
-        text_title?: string | null;
-        /** Title of this field that is used during export. */
-        text_title_export?: string | null;
-        /** Text of the cell info tooltip. */
-        text_title_info?: string | null;
-    }>;
-    /** A list of fields in this report. */
-    a_field: Array<string>;
-    /** Report data. */
-    a_row: Array<Array<string>>;
-    /** A list of stale rows. */
-    a_stale: Array<number>;
-    /** Warning list of the report. */
-    a_warning: Array<string>;
-    /** Date and time when this report has completed generation. */
-    dtu_complete: string;
-    /** Date and time when this report was put on generation queue. */
-    dtu_queue: string;
-    /** Date and time when generation of this report has started. */
-    dtu_start: string;
-    /** A CAS (compare-and-swap) number that allows to track changes in the report storage. */
-    i_cas_change: number;
-    /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
-    id_report_status: ThothReportCoreGeneratorReportGeneratorStatusSid;
-    /** Key of this report. */
-    s_report: string;
-    /** Text of an error message that occurred during generation of the report. */
-    text_error: string;
-}
-export interface WlPayAccountAccountParams {
-    /** If `true`, information for the account's owner is returned. Clients can be configured to pay for ... */
-    is_owner: boolean;
-    /** The key of the business to show information for. */
-    k_business: string;
-    /** The key of the user to show information for. */
-    uid: string;
-}
-export interface WlPayAccountAccountResponse {
-    /** A list of the user's accounts. */
-    a_account: {
-        /** A list of currencies. @see CoreLocaleCurrencySid */
-        id_currency: CoreLocaleCurrencySid;
-        /** Key of account currency. */
-        k_currency: string;
-        /** ID of payment account.  `null` if this is a user account based on system payment method. */
-        k_pay_account: string | null;
-        /** ID of custom payment method. `null` if this is a user account based on system payment method. */
-        k_pay_method: string | null;
-        /** Account balance. */
-        m_rest: string;
-        /** Name of a custom payment method. `null` if this is a user account based on system payment method. */
-        s_method: string | null;
-    };
-    /** A list of accounts that have not been created for this user yet. */
-    a_account_nx: Array<{
-        /** `true` if the account is allowed to have a negative balance, `false` otherwise. */
-        can_negative: boolean;
-        /** A list of currencies. @see CoreLocaleCurrencySid */
-        id_currency: CoreLocaleCurrencySid;
-        /** Currency key. */
-        k_currency: string;
-        /** Payment account key. `null` for accounts not yet created. */
-        k_pay_account: string | null;
-        /** Custom payment method key. `null` for accounts based on the system payment method. */
-        k_pay_method: string | null;
-        /** Account balance. Always `'0.00'` for accounts not yet created. */
-        m_rest: string;
-        /** Name of the custom payment method. `null` for accounts based on the system payment method. */
-        s_method: string | null;
-    }>;
-    /** Determines whether the user is a debtor. If `true` - the owner of this account is a debtor. */
-    is_debtor: boolean;
-}
-export type WlPayBankPrimaryParams = Record<string, unknown>;
-export type WlPayBankPrimaryResponse = Record<string, unknown>;
-export interface WlPayFormEnvironmentParams {
-    /** The key of the business to retrieve payment information for. */
-    k_business: string;
-    /** The key of the currency to retrieve payment information for. */
-    k_currency: string;
-    /** The key of the location to retrieve payment information for. */
-    k_location: string;
-    /** The user ID to retrieve payment information for. */
-    uid_owner?: string | null;
-}
-export interface WlPayFormEnvironmentResponse {
-    /** A list of supported bank card systems. */
-    a_card_system: Array<ACardSystemSid>;
-    /** A list of payment methods enabled for staff members. */
-    a_method_staff: Array<RsPayMethodSid | null>;
-    /** A list of all payment methods that can be used within this business. */
-    a_method_support: Array<{
-        /** A list of payment methods. @see RsPayMethodSid */
-        id_pay_method: RsPayMethodSid | null;
-        /** Determines whether this method is available for clients. This field is only returned for custom p... */
-        is_client?: boolean;
-        /** The key of the custom payment method. */
-        k_pay_method: string | null;
-        /** The name of payment method. This field is only returned for custom payment methods. */
-        s_method?: string;
-    }>;
-    /** The configuration array that's sent to mobile card reader plugin. */
-    a_mobile_config: {
-        /** Terminal configuration keyed by location key. */
-        a_terminal_location: {
-            /** Terminal lists grouped by connection type: */
-            a_terminal: Record<string, unknown>;
-            /** Display name of the location. */
-            text_location_name: string;
-        };
-        /** Whether card swipe can be cancelled from the POS terminal. */
-        can_cancel_swipe_from_pos: boolean;
-        /** Whether the card expiry date entry is required. */
-        has_expire_date: boolean;
-        /** Whether the card reader selection UI is shown. */
-        has_readers_selection: boolean;
-        /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
-        id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
-        /** Whether `MagTek` USB reader is supported. */
-        is_support_magtek: boolean;
-    } | {
-        /** Terminal configuration keyed by location key. */
-        a_terminal_location: {
-            /** Terminal lists grouped by connection type: */
-            a_terminal: Record<string, unknown>;
-            /** Stripe location ID assigned by the gateway. */
-            s_location_id: string;
-            /** Display name of the location. */
-            text_location_name: string;
-        };
-        /** Whether the card expiry date entry is required. */
-        has_expire_date: boolean;
-        /** Whether the card reader selection UI is shown. */
-        has_readers_selection: boolean;
-        /** Whether `MagTek` USB reader is supported. */
-        is_support_magtek: boolean;
-    } | {
-        /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
-        id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
-        /** NMI SDK key for the card reader plugin. */
-        s_key: string;
-    } | {
-        /** Terminal configuration keyed by location key. */
-        a_terminal_location?: {
-            /** Terminal lists grouped by connection type. */
-            a_terminal: Record<string, unknown>;
-            /** Display name of the location. */
-            text_location_name: string;
-        };
-        /** Whether card swipe can be cancelled from the POS terminal. */
-        can_cancel_swipe_from_pos: boolean;
-        /** Whether the card expiry date entry is required. */
-        has_expire_date: boolean;
-        /** Whether the card reader selection UI is shown. */
-        has_readers_selection: boolean;
-        /** Whether `MagTek` USB reader is supported. */
-        is_support_magtek: boolean;
-    } | null;
-    /** Represents information about payment processors. */
-    a_pay_processor: Array<{
-        /** Public keys configured for this payment processor. */
-        a_public_keys: {
-            /** Checkout SDK public key. `null` if 3DS is disabled for this merchant. */
-            s_checkout: string | null;
-        } | null;
-        /** Public info configured for this payment processor. */
-        a_public_info: {
-            /** Merchant site identifier assigned by Nuvei. */
-            s_merchant_site: string;
-            /** Nuvei merchant identifier. */
-            s_nuvei_id: string;
-        } | null;
-        /** Whether `save payment method` option should be hidden. `true` if hidden, `false` - otherwise. */
-        hide_save_source: boolean;
-        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
-        id_pay_processor: ThothPayProcessorPayProcessorSid;
-        /** `true` if 3DS should be performed, `false` if 3DS should not be performed. `null` if this is not ... */
-        is_enabled_3ds: boolean | null;
-        /** `true` if the merchant is in a test mode, `false` otherwise. */
-        is_test: boolean | null;
-        /** Key of the business merchant. */
-        k_business_merchant: string;
-    }> | null;
-    /** Current local date in current location EnvironmentApi::$k_location */
-    dl_now: string;
-    /** Surcharge amount for payment with card represented as a percent of transaction amount. */
-    f_surcharge: string | null;
-    /** Surcharge amount for payment with ACH represented as a percent of transaction amount. */
-    f_surcharge_ach: string | null;
-    /** A list of locales. @see CoreLocaleLocaleSid */
-    id_locale: CoreLocaleLocaleSid | null;
-    /** `true` if clients can choose whether their banking and credit card information is saved at checkout, */
-    is_save_optional: boolean;
-    /** Determines whether newly added payment sources should be saved. This will be `true` if payment so... */
-    is_save_source: boolean;
-    /** Whether a card-present (POS) source at this business can never carry a surcharge (SAL-1314, FR-00... */
-    is_surcharge_card_present_blocked: boolean;
-    /** Whether the business's ECOMMERCE processor implements the SAL-1314 card-type contract. */
-    is_surcharge_tender_contract: boolean;
-    /** Whether tips are accepted. */
-    is_tip: boolean;
-    /** Surcharge amount for payment with card represented as a fixed amount. */
-    m_surcharge: string | null;
-    /** Surcharge amount for payment with ACH represented as a fixed amount. */
-    m_surcharge_ach: string | null;
-}
-export interface WlPayFormEnvironmentUserParams {
-    /** The key of the business to retrieve payment information for. */
-    k_business: string;
-    /** The key of the currency to retrieve payment information for. */
-    k_currency: string;
-    /** The key of the location to retrieve payment information for. */
-    k_location: string;
-    /** The user ID to retrieve payment information for. */
-    uid_owner?: string | null;
-}
-export interface WlPayFormEnvironmentUserResponse {
-    /** A list of supported bank card systems. */
-    a_card_system: Array<ACardSystemSid>;
-    /** A list of payment methods enabled for staff members. */
-    a_method_staff: Array<RsPayMethodSid | null>;
-    /** A list of all payment methods that can be used within this business. */
-    a_method_support: Array<{
-        /** A list of payment methods. @see RsPayMethodSid */
-        id_pay_method: RsPayMethodSid | null;
-        /** Determines whether this method is available for clients. This field is only returned for custom p... */
-        is_client?: boolean;
-        /** The key of the custom payment method. */
-        k_pay_method: string | null;
-        /** The name of payment method. This field is only returned for custom payment methods. */
-        s_method?: string;
-    }>;
-    /** The configuration array that's sent to mobile card reader plugin. */
-    a_mobile_config: {
-        /** Terminal configuration keyed by location key. */
-        a_terminal_location: {
-            /** Terminal lists grouped by connection type: */
-            a_terminal: Record<string, unknown>;
-            /** Display name of the location. */
-            text_location_name: string;
-        };
-        /** Whether card swipe can be cancelled from the POS terminal. */
-        can_cancel_swipe_from_pos: boolean;
-        /** Whether the card expiry date entry is required. */
-        has_expire_date: boolean;
-        /** Whether the card reader selection UI is shown. */
-        has_readers_selection: boolean;
-        /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
-        id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
-        /** Whether `MagTek` USB reader is supported. */
-        is_support_magtek: boolean;
-    } | {
-        /** Terminal configuration keyed by location key. */
-        a_terminal_location: {
-            /** Terminal lists grouped by connection type: */
-            a_terminal: Record<string, unknown>;
-            /** Stripe location ID assigned by the gateway. */
-            s_location_id: string;
-            /** Display name of the location. */
-            text_location_name: string;
-        };
-        /** Whether the card expiry date entry is required. */
-        has_expire_date: boolean;
-        /** Whether the card reader selection UI is shown. */
-        has_readers_selection: boolean;
-        /** Whether `MagTek` USB reader is supported. */
-        is_support_magtek: boolean;
-    } | {
-        /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
-        id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
-        /** NMI SDK key for the card reader plugin. */
-        s_key: string;
-    } | {
-        /** Terminal configuration keyed by location key. */
-        a_terminal_location?: {
-            /** Terminal lists grouped by connection type. */
-            a_terminal: Record<string, unknown>;
-            /** Display name of the location. */
-            text_location_name: string;
-        };
-        /** Whether card swipe can be cancelled from the POS terminal. */
-        can_cancel_swipe_from_pos: boolean;
-        /** Whether the card expiry date entry is required. */
-        has_expire_date: boolean;
-        /** Whether the card reader selection UI is shown. */
-        has_readers_selection: boolean;
-        /** Whether `MagTek` USB reader is supported. */
-        is_support_magtek: boolean;
-    } | null;
-    /** Represents information about payment processors. */
-    a_pay_processor: Array<{
-        /** Public keys configured for this payment processor. */
-        a_public_keys: {
-            /** Checkout SDK public key. `null` if 3DS is disabled for this merchant. */
-            s_checkout: string | null;
-        } | null;
-        /** Public info configured for this payment processor. */
-        a_public_info: {
-            /** Merchant site identifier assigned by Nuvei. */
-            s_merchant_site: string;
-            /** Nuvei merchant identifier. */
-            s_nuvei_id: string;
-        } | null;
-        /** Whether `save payment method` option should be hidden. `true` if hidden, `false` - otherwise. */
-        hide_save_source: boolean;
-        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
-        id_pay_processor: ThothPayProcessorPayProcessorSid;
-        /** `true` if 3DS should be performed, `false` if 3DS should not be performed. `null` if this is not ... */
-        is_enabled_3ds: boolean | null;
-        /** `true` if the merchant is in a test mode, `false` otherwise. */
-        is_test: boolean | null;
-        /** Key of the business merchant. */
-        k_business_merchant: string;
-    }> | null;
-    /** Current local date in current location EnvironmentApi::$k_location */
-    dl_now: string;
-    /** Surcharge amount for payment with card represented as a percent of transaction amount. */
-    f_surcharge: string | null;
-    /** Surcharge amount for payment with ACH represented as a percent of transaction amount. */
-    f_surcharge_ach: string | null;
-    /** A list of locales. @see CoreLocaleLocaleSid */
-    id_locale: CoreLocaleLocaleSid | null;
-    /** `true` if clients can choose whether their banking and credit card information is saved at checkout, */
-    is_save_optional: boolean;
-    /** Determines whether newly added payment sources should be saved. This will be `true` if payment so... */
-    is_save_source: boolean;
-    /** Whether a card-present (POS) source at this business can never carry a surcharge (SAL-1314, FR-00... */
-    is_surcharge_card_present_blocked: boolean;
-    /** Whether the business's ECOMMERCE processor implements the SAL-1314 card-type contract. */
-    is_surcharge_tender_contract: boolean;
-    /** Whether tips are accepted. */
-    is_tip: boolean;
-    /** Surcharge amount for payment with card represented as a fixed amount. */
-    m_surcharge: string | null;
-    /** Surcharge amount for payment with ACH represented as a fixed amount. */
-    m_surcharge_ach: string | null;
-}
-export interface WlPayOwnerOwnerParams {
-    /** Key of a user to show information for. */
-    uid: string;
-    /** Business key. */
-    k_business?: string | null;
-}
-export interface WlPayOwnerOwnerResponse {
-    /** A list of money owners from which account money can be transferred. @see RsPayOwnerSid */
-    id_pay_owner: RsPayOwnerSid;
-    /** Is client pay only for self. If parent pays for child this flag will be `false` for both. */
-    is_pay_self_only: boolean;
-    /** The payment owner key. This is used for financial transactions. */
-    k_pay_owner: string;
-    /** Key of the money owner. */
-    k_pay_owner_money: string;
-}
-export interface WlPayMethodListParams {
-    /** Whether only active payment methods should be returned. */
-    is_active: boolean;
-    /** The business key. */
-    k_business: string;
-    /** Whether payment method {@link RsPayMethodSid} should be included in response. */
-    show_manual: boolean;
-    /** The key of a user to show information for. */
-    uid: string;
-}
-export interface WlPayMethodListResponse {
-    /** A list of payment methods: */
-    a_pay_method: Array<{
-        /** A list of payment methods. @see RsPayMethodSid */
-        id_pay_method: RsPayMethodSid | null;
-        /** Payment method key. */
-        k_pay_method: string | null;
-        /** The payment method name. */
-        s_title: string;
-    }>;
-}
-export interface WlPayAddressAddressParams {
-    /** The ID of the payment owner type. @see RsPayOwnerSid */
-    id_pay_owner: RsPayOwnerSid;
-    /** Business key, where the payment is performed. */
-    k_business: string;
-    /** The primary key of a payment owner. */
-    k_id: string;
-}
-export interface WlPayAddressAddressResponse {
-    /** The payee's address information. */
-    a_pay_address: Array<{
-        /** `true` if this address is currently selected, `false` otherwise. */
-        is_selected: boolean;
-        /** Country geo key. `null` if the country cannot be determined. */
-        k_country: string | null;
-        /** Payment address key. */
-        k_pay_address: string;
-        /** Region geo key. */
-        k_region: string;
-        /** City name. */
-        s_city: string;
-        /** Country name. `null` if the country cannot be determined. */
-        s_country: string | null;
-        /** Country abbreviation code, or an empty string if unavailable. */
-        s_country_code: string;
-        /** Full name of the address owner. */
-        s_name: string;
-        /** Phone number. */
-        s_phone: string;
-        /** Postal code. */
-        s_postal: string;
-        /** Region name. */
-        s_region: string | null;
-        /** Region abbreviation code. `null` if the region cannot be determined. */
-        s_region_code: string | null;
-        /** First line of the street address. */
-        s_street1: string;
-        /** Second line of the street address. */
-        s_street2: string;
-        /** Email address of the owner. `null` if the owner is a business. */
-        text_mail: string | null;
-    }> | null;
-}
-export interface WlPayAddressProfileParams {
-    /** The business key number used internally by WellnessLiving. */
-    k_business: string;
-    /** The key of the user whose data should be retrieved. */
-    uid: string;
-}
-export interface WlPayAddressProfileResponse {
-    /** The country key. */
-    k_geo_country: string | null;
-    /** The region ID. */
-    k_geo_region: string | null;
-    /** The name of the city in the address. */
-    s_city: string | null;
-    /** The client name as listed in their address. */
-    s_name: string | null;
-    /** The client phone number. */
-    s_phone: string | null;
-    /** The client postal or zip code. */
-    s_postal: string | null;
-    /** The first line of the client address. */
-    s_street1: string | null;
-    /** The second line of the client address. */
-    s_street2: string | null;
 }
 export interface CoreRequestExampleParams {
     /** Example argument. */
@@ -6067,12 +5501,7 @@ export interface CoreSidCoreSidResponse {
 export type CoreWebSocketSubscribeParams = Record<string, unknown>;
 export interface CoreWebSocketSubscribeResponse {
     /** All messages in queue. Key is a message key. Value is message data. */
-    a_message_broadcast: Array<{
-        /** A CAS (compare-and-swap) number that allows to track changes in the report storage. */
-        i_cas_change: number;
-        /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
-        id_report_status: ThothReportCoreGeneratorReportGeneratorStatusSid;
-    } | {
+    a_message_broadcast: Array<Record<string, unknown> | {
         /** Key of a book/visit. */
         k_visit: string;
     } | {
@@ -6103,22 +5532,21 @@ export interface CoreWebSocketSubscribeResponse {
         /** Key of the alert that was just sent. */
         k_alert: string | null;
     } | {
-        /** A class for a list of card systems. @see ACardSystemSid */
-        id_card_system: ACardSystemSid;
-        /** An exception that is thrown in a case of a payment error. @see RsPayException */
-        id_pay_exception: RsPayException | null;
-        /** Paragon ticket status. @see ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid */
-        id_ticket_status: ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid | null;
-        /** Amount of tips entered by customer on terminal. */
-        m_tip: string;
-        /** Cardholder name. */
-        s_card_holder: string | null;
-        /** Card expiration date. */
-        s_expire: string | null;
-        /** Last four digits of the card number. */
-        s_last4: string | null;
-        /** Text message to notify the client. */
-        text_message: string | null;
+        /** Time when the ticket has been checked in, in UTC and MySQL format. */
+        dtu_attend: string | null;
+        /** Number of the tickets checked in for the session, including this one. */
+        i_attend: number;
+        /** Number of the tickets sold for the session. */
+        i_sold: number;
+        /** Possible states of the visit: book, attended, cancelled, etc. @see WlVisitVisitSid */
+        id_visit: WlVisitVisitSid;
+        /** Key of the ticket that has been checked in. */
+        k_ticket_item: string;
+    } | {
+        /** A CAS (compare-and-swap) number that allows to track changes in the report storage. */
+        i_cas_change: number;
+        /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
+        id_report_status: ThothReportCoreGeneratorReportGeneratorStatusSid;
     } | {
         /** New title of the business. */
         text_title: string;
@@ -6150,7 +5578,7 @@ export interface CoreWebSocketSubscribeResponse {
         is_active: boolean;
         /** Whether booking is in progress. */
         is_booking_in_progress: boolean | null;
-    } | Record<string, unknown> | {
+    } | {
         /** New data of changes schedule item: */
         a_visit: Record<string, unknown>;
     } | {
@@ -6196,19 +5624,19 @@ export interface CoreWebSocketSubscribeResponse {
         k_class_tab_old: string | null;
     } | {
         /** A class for a list of card systems. @see ACardSystemSid */
-        id_card_system: ACardSystemSid;
-        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
-        id_card_type: ThothWlPayBankCardCardTypeEnum;
+        id_card_system: ACardSystemSid | null;
         /** An exception that is thrown in a case of a payment error. @see RsPayException */
         id_pay_exception: RsPayException | null;
-        /** CS Response code class. @see ThothPayProcessorNuveiCodeCSResponseSid */
-        id_payment_status: ThothPayProcessorNuveiCodeCSResponseSid | null;
-        /** Tip amount entered by the customer at the terminal. */
-        m_tip: string | null;
+        /** Paragon ticket status. @see ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid */
+        id_ticket_status: ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid | null;
+        /** Amount of tips entered by customer on terminal. */
+        m_tip: string;
+        /** Cardholder name. */
+        s_card_holder: string | null;
+        /** Card expiration date. */
+        s_expire: string | null;
         /** Last four digits of the card number. */
         s_last4: string | null;
-        /** Cardholder name. */
-        text_card_holder: string | null;
         /** Text message to notify the client. */
         text_message: string | null;
     } | {
@@ -6241,6 +5669,23 @@ export interface CoreWebSocketSubscribeResponse {
         /** List of users for which address verification succeed. */
         a_valid: Record<string, unknown>;
     } | {
+        /** A class for a list of card systems. @see ACardSystemSid */
+        id_card_system: ACardSystemSid | null;
+        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
+        id_card_type: ThothWlPayBankCardCardTypeEnum | null;
+        /** An exception that is thrown in a case of a payment error. @see RsPayException */
+        id_pay_exception: RsPayException | null;
+        /** CS Response code class. @see ThothPayProcessorNuveiCodeCSResponseSid */
+        id_payment_status: ThothPayProcessorNuveiCodeCSResponseSid | null;
+        /** Tip amount entered by the customer at the terminal. */
+        m_tip: string | null;
+        /** Last four digits of the card number. */
+        s_last4: string | null;
+        /** Cardholder name. */
+        text_card_holder: string | null;
+        /** Text message to notify the client. */
+        text_message: string | null;
+    } | {
         /** An array with information about dialog: */
         a_info: Record<string, unknown>;
         /** The time in UNIX format when socket message was sent. */
@@ -6257,7 +5702,7 @@ export interface CoreWebSocketSubscribeResponse {
 }
 export interface CoreGeoComboboxParams {
     /** The locale ID used as a filter. The locale is generally a country. @see CoreLocaleLocaleSid */
-    id_locale: CoreLocaleLocaleSid | null;
+    id_locale: CoreLocaleLocaleSid;
     /** The city name (or a fragment of the city name) used for the search. */
     s_value: string;
 }
@@ -6283,6 +5728,8 @@ export interface CorePushPushParams {
     uid: string;
 }
 export type CorePushPushResponse = Record<string, unknown>;
+export type CoreTimingComponentTimingParams = Record<string, unknown>;
+export type CoreTimingComponentTimingResponse = Record<string, unknown>;
 export interface SocialMicrosoftLoginDeleteParams {
     /** The client for whom the Microsoft account will be unlinked. */
     uid: string;
@@ -6740,7 +6187,7 @@ export interface WlBusinessDataResponse {
     /** A list of all languages. @see CoreLocaleLanguageLocaleLanguageSid */
     id_language: CoreLocaleLanguageLocaleLanguageSid;
     /** A list of locales. @see CoreLocaleLocaleSid */
-    id_locale: CoreLocaleLocaleSid | null;
+    id_locale: CoreLocaleLocaleSid;
     /** Types of the possible ranks in different business. @see RsRankTypeSid */
     id_rank_type: RsRankTypeSid | null;
     /** List of available data center regions. @see CoreAmazonRegionAmazonRegionSid */
@@ -6919,7 +6366,7 @@ export interface WlEventEventListGetParams {
     /** List of staff UIDs applied by filter. */
     a_uid_staff?: Array<string> | null;
     /** List of IDs to include/exclude virtual events. */
-    a_virtual?: Array<string> | null;
+    a_virtual?: Array<CoreSidYesNoSid> | null;
     /** The end date of the range from which a list of events should be retrieved. */
     dl_end?: string | null;
     /** The start date of the range from which a list of events should be retrieved. */
@@ -6950,17 +6397,80 @@ export interface WlEventEventListGetResponse {
         /** List of book now tags connected to this event. */
         a_class_tab: Array<string>;
         /** Data about logo of the event. */
-        a_logo: Record<string, unknown>;
+        a_logo: {
+            /** Thumbnail height in pixels. */
+            i_height: number;
+            /** Thumbnail width in pixels. */
+            i_width: number;
+            /** `false` for the new wide-rectangle format; `true` for the legacy square format. */
+            is_old: boolean;
+            /** Thumbnail URL. */
+            s_url: string;
+        };
         /** List of scheduled sessions of the event. */
-        a_schedule: Array<Record<string, unknown>>;
+        a_schedule: {
+            /** List of weekday numbers when event occur. */
+            a_day: Array<number>;
+            /** Information about event repeating. */
+            a_repeat: Record<string, unknown>;
+            /** List of staff members providing event session. */
+            a_staff_member: Record<string, unknown>;
+            /** List of location keys where the virtual service can be booked from other locations. */
+            a_virtual_location: Array<string>;
+            /** End date of the schedule in `MySql` format. */
+            dl_end: string;
+            /** Start date of the schedule in `MySql` format. */
+            dl_start: string;
+            /** Whether this is a single day schedule (start and end dates of the schedule are the same). */
+            is_day: boolean;
+            /** Class period key. */
+            k_class_period: string;
+            /** Location key. */
+            k_location: string;
+            /** Resource key, which has category {@link WlResourceResourceCategoryEnum}. */
+            k_resource_location: string;
+            /** Identifier of the timezone of the location of the session (for example `America/New_York`). */
+            s_timezone_location: string;
+            /** Location title. */
+            text_location: string;
+            /** Room where the session takes place. */
+            text_room: string;
+            /** Start and end time of the scheduled sessions in human readable format. */
+            text_time: string;
+        };
         /** List of search tags connected to this event. */
-        a_search_tag: Array<Record<string, unknown>>;
+        a_search_tag: {
+            /** Search tag key. */
+            k_search_tag: string;
+            /** Name of the tag. */
+            text_title: string;
+        };
+        /** Returns how many tickets can be sold for the ticketed event the class belongs to, and how */
+        a_ticket_inventory?: {
+            /** Total number of tickets that can be sold for the event. */
+            i_capacity: number;
+            /** Number of tickets still available to sell. */
+            i_remain: number;
+            /** Maximum number of tickets that can be ordered for the event in one purchase. `0` if there is no l... */
+            i_order_limit: number;
+        } | null;
+        /** List of ticket options available for booking the event. Empty if the event is not a ticketed */
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
+            m_price_early: string | null;
+            /** Ticket option name. */
+            text_title: string;
+        };
         /** Whether event can be booked or not. */
         can_book: boolean;
         /** Whether current user can cancel already booked event. */
         can_cancel: boolean;
-        /** End date, when early bird price ends in `MySql` format. */
-        dl_early: string;
+        /** The last date when the early bird price is applied, in `MySql` date format. `null` if the event has */
+        dl_early?: string | null;
         /** End date of the scheduled session in `MySql` format. */
         dl_end: string;
         /** Local date of the closest session of the event. */
@@ -6985,8 +6495,8 @@ export interface WlEventEventListGetResponse {
         i_wait: number;
         /** Wait list limit of the event. */
         i_wait_limit?: number | null;
-        /** ID of deny reason. */
-        id_reason: number;
+        /** Reasons why the client can't book this event. @see WlEventDenyReasonSid */
+        id_reason: WlEventDenyReasonSid;
         /** Whether booking of this event restricted because of age rules for {@link WlEventNamespace#eventLi... */
         is_age_restrict: boolean;
         /** `true` if this event booking is restricted and restricted because of client's age only. */
@@ -7019,6 +6529,8 @@ export interface WlEventEventListGetResponse {
         is_prorate: boolean;
         /** Whether class/event can be paid with single session. */
         is_single_buy: boolean;
+        /** `true` if the event is a ticketed event, `false` otherwise. */
+        is_ticket: boolean;
         /** Whether current user is booked or on the wait list. */
         is_user_booked: boolean;
         /** Whether event is virtual. */
@@ -7166,7 +6678,7 @@ export interface WlSessionEnvironmentGetResponse {
     /** A list of currency codes. @see RsCurrencySid */
     id_currency: RsCurrencySid;
     /** A list of locales. @see CoreLocaleLocaleSid */
-    id_locale: CoreLocaleLocaleSid | null;
+    id_locale: CoreLocaleLocaleSid;
     /** The list of available modes. @see RsPlaceSid */
     id_place: RsPlaceSid;
     /** List of possible plans for AchieveSubscription subscription. @see WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid */
@@ -8746,6 +8258,11 @@ export interface WlLeadLeadGetParams {
 export interface WlLeadLeadGetResponse {
     /** A list of profile fields in the business. Every element has the following keys: */
     a_field_list: Array<{
+        /** The additional data of the field. Its keys depend on the field type. */
+        a_data: {
+            /** The number of rows of the input of a text field. Always set for text fields: */
+            i_size?: number;
+        };
         /** A list of possible options for an HTML select field. This value is only used if this field is an ... */
         a_item: {
             /** The option ID. */
@@ -9089,6 +8606,11 @@ export type WlReviewReviewFeatureParams = Record<string, unknown>;
 export type WlReviewReviewFeatureResponse = Record<string, unknown>;
 export type WlReviewReviewReplyParams = Record<string, unknown>;
 export type WlReviewReviewReplyResponse = Record<string, unknown>;
+export interface WlZoomZoomUserReleaseParams {
+    /** Business key which currently use zoom user. */
+    k_business_use: string;
+}
+export type WlZoomZoomUserReleaseResponse = Record<string, unknown>;
 export interface WlDriveProductImageUploadGetParams {
     /** Allows to give custom parameters which can be required for different types of images. */
     a_config: Array<unknown>;
@@ -9479,9 +9001,9 @@ export interface WlAlertAlertListGetResponse {
         i_difference: number;
         /** Determines whether the alert was read by the user. */
         is_read: boolean;
-        /** Alert key.  table. */
+        /** Alert key. */
         k_alert: string;
-        /** Business key.  table. */
+        /** Business key. */
         k_business: string;
         /** Icon class. See AlertAbstract::CSS_CLASS. */
         s_icon_class: string;
@@ -9502,246 +9024,917 @@ export interface WlAlertAlertListPostParams {
     k_business: string;
 }
 export type WlAlertAlertListPostResponse = Record<string, unknown>;
-export type ThothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoidParams = Record<string, unknown>;
-export type ThothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoidResponse = Record<string, unknown>;
-export interface WlPayAccountChargeChargeParams {
-    /** The account charge mode. @see RsPayAccountChargeSid */
-    id_pay_account_charge: RsPayAccountChargeSid;
-    /** If `true`, the account is filled by a staff member in the backend. Otherwise, this will be `false`. */
-    is_staff: boolean;
-    /** The ID of the business the user account belongs to. */
-    k_business: string;
-    /** The ID of the user account to refill. */
-    k_pay_account: string;
-    /** The ID of the user whose account is being refilled. */
-    uid: string;
+export type WlTicketTicketMailParams = Record<string, unknown>;
+export interface WlTicketTicketMailResponse {
+    /** Email to send the tickets to. */
+    text_mail: string;
 }
-export interface WlPayAccountChargeChargeResponse {
-    /** The ID of the purchase that was created during payment. */
-    k_purchase: string;
-}
-export interface WlPayBankCardListParams {
-    /** ID of current business. */
-    k_business: string;
-    /** Location to show information for. */
-    k_location: string;
-    /** ID of a user to show information for. */
-    uid: string;
-}
-export interface WlPayBankCardListResponse {
-    /** A list of bank cards. */
-    a_bank_card: {
-        /** The month when the payment card expires, represented by a number (1=January and 12=December). */
-        i_month: number;
-        /** The last two digits of the year when the payment card expires. */
-        i_year: number;
-        /** A class for a list of card systems. @see ACardSystemSid */
-        id_card_system: ACardSystemSid;
-        /** If `true`, this card backs at least one active autopay membership or package. */
-        is_autopay: boolean;
-        /** If `true`, then this card is the user default card. */
-        is_default: boolean;
-        /** The payment address ID. This refers to a physical address associated with a payment card. */
-        k_pay_address: string;
-        /** The payment method ID. Each payment card for each user will have its own ID. */
-        k_pay_bank: string;
-        /** The payment card descriptor. This is typically the company name and the last 4 digits of the card */
-        text_name_card: string;
-        /** The name of the card owner as it appears on the card. */
-        text_name_holder: string;
-        /** A portion of the payment card number, used to identify the card. */
-        text_number: string;
-    };
-    /** List of bank cards. */
-    a_list: Array<{
-        /** The month when the payment card expires, represented by a number (1=January and 12=December). */
-        i_month: number;
-        /** The last two digits of the year when the payment card expires. */
-        i_year: number;
-        /** A class for a list of card systems. @see ACardSystemSid */
-        id_card_system: ACardSystemSid;
-        /** If `true`, this card backs at least one active autopay membership or package. */
-        is_autopay: boolean;
-        /** If `true`, then this card is the user default card. */
-        is_default: boolean;
-        /** The payment address ID. This refers to a physical address associated with a payment card. */
-        k_pay_address: string;
-        /** The payment method ID. Each payment card for each user will have its own ID. */
-        k_pay_bank: string;
-        /** The payment card descriptor. This is typically the company name and the last 4 digits of the card */
-        text_name_card: string;
-        /** The name of the card owner as it appears on the card. */
-        text_name_holder: string;
-        /** A portion of the payment card number, used to identify the card. */
-        text_number: string;
-    }>;
-    /** Whether new card can be added. */
-    can_add: boolean;
-    /** Whether the client is allowed to remove their own saved credit cards. */
-    can_remove_self: boolean;
-    /** Whether the feature "client is allowed to remove their own saved credit cards" has been released. */
-    has_remove_self: boolean;
-}
-export interface WlPayBankAchListParams {
-    /** ID of current business. */
-    k_business: string;
-    /** Location to show information for. */
-    k_location: string;
-    /** ID of a user to show information for. */
-    uid: string;
-}
-export interface WlPayBankAchListResponse {
-    /** List of ACH accounts: */
-    a_list: Array<{
-        /** A list of account holder types which can be chosen. @see RsPayBankAchHolderSid */
-        id_pay_bank_ach_holder: RsPayBankAchHolderSid;
-        /** A list of account types which can be chosen. @see RsPayBankAchTypeSid */
-        id_pay_bank_ach_type: RsPayBankAchTypeSid;
-        /** `true` - this account is default payment method; `false` - otherwise. */
-        is_default: boolean;
-        /** ID of bank account. */
-        k_pay_bank: string;
-        /** Account name. */
-        text_name_account: string;
-        /** Account holder name. */
-        text_name_holder: string;
-        /** ACH account number. */
-        text_number: string;
-    }>;
-    /** Whether new ACH account can be added. */
-    can_add: boolean;
-}
-export interface WlPayTransactionReportTransactionAllPaymentParams {
-    /** The end date in local time to retrieve transactions for. */
-    dl_date_end: string;
-    /** The end date in local time to retrieve transactions for. */
-    dl_date_start: string;
-    /** The page of the report, starting from 0. */
-    i_page: number;
-    /** Determines whether the report should be refreshed. */
-    is_refresh: boolean;
-    /** The key of the business for which report should be generated. */
-    k_business: string;
-}
-export interface WlPayTransactionReportTransactionAllPaymentResponse {
-    /** A list of fields in the report. */
-    a_field: Array<string>;
-    /** The report data. */
-    a_row: Array<{
-        /** List of pay transactions associated with this row. Each element: */
-        a_pay_transaction: {
-            /** A list of payment methods. @see RsPayMethodSid */
-            id_pay_method: RsPayMethodSid | null;
-            /** Pay transaction key. */
-            k_pay_transaction: string;
-            /** Amount paid. */
-            m_amount: string;
-            /** Surcharge amount from store settings. */
-            m_surcharge: string;
-            /** Batch number for this transaction. */
-            s_batch_number: string;
-        };
-        /** Start date and time of the purchase in UTC. */
-        dtu_purchase_start: string;
-        /** Purchase key. */
-        k_purchase: string;
-        /** Net sales amount. */
-        m_net_sale: string;
-        /** Total tax amount. */
-        m_total_tax: string;
-        /** First name of the client. */
-        'o_client.text_first': string;
-        /** Last name of the client. */
-        'o_client.text_last': string;
-        /** Full name of the client. */
-        'o_client.text_name': string;
-        /** Location key. */
-        'o_location.k_location': string;
-        /** Batch number of the first transaction in the row. */
-        s_batch_number: string;
-        /** Street address of the location. */
-        text_location_address: string;
-        /** Name of the location's city. */
-        text_location_city: string;
-        /** Name of the location's country. */
-        text_location_country: string;
-        /** Postal code of the location. */
-        text_location_postal: string;
-        /** Name of the location's region. */
-        text_location_region: string;
-        /** Name of the payment method used. */
-        text_payment_method: string;
-        /** Name of the base payment method. If a custom method was used, this is the method it is based on. */
-        text_payment_method_base: string;
-        /** Comma-separated list of tax names applied to the purchase. */
-        text_tax_title: string;
-        /** Comma-separated list of tax values. Percentage-based taxes have `%` appended; */
-        text_tax_value: string;
-    }>;
-    /** The warning list of the report. */
-    a_warning: Array<string>;
-    /** The date and time if the report has completed generation. Otherwise, this will be `null`. */
-    dtu_complete: string | null;
-    /** The date and time if this report has been put in the generation queue. Otherwise, this will be `n... */
-    dtu_queue: string | null;
-    /** The date and time if generation of this report has started. Otherwise, this will be `null`. */
-    dtu_start: string | null;
-    /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
-    id_report_status: ThothReportCoreGeneratorReportGeneratorStatusSid;
-    /** Determines whether to show more rows in the report. */
-    is_more: boolean;
-    /** Determines whether the report is complete. */
-    is_report_complete: boolean;
-}
-export interface WlPayFormSurchargeSurchargeTenderParams {
-    /** Payment method the card would be charged with. @see RsPayMethodSid */
-    id_pay_method: RsPayMethodSid | null;
+export interface WlTicketTicketListParams {
+    /** Start of the session, in UTC, MySQL format. */
+    dtu_start: string;
     /** Business key. */
     k_business: string;
-    /** Currency key. */
+    /** Key of the class period the session belongs to. */
+    k_class_period: string;
+}
+export interface WlTicketTicketListResponse {
+    /** Location of the session. Has the next structure: */
+    a_location: {
+        /** Location key. */
+        k_location: string;
+        /** Title of the location. */
+        text_title: string;
+    };
+    /** Orders of the session, from the most recent purchase to the oldest one. Every item has the next s... */
+    a_order: Array<{
+        /** Ticket types of the order, not counting cancelled tickets. Every item has the next structure: */
+        a_type: {
+            /** Number of not cancelled tickets of this type in the order. */
+            i_count: number;
+            /** Key of the ticket type. */
+            k_ticket_option: string;
+            /** Name of the ticket type. */
+            text_title: string;
+        };
+        /** Time when the order was bought, in the local time of the location, MySQL format. */
+        dtl_purchase: string;
+        /** `true` if the buyer agreed to the terms and conditions of the event. `false` if the terms were sk... */
+        has_terms_agree: boolean;
+        /** Number of tickets of the order that are checked in. */
+        i_attend: number;
+        /** Number of tickets in the order, cancelled ones included. */
+        i_ticket: number;
+        /** `true` if the buyer has an email address on file. `false` for a guest. */
+        is_email: boolean;
+        /** `true` if the order was bought by a guest, who has no profile. In this case `text_name` is empty. */
+        is_guest: boolean;
+        /** Number of the order: key of the purchase the tickets were bought with. Key of the purchase. */
+        k_purchase: string;
+        /** Amount refunded for the tickets of the order, with the currency {@link WlTicketTicketListResponse... */
+        m_refund: string;
+        /** Amount of the tickets of the order after discounts and before taxes, with the currency */
+        m_subtotal: string;
+        /** Surcharge taken for the purchase of the order. `0` if there is none. Decimal string. */
+        m_surcharge: string;
+        /** Taxes of the tickets of the order, with the currency {@link WlTicketTicketListResponse.k_currency... */
+        m_tax: string;
+        /** Total paid for the tickets of the order, net of refunds, with the currency */
+        m_total: string;
+        /** Full name of the buyer. Empty for a guest. */
+        text_name: string;
+        /** Key of the buyer, for the link to the profile. `null` for a guest. */
+        uid: string | null;
+        /** Link to the page with all tickets of the order, to view and print them. . */
+        url_viewer: string;
+    }>;
+    /** Staff members of the session, who lead it. Every item has the next structure: */
+    a_staff: Array<{
+        /** Full name of the staff member. */
+        text_name: string;
+        /** Key of the staff member. */
+        uid: string;
+    }>;
+    /** Tickets of the session, cancelled ones included. Every item has the next structure: */
+    a_ticket: Array<{
+        /** Time of the check-in, in the local time of the location, MySQL format. `null` if the ticket is not */
+        dtl_attend: string | null;
+        /** Time of the cancellation, in the local time of the location, MySQL format. `null` if the ticket i... */
+        dtl_cancel: string | null;
+        /** Position of the ticket in the order, starting from 1. */
+        i_order: number;
+        /** Number of tickets in the order, cancelled ones included. */
+        i_order_size: number;
+        /** Whether the ticket is checked in. A cancelled ticket is never checked in. */
+        is_attend: boolean;
+        /** Whether the ticket is cancelled: voided, or refunded with the seat returned. */
+        is_cancel: boolean;
+        /** Whether the ticket is paid. `false` if it was reserved to be paid at the door: its session pass i... */
+        is_paid: boolean;
+        /** Whether something was refunded for the ticket, see `m_refund`. Unlike `is_cancel`, a refunded tic... */
+        is_refund: boolean;
+        /** Order of the ticket, see {@link WlTicketTicketListResponse.a_order}. */
+        k_purchase: string;
+        /** Key of the ticket, the one {@link WlTicketNamespace#ticketScan} takes. */
+        k_ticket_item: string;
+        /** Key of the ticket type. */
+        k_ticket_option: string;
+        /** Amount refunded for this ticket. The refunds of the purchase item of the ticket. If several ticke... */
+        m_refund: string;
+        /** Price of the ticket: how much was paid for it, not net of refunds. Decimal string, in the currency */
+        m_price: string;
+        /** Full name of the holder of the ticket: the person who has claimed it. Empty if nobody has claimed... */
+        text_holder: string;
+        /** Number of the ticket: its short code in the format for displaying, for example `4829-1736`. Empty... */
+        text_ticket_code: string;
+        /** Name of the ticket type. */
+        text_type: string;
+        /** Link to the page with this ticket for view and print. */
+        url_viewer: string;
+    }>;
+    /** Ticket types of the event, including the ones with nothing sold. Hidden types are listed only if ... */
+    a_ticket_option: Array<{
+        /** Key of the ticket type. */
+        k_ticket_option: string;
+        /** Price of one ticket of the type, with the currency {@link WlTicketTicketListResponse.k_currency}.... */
+        m_price: string;
+        /** Name of the ticket type. */
+        text_title: string;
+    }>;
+    /** End of the session, in the local time of the location, MySQL format. */
+    dtl_end: string;
+    /** Start of the session, in the local time of the location, MySQL format. */
+    dtl_start: string;
+    /** Number of tickets of the session that are checked in. */
+    i_attend: number;
+    /** Number of tickets that can be sold for the event. */
+    i_capacity: number;
+    /** Number of tickets sold for the session, not counting cancelled ones. */
+    i_sold: number;
+    /** Whether the session has ended. */
+    is_past: boolean;
+    /** Whether the current staff member can see the sales report. Money fields are always returned, the ... */
+    is_sales_report: boolean;
+    /** Whether tickets of the session can still be sold: there are free seats, and the session has not e... */
+    is_sell: boolean;
+    /** Key of the currency of all amounts of the answer. */
     k_currency: string;
+    /** Total paid for the tickets of the session, net of refunds. Decimal string, in the currency */
+    m_total: string;
+    /** Name of the event, with no date in it. */
+    text_title: string;
+    /** Link to book the session directly. Empty: the link is not provided yet. */
+    url_booking: string;
+}
+export type WlTicketTicketScanParams = Record<string, unknown>;
+export interface WlTicketTicketScanResponse {
+    /** Time when the ticket has been checked in, in UTC and MySQL format. */
+    dtu_attend: string | null;
+    /** Time when the visit of the ticket has been cancelled, in UTC and MySQL format. */
+    dtu_cancel: string | null;
+    /** End of the session the ticket is for, in UTC and MySQL format. */
+    dtu_session_end: string;
+    /** Start of the session the ticket is for, in UTC and MySQL format. */
+    dtu_session_start: string;
+    /** Number of the tickets already checked in for the session, including this one. */
+    i_attend: number;
+    /** Number of the tickets sold for the session: not cancelled ones, including those whose holders hav... */
+    i_sold: number;
+    /** Whether the ticket is paid. */
+    is_paid: boolean;
+    /** Key of the class period the session of the ticket belongs to. */
+    k_class_period_ticket: string;
+    /** Key of the ticket. */
+    k_ticket_item: string;
+    /** Key of the visit booked with the ticket. */
+    k_visit: string;
+    /** Short code of the ticket in the format for displaying, for example `4829-1736`. */
+    text_ticket_code: string;
+    /** Name of the event the ticket is for. */
+    text_title: string;
+}
+export type WlTicketTicketScanListParams = Record<string, unknown>;
+export interface WlTicketTicketScanListResponse {
+    /** Outcome of every ticket of the request, in the order of {@link WlTicketNamespace#ticketScanList} ... */
+    a_result: Array<{
+        /** Outcome of the ticket, see the description of the class. */
+        sid_outcome: string;
+        /** Key of the ticket, as it was sent. */
+        k_ticket_item: string;
+    }>;
+    /** Number of the tickets already checked in for the session, after the call. Returned once for the w... */
+    i_attend: number;
+    /** Number of the tickets sold for the session, after the call: not cancelled ones, including those w... */
+    i_sold: number;
+}
+export type WlTicketTicketUndoParams = Record<string, unknown>;
+export interface WlTicketTicketUndoResponse {
+    /** Number of the tickets checked in for the session after the call. */
+    i_attend: number;
+    /** Number of the tickets sold for the session: not cancelled ones, including those whose holders hav... */
+    i_sold: number;
+}
+export interface ThothExplorerSearchClassSessionClassSessionSearchParams {
+    /** List of business keys to search by. */
+    a_business: Array<string>;
+    /** List of experience types to search by. Each value is one of {@link ThothExplorerSearchClassSessio... */
+    a_experience_type: Array<ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum>;
+    /** List of home tour activity types to search by. Each value is from {@link RsHomeTourSid}. */
+    a_home_tour: Array<RsHomeTourSid | null>;
+    /** List of location keys to search by. */
+    a_location: Array<string>;
+    /** List of location ratings to search by. Values are integers from 1 to 5, or `null`/`0` for unrated... */
+    a_location_rating: Array<number> | Array<string>;
+    /** List of staff user keys to search by. Each value is a user key (uid) of a staff member. */
+    a_staff_uid: Array<string>;
+    /** Start date of the session search date range in MySQL format (`Y-m-d`). Required. */
+    dl_begin?: string | null;
+    /** End date of the session search date range in MySQL format (`Y-m-d`). Required. */
+    dl_end?: string | null;
+    /** Latitude coordinate for search. Required. */
+    f_latitude?: number | null;
+    /** Longitude coordinate for search. Required. */
+    f_longitude?: number | null;
+    /** Search radius in kilometers. Required. */
+    f_radius?: number | null;
+    /** Maximum price to search by (inclusive). Decimal string in dollars (e.g. `"100.00"`). */
+    m_price_max?: string | null;
+    /** Minimum price to search by (inclusive). Decimal string in dollars (e.g. `"0.00"`). */
+    m_price_min?: string | null;
+}
+export interface ThothExplorerSearchClassSessionClassSessionSearchResponse {
+    /** List of found class sessions. */
+    a_class_session: {
+        /** Date and time when booking for this session starts in UTC. `null` if there is no "too early" limi... */
+        dtu_book_begin: string | null;
+        /** Date and time when booking for this session ends in UTC. `null` if there is no "too late" limitat... */
+        dtu_book_end: string | null;
+        /** Date and time of the session in UTC. */
+        dtu_session: string;
+        /** Class key. */
+        k_class: string;
+        /** Class period key. */
+        k_class_period: string;
+        /** Class session key. */
+        k_class_period_session: string;
+    };
+}
+export interface ThothLayoutBeFooterFooterParams {
+    /** Business key to get footer data for. */
+    k_business: string;
+}
+export interface ThothLayoutBeFooterFooterResponse {
+    /** Whether the "Powered by WellnessLiving" branding and Terms & Conditions links are shown in the fo... */
+    show_term: boolean;
+    /** URL of the tour page of the business type on the site of `WellnessLiving`. */
+    url_tour: string;
+}
+export interface WlHardwareStripeComStripeComHardwareElementDeleteParams {
+    /** Business key. */
+    k_business: string;
+    /** Terminal key. */
+    k_terminal?: string | null;
+}
+export type WlHardwareStripeComStripeComHardwareElementDeleteResponse = Record<string, unknown>;
+export interface WlHardwareStripeComStripeComHardwareElementGetParams {
+    /** Business key. */
+    k_business: string;
+    /** Terminal key. */
+    k_terminal?: string | null;
+}
+export interface WlHardwareStripeComStripeComHardwareElementGetResponse {
+    /** Stripe device type of reader. @see ThothPayProcessorStripeComTerminalStripeReaderModelSid */
+    id_model: ThothPayProcessorStripeComTerminalStripeReaderModelSid;
+    /** List of possible status of readers. @see ThothPayProcessorTerminalTerminalStatusSid */
+    id_status: ThothPayProcessorTerminalTerminalStatusSid;
+    /** IP address of terminal. */
+    ip_terminal: string | null;
     /** Location key. */
     k_location: string;
-    /** Key of a saved card to preview. */
-    k_pay_bank?: string | null;
-    /** First digits of a newly-typed card number (at least 6). */
-    s_bin?: string | null;
+    /** Label of the terminal. */
+    text_label: string;
+    /** Location name. */
+    text_location: string | null;
 }
-export interface WlPayFormSurchargeSurchargeTenderResponse {
-    /** Whether a surcharge is allowed for the card identified by */
-    is_allowed: boolean;
-}
-export interface WlPayAddressWidgetWidgetEditParams {
+export interface WlHardwareStripeComStripeComHardwareElementPostParams {
     /** Business key. */
     k_business: string;
+    /** Terminal key. */
+    k_terminal?: string | null;
 }
-export interface WlPayAddressWidgetWidgetEditResponse {
-    /** List of countries with their regions, keyed by country geo key. Each element: */
-    a_geo: Array<{
-        /** List of geographic regions within the country. Each element: */
-        a_region: {
-            /** `true` if this region is currently selected; `false` otherwise. */
-            is_select: boolean;
-            /** Region key. */
-            k_geo: string;
-            /** Region title. */
-            s_title: string;
-            /** Region abbreviation. */
-            text_abbr: string;
-        };
-        /** `true` if this country is currently selected; `false` otherwise. */
-        is_select: boolean;
-        /** Country key. */
-        k_geo: string;
-        /** Country title. */
-        s_title: string;
-        /** Country abbreviation. */
-        text_abbr: string;
+export interface WlHardwareStripeComStripeComHardwareElementPostResponse {
+    /** Terminal key. */
+    k_terminal: string | null;
+}
+export type WlReportGeneratorQueryParams = Record<string, unknown>;
+export interface WlReportGeneratorQueryResponse {
+    /** A list of dynamic fields in this report. */
+    a_dynamic: Array<{
+        /** Fields of the complex cell. */
+        a_cell: Array<Record<string, unknown>>;
+        /** Elements of a customization from that are required by this filter field. */
+        a_customization_element: Array<Array<unknown>>;
+        /** A list of scalar types of values that this field can get. */
+        a_type: Array<unknown>;
+        /** Whether this field is dynamic or static. */
+        is_dynamic: boolean;
+        /** Whether this field is used for export. */
+        is_export?: boolean | null;
+        /** Whether this field should be hidden by default. It can later be shown by using the customization ... */
+        is_hide_by_default: boolean;
+        /** Whether this field should be hidden if the entire column is empty. */
+        is_hide_if_empty: boolean;
+        /** Whether this field is nullable. */
+        is_null: boolean;
+        /** Whether the ordering by this field is available. */
+        is_order?: boolean | null;
+        /** Whether this field should be shown during report render. */
+        is_show: boolean;
+        /** Whether this field is stored in the report storage. */
+        is_store: boolean;
+        /** Argument for the MySQL function `cast()`. */
+        s_cast?: string | null;
+        /** Name of a cell class. */
+        s_class?: Record<string, unknown> | null;
+        /** CSS class that is used for formatting of this field. */
+        s_class_css: string;
+        /** Name of formatting method that is used for formatting of this field during export. */
+        s_format?: string | null;
+        /** Name of a public property in which value of this field is stored. */
+        s_name: string;
+        /** A string by which report columns are sorted. */
+        s_sort: string;
+        /** Type of this field, as specified in its PHP doc. */
+        s_type: string;
+        /** Data to derive title of a column which values are represented by this report field. */
+        text_title?: string | null;
+        /** Title of this field that is used during export. */
+        text_title_export?: string | null;
+        /** Text of the cell info tooltip. */
+        text_title_info?: string | null;
     }>;
-    /** Mask for phone entering (ready for output to the page). */
-    html_phone_mask: string;
-    /** Mask for phone entering. */
-    text_phone_mask: string;
+    /** A list of fields in this report. */
+    a_field: Array<string>;
+    /** Report data. */
+    a_row: Array<Array<string>>;
+    /** A list of stale rows. */
+    a_stale: Array<number>;
+    /** Warning list of the report. */
+    a_warning: Array<string>;
+    /** Date and time when this report has completed generation. */
+    dtu_complete: string;
+    /** Date and time when this report was put on generation queue. */
+    dtu_queue: string;
+    /** Date and time when generation of this report has started. */
+    dtu_start: string;
+    /** A CAS (compare-and-swap) number that allows to track changes in the report storage. */
+    i_cas_change: number;
+    /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
+    id_report_status: ThothReportCoreGeneratorReportGeneratorStatusSid;
+    /** Key of this report. */
+    s_report: string;
+    /** Text of an error message that occurred during generation of the report. */
+    text_error: string;
+}
+export type WlPayProcessorStripeComStripeComConnectionTokenParams = Record<string, unknown>;
+export interface WlPayProcessorStripeComStripeComConnectionTokenResponse {
+    /** Connection token secret key. */
+    s_secret: string;
+}
+export interface WlPayProcessorStripeComStripeComChargeParams {
+    /** ID of the currency. @see CoreLocaleCurrencySid */
+    id_currency: CoreLocaleCurrencySid;
+    /** ID of the actor. @see RsPayActorSid */
+    id_pay_actor: RsPayActorSid;
+    /** Key of the business. */
+    k_business: string;
+    /** Key of the business merchant to get the public key for. */
+    k_business_merchant: string;
+    /** Charge id to get data for. */
+    s_charge: string;
+    /** Payment owner user key. */
+    uid_purchase: string;
+}
+export interface WlPayProcessorStripeComStripeComChargeResponse {
+    /** Details about the payment method at the time of the transaction: */
+    o_payment_method_details: {
+        /** ID of a card payment method generated. */
+        s_generated_card_id: string;
+        /** Card brand, like visa or mastercard. */
+        text_brand: string;
+        /** The cardholder name as read from the card. */
+        text_cardholder_name: string;
+        /** Two-digit number representing the card's expiration month. */
+        text_exp_month: string;
+        /** Four-digit number representing the card's expiration year. */
+        text_exp_year: string;
+        /** Last four digits of the card number. */
+        text_last4: string;
+    };
+    /** ID of the payment method used in this charge. */
+    s_payment_method: string;
+}
+export type WlPayProcessorStripeComStripeComPayInitParams = Record<string, unknown>;
+export interface WlPayProcessorStripeComStripeComPayInitResponse {
+    /** Statuses of payment intents. @see ThothPayProcessorStripeComPaymentIntentStatusSid */
+    id_status: ThothPayProcessorStripeComPaymentIntentStatusSid;
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string | null;
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
+    /** Payment Intent client secret key. */
+    s_client_secret: string;
+    /** Payment intent ID. */
+    s_payment_intent: string;
+    /** Error message. */
+    text_message: string | null;
+}
+export interface WlPayProcessorStripeComPaymentIntentUpdateParams {
+    /** ID of the actor. One of {@link RsPayActorSid} constants. */
+    id_pay_actor: RsPayActorSid;
+    /** Key of the business to update Payment Intent for. */
+    k_business: string;
+    /** Key of the business merchant to update Payment Intent for. */
+    k_business_merchant: string;
+    /** Key of the payment transaction to update. */
+    k_pay_transaction: string;
+    /** Payment intent ID to update. */
+    s_payment_intent: string;
+    /** Payment owner user key. */
+    uid_purchase?: string | null;
+}
+export type WlPayProcessorStripeComPaymentIntentUpdateResponse = Record<string, unknown>;
+export type WlPayProcessorStripeComStripeComKeyParams = Record<string, unknown>;
+export interface WlPayProcessorStripeComStripeComKeyResponse {
+    /** Merchant public key. */
+    s_public: string | null;
+}
+export type WlPayProcessorStripeComStripeComPaymentIntentCancelParams = Record<string, unknown>;
+export type WlPayProcessorStripeComStripeComPaymentIntentCancelResponse = Record<string, unknown>;
+export type WlPayProcessorCyberSourceCsPaEnrollmentParams = Record<string, unknown>;
+export interface WlPayProcessorCyberSourceCsPaEnrollmentResponse {
+    /** JSON Web Token to include into the request to the second frame. */
+    s_jwt: string | null;
+    /** URL for frontend interaction. */
+    url_interact: string | null;
+}
+export type WlPayProcessorCyberSourceCsPaValidateParams = Record<string, unknown>;
+export type WlPayProcessorCyberSourceCsPaValidateResponse = Record<string, unknown>;
+export type WlPayProcessorCyberSourceCsPaSetupParams = Record<string, unknown>;
+export interface WlPayProcessorCyberSourceCsPaSetupResponse {
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string;
+    /** JWT token, as returned by Cyber Source. */
+    s_jwt: string;
+    /** Reference ID, as returned by Cyber Source. */
+    s_reference: string;
+    /** Device collection URL, as returned by Cyber Source. */
+    url_collection: string;
+}
+export type WlPayProcessorCyberSourceCsCaptureContextParams = Record<string, unknown>;
+export interface WlPayProcessorCyberSourceCsCaptureContextResponse {
+    /** Microform Integration JavaScript library integrity property value. */
+    s_client_library_integrity: string | null;
+    /** Contents of the key. */
+    s_key: string | null;
+    /** ID of the key. */
+    s_key_id: string | null;
+    /** Microform Integration JavaScript library url. */
+    url_client_library: string | null;
+}
+export type ThothPayProcessorNuveiNuveiTransactionCancelParams = Record<string, unknown>;
+export type ThothPayProcessorNuveiNuveiTransactionCancelResponse = Record<string, unknown>;
+export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams = Record<string, unknown>;
+export type ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse = Record<string, unknown>;
+export type ThothPayProcessorNuveiNuveiUpdateOrderParams = Record<string, unknown>;
+export interface ThothPayProcessorNuveiNuveiUpdateOrderResponse {
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
+    /** Error message. */
+    text_message: string | null;
+}
+export type WlPayProcessorNuveiNuveiTransactionStartParams = Record<string, unknown>;
+export interface WlPayProcessorNuveiNuveiTransactionStartResponse {
+    /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
+    id_card_type: ThothWlPayBankCardCardTypeEnum | null;
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string | null;
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
+    /** Error message. */
+    text_message: string | null;
+}
+export type ThothPayProcessorNuveiNuveiOpenOrderParams = Record<string, unknown>;
+export interface ThothPayProcessorNuveiNuveiOpenOrderResponse {
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string | null;
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
+    /** The order ID provided by Nuvei. */
+    s_nuvei_order: string | null;
+    /** The session identifier to be used by the request that processes the newly opened order. */
+    s_nuvei_session: string | null;
+    /** Error message. */
+    text_message: string | null;
+}
+export interface WlPayFormEnvironmentParams {
+    /** The key of the business to retrieve payment information for. */
+    k_business: string;
+    /** The key of the currency to retrieve payment information for. */
+    k_currency: string;
+    /** The key of the location to retrieve payment information for. */
+    k_location: string;
+    /** The user ID to retrieve payment information for. */
+    uid_owner?: string | null;
+}
+export interface WlPayFormEnvironmentResponse {
+    /** A list of supported bank card systems. */
+    a_card_system: Array<ACardSystemSid | null>;
+    /** A list of payment methods enabled for staff members. */
+    a_method_staff: Array<RsPayMethodSid | null>;
+    /** A list of all payment methods that can be used within this business. */
+    a_method_support: Array<{
+        /** A list of payment methods. @see RsPayMethodSid */
+        id_pay_method: RsPayMethodSid | null;
+        /** Determines whether this method is available for clients. This field is only returned for custom p... */
+        is_client?: boolean;
+        /** The key of the custom payment method. */
+        k_pay_method: string | null;
+        /** The name of payment method. This field is only returned for custom payment methods. */
+        s_method?: string;
+    }>;
+    /** The configuration array that's sent to mobile card reader plugin. */
+    a_mobile_config: {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location: {
+            /** Terminal lists grouped by connection type: */
+            a_terminal: Record<string, unknown>;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether card swipe can be cancelled from the POS terminal. */
+        can_cancel_swipe_from_pos: boolean;
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
+        id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location: {
+            /** Terminal lists grouped by connection type: */
+            a_terminal: Record<string, unknown>;
+            /** Stripe location ID assigned by the gateway. */
+            s_location_id: string;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | {
+        /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
+        id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
+        /** NMI SDK key for the card reader plugin. */
+        s_key: string;
+    } | {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location?: {
+            /** Terminal lists grouped by connection type. */
+            a_terminal: Record<string, unknown>;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether card swipe can be cancelled from the POS terminal. */
+        can_cancel_swipe_from_pos: boolean;
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | null;
+    /** Represents information about payment processors. */
+    a_pay_processor: Array<{
+        /** Public keys configured for this payment processor. */
+        a_public_keys: {
+            /** Checkout SDK public key. `null` if 3DS is disabled for this merchant. */
+            s_checkout: string | null;
+        } | null;
+        /** Public info configured for this payment processor. */
+        a_public_info: {
+            /** Merchant site identifier assigned by Nuvei. */
+            s_merchant_site: string;
+            /** Nuvei merchant identifier. */
+            s_nuvei_id: string;
+        } | null;
+        /** Whether `save payment method` option should be hidden. `true` if hidden, `false` - otherwise. */
+        hide_save_source: boolean;
+        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
+        id_pay_processor: ThothPayProcessorPayProcessorSid;
+        /** `true` if 3DS should be performed, `false` if 3DS should not be performed. `null` if this is not ... */
+        is_enabled_3ds: boolean | null;
+        /** `true` if the merchant is in a test mode, `false` otherwise. */
+        is_test: boolean | null;
+        /** Key of the business merchant. */
+        k_business_merchant: string;
+    }> | null;
+    /** Current local date in current location EnvironmentApi::$k_location */
+    dl_now: string;
+    /** Surcharge amount for payment with card represented as a percent of transaction amount. */
+    f_surcharge: string | null;
+    /** Surcharge amount for payment with ACH represented as a percent of transaction amount. */
+    f_surcharge_ach: string | null;
+    /** A list of locales. @see CoreLocaleLocaleSid */
+    id_locale: CoreLocaleLocaleSid;
+    /** `true` if clients can choose whether their banking and credit card information is saved at checkout, */
+    is_save_optional: boolean;
+    /** Determines whether newly added payment sources should be saved. This will be `true` if payment so... */
+    is_save_source: boolean;
+    /** Whether a card-present (POS) source at this business can never carry a surcharge (SAL-1314, FR-00... */
+    is_surcharge_card_present_blocked: boolean;
+    /** Whether the business's ECOMMERCE processor implements the SAL-1314 card-type contract. */
+    is_surcharge_tender_contract: boolean;
+    /** Whether tips are accepted. */
+    is_tip: boolean;
+    /** Surcharge amount for payment with card represented as a fixed amount. */
+    m_surcharge: string | null;
+    /** Surcharge amount for payment with ACH represented as a fixed amount. */
+    m_surcharge_ach: string | null;
+}
+export interface WlPayFormEnvironmentUserParams {
+    /** The key of the business to retrieve payment information for. */
+    k_business: string;
+    /** The key of the currency to retrieve payment information for. */
+    k_currency: string;
+    /** The key of the location to retrieve payment information for. */
+    k_location: string;
+    /** The user ID to retrieve payment information for. */
+    uid_owner?: string | null;
+}
+export interface WlPayFormEnvironmentUserResponse {
+    /** A list of supported bank card systems. */
+    a_card_system: Array<ACardSystemSid | null>;
+    /** A list of payment methods enabled for staff members. */
+    a_method_staff: Array<RsPayMethodSid | null>;
+    /** A list of all payment methods that can be used within this business. */
+    a_method_support: Array<{
+        /** A list of payment methods. @see RsPayMethodSid */
+        id_pay_method: RsPayMethodSid | null;
+        /** Determines whether this method is available for clients. This field is only returned for custom p... */
+        is_client?: boolean;
+        /** The key of the custom payment method. */
+        k_pay_method: string | null;
+        /** The name of payment method. This field is only returned for custom payment methods. */
+        s_method?: string;
+    }>;
+    /** The configuration array that's sent to mobile card reader plugin. */
+    a_mobile_config: {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location: {
+            /** Terminal lists grouped by connection type: */
+            a_terminal: Record<string, unknown>;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether card swipe can be cancelled from the POS terminal. */
+        can_cancel_swipe_from_pos: boolean;
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
+        id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location: {
+            /** Terminal lists grouped by connection type: */
+            a_terminal: Record<string, unknown>;
+            /** Stripe location ID assigned by the gateway. */
+            s_location_id: string;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | {
+        /** A list of devices supported by credit card reader plugin. @see ThothWlPayCordovaCordovaCcrDeviceSid */
+        id_device: ThothWlPayCordovaCordovaCcrDeviceSid;
+        /** NMI SDK key for the card reader plugin. */
+        s_key: string;
+    } | {
+        /** Terminal configuration keyed by location key. */
+        a_terminal_location?: {
+            /** Terminal lists grouped by connection type. */
+            a_terminal: Record<string, unknown>;
+            /** Display name of the location. */
+            text_location_name: string;
+        };
+        /** Whether card swipe can be cancelled from the POS terminal. */
+        can_cancel_swipe_from_pos: boolean;
+        /** Whether the card expiry date entry is required. */
+        has_expire_date: boolean;
+        /** Whether the card reader selection UI is shown. */
+        has_readers_selection: boolean;
+        /** Whether `MagTek` USB reader is supported. */
+        is_support_magtek: boolean;
+    } | null;
+    /** Represents information about payment processors. */
+    a_pay_processor: Array<{
+        /** Public keys configured for this payment processor. */
+        a_public_keys: {
+            /** Checkout SDK public key. `null` if 3DS is disabled for this merchant. */
+            s_checkout: string | null;
+        } | null;
+        /** Public info configured for this payment processor. */
+        a_public_info: {
+            /** Merchant site identifier assigned by Nuvei. */
+            s_merchant_site: string;
+            /** Nuvei merchant identifier. */
+            s_nuvei_id: string;
+        } | null;
+        /** Whether `save payment method` option should be hidden. `true` if hidden, `false` - otherwise. */
+        hide_save_source: boolean;
+        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
+        id_pay_processor: ThothPayProcessorPayProcessorSid;
+        /** `true` if 3DS should be performed, `false` if 3DS should not be performed. `null` if this is not ... */
+        is_enabled_3ds: boolean | null;
+        /** `true` if the merchant is in a test mode, `false` otherwise. */
+        is_test: boolean | null;
+        /** Key of the business merchant. */
+        k_business_merchant: string;
+    }> | null;
+    /** Current local date in current location EnvironmentApi::$k_location */
+    dl_now: string;
+    /** Surcharge amount for payment with card represented as a percent of transaction amount. */
+    f_surcharge: string | null;
+    /** Surcharge amount for payment with ACH represented as a percent of transaction amount. */
+    f_surcharge_ach: string | null;
+    /** A list of locales. @see CoreLocaleLocaleSid */
+    id_locale: CoreLocaleLocaleSid;
+    /** `true` if clients can choose whether their banking and credit card information is saved at checkout, */
+    is_save_optional: boolean;
+    /** Determines whether newly added payment sources should be saved. This will be `true` if payment so... */
+    is_save_source: boolean;
+    /** Whether a card-present (POS) source at this business can never carry a surcharge (SAL-1314, FR-00... */
+    is_surcharge_card_present_blocked: boolean;
+    /** Whether the business's ECOMMERCE processor implements the SAL-1314 card-type contract. */
+    is_surcharge_tender_contract: boolean;
+    /** Whether tips are accepted. */
+    is_tip: boolean;
+    /** Surcharge amount for payment with card represented as a fixed amount. */
+    m_surcharge: string | null;
+    /** Surcharge amount for payment with ACH represented as a fixed amount. */
+    m_surcharge_ach: string | null;
+}
+export interface WlPayAccountAccountParams {
+    /** If `true`, information for the account's owner is returned. Clients can be configured to pay for ... */
+    is_owner: boolean;
+    /** The key of the business to show information for. */
+    k_business: string;
+    /** The key of the user to show information for. */
+    uid: string;
+}
+export interface WlPayAccountAccountResponse {
+    /** A list of the user's accounts. */
+    a_account: {
+        /** A list of currencies. @see CoreLocaleCurrencySid */
+        id_currency: CoreLocaleCurrencySid;
+        /** Key of account currency. */
+        k_currency: string;
+        /** ID of payment account.  `null` if this is a user account based on system payment method. */
+        k_pay_account: string | null;
+        /** ID of custom payment method. `null` if this is a user account based on system payment method. */
+        k_pay_method: string | null;
+        /** Account balance. */
+        m_rest: string;
+        /** Name of a custom payment method. `null` if this is a user account based on system payment method. */
+        s_method: string | null;
+    };
+    /** A list of accounts that have not been created for this user yet. */
+    a_account_nx: Array<{
+        /** `true` if the account is allowed to have a negative balance, `false` otherwise. */
+        can_negative: boolean;
+        /** A list of currencies. @see CoreLocaleCurrencySid */
+        id_currency: CoreLocaleCurrencySid;
+        /** Currency key. */
+        k_currency: string;
+        /** Payment account key. `null` for accounts not yet created. */
+        k_pay_account: string | null;
+        /** Custom payment method key. `null` for accounts based on the system payment method. */
+        k_pay_method: string | null;
+        /** Account balance. Always `'0.00'` for accounts not yet created. */
+        m_rest: string;
+        /** Name of the custom payment method. `null` for accounts based on the system payment method. */
+        s_method: string | null;
+    }>;
+    /** Determines whether the user is a debtor. If `true` - the owner of this account is a debtor. */
+    is_debtor: boolean;
+}
+export type WlPayBankPrimaryParams = Record<string, unknown>;
+export type WlPayBankPrimaryResponse = Record<string, unknown>;
+export interface WlPayAddressAddressParams {
+    /** The ID of the payment owner type. @see RsPayOwnerSid */
+    id_pay_owner: RsPayOwnerSid;
+    /** Business key, where the payment is performed. */
+    k_business: string;
+    /** The primary key of a payment owner. */
+    k_id: string;
+}
+export interface WlPayAddressAddressResponse {
+    /** The payee's address information. */
+    a_pay_address: Array<{
+        /** `true` if this address is currently selected, `false` otherwise. */
+        is_selected: boolean;
+        /** Country geo key. `null` if the country cannot be determined. */
+        k_country: string | null;
+        /** Payment address key. */
+        k_pay_address: string;
+        /** Region geo key. */
+        k_region: string;
+        /** City name. */
+        s_city: string;
+        /** Country name. `null` if the country cannot be determined. */
+        s_country: string | null;
+        /** Country abbreviation code, or an empty string if unavailable. */
+        s_country_code: string;
+        /** Full name of the address owner. */
+        s_name: string;
+        /** Phone number. */
+        s_phone: string;
+        /** Postal code. */
+        s_postal: string;
+        /** Region name. */
+        s_region: string | null;
+        /** Region abbreviation code. `null` if the region cannot be determined. */
+        s_region_code: string | null;
+        /** First line of the street address. */
+        s_street1: string;
+        /** Second line of the street address. */
+        s_street2: string;
+        /** Email address of the owner. `null` if the owner is a business. */
+        text_mail: string | null;
+    }> | null;
+}
+export interface WlPayAddressProfileParams {
+    /** The business key number used internally by WellnessLiving. */
+    k_business: string;
+    /** The key of the user whose data should be retrieved. */
+    uid: string;
+}
+export interface WlPayAddressProfileResponse {
+    /** The country key. */
+    k_geo_country: string | null;
+    /** The region ID. */
+    k_geo_region: string | null;
+    /** The name of the city in the address. */
+    s_city: string | null;
+    /** The client name as listed in their address. */
+    s_name: string | null;
+    /** The client phone number. */
+    s_phone: string | null;
+    /** The client postal or zip code. */
+    s_postal: string | null;
+    /** The first line of the client address. */
+    s_street1: string | null;
+    /** The second line of the client address. */
+    s_street2: string | null;
+}
+export interface WlPayOwnerOwnerParams {
+    /** Key of a user to show information for. */
+    uid: string;
+    /** Business key. */
+    k_business?: string | null;
+}
+export interface WlPayOwnerOwnerResponse {
+    /** A list of money owners from which account money can be transferred. @see RsPayOwnerSid */
+    id_pay_owner: RsPayOwnerSid;
+    /** Is client pay only for self. If parent pays for child this flag will be `false` for both. */
+    is_pay_self_only: boolean;
+    /** The payment owner key. This is used for financial transactions. */
+    k_pay_owner: string;
+    /** Key of the money owner. */
+    k_pay_owner_money: string;
+}
+export interface WlPayMethodListParams {
+    /** Whether only active payment methods should be returned. */
+    is_active: boolean;
+    /** The business key. */
+    k_business: string;
+    /** Whether payment method {@link RsPayMethodSid} should be included in response. */
+    show_manual: boolean;
+    /** The key of a user to show information for. */
+    uid: string;
+}
+export interface WlPayMethodListResponse {
+    /** A list of payment methods: */
+    a_pay_method: Array<{
+        /** A list of payment methods. @see RsPayMethodSid */
+        id_pay_method: RsPayMethodSid | null;
+        /** Payment method key. */
+        k_pay_method: string | null;
+        /** The payment method name. */
+        s_title: string;
+    }>;
 }
 export interface CoreTestingAutomationCacheFlushParams {
     /** Name of the action to perform within this endpoint. */
@@ -9775,21 +9968,17 @@ export interface CoreRequestTokenTokenPinResponse {
     text_pin: string;
 }
 export interface CoreAILogTriageConnectionCheckParams {
-    /** IDs of finding sources from {@link CoreAILogTriageTriageSourceSid}. */
-    a_id_source: Array<CoreAILogTriageTriageSourceSid>;
-    /** `true` returns findings; otherwise `false` performs only the connection check. */
-    is_finding: boolean;
-    /** Date/time mask accepted by LogSearchQuery. */
-    s_date_mask: string;
+    /** Calendar date to collect findings for. Empty string selects the current UTC date. */
+    dl_date: string;
     /** Optional case-insensitive message substring. */
     text_search: string;
 }
 export interface CoreAILogTriageConnectionCheckResponse {
     /** Grouped findings. */
     a_finding: Array<{
-        /** Local date of the first usage-statistics record. */
+        /** Date of the first usage-statistics record. */
         dl_first_seen: string;
-        /** Local date of the last usage-statistics record. */
+        /** Date of the last usage-statistics record. */
         dl_last_seen: string;
         /** UTC date/time of the first matching log or async-task record. Empty for background tasks. */
         dtu_first_seen: string;
@@ -9797,21 +9986,17 @@ export interface CoreAILogTriageConnectionCheckResponse {
         dtu_last_seen: string;
         /** Number of matching records. */
         i_occurrence_count: number;
-        /** Usage-statistics priority multiplier. Present for the usage-statistics source. */
-        i_priority_multiplier: number;
-        /** Sources from which log triage findings can be collected. @see CoreAILogTriageTriageSourceSid */
-        id_source: CoreAILogTriageTriageSourceSid;
-        /** Usage-statistics object. Present for the usage-statistics source. */
+        /** Base class for log-triage problem searchers. */
+        cid_problem: number;
+        /** Usage-statistics object: a slash-delimited category and resource identifier, for example */
         s_object: string;
-        /** Usage-statistics aggregation period. Present for the usage-statistics source. */
-        s_period: string;
-        /** Usage-statistics priority. Present for the usage-statistics source. */
-        s_priority: string;
+        /** Usage-statistics aggregation period. One of TriageWatchUsagePeriodEnum */
+        eid_period: number;
+        /** Usage-statistics urgency. One of TriageUrgencyEnum cases. Present for */
+        eid_urgency: number;
         /** Log message or task description. Present for log and task sources. */
         text_message: string;
     }>;
-    /** Connection check value. */
-    i_result: number;
 }
 export type CorePassportLoginInfoParams = Record<string, unknown>;
 export interface CorePassportLoginInfoResponse {
@@ -10108,7 +10293,7 @@ export type CoreLocaleLanguageLanguageSwitchParams = Record<string, unknown>;
 export type CoreLocaleLanguageLanguageSwitchResponse = Record<string, unknown>;
 export interface CoreGeoRegionRegionParams {
     /** The locale ID to find regions for. One of the {@link CoreLocaleLocaleSid} constants. */
-    id_locale: CoreLocaleLocaleSid | null;
+    id_locale: CoreLocaleLocaleSid;
     /** Determines whether to get regions for all locales. */
     is_locale_all: boolean;
 }
@@ -10123,7 +10308,7 @@ export interface CoreGeoRegionRegionResponse {
             s_title: string;
         };
         /** A list of locales. @see CoreLocaleLocaleSid */
-        id_locale: CoreLocaleLocaleSid | null;
+        id_locale: CoreLocaleLocaleSid;
         /** The country key. */
         k_geo_country: string;
         /** The country abbreviation. */
@@ -11162,7 +11347,7 @@ export interface WlLoginMemberMemberValidate63Response {
         /** Human-readable field title describing what value is missing. */
         text_field_title: string;
     }>;
-    /** List of profile fields that are required but empty for this user. */
+    /** List of profile fields that are required at any client entry point but empty for this user. */
     a_empty_fields_required: Array<{
         /** List of general fields in user's profile. @see RsFieldGeneralSid */
         id_field_general: RsFieldGeneralSid;
@@ -11378,6 +11563,8 @@ export interface WlLoginAttendanceAttendanceInfoResponse {
     id_service: RsServiceSid;
     /** Whether this service be carried out in Zoom. */
     is_start_virtual_service: boolean;
+    /** Whether the session belongs to a ticketed event. */
+    is_ticket: boolean;
     /** Class identifier. Not empty if service is class or event reservation. */
     k_class: string;
     /** Location identifier. */
@@ -11495,6 +11682,8 @@ export interface WlLoginAttendanceAttendanceInfoByTokenResponse {
     id_service: RsServiceSid;
     /** Whether this service be carried out in Zoom. */
     is_start_virtual_service: boolean;
+    /** Whether the session belongs to a ticketed event. */
+    is_ticket: boolean;
     /** Class identifier. Not empty if service is class or event reservation. */
     k_class: string;
     /** Location identifier. */
@@ -13586,6 +13775,25 @@ export interface WlBookProcessProcessGroupResponse {
     a_login_activity_book: Array<string>;
     /** Primary keys of bookings made. */
     a_visit: Array<string>;
+    /** Values are arrays with next keys: */
+    a_visit_payment: Array<{
+        /** `true` if the visit is free; `false` otherwise. */
+        is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
+        /** `true` whether the booked slot was waitlisted; `false` otherwise. */
+        is_waitlist: boolean;
+        /** Applied user's purchase option. */
+        k_login_promotion: string;
+        /** Purchase option. */
+        k_promotion: string;
+        /** Applied session pass. */
+        k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
+        /** Purchase option title. */
+        text_promotion: string;
+    }>;
     /** The key of the user's activity corresponding to the purchase made. */
     k_login_activity_purchase: string | null;
 }
@@ -14730,12 +14938,16 @@ export interface WlProfileEditCreateResponse {
     uid: string;
 }
 export interface WlProfileEditEditGetParams {
+    /** `true` to return all active, non-removed profile fields of the business regardless of entry-point... */
+    is_field_all: boolean;
     /** Indicates whether to display the form as a user or as a staff member. */
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
     /** The key of the user to edit. */
     uid: string;
+    /** Family role for a new user. One of {@link RsFamilyRelationSid} constants. */
+    id_family_relation?: RsFamilyRelationSid;
     /** Registration source ID. @see WlProfileRegisterSourceSid */
     id_register_source?: WlProfileRegisterSourceSid | null;
 }
@@ -14762,6 +14974,16 @@ export interface WlProfileEditEditGetResponse {
     a_structure: Array<{
         /** List of general fields in user's profile. @see RsFieldGeneralSid */
         id_field_general?: RsFieldGeneralSid;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_booking: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_guest: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_purchase: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_relationship: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_signup: WlFieldFieldLevelEnum;
         /** Indicates whether the value of this field is required. This will be `1` if required or `0` if the... */
         is_require: boolean;
         /** Possible types of the custom fields: text, checkbox, radio buttons, etc. @see RsFieldTypeSid */
@@ -14857,6 +15079,8 @@ export interface WlProfileEditEditPutParams {
 }
 export type WlProfileEditEditPutResponse = Record<string, unknown>;
 export interface WlProfileEditEditByTokenGetParams {
+    /** `true` to return all active, non-removed profile fields of the business regardless of entry-point... */
+    is_field_all: boolean;
     /** Indicates whether to display the form as a user or as a staff member. */
     is_staff: boolean;
     /** The key of the business you're editing. */
@@ -14865,6 +15089,8 @@ export interface WlProfileEditEditByTokenGetParams {
     text_token: string;
     /** The key of the user to edit. */
     uid: string;
+    /** Family role for a new user. One of {@link RsFamilyRelationSid} constants. */
+    id_family_relation?: RsFamilyRelationSid;
     /** Registration source ID. @see WlProfileRegisterSourceSid */
     id_register_source?: WlProfileRegisterSourceSid | null;
 }
@@ -14891,6 +15117,16 @@ export interface WlProfileEditEditByTokenGetResponse {
     a_structure: Array<{
         /** List of general fields in user's profile. @see RsFieldGeneralSid */
         id_field_general?: RsFieldGeneralSid;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_booking: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_guest: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_purchase: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_relationship: WlFieldFieldLevelEnum;
+        /** Level at which a client profile field is asked at a given collection entry point. @see WlFieldFieldLevelEnum */
+        id_level_signup: WlFieldFieldLevelEnum;
         /** Indicates whether the value of this field is required. This will be `1` if required or `0` if the... */
         is_require: boolean;
         /** Possible types of the custom fields: text, checkbox, radio buttons, etc. @see RsFieldTypeSid */
@@ -15176,12 +15412,14 @@ export interface WlCatalogCartCartParams {
         id_sale: RsSaleSid | null;
         /** The sale item key. */
         k_id: string;
-        /** Additional configuration. Used only for `id_sale` = {@link RsSaleSid}. */
+        /** Additional configuration. Used only for `id_sale` = {@link RsSaleSid} */
         a_config?: {
             /** List of tuition events. */
             a_event_list?: Record<string, unknown>;
             /** Registration fees for tuition participants. */
             a_registration_fee_list?: Record<string, unknown>;
+            /** Used only for `id_sale` = {@link RsSaleSid}. */
+            k_class?: string;
             /** The total amount that will be charged for the tuition item when during purchase. */
             m_checkout?: string;
             /** The part of the tuition cost that is not charged during purchase. */
@@ -15216,12 +15454,14 @@ export interface WlCatalogCartCartResponse {
         id_sale: RsSaleSid | null;
         /** The sale item key. */
         k_id: string;
-        /** Additional configuration. Used only for `id_sale` = {@link RsSaleSid}. */
+        /** Additional configuration. Used only for `id_sale` = {@link RsSaleSid} */
         a_config?: {
             /** List of tuition events. */
             a_event_list?: Record<string, unknown>;
             /** Registration fees for tuition participants. */
             a_registration_fee_list?: Record<string, unknown>;
+            /** Used only for `id_sale` = {@link RsSaleSid}. */
+            k_class?: string;
             /** The total amount that will be charged for the tuition item when during purchase. */
             m_checkout?: string;
             /** The part of the tuition cost that is not charged during purchase. */
@@ -15437,7 +15677,7 @@ export interface WlCatalogCatalogListElementGetResponse {
         };
         /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
         a_staff: {
-            /** @deprecated Legacy staff key.  Deprecated, use `uid_staff`. */
+            /** **DEPRECATED** Legacy staff key. */
             k_staff: string;
             /** Staff user key. */
             uid_staff: string;
@@ -15462,6 +15702,17 @@ export interface WlCatalogCatalogListElementGetResponse {
         id_duration_type: WlCouponEditDurationTypeSid;
         /** Whether to display individual prices for each item in the package. */
         is_price_breakdown: boolean;
+        /** This applies to enrollment/event items. */
+        is_ticket: boolean;
+        /** List of ticket options available for booking the event. Empty if the item is not a */
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** Ticket option name. */
+            text_title: string;
+        };
     };
     /** Information about promotion guest pass. Empty array if promotion does not have guest pass or */
     a_guest_pass: {
@@ -15549,6 +15800,10 @@ export interface WlCatalogCatalogListElementGetResponse {
             id_duration_type: WlCouponEditDurationTypeSid;
             /** Whether to display individual prices for each item in the package. */
             is_price_breakdown: boolean;
+            /** This applies to enrollment/event items. */
+            is_ticket: boolean;
+            /** List of ticket options available for booking the event. Empty if the item is not a */
+            a_tickets: Record<string, unknown>;
         };
         /** Information about promotion guest pass. The same structure as {@link WlCatalogCatalogListElementG... */
         a_guest_pass: {
@@ -15763,7 +16018,7 @@ export interface WlCatalogCatalogListElementPostResponse {
         };
         /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
         a_staff: {
-            /** @deprecated Legacy staff key.  Deprecated, use `uid_staff`. */
+            /** **DEPRECATED** Legacy staff key. */
             k_staff: string;
             /** Staff user key. */
             uid_staff: string;
@@ -15788,6 +16043,17 @@ export interface WlCatalogCatalogListElementPostResponse {
         id_duration_type: WlCouponEditDurationTypeSid;
         /** Whether to display individual prices for each item in the package. */
         is_price_breakdown: boolean;
+        /** This applies to enrollment/event items. */
+        is_ticket: boolean;
+        /** List of ticket options available for booking the event. Empty if the item is not a */
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** Ticket option name. */
+            text_title: string;
+        };
     };
     /** Information about promotion guest pass. Empty array if promotion does not have guest pass or */
     a_guest_pass: {
@@ -15875,6 +16141,10 @@ export interface WlCatalogCatalogListElementPostResponse {
             id_duration_type: WlCouponEditDurationTypeSid;
             /** Whether to display individual prices for each item in the package. */
             is_price_breakdown: boolean;
+            /** This applies to enrollment/event items. */
+            is_ticket: boolean;
+            /** List of ticket options available for booking the event. Empty if the item is not a */
+            a_tickets: Record<string, unknown>;
         };
         /** Information about promotion guest pass. The same structure as {@link WlCatalogCatalogListElementG... */
         a_guest_pass: {
@@ -16026,6 +16296,15 @@ export interface WlCatalogCatalogListListResponse {
         a_location: Array<string>;
         /** Shop category keys the item belongs to. */
         a_shop_category: Array<string>;
+        /** List of ticket options available for booking the event. Empty if the item is not a */
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** Ticket option name. */
+            text_title: string;
+        };
         /** UTC creation date of the item in MySQL format. */
         dtu_create: string;
         /** The item price. */
@@ -16038,6 +16317,8 @@ export interface WlCatalogCatalogListListResponse {
         is_direct: boolean;
         /** `true` if the item is an introductory offer, `false` otherwise. */
         is_introductory: boolean;
+        /** `true` if the item is a ticketed event, `false` otherwise. */
+        is_ticket: boolean;
         /** The item key. */
         k_id: string;
         /** The primary shop category key for this item entry. */
@@ -16055,6 +16336,15 @@ export interface WlCatalogCatalogListListResponse {
         a_location: Array<string>;
         /** Shop category keys the item belongs to. */
         a_shop_category: Array<string>;
+        /** List of ticket options available for booking the event. Empty if the item is not a */
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** Ticket option name. */
+            text_title: string;
+        };
         /** UTC creation date of the item in MySQL format. */
         dtu_create: string;
         /** The item price. */
@@ -16067,6 +16357,8 @@ export interface WlCatalogCatalogListListResponse {
         is_direct: boolean;
         /** `true` if the item is an introductory offer, `false` otherwise. */
         is_introductory: boolean;
+        /** `true` if the item is a ticketed event, `false` otherwise. */
+        is_ticket: boolean;
         /** The item key. */
         k_id: string;
         /** The primary shop category key for this item entry. */
@@ -16172,6 +16464,14 @@ export interface WlCatalogQuizQuizResponse {
         /** Quiz title. */
         text_title: string;
     };
+}
+export interface WlCatalogTermsTermsParams {
+    /** From where request comes. One of {@link RsPlaceSid}. */
+    id_place: RsPlaceSid;
+}
+export interface WlCatalogTermsTermsResponse {
+    /** Link to the catalog list. Set only if the cart became empty after */
+    url_list: string;
 }
 export interface WlTuitionEnrollmentTuitionEnrollmentListParams {
     /** Filters. */
@@ -16557,7 +16857,7 @@ export interface WlBusinessPartnerPartnerSettingsParams {
 }
 export interface WlBusinessPartnerPartnerSettingsResponse {
     /** List of different types for landing pages based on business types. @see RsHomeTourSid */
-    id_business_tour: RsHomeTourSid;
+    id_business_tour: RsHomeTourSid | null;
     /** The business key. */
     k_business: string;
     /** The first name of the business representative. */
@@ -16649,6 +16949,8 @@ export interface WlBusinessDesignBusinessDesignResponse {
         is_class_quick: boolean;
         /** `true` to display only available spots (e.g., "3 spots left"); */
         is_class_spot_only: boolean;
+        /** Whether Meta Conversion API Access Token is set. */
+        is_fb_capi_access_token: boolean;
         /** If `true`, the business name will be shown. */
         is_show_name: boolean;
         /** Background color of frontend. */
@@ -16673,7 +16975,11 @@ export interface WlBusinessDesignBusinessDesignResponse {
         s_color_submenu_hover: string;
         /** Press color of submenu in front end menu. */
         s_color_submenu_press: string;
-        /** Facebook Pixel ID. Used for Facebook analytics tracking. Empty string if tracking is disabled. */
+        /** Meta Conversion API Access Token. Empty string if CAPI not used or application that made request ... */
+        s_fb_capi_access_token: string;
+        /** Meta Conversion API Test Event Code. Optional, used for QA in Meta Events Manager. Empty string i... */
+        s_fb_capi_test_event_code: string;
+        /** Meta Pixel ID. Used for Meta analytics tracking. Empty string if tracking is disabled. */
         s_fb_pixel_id: string;
         /** Google Analytics Tracking ID. Used for Google Analytics tracking. Empty string if tracking is dis... */
         s_ga_tracking_id: string;
@@ -16714,7 +17020,7 @@ export interface WlBusinessTypeBusinessTypeListResponse {
         /** A list of client booking flow types. @see RsBusinessCategorySid */
         id_business_category: RsBusinessCategorySid;
         /** List of different types for landing pages based on business types. @see RsHomeTourSid */
-        id_tour: RsHomeTourSid;
+        id_tour: RsHomeTourSid | null;
         /** The key of business type. */
         k_business_type: string;
         /** The title of the business category. */
@@ -16775,7 +17081,7 @@ export interface WlBusinessPhonePhoneGetParams {
 }
 export interface WlBusinessPhonePhoneGetResponse {
     /** A list of locales. @see CoreLocaleLocaleSid */
-    id_locale: CoreLocaleLocaleSid | null;
+    id_locale: CoreLocaleLocaleSid;
     /** Business phone number(in locale format). */
     text_phone: string | null;
     /** Business phone number mask. */
@@ -17334,7 +17640,7 @@ export interface WlAppointmentWaitListAppointmentWaitListResponse {
         is_paid: boolean;
         /** Whether is awaiting for user confirmation. */
         is_wait_confirm: boolean;
-        /** Visit key.  table. */
+        /** Visit key. */
         k_visit: string;
     }>;
     /** Whether or not to send email notification. */
@@ -17571,7 +17877,7 @@ export interface WlBillingBulkPurchaseItemListPostResponse {
         /** The list of clients that will be billed. Each element has the following structure: */
         a_client: {
             /** A class for a list of card systems. @see ACardSystemSid */
-            id_card_system: ACardSystemSid;
+            id_card_system: ACardSystemSid | null;
             /** A list of payment methods. @see RsPayMethodSid */
             id_pay_method: RsPayMethodSid | null;
             /** `true` if the client has no default payment method on file, has no email on file while a receipt is */
@@ -17672,7 +17978,84 @@ export interface WlBillingBulkBulkBillingUserParams {
     uid: string;
 }
 export type WlBillingBulkBulkBillingUserResponse = Record<string, unknown>;
+export interface WlBillingCodeBillingCodeListParams {
+    /** Number of the codes to return: the size of a page of the list. */
+    i_limit: number;
+    /** Number of the page of the list to return, `1` for the first one. */
+    i_page: number;
+    /** Business key. */
+    k_business: string;
+    /** Text to search for, in any case: the value of a code, a part of a description, or plain words. Em... */
+    text_search: string;
+}
+export interface WlBillingCodeBillingCodeListResponse {
+    /** Billing codes of the business. */
+    a_code: Array<{
+        /** List of services the code is applied to by default. Always empty for a system code: system codes ... */
+        a_service: Array<string>;
+        /** `true` for a custom code of the business, `false` for a system code of the ICD-10-CM reference li... */
+        is_custom: boolean;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code. The business typed it in for a custom code. For a system code it comes f... */
+        text_description: string;
+    }>;
+    /** Up to `SIMILAR_MAX` codes nearest to the search, the nearest first. */
+    a_code_similar: Array<{
+        /** List of services the code is applied to by default. Always empty for a system code: system codes ... */
+        a_service: Array<string>;
+        /** `true` for a custom code of the business, `false` for a system code of the ICD-10-CM reference li... */
+        is_custom: boolean;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code. The business typed it in for a custom code. For a system code it comes f... */
+        text_description: string;
+    }>;
+    /** Number of the codes that answer the request, the page not applied. */
+    i_count: number;
+}
+export interface WlBillingCodeBillingCodeDeleteParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the custom billing code. */
+    k_code: string;
+}
+export type WlBillingCodeBillingCodeDeleteResponse = Record<string, unknown>;
+export interface WlBillingCodeBillingCodeGetParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the custom billing code. */
+    k_code: string;
+}
+export interface WlBillingCodeBillingCodeGetResponse {
+    /** Whether the code is removed from the central list of the business. */
+    is_remove: boolean;
+    /** Code value, as it is printed on receipts and invoices. */
+    text_code: string;
+    /** Description of the code. */
+    text_description: string;
+}
+export interface WlBillingCodeBillingCodePostParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the custom billing code. */
+    k_code: string;
+}
+export type WlBillingCodeBillingCodePostResponse = Record<string, unknown>;
+export interface WlBillingCodeBillingCodePutParams {
+    /** Business key. */
+    k_business: string;
+}
+export interface WlBillingCodeBillingCodePutResponse {
+    /** Key of the custom billing code. */
+    k_code: string;
+}
 export interface WlClassesClassListListParams {
+    /** Direct booking link parameters. */
+    a_direct_link: {
+        /** The class/event key. */
+        k_class: string;
+    };
     /** Whether all events should be returned from same enrollment block. */
     is_enrollment_block_all: boolean;
     /** Whether to include events without sessions. */
@@ -17691,9 +18074,9 @@ export interface WlClassesClassListListParams {
 export interface WlClassesClassListListResponse {
     /** List of classes and events. */
     a_class: Array<{
-        /** List of class book now tabs, where this class is presented. Each element is */
+        /** List of class book now tabs, where this class is presented. Each element is class tab key */
         a_class_tab: Array<string>;
-        /** List of event book now tabs, where this event is presented. Each element is */
+        /** List of event book now tabs, where this event is presented. Each element is class tab key */
         a_event_tab: Array<string>;
         /** The ending date of the class/event. */
         dl_end: string;
@@ -19194,12 +19577,25 @@ export interface WlScheduleClassViewClassViewGetResponse {
         };
         /** List of tags. */
         a_tag: Array<number>;
+        /** Ticket options available for booking the event. Empty if the event is not a ticketed event. */
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
+            m_price_early: string | null;
+            /** Ticket option name. */
+            text_title: string;
+        };
         /** Whether current client can book class. */
         can_book: boolean;
         /** Session date/time in UTC. */
         dt_date_global: string;
         /** Start date in local time. */
         dt_date_local: string;
+        /** The last date when the early bird price is applied, in MySQL date format, the date itself include... */
+        dt_early: string | null;
         /** Reason why client can not book class. Not empty only if `can_book` is `false`. */
         html_deny_reason: string;
         /** Class description. */
@@ -19234,6 +19630,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
         i_wait_limit: number | null;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
+        /** `true` if the event is a block event: all its sessions are booked together. `false` for a non-blo... */
+        is_block: boolean;
         /** Whether current class was booked by current client. */
         is_book: boolean;
         /** Allow clients to book on behalf of a guest. */
@@ -19246,6 +19644,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
         is_event: boolean;
         /** `true` if this class can be paid with promotion only; `false` otherwise. */
         is_promotion_only: boolean;
+        /** `true` if the event is a ticketed event; `false` otherwise. */
+        is_ticket: boolean;
         /** `true` if class is virtual, `false` otherwise. */
         is_virtual: boolean;
         /** `true` if user can take place in wait list only; `false` otherwise. */
@@ -19258,6 +19658,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
         m_price: string;
         /** Class duration. In human readable format. */
         s_duration: string;
+        /** Identifier of the timezone of the location of the session (for example `America/New_York`). Unlike */
+        s_timezone_location: string;
         /** Class name. */
         s_title: string;
         /** Class room. */
@@ -19317,12 +19719,16 @@ export interface WlScheduleClassViewClassViewGetResponse {
             a_search_tag: Record<string, unknown>;
             /** List of tags. */
             a_tag: Array<number>;
+            /** Ticket options available for booking the event. Empty if the event is not a ticketed event. */
+            a_tickets: Record<string, unknown>;
             /** Whether current client can book class. */
             can_book: boolean;
             /** Session date/time in UTC. */
             dt_date_global: string;
             /** Start date in local time. */
             dt_date_local: string;
+            /** The last date when the early bird price is applied, in MySQL date format, the date itself include... */
+            dt_early: string | null;
             /** Reason why client can not book class. Not empty only if `can_book` is `false`. */
             html_deny_reason: string;
             /** Class description. */
@@ -19357,6 +19763,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
             i_wait_limit: number | null;
             /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
             id_deny_reason: WlScheduleClassViewDenyReasonSid;
+            /** `true` if the event is a block event: all its sessions are booked together. `false` for a non-blo... */
+            is_block: boolean;
             /** Whether current class was booked by current client. */
             is_book: boolean;
             /** Allow clients to book on behalf of a guest. */
@@ -19369,6 +19777,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
             is_event: boolean;
             /** `true` if this class can be paid with promotion only; `false` otherwise. */
             is_promotion_only: boolean;
+            /** `true` if the event is a ticketed event; `false` otherwise. */
+            is_ticket: boolean;
             /** `true` if class is virtual, `false` otherwise. */
             is_virtual: boolean;
             /** `true` if user can take place in wait list only; `false` otherwise. */
@@ -19381,6 +19791,8 @@ export interface WlScheduleClassViewClassViewGetResponse {
             m_price: string;
             /** Class duration. In human readable format. */
             s_duration: string;
+            /** Identifier of the timezone of the location of the session (for example `America/New_York`). Unlike */
+            s_timezone_location: string;
             /** Class name. */
             s_title: string;
             /** Class room. */
@@ -19539,12 +19951,25 @@ export interface WlScheduleClassViewClassViewPostResponse {
         };
         /** List of tags. */
         a_tag: Array<number>;
+        /** Ticket options available for booking the event. Empty if the event is not a ticketed event. */
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
+            m_price_early: string | null;
+            /** Ticket option name. */
+            text_title: string;
+        };
         /** Whether current client can book class. */
         can_book: boolean;
         /** Session date/time in UTC. */
         dt_date_global: string;
         /** Start date in local time. */
         dt_date_local: string;
+        /** The last date when the early bird price is applied, in MySQL date format, the date itself include... */
+        dt_early: string | null;
         /** Reason why client can not book class. Not empty only if `can_book` is `false`. */
         html_deny_reason: string;
         /** Class description. */
@@ -19579,6 +20004,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
         i_wait_limit: number | null;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
+        /** `true` if the event is a block event: all its sessions are booked together. `false` for a non-blo... */
+        is_block: boolean;
         /** Whether current class was booked by current client. */
         is_book: boolean;
         /** Allow clients to book on behalf of a guest. */
@@ -19591,6 +20018,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
         is_event: boolean;
         /** `true` if this class can be paid with promotion only; `false` otherwise. */
         is_promotion_only: boolean;
+        /** `true` if the event is a ticketed event; `false` otherwise. */
+        is_ticket: boolean;
         /** `true` if class is virtual, `false` otherwise. */
         is_virtual: boolean;
         /** `true` if user can take place in wait list only; `false` otherwise. */
@@ -19603,6 +20032,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
         m_price: string;
         /** Class duration. In human readable format. */
         s_duration: string;
+        /** Identifier of the timezone of the location of the session (for example `America/New_York`). Unlike */
+        s_timezone_location: string;
         /** Class name. */
         s_title: string;
         /** Class room. */
@@ -19662,12 +20093,16 @@ export interface WlScheduleClassViewClassViewPostResponse {
             a_search_tag: Record<string, unknown>;
             /** List of tags. */
             a_tag: Array<number>;
+            /** Ticket options available for booking the event. Empty if the event is not a ticketed event. */
+            a_tickets: Record<string, unknown>;
             /** Whether current client can book class. */
             can_book: boolean;
             /** Session date/time in UTC. */
             dt_date_global: string;
             /** Start date in local time. */
             dt_date_local: string;
+            /** The last date when the early bird price is applied, in MySQL date format, the date itself include... */
+            dt_early: string | null;
             /** Reason why client can not book class. Not empty only if `can_book` is `false`. */
             html_deny_reason: string;
             /** Class description. */
@@ -19702,6 +20137,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
             i_wait_limit: number | null;
             /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
             id_deny_reason: WlScheduleClassViewDenyReasonSid;
+            /** `true` if the event is a block event: all its sessions are booked together. `false` for a non-blo... */
+            is_block: boolean;
             /** Whether current class was booked by current client. */
             is_book: boolean;
             /** Allow clients to book on behalf of a guest. */
@@ -19714,6 +20151,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
             is_event: boolean;
             /** `true` if this class can be paid with promotion only; `false` otherwise. */
             is_promotion_only: boolean;
+            /** `true` if the event is a ticketed event; `false` otherwise. */
+            is_ticket: boolean;
             /** `true` if class is virtual, `false` otherwise. */
             is_virtual: boolean;
             /** `true` if user can take place in wait list only; `false` otherwise. */
@@ -19726,6 +20165,8 @@ export interface WlScheduleClassViewClassViewPostResponse {
             m_price: string;
             /** Class duration. In human readable format. */
             s_duration: string;
+            /** Identifier of the timezone of the location of the session (for example `America/New_York`). Unlike */
+            s_timezone_location: string;
             /** Class name. */
             s_title: string;
             /** Class room. */
@@ -19879,6 +20320,8 @@ export interface WlScheduleClassListClassList68Response {
         i_wait_spot: number;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
+        /** `true` if the event is a block event: all its sessions are booked together. `false` for a non-blo... */
+        is_block: boolean;
         /** Whether current class was booked by current client. Only present if */
         is_book: boolean | null;
         /** Whether the age restriction of the class is shown to clients. */
@@ -19893,6 +20336,8 @@ export interface WlScheduleClassListClassList68Response {
         is_event: boolean;
         /** Whether special instructions are configured for this session and are visible to the current client. */
         is_special_instructions: boolean;
+        /** `true` if the event is a ticketed event; `false` otherwise. */
+        is_ticket: boolean;
         /** If `true`, this class is virtual. Otherwise, this will be `false`. */
         is_virtual: boolean;
         /** `true` if the current client (`uid`) is on the wait list for this session; `false` otherwise. */
@@ -20330,7 +20775,7 @@ export interface WlScheduleWorkingTimeStaffWorkingResponse {
             };
             /** Working hours. Each element: */
             a_work: {
-                /** Services that affect this hours. Primary keys in  table. */
+                /** Services that affect this hours. */
                 a_service: Array<string> | null;
                 /** Date when created period. */
                 dtu_create: string;
@@ -20399,7 +20844,7 @@ export interface WlLocationViewViewResponse {
     /** A shorter description of the location. A preview of {@link WlLocationViewViewResponse.html_descri... */
     html_description_preview: string;
     /** List of different types for landing pages based on business types. @see RsHomeTourSid */
-    id_industry: RsHomeTourSid;
+    id_industry: RsHomeTourSid | null;
     /** `true` if to display phone number on location page. `false` otherwise. */
     is_phone: boolean;
     /** `true` if WellnessLiving identifies this is a top choice location, `false` otherwise. */
@@ -21023,8 +21468,12 @@ export interface WlLeadStageLeadStageListResponse {
         i_order: number;
         /** Number of active automations which use this stage. */
         i_automation_active?: number;
-        /** Number of inactive automations which use this stage. Such an automation still refers the stage, s... */
+        /** Number of inactive automations associated with this stage, including any-stage triggers. */
         i_automation_inactive?: number;
+        /** Number of distinct active automations whose explicit stage references need updating when this stage */
+        i_automation_replace_active?: number;
+        /** Number of distinct inactive automations whose explicit stage references need updating when this s... */
+        i_automation_replace_inactive?: number;
         /** Number of client groups which convert their clients into this stage. Such a group depends on the ... */
         i_member_group?: number;
         /** Number of clients who are in this stage. */
@@ -22293,290 +22742,248 @@ export interface WlSocialShareSocialShareResponse {
     /** Secret key for access shared object. */
     s_secret: string;
 }
-export type ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartParams = Record<string, unknown>;
-export interface ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartResponse {
-    /** CS Response code class. @see ThothPayProcessorNuveiCodeCSResponseSid */
-    id_response: ThothPayProcessorNuveiCodeCSResponseSid | null;
-    /** Key of payment transaction that was created. */
-    k_pay_transaction: string | null;
-    /** Payment amount. */
-    m_amount: string | null;
-    /** Surcharge amount. */
-    m_surcharge: string | null;
-    /** The request exchange identification. */
-    s_exchange_identification: string;
-    /** Error message. */
-    text_message: string | null;
-}
-export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetParams {
-    /** Report page CID. */
-    cid_page: number;
-    /** Report CID. */
-    cid_report: number;
-    /** Business primary key. */
-    k_business: string;
-    /** Report CID list to that page customization form must be converted. String separated with `,`. */
-    s_report: string;
-    /** Current user's primary key. */
-    uid_actor: string;
-    /** SQL query primary key. Primary key in ReportQuerySql. */
-    k_report_query?: string | null;
-    /** Primary key of a saved report. */
-    k_report_save?: string | null;
-}
-export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetResponse {
-    /** Customization form data keyed by report or page CID. Each value has the following structure: */
-    a_customization_form: {
-        /** Form elements keyed by element name. Each element has the following structure: */
-        a_element: {
-            /** Element fields keyed by field alias. Each field has the following structure: */
-            a_field: {
-                /** Localized field title. */
-                text_title: string;
-                /** Current field value. */
-                x_value: string;
-            };
-            /** Report CID list the element applies to. */
-            a_report: Array<number>;
-            /** Localized element title. */
-            html_title: string;
-            /** Localized element tooltip. */
-            html_title_tooltip: string;
-        };
-        /** Form class identifier. */
-        s_form: string;
-    };
-}
-export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostParams {
-    /** Report page CID. */
-    cid_page: number;
-    /** Report CID. */
-    cid_report: number;
-    /** Business primary key. */
-    k_business: string;
-    /** Current user's primary key. */
-    uid_actor: string;
-    /** SQL query primary key. Primary key in ReportQuerySql. */
-    k_report_query?: string | null;
-    /** Primary key of a saved report. */
-    k_report_save?: string | null;
-}
-export type ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostResponse = Record<string, unknown>;
-export interface WlPayBankCardAddAddDeleteParams {
-    /** The business key number used internally by WellnessLiving. */
-    k_business: string;
-    /** Pay bank key to delete. */
-    k_pay_bank: string;
-}
-export type WlPayBankCardAddAddDeleteResponse = Record<string, unknown>;
-export interface WlPayBankCardAddAddGetParams {
-    /** The business key number used internally by WellnessLiving. */
-    k_business: string;
-    /** The location key. */
-    k_location: string;
-    /** The payment owner ID. This is different from the user ID. It can be found with */
-    k_pay_owner: string;
-}
-export interface WlPayBankCardAddAddGetResponse {
-    /** The HTML form containing the fields required to add a card. */
-    html_widget: string;
-}
-export interface WlPayBankCardAddAddPostParams {
-    /** The business key number used internally by WellnessLiving. */
-    k_business: string;
-    /** The location key. */
-    k_location: string;
-    /** The payment owner ID. This is different from the user ID. It can be found with */
-    k_pay_owner: string;
-}
-export type WlPayBankCardAddAddPostResponse = Record<string, unknown>;
-export interface WlPayBankCardWidgetWidgetSelectParams {
-    /** Payment method. @see RsPayMethodSid */
+export type WlTicketPurchaseTicketPurchaseMailParams = Record<string, unknown>;
+export type WlTicketPurchaseTicketPurchaseMailResponse = Record<string, unknown>;
+export type ThothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoidParams = Record<string, unknown>;
+export type ThothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoidResponse = Record<string, unknown>;
+export interface WlPayFormSurchargeSurchargeTenderParams {
+    /** Payment method the card would be charged with. @see RsPayMethodSid */
     id_pay_method: RsPayMethodSid | null;
-    /** Payment mode. @see RsPayModeSid */
-    id_pay_mode: RsPayModeSid;
-    /** Payment owner kind. @see RsPayOwnerSid */
-    id_pay_owner: RsPayOwnerSid;
     /** Business key. */
     k_business: string;
     /** Currency key. */
     k_currency: string;
-    /** Payment owner. */
-    k_id: string;
     /** Location key. */
     k_location: string;
+    /** Key of a saved card to preview. */
+    k_pay_bank?: string | null;
+    /** First digits of a newly-typed card number (at least 6). */
+    s_bin?: string | null;
 }
-export interface WlPayBankCardWidgetWidgetSelectResponse {
-    /** List of saved bank cards. */
-    a_pay_card: {
-        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
-        eid_card_type: ThothWlPayBankCardCardTypeEnum;
-        /** Card expiration month. */
+export interface WlPayFormSurchargeSurchargeTenderResponse {
+    /** Whether a surcharge is allowed for the card identified by */
+    is_allowed: boolean;
+}
+export interface WlPayAccountChargeChargeParams {
+    /** The account charge mode. @see RsPayAccountChargeSid */
+    id_pay_account_charge: RsPayAccountChargeSid;
+    /** If `true`, the account is filled by a staff member in the backend. Otherwise, this will be `false`. */
+    is_staff: boolean;
+    /** The ID of the business the user account belongs to. */
+    k_business: string;
+    /** The ID of the user account to refill. */
+    k_pay_account: string;
+    /** The ID of the user whose account is being refilled. */
+    uid: string;
+}
+export interface WlPayAccountChargeChargeResponse {
+    /** The ID of the purchase that was created during payment. */
+    k_purchase: string;
+}
+export interface WlPayTransactionReportTransactionAllPaymentParams {
+    /** The end date in local time to retrieve transactions for. */
+    dl_date_end: string;
+    /** The end date in local time to retrieve transactions for. */
+    dl_date_start: string;
+    /** The page of the report, starting from 0. */
+    i_page: number;
+    /** Determines whether the report should be refreshed. */
+    is_refresh: boolean;
+    /** The key of the business for which report should be generated. */
+    k_business: string;
+}
+export interface WlPayTransactionReportTransactionAllPaymentResponse {
+    /** A list of fields in the report. */
+    a_field: Array<string>;
+    /** The report data. */
+    a_row: Array<{
+        /** List of pay transactions associated with this row. Each element: */
+        a_pay_transaction: {
+            /** A list of payment methods. @see RsPayMethodSid */
+            id_pay_method: RsPayMethodSid | null;
+            /** Pay transaction key. */
+            k_pay_transaction: string;
+            /** Amount paid. */
+            m_amount: string;
+            /** Surcharge amount from store settings. */
+            m_surcharge: string;
+            /** Batch number for this transaction. */
+            s_batch_number: string;
+        };
+        /** Start date and time of the purchase in UTC. */
+        dtu_purchase_start: string;
+        /** Purchase key. */
+        k_purchase: string;
+        /** Net sales amount. */
+        m_net_sale: string;
+        /** Total tax amount. */
+        m_total_tax: string;
+        /** First name of the client. */
+        'o_client.text_first': string;
+        /** Last name of the client. */
+        'o_client.text_last': string;
+        /** Full name of the client. */
+        'o_client.text_name': string;
+        /** Location key. */
+        'o_location.k_location': string;
+        /** Batch number of the first transaction in the row. */
+        s_batch_number: string;
+        /** Street address of the location. */
+        text_location_address: string;
+        /** Name of the location's city. */
+        text_location_city: string;
+        /** Name of the location's country. */
+        text_location_country: string;
+        /** Postal code of the location. */
+        text_location_postal: string;
+        /** Name of the location's region. */
+        text_location_region: string;
+        /** Name of the payment method used. */
+        text_payment_method: string;
+        /** Name of the base payment method. If a custom method was used, this is the method it is based on. */
+        text_payment_method_base: string;
+        /** Comma-separated list of tax names applied to the purchase. */
+        text_tax_title: string;
+        /** Comma-separated list of tax values. Percentage-based taxes have `%` appended; */
+        text_tax_value: string;
+    }>;
+    /** The warning list of the report. */
+    a_warning: Array<string>;
+    /** The date and time if the report has completed generation. Otherwise, this will be `null`. */
+    dtu_complete: string | null;
+    /** The date and time if this report has been put in the generation queue. Otherwise, this will be `n... */
+    dtu_queue: string | null;
+    /** The date and time if generation of this report has started. Otherwise, this will be `null`. */
+    dtu_start: string | null;
+    /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
+    id_report_status: ThothReportCoreGeneratorReportGeneratorStatusSid;
+    /** Determines whether to show more rows in the report. */
+    is_more: boolean;
+    /** Determines whether the report is complete. */
+    is_report_complete: boolean;
+}
+export interface WlPayBankCardListParams {
+    /** ID of current business. */
+    k_business: string;
+    /** Location to show information for. */
+    k_location: string;
+    /** ID of a user to show information for. */
+    uid: string;
+}
+export interface WlPayBankCardListResponse {
+    /** A list of bank cards. */
+    a_bank_card: {
+        /** The month when the payment card expires, represented by a number (1=January and 12=December). */
         i_month: number;
-        /** Card expiration year. */
+        /** The last two digits of the year when the payment card expires. */
         i_year: number;
-        /** A list of card types. @see WlCardCardSystemSid */
-        id_card_system: WlCardCardSystemSid;
-        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
-        id_card_type: ThothWlPayBankCardCardTypeEnum;
-        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
-        id_pay_processor: ThothPayProcessorPayProcessorSid;
-        /** `true` if this card is the default payment method; `false` otherwise. */
+        /** A class for a list of card systems. @see ACardSystemSid */
+        id_card_system: ACardSystemSid | null;
+        /** If `true`, this card backs at least one active autopay membership or package. */
+        is_autopay: boolean;
+        /** If `true`, then this card is the user default card. */
         is_default: boolean;
-        /** Billing address key. */
+        /** The payment address ID. This refers to a physical address associated with a payment card. */
         k_pay_address: string;
-        /** Payment card key. */
+        /** The payment method ID. Each payment card for each user will have its own ID. */
         k_pay_bank: string;
-        /** Recurrent payment token key. */
-        k_pay_recurrent: string;
-        /** Billing region key. */
-        k_region: string;
-        /** Card nickname. Auto-generated from card system and masked number if not explicitly set. */
-        s_name: string;
-        /** Partial card number. */
-        s_number: string;
-        /** Card system SID. One of {@link WlCardCardSystemSid} constants as string. */
-        sid_card_system: string;
-        /** Billing city. */
-        text_city: string;
-        /** Country name resolved from the region's parent geo entity. Empty if region has no parent. */
-        text_country: string;
-        /** Cardholder name. */
-        text_holder: string;
-        /** Billing postal code. */
-        text_postal: string;
-        /** Public representation of the recurrent payment token, safe for browser output. */
-        text_public_token: string;
-        /** Region name resolved from the region key. Empty if no region is set. */
-        text_region: string;
-        /** Billing street address line 1. */
-        text_street_1: string;
-        /** Billing street address line 2. */
-        text_street_2: string;
+        /** The payment card descriptor. This is typically the company name and the last 4 digits of the card */
+        text_name_card: string;
+        /** The name of the card owner as it appears on the card. */
+        text_name_holder: string;
+        /** A portion of the payment card number, used to identify the card. */
+        text_number: string;
     };
+    /** List of bank cards. */
+    a_list: Array<{
+        /** The month when the payment card expires, represented by a number (1=January and 12=December). */
+        i_month: number;
+        /** The last two digits of the year when the payment card expires. */
+        i_year: number;
+        /** A class for a list of card systems. @see ACardSystemSid */
+        id_card_system: ACardSystemSid | null;
+        /** If `true`, this card backs at least one active autopay membership or package. */
+        is_autopay: boolean;
+        /** If `true`, then this card is the user default card. */
+        is_default: boolean;
+        /** The payment address ID. This refers to a physical address associated with a payment card. */
+        k_pay_address: string;
+        /** The payment method ID. Each payment card for each user will have its own ID. */
+        k_pay_bank: string;
+        /** The payment card descriptor. This is typically the company name and the last 4 digits of the card */
+        text_name_card: string;
+        /** The name of the card owner as it appears on the card. */
+        text_name_holder: string;
+        /** A portion of the payment card number, used to identify the card. */
+        text_number: string;
+    }>;
+    /** Whether new card can be added. */
+    can_add: boolean;
+    /** Whether the client is allowed to remove their own saved credit cards. */
+    can_remove_self: boolean;
+    /** Whether the feature "client is allowed to remove their own saved credit cards" has been released. */
+    has_remove_self: boolean;
 }
-export interface WlPayBankAchAddAddDeleteParams {
-    /** Business key. */
+export interface WlPayBankAchListParams {
+    /** ID of current business. */
     k_business: string;
-    /** Pay bank key to delete. */
-    k_pay_bank: string;
-}
-export type WlPayBankAchAddAddDeleteResponse = Record<string, unknown>;
-export interface WlPayBankAchAddAddGetParams {
-    /** Determines if the set of configs of the new payment form design is used. */
-    is_new: boolean;
-    /** Business key. */
-    k_business: string;
-    /** Location key. */
+    /** Location to show information for. */
     k_location: string;
-    /** Pay owner key. */
-    k_pay_owner: string;
-    /** Locale ID. @see CoreLocaleLocaleSid */
-    id_locale?: CoreLocaleLocaleSid | null;
+    /** ID of a user to show information for. */
+    uid: string;
 }
-export interface WlPayBankAchAddAddGetResponse {
-    /** The HTML form containing the fields required to add a card. */
-    html_widget: string;
-    /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
-    id_pay_processor: ThothPayProcessorPayProcessorSid;
-}
-export interface WlPayBankAchAddAddPostParams {
-    /** Business key. */
-    k_business: string;
-    /** Location key. */
-    k_location: string;
-    /** Pay owner key. */
-    k_pay_owner: string;
-}
-export interface WlPayBankAchAddAddPostResponse {
-    /** ACH account information: */
-    a_pay_bank: {
-        /** Whether current user can remove payment method. */
-        can_remove: boolean;
-        /** A list of bank account types. @see RsPayBankSid */
-        id_pay_bank: RsPayBankSid;
+export interface WlPayBankAchListResponse {
+    /** List of ACH accounts: */
+    a_list: Array<{
         /** A list of account holder types which can be chosen. @see RsPayBankAchHolderSid */
         id_pay_bank_ach_holder: RsPayBankAchHolderSid;
         /** A list of account types which can be chosen. @see RsPayBankAchTypeSid */
         id_pay_bank_ach_type: RsPayBankAchTypeSid;
         /** `true` - this account is default payment method; `false` - otherwise. */
         is_default: boolean;
-        /** Billing address. */
-        k_pay_address: string;
         /** ID of bank account. */
         k_pay_bank: string;
-        /** Region ID. */
-        k_region: string;
-        /** Name of city. */
-        text_city: string;
-        /** Name of country. */
-        text_country: string;
-        /** Account nickname. */
-        text_name: string;
         /** Account name. */
         text_name_account: string;
         /** Account holder name. */
         text_name_holder: string;
         /** ACH account number. */
         text_number: string;
-        /** Phone number. */
-        text_phone: string;
-        /** Postal code. */
-        text_postal: string;
-        /** Name of region. */
-        text_region: string;
-        /** Street address line 1. */
-        text_street1: string;
-        /** Street address line 2. */
-        text_street2: string;
-    };
+    }>;
+    /** Whether new ACH account can be added. */
+    can_add: boolean;
 }
-export interface WlPayBankAchWidgetWidgetSelectParams {
-    /** Pay bank id. @see RsPayBankSid */
-    id_pay_bank: RsPayBankSid;
-    /** Payment method. @see RsPayMethodSid */
-    id_pay_method: RsPayMethodSid | null;
-    /** Payment owner kind. @see RsPayOwnerSid */
-    id_pay_owner: RsPayOwnerSid;
+export interface WlPayAddressWidgetWidgetEditParams {
     /** Business key. */
     k_business: string;
-    /** Currency key. */
-    k_currency: string;
-    /** Payment owner. */
-    k_id: string;
-    /** Location key. */
-    k_location: string;
 }
-export interface WlPayBankAchWidgetWidgetSelectResponse {
-    /** List of saved bank accounts, keyed by bank account key. Each entry: */
-    a_pay_bank: {
-        /** Address key of the bank account. */
-        k_pay_address: string;
-        /** Bank account key. */
-        k_pay_bank: string;
-        /** Region key, or empty string if the address has no region. */
-        k_region: string;
-        /** Part of the bank account number. */
-        s_number: string;
-        /** Bank account nickname. */
-        s_name: string;
-        /** `true` if this is the default bank account, `false` otherwise. */
-        is_default: boolean;
-        /** Name of the account holder. */
-        text_name_holder: string;
-        /** City of the billing address. */
-        text_city: string;
-        /** Phone number of the billing address. */
-        text_phone: string;
-        /** Postal code of the billing address. */
-        text_postal: string;
-        /** First line of the billing street address. */
-        text_street1: string;
-        /** Second line of the billing street address. */
-        text_street2: string;
-        /** Region title. */
-        text_region: string;
-    };
+export interface WlPayAddressWidgetWidgetEditResponse {
+    /** List of countries with their regions, keyed by country geo key. Each element: */
+    a_geo: Array<{
+        /** List of geographic regions within the country. Each element: */
+        a_region: {
+            /** `true` if this region is currently selected; `false` otherwise. */
+            is_select: boolean;
+            /** Region key. */
+            k_geo: string;
+            /** Region title. */
+            s_title: string;
+            /** Region abbreviation. */
+            text_abbr: string;
+        };
+        /** `true` if this country is currently selected; `false` otherwise. */
+        is_select: boolean;
+        /** Country key. */
+        k_geo: string;
+        /** Country title. */
+        s_title: string;
+        /** Country abbreviation. */
+        text_abbr: string;
+    }>;
+    /** Mask for phone entering (ready for output to the page). */
+    html_phone_mask: string;
+    /** Mask for phone entering. */
+    text_phone_mask: string;
 }
 export type CoreRequestApiApplicationOriginDeleteParams = Record<string, unknown>;
 export type CoreRequestApiApplicationOriginDeleteResponse = Record<string, unknown>;
@@ -24204,6 +24611,8 @@ export interface WlBookProcessInfoInfoPostResponse {
     a_visit_payment: Array<{
         /** `true` if the visit is free; `false` otherwise. */
         is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
         /** `true` whether the booked slot was waitlisted; `false` otherwise. */
         is_waitlist: boolean;
         /** Applied user's purchase option. */
@@ -24212,6 +24621,8 @@ export interface WlBookProcessInfoInfoPostResponse {
         k_promotion: string;
         /** Applied session pass. */
         k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
         /** Purchase option title. */
         text_promotion: string;
     }>;
@@ -24237,6 +24648,8 @@ export interface WlBookProcessInfoInfo54GetParams {
     show_class_capacity: boolean;
     /** `true` to show "book for" option in booking wizard. `false` for default behavior. */
     show_relation: boolean;
+    /** `true` to include in {@link WlBookProcessInfoInfoGetResponse.a_session_all} the sessions of a non... */
+    show_session_overlap: boolean;
     /** The client key for which the booking is being made. */
     uid: string;
 }
@@ -24401,6 +24814,8 @@ export interface WlBookProcessInfoInfo54PostResponse {
     a_visit_payment: Array<{
         /** `true` if the visit is free; `false` otherwise. */
         is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
         /** `true` whether the booked slot was waitlisted; `false` otherwise. */
         is_waitlist: boolean;
         /** Applied user's purchase option. */
@@ -24409,6 +24824,8 @@ export interface WlBookProcessInfoInfo54PostResponse {
         k_promotion: string;
         /** Applied session pass. */
         k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
         /** Purchase option title. */
         text_promotion: string;
     }>;
@@ -24487,6 +24904,8 @@ export interface WlBookProcessPaymentPaymentResponse {
     a_visit_payment: Array<{
         /** `true` if the visit is free; `false` otherwise. */
         is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
         /** `true` whether the booked slot was waitlisted; `false` otherwise. */
         is_waitlist: boolean;
         /** Applied user's purchase option. */
@@ -24495,6 +24914,8 @@ export interface WlBookProcessPaymentPaymentResponse {
         k_promotion: string;
         /** Applied session pass. */
         k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
         /** Purchase option title. */
         text_promotion: string;
     }>;
@@ -24526,6 +24947,8 @@ export interface WlBookProcessStoreStoreResponse {
     a_visit_payment: Array<{
         /** `true` if the visit is free; `false` otherwise. */
         is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
         /** `true` whether the booked slot was waitlisted; `false` otherwise. */
         is_waitlist: boolean;
         /** Applied user's purchase option. */
@@ -24534,6 +24957,8 @@ export interface WlBookProcessStoreStoreResponse {
         k_promotion: string;
         /** Applied session pass. */
         k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
         /** Purchase option title. */
         text_promotion: string;
     }>;
@@ -25207,6 +25632,22 @@ export interface WlProfileAttendanceSchedulePaymentMultiplePostResponse {
     /** Url for redirect after applying existing purchase options. */
     url_redirect: string;
 }
+export interface WlProfileOverviewQuickContactQuickContactOptionParams {
+    /** Business key. */
+    k_business: string;
+    /** Client user key. */
+    uid: string;
+}
+export interface WlProfileOverviewQuickContactQuickContactOptionResponse {
+    /** Whether the Brivo mobile pass invitation action is available for this client. */
+    is_brivo: boolean;
+    /** Whether the Password Reset email action is available for this client. */
+    is_password_reset: boolean;
+    /** Whether the Welcome email action is available for this client. */
+    is_welcome: boolean;
+    /** Whether the Welcome email has already been sent to this client. */
+    is_welcome_sent: boolean;
+}
 export interface WlProfileFormResponseResponseListParams {
     /** Defines whether completed forms should not be included in result list of forms. */
     hide_completed: boolean;
@@ -25447,6 +25888,8 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartParams {
             k_coupon: string;
             /** The coupon amount key. */
             k_coupon_amount: string;
+            /** Used only for `id_sale` = {@link RsSaleSid}. */
+            k_class?: string;
         };
         /** Information about taxes. If not passed, no custom taxes have been applied to the sale item. */
         a_tax_custom?: {
@@ -25545,6 +25988,8 @@ export interface WlCatalogStaffAppCatalogCartCatalogCartResponse {
             k_coupon: string;
             /** The coupon amount key. */
             k_coupon_amount: string;
+            /** Used only for `id_sale` = {@link RsSaleSid}. */
+            k_class?: string;
         };
         /** Information about taxes. If not passed, no custom taxes have been applied to the sale item. */
         a_tax_custom?: {
@@ -25616,12 +26061,18 @@ export interface WlCatalogStaffAppCatalogListCatalogListResponse {
         a_shop_category: Array<string>;
         /** Program types. @see RsProgramSid */
         id_program?: RsProgramSid;
+        /** The number of tickets that can still be sold for the event instance. */
+        i_ticket_left?: number;
         /** Purchase restrictions. @see WlShopProductPurchaseRestrictionSid */
         id_restriction: WlShopProductPurchaseRestrictionSid;
         /** List of sale categories on the store page. @see RsSaleSid */
         id_sale: RsSaleSid | null;
         /** Determines whether the sale item can be purchased by the client. */
         is_online_sell: boolean;
+        /** `true` if all tickets of the event instance are sold and no more can be sold, `false` otherwise. */
+        is_sold_out?: boolean;
+        /** `true` if the sale item is one instance of a ticketed event, `false` otherwise. */
+        is_ticket: boolean;
         /** This will be `true` if this Purchase Option is suitable to pay for the visit {@link WlCatalogStaf... */
         is_visit: boolean;
         /** The sale item ID. */
@@ -25690,7 +26141,7 @@ export interface WlCatalogStaffAppCatalogCommissionCatalogCommissionParams {
 export interface WlCatalogStaffAppCatalogCommissionCatalogCommissionResponse {
     /** Default staff commission for current client. Includes: */
     a_commission_default: Array<{
-        /** <b>Deprecated.</b> Staff key. */
+        /** **DEPRECATED** Staff key. */
         k_staff: string;
         /** Staff pay key. */
         k_staff_pay: string;
@@ -25705,18 +26156,18 @@ export interface WlCatalogStaffAppCatalogCommissionCatalogCommissionResponse {
             f_rate: string;
             /** String identifiers for tax type. @see RsCommissionTypeSid */
             id_commission_type: RsCommissionTypeSid;
-            /** `true` - if it is default commission for the staff,`false` - otherwise. */
+            /** `true` - if it is default commission for the staff, `false` - otherwise. */
             is_default: boolean;
             /** Title of the commission. */
             html_commission: string;
-            /** Staff pay key.  table. */
+            /** Staff pay key. */
             k_staff_pay: string;
         };
-        /** [Deprecated]Staff key. */
+        /** **DEPRECATED** Staff key. */
         k_staff: string;
         /** Name of staff. */
         html_name: string;
-        /** User key.  table. */
+        /** User key. */
         uid: string;
     }>;
 }
@@ -25781,6 +26232,19 @@ export interface WlCatalogStaffAppCatalogViewCatalogViewResponse {
         /** The tax name. */
         s_tax: string;
     };
+    /** List of ticket options available for booking the event. Empty if the sale item is not a */
+    a_tickets: Array<{
+        /** Globally unique identifier of the ticket option. */
+        k_ticket_option: string;
+        /** One ticket price. */
+        m_price: string;
+        /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
+        m_price_early: string | null;
+        /** Ticket option name. */
+        text_title: string;
+    }>;
+    /** `true` if the sale item is a ticketed event, `false` otherwise. */
+    is_ticket: boolean;
     /** The prorated amount. */
     m_prorate: string;
     /** The amount of the sale item, excluding taxes. */
@@ -25840,9 +26304,9 @@ export interface WlBusinessAccountSubscriptionSubscriptionInfoParams {
 }
 export interface WlBusinessAccountSubscriptionSubscriptionInfoResponse {
     /** A list of locales. @see CoreLocaleLocaleSid */
-    id_locale: CoreLocaleLocaleSid | null;
+    id_locale: CoreLocaleLocaleSid;
     /** Currently active plan ID for requested subscription. */
-    id_plan: WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid | WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid | WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid | WlBusinessAccountSubscriptionEmailEmailSubscriptionSid | WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid | WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid | WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid | WlBusinessAccountSubscriptionSmsSmsSubscriptionSid | WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid | WlBusinessAccountSubscriptionBaseBaseSubscriptionSid | WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid | WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid | WlBusinessAccountSubscriptionZapierZapierSubscriptionSid | WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid | WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid | WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid | WlBusinessAccountSubscriptionDoorDoorSubscriptionSid | WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid | WlBusinessAccountSubscriptionRewardRewardSubscriptionSid | WlBusinessAccountSubscriptionApiApiSubscriptionSid | WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid | WlBusinessAccountSubscriptionQuizQuizSubscriptionSid | WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid | WlBusinessAccountSubscriptionZoomZoomSubscriptionSid | WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid | WlBusinessAccountSubscriptionReviewReviewSubscriptionSid | WlBusinessAccountSubscriptionAssetAssetSubscriptionSid;
+    id_plan: WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid | WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid | WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid | WlBusinessAccountSubscriptionEmailEmailSubscriptionSid | WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid | WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid | WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid | WlBusinessAccountSubscriptionSmsSmsSubscriptionSid | WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid | WlBusinessAccountSubscriptionBaseBaseSubscriptionSid | WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid | WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid | WlBusinessAccountSubscriptionZapierZapierSubscriptionSid | WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid | WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid | WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid | WlBusinessAccountSubscriptionDoorDoorSubscriptionSid | WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid | WlBusinessAccountSubscriptionRewardRewardSubscriptionSid | WlBusinessAccountSubscriptionApiApiSubscriptionSid | WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid | WlBusinessAccountSubscriptionQuizQuizSubscriptionSid | WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid | WlBusinessAccountSubscriptionZoomZoomSubscriptionSid | WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid | WlBusinessAccountSubscriptionReviewReviewSubscriptionSid | WlBusinessAccountSubscriptionAssetAssetSubscriptionSid | WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid;
     /** Whether subscription is active. */
     is_active: boolean;
 }
@@ -25989,6 +26453,24 @@ export interface WlBusinessUserSubscribeSubscribePutParams {
     is_subscribe_sms?: boolean | null;
 }
 export type WlBusinessUserSubscribeSubscribePutResponse = Record<string, unknown>;
+export interface WlBusinessCustomTermsCustomTermsGetParams {
+    /** Business key. */
+    k_business: string;
+}
+export interface WlBusinessCustomTermsCustomTermsGetResponse {
+    /** Current value of every term slot. Returned by `get()`, posted to */
+    a_term_option: Array<{
+        /** Term slots available on the Custom Terms settings page. @see WlBusinessCustomTermsCustomTermSid */
+        id_term: WlBusinessCustomTermsCustomTermSid;
+        /** Preset options for the {@link WlBusinessCustomTermsCustomTermSid} custom term. @see WlBusinessCustomTermsClientTermOptionSid */
+        id_term_option?: WlBusinessCustomTermsClientTermOptionSid | null;
+    }>;
+}
+export interface WlBusinessCustomTermsCustomTermsPostParams {
+    /** Business key. */
+    k_business: string;
+}
+export type WlBusinessCustomTermsCustomTermsPostResponse = Record<string, unknown>;
 export interface WlPageBackendFeatureFeatureParams {
     /** Key of the business. */
     k_business: string;
@@ -26030,7 +26512,7 @@ export interface WlAppointmentBookStaffListResponse {
         is_daily_limit: boolean;
         /** Whether staff member available only for wait list booking. */
         is_wait_list: boolean;
-        /** @deprecated Legacy staff key.  Returned only for allow-listed apps. */
+        /** **DEPRECATED** Legacy staff key.  Returned only for allow-listed apps. */
         k_staff: string;
         /** Position of the staff member in the business. */
         s_position: string;
@@ -26085,7 +26567,7 @@ export interface WlAppointmentBookStaffStaffListResponse {
         is_daily_limit: boolean;
         /** Whether staff member available only for wait list booking. */
         is_wait_list: boolean;
-        /** @deprecated Legacy staff key.  Returned only for allow-listed apps. */
+        /** **DEPRECATED** Legacy staff key.  Returned only for allow-listed apps. */
         k_staff: string;
         /** Position of the staff member in the business. */
         s_position: string;
@@ -26193,6 +26675,8 @@ export interface WlAppointmentBookFinishFinish47PostResponse {
     a_visit_payment: Array<{
         /** `true` if the visit is free; `false` otherwise. */
         is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
         /** `true` whether the booked slot was waitlisted; `false` otherwise. */
         is_waitlist: boolean;
         /** Applied user's purchase option. */
@@ -26201,6 +26685,8 @@ export interface WlAppointmentBookFinishFinish47PostResponse {
         k_promotion: string;
         /** Applied session pass. */
         k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
         /** Purchase option title. */
         text_promotion: string;
     }>;
@@ -26368,6 +26854,8 @@ export interface WlAppointmentBookFinishFinishPostResponse {
     a_visit_payment: Array<{
         /** `true` if the visit is free; `false` otherwise. */
         is_free: boolean;
+        /** `true` if the booking triggered the payment flow: the visit is booked, is not paid, and the clien... */
+        is_pay_required: boolean;
         /** `true` whether the booked slot was waitlisted; `false` otherwise. */
         is_waitlist: boolean;
         /** Applied user's purchase option. */
@@ -26376,6 +26864,8 @@ export interface WlAppointmentBookFinishFinishPostResponse {
         k_promotion: string;
         /** Applied session pass. */
         k_session_pass: string;
+        /** Link to complete the payment, the same one the client receives by email. */
+        text_payment_link: string | null;
         /** Purchase option title. */
         text_promotion: string;
     }>;
@@ -26479,7 +26969,7 @@ export interface WlAppointmentBookScheduleDayTimeResponse {
         i_wait: number;
         /** Whether the appointment can be booked only in a wait list. */
         is_waitlist: boolean;
-        /** @deprecated If this time is already occupied by any client and staff member (but service capacity... */
+        /** **DEPRECATED** If this time is already occupied by any client and staff member */
         k_staff: string;
         /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
         uid_staff: string;
@@ -26602,7 +27092,7 @@ export interface WlAppointmentBookScheduleCalendar73Response {
         i_wait: number;
         /** Whether the appointment can be booked only in a wait list. */
         is_waitlist: boolean;
-        /** @deprecated If this time is already occupied by any client and staff member (but service capacity... */
+        /** **DEPRECATED** If this time is already occupied by any client and staff member */
         k_staff: string;
         /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
         uid_staff: string;
@@ -26710,7 +27200,7 @@ export interface WlAppointmentBookScheduleDayTime73Response {
         i_wait: number;
         /** Whether the appointment can be booked only in a wait list. */
         is_waitlist: boolean;
-        /** @deprecated If this time is already occupied by any client and staff member (but service capacity... */
+        /** **DEPRECATED** If this time is already occupied by any client and staff member */
         k_staff: string;
         /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
         uid_staff: string;
@@ -26812,7 +27302,7 @@ export interface WlAppointmentBookScheduleCalendarResponse {
         i_wait: number;
         /** Whether the appointment can be booked only in a wait list. */
         is_waitlist: boolean;
-        /** @deprecated If this time is already occupied by any client and staff member (but service capacity... */
+        /** **DEPRECATED** If this time is already occupied by any client and staff member */
         k_staff: string;
         /** If this time is already occupied by any client and staff member (but service capacity is not exha... */
         uid_staff: string;
@@ -27758,6 +28248,36 @@ export interface WlAppointmentBookServiceServiceListResponse {
     /** Location to show available appointment booking schedule. */
     k_location: string;
 }
+export interface WlAppointmentBookServiceServiceListBusinessParams {
+    /** The business key. */
+    k_business: string;
+}
+export interface WlAppointmentBookServiceServiceListBusinessResponse {
+    /** A list of service categories of the business. */
+    a_category: Array<{
+        /** List of location keys where this category has at least one active service. */
+        a_location: Array<string>;
+        /** Sort order of the category. */
+        i_sort: number;
+        /** Service category key. */
+        k_service_category: string;
+        /** Service category title. */
+        s_title: string;
+    }>;
+    /** A list of appointment services of the business. */
+    a_service: Array<{
+        /** List of location keys where this service is available. */
+        a_location: Array<string>;
+        /** Sort order of the service within its category. */
+        i_sort: number;
+        /** Service key. */
+        k_service: string;
+        /** Service category key. */
+        k_service_category: string;
+        /** Service title. */
+        s_service: string;
+    }>;
+}
 export type WlAppointmentBookPromoteAppointmentBookPromoteParams = Record<string, unknown>;
 export interface WlAppointmentBookPromoteAppointmentBookPromoteResponse {
     /** Whether is awaiting for user confirmation. */
@@ -27806,6 +28326,19 @@ export interface WlAppointmentBookAssetAssetListResponse {
             i_age_to_month: number | null;
             /** This will be `true` if age restrictions are public and available. Otherwise, this will be `false`... */
             is_age_public: boolean;
+        };
+        /** The asset's effective booking window policy. */
+        a_config: {
+            /** Member group overrides for the advance booking window, keyed by member group key. */
+            a_member_group_book_window: Record<string, unknown>;
+            /** The minimum time before a session starts that a booking can be made. */
+            i_book_before: number;
+            /** The maximum advance booking window duration. */
+            i_book_future: number;
+            /** A class for managing time intervals. @see ADurationSid */
+            id_book_before: ADurationSid;
+            /** A class for managing time intervals. @see ADurationSid */
+            id_book_future: ADurationSid;
         };
         /** The key of service. */
         a_class_tab: Array<string>;
@@ -28920,6 +29453,8 @@ export interface WlEventBookEventViewElementResponse {
             s_time: string;
             /** The name of the timezone in which the session is held. */
             s_timezone: string;
+            /** Identifier of the timezone of the location of the session (for example `America/New_York`). Unlike */
+            s_timezone_location: string;
             /** The room of the event. */
             text_room: string;
         };
@@ -28936,10 +29471,30 @@ export interface WlEventBookEventViewElementResponse {
             /** URL to image. */
             url_logo: string;
         };
+        /** How many tickets can be sold for the event and how many of those are still available. Empty if the */
+        a_ticket_inventory: {
+            /** Total number of tickets that can be sold for the event. */
+            i_capacity: number;
+            /** Maximum number of tickets that can be ordered in one purchase. `0` if there is no limit. */
+            i_order_limit: number;
+            /** Number of tickets still available to sell. `0` if the event is sold out. */
+            i_remain: number;
+        };
+        /** List of ticket options available for booking the event. Empty if the event is not a */
+        a_tickets: {
+            /** Globally unique identifier of the ticket option. */
+            k_ticket_option: string;
+            /** One ticket price. */
+            m_price: string;
+            /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the */
+            m_price_early: string | null;
+            /** Ticket option name. */
+            text_title: string;
+        };
         /** Date/time of first event session. */
         dt_book_date: string;
-        /** Early date of event purchase. */
-        dt_early: string;
+        /** The last date when the early bird price is applied, the date itself included. `null` if the event... */
+        dt_early: string | null;
         /** End date of the event instance. */
         dt_end: string;
         /** Date of first event session. */
@@ -28972,6 +29527,14 @@ export interface WlEventBookEventViewElementResponse {
         is_past: boolean;
         /** `true` {@link WlEventBookEventViewElementResponse.a_business_policy} contains the custom policies... */
         is_policy_custom: boolean;
+        /** `true` if the event is a ticketed event; `false` otherwise. */
+        is_ticket: boolean;
+        /** `true` if a client can buy tickets without creating an account; `false` otherwise. */
+        is_ticket_guest_allowed: boolean;
+        /** `true` if a client must accept the terms and conditions before buying a ticket; `false` otherwise. */
+        is_ticket_terms: boolean;
+        /** `true` if a client can reserve tickets without payment and pay at the door; `false` otherwise. */
+        is_ticket_unpaid_allowed: boolean;
         /** `true` if event is virtual; `false` otherwise. */
         is_virtual: boolean;
         /** Key of first event session. */
@@ -28988,6 +29551,8 @@ export interface WlEventBookEventViewElementResponse {
         s_title: string;
         /** Description of event. Ready to put into browser. */
         xml_description: string;
+        /** Terms and conditions of a ticketed event as HTML. Empty if there are none. */
+        xml_ticket_terms: string;
     }>;
     /** A list of installment plans. Each element has the following next keys: */
     a_installment_template: Array<{
@@ -29026,7 +29591,7 @@ export interface WlEventBookEventViewElementResponse {
         };
         /** A list of staff members who conduct the session. Every element has the following next keys: */
         a_staff: {
-            /** @deprecated Legacy staff key. Returned only for applications from allow-list. */
+            /** **DEPRECATED** Legacy staff key. Returned only for applications from allow-list. */
             k_staff: string;
             /** The staff member name. */
             s_name: string;
@@ -29063,6 +29628,8 @@ export interface WlEventBookEventViewElementResponse {
         s_time: string;
         /** The name of the timezone in which the session is held. */
         s_timezone: string;
+        /** Identifier of the timezone of the location of the session (for example `America/New_York`). Unlike */
+        s_timezone_location: string;
         /** The room of the event. */
         text_room: string;
     }>;
@@ -29079,6 +29646,26 @@ export interface WlEventBookEventViewElementResponse {
         /** URL to image. */
         url_logo: string;
     };
+    /** How many tickets can be sold for the ticketed event and how many of those are still available. */
+    a_ticket_inventory: {
+        /** Total number of tickets that can be sold for the event. */
+        i_capacity: number;
+        /** Number of tickets still available to sell. */
+        i_remain: number;
+        /** Maximum number of tickets that can be ordered for the event in one purchase. `0` if there is no l... */
+        i_order_limit: number;
+    };
+    /** List of ticket options available for booking the event. Empty if the event is not a ticketed */
+    a_tickets: Array<{
+        /** Globally unique identifier of the ticket option. */
+        k_ticket_option: string;
+        /** One ticket price. */
+        m_price: string;
+        /** One ticket price with the early bird applied, taken from the settings of the event. `null` if the... */
+        m_price_early: string | null;
+        /** Ticket option name. */
+        text_title: string;
+    }>;
     /** Timezone information for all timezones used in the event schedule. */
     a_timezone_info: Array<{
         /** UTC offset in hours for this timezone. */
@@ -29103,7 +29690,7 @@ export interface WlEventBookEventViewElementResponse {
     }>;
     /** That date that should be used to go to the booking wizard. */
     dt_book_date: string | null;
-    /** The early registration date of the event. */
+    /** The last date when the early bird price is applied, in MySQL date format. `null` if the event has... */
     dt_early: string | null;
     /** The end date of the event. */
     dt_end: string;
@@ -29153,6 +29740,14 @@ export interface WlEventBookEventViewElementResponse {
     is_prorate: boolean;
     /** Determines whether this event allows paying for a single session. */
     is_single_session_buy: boolean;
+    /** `true` if this event is a ticketed event, `false` otherwise. */
+    is_ticket: boolean;
+    /** `true` if a client can buy tickets without creating an account. `false` if the event is not */
+    is_ticket_guest_allowed: boolean;
+    /** `true` if a client must accept terms and conditions before buying a ticket, see */
+    is_ticket_terms: boolean;
+    /** `true` if a client can reserve tickets without payment and pay at the door. `false` if the event */
+    is_ticket_unpaid_allowed: boolean;
     /** `true` if event is virtual; `false` otherwise. */
     is_virtual: boolean;
     /** The ID of the session which should be used to go to the booking wizard. */
@@ -29177,6 +29772,8 @@ export interface WlEventBookEventViewElementResponse {
     url_book: string | null;
     /** The description of the event. */
     xml_description: string | null;
+    /** Terms and conditions as HTML that a client must accept before buying a ticket. Empty if the event */
+    xml_ticket_terms: string;
 }
 export interface WlEventBookEventListListParams {
     /** Defines how the event availability flag filter should be applied. @see AFlagSid */
@@ -29192,7 +29789,11 @@ export interface WlEventBookEventListListResponse {
     /** A list of event identifiers. */
     a_event: Array<string>;
     /** Event availability map. */
-    a_event_available: Array<boolean>;
+    a_event_available: Record<string, unknown>;
+    /** Ticketed event map. */
+    a_event_ticket: Record<string, unknown>;
+    /** Ticket option map. */
+    a_event_ticket_option: Record<string, unknown>;
     /** `true` if exist at least one virtual event */
     is_virtual_service: boolean;
 }
@@ -29495,11 +30096,11 @@ export interface WlScheduleScheduleListStaffAppScheduleListResponse {
             is_hide: boolean;
             /** Whether it's required. `true` quiz is required, `false` otherwise. */
             is_require: boolean;
-            /** Quiz key, */
+            /** Quiz key. */
             k_quiz: string;
-            /** Quiz login key, */
+            /** Quiz login key. */
             k_quiz_login: string;
-            /** Quiz response key, */
+            /** Quiz response key. */
             k_quiz_response: string;
             /** Quiz title. */
             text_title: string;
@@ -29540,7 +30141,7 @@ export interface WlScheduleScheduleListStaffAppScheduleListResponse {
         };
         /** For appointments, this is a list of the names of users who are scheduled to attend the session. */
         a_user: Array<string>;
-        /** List of virtual locations. Each value is . */
+        /** List of virtual locations. */
         a_virtual_location: Array<string>;
         /** The date/time of the session in UTC. */
         dt_date: string;
@@ -29578,6 +30179,8 @@ export interface WlScheduleScheduleListStaffAppScheduleListResponse {
         is_pay: boolean;
         /** For appointments: `true` if appointment is recurring; `false` otherwise. */
         is_repeat: boolean;
+        /** `true` if the session belongs to a ticketed event, `false` otherwise. */
+        is_ticket: boolean;
         /** The appointment key. */
         k_appointment: string;
         /** Confirmation date for appointment in MySQL format. Will be zero date + time in case appointment */
@@ -29661,7 +30264,7 @@ export interface WlScheduleScheduleListStaffAppScheduleListByTokenResponse {
         a_resource: Array<string>;
         /** A list of staff members who will conduct the session. */
         a_staff: Array<string>;
-        /** Information about staff members who conduct this session. The keys are . */
+        /** Information about staff members who conduct this session. The keys are staff keys. */
         a_staff_info: {
             /** Staff full name. */
             text_staff: string;
@@ -29672,7 +30275,7 @@ export interface WlScheduleScheduleListStaffAppScheduleListByTokenResponse {
         };
         /** For appointments, this is a list of the names of users who are scheduled to attend the session. */
         a_user: Array<string>;
-        /** List of virtual locations. Each value is . */
+        /** List of virtual locations. */
         a_virtual_location: Array<string>;
         /** The date/time of the session in UTC. */
         dt_date: string;
@@ -29704,6 +30307,8 @@ export interface WlScheduleScheduleListStaffAppScheduleListByTokenResponse {
         is_pay: boolean;
         /** For appointments: `true` if appointment is recurring; `false` otherwise. */
         is_repeat: boolean;
+        /** `true` if the session belongs to a ticketed event, `false` otherwise. */
+        is_ticket: boolean;
         /** The appointment key. */
         k_appointment: string;
         /** Confirmation date for appointment in MySQL format. Will be zero date + time in case appointment */
@@ -29875,6 +30480,93 @@ export interface WlVisitNoteEditEditPostParams {
     k_visit: string;
 }
 export type WlVisitNoteEditEditPostResponse = Record<string, unknown>;
+export interface WlVisitBillingCodeVisitBillingCodeAssignGetParams {
+    /** Business key. */
+    k_business: string;
+    /** Visit key. */
+    k_visit: string;
+}
+export interface WlVisitBillingCodeVisitBillingCodeAssignGetResponse {
+    /** Billing codes applied to the visit, the diagnostic codes first, each type sorted by the code value. */
+    a_code: Array<{
+        /** `true` for a custom code of the business or a temporary code for this visit only, `false` for an ... */
+        is_custom: boolean;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code as it was when the code was applied. `null` for a temporary code. */
+        text_description: string | null;
+    }>;
+    /** History of the changes of the billing codes of the visit, the latest change first: a record per a... */
+    a_history: Array<{
+        /** Date and time of the change in UTC. */
+        dtu_change: string;
+        /** What changed. */
+        text_log: string;
+        /** Reason of the change the staff member gave. `null` if no reason was given. */
+        text_reason: string | null;
+        /** Signature of the staff member who made the change. `null` if no signature was given, or if the bu... */
+        text_signature: string | null;
+        /** Key of the staff member who made the change. `null` if the user is deleted. */
+        uid_staff: string | null;
+    }>;
+    /** `true` if the business requires a signature when diagnostic codes of a visit are saved, `false` o... */
+    is_signature: boolean;
+    /** `true` if the business has the diagnostic codes turned on, `false` otherwise. */
+    is_system: boolean;
+    /** Version of the billing codes of the visit: a value that changes every time the codes of the visit... */
+    s_code_version: string;
+}
+export interface WlVisitBillingCodeVisitBillingCodeAssignPostParams {
+    /** Business key. */
+    k_business: string;
+    /** Visit key. */
+    k_visit: string;
+}
+export interface WlVisitBillingCodeVisitBillingCodeAssignPostResponse {
+    /** Version of the billing codes of the visit: a value that changes every time the codes of the visit... */
+    s_code_version: string;
+}
+export interface WlVisitBillingCodeVisitBillingCodeDefaultParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the service of the visit being booked. Required if {@link WlVisitBillingCodeNamespace#visi... */
+    k_service: string;
+    /** Key of an existing visit. Its service, staff member and client are taken from the visit. Empty st... */
+    k_visit: string;
+    /** Key of the client of the visit being booked. Used only if {@link WlVisitBillingCodeNamespace#visi... */
+    uid_client: string;
+    /** Key of the staff member of the visit being booked. Required if {@link WlVisitBillingCodeNamespace... */
+    uid_staff: string;
+}
+export interface WlVisitBillingCodeVisitBillingCodeDefaultResponse {
+    /** Codes last applied for the visits of the client, the most recently applied first. */
+    a_code_recent: Array<{
+        /** `true` for a custom code of the business or a temporary code, `false` for an ICD-10-CM diagnostic... */
+        is_custom: boolean;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code. `null` for a temporary code. */
+        text_description: string | null;
+    }>;
+    /** Codes applied by default to the service of the visit, sorted by the code value. Empty if the visi... */
+    a_code_service: Array<{
+        /** Always `true`: only custom codes can be default codes of a service. */
+        is_custom: boolean;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code. */
+        text_description: string;
+    }>;
+    /** Default code of the staff member of the visit: a list of one code, or an empty list if the staff ... */
+    a_code_staff: Array<{
+        /** Always `true`: only a custom code can be the default code of a staff member. */
+        is_custom: boolean;
+        /** Code value, as it is printed on receipts and invoices. */
+        text_code: string;
+        /** Description of the code. */
+        text_description: string;
+    }>;
+}
 export interface WlResourceScheduleAddAddParams {
     /** Business key. */
     k_business: string;
@@ -29882,6 +30574,28 @@ export interface WlResourceScheduleAddAddParams {
 export interface WlResourceScheduleAddAddResponse {
     /** Resource period keys. */
     a_resource_period: Array<string>;
+}
+export interface WlDoorAccessBrivoInvitationBrivoUserInvitationGetParams {
+    /** Business key. */
+    k_business: string;
+    /** UID of a user for whom an invitation should be sent. */
+    uid: string;
+}
+export interface WlDoorAccessBrivoInvitationBrivoUserInvitationGetResponse {
+    /** Whether the client has a Brivo invitation, and is present in the client's group with Brivo invita... */
+    has_brivo_invitation: boolean;
+    /** This will be `true` an invitation is redeemed see BrivoInvitationStatusEnum, `false` otherwise. */
+    is_redeem: boolean;
+}
+export interface WlDoorAccessBrivoInvitationBrivoUserInvitationPostParams {
+    /** Business key. */
+    k_business: string;
+    /** UID of a user for whom an invitation should be sent. */
+    uid: string;
+}
+export interface WlDoorAccessBrivoInvitationBrivoUserInvitationPostResponse {
+    /** This will be `true` an invitation is redeemed see BrivoInvitationStatusEnum, `false` otherwise. */
+    is_redeem: boolean;
 }
 export interface WlReceptionRosterDesignReceptionRosterDesignParams {
     /** Key of the business. */
@@ -30003,6 +30717,291 @@ export interface WlInsuranceEnrollmentFieldEnrollmentFieldListPostParams {
 export type WlInsuranceEnrollmentFieldEnrollmentFieldListPostResponse = Record<string, unknown>;
 export type WlVirtualMeetingZoomZoomMeetingEndParams = Record<string, unknown>;
 export type WlVirtualMeetingZoomZoomMeetingEndResponse = Record<string, unknown>;
+export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetParams {
+    /** Report page CID. */
+    cid_page: number;
+    /** Report CID. */
+    cid_report: number;
+    /** Business primary key. */
+    k_business: string;
+    /** Report CID list to that page customization form must be converted. String separated with `,`. */
+    s_report: string;
+    /** Current user's primary key. */
+    uid_actor: string;
+    /** SQL query primary key. Primary key in ReportQuerySql. */
+    k_report_query?: string | null;
+    /** Primary key of a saved report. */
+    k_report_save?: string | null;
+}
+export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetResponse {
+    /** Customization form data keyed by report or page CID. Each value has the following structure: */
+    a_customization_form: {
+        /** Form elements keyed by element name. Each element has the following structure: */
+        a_element: {
+            /** Element fields keyed by field alias. Each field has the following structure: */
+            a_field: {
+                /** Localized field title. */
+                text_title: string;
+                /** Current field value. */
+                x_value: string;
+            };
+            /** Report CID list the element applies to. */
+            a_report: Array<number>;
+            /** Localized element title. */
+            html_title: string;
+            /** Localized element tooltip. */
+            html_title_tooltip: string;
+        };
+        /** Form class identifier. */
+        s_form: string;
+    };
+}
+export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostParams {
+    /** Report page CID. */
+    cid_page: number;
+    /** Report CID. */
+    cid_report: number;
+    /** Business primary key. */
+    k_business: string;
+    /** Current user's primary key. */
+    uid_actor: string;
+    /** SQL query primary key. Primary key in ReportQuerySql. */
+    k_report_query?: string | null;
+    /** Primary key of a saved report. */
+    k_report_save?: string | null;
+}
+export type ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostResponse = Record<string, unknown>;
+export type ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartParams = Record<string, unknown>;
+export interface ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartResponse {
+    /** CS Response code class. @see ThothPayProcessorNuveiCodeCSResponseSid */
+    id_response: ThothPayProcessorNuveiCodeCSResponseSid | null;
+    /** Key of payment transaction that was created. */
+    k_pay_transaction: string | null;
+    /** Payment amount. */
+    m_amount: string | null;
+    /** Surcharge amount. */
+    m_surcharge: string | null;
+    /** The request exchange identification. */
+    s_exchange_identification: string;
+    /** Error message. */
+    text_message: string | null;
+}
+export interface WlPayBankCardAddAddDeleteParams {
+    /** The business key number used internally by WellnessLiving. */
+    k_business: string;
+    /** Pay bank key to delete. */
+    k_pay_bank: string;
+}
+export type WlPayBankCardAddAddDeleteResponse = Record<string, unknown>;
+export interface WlPayBankCardAddAddGetParams {
+    /** The business key number used internally by WellnessLiving. */
+    k_business: string;
+    /** The location key. */
+    k_location: string;
+    /** The payment owner ID. This is different from the user ID. It can be found with */
+    k_pay_owner: string;
+}
+export interface WlPayBankCardAddAddGetResponse {
+    /** The HTML form containing the fields required to add a card. */
+    html_widget: string;
+}
+export interface WlPayBankCardAddAddPostParams {
+    /** The business key number used internally by WellnessLiving. */
+    k_business: string;
+    /** The location key. */
+    k_location: string;
+    /** The payment owner ID. This is different from the user ID. It can be found with */
+    k_pay_owner: string;
+}
+export type WlPayBankCardAddAddPostResponse = Record<string, unknown>;
+export interface WlPayBankCardWidgetWidgetSelectParams {
+    /** Payment method. @see RsPayMethodSid */
+    id_pay_method: RsPayMethodSid | null;
+    /** Payment mode. @see RsPayModeSid */
+    id_pay_mode: RsPayModeSid;
+    /** Payment owner kind. @see RsPayOwnerSid */
+    id_pay_owner: RsPayOwnerSid;
+    /** Business key. */
+    k_business: string;
+    /** Currency key. */
+    k_currency: string;
+    /** Payment owner. */
+    k_id: string;
+    /** Location key. */
+    k_location: string;
+}
+export interface WlPayBankCardWidgetWidgetSelectResponse {
+    /** List of saved bank cards. */
+    a_pay_card: {
+        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
+        eid_card_type: ThothWlPayBankCardCardTypeEnum | null;
+        /** Card expiration month. */
+        i_month: number;
+        /** Card expiration year. */
+        i_year: number;
+        /** A list of card types. @see WlCardCardSystemSid */
+        id_card_system: WlCardCardSystemSid;
+        /** An enum of credit card types. @see ThothWlPayBankCardCardTypeEnum */
+        id_card_type: ThothWlPayBankCardCardTypeEnum | null;
+        /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
+        id_pay_processor: ThothPayProcessorPayProcessorSid;
+        /** `true` if this card is the default payment method; `false` otherwise. */
+        is_default: boolean;
+        /** Billing address key. */
+        k_pay_address: string;
+        /** Payment card key. */
+        k_pay_bank: string;
+        /** Recurrent payment token key. */
+        k_pay_recurrent: string;
+        /** Billing region key. */
+        k_region: string;
+        /** Card nickname. Auto-generated from card system and masked number if not explicitly set. */
+        s_name: string;
+        /** Partial card number. */
+        s_number: string;
+        /** Card system SID. One of {@link WlCardCardSystemSid} constants as string. */
+        sid_card_system: string;
+        /** Billing city. */
+        text_city: string;
+        /** Country name resolved from the region's parent geo entity. Empty if region has no parent. */
+        text_country: string;
+        /** Cardholder name. */
+        text_holder: string;
+        /** Billing postal code. */
+        text_postal: string;
+        /** Public representation of the recurrent payment token, safe for browser output. */
+        text_public_token: string;
+        /** Region name resolved from the region key. Empty if no region is set. */
+        text_region: string;
+        /** Billing street address line 1. */
+        text_street_1: string;
+        /** Billing street address line 2. */
+        text_street_2: string;
+    };
+}
+export interface WlPayBankAchWidgetWidgetSelectParams {
+    /** Pay bank id. @see RsPayBankSid */
+    id_pay_bank: RsPayBankSid;
+    /** Payment method. @see RsPayMethodSid */
+    id_pay_method: RsPayMethodSid | null;
+    /** Payment owner kind. @see RsPayOwnerSid */
+    id_pay_owner: RsPayOwnerSid;
+    /** Business key. */
+    k_business: string;
+    /** Currency key. */
+    k_currency: string;
+    /** Payment owner. */
+    k_id: string;
+    /** Location key. */
+    k_location: string;
+}
+export interface WlPayBankAchWidgetWidgetSelectResponse {
+    /** List of saved bank accounts, keyed by bank account key. Each entry: */
+    a_pay_bank: {
+        /** Address key of the bank account. */
+        k_pay_address: string;
+        /** Bank account key. */
+        k_pay_bank: string;
+        /** Region key, or empty string if the address has no region. */
+        k_region: string;
+        /** Part of the bank account number. */
+        s_number: string;
+        /** Bank account nickname. */
+        s_name: string;
+        /** `true` if this is the default bank account, `false` otherwise. */
+        is_default: boolean;
+        /** Name of the account holder. */
+        text_name_holder: string;
+        /** City of the billing address. */
+        text_city: string;
+        /** Phone number of the billing address. */
+        text_phone: string;
+        /** Postal code of the billing address. */
+        text_postal: string;
+        /** First line of the billing street address. */
+        text_street1: string;
+        /** Second line of the billing street address. */
+        text_street2: string;
+        /** Region title. */
+        text_region: string;
+    };
+}
+export interface WlPayBankAchAddAddDeleteParams {
+    /** Business key. */
+    k_business: string;
+    /** Pay bank key to delete. */
+    k_pay_bank: string;
+}
+export type WlPayBankAchAddAddDeleteResponse = Record<string, unknown>;
+export interface WlPayBankAchAddAddGetParams {
+    /** Determines if the set of configs of the new payment form design is used. */
+    is_new: boolean;
+    /** Business key. */
+    k_business: string;
+    /** Location key. */
+    k_location: string;
+    /** Pay owner key. */
+    k_pay_owner: string;
+    /** Locale ID. @see CoreLocaleLocaleSid */
+    id_locale?: CoreLocaleLocaleSid;
+}
+export interface WlPayBankAchAddAddGetResponse {
+    /** The HTML form containing the fields required to add a card. */
+    html_widget: string;
+    /** A list of payment gateways or processors. @see ThothPayProcessorPayProcessorSid */
+    id_pay_processor: ThothPayProcessorPayProcessorSid;
+}
+export interface WlPayBankAchAddAddPostParams {
+    /** Business key. */
+    k_business: string;
+    /** Location key. */
+    k_location: string;
+    /** Pay owner key. */
+    k_pay_owner: string;
+}
+export interface WlPayBankAchAddAddPostResponse {
+    /** ACH account information: */
+    a_pay_bank: {
+        /** Whether current user can remove payment method. */
+        can_remove: boolean;
+        /** A list of bank account types. @see RsPayBankSid */
+        id_pay_bank: RsPayBankSid;
+        /** A list of account holder types which can be chosen. @see RsPayBankAchHolderSid */
+        id_pay_bank_ach_holder: RsPayBankAchHolderSid;
+        /** A list of account types which can be chosen. @see RsPayBankAchTypeSid */
+        id_pay_bank_ach_type: RsPayBankAchTypeSid;
+        /** `true` - this account is default payment method; `false` - otherwise. */
+        is_default: boolean;
+        /** Billing address. */
+        k_pay_address: string;
+        /** ID of bank account. */
+        k_pay_bank: string;
+        /** Region ID. */
+        k_region: string;
+        /** Name of city. */
+        text_city: string;
+        /** Name of country. */
+        text_country: string;
+        /** Account nickname. */
+        text_name: string;
+        /** Account name. */
+        text_name_account: string;
+        /** Account holder name. */
+        text_name_holder: string;
+        /** ACH account number. */
+        text_number: string;
+        /** Phone number. */
+        text_phone: string;
+        /** Postal code. */
+        text_postal: string;
+        /** Name of region. */
+        text_region: string;
+        /** Street address line 1. */
+        text_street1: string;
+        /** Street address line 2. */
+        text_street2: string;
+    };
+}
 export interface CoreRequestApiApplicationCredentialCredentialDeleteParams {
     /** The CID of the credential. */
     cid_credential: number;
@@ -30281,11 +31280,32 @@ export interface WlLoginPromotionGuestPassInviteInviteListPostParams {
     uid_guest?: string | null;
 }
 export type WlLoginPromotionGuestPassInviteInviteListPostResponse = Record<string, unknown>;
-export interface WlLoginPromotionGuestPassApplyApplyParams {
+export interface WlLoginPromotionGuestPassApplyApplyGetParams {
+    /** Business key. */
+    k_business: string;
+    /** Visit key of the attendee for whom the list of guest passes is requested. */
+    k_visit_search: string;
+    /** Text to search guest pass hosts by (for example, a member name). */
+    text_search: string;
+}
+export interface WlLoginPromotionGuestPassApplyApplyGetResponse {
+    /** A list of login promotions with available guest passes for the given visit. */
+    a_login_promotion: Array<{
+        /** Login promotion key. */
+        k_login_promotion: string;
+        /** Remaining guest pass balance description for this login promotion. */
+        text_description: string;
+        /** Name of the host member who owns this guest pass. */
+        text_title: string;
+        /** Key of the host member who owns this guest pass. */
+        uid: string;
+    }>;
+}
+export interface WlLoginPromotionGuestPassApplyApplyPostParams {
     /** Business key. */
     k_business: string;
 }
-export type WlLoginPromotionGuestPassApplyApplyResponse = Record<string, unknown>;
+export type WlLoginPromotionGuestPassApplyApplyPostResponse = Record<string, unknown>;
 export type WlLoginPromotionGuestPassClaimClaimParams = Record<string, unknown>;
 export type WlLoginPromotionGuestPassClaimClaimResponse = Record<string, unknown>;
 export interface WlLoginAttendanceStaffAppVirtualJoinParams {
@@ -30389,7 +31409,7 @@ export interface WlBusinessSmsChatDialogDialogListResponse {
         text_date_last_sms: string;
         /** The text of the last SMS from the client. */
         text_last_sms: string;
-        /** UID of the client.  table. */
+        /** UID of the client. */
         uid: string;
         /** The link to logo the client. */
         url_profile_logo: string;
@@ -30416,7 +31436,7 @@ export interface WlBusinessSmsChatDialogMessageHistoryResponse {
         is_automated: boolean;
         /** `true` if staff member sent SMS, `false` - if the client sent the SMS. */
         is_outbound: boolean;
-        /** The key of SMS history.  table. */
+        /** The key of SMS history. */
         k_sms_history: string;
         /** The day when SMS messages were sent. */
         text_date: string;
@@ -30921,339 +31941,342 @@ export interface WlScheduleScheduleListStaffAppFilterEditScheduleListFilterEditP
     uid: string;
 }
 export type WlScheduleScheduleListStaffAppFilterEditScheduleListFilterEditPostResponse = Record<string, unknown>;
-export declare class ThothExplorerSearchClassSessionNamespace {
+export declare class CoreRequestApiApplicationCredentialNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Gets list of class sessions based on search criteria. */
-    classSessionSearch(params?: ThothExplorerSearchClassSessionClassSessionSearchParams): Promise<ThothExplorerSearchClassSessionClassSessionSearchResponse>;
+    /** Deletes the specified credential for the application. */
+    credentialDelete(params?: CoreRequestApiApplicationCredentialCredentialDeleteParams): Promise<CoreRequestApiApplicationCredentialCredentialDeleteResponse>;
+    /** Returns the credential data for the application. */
+    credentialGet(params?: CoreRequestApiApplicationCredentialCredentialGetParams): Promise<CoreRequestApiApplicationCredentialCredentialGetResponse>;
+    /** Saves the credential for the application. */
+    credentialPut(params?: CoreRequestApiApplicationCredentialCredentialPutParams): Promise<CoreRequestApiApplicationCredentialCredentialPutResponse>;
 }
-export declare class ThothExplorerSearchNamespace {
+export declare class CoreRequestApiApplicationNamespace {
     private readonly _client;
-    readonly classSession: ThothExplorerSearchClassSessionNamespace;
+    readonly credential: CoreRequestApiApplicationCredentialNamespace;
     constructor(_client: WlClient);
+    /** Restricts access to API for all sites, which are given in the list. */
+    originDelete(params?: CoreRequestApiApplicationOriginDeleteParams): Promise<CoreRequestApiApplicationOriginDeleteResponse>;
+    /** Gets list of all sites, where usage of the API is allowed for the current application. */
+    originGet(params?: CoreRequestApiApplicationOriginGetParams): Promise<CoreRequestApiApplicationOriginGetResponse>;
+    /** Allows access to API for all sites, which are given in the list. */
+    originPut(params?: CoreRequestApiApplicationOriginPutParams): Promise<CoreRequestApiApplicationOriginPutResponse>;
 }
-export declare class ThothLayoutBeFooterNamespace {
+export declare class CoreRequestApiNamespace {
     private readonly _client;
+    readonly application: CoreRequestApiApplicationNamespace;
     constructor(_client: WlClient);
-    /** Loads the data required to render the site footer for the given business. */
-    footer(params?: ThothLayoutBeFooterFooterParams): Promise<ThothLayoutBeFooterFooterResponse>;
+    /** Gets a secret key for signing. */
+    keySecret(params?: CoreRequestApiKeySecretParams): Promise<CoreRequestApiKeySecretResponse>;
 }
-export declare class ThothLayoutBeNamespace {
+export declare class CoreRequestTokenNamespace {
     private readonly _client;
-    readonly footer: ThothLayoutBeFooterNamespace;
     constructor(_client: WlClient);
+    /** Gets new pin code. */
+    tokenPin(params?: CoreRequestTokenTokenPinParams): Promise<CoreRequestTokenTokenPinResponse>;
 }
-export declare class ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace {
+export declare class CoreRequestNamespace {
     private readonly _client;
+    readonly api: CoreRequestApiNamespace;
+    readonly token: CoreRequestTokenNamespace;
     constructor(_client: WlClient);
-    /** Starts a payment transaction on a `Nuvei` POS terminal. */
-    nuveiTerminalTransactionStart(params?: ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartParams): Promise<ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartResponse>;
+    /** Returns the example result for debugging. */
+    example(params?: CoreRequestExampleParams): Promise<CoreRequestExampleResponse>;
 }
-export declare class ThothPayProcessorNuveiTerminalNamespace {
+export declare class CoreCaptchaNamespace {
     private readonly _client;
-    readonly oMNIChannelApi: ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace;
     constructor(_client: WlClient);
-    /** Cancels a payment made through a `Nuvei` omnichannel terminal. */
-    nuveiOmnichannelTerminalPaymentVoid(params?: ThothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoidParams): Promise<ThothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoidResponse>;
+    /** Checks if a CAPTCHA is required for the given captcha type. */
+    captchaRequire(params?: CoreCaptchaCaptchaRequireParams): Promise<CoreCaptchaCaptchaRequireResponse>;
 }
-export declare class ThothPayProcessorNuveiNamespace {
+export declare class CoreGoogleCaptchaNamespace {
     private readonly _client;
-    readonly terminal: ThothPayProcessorNuveiTerminalNamespace;
     constructor(_client: WlClient);
-    /** Opens a `Nuvei` order for the payment transaction. */
-    nuveiOpenOrder(params?: ThothPayProcessorNuveiNuveiOpenOrderParams): Promise<ThothPayProcessorNuveiNuveiOpenOrderResponse>;
-    /** Finalizes the `Nuvei` transaction after successful payer authentication. */
-    nuveiTransactionOnAuthSuccess(params?: ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams): Promise<ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse>;
-    /** Cancels the `Nuvei` transaction. */
-    nuveiTransactionCancel(params?: ThothPayProcessorNuveiNuveiTransactionCancelParams): Promise<ThothPayProcessorNuveiNuveiTransactionCancelResponse>;
-    /** Updates the amount of a previously opened `Nuvei` order. */
-    nuveiUpdateOrder(params?: ThothPayProcessorNuveiNuveiUpdateOrderParams): Promise<ThothPayProcessorNuveiNuveiUpdateOrderResponse>;
+    /** Returns the overridden score for the reCAPTCHA v3. */
+    captchaScoreGet(params?: CoreGoogleCaptchaCaptchaScoreGetParams): Promise<CoreGoogleCaptchaCaptchaScoreGetResponse>;
+    /** Validates the reCAPTCHA v3 token. */
+    captchaScorePost(params?: CoreGoogleCaptchaCaptchaScorePostParams): Promise<CoreGoogleCaptchaCaptchaScorePostResponse>;
+    /** Overrides the score for the reCAPTCHA v3. */
+    captchaScorePut(params?: CoreGoogleCaptchaCaptchaScorePutParams): Promise<CoreGoogleCaptchaCaptchaScorePutResponse>;
+    /** Saves the user CAPTCHA token for the current session. */
+    googleCaptcha(params?: CoreGoogleCaptchaGoogleCaptchaParams): Promise<CoreGoogleCaptchaGoogleCaptchaResponse>;
 }
-export declare class ThothPayProcessorNamespace {
+export declare class CoreGoogleNamespace {
     private readonly _client;
-    readonly nuvei: ThothPayProcessorNuveiNamespace;
+    readonly captcha: CoreGoogleCaptchaNamespace;
     constructor(_client: WlClient);
-}
-export declare class ThothReportCoreQueryEngineReportCustomizationNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Loads customization data of the customization form that corresponds to specified report / report page. */
-    reportQueryCustomizationFormGet(params?: ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetParams): Promise<ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetResponse>;
-    /** Saves given data of a customization form into database. */
-    reportQueryCustomizationFormPost(params?: ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostParams): Promise<ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostResponse>;
-}
-export declare class ThothReportCoreQueryEngineReportNamespace {
-    private readonly _client;
-    readonly customization: ThothReportCoreQueryEngineReportCustomizationNamespace;
-    constructor(_client: WlClient);
-}
-export declare class ThothReportCoreQueryEngineNamespace {
-    private readonly _client;
-    readonly report: ThothReportCoreQueryEngineReportNamespace;
-    constructor(_client: WlClient);
-}
-export declare class ThothReportCoreNamespace {
-    private readonly _client;
-    readonly queryEngine: ThothReportCoreQueryEngineNamespace;
-    constructor(_client: WlClient);
-}
-export declare class ThothNamespace {
-    private readonly _client;
-    readonly explorerSearch: ThothExplorerSearchNamespace;
-    readonly layoutBe: ThothLayoutBeNamespace;
-    readonly payProcessor: ThothPayProcessorNamespace;
-    readonly reportCore: ThothReportCoreNamespace;
-    constructor(_client: WlClient);
-}
-export declare class WlHardwareStripeComNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Removes terminal. */
-    stripeComHardwareElementDelete(params?: WlHardwareStripeComStripeComHardwareElementDeleteParams): Promise<WlHardwareStripeComStripeComHardwareElementDeleteResponse>;
-    /** Fetch terminal information. */
-    stripeComHardwareElementGet(params?: WlHardwareStripeComStripeComHardwareElementGetParams): Promise<WlHardwareStripeComStripeComHardwareElementGetResponse>;
-    /** Creates terminal. */
-    stripeComHardwareElementPost(params?: WlHardwareStripeComStripeComHardwareElementPostParams): Promise<WlHardwareStripeComStripeComHardwareElementPostResponse>;
-}
-export declare class WlHardwareNamespace {
-    private readonly _client;
-    readonly stripeCom: WlHardwareStripeComNamespace;
-    constructor(_client: WlClient);
-}
-export declare class WlPayProcessorStripeComNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Updates a `Stripe` Payment Intent. */
-    paymentIntentUpdate(params?: WlPayProcessorStripeComPaymentIntentUpdateParams): Promise<WlPayProcessorStripeComPaymentIntentUpdateResponse>;
-    /** Gets the `Stripe` public key for a merchant. */
-    stripeComKey(params?: WlPayProcessorStripeComStripeComKeyParams): Promise<WlPayProcessorStripeComStripeComKeyResponse>;
-    /** Initializes a `Stripe` payment. */
-    stripeComPayInit(params?: WlPayProcessorStripeComStripeComPayInitParams): Promise<WlPayProcessorStripeComStripeComPayInitResponse>;
-    /** Cancels a `Stripe` Payment Intent. */
-    stripeComPaymentIntentCancel(params?: WlPayProcessorStripeComStripeComPaymentIntentCancelParams): Promise<WlPayProcessorStripeComStripeComPaymentIntentCancelResponse>;
-    /** Gets Stripe charge information. */
-    stripeComCharge(params?: WlPayProcessorStripeComStripeComChargeParams): Promise<WlPayProcessorStripeComStripeComChargeResponse>;
-    /** Gets a secret from a connection token for the Stripe Terminal SDK. */
-    stripeComConnectionToken(params?: WlPayProcessorStripeComStripeComConnectionTokenParams): Promise<WlPayProcessorStripeComStripeComConnectionTokenResponse>;
-}
-export declare class WlPayProcessorCyberSourceNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Starts `CyberSource` Payer Authentication setup. */
-    csPaSetup(params?: WlPayProcessorCyberSourceCsPaSetupParams): Promise<WlPayProcessorCyberSourceCsPaSetupResponse>;
-    /** Generates a capture context for `CyberSource` Flex Microform. */
-    csCaptureContext(params?: WlPayProcessorCyberSourceCsCaptureContextParams): Promise<WlPayProcessorCyberSourceCsCaptureContextResponse>;
-    /** Checks `CyberSource` Payer Authentication enrollment. */
-    csPaEnrollment(params?: WlPayProcessorCyberSourceCsPaEnrollmentParams): Promise<WlPayProcessorCyberSourceCsPaEnrollmentResponse>;
-    /** Validates the `CyberSource` Payer Authentication result. */
-    csPaValidate(params?: WlPayProcessorCyberSourceCsPaValidateParams): Promise<WlPayProcessorCyberSourceCsPaValidateResponse>;
-}
-export declare class WlPayProcessorNuveiNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Starts a `Nuvei` card authorization transaction for a purchase or a card verification. */
+    /** Saves the user CAPTCHA token for the current session. */
     /** @deprecated */
-    nuveiTransactionStart(params?: WlPayProcessorNuveiNuveiTransactionStartParams): Promise<WlPayProcessorNuveiNuveiTransactionStartResponse>;
+    googleCaptcha(params?: CoreGoogleGoogleCaptchaParams): Promise<CoreGoogleGoogleCaptchaResponse>;
 }
-export declare class WlPayProcessorNamespace {
-    private readonly _client;
-    readonly stripeCom: WlPayProcessorStripeComNamespace;
-    readonly cyberSource: WlPayProcessorCyberSourceNamespace;
-    readonly nuvei: WlPayProcessorNuveiNamespace;
-    constructor(_client: WlClient);
-}
-export declare class WlPayAccountChargeNamespace {
+export declare class CoreSidNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Refills the user account balance by the specified payment amount or adjusts it manually. */
-    charge(params?: WlPayAccountChargeChargeParams): Promise<WlPayAccountChargeChargeResponse>;
+    /** Returns the list of all items for the given Sid class. */
+    coreSid(params?: CoreSidCoreSidParams): Promise<CoreSidCoreSidResponse>;
 }
-export declare class WlPayAccountNamespace {
-    private readonly _client;
-    readonly charge: WlPayAccountChargeNamespace;
-    constructor(_client: WlClient);
-    /** Retrieves information about accounts of given user in given business. */
-    account(params?: WlPayAccountAccountParams): Promise<WlPayAccountAccountResponse>;
-}
-export declare class WlPayBankCardAddNamespace {
+export declare class CoreWebSocketNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Deletes saved card. */
-    addDelete(params?: WlPayBankCardAddAddDeleteParams): Promise<WlPayBankCardAddAddDeleteResponse>;
-    /** Gets code of bank card widget. */
-    /** @deprecated */
-    addGet(params?: WlPayBankCardAddAddGetParams): Promise<WlPayBankCardAddAddGetResponse>;
-    /** Saves new bank card. */
-    addPost(params?: WlPayBankCardAddAddPostParams): Promise<WlPayBankCardAddAddPostResponse>;
+    /** Checks whether a listener can subscribe to specified channel. Subscribes in a case of positive result. */
+    subscribe(params?: CoreWebSocketSubscribeParams): Promise<CoreWebSocketSubscribeResponse>;
 }
-export declare class WlPayBankCardWidgetNamespace {
+export declare class CoreGeoRegionNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Gets a list of saved bank cards. */
-    widgetSelect(params?: WlPayBankCardWidgetWidgetSelectParams): Promise<WlPayBankCardWidgetWidgetSelectResponse>;
+    /** Retrieves information about countries and regions. */
+    region(params?: CoreGeoRegionRegionParams): Promise<CoreGeoRegionRegionResponse>;
 }
-export declare class WlPayBankCardNamespace {
+export declare class CoreGeoNamespace {
     private readonly _client;
-    readonly add: WlPayBankCardAddNamespace;
-    readonly widget: WlPayBankCardWidgetNamespace;
+    readonly region: CoreGeoRegionNamespace;
     constructor(_client: WlClient);
-    /** Retrieves information about user's bank cards. */
-    list(params?: WlPayBankCardListParams): Promise<WlPayBankCardListResponse>;
+    /** Returns a list of cities to show in combobox list. */
+    combobox(params?: CoreGeoComboboxParams): Promise<CoreGeoComboboxResponse>;
 }
-export declare class WlPayBankAchAddNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Deletes saved ACH. */
-    addDelete(params?: WlPayBankAchAddAddDeleteParams): Promise<WlPayBankAchAddAddDeleteResponse>;
-    /** Gets widget for ACH account add. */
-    addGet(params?: WlPayBankAchAddAddGetParams): Promise<WlPayBankAchAddAddGetResponse>;
-    /** Saves new ACH pay method. */
-    addPost(params?: WlPayBankAchAddAddPostParams): Promise<WlPayBankAchAddAddPostResponse>;
-}
-export declare class WlPayBankAchWidgetNamespace {
+export declare class CoreDebugNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Gets a list of saved bank account. */
-    widgetSelect(params?: WlPayBankAchWidgetWidgetSelectParams): Promise<WlPayBankAchWidgetWidgetSelectResponse>;
+    /** Logs new error occurred in browser. */
+    error(params?: CoreDebugErrorParams): Promise<CoreDebugErrorResponse>;
 }
-export declare class WlPayBankAchNamespace {
-    private readonly _client;
-    readonly add: WlPayBankAchAddNamespace;
-    readonly widget: WlPayBankAchWidgetNamespace;
-    constructor(_client: WlClient);
-    /** Retrieves information about user's ACH accounts. */
-    list(params?: WlPayBankAchListParams): Promise<WlPayBankAchListResponse>;
-}
-export declare class WlPayBankNamespace {
-    private readonly _client;
-    readonly card: WlPayBankCardNamespace;
-    readonly ach: WlPayBankAchNamespace;
-    constructor(_client: WlClient);
-    /** Sets a specified payment method as default. */
-    primary(params?: WlPayBankPrimaryParams): Promise<WlPayBankPrimaryResponse>;
-}
-export declare class WlPayFormSurchargeNamespace {
+export declare class CorePushNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Previews whether a surcharge is allowed for a card. */
-    surchargeTender(params?: WlPayFormSurchargeSurchargeTenderParams): Promise<WlPayFormSurchargeSurchargeTenderResponse>;
+    /** Adds new device ID for push notifications. */
+    push(params?: CorePushPushParams): Promise<CorePushPushResponse>;
 }
-export declare class WlPayFormNamespace {
-    private readonly _client;
-    readonly surcharge: WlPayFormSurchargeNamespace;
-    constructor(_client: WlClient);
-    /** Returns information about payment environment. */
-    /** @deprecated */
-    environment(params?: WlPayFormEnvironmentParams): Promise<WlPayFormEnvironmentResponse>;
-    /** Returns information about payment environment. */
-    environmentUser(params?: WlPayFormEnvironmentUserParams): Promise<WlPayFormEnvironmentUserResponse>;
-}
-export declare class WlPayOwnerNamespace {
+export declare class CoreTimingNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Returns information about payment owner. */
-    owner(params?: WlPayOwnerOwnerParams): Promise<WlPayOwnerOwnerResponse>;
+    /** Logs component load timing entries reported by browser. */
+    componentTiming(params?: CoreTimingComponentTimingParams): Promise<CoreTimingComponentTimingResponse>;
 }
-export declare class WlPayMethodNamespace {
+export declare class CoreTestingAutomationNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Returns list of active payment methods data. */
-    list(params?: WlPayMethodListParams): Promise<WlPayMethodListResponse>;
+    /** Flushes all application caches. */
+    cacheFlush(params?: CoreTestingAutomationCacheFlushParams): Promise<CoreTestingAutomationCacheFlushResponse>;
 }
-export declare class WlPayAddressWidgetNamespace {
+export declare class CoreTestingNamespace {
     private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets data for "edit payment address" widget. */
-    widgetEdit(params?: WlPayAddressWidgetWidgetEditParams): Promise<WlPayAddressWidgetWidgetEditResponse>;
-}
-export declare class WlPayAddressNamespace {
-    private readonly _client;
-    readonly widget: WlPayAddressWidgetNamespace;
-    constructor(_client: WlClient);
-    /** Gets user's payment addresses information. */
-    address(params?: WlPayAddressAddressParams): Promise<WlPayAddressAddressResponse>;
-    /** Returns default payment address data that is retrieved from user profile. */
-    profile(params?: WlPayAddressProfileParams): Promise<WlPayAddressProfileResponse>;
-}
-export declare class WlPayTransactionReportNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns All Transactions Report data for the specified date range. */
-    transactionAllPayment(params?: WlPayTransactionReportTransactionAllPaymentParams): Promise<WlPayTransactionReportTransactionAllPaymentResponse>;
-}
-export declare class WlPayTransactionNamespace {
-    private readonly _client;
-    readonly report: WlPayTransactionReportNamespace;
+    readonly automation: CoreTestingAutomationNamespace;
     constructor(_client: WlClient);
 }
-export declare class WlPayNamespace {
+export declare class CoreAILogTriageNamespace {
     private readonly _client;
-    readonly processor: WlPayProcessorNamespace;
-    readonly account: WlPayAccountNamespace;
-    readonly bank: WlPayBankNamespace;
-    readonly form: WlPayFormNamespace;
-    readonly owner: WlPayOwnerNamespace;
-    readonly method: WlPayMethodNamespace;
-    readonly address: WlPayAddressNamespace;
-    readonly transaction: WlPayTransactionNamespace;
+    constructor(_client: WlClient);
+    /** Collects findings for the requested calendar date. */
+    connectionCheck(params?: CoreAILogTriageConnectionCheckParams): Promise<CoreAILogTriageConnectionCheckResponse>;
+}
+export declare class CoreAINamespace {
+    private readonly _client;
+    readonly logTriage: CoreAILogTriageNamespace;
     constructor(_client: WlClient);
 }
-export declare class WlReportGeneratorNamespace {
+export declare class CorePassportLoginRegisterNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Returns contents of a report as a table. */
-    query(params?: WlReportGeneratorQueryParams): Promise<WlReportGeneratorQueryResponse>;
+    /** Validates the new user's data and sends a confirmation email to complete registration. */
+    register(params?: CorePassportLoginRegisterRegisterParams): Promise<CorePassportLoginRegisterRegisterResponse>;
+    /** Confirms email of a new user and completes registration. */
+    registerConfirm(params?: CorePassportLoginRegisterRegisterConfirmParams): Promise<CorePassportLoginRegisterRegisterConfirmResponse>;
 }
-export declare class WlReportDashboardNamespace {
+export declare class CorePassportLoginEnterQuickNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Adds new report to a dashboard. */
-    reportDashboardPost(params?: WlReportDashboardReportDashboardPostParams): Promise<WlReportDashboardReportDashboardPostResponse>;
-    /** Updates added report to a dashboard. */
-    reportDashboardPut(params?: WlReportDashboardReportDashboardPutParams): Promise<WlReportDashboardReportDashboardPutResponse>;
+    /** Generates secret key to verify legitimacy of the request. */
+    enterQuick(params?: CorePassportLoginEnterQuickEnterQuickParams): Promise<CorePassportLoginEnterQuickEnterQuickResponse>;
 }
-export declare class WlReportCustomizationNamespace {
+export declare class CorePassportLoginEnterNamespace {
     private readonly _client;
+    readonly quick: CorePassportLoginEnterQuickNamespace;
     constructor(_client: WlClient);
-    /** Loads customization data of the customization form that corresponds to specified report / report page. */
-    customizationFormGet(params?: WlReportCustomizationCustomizationFormGetParams): Promise<WlReportCustomizationCustomizationFormGetResponse>;
-    /** Saves given data of a customization form into database. */
-    customizationFormPost(params?: WlReportCustomizationCustomizationFormPostParams): Promise<WlReportCustomizationCustomizationFormPostResponse>;
+    /** Signs the user in using their login and hashed password. */
+    enter(params?: CorePassportLoginEnterEnterParams): Promise<CorePassportLoginEnterEnterResponse>;
+    /** Generates notepad for user sign in form. */
+    notepad(params?: CorePassportLoginEnterNotepadParams): Promise<CorePassportLoginEnterNotepadResponse>;
 }
-export declare class WlReportFavoriteNamespace {
+export declare class CorePassportLoginSignOutNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Removes report controller from favorites. */
-    reportFavoriteDelete(params?: WlReportFavoriteReportFavoriteDeleteParams): Promise<WlReportFavoriteReportFavoriteDeleteResponse>;
-    /** Returns information whether passed report controller (saved report controller) is favorite for the specified user   within specified business. */
-    reportFavoriteGet(params?: WlReportFavoriteReportFavoriteGetParams): Promise<WlReportFavoriteReportFavoriteGetResponse>;
-    /** Adds report controller to favorites. */
-    reportFavoritePost(params?: WlReportFavoriteReportFavoritePostParams): Promise<WlReportFavoriteReportFavoritePostResponse>;
+    /** Signs user out. */
+    signOut(params?: CorePassportLoginSignOutSignOutParams): Promise<CorePassportLoginSignOutSignOutResponse>;
 }
-export declare class WlReportSaveNamespace {
+export declare class CorePassportLoginNamespace {
     private readonly _client;
+    readonly register: CorePassportLoginRegisterNamespace;
+    readonly enter: CorePassportLoginEnterNamespace;
+    readonly signOut: CorePassportLoginSignOutNamespace;
     constructor(_client: WlClient);
-    /** Returns information about saved report. */
-    reportSaveGet(params?: WlReportSaveReportSaveGetParams): Promise<WlReportSaveReportSaveGetResponse>;
-    /** Saves new saved report. */
-    reportSavePost(params?: WlReportSaveReportSavePostParams): Promise<WlReportSaveReportSavePostResponse>;
-    /** Updates existing saved report. */
-    reportSavePut(params?: WlReportSaveReportSavePutParams): Promise<WlReportSaveReportSavePutResponse>;
+    /** Returns information about user that is currently signed in. */
+    info(params?: CorePassportLoginInfoParams): Promise<CorePassportLoginInfoResponse>;
 }
-export declare class WlReportNamespace {
+export declare class CorePassportChangePasswordNamespace {
     private readonly _client;
-    readonly generator: WlReportGeneratorNamespace;
-    readonly dashboard: WlReportDashboardNamespace;
-    readonly customization: WlReportCustomizationNamespace;
-    readonly favorite: WlReportFavoriteNamespace;
-    readonly save: WlReportSaveNamespace;
     constructor(_client: WlClient);
-    /** Gets data of required report. */
-    data(params?: WlReportDataParams): Promise<WlReportDataResponse>;
-    /** Gets data of required report collection. */
-    pageData(params?: WlReportPageDataParams): Promise<WlReportPageDataResponse>;
-    /** Checks access to given report. */
-    access(params?: WlReportAccessParams): Promise<WlReportAccessResponse>;
+    /** Saves for user new password. */
+    changePasswordApply(params?: CorePassportChangePasswordChangePasswordApplyParams): Promise<CorePassportChangePasswordChangePasswordApplyResponse>;
+    /** Sends to user "password recovery" mail. */
+    changePasswordBegin(params?: CorePassportChangePasswordChangePasswordBeginParams): Promise<CorePassportChangePasswordChangePasswordBeginResponse>;
+}
+export declare class CorePassportPasskeyNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Starts the registration ceremony. */
+    passkeyRegisterGet(params?: CorePassportPasskeyPasskeyRegisterGetParams): Promise<CorePassportPasskeyPasskeyRegisterGetResponse>;
+    /** Finishes the registration ceremony. */
+    passkeyRegisterPost(params?: CorePassportPasskeyPasskeyRegisterPostParams): Promise<CorePassportPasskeyPasskeyRegisterPostResponse>;
+    /** Revokes one of the signed-in user's passkey credentials. */
+    passkeyCredentialDelete(params?: CorePassportPasskeyPasskeyCredentialDeleteParams): Promise<CorePassportPasskeyPasskeyCredentialDeleteResponse>;
+    /** Lists the user's registered passkey credentials. */
+    passkeyCredentialGet(params?: CorePassportPasskeyPasskeyCredentialGetParams): Promise<CorePassportPasskeyPasskeyCredentialGetResponse>;
+    /** Starts the authentication ceremony. */
+    passkeyEnterGet(params?: CorePassportPasskeyPasskeyEnterGetParams): Promise<CorePassportPasskeyPasskeyEnterGetResponse>;
+    /** Finishes the authentication ceremony. */
+    passkeyEnterPost(params?: CorePassportPasskeyPasskeyEnterPostParams): Promise<CorePassportPasskeyPasskeyEnterPostResponse>;
+}
+export declare class CorePassportUserEmailNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Checks if email address exists. */
+    emailExist(params?: CorePassportUserEmailEmailExistParams): Promise<CorePassportUserEmailEmailExistResponse>;
+}
+export declare class CorePassportUserNamespace {
+    private readonly _client;
+    readonly email: CorePassportUserEmailNamespace;
+    constructor(_client: WlClient);
+}
+export declare class CorePassportEnterJwtNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns a jwt token that can be used to log user. */
+    jwtToken(params?: CorePassportEnterJwtJwtTokenParams): Promise<CorePassportEnterJwtJwtTokenResponse>;
+}
+export declare class CorePassportEnterNamespace {
+    private readonly _client;
+    readonly jwt: CorePassportEnterJwtNamespace;
+    constructor(_client: WlClient);
+}
+export declare class CorePassportNamespace {
+    private readonly _client;
+    readonly login: CorePassportLoginNamespace;
+    readonly changePassword: CorePassportChangePasswordNamespace;
+    readonly passkey: CorePassportPasskeyNamespace;
+    readonly user: CorePassportUserNamespace;
+    readonly enter: CorePassportEnterNamespace;
+    constructor(_client: WlClient);
+}
+export declare class CoreSpaApplicationNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets information of application. */
+    spaApplication(params?: CoreSpaApplicationSpaApplicationParams): Promise<CoreSpaApplicationSpaApplicationResponse>;
+}
+export declare class CoreSpaNamespace {
+    private readonly _client;
+    readonly application: CoreSpaApplicationNamespace;
+    constructor(_client: WlClient);
+}
+export declare class CoreDriveImageUploadNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Saves new uploaded image. */
+    imageUploadTemporary(params?: CoreDriveImageUploadImageUploadTemporaryParams): Promise<CoreDriveImageUploadImageUploadTemporaryResponse>;
+    /** Returns information about the image. */
+    imageUploadGet(params?: CoreDriveImageUploadImageUploadGetParams): Promise<CoreDriveImageUploadImageUploadGetResponse>;
+    /** Loads image information for a list of IDs. The POST method is used instead of the GET method because the maximum permitted URI length is restricted. */
+    imageUploadPost(params?: CoreDriveImageUploadImageUploadPostParams): Promise<CoreDriveImageUploadImageUploadPostResponse>;
+    /** Updates the image. */
+    imageUploadPut(params?: CoreDriveImageUploadImageUploadPutParams): Promise<CoreDriveImageUploadImageUploadPutResponse>;
+}
+export declare class CoreDriveNamespace {
+    private readonly _client;
+    readonly imageUpload: CoreDriveImageUploadNamespace;
+    constructor(_client: WlClient);
+}
+export declare class CoreLocaleLanguageNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Switches the language. */
+    languageSwitch(params?: CoreLocaleLanguageLanguageSwitchParams): Promise<CoreLocaleLanguageLanguageSwitchResponse>;
+}
+export declare class CoreLocaleNamespace {
+    private readonly _client;
+    readonly language: CoreLocaleLanguageNamespace;
+    constructor(_client: WlClient);
+}
+export declare class CoreNamespace {
+    private readonly _client;
+    readonly request: CoreRequestNamespace;
+    readonly captcha: CoreCaptchaNamespace;
+    readonly google: CoreGoogleNamespace;
+    readonly sid: CoreSidNamespace;
+    readonly webSocket: CoreWebSocketNamespace;
+    readonly geo: CoreGeoNamespace;
+    readonly debug: CoreDebugNamespace;
+    readonly push: CorePushNamespace;
+    readonly timing: CoreTimingNamespace;
+    readonly testing: CoreTestingNamespace;
+    readonly aI: CoreAINamespace;
+    readonly passport: CorePassportNamespace;
+    readonly spa: CoreSpaNamespace;
+    readonly drive: CoreDriveNamespace;
+    readonly locale: CoreLocaleNamespace;
+    constructor(_client: WlClient);
+}
+export declare class SocialMicrosoftNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Removes the association between a website client and a Microsoft account. */
+    loginDelete(params?: SocialMicrosoftLoginDeleteParams): Promise<SocialMicrosoftLoginDeleteResponse>;
+    /** Collects data for the Microsoft login button. */
+    loginGet(params?: SocialMicrosoftLoginGetParams): Promise<SocialMicrosoftLoginGetResponse>;
+    /** Signs a user in with Microsoft. */
+    loginPost(params?: SocialMicrosoftLoginPostParams): Promise<SocialMicrosoftLoginPostResponse>;
+}
+export declare class SocialAppleLoginNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Removes the association between a website client and the Apple account. Invalidates the tokens and associated client authorizations. */
+    appleLoginDelete(params?: SocialAppleLoginAppleLoginDeleteParams): Promise<SocialAppleLoginAppleLoginDeleteResponse>;
+    /** Signs user in with Apple. */
+    appleLoginPost(params?: SocialAppleLoginAppleLoginPostParams): Promise<SocialAppleLoginAppleLoginPostResponse>;
+}
+export declare class SocialAppleNamespace {
+    private readonly _client;
+    readonly login: SocialAppleLoginNamespace;
+    constructor(_client: WlClient);
+}
+export declare class SocialFacebookLoginNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Authorizes user with facebook. */
+    login(params?: SocialFacebookLoginLoginParams): Promise<SocialFacebookLoginLoginResponse>;
+}
+export declare class SocialFacebookNamespace {
+    private readonly _client;
+    readonly login: SocialFacebookLoginNamespace;
+    constructor(_client: WlClient);
+}
+export declare class SocialGooglePlusNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Authorizes user with Google. */
+    login(params?: SocialGooglePlusLoginParams): Promise<SocialGooglePlusLoginResponse>;
+}
+export declare class SocialGoogleNamespace {
+    private readonly _client;
+    readonly plus: SocialGooglePlusNamespace;
+    constructor(_client: WlClient);
+}
+export declare class SocialNamespace {
+    private readonly _client;
+    readonly microsoft: SocialMicrosoftNamespace;
+    readonly apple: SocialAppleNamespace;
+    readonly facebook: SocialFacebookNamespace;
+    readonly google: SocialGoogleNamespace;
+    constructor(_client: WlClient);
 }
 export declare class WlMailPatternAutomatedMarketingCustomTemplateNamespace {
     private readonly _client;
@@ -31398,8 +32421,10 @@ export declare class WlLoginPromotionGuestPassInviteNamespace {
 export declare class WlLoginPromotionGuestPassApplyNamespace {
     private readonly _client;
     constructor(_client: WlClient);
+    /** Returns a list of login promotions with available guest passes for a visit. */
+    applyGet(params?: WlLoginPromotionGuestPassApplyApplyGetParams): Promise<WlLoginPromotionGuestPassApplyApplyGetResponse>;
     /** Applies the guest pass of the specified login promotion to the attendee's visit. */
-    apply(params?: WlLoginPromotionGuestPassApplyApplyParams): Promise<WlLoginPromotionGuestPassApplyApplyResponse>;
+    applyPost(params?: WlLoginPromotionGuestPassApplyApplyPostParams): Promise<WlLoginPromotionGuestPassApplyApplyPostResponse>;
 }
 export declare class WlLoginPromotionGuestPassClaimNamespace {
     private readonly _client;
@@ -31646,8 +32671,15 @@ export declare class WlProfileAttendanceNamespace {
     /** Checks whether the specified user has any existing bookings that overlap with a given time range or service. */
     attendanceOverlapList(params?: WlProfileAttendanceAttendanceOverlapListParams): Promise<WlProfileAttendanceAttendanceOverlapListResponse>;
 }
+export declare class WlProfileOverviewQuickContactNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns notification availability flags for the specified client. */
+    quickContactOption(params?: WlProfileOverviewQuickContactQuickContactOptionParams): Promise<WlProfileOverviewQuickContactQuickContactOptionResponse>;
+}
 export declare class WlProfileOverviewNamespace {
     private readonly _client;
+    readonly quickContact: WlProfileOverviewQuickContactNamespace;
     constructor(_client: WlClient);
     /** This method is called to process POST query. */
     sendMail(params?: WlProfileOverviewSendMailParams): Promise<WlProfileOverviewSendMailResponse>;
@@ -32055,6 +33087,19 @@ export declare class WlBusinessUserNamespace {
     readonly subscribe: WlBusinessUserSubscribeNamespace;
     constructor(_client: WlClient);
 }
+export declare class WlBusinessCustomTermsNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the current value of every term slot of {@link WlBusinessCustomTermsNamespace#customTermsGet}. */
+    customTermsGet(params?: WlBusinessCustomTermsCustomTermsGetParams): Promise<WlBusinessCustomTermsCustomTermsGetResponse>;
+    /** Saves {@link WlBusinessCustomTermsCustomTermsGetResponse.a_term_option} as the custom terms of {@link WlBusinessCustomTermsNamespace#customTermsGet}. */
+    customTermsPost(params?: WlBusinessCustomTermsCustomTermsPostParams): Promise<WlBusinessCustomTermsCustomTermsPostResponse>;
+}
+export declare class WlBusinessCustomNamespace {
+    private readonly _client;
+    readonly terms: WlBusinessCustomTermsNamespace;
+    constructor(_client: WlClient);
+}
 export declare class WlBusinessNamespace {
     private readonly _client;
     readonly account: WlBusinessAccountNamespace;
@@ -32075,6 +33120,7 @@ export declare class WlBusinessNamespace {
     readonly franchise: WlBusinessFranchiseNamespace;
     readonly reward: WlBusinessRewardNamespace;
     readonly user: WlBusinessUserNamespace;
+    readonly custom: WlBusinessCustomNamespace;
     constructor(_client: WlClient);
     /** Gets information about businesses where given user is a staff member. */
     businessAccess(params?: WlBusinessBusinessAccessParams): Promise<WlBusinessBusinessAccessResponse>;
@@ -32084,6 +33130,63 @@ export declare class WlBusinessNamespace {
     businessPut(params?: WlBusinessBusinessPutParams): Promise<WlBusinessBusinessPutResponse>;
     /** Returns detailed information about the specified business, including locale, franchise status, services, tips, social URLs, and logo. */
     data(params?: WlBusinessDataParams): Promise<WlBusinessDataResponse>;
+}
+export declare class WlReportGeneratorNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns contents of a report as a table. */
+    query(params?: WlReportGeneratorQueryParams): Promise<WlReportGeneratorQueryResponse>;
+}
+export declare class WlReportDashboardNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Adds new report to a dashboard. */
+    reportDashboardPost(params?: WlReportDashboardReportDashboardPostParams): Promise<WlReportDashboardReportDashboardPostResponse>;
+    /** Updates added report to a dashboard. */
+    reportDashboardPut(params?: WlReportDashboardReportDashboardPutParams): Promise<WlReportDashboardReportDashboardPutResponse>;
+}
+export declare class WlReportCustomizationNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Loads customization data of the customization form that corresponds to specified report / report page. */
+    customizationFormGet(params?: WlReportCustomizationCustomizationFormGetParams): Promise<WlReportCustomizationCustomizationFormGetResponse>;
+    /** Saves given data of a customization form into database. */
+    customizationFormPost(params?: WlReportCustomizationCustomizationFormPostParams): Promise<WlReportCustomizationCustomizationFormPostResponse>;
+}
+export declare class WlReportFavoriteNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Removes report controller from favorites. */
+    reportFavoriteDelete(params?: WlReportFavoriteReportFavoriteDeleteParams): Promise<WlReportFavoriteReportFavoriteDeleteResponse>;
+    /** Returns information whether passed report controller (saved report controller) is favorite for the specified user   within specified business. */
+    reportFavoriteGet(params?: WlReportFavoriteReportFavoriteGetParams): Promise<WlReportFavoriteReportFavoriteGetResponse>;
+    /** Adds report controller to favorites. */
+    reportFavoritePost(params?: WlReportFavoriteReportFavoritePostParams): Promise<WlReportFavoriteReportFavoritePostResponse>;
+}
+export declare class WlReportSaveNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns information about saved report. */
+    reportSaveGet(params?: WlReportSaveReportSaveGetParams): Promise<WlReportSaveReportSaveGetResponse>;
+    /** Saves new saved report. */
+    reportSavePost(params?: WlReportSaveReportSavePostParams): Promise<WlReportSaveReportSavePostResponse>;
+    /** Updates existing saved report. */
+    reportSavePut(params?: WlReportSaveReportSavePutParams): Promise<WlReportSaveReportSavePutResponse>;
+}
+export declare class WlReportNamespace {
+    private readonly _client;
+    readonly generator: WlReportGeneratorNamespace;
+    readonly dashboard: WlReportDashboardNamespace;
+    readonly customization: WlReportCustomizationNamespace;
+    readonly favorite: WlReportFavoriteNamespace;
+    readonly save: WlReportSaveNamespace;
+    constructor(_client: WlClient);
+    /** Gets data of required report. */
+    data(params?: WlReportDataParams): Promise<WlReportDataResponse>;
+    /** Gets data of required report collection. */
+    pageData(params?: WlReportPageDataParams): Promise<WlReportPageDataResponse>;
+    /** Checks access to given report. */
+    access(params?: WlReportAccessParams): Promise<WlReportAccessResponse>;
 }
 export declare class WlEventBookEventViewNamespace {
     private readonly _client;
@@ -32562,11 +33665,27 @@ export declare class WlVisitNoteNamespace {
     readonly edit: WlVisitNoteEditNamespace;
     constructor(_client: WlClient);
 }
+export declare class WlVisitBillingCodeNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the billing codes applied to a visit and the history of their changes. */
+    visitBillingCodeAssignGet(params?: WlVisitBillingCodeVisitBillingCodeAssignGetParams): Promise<WlVisitBillingCodeVisitBillingCodeAssignGetResponse>;
+    /** Applies billing codes to a visit. */
+    visitBillingCodeAssignPost(params?: WlVisitBillingCodeVisitBillingCodeAssignPostParams): Promise<WlVisitBillingCodeVisitBillingCodeAssignPostResponse>;
+    /** Returns the codes suggested for a visit. */
+    visitBillingCodeDefault(params?: WlVisitBillingCodeVisitBillingCodeDefaultParams): Promise<WlVisitBillingCodeVisitBillingCodeDefaultResponse>;
+}
+export declare class WlVisitBillingNamespace {
+    private readonly _client;
+    readonly code: WlVisitBillingCodeNamespace;
+    constructor(_client: WlClient);
+}
 export declare class WlVisitNamespace {
     private readonly _client;
     readonly blame: WlVisitBlameNamespace;
     readonly pay: WlVisitPayNamespace;
     readonly note: WlVisitNoteNamespace;
+    readonly billing: WlVisitBillingNamespace;
     constructor(_client: WlClient);
     /** Gets visit status. */
     visitStatusGet(params?: WlVisitVisitStatusGetParams): Promise<WlVisitVisitStatusGetResponse>;
@@ -32629,6 +33748,12 @@ export declare class WlReviewNamespace {
     reviewFeature(params?: WlReviewReviewFeatureParams): Promise<WlReviewReviewFeatureResponse>;
     /** Saves the reply text and optional status update for the given review. */
     reviewReply(params?: WlReviewReviewReplyParams): Promise<WlReviewReviewReplyResponse>;
+}
+export declare class WlZoomNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Releases a Zoom license used by a business. */
+    zoomUserRelease(params?: WlZoomZoomUserReleaseParams): Promise<WlZoomZoomUserReleaseResponse>;
 }
 export declare class WlDriveNamespace {
     private readonly _client;
@@ -32705,6 +33830,220 @@ export declare class WlAlertNamespace {
     alertListGet(params?: WlAlertAlertListGetParams): Promise<WlAlertAlertListGetResponse>;
     /** Sets alerts as already read. */
     alertListPost(params?: WlAlertAlertListPostParams): Promise<WlAlertAlertListPostResponse>;
+}
+export declare class WlTicketPurchaseNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Sends the confirmation of the purchase with the tickets. */
+    ticketPurchaseMail(params?: WlTicketPurchaseTicketPurchaseMailParams): Promise<WlTicketPurchaseTicketPurchaseMailResponse>;
+}
+export declare class WlTicketNamespace {
+    private readonly _client;
+    readonly purchase: WlTicketPurchaseNamespace;
+    constructor(_client: WlClient);
+    /** Sends the tickets of the purchase. */
+    ticketMail(params?: WlTicketTicketMailParams): Promise<WlTicketTicketMailResponse>;
+    /** Returns tickets and orders of the session. */
+    ticketList(params?: WlTicketTicketListParams): Promise<WlTicketTicketListResponse>;
+    /** Checks in the ticket. */
+    ticketScan(params?: WlTicketTicketScanParams): Promise<WlTicketTicketScanResponse>;
+    /** Checks in the tickets. */
+    ticketScanList(params?: WlTicketTicketScanListParams): Promise<WlTicketTicketScanListResponse>;
+    /** Undoes the check-in of the ticket. */
+    ticketUndo(params?: WlTicketTicketUndoParams): Promise<WlTicketTicketUndoResponse>;
+}
+export declare class WlHardwareStripeComNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Removes terminal. */
+    stripeComHardwareElementDelete(params?: WlHardwareStripeComStripeComHardwareElementDeleteParams): Promise<WlHardwareStripeComStripeComHardwareElementDeleteResponse>;
+    /** Fetch terminal information. */
+    stripeComHardwareElementGet(params?: WlHardwareStripeComStripeComHardwareElementGetParams): Promise<WlHardwareStripeComStripeComHardwareElementGetResponse>;
+    /** Creates terminal. */
+    stripeComHardwareElementPost(params?: WlHardwareStripeComStripeComHardwareElementPostParams): Promise<WlHardwareStripeComStripeComHardwareElementPostResponse>;
+}
+export declare class WlHardwareNamespace {
+    private readonly _client;
+    readonly stripeCom: WlHardwareStripeComNamespace;
+    constructor(_client: WlClient);
+}
+export declare class WlPayProcessorStripeComNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets a secret from a connection token for the Stripe Terminal SDK. */
+    stripeComConnectionToken(params?: WlPayProcessorStripeComStripeComConnectionTokenParams): Promise<WlPayProcessorStripeComStripeComConnectionTokenResponse>;
+    /** Gets Stripe charge information. */
+    stripeComCharge(params?: WlPayProcessorStripeComStripeComChargeParams): Promise<WlPayProcessorStripeComStripeComChargeResponse>;
+    /** Initializes a `Stripe` payment. */
+    stripeComPayInit(params?: WlPayProcessorStripeComStripeComPayInitParams): Promise<WlPayProcessorStripeComStripeComPayInitResponse>;
+    /** Updates a `Stripe` Payment Intent. */
+    paymentIntentUpdate(params?: WlPayProcessorStripeComPaymentIntentUpdateParams): Promise<WlPayProcessorStripeComPaymentIntentUpdateResponse>;
+    /** Gets the `Stripe` public key for a merchant. */
+    stripeComKey(params?: WlPayProcessorStripeComStripeComKeyParams): Promise<WlPayProcessorStripeComStripeComKeyResponse>;
+    /** Cancels a `Stripe` Payment Intent. */
+    stripeComPaymentIntentCancel(params?: WlPayProcessorStripeComStripeComPaymentIntentCancelParams): Promise<WlPayProcessorStripeComStripeComPaymentIntentCancelResponse>;
+}
+export declare class WlPayProcessorCyberSourceNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Checks `CyberSource` Payer Authentication enrollment. */
+    csPaEnrollment(params?: WlPayProcessorCyberSourceCsPaEnrollmentParams): Promise<WlPayProcessorCyberSourceCsPaEnrollmentResponse>;
+    /** Validates the `CyberSource` Payer Authentication result. */
+    csPaValidate(params?: WlPayProcessorCyberSourceCsPaValidateParams): Promise<WlPayProcessorCyberSourceCsPaValidateResponse>;
+    /** Starts `CyberSource` Payer Authentication setup. */
+    csPaSetup(params?: WlPayProcessorCyberSourceCsPaSetupParams): Promise<WlPayProcessorCyberSourceCsPaSetupResponse>;
+    /** Generates a capture context for `CyberSource` Flex Microform. */
+    csCaptureContext(params?: WlPayProcessorCyberSourceCsCaptureContextParams): Promise<WlPayProcessorCyberSourceCsCaptureContextResponse>;
+}
+export declare class WlPayProcessorNuveiNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Starts a `Nuvei` card authorization transaction for a purchase or a card verification. */
+    /** @deprecated */
+    nuveiTransactionStart(params?: WlPayProcessorNuveiNuveiTransactionStartParams): Promise<WlPayProcessorNuveiNuveiTransactionStartResponse>;
+}
+export declare class WlPayProcessorNamespace {
+    private readonly _client;
+    readonly stripeCom: WlPayProcessorStripeComNamespace;
+    readonly cyberSource: WlPayProcessorCyberSourceNamespace;
+    readonly nuvei: WlPayProcessorNuveiNamespace;
+    constructor(_client: WlClient);
+}
+export declare class WlPayFormSurchargeNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Previews whether a surcharge is allowed for a card. */
+    surchargeTender(params?: WlPayFormSurchargeSurchargeTenderParams): Promise<WlPayFormSurchargeSurchargeTenderResponse>;
+}
+export declare class WlPayFormNamespace {
+    private readonly _client;
+    readonly surcharge: WlPayFormSurchargeNamespace;
+    constructor(_client: WlClient);
+    /** Returns information about payment environment. */
+    /** @deprecated */
+    environment(params?: WlPayFormEnvironmentParams): Promise<WlPayFormEnvironmentResponse>;
+    /** Returns information about payment environment. */
+    environmentUser(params?: WlPayFormEnvironmentUserParams): Promise<WlPayFormEnvironmentUserResponse>;
+}
+export declare class WlPayAccountChargeNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Refills the user account balance by the specified payment amount or adjusts it manually. */
+    charge(params?: WlPayAccountChargeChargeParams): Promise<WlPayAccountChargeChargeResponse>;
+}
+export declare class WlPayAccountNamespace {
+    private readonly _client;
+    readonly charge: WlPayAccountChargeNamespace;
+    constructor(_client: WlClient);
+    /** Retrieves information about accounts of given user in given business. */
+    account(params?: WlPayAccountAccountParams): Promise<WlPayAccountAccountResponse>;
+}
+export declare class WlPayBankCardAddNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Deletes saved card. */
+    addDelete(params?: WlPayBankCardAddAddDeleteParams): Promise<WlPayBankCardAddAddDeleteResponse>;
+    /** Gets code of bank card widget. */
+    /** @deprecated */
+    addGet(params?: WlPayBankCardAddAddGetParams): Promise<WlPayBankCardAddAddGetResponse>;
+    /** Saves new bank card. */
+    addPost(params?: WlPayBankCardAddAddPostParams): Promise<WlPayBankCardAddAddPostResponse>;
+}
+export declare class WlPayBankCardWidgetNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets a list of saved bank cards. */
+    widgetSelect(params?: WlPayBankCardWidgetWidgetSelectParams): Promise<WlPayBankCardWidgetWidgetSelectResponse>;
+}
+export declare class WlPayBankCardNamespace {
+    private readonly _client;
+    readonly add: WlPayBankCardAddNamespace;
+    readonly widget: WlPayBankCardWidgetNamespace;
+    constructor(_client: WlClient);
+    /** Retrieves information about user's bank cards. */
+    list(params?: WlPayBankCardListParams): Promise<WlPayBankCardListResponse>;
+}
+export declare class WlPayBankAchWidgetNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets a list of saved bank account. */
+    widgetSelect(params?: WlPayBankAchWidgetWidgetSelectParams): Promise<WlPayBankAchWidgetWidgetSelectResponse>;
+}
+export declare class WlPayBankAchAddNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Deletes saved ACH. */
+    addDelete(params?: WlPayBankAchAddAddDeleteParams): Promise<WlPayBankAchAddAddDeleteResponse>;
+    /** Gets widget for ACH account add. */
+    addGet(params?: WlPayBankAchAddAddGetParams): Promise<WlPayBankAchAddAddGetResponse>;
+    /** Saves new ACH pay method. */
+    addPost(params?: WlPayBankAchAddAddPostParams): Promise<WlPayBankAchAddAddPostResponse>;
+}
+export declare class WlPayBankAchNamespace {
+    private readonly _client;
+    readonly widget: WlPayBankAchWidgetNamespace;
+    readonly add: WlPayBankAchAddNamespace;
+    constructor(_client: WlClient);
+    /** Retrieves information about user's ACH accounts. */
+    list(params?: WlPayBankAchListParams): Promise<WlPayBankAchListResponse>;
+}
+export declare class WlPayBankNamespace {
+    private readonly _client;
+    readonly card: WlPayBankCardNamespace;
+    readonly ach: WlPayBankAchNamespace;
+    constructor(_client: WlClient);
+    /** Sets a specified payment method as default. */
+    primary(params?: WlPayBankPrimaryParams): Promise<WlPayBankPrimaryResponse>;
+}
+export declare class WlPayAddressWidgetNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets data for "edit payment address" widget. */
+    widgetEdit(params?: WlPayAddressWidgetWidgetEditParams): Promise<WlPayAddressWidgetWidgetEditResponse>;
+}
+export declare class WlPayAddressNamespace {
+    private readonly _client;
+    readonly widget: WlPayAddressWidgetNamespace;
+    constructor(_client: WlClient);
+    /** Gets user's payment addresses information. */
+    address(params?: WlPayAddressAddressParams): Promise<WlPayAddressAddressResponse>;
+    /** Returns default payment address data that is retrieved from user profile. */
+    profile(params?: WlPayAddressProfileParams): Promise<WlPayAddressProfileResponse>;
+}
+export declare class WlPayOwnerNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns information about payment owner. */
+    owner(params?: WlPayOwnerOwnerParams): Promise<WlPayOwnerOwnerResponse>;
+}
+export declare class WlPayMethodNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns list of active payment methods data. */
+    list(params?: WlPayMethodListParams): Promise<WlPayMethodListResponse>;
+}
+export declare class WlPayTransactionReportNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns All Transactions Report data for the specified date range. */
+    transactionAllPayment(params?: WlPayTransactionReportTransactionAllPaymentParams): Promise<WlPayTransactionReportTransactionAllPaymentResponse>;
+}
+export declare class WlPayTransactionNamespace {
+    private readonly _client;
+    readonly report: WlPayTransactionReportNamespace;
+    constructor(_client: WlClient);
+}
+export declare class WlPayNamespace {
+    private readonly _client;
+    readonly processor: WlPayProcessorNamespace;
+    readonly form: WlPayFormNamespace;
+    readonly account: WlPayAccountNamespace;
+    readonly bank: WlPayBankNamespace;
+    readonly address: WlPayAddressNamespace;
+    readonly owner: WlPayOwnerNamespace;
+    readonly method: WlPayMethodNamespace;
+    readonly transaction: WlPayTransactionNamespace;
+    constructor(_client: WlClient);
 }
 export declare class WlNotificationSendNamespace {
     private readonly _client;
@@ -33015,6 +34354,12 @@ export declare class WlCatalogQuizNamespace {
     /** Gets quizzes for the selected purchase options. */
     quiz(params?: WlCatalogQuizQuizParams): Promise<WlCatalogQuizQuizResponse>;
 }
+export declare class WlCatalogTermsNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Performs {@link WlCatalogTermsNamespace#terms} for every item of {@link WlCatalogTermsNamespace#terms}. */
+    terms(params?: WlCatalogTermsTermsParams): Promise<WlCatalogTermsTermsResponse>;
+}
 export declare class WlCatalogStaffAppCatalogCartNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -33078,6 +34423,7 @@ export declare class WlCatalogNamespace {
     readonly payment: WlCatalogPaymentNamespace;
     readonly catalogList: WlCatalogCatalogListNamespace;
     readonly quiz: WlCatalogQuizNamespace;
+    readonly terms: WlCatalogTermsNamespace;
     readonly staffApp: WlCatalogStaffAppNamespace;
     readonly view: WlCatalogViewNamespace;
     constructor(_client: WlClient);
@@ -33266,6 +34612,8 @@ export declare class WlAppointmentBookServiceNamespace {
     /** Retrieves information about services in the current service category. */
     /** @deprecated */
     serviceList(params?: WlAppointmentBookServiceServiceListParams): Promise<WlAppointmentBookServiceServiceListResponse>;
+    /** Retrieves the full list of appointment services and categories for a business. */
+    serviceListBusiness(params?: WlAppointmentBookServiceServiceListBusinessParams): Promise<WlAppointmentBookServiceServiceListBusinessResponse>;
 }
 export declare class WlAppointmentBookPromoteNamespace {
     private readonly _client;
@@ -33419,9 +34767,24 @@ export declare class WlBillingBulkNamespace {
     /** Removes the client from the batch so that they are not billed. */
     bulkBillingUser(params?: WlBillingBulkBulkBillingUserParams): Promise<WlBillingBulkBulkBillingUserResponse>;
 }
+export declare class WlBillingCodeNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets the billing code list of the business. */
+    billingCodeList(params?: WlBillingCodeBillingCodeListParams): Promise<WlBillingCodeBillingCodeListResponse>;
+    /** Removes a custom billing code from the central list of the business. */
+    billingCodeDelete(params?: WlBillingCodeBillingCodeDeleteParams): Promise<WlBillingCodeBillingCodeDeleteResponse>;
+    /** Returns a single custom billing code of the business. */
+    billingCodeGet(params?: WlBillingCodeBillingCodeGetParams): Promise<WlBillingCodeBillingCodeGetResponse>;
+    /** Edits the value and the description of a custom billing code of the business. */
+    billingCodePost(params?: WlBillingCodeBillingCodePostParams): Promise<WlBillingCodeBillingCodePostResponse>;
+    /** Adds a custom billing code to the central list of the business. */
+    billingCodePut(params?: WlBillingCodeBillingCodePutParams): Promise<WlBillingCodeBillingCodePutResponse>;
+}
 export declare class WlBillingNamespace {
     private readonly _client;
     readonly bulk: WlBillingBulkNamespace;
+    readonly code: WlBillingCodeNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlClassesClassListNamespace {
@@ -33986,11 +35349,26 @@ export declare class WlPageNamespace {
     readonly backend: WlPageBackendNamespace;
     constructor(_client: WlClient);
 }
+export declare class WlDoorAccessBrivoInvitationNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the redemption status of the Brivo mobile pass invitation. */
+    brivoUserInvitationGet(params?: WlDoorAccessBrivoInvitationBrivoUserInvitationGetParams): Promise<WlDoorAccessBrivoInvitationBrivoUserInvitationGetResponse>;
+    /** Sends a Brivo mobile pass invitation to a client. */
+    brivoUserInvitationPost(params?: WlDoorAccessBrivoInvitationBrivoUserInvitationPostParams): Promise<WlDoorAccessBrivoInvitationBrivoUserInvitationPostResponse>;
+}
+export declare class WlDoorAccessBrivoNamespace {
+    private readonly _client;
+    readonly invitation: WlDoorAccessBrivoInvitationNamespace;
+    constructor(_client: WlClient);
+}
+export declare class WlDoorAccessNamespace {
+    private readonly _client;
+    readonly brivo: WlDoorAccessBrivoNamespace;
+    constructor(_client: WlClient);
+}
 export declare class WlNamespace {
     private readonly _client;
-    readonly hardware: WlHardwareNamespace;
-    readonly pay: WlPayNamespace;
-    readonly report: WlReportNamespace;
     readonly mail: WlMailNamespace;
     readonly staff: WlStaffNamespace;
     readonly promotion: WlPromotionNamespace;
@@ -33998,6 +35376,7 @@ export declare class WlNamespace {
     readonly login: WlLoginNamespace;
     readonly profile: WlProfileNamespace;
     readonly business: WlBusinessNamespace;
+    readonly report: WlReportNamespace;
     readonly event: WlEventNamespace;
     readonly session: WlSessionNamespace;
     readonly quiz: WlQuizNamespace;
@@ -34012,6 +35391,7 @@ export declare class WlNamespace {
     readonly sms: WlSmsNamespace;
     readonly announcement: WlAnnouncementNamespace;
     readonly review: WlReviewNamespace;
+    readonly zoom: WlZoomNamespace;
     readonly drive: WlDriveNamespace;
     readonly tag: WlTagNamespace;
     readonly currency: WlCurrencyNamespace;
@@ -34020,6 +35400,9 @@ export declare class WlNamespace {
     readonly feedback: WlFeedbackNamespace;
     readonly holiday: WlHolidayNamespace;
     readonly alert: WlAlertNamespace;
+    readonly ticket: WlTicketNamespace;
+    readonly hardware: WlHardwareNamespace;
+    readonly pay: WlPayNamespace;
     readonly notification: WlNotificationNamespace;
     readonly passport: WlPassportNamespace;
     readonly discount: WlDiscountNamespace;
@@ -34052,336 +35435,91 @@ export declare class WlNamespace {
     readonly calendar: WlCalendarNamespace;
     readonly social: WlSocialNamespace;
     readonly page: WlPageNamespace;
+    readonly doorAccess: WlDoorAccessNamespace;
     constructor(_client: WlClient);
 }
-export declare class CoreRequestApiApplicationCredentialNamespace {
+export declare class ThothExplorerSearchClassSessionNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Deletes the specified credential for the application. */
-    credentialDelete(params?: CoreRequestApiApplicationCredentialCredentialDeleteParams): Promise<CoreRequestApiApplicationCredentialCredentialDeleteResponse>;
-    /** Returns the credential data for the application. */
-    credentialGet(params?: CoreRequestApiApplicationCredentialCredentialGetParams): Promise<CoreRequestApiApplicationCredentialCredentialGetResponse>;
-    /** Saves the credential for the application. */
-    credentialPut(params?: CoreRequestApiApplicationCredentialCredentialPutParams): Promise<CoreRequestApiApplicationCredentialCredentialPutResponse>;
+    /** Gets list of class sessions based on search criteria. */
+    classSessionSearch(params?: ThothExplorerSearchClassSessionClassSessionSearchParams): Promise<ThothExplorerSearchClassSessionClassSessionSearchResponse>;
 }
-export declare class CoreRequestApiApplicationNamespace {
+export declare class ThothExplorerSearchNamespace {
     private readonly _client;
-    readonly credential: CoreRequestApiApplicationCredentialNamespace;
-    constructor(_client: WlClient);
-    /** Restricts access to API for all sites, which are given in the list. */
-    originDelete(params?: CoreRequestApiApplicationOriginDeleteParams): Promise<CoreRequestApiApplicationOriginDeleteResponse>;
-    /** Gets list of all sites, where usage of the API is allowed for the current application. */
-    originGet(params?: CoreRequestApiApplicationOriginGetParams): Promise<CoreRequestApiApplicationOriginGetResponse>;
-    /** Allows access to API for all sites, which are given in the list. */
-    originPut(params?: CoreRequestApiApplicationOriginPutParams): Promise<CoreRequestApiApplicationOriginPutResponse>;
-}
-export declare class CoreRequestApiNamespace {
-    private readonly _client;
-    readonly application: CoreRequestApiApplicationNamespace;
-    constructor(_client: WlClient);
-    /** Gets a secret key for signing. */
-    keySecret(params?: CoreRequestApiKeySecretParams): Promise<CoreRequestApiKeySecretResponse>;
-}
-export declare class CoreRequestTokenNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets new pin code. */
-    tokenPin(params?: CoreRequestTokenTokenPinParams): Promise<CoreRequestTokenTokenPinResponse>;
-}
-export declare class CoreRequestNamespace {
-    private readonly _client;
-    readonly api: CoreRequestApiNamespace;
-    readonly token: CoreRequestTokenNamespace;
-    constructor(_client: WlClient);
-    /** Returns the example result for debugging. */
-    example(params?: CoreRequestExampleParams): Promise<CoreRequestExampleResponse>;
-}
-export declare class CoreCaptchaNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Checks if a CAPTCHA is required for the given captcha type. */
-    captchaRequire(params?: CoreCaptchaCaptchaRequireParams): Promise<CoreCaptchaCaptchaRequireResponse>;
-}
-export declare class CoreGoogleCaptchaNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns the overridden score for the reCAPTCHA v3. */
-    captchaScoreGet(params?: CoreGoogleCaptchaCaptchaScoreGetParams): Promise<CoreGoogleCaptchaCaptchaScoreGetResponse>;
-    /** Validates the reCAPTCHA v3 token. */
-    captchaScorePost(params?: CoreGoogleCaptchaCaptchaScorePostParams): Promise<CoreGoogleCaptchaCaptchaScorePostResponse>;
-    /** Overrides the score for the reCAPTCHA v3. */
-    captchaScorePut(params?: CoreGoogleCaptchaCaptchaScorePutParams): Promise<CoreGoogleCaptchaCaptchaScorePutResponse>;
-    /** Saves the user CAPTCHA token for the current session. */
-    googleCaptcha(params?: CoreGoogleCaptchaGoogleCaptchaParams): Promise<CoreGoogleCaptchaGoogleCaptchaResponse>;
-}
-export declare class CoreGoogleNamespace {
-    private readonly _client;
-    readonly captcha: CoreGoogleCaptchaNamespace;
-    constructor(_client: WlClient);
-    /** Saves the user CAPTCHA token for the current session. */
-    /** @deprecated */
-    googleCaptcha(params?: CoreGoogleGoogleCaptchaParams): Promise<CoreGoogleGoogleCaptchaResponse>;
-}
-export declare class CoreSidNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Returns the list of all items for the given Sid class. */
-    coreSid(params?: CoreSidCoreSidParams): Promise<CoreSidCoreSidResponse>;
-}
-export declare class CoreWebSocketNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Checks whether a listener can subscribe to specified channel. Subscribes in a case of positive result. */
-    subscribe(params?: CoreWebSocketSubscribeParams): Promise<CoreWebSocketSubscribeResponse>;
-}
-export declare class CoreGeoRegionNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Retrieves information about countries and regions. */
-    region(params?: CoreGeoRegionRegionParams): Promise<CoreGeoRegionRegionResponse>;
-}
-export declare class CoreGeoNamespace {
-    private readonly _client;
-    readonly region: CoreGeoRegionNamespace;
-    constructor(_client: WlClient);
-    /** Returns a list of cities to show in combobox list. */
-    combobox(params?: CoreGeoComboboxParams): Promise<CoreGeoComboboxResponse>;
-}
-export declare class CoreDebugNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Logs new error occurred in browser. */
-    error(params?: CoreDebugErrorParams): Promise<CoreDebugErrorResponse>;
-}
-export declare class CorePushNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Adds new device ID for push notifications. */
-    push(params?: CorePushPushParams): Promise<CorePushPushResponse>;
-}
-export declare class CoreTestingAutomationNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Flushes all application caches. */
-    cacheFlush(params?: CoreTestingAutomationCacheFlushParams): Promise<CoreTestingAutomationCacheFlushResponse>;
-}
-export declare class CoreTestingNamespace {
-    private readonly _client;
-    readonly automation: CoreTestingAutomationNamespace;
+    readonly classSession: ThothExplorerSearchClassSessionNamespace;
     constructor(_client: WlClient);
 }
-export declare class CoreAILogTriageNamespace {
+export declare class ThothLayoutBeFooterNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Returns a fixed connection value and, when requested, selected findings. */
-    connectionCheck(params?: CoreAILogTriageConnectionCheckParams): Promise<CoreAILogTriageConnectionCheckResponse>;
+    /** Loads the data required to render the site footer for the given business. */
+    footer(params?: ThothLayoutBeFooterFooterParams): Promise<ThothLayoutBeFooterFooterResponse>;
 }
-export declare class CoreAINamespace {
+export declare class ThothLayoutBeNamespace {
     private readonly _client;
-    readonly logTriage: CoreAILogTriageNamespace;
+    readonly footer: ThothLayoutBeFooterNamespace;
     constructor(_client: WlClient);
 }
-export declare class CorePassportLoginRegisterNamespace {
+export declare class ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Validates the new user's data and sends a confirmation email to complete registration. */
-    register(params?: CorePassportLoginRegisterRegisterParams): Promise<CorePassportLoginRegisterRegisterResponse>;
-    /** Confirms email of a new user and completes registration. */
-    registerConfirm(params?: CorePassportLoginRegisterRegisterConfirmParams): Promise<CorePassportLoginRegisterRegisterConfirmResponse>;
+    /** Starts a payment transaction on a `Nuvei` POS terminal. */
+    nuveiTerminalTransactionStart(params?: ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartParams): Promise<ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartResponse>;
 }
-export declare class CorePassportLoginEnterQuickNamespace {
+export declare class ThothPayProcessorNuveiTerminalNamespace {
     private readonly _client;
+    readonly oMNIChannelApi: ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace;
     constructor(_client: WlClient);
-    /** Generates secret key to verify legitimacy of the request. */
-    enterQuick(params?: CorePassportLoginEnterQuickEnterQuickParams): Promise<CorePassportLoginEnterQuickEnterQuickResponse>;
+    /** Cancels a payment made through a `Nuvei` omnichannel terminal. */
+    nuveiOmnichannelTerminalPaymentVoid(params?: ThothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoidParams): Promise<ThothPayProcessorNuveiTerminalNuveiOmnichannelTerminalPaymentVoidResponse>;
 }
-export declare class CorePassportLoginEnterNamespace {
+export declare class ThothPayProcessorNuveiNamespace {
     private readonly _client;
-    readonly quick: CorePassportLoginEnterQuickNamespace;
+    readonly terminal: ThothPayProcessorNuveiTerminalNamespace;
     constructor(_client: WlClient);
-    /** Signs the user in using their login and hashed password. */
-    enter(params?: CorePassportLoginEnterEnterParams): Promise<CorePassportLoginEnterEnterResponse>;
-    /** Generates notepad for user sign in form. */
-    notepad(params?: CorePassportLoginEnterNotepadParams): Promise<CorePassportLoginEnterNotepadResponse>;
+    /** Cancels the `Nuvei` transaction. */
+    nuveiTransactionCancel(params?: ThothPayProcessorNuveiNuveiTransactionCancelParams): Promise<ThothPayProcessorNuveiNuveiTransactionCancelResponse>;
+    /** Finalizes the `Nuvei` transaction after successful payer authentication. */
+    nuveiTransactionOnAuthSuccess(params?: ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessParams): Promise<ThothPayProcessorNuveiNuveiTransactionOnAuthSuccessResponse>;
+    /** Updates the amount of a previously opened `Nuvei` order. */
+    nuveiUpdateOrder(params?: ThothPayProcessorNuveiNuveiUpdateOrderParams): Promise<ThothPayProcessorNuveiNuveiUpdateOrderResponse>;
+    /** Opens a `Nuvei` order for the payment transaction. */
+    nuveiOpenOrder(params?: ThothPayProcessorNuveiNuveiOpenOrderParams): Promise<ThothPayProcessorNuveiNuveiOpenOrderResponse>;
 }
-export declare class CorePassportLoginSignOutNamespace {
+export declare class ThothPayProcessorNamespace {
     private readonly _client;
-    constructor(_client: WlClient);
-    /** Signs user out. */
-    signOut(params?: CorePassportLoginSignOutSignOutParams): Promise<CorePassportLoginSignOutSignOutResponse>;
-}
-export declare class CorePassportLoginNamespace {
-    private readonly _client;
-    readonly register: CorePassportLoginRegisterNamespace;
-    readonly enter: CorePassportLoginEnterNamespace;
-    readonly signOut: CorePassportLoginSignOutNamespace;
-    constructor(_client: WlClient);
-    /** Returns information about user that is currently signed in. */
-    info(params?: CorePassportLoginInfoParams): Promise<CorePassportLoginInfoResponse>;
-}
-export declare class CorePassportChangePasswordNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Saves for user new password. */
-    changePasswordApply(params?: CorePassportChangePasswordChangePasswordApplyParams): Promise<CorePassportChangePasswordChangePasswordApplyResponse>;
-    /** Sends to user "password recovery" mail. */
-    changePasswordBegin(params?: CorePassportChangePasswordChangePasswordBeginParams): Promise<CorePassportChangePasswordChangePasswordBeginResponse>;
-}
-export declare class CorePassportPasskeyNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Starts the registration ceremony. */
-    passkeyRegisterGet(params?: CorePassportPasskeyPasskeyRegisterGetParams): Promise<CorePassportPasskeyPasskeyRegisterGetResponse>;
-    /** Finishes the registration ceremony. */
-    passkeyRegisterPost(params?: CorePassportPasskeyPasskeyRegisterPostParams): Promise<CorePassportPasskeyPasskeyRegisterPostResponse>;
-    /** Revokes one of the signed-in user's passkey credentials. */
-    passkeyCredentialDelete(params?: CorePassportPasskeyPasskeyCredentialDeleteParams): Promise<CorePassportPasskeyPasskeyCredentialDeleteResponse>;
-    /** Lists the user's registered passkey credentials. */
-    passkeyCredentialGet(params?: CorePassportPasskeyPasskeyCredentialGetParams): Promise<CorePassportPasskeyPasskeyCredentialGetResponse>;
-    /** Starts the authentication ceremony. */
-    passkeyEnterGet(params?: CorePassportPasskeyPasskeyEnterGetParams): Promise<CorePassportPasskeyPasskeyEnterGetResponse>;
-    /** Finishes the authentication ceremony. */
-    passkeyEnterPost(params?: CorePassportPasskeyPasskeyEnterPostParams): Promise<CorePassportPasskeyPasskeyEnterPostResponse>;
-}
-export declare class CorePassportUserEmailNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Checks if email address exists. */
-    emailExist(params?: CorePassportUserEmailEmailExistParams): Promise<CorePassportUserEmailEmailExistResponse>;
-}
-export declare class CorePassportUserNamespace {
-    private readonly _client;
-    readonly email: CorePassportUserEmailNamespace;
+    readonly nuvei: ThothPayProcessorNuveiNamespace;
     constructor(_client: WlClient);
 }
-export declare class CorePassportEnterJwtNamespace {
+export declare class ThothReportCoreQueryEngineReportCustomizationNamespace {
     private readonly _client;
     constructor(_client: WlClient);
-    /** Returns a jwt token that can be used to log user. */
-    jwtToken(params?: CorePassportEnterJwtJwtTokenParams): Promise<CorePassportEnterJwtJwtTokenResponse>;
+    /** Loads customization data of the customization form that corresponds to specified report / report page. */
+    reportQueryCustomizationFormGet(params?: ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetParams): Promise<ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetResponse>;
+    /** Saves given data of a customization form into database. */
+    reportQueryCustomizationFormPost(params?: ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostParams): Promise<ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormPostResponse>;
 }
-export declare class CorePassportEnterNamespace {
+export declare class ThothReportCoreQueryEngineReportNamespace {
     private readonly _client;
-    readonly jwt: CorePassportEnterJwtNamespace;
+    readonly customization: ThothReportCoreQueryEngineReportCustomizationNamespace;
     constructor(_client: WlClient);
 }
-export declare class CorePassportNamespace {
+export declare class ThothReportCoreQueryEngineNamespace {
     private readonly _client;
-    readonly login: CorePassportLoginNamespace;
-    readonly changePassword: CorePassportChangePasswordNamespace;
-    readonly passkey: CorePassportPasskeyNamespace;
-    readonly user: CorePassportUserNamespace;
-    readonly enter: CorePassportEnterNamespace;
+    readonly report: ThothReportCoreQueryEngineReportNamespace;
     constructor(_client: WlClient);
 }
-export declare class CoreSpaApplicationNamespace {
+export declare class ThothReportCoreNamespace {
     private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets information of application. */
-    spaApplication(params?: CoreSpaApplicationSpaApplicationParams): Promise<CoreSpaApplicationSpaApplicationResponse>;
-}
-export declare class CoreSpaNamespace {
-    private readonly _client;
-    readonly application: CoreSpaApplicationNamespace;
+    readonly queryEngine: ThothReportCoreQueryEngineNamespace;
     constructor(_client: WlClient);
 }
-export declare class CoreDriveImageUploadNamespace {
+export declare class ThothNamespace {
     private readonly _client;
-    constructor(_client: WlClient);
-    /** Saves new uploaded image. */
-    imageUploadTemporary(params?: CoreDriveImageUploadImageUploadTemporaryParams): Promise<CoreDriveImageUploadImageUploadTemporaryResponse>;
-    /** Returns information about the image. */
-    imageUploadGet(params?: CoreDriveImageUploadImageUploadGetParams): Promise<CoreDriveImageUploadImageUploadGetResponse>;
-    /** Loads image information for a list of IDs. The POST method is used instead of the GET method because the maximum permitted URI length is restricted. */
-    imageUploadPost(params?: CoreDriveImageUploadImageUploadPostParams): Promise<CoreDriveImageUploadImageUploadPostResponse>;
-    /** Updates the image. */
-    imageUploadPut(params?: CoreDriveImageUploadImageUploadPutParams): Promise<CoreDriveImageUploadImageUploadPutResponse>;
-}
-export declare class CoreDriveNamespace {
-    private readonly _client;
-    readonly imageUpload: CoreDriveImageUploadNamespace;
-    constructor(_client: WlClient);
-}
-export declare class CoreLocaleLanguageNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Switches the language. */
-    languageSwitch(params?: CoreLocaleLanguageLanguageSwitchParams): Promise<CoreLocaleLanguageLanguageSwitchResponse>;
-}
-export declare class CoreLocaleNamespace {
-    private readonly _client;
-    readonly language: CoreLocaleLanguageNamespace;
-    constructor(_client: WlClient);
-}
-export declare class CoreNamespace {
-    private readonly _client;
-    readonly request: CoreRequestNamespace;
-    readonly captcha: CoreCaptchaNamespace;
-    readonly google: CoreGoogleNamespace;
-    readonly sid: CoreSidNamespace;
-    readonly webSocket: CoreWebSocketNamespace;
-    readonly geo: CoreGeoNamespace;
-    readonly debug: CoreDebugNamespace;
-    readonly push: CorePushNamespace;
-    readonly testing: CoreTestingNamespace;
-    readonly aI: CoreAINamespace;
-    readonly passport: CorePassportNamespace;
-    readonly spa: CoreSpaNamespace;
-    readonly drive: CoreDriveNamespace;
-    readonly locale: CoreLocaleNamespace;
-    constructor(_client: WlClient);
-}
-export declare class SocialMicrosoftNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Removes the association between a website client and a Microsoft account. */
-    loginDelete(params?: SocialMicrosoftLoginDeleteParams): Promise<SocialMicrosoftLoginDeleteResponse>;
-    /** Collects data for the Microsoft login button. */
-    loginGet(params?: SocialMicrosoftLoginGetParams): Promise<SocialMicrosoftLoginGetResponse>;
-    /** Signs a user in with Microsoft. */
-    loginPost(params?: SocialMicrosoftLoginPostParams): Promise<SocialMicrosoftLoginPostResponse>;
-}
-export declare class SocialAppleLoginNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Removes the association between a website client and the Apple account. Invalidates the tokens and associated client authorizations. */
-    appleLoginDelete(params?: SocialAppleLoginAppleLoginDeleteParams): Promise<SocialAppleLoginAppleLoginDeleteResponse>;
-    /** Signs user in with Apple. */
-    appleLoginPost(params?: SocialAppleLoginAppleLoginPostParams): Promise<SocialAppleLoginAppleLoginPostResponse>;
-}
-export declare class SocialAppleNamespace {
-    private readonly _client;
-    readonly login: SocialAppleLoginNamespace;
-    constructor(_client: WlClient);
-}
-export declare class SocialFacebookLoginNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Authorizes user with facebook. */
-    login(params?: SocialFacebookLoginLoginParams): Promise<SocialFacebookLoginLoginResponse>;
-}
-export declare class SocialFacebookNamespace {
-    private readonly _client;
-    readonly login: SocialFacebookLoginNamespace;
-    constructor(_client: WlClient);
-}
-export declare class SocialGooglePlusNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Authorizes user with Google. */
-    login(params?: SocialGooglePlusLoginParams): Promise<SocialGooglePlusLoginResponse>;
-}
-export declare class SocialGoogleNamespace {
-    private readonly _client;
-    readonly plus: SocialGooglePlusNamespace;
-    constructor(_client: WlClient);
-}
-export declare class SocialNamespace {
-    private readonly _client;
-    readonly microsoft: SocialMicrosoftNamespace;
-    readonly apple: SocialAppleNamespace;
-    readonly facebook: SocialFacebookNamespace;
-    readonly google: SocialGoogleNamespace;
+    readonly explorerSearch: ThothExplorerSearchNamespace;
+    readonly layoutBe: ThothLayoutBeNamespace;
+    readonly payProcessor: ThothPayProcessorNamespace;
+    readonly reportCore: ThothReportCoreNamespace;
     constructor(_client: WlClient);
 }
 /** WellnessLiving API client. */
@@ -34389,10 +35527,10 @@ export declare class WlClient {
     private readonly _token;
     private readonly _baseUrl;
     private readonly _timeout;
-    readonly thoth: ThothNamespace;
-    readonly wl: WlNamespace;
     readonly core: CoreNamespace;
     readonly social: SocialNamespace;
+    readonly wl: WlNamespace;
+    readonly thoth: ThothNamespace;
     constructor(options: WlClientOptions);
     _request<T>(path: string, params: unknown, method: string): Promise<T>;
 }

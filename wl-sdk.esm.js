@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — production channel
-// OpenAPI spec version: 1.1.20261106060049
+// OpenAPI spec version: 1.1.20261110050748
 // Build date: 2026-11-10
-// Endpoints: 661
-// Enums: 213
+// Endpoints: 685
+// Enums: 218
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,407 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (213 total) ---
-/** Experience types for class sessions to differentiate virtual and in-person sessions. */
-export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
-(function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
-    /** In-person session at a physical location */
-    ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum[ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum["IN_PERSON"] = 1] = "IN_PERSON";
-    /** Virtual session conducted through a virtual provider */
-    ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum[ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum["VIRTUAL"] = 2] = "VIRTUAL";
-})(ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum || (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = {}));
-/** List of different types for landing pages based on business types. */
-export var RsHomeTourSid;
-(function (RsHomeTourSid) {
-    /** Barbershops */
-    RsHomeTourSid[RsHomeTourSid["BARBERSHOP"] = 26] = "BARBERSHOP";
-    /** Boot camps */
-    RsHomeTourSid[RsHomeTourSid["BOOTCAMP"] = 24] = "BOOTCAMP";
-    /** Boxing studios */
-    RsHomeTourSid[RsHomeTourSid["BOXING"] = 25] = "BOXING";
-    /** Special industry free landing page with only contact us form */
-    RsHomeTourSid[RsHomeTourSid["BUSINESS_MANAGEMENT"] = 21] = "BUSINESS_MANAGEMENT";
-    /** Health clubs */
-    RsHomeTourSid[RsHomeTourSid["CLUB"] = 10] = "CLUB";
-    /** Affiliate Gym */
-    RsHomeTourSid[RsHomeTourSid["CROSSFIT"] = 9] = "CROSSFIT";
-    /** Dance studios */
-    RsHomeTourSid[RsHomeTourSid["DANCE"] = 11] = "DANCE";
-    /** Dental studios */
-    RsHomeTourSid[RsHomeTourSid["DENTAL"] = 14] = "DENTAL";
-    /** Fitness gyms */
-    RsHomeTourSid[RsHomeTourSid["FITNESS"] = 6] = "FITNESS";
-    /** Functional fitness also known as functional training or functional movement */
-    RsHomeTourSid[RsHomeTourSid["FUNCTIONAL_FITNESS"] = 29] = "FUNCTIONAL_FITNESS";
-    /** Fitness gyms */
-    RsHomeTourSid[RsHomeTourSid["GYM"] = 22] = "GYM";
-    /** Health clubs */
-    RsHomeTourSid[RsHomeTourSid["HEALTH_CLUB"] = 23] = "HEALTH_CLUB";
-    /** Health and beauty salons at one place */
-    RsHomeTourSid[RsHomeTourSid["INTEGRATIVE_HEALTH_CENTER"] = 30] = "INTEGRATIVE_HEALTH_CENTER";
-    /** Martial arts */
-    RsHomeTourSid[RsHomeTourSid["MARTIAL_ART"] = 8] = "MARTIAL_ART";
-    /** Massage salons */
-    RsHomeTourSid[RsHomeTourSid["MASSAGE"] = 4] = "MASSAGE";
-    /** Massage salons */
-    RsHomeTourSid[RsHomeTourSid["MEDICAL_SPA"] = 28] = "MEDICAL_SPA";
-    /** Alternative medical offices */
-    RsHomeTourSid[RsHomeTourSid["MEDICINE_ALTERNATIVE"] = 15] = "MEDICINE_ALTERNATIVE";
-    /** Hospitals and private doctors */
-    RsHomeTourSid[RsHomeTourSid["MEDICINE_TRADITIONAL"] = 13] = "MEDICINE_TRADITIONAL";
-    /** Music schools */
-    RsHomeTourSid[RsHomeTourSid["MUSIC"] = 19] = "MUSIC";
-    /** Personal trainings */
-    RsHomeTourSid[RsHomeTourSid["PERSONAL_TRAINING"] = 5] = "PERSONAL_TRAINING";
-    /** Pilates */
-    RsHomeTourSid[RsHomeTourSid["PILATES"] = 7] = "PILATES";
-    /** Play cafes */
-    RsHomeTourSid[RsHomeTourSid["PLAY_CAFE"] = 32] = "PLAY_CAFE";
-    /** Pole dancing studios */
-    RsHomeTourSid[RsHomeTourSid["POLE_DANCING"] = 18] = "POLE_DANCING";
-    /** Salons */
-    RsHomeTourSid[RsHomeTourSid["SALON"] = 3] = "SALON";
-    /** Spa salons */
-    RsHomeTourSid[RsHomeTourSid["SPA"] = 2] = "SPA";
-    /** Spinning */
-    RsHomeTourSid[RsHomeTourSid["SPINNING"] = 17] = "SPINNING";
-    /** Swim schools */
-    RsHomeTourSid[RsHomeTourSid["SWIM_SCHOOL"] = 33] = "SWIM_SCHOOL";
-    /** Tattoo salons */
-    RsHomeTourSid[RsHomeTourSid["TATTOO"] = 31] = "TATTOO";
-    /** Tours and events */
-    RsHomeTourSid[RsHomeTourSid["TOUR"] = 12] = "TOUR";
-    /** Wellness Centers */
-    RsHomeTourSid[RsHomeTourSid["WELLNESS_CENTER"] = 20] = "WELLNESS_CENTER";
-    /** Yoga */
-    RsHomeTourSid[RsHomeTourSid["YOGA"] = 1] = "YOGA";
-    /** Zumba */
-    RsHomeTourSid[RsHomeTourSid["ZUMBA"] = 27] = "ZUMBA";
-})(RsHomeTourSid || (RsHomeTourSid = {}));
-/** Stripe device type of reader. */
-export var ThothPayProcessorStripeComTerminalStripeReaderModelSid;
-(function (ThothPayProcessorStripeComTerminalStripeReaderModelSid) {
-    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
-    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPAD3"] = 1] = "BBPOS_WISEPAD3";
-    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
-    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPOS_E"] = 4] = "BBPOS_WISEPOS_E";
-    /** SIMULATED Wise POS E */
-    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["SIMULATED_WISEPOS_E"] = 6] = "SIMULATED_WISEPOS_E";
-    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
-    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["STRIPE_M2"] = 2] = "STRIPE_M2";
-})(ThothPayProcessorStripeComTerminalStripeReaderModelSid || (ThothPayProcessorStripeComTerminalStripeReaderModelSid = {}));
-/** List of possible status of readers. */
-export var ThothPayProcessorTerminalTerminalStatusSid;
-(function (ThothPayProcessorTerminalTerminalStatusSid) {
-    /** Status active */
-    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["ACTIVE"] = 1] = "ACTIVE";
-    /** Status inactive */
-    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["INACTIVE"] = 2] = "INACTIVE";
-    /** Status setup, reader is active but not added to stripe yet */
-    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["SETUP"] = 3] = "SETUP";
-})(ThothPayProcessorTerminalTerminalStatusSid || (ThothPayProcessorTerminalTerminalStatusSid = {}));
-/** Payment actors (staff member, user or business owner). */
-export var RsPayActorSid;
-(function (RsPayActorSid) {
-    /** Business owner */
-    RsPayActorSid[RsPayActorSid["BUSINESS"] = 3] = "BUSINESS";
-    /** Staff member */
-    RsPayActorSid[RsPayActorSid["STAFF"] = 1] = "STAFF";
-    /** User */
-    RsPayActorSid[RsPayActorSid["USER"] = 2] = "USER";
-})(RsPayActorSid || (RsPayActorSid = {}));
-/** A list of currencies. */
-export var CoreLocaleCurrencySid;
-(function (CoreLocaleCurrencySid) {
-    /** United Arab Emirates dirham */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["AED"] = 11] = "AED";
-    /** Australian dollar */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["AUD"] = 6] = "AUD";
-    /** Bermudian Dollar */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["BMD"] = 18] = "BMD";
-    /** Bahamian dollar */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["BSD"] = 19] = "BSD";
-    /** Canadian dollar */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["CAD"] = 4] = "CAD";
-    /** Egypt Pound */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["EGP"] = 8] = "EGP";
-    /** Euro */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["EUR"] = 13] = "EUR";
-    /** British pound */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["GBP"] = 3] = "GBP";
-    /** Kuwaiti dinar */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["KWD"] = 14] = "KWD";
-    /** Cayman Islands dollar */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["KYD"] = 5] = "KYD";
-    /** Mauritian Rupee */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["MUR"] = 16] = "MUR";
-    /** New Zealand Dollar */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["NZD"] = 10] = "NZD";
-    /** Philippines Pesco */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["PHP"] = 12] = "PHP";
-    /** Saudi Riyal */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["SAR"] = 15] = "SAR";
-    /** Singapore dollar */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["SGD"] = 20] = "SGD";
-    /** Unknown code */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["UNKNOWN"] = 2] = "UNKNOWN";
-    /** US dollars */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["USD"] = 1] = "USD";
-    /** West African CFA franc */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["XOF"] = 17] = "XOF";
-    /** South African rand */
-    CoreLocaleCurrencySid[CoreLocaleCurrencySid["ZAR"] = 7] = "ZAR";
-})(CoreLocaleCurrencySid || (CoreLocaleCurrencySid = {}));
-/** Statuses of payment intents. */
-export var ThothPayProcessorStripeComPaymentIntentStatusSid;
-(function (ThothPayProcessorStripeComPaymentIntentStatusSid) {
-    /** You may cancel a Payment Intent at any point before it is processing or succeeded. This invalidates the */
-    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["CANCELED"] = 7] = "CANCELED";
-    /** Once required actions are handled, the Payment Intent moves to processing. While for some payment methods */
-    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["PROCESSING"] = 4] = "PROCESSING";
-    /** If the payment requires additional actions, such as authenticating with 3D Secure , the Payment Intent has a status */
-    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_ACTION"] = 3] = "REQUIRES_ACTION";
-    /** Requires capture */
-    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_CAPTURE"] = 6] = "REQUIRES_CAPTURE";
-    /** After the customer provides their payment information, the Payment Intent is ready to be confirmed */
-    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_CONFIRMATION"] = 2] = "REQUIRES_CONFIRMATION";
-    /** When the Payment Intent is created, it has a status of `requires_payment_method` until a payment method is */
-    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_PAYMENT_METHOD"] = 1] = "REQUIRES_PAYMENT_METHOD";
-    /** A Payment Intent with a status of succeeded means that the payment flow it is driving is complete */
-    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["SUCCEEDED"] = 5] = "SUCCEEDED";
-})(ThothPayProcessorStripeComPaymentIntentStatusSid || (ThothPayProcessorStripeComPaymentIntentStatusSid = {}));
-/** An enum of credit card types. */
-export var ThothWlPayBankCardCardTypeEnum;
-(function (ThothWlPayBankCardCardTypeEnum) {
-    /** Credit Card */
-    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["CREDIT"] = 1] = "CREDIT";
-    /** Debit Card */
-    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
-})(ThothWlPayBankCardCardTypeEnum || (ThothWlPayBankCardCardTypeEnum = {}));
-/** A list of payment methods. */
-export var RsPayMethodSid;
-(function (RsPayMethodSid) {
-    /** Payment with personal user account (rs.pay.account) */
-    RsPayMethodSid[RsPayMethodSid["ACCOUNT"] = 7] = "ACCOUNT";
-    /** ACH system (USA-specific direct banking transactions) */
-    RsPayMethodSid[RsPayMethodSid["ACH"] = 9] = "ACH";
-    /** Payment with cash */
-    RsPayMethodSid[RsPayMethodSid["CASH"] = 4] = "CASH";
-    /** Payment with a cheque */
-    RsPayMethodSid[RsPayMethodSid["CHEQUE"] = 5] = "CHEQUE";
-    /** Payment with a coupon */
-    RsPayMethodSid[RsPayMethodSid["COUPON"] = 8] = "COUPON";
-    /** Direct Entry system (australian-specific direct banking transactions) */
-    RsPayMethodSid[RsPayMethodSid["DIRECT_ENTRY"] = 10] = "DIRECT_ENTRY";
-    /** Online payment. Card not present */
-    RsPayMethodSid[RsPayMethodSid["ECOMMERCE"] = 2] = "ECOMMERCE";
-    /** Payment with an external terminal */
-    RsPayMethodSid[RsPayMethodSid["EXTERNAL"] = 6] = "EXTERNAL";
-    /** Special method to be used for migration process */
-    RsPayMethodSid[RsPayMethodSid["IMPORT_ACCRUAL"] = 11] = "IMPORT_ACCRUAL";
-    /** Payment method at a Points of sale */
-    RsPayMethodSid[RsPayMethodSid["POS"] = 1] = "POS";
-})(RsPayMethodSid || (RsPayMethodSid = {}));
-/** Lists statuses of reports from point of view of its generation. */
-export var ThothReportCoreGeneratorReportGeneratorStatusSid;
-(function (ThothReportCoreGeneratorReportGeneratorStatusSid) {
-    /** Report is in an inconsistent state */
-    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["ABORTED"] = 6] = "ABORTED";
-    /** Current operation is being aborted now */
-    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["ABORTING"] = 5] = "ABORTING";
-    /** This report is being deleted now */
-    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["DELETING"] = 4] = "DELETING";
-    /** This report is being generated now */
-    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["GENERATING"] = 2] = "GENERATING";
-    /** Generation of this report is queued */
-    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["QUEUED"] = 1] = "QUEUED";
-    /** Generation of this report is now completed */
-    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["READY"] = 3] = "READY";
-})(ThothReportCoreGeneratorReportGeneratorStatusSid || (ThothReportCoreGeneratorReportGeneratorStatusSid = {}));
-/** A class for a list of card systems. */
-export var ACardSystemSid;
-(function (ACardSystemSid) {
-    /** American Express */
-    ACardSystemSid[ACardSystemSid["AMERICAN_EXPRESS"] = 1] = "AMERICAN_EXPRESS";
-    /** Bank of Montreal (BMO) */
-    ACardSystemSid[ACardSystemSid["BMO"] = 2] = "BMO";
-    /** Canadian Imperial Bank of Commerce (CIBC) */
-    ACardSystemSid[ACardSystemSid["CIBC"] = 3] = "CIBC";
-    /** Diners Club International */
-    ACardSystemSid[ACardSystemSid["DINNER_CLUB"] = 4] = "DINNER_CLUB";
-    /** Discover */
-    ACardSystemSid[ACardSystemSid["DISCOVER"] = 5] = "DISCOVER";
-    /** HSBC Bank Canada */
-    ACardSystemSid[ACardSystemSid["HSBC_CANADA"] = 6] = "HSBC_CANADA";
-    /** Japan Credit Bureau (JCB) */
-    ACardSystemSid[ACardSystemSid["JCB"] = 7] = "JCB";
-    /** Mastercard */
-    ACardSystemSid[ACardSystemSid["MASTERCARD"] = 8] = "MASTERCARD";
-    /** Royal Bank of Canada */
-    ACardSystemSid[ACardSystemSid["ROYAL_BANK"] = 9] = "ROYAL_BANK";
-    /** Scotiabank */
-    ACardSystemSid[ACardSystemSid["SCOTIBANK"] = 10] = "SCOTIBANK";
-    /** TD Canada Trust */
-    ACardSystemSid[ACardSystemSid["TD_CANADA"] = 11] = "TD_CANADA";
-    /** The card system can't be determined */
-    ACardSystemSid[ACardSystemSid["UNDEFINED"] = 13] = "UNDEFINED";
-    /** Union Pay */
-    ACardSystemSid[ACardSystemSid["UNION_PAY"] = 14] = "UNION_PAY";
-    /** Visa */
-    ACardSystemSid[ACardSystemSid["VISA"] = 12] = "VISA";
-})(ACardSystemSid || (ACardSystemSid = {}));
-/** Paragon device type of reader. */
-export var ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid;
-(function (ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid) {
-    /** Verifone e285 reader */
-    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["E285"] = 1] = "E285";
-    /** Verifone P200 reader */
-    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["P200"] = 2] = "P200";
-    /** Verifone P400 plus reader */
-    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["P400_PLUS"] = 3] = "P400_PLUS";
-    /** Verifone V200c reader */
-    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V200_C"] = 4] = "V200_C";
-    /** Verifone V200c plus reader */
-    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V200_C_PLUS"] = 5] = "V200_C_PLUS";
-    /** Verifone V400c plus reader */
-    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V400_C_PLUS"] = 7] = "V400_C_PLUS";
-    /** Verifone V400m reader */
-    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V400_M"] = 6] = "V400_M";
-})(ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid || (ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = {}));
-/** List of supported terminal interaction types. */
-export var ThothPayProcessorTerminalTerminalTypeSid;
-(function (ThothPayProcessorTerminalTerminalTypeSid) {
-    /** Magtek USB */
-    ThothPayProcessorTerminalTerminalTypeSid[ThothPayProcessorTerminalTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
-})(ThothPayProcessorTerminalTerminalTypeSid || (ThothPayProcessorTerminalTerminalTypeSid = {}));
-/** A list of devices supported by credit card reader plugin. */
-export var ThothWlPayCordovaCordovaCcrDeviceSid;
-(function (ThothWlPayCordovaCordovaCcrDeviceSid) {
-    /** Payment processor: Direct Connect */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_IDT_AUGUSTA"] = 4] = "DC_IDT_AUGUSTA";
-    /** Payment processor: Direct Connect */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_IDT_BT_MAG"] = 5] = "DC_IDT_BT_MAG";
-    /** Payment processor: Direct Connect */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_IDT_UNI_MAG"] = 6] = "DC_IDT_UNI_MAG";
-    /** Payment processor: Direct Connect */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_IDT_UNI_PAY"] = 7] = "DC_IDT_UNI_PAY";
-    /** Payment processor: Direct Connect */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_MAGTEK_AUDIO"] = 11] = "DC_MAGTEK_AUDIO";
-    /** Payment processor: Paragon (ex. Direct Connect) */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_MAGTEK_BLUETOOTH"] = 13] = "DC_MAGTEK_BLUETOOTH";
-    /** Payment processor: Direct Connect */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_MAGTEK_LIGHTNING"] = 12] = "DC_MAGTEK_LIGHTNING";
-    /** Payment processor: Direct Connect */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_MIURA"] = 8] = "DC_MIURA";
-    /** Payment processor: Direct Connect */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_PAX"] = 9] = "DC_PAX";
-    /** Payment processor: NMI */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["NMI_ENTERPRISE"] = 3] = "NMI_ENTERPRISE";
-    /** Payment processor: NMI */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["NMI_IPS"] = 2] = "NMI_IPS";
-    /** Payment processor: NMI */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["NMI_UNIMAG"] = 1] = "NMI_UNIMAG";
-    /** Payment processor: Stripe */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["STRIPE_BBPOS_SIMULATED_WISEPOS_E"] = 17] = "STRIPE_BBPOS_SIMULATED_WISEPOS_E";
-    /** Payment processor: Stripe */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["STRIPE_BBPOS_WISEPAD_3_BLUETOOTH"] = 14] = "STRIPE_BBPOS_WISEPAD_3_BLUETOOTH";
-    /** Payment processor: Stripe */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["STRIPE_BBPOS_WISEPOS_E_INTERNET"] = 15] = "STRIPE_BBPOS_WISEPOS_E_INTERNET";
-    /** Payment processor: Stripe */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["STRIPE_READER_M2_BLUETOOTH"] = 16] = "STRIPE_READER_M2_BLUETOOTH";
-    /** Virtual device for testing purposes */
-    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["VIRTUAL"] = 10] = "VIRTUAL";
-})(ThothWlPayCordovaCordovaCcrDeviceSid || (ThothWlPayCordovaCordovaCcrDeviceSid = {}));
-/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
-export var ThothPayProcessorStripeComTerminalStripeTerminalTypeSid;
-(function (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid) {
-    /** Terminals that work via Stripe javascript SDK */
-    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["JS_SDK"] = 2] = "JS_SDK";
-    /** Magtek USB */
-    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
-})(ThothPayProcessorStripeComTerminalStripeTerminalTypeSid || (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = {}));
-/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
-export var ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid;
-(function (ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid) {
-    /** Card terminals that work via OMNI Channel API */
-    ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid[ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid["OMNICHANNEL"] = 2] = "OMNICHANNEL";
-    /** Magtek USB */
-    ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid[ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
-})(ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid || (ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = {}));
-/** A list of payment gateways or processors. */
-export var ThothPayProcessorPayProcessorSid;
-(function (ThothPayProcessorPayProcessorSid) {
-    /** Payment gateway for `cybersource.com` */
-    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["CYBER_SOURCE"] = 11] = "CYBER_SOURCE";
-    /** Payment gateway for Direct Connect */
-    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["DIRECT_CONNECT"] = 9] = "DIRECT_CONNECT";
-    /** Payment gateway for Lucy */
-    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["LUCY"] = 2] = "LUCY";
-    /** Payment gateway for Netbanx */
-    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["NETBANX"] = 1] = "NETBANX";
-    /** Payment gateway for NMI */
-    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["NMI"] = 6] = "NMI";
-    /** Payment gateway for Nuvei */
-    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["NUVEI"] = 12] = "NUVEI";
-    /** Payment gateway for Paychoice */
-    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["PAYCHOICE"] = 7] = "PAYCHOICE";
-    /** Payment gateway for `stripe.com` */
-    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["STRIPE_COM"] = 10] = "STRIPE_COM";
-})(ThothPayProcessorPayProcessorSid || (ThothPayProcessorPayProcessorSid = {}));
-/** A list of locales. */
-export var CoreLocaleLocaleSid;
-(function (CoreLocaleLocaleSid) {
-    /** Australia */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["AUSTRALIA"] = 4] = "AUSTRALIA";
-    /** Bahamas */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["BAHAMAS"] = 20] = "BAHAMAS";
-    /** Bermuda */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["BERMUDA"] = 19] = "BERMUDA";
-    /** Canada */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["CANADA"] = 2] = "CANADA";
-    /** Cayman Islands */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["CAYMAN"] = 5] = "CAYMAN";
-    /** Cyprus */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["CYPRUS"] = 13] = "CYPRUS";
-    /** Egypt */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["EGYPT"] = 8] = "EGYPT";
-    /** Republic of Ireland */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["IRELAND"] = 18] = "IRELAND";
-    /** Kuwait */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["KUWAIT"] = 14] = "KUWAIT";
-    /** Republic of Mauritius */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["MAURITIUS"] = 16] = "MAURITIUS";
-    /** A special locale that can be used for testing or a business situated in an unknown region */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["NEVERLAND"] = 9] = "NEVERLAND";
-    /** New Zealand */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["NEW_ZEALAND"] = 10] = "NEW_ZEALAND";
-    /** Philippines */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["PHILIPPINES"] = 12] = "PHILIPPINES";
-    /** Saudi Arabia */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["SAUDI_ARABIA"] = 15] = "SAUDI_ARABIA";
-    /** Senegal */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["SENEGAL"] = 17] = "SENEGAL";
-    /** Singapore */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["SINGAPORE"] = 21] = "SINGAPORE";
-    /** South Africa */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["SOUTH_AFRICA"] = 6] = "SOUTH_AFRICA";
-    /** United Arab Emirates */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["UAE"] = 11] = "UAE";
-    /** United Kingdom */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["UK"] = 3] = "UK";
-    /** United States of America */
-    CoreLocaleLocaleSid[CoreLocaleLocaleSid["USA"] = 1] = "USA";
-})(CoreLocaleLocaleSid || (CoreLocaleLocaleSid = {}));
-/** A list of money owners from which account money can be transferred. */
-export var RsPayOwnerSid;
-(function (RsPayOwnerSid) {
-    /** Anonymous user (Walk-In) */
-    RsPayOwnerSid[RsPayOwnerSid["ANONYMOUS"] = 3] = "ANONYMOUS";
-    /** Business */
-    RsPayOwnerSid[RsPayOwnerSid["BUSINESS"] = 2] = "BUSINESS";
-    /** System user */
-    RsPayOwnerSid[RsPayOwnerSid["USER"] = 1] = "USER";
-})(RsPayOwnerSid || (RsPayOwnerSid = {}));
+// --- Enum types (218 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -442,520 +42,42 @@ export var WlTaskTaskStatusSid;
     /** Task in progress */
     WlTaskTaskStatusSid[WlTaskTaskStatusSid["PROGRESS"] = 2] = "PROGRESS";
 })(WlTaskTaskStatusSid || (WlTaskTaskStatusSid = {}));
-/** An exception that is thrown in a case of a payment error. */
-export var RsPayException;
-(function (RsPayException) {
-    /** Invalid ABA number chosen */
-    RsPayException[RsPayException["ABAN_EMPTY"] = 58] = "ABAN_EMPTY";
-    /** Invalid ABA number chosen */
-    RsPayException[RsPayException["ABAN_INVALID"] = 57] = "ABAN_INVALID";
-    /** User Authentication Failed */
-    RsPayException[RsPayException["ACCESS_AUTHENTICATE"] = 160] = "ACCESS_AUTHENTICATE";
-    /** Authentication token is not valid */
-    RsPayException[RsPayException["ACCESS_TOKEN_INVALID"] = 181] = "ACCESS_TOKEN_INVALID";
-    /** Account payment entry method is empty */
-    RsPayException[RsPayException["ACCOUNT_ENTRY_EMPTY"] = 63] = "ACCOUNT_ENTRY_EMPTY";
-    /** Account holder type is empty */
-    RsPayException[RsPayException["ACCOUNT_HOLDER_EMPTY"] = 64] = "ACCOUNT_HOLDER_EMPTY";
-    /** Account name is empty */
-    RsPayException[RsPayException["ACCOUNT_NAME_EMPTY"] = 59] = "ACCOUNT_NAME_EMPTY";
-    /** Account name is too long */
-    RsPayException[RsPayException["ACCOUNT_NAME_LONG"] = 60] = "ACCOUNT_NAME_LONG";
-    /** Account number is empty */
-    RsPayException[RsPayException["ACCOUNT_NUMBER_EMPTY"] = 61] = "ACCOUNT_NUMBER_EMPTY";
-    /** Account number invalid */
-    RsPayException[RsPayException["ACCOUNT_NUMBER_INVALID"] = 67] = "ACCOUNT_NUMBER_INVALID";
-    /** Account number is too long */
-    RsPayException[RsPayException["ACCOUNT_NUMBER_LONG"] = 62] = "ACCOUNT_NUMBER_LONG";
-    /** Account number is too short */
-    RsPayException[RsPayException["ACCOUNT_NUMBER_SHORT"] = 66] = "ACCOUNT_NUMBER_SHORT";
-    /** Account owner is empty */
-    RsPayException[RsPayException["ACCOUNT_OWNER_EMPTY"] = 69] = "ACCOUNT_OWNER_EMPTY";
-    /** Account name is too long */
-    RsPayException[RsPayException["ACCOUNT_OWNER_LONG"] = 70] = "ACCOUNT_OWNER_LONG";
-    /** Account owner name does not equal billing name */
-    RsPayException[RsPayException["ACCOUNT_OWNER_DOES_NOT_MATCH"] = 182] = "ACCOUNT_OWNER_DOES_NOT_MATCH";
-    /** Account type is empty */
-    RsPayException[RsPayException["ACCOUNT_TYPE_EMPTY"] = 65] = "ACCOUNT_TYPE_EMPTY";
-    /** ACH: Account Closed */
-    RsPayException[RsPayException["ACH_E02"] = 198] = "ACH_E02";
-    /** ACH: No Account / Unable to Locate Account */
-    RsPayException[RsPayException["ACH_E03"] = 199] = "ACH_E03";
-    /** ACH: Invalid Account Number */
-    RsPayException[RsPayException["ACH_E04"] = 200] = "ACH_E04";
-    /** ACH: Unauthorized Debit to Consumer Account Using Corporate SEC Code */
-    RsPayException[RsPayException["ACH_E05"] = 201] = "ACH_E05";
-    /** ACH: Authorization Revoked by Customer */
-    RsPayException[RsPayException["ACH_E07"] = 202] = "ACH_E07";
-    /** ACH: Payment Stopped */
-    RsPayException[RsPayException["ACH_E08"] = 203] = "ACH_E08";
-    /** ACH: Customer Advises Originator Not Known / Not Authorized */
-    RsPayException[RsPayException["ACH_E10"] = 204] = "ACH_E10";
-    /** ACH: Customer Advises Entry Not in Accordance with Authorization */
-    RsPayException[RsPayException["ACH_E11"] = 205] = "ACH_E11";
-    /** ACH: RDFI Not Qualified to Participate */
-    RsPayException[RsPayException["ACH_E13"] = 206] = "ACH_E13";
-    /** ACH: Representative Payee Deceased or Unable to Continue */
-    RsPayException[RsPayException["ACH_E14"] = 207] = "ACH_E14";
-    /** ACH: Beneficiary or Account Holder Deceased */
-    RsPayException[RsPayException["ACH_E15"] = 208] = "ACH_E15";
-    /** ACH: Account Frozen */
-    RsPayException[RsPayException["ACH_E16"] = 209] = "ACH_E16";
-    /** ACH: Invalid Account Number under Questionable Circumstances */
-    RsPayException[RsPayException["ACH_E17"] = 210] = "ACH_E17";
-    /** ACH: Non-Transaction Account */
-    RsPayException[RsPayException["ACH_E20"] = 211] = "ACH_E20";
-    /** ACH: Corporate Customer Advises Not Authorized */
-    RsPayException[RsPayException["ACH_E29"] = 212] = "ACH_E29";
-    /** ACH: Invalid Image */
-    RsPayException[RsPayException["ACH_E92"] = 213] = "ACH_E92";
-    /** ACH: Non-Negotiable */
-    RsPayException[RsPayException["ACH_E93"] = 214] = "ACH_E93";
-    /** ACH: Breach of Warranty */
-    RsPayException[RsPayException["ACH_E95"] = 215] = "ACH_E95";
-    /** ACH: Counterfeit / Forgery */
-    RsPayException[RsPayException["ACH_E96"] = 216] = "ACH_E96";
-    /** ACH: Refer to Maker */
-    RsPayException[RsPayException["ACH_E97"] = 217] = "ACH_E97";
-    /** Insufficient funds */
-    RsPayException[RsPayException["ACH_R01"] = 124] = "ACH_R01";
-    /** Bank account closed */
-    RsPayException[RsPayException["ACH_R02"] = 125] = "ACH_R02";
-    /** No bank account/unable to locate account */
-    RsPayException[RsPayException["ACH_R03"] = 126] = "ACH_R03";
-    /** Invalid bank account number */
-    RsPayException[RsPayException["ACH_R04"] = 127] = "ACH_R04";
-    /** Unauthorized Debit to Consumer Account Using Corporate SEC Code */
-    RsPayException[RsPayException["ACH_R05"] = 128] = "ACH_R05";
-    /** Returned per ODFI request */
-    RsPayException[RsPayException["ACH_R06"] = 129] = "ACH_R06";
-    /** Authorization revoked by customer */
-    RsPayException[RsPayException["ACH_R07"] = 130] = "ACH_R07";
-    /** Payment stopped */
-    RsPayException[RsPayException["ACH_R08"] = 131] = "ACH_R08";
-    /** Uncollected funds */
-    RsPayException[RsPayException["ACH_R09"] = 132] = "ACH_R09";
-    /** Customer advises not authorized */
-    RsPayException[RsPayException["ACH_R10"] = 133] = "ACH_R10";
-    /** Check truncation entry return */
-    RsPayException[RsPayException["ACH_R11"] = 134] = "ACH_R11";
-    /** Branch sold to another RDFI */
-    RsPayException[RsPayException["ACH_R12"] = 135] = "ACH_R12";
-    /** RDFI not qualified to participate */
-    RsPayException[RsPayException["ACH_R13"] = 136] = "ACH_R13";
-    /** Representative payee deceased or unable to continue in that capacity */
-    RsPayException[RsPayException["ACH_R14"] = 137] = "ACH_R14";
-    /** Beneficiary or bank account holder */
-    RsPayException[RsPayException["ACH_R15"] = 138] = "ACH_R15";
-    /** Bank account frozen */
-    RsPayException[RsPayException["ACH_R16"] = 139] = "ACH_R16";
-    /** File record edit criteria */
-    RsPayException[RsPayException["ACH_R17"] = 140] = "ACH_R17";
-    /** Improper effective entry date */
-    RsPayException[RsPayException["ACH_R18"] = 141] = "ACH_R18";
-    /** Amount field error */
-    RsPayException[RsPayException["ACH_R19"] = 142] = "ACH_R19";
-    /** Non-payment bank account */
-    RsPayException[RsPayException["ACH_R20"] = 143] = "ACH_R20";
-    /** Invalid company ID number */
-    RsPayException[RsPayException["ACH_R21"] = 144] = "ACH_R21";
-    /** Invalid individual ID number */
-    RsPayException[RsPayException["ACH_R22"] = 145] = "ACH_R22";
-    /** Credit entry refused by receiver */
-    RsPayException[RsPayException["ACH_R23"] = 146] = "ACH_R23";
-    /** Duplicate entry */
-    RsPayException[RsPayException["ACH_R24"] = 147] = "ACH_R24";
-    /** Addenda error */
-    RsPayException[RsPayException["ACH_R25"] = 148] = "ACH_R25";
-    /** Mandatory field error */
-    RsPayException[RsPayException["ACH_R26"] = 149] = "ACH_R26";
-    /** Trace number error */
-    RsPayException[RsPayException["ACH_R27"] = 150] = "ACH_R27";
-    /** Transit routing number check digit error */
-    RsPayException[RsPayException["ACH_R28"] = 151] = "ACH_R28";
-    /** Corporate customer advises not authorized */
-    RsPayException[RsPayException["ACH_R29"] = 152] = "ACH_R29";
-    /** RDFI not participant in check truncation program */
-    RsPayException[RsPayException["ACH_R30"] = 153] = "ACH_R30";
-    /** Permissible return entry (CCD and CTX only) */
-    RsPayException[RsPayException["ACH_R31"] = 154] = "ACH_R31";
-    /** RDFI non-settlement */
-    RsPayException[RsPayException["ACH_R32"] = 155] = "ACH_R32";
-    /** Return of XCK entry */
-    RsPayException[RsPayException["ACH_R33"] = 156] = "ACH_R33";
-    /** Limited participation RDFI */
-    RsPayException[RsPayException["ACH_R34"] = 157] = "ACH_R34";
-    /** Return of improper debit entry */
-    RsPayException[RsPayException["ACH_R35"] = 158] = "ACH_R35";
-    /** ACH: Return of Improper Credit Entry */
-    RsPayException[RsPayException["ACH_R36"] = 218] = "ACH_R36";
-    /** ACH: Source Document Presented for Payment */
-    RsPayException[RsPayException["ACH_R37"] = 219] = "ACH_R37";
-    /** ACH: Stop Payment on Source Document */
-    RsPayException[RsPayException["ACH_R38"] = 220] = "ACH_R38";
-    /** ACH: Improper Source Document */
-    RsPayException[RsPayException["ACH_R39"] = 221] = "ACH_R39";
-    /** ACH: Return of ENR Entry by Federal Government Agency */
-    RsPayException[RsPayException["ACH_R40"] = 222] = "ACH_R40";
-    /** ACH: Invalid Transaction Code */
-    RsPayException[RsPayException["ACH_R41"] = 223] = "ACH_R41";
-    /** ACH: Routing Number / Check Digit Error */
-    RsPayException[RsPayException["ACH_R42"] = 224] = "ACH_R42";
-    /** ACH: Invalid DFI Account Number */
-    RsPayException[RsPayException["ACH_R43"] = 225] = "ACH_R43";
-    /** ACH: Invalid Individual ID Number / Identification */
-    RsPayException[RsPayException["ACH_R44"] = 226] = "ACH_R44";
-    /** ACH: Invalid Individual Name / Company Name */
-    RsPayException[RsPayException["ACH_R45"] = 227] = "ACH_R45";
-    /** ACH: Invalid Representative Payee Indicator */
-    RsPayException[RsPayException["ACH_R46"] = 228] = "ACH_R46";
-    /** ACH: Duplicate Enrollment */
-    RsPayException[RsPayException["ACH_R47"] = 229] = "ACH_R47";
-    /** ACH: State Law Affecting RCK Acceptance */
-    RsPayException[RsPayException["ACH_R50"] = 230] = "ACH_R50";
-    /** ACH: Item is Ineligible, Notice Not Provided, etc */
-    RsPayException[RsPayException["ACH_R51"] = 231] = "ACH_R51";
-    /** ACH: Stop Payment on Item (Adjustment Entries) */
-    RsPayException[RsPayException["ACH_R52"] = 232] = "ACH_R52";
-    /** ACH: Item and ACH Entry Presented for Payment */
-    RsPayException[RsPayException["ACH_R53"] = 233] = "ACH_R53";
-    /** ACH: Misrouted Return */
-    RsPayException[RsPayException["ACH_R61"] = 234] = "ACH_R61";
-    /** ACH: Incorrect Trace Number */
-    RsPayException[RsPayException["ACH_R62"] = 235] = "ACH_R62";
-    /** ACH: Incorrect Dollar Amount */
-    RsPayException[RsPayException["ACH_R63"] = 236] = "ACH_R63";
-    /** ACH: Incorrect Individual Identification */
-    RsPayException[RsPayException["ACH_R64"] = 237] = "ACH_R64";
-    /** ACH: Incorrect Transaction Code */
-    RsPayException[RsPayException["ACH_R65"] = 238] = "ACH_R65";
-    /** ACH: Incorrect Company Identification */
-    RsPayException[RsPayException["ACH_R66"] = 239] = "ACH_R66";
-    /** ACH: Duplicate Return */
-    RsPayException[RsPayException["ACH_R67"] = 240] = "ACH_R67";
-    /** ACH: Untimely Return */
-    RsPayException[RsPayException["ACH_R68"] = 241] = "ACH_R68";
-    /** ACH: Multiple Errors */
-    RsPayException[RsPayException["ACH_R69"] = 242] = "ACH_R69";
-    /** ACH: Permissible Return Entry Not Accepted */
-    RsPayException[RsPayException["ACH_R70"] = 243] = "ACH_R70";
-    /** ACH: Misrouted Dishonored Return */
-    RsPayException[RsPayException["ACH_R71"] = 244] = "ACH_R71";
-    /** ACH: Untimely Dishonored Return */
-    RsPayException[RsPayException["ACH_R72"] = 245] = "ACH_R72";
-    /** ACH: Timely Original Return */
-    RsPayException[RsPayException["ACH_R73"] = 246] = "ACH_R73";
-    /** ACH: Corrected Return */
-    RsPayException[RsPayException["ACH_R74"] = 247] = "ACH_R74";
-    /** ACH: Return Not a Duplicate */
-    RsPayException[RsPayException["ACH_R75"] = 248] = "ACH_R75";
-    /** ACH: No Errors Found */
-    RsPayException[RsPayException["ACH_R76"] = 249] = "ACH_R76";
-    /** ACH: IAT Entry Coding Error */
-    RsPayException[RsPayException["ACH_R80"] = 250] = "ACH_R80";
-    /** ACH: Non-Participant in IAT Program */
-    RsPayException[RsPayException["ACH_R81"] = 251] = "ACH_R81";
-    /** ACH: Invalid Foreign Receiving DFI Identification */
-    RsPayException[RsPayException["ACH_R82"] = 252] = "ACH_R82";
-    /** ACH: Foreign Receiving DFI Unable to Settle */
-    RsPayException[RsPayException["ACH_R83"] = 253] = "ACH_R83";
-    /** ACH: Entry Not Processed by Gateway */
-    RsPayException[RsPayException["ACH_R84"] = 254] = "ACH_R84";
-    /** ACH: Incorrectly Coded Outbound International Payment */
-    RsPayException[RsPayException["ACH_R85"] = 255] = "ACH_R85";
-    /** ACH check type or account type is invalid */
-    RsPayException[RsPayException["ACH_ACCOUNT_TYPE"] = 185] = "ACH_ACCOUNT_TYPE";
-    /** ACH payment method is not supported by processor */
-    RsPayException[RsPayException["ACH_SUPPORT"] = 105] = "ACH_SUPPORT";
-    /** ACH error: uncollected */
-    RsPayException[RsPayException["ACH_UNCOLLECTED"] = 123] = "ACH_UNCOLLECTED";
-    /** Invalid payment address chosen */
-    RsPayException[RsPayException["ADDRESS_INVALID"] = 39] = "ADDRESS_INVALID";
-    /** Chosen payment address does not exist */
-    RsPayException[RsPayException["ADDRESS_NX"] = 40] = "ADDRESS_NX";
-    /** Disagreement with the Payment Agreement */
-    RsPayException[RsPayException["AGREEMENT_DISAGREE"] = 176] = "AGREEMENT_DISAGREE";
-    /** Sum of amounts for all individual payment sources does not equal the total expected amount */
-    RsPayException[RsPayException["AMOUNT_CONSOLIDATE"] = 35] = "AMOUNT_CONSOLIDATE";
-    /** Total package price can't be divided equally between package items without loosing cents */
-    RsPayException[RsPayException["AMOUNT_CONSOLIDATE_PACKAGE"] = 191] = "AMOUNT_CONSOLIDATE_PACKAGE";
-    /** Amount was unexpectedly changed during the purchase process */
-    RsPayException[RsPayException["AMOUNT_CHANGE"] = 179] = "AMOUNT_CHANGE";
-    /** Amount is invalid */
-    RsPayException[RsPayException["AMOUNT_INVALID"] = 34] = "AMOUNT_INVALID";
-    /** Total price of cart greater than `1000000000.00` */
-    RsPayException[RsPayException["AMOUNT_TOTAL"] = 75] = "AMOUNT_TOTAL";
-    /** Amount equals zero */
-    RsPayException[RsPayException["AMOUNT_ZERO"] = 32] = "AMOUNT_ZERO";
-    /** AVS verification failed. Postal code or address are invalid */
-    RsPayException[RsPayException["AVS"] = 14] = "AVS";
-    /** Invalid bank account ID */
-    RsPayException[RsPayException["BANK_ACCOUNT_INVALID"] = 79] = "BANK_ACCOUNT_INVALID";
-    /** Bank account ID does not exist */
-    RsPayException[RsPayException["BANK_ACCOUNT_NX"] = 80] = "BANK_ACCOUNT_NX";
-    /** Bank state branch is empty */
-    RsPayException[RsPayException["BSB_EMPTY"] = 77] = "BSB_EMPTY";
-    /** Bank state branch is invalid */
-    RsPayException[RsPayException["BSB_INVALID"] = 78] = "BSB_INVALID";
-    /** This business is a lost customer */
-    RsPayException[RsPayException["BUSINESS_CHURN"] = 173] = "BUSINESS_CHURN";
-    /** Client must call issuer for further information */
-    RsPayException[RsPayException["CALL"] = 17] = "CALL";
-    /** Card data is valid, but you can not pay with it (e.g. hold placed on card) */
-    RsPayException[RsPayException["CARD_DECLINE"] = 5] = "CARD_DECLINE";
-    /** Invalid payment card chosen */
-    RsPayException[RsPayException["CARD_INVALID"] = 42] = "CARD_INVALID";
-    /** Card over limit */
-    RsPayException[RsPayException["CARD_LIMIT"] = 73] = "CARD_LIMIT";
-    /** Payment card nickname is empty */
-    RsPayException[RsPayException["CARD_NAME_EMPTY"] = 46] = "CARD_NAME_EMPTY";
-    /** Payment card nickname is too long */
-    RsPayException[RsPayException["CARD_NAME_LONG"] = 47] = "CARD_NAME_LONG";
-    /** The customer’s bank has declined the transaction as the credit card number has failed a security check, or the */
-    RsPayException[RsPayException["CARD_NOT_HONOR"] = 71] = "CARD_NOT_HONOR";
-    /** Insufficient funds available */
-    RsPayException[RsPayException["CARD_NSF"] = 72] = "CARD_NSF";
-    /** Chosen payment card does not exist */
-    RsPayException[RsPayException["CARD_NX"] = 43] = "CARD_NX";
-    /** User has chosen payment card but he had no such rights */
-    RsPayException[RsPayException["CARD_SELECT"] = 44] = "CARD_SELECT";
-    /** No such card issuer */
-    RsPayException[RsPayException["CARD_ISSUER_INVALID"] = 184] = "CARD_ISSUER_INVALID";
-    /** Card unsupported */
-    RsPayException[RsPayException["CARD_UNSUPPORTED"] = 190] = "CARD_UNSUPPORTED";
-    /** Element which should be paid with this payment has been canceled and payment should be blocked */
-    RsPayException[RsPayException["CANCELED"] = 177] = "CANCELED";
-    /** Comment for payment method too long */
-    RsPayException[RsPayException["COMMENT_LONG"] = 99] = "COMMENT_LONG";
-    /** Can't connect to payment gateway */
-    RsPayException[RsPayException["CONNECT"] = 8] = "CONNECT";
-    /** Unsupported country */
-    RsPayException[RsPayException["COUNTRY_UNSUPPORTED"] = 164] = "COUNTRY_UNSUPPORTED";
-    /** Gift card belongs to a foreign business */
-    RsPayException[RsPayException["COUPON_BUSINESS"] = 55] = "COUPON_BUSINESS";
-    /** Invalid payment card chosen */
-    RsPayException[RsPayException["COUPON_CURRENCY"] = 54] = "COUPON_CURRENCY";
-    /** Coupon is inactive */
-    RsPayException[RsPayException["COUPON_INACTIVE"] = 97] = "COUPON_INACTIVE";
-    /** Coupon code is invalid (invalid length, or invalid characters encountered) */
-    RsPayException[RsPayException["COUPON_INVALID"] = 51] = "COUPON_INVALID";
-    /** Invalid payment card chosen */
-    RsPayException[RsPayException["COUPON_NX"] = 52] = "COUPON_NX";
-    /** Coupon is redeemed already */
-    RsPayException[RsPayException["COUPON_REDEEM"] = 53] = "COUPON_REDEEM";
-    /** Card credentials (number, csc, month, year) change ability is disabled. E.g. payment processor may not support */
-    RsPayException[RsPayException["CREDENTIAL_SUPPORT"] = 76] = "CREDENTIAL_SUPPORT";
-    /** Invalid card security code (CSC) */
-    RsPayException[RsPayException["CSC_EMPTY"] = 21] = "CSC_EMPTY";
-    /** Invalid card security code (CSC) */
-    RsPayException[RsPayException["CSC_INVALID"] = 2] = "CSC_INVALID";
-    /** Card is expired */
-    RsPayException[RsPayException["DATE_EXPIRE"] = 24] = "DATE_EXPIRE";
-    /** Card is inactive */
-    RsPayException[RsPayException["DATE_INACTIVE"] = 163] = "DATE_INACTIVE";
-    /** Invalid Expiration Date */
-    RsPayException[RsPayException["DATE_INVALID"] = 183] = "DATE_INVALID";
-    /** Month is invalid */
-    RsPayException[RsPayException["DATE_MONTH"] = 22] = "DATE_MONTH";
-    /** Multiple usage of this payment method is not allowed */
-    RsPayException[RsPayException["DATE_YEAR"] = 23] = "DATE_YEAR";
-    /** Duplicate transaction. Transaction data that is selected for comparison is payment gateway-specific */
-    RsPayException[RsPayException["DUPLICATE"] = 1] = "DUPLICATE";
-    /** Error, caused by one of the following cases: */
-    RsPayException[RsPayException["FRAUD"] = 168] = "FRAUD";
-    /** Terminal that should be used for payment is not found */
-    RsPayException[RsPayException["HARDWARE_NOT_FOUND"] = 196] = "HARDWARE_NOT_FOUND";
-    /** Informational field is not filled in */
-    RsPayException[RsPayException["INFO_EMPTY"] = 9] = "INFO_EMPTY";
-    /** Informational field is too long */
-    RsPayException[RsPayException["INFO_LONG"] = 41] = "INFO_LONG";
-    /** Minimum payment amount is less then `1` */
-    RsPayException[RsPayException["INSTALLMENT_AMOUNT_MIN"] = 93] = "INSTALLMENT_AMOUNT_MIN";
-    /** Installment plan: Number of payment is invalid */
-    RsPayException[RsPayException["INSTALLMENT_COUNT_FORMAT"] = 85] = "INSTALLMENT_COUNT_FORMAT";
-    /** Installment plan: Number of payment is too large */
-    RsPayException[RsPayException["INSTALLMENT_COUNT_MAX"] = 87] = "INSTALLMENT_COUNT_MAX";
-    /** Installment plan: Number of payment is too small (less then 2) */
-    RsPayException[RsPayException["INSTALLMENT_COUNT_MIN"] = 86] = "INSTALLMENT_COUNT_MIN";
-    /** Installment date is not specified */
-    RsPayException[RsPayException["INSTALLMENT_DATE_EMPTY"] = 81] = "INSTALLMENT_DATE_EMPTY";
-    /** Installment date format is invalid */
-    RsPayException[RsPayException["INSTALLMENT_DATE_FORMAT"] = 82] = "INSTALLMENT_DATE_FORMAT";
-    /** Installment date is too deep in the future */
-    RsPayException[RsPayException["INSTALLMENT_DATE_FUTURE"] = 84] = "INSTALLMENT_DATE_FUTURE";
-    /** Installment date is in the past (minimum is today) */
-    RsPayException[RsPayException["INSTALLMENT_DATE_PAST"] = 83] = "INSTALLMENT_DATE_PAST";
-    /** Installment plan: Duration of a period is not allowed */
-    RsPayException[RsPayException["INSTALLMENT_DURATION_DISABLE"] = 91] = "INSTALLMENT_DURATION_DISABLE";
-    /** Installment plan: Maximum total duration of installment plan is 100 years */
-    RsPayException[RsPayException["INSTALLMENT_DURATION_MAX"] = 92] = "INSTALLMENT_DURATION_MAX";
-    /** Installment plan: Duration of a period does not exist */
-    RsPayException[RsPayException["INSTALLMENT_DURATION_NX"] = 90] = "INSTALLMENT_DURATION_NX";
-    /** Installment plan: Number of periods between two consecutive payments is invalid */
-    RsPayException[RsPayException["INSTALLMENT_PERIOD_FORMAT"] = 88] = "INSTALLMENT_PERIOD_FORMAT";
-    /** Installment plan: Number of periods between two consecutive payments is too large */
-    RsPayException[RsPayException["INSTALLMENT_PERIOD_MAX"] = 89] = "INSTALLMENT_PERIOD_MAX";
-    /** Template of installment plans: template is not selected */
-    RsPayException[RsPayException["INSTALLMENT_TEMPLATE_EMPTY"] = 95] = "INSTALLMENT_TEMPLATE_EMPTY";
-    /** Template of installment plans: ID of the template does not exist */
-    RsPayException[RsPayException["INSTALLMENT_TEMPLATE_NX"] = 94] = "INSTALLMENT_TEMPLATE_NX";
-    /** Internal errors that occurred in the browser (for example, some form data arrived to servers such that user should */
-    RsPayException[RsPayException["INTERNAL_BROWSER"] = 33] = "INTERNAL_BROWSER";
-    /** Security throttling error */
-    RsPayException[RsPayException["INTERNAL_HIT"] = 192] = "INTERNAL_HIT";
-    /** Internal merchant error */
-    RsPayException[RsPayException["INTERNAL_MERCHANT"] = 186] = "INTERNAL_MERCHANT";
-    /** Some strange service error (e.g. invalid merchant data passed, data format) */
-    RsPayException[RsPayException["INTERNAL_SERVER"] = 6] = "INTERNAL_SERVER";
-    /** Payer email is required for payment, but empty */
-    RsPayException[RsPayException["MAIL_EMPTY"] = 175] = "MAIL_EMPTY";
-    /** The associated merchant account has been closed */
-    RsPayException[RsPayException["MERCHANT_ACCOUNT_CLOSED"] = 189] = "MERCHANT_ACCOUNT_CLOSED";
-    /** Invalid merchant data */
-    RsPayException[RsPayException["MERCHANT_INVALID"] = 7] = "MERCHANT_INVALID";
-    /** Transaction was rejected by gateway */
-    RsPayException[RsPayException["MERCHANT_REJECT"] = 74] = "MERCHANT_REJECT";
-    /** Merchant has invalid settings and does not return customer vault */
-    RsPayException[RsPayException["MERCHANT_SETTINGS_VAULT"] = 166] = "MERCHANT_SETTINGS_VAULT";
-    /** User has no access to the specified payment method */
-    RsPayException[RsPayException["METHOD_ACCESS"] = 18] = "METHOD_ACCESS";
-    /** This method does not support authorization request */
-    RsPayException[RsPayException["METHOD_AUTHORIZE"] = 96] = "METHOD_AUTHORIZE";
-    /** This payment method can not be used with this business */
-    RsPayException[RsPayException["METHOD_BUSINESS"] = 19] = "METHOD_BUSINESS";
-    /** Multiple usage of this payment method is not allowed */
-    RsPayException[RsPayException["METHOD_MULTIPLE"] = 20] = "METHOD_MULTIPLE";
-    /** Cardholder name is not typed in */
-    RsPayException[RsPayException["NAME_EMPTY"] = 25] = "NAME_EMPTY";
-    /** Customer name is invalid (contains invalid characters) */
-    RsPayException[RsPayException["NAME_INVALID"] = 106] = "NAME_INVALID";
-    /** Cardholder name is too long */
-    RsPayException[RsPayException["NAME_LONG"] = 26] = "NAME_LONG";
-    /** Validation Rejection */
-    RsPayException[RsPayException["NMI_PAYSAFE_900"] = 159] = "NMI_PAYSAFE_900";
-    /** Not sufficient funds (debits only) */
-    RsPayException[RsPayException["NMI_PAYSAFE_901"] = 110] = "NMI_PAYSAFE_901";
-    /** Payment stopped/recalled */
-    RsPayException[RsPayException["NMI_PAYSAFE_903"] = 111] = "NMI_PAYSAFE_903";
-    /** Post dated/stale dated */
-    RsPayException[RsPayException["NMI_PAYSAFE_904"] = 112] = "NMI_PAYSAFE_904";
-    /** Account closed */
-    RsPayException[RsPayException["NMI_PAYSAFE_905"] = 113] = "NMI_PAYSAFE_905";
-    /** Account transferred */
-    RsPayException[RsPayException["NMI_PAYSAFE_906"] = 114] = "NMI_PAYSAFE_906";
-    /** No chequing privileges */
-    RsPayException[RsPayException["NMI_PAYSAFE_907"] = 115] = "NMI_PAYSAFE_907";
-    /** Funds not cleared */
-    RsPayException[RsPayException["NMI_PAYSAFE_908"] = 116] = "NMI_PAYSAFE_908";
-    /** Payor/payee deceased */
-    RsPayException[RsPayException["NMI_PAYSAFE_910"] = 117] = "NMI_PAYSAFE_910";
-    /** Account frozen */
-    RsPayException[RsPayException["NMI_PAYSAFE_911"] = 118] = "NMI_PAYSAFE_911";
-    /** Invalid/incorrect account number */
-    RsPayException[RsPayException["NMI_PAYSAFE_912"] = 119] = "NMI_PAYSAFE_912";
-    /** Incorrect payor/payee name */
-    RsPayException[RsPayException["NMI_PAYSAFE_914"] = 120] = "NMI_PAYSAFE_914";
-    /** Refused by payor/payee */
-    RsPayException[RsPayException["NMI_PAYSAFE_915"] = 121] = "NMI_PAYSAFE_915";
-    /** No Return Agreement */
-    RsPayException[RsPayException["NMI_PAYSAFE_998"] = 122] = "NMI_PAYSAFE_998";
-    /** Card number is not typed in */
-    RsPayException[RsPayException["NUMBER_EMPTY"] = 27] = "NUMBER_EMPTY";
-    /** Card number is invalid */
-    RsPayException[RsPayException["NUMBER_INVALID"] = 30] = "NUMBER_INVALID";
-    /** Card number is too long */
-    RsPayException[RsPayException["NUMBER_LONG"] = 28] = "NUMBER_LONG";
-    /** Card number is too long */
-    RsPayException[RsPayException["NUMBER_SHORT"] = 29] = "NUMBER_SHORT";
-    /** Some parameters client has provided are invalid */
-    RsPayException[RsPayException["PARAMETER"] = 4] = "PARAMETER";
-    /** Payment form is in passive mode */
-    RsPayException[RsPayException["PASSIVE"] = 165] = "PASSIVE";
-    /** Error during authentication of the payer */
-    RsPayException[RsPayException["PAYER_AUTHENTICATION"] = 167] = "PAYER_AUTHENTICATION";
-    /** There is other process currently running to update payment. Failed to wait until it ends */
-    RsPayException[RsPayException["PAYMENT_UPDATE_LOCK"] = 174] = "PAYMENT_UPDATE_LOCK";
-    /** Phone number is not specified on user account */
-    RsPayException[RsPayException["PHONE_EMPTY"] = 107] = "PHONE_EMPTY";
-    /** Phone number is invalid */
-    RsPayException[RsPayException["PHONE_INVALID"] = 178] = "PHONE_INVALID";
-    /** Phone number is too long */
-    RsPayException[RsPayException["PHONE_LONG"] = 108] = "PHONE_LONG";
-    /** Transaction error returned by processor */
-    RsPayException[RsPayException["PROCESSOR_ERROR"] = 98] = "PROCESSOR_ERROR";
-    /** Internal error at processor side has occurred */
-    RsPayException[RsPayException["PROCESSOR_INTERNAL"] = 109] = "PROCESSOR_INTERNAL";
-    /** Refund operation is applied too early */
-    RsPayException[RsPayException["REFUND_EARLY"] = 50] = "REFUND_EARLY";
-    /** Amount about to refund is larger then the current rest of the transaction */
-    RsPayException[RsPayException["REFUND_REST"] = 49] = "REFUND_REST";
-    /** Transaction can not be refunded because it is in an invalid status */
-    RsPayException[RsPayException["REFUND_STATUS"] = 48] = "REFUND_STATUS";
-    /** Invalid region chosen */
-    RsPayException[RsPayException["REGION_INVALID"] = 37] = "REGION_INVALID";
-    /** Chosen region does not exist */
-    RsPayException[RsPayException["REGION_NX"] = 38] = "REGION_NX";
-    /** Can not repeat purchase transaction. Reference data is expired and invalid now */
-    RsPayException[RsPayException["REPEAT_INVALID"] = 15] = "REPEAT_INVALID";
-    /** Error during request to service. In case we have not even got response */
-    RsPayException[RsPayException["REQUEST"] = 12] = "REQUEST";
-    /** Too many requests */
-    RsPayException[RsPayException["REQUEST_THROTTLE"] = 172] = "REQUEST_THROTTLE";
-    /** Temporary service error. Repeat request */
-    RsPayException[RsPayException["RETRY"] = 3] = "RETRY";
-    /** Payment is blocked due security reasons (because payment amount is too large) */
-    RsPayException[RsPayException["SECURITY_LARGE"] = 103] = "SECURITY_LARGE";
-    /** Only for test, when there is an error in the test that we cannot influence, for example: “server is not available” */
-    RsPayException[RsPayException["SKIP_IN_TESTS"] = 188] = "SKIP_IN_TESTS";
-    /** Stripe data is empty */
-    RsPayException[RsPayException["STRIPE_EMPTY"] = 31] = "STRIPE_EMPTY";
-    /** Invalid data on magnetic stripe. Maybe some part does not exist */
-    RsPayException[RsPayException["STRIPE_INVALID"] = 16] = "STRIPE_INVALID";
-    /** This recurrent payment token belongs to a different account of this merchant */
-    RsPayException[RsPayException["TOKEN_ACCOUNT"] = 161] = "TOKEN_ACCOUNT";
-    /** Payment token belongs to a different merchant processor */
-    RsPayException[RsPayException["TOKEN_PROCESSOR"] = 162] = "TOKEN_PROCESSOR";
-    /** Transaction does not exist. E.g. we want to make refund using nonexistent reference number */
-    RsPayException[RsPayException["TRANSACTION_NX"] = 13] = "TRANSACTION_NX";
-    /** Transaction is in unexpected status. For example, authorization process started but takes long time. While waiting */
-    RsPayException[RsPayException["UNEXPECTED_TRANSACTION_STATUS"] = 187] = "UNEXPECTED_TRANSACTION_STATUS";
-    /** If the user who pays through the account is a debtor */
-    RsPayException[RsPayException["USER_DEBTOR"] = 194] = "USER_DEBTOR";
-    /** If access denied to an anonymous user */
-    RsPayException[RsPayException["USER_GUEST"] = 56] = "USER_GUEST";
-    /** Error specific for payment processors that stores payer entity */
-    RsPayException[RsPayException["USER_NOT_FOUND"] = 197] = "USER_NOT_FOUND";
-    /** Some unpredicted error happened during void on processor side */
-    RsPayException[RsPayException["VOID_ERROR"] = 193] = "VOID_ERROR";
-    /** Operation Void is not possible, it's too late to do it */
-    RsPayException[RsPayException["VOID_LATE"] = 180] = "VOID_LATE";
-    /** Void operation can be done only for a total transaction amount and cannot be partial */
-    RsPayException[RsPayException["VOID_PARTIAL"] = 100] = "VOID_PARTIAL";
-    /** Void operation is restricted by rules of the system */
-    RsPayException[RsPayException["VOID_RESTRICT"] = 102] = "VOID_RESTRICT";
-    /** Void operation is not supported by the merchant processor */
-    RsPayException[RsPayException["VOID_SUPPORT"] = 101] = "VOID_SUPPORT";
-    /** Timeout waiting for settlement */
-    RsPayException[RsPayException["WAIT_TIMEOUT"] = 104] = "WAIT_TIMEOUT";
-    /** Incorrect payment card type specified */
-    RsPayException[RsPayException["TENDER_TYPE_INVALID"] = 195] = "TENDER_TYPE_INVALID";
-})(RsPayException || (RsPayException = {}));
-/** Paragon ticket status. */
-export var ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid;
-(function (ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid) {
-    /** Ticket was canceled */
-    ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["CANCELLED"] = 1] = "CANCELLED";
-    /** Ticket was completed */
-    ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["COMPLETE"] = 2] = "COMPLETE";
-    /** Ticket in error state */
-    ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["ERROR"] = 3] = "ERROR";
-    /** Ticket is processed */
-    ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["INPROCESS"] = 4] = "INPROCESS";
-    /** Ticket is opened */
-    ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["OPEN"] = 6] = "OPEN";
-    /** Ticket was reversed */
-    ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["REVERSED"] = 7] = "REVERSED";
-})(ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid || (ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = {}));
+/** Possible states of the visit: book, attended, cancelled, etc. */
+export var WlVisitVisitSid;
+(function (WlVisitVisitSid) {
+    /** Client has attended the session */
+    WlVisitVisitSid[WlVisitVisitSid["ATTEND"] = 3] = "ATTEND";
+    /** Active reservation means that user is going to attend the session */
+    WlVisitVisitSid[WlVisitVisitSid["BOOK"] = 1] = "BOOK";
+    /** Client has cancelled the reservation in time and without penalty */
+    WlVisitVisitSid[WlVisitVisitSid["CANCEL"] = 6] = "CANCEL";
+    /** Client has cancelled his reservation too late */
+    WlVisitVisitSid[WlVisitVisitSid["PENALTY"] = 4] = "PENALTY";
+    /** This state means that visit is registered, but it is unknown is it {@link WlVisitVisitSid} */
+    WlVisitVisitSid[WlVisitVisitSid["PENDING"] = 7] = "PENDING";
+    /** Visit was removed */
+    WlVisitVisitSid[WlVisitVisitSid["REMOVE"] = 8] = "REMOVE";
+    /** Client has missed the session without cancellation */
+    WlVisitVisitSid[WlVisitVisitSid["TRUANCY"] = 5] = "TRUANCY";
+    /** Reservation in a wait list means that user is going to attend the session if someone will cancel his reservation */
+    WlVisitVisitSid[WlVisitVisitSid["WAIT"] = 2] = "WAIT";
+})(WlVisitVisitSid || (WlVisitVisitSid = {}));
+/** Lists statuses of reports from point of view of its generation. */
+export var ThothReportCoreGeneratorReportGeneratorStatusSid;
+(function (ThothReportCoreGeneratorReportGeneratorStatusSid) {
+    /** Report is in an inconsistent state */
+    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["ABORTED"] = 6] = "ABORTED";
+    /** Current operation is being aborted now */
+    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["ABORTING"] = 5] = "ABORTING";
+    /** This report is being deleted now */
+    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["DELETING"] = 4] = "DELETING";
+    /** This report is being generated now */
+    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["GENERATING"] = 2] = "GENERATING";
+    /** Generation of this report is queued */
+    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["QUEUED"] = 1] = "QUEUED";
+    /** Generation of this report is now completed */
+    ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["READY"] = 3] = "READY";
+})(ThothReportCoreGeneratorReportGeneratorStatusSid || (ThothReportCoreGeneratorReportGeneratorStatusSid = {}));
 /** Statuses of domain verification. */
 export var WlMailDomainDomainVerifyStatusSid;
 (function (WlMailDomainDomainVerifyStatusSid) {
@@ -1482,6 +604,560 @@ export var RsReportSid;
     /** Report with list of businesses connected to FitLIVE */
     RsReportSid[RsReportSid["ZOOM_SYSTEM_COUNT"] = 259] = "ZOOM_SYSTEM_COUNT";
 })(RsReportSid || (RsReportSid = {}));
+/** A class for a list of card systems. */
+export var ACardSystemSid;
+(function (ACardSystemSid) {
+    /** American Express */
+    ACardSystemSid[ACardSystemSid["AMERICAN_EXPRESS"] = 1] = "AMERICAN_EXPRESS";
+    /** Bank of Montreal (BMO) */
+    ACardSystemSid[ACardSystemSid["BMO"] = 2] = "BMO";
+    /** Canadian Imperial Bank of Commerce (CIBC) */
+    ACardSystemSid[ACardSystemSid["CIBC"] = 3] = "CIBC";
+    /** Diners Club International */
+    ACardSystemSid[ACardSystemSid["DINNER_CLUB"] = 4] = "DINNER_CLUB";
+    /** Discover */
+    ACardSystemSid[ACardSystemSid["DISCOVER"] = 5] = "DISCOVER";
+    /** HSBC Bank Canada */
+    ACardSystemSid[ACardSystemSid["HSBC_CANADA"] = 6] = "HSBC_CANADA";
+    /** Japan Credit Bureau (JCB) */
+    ACardSystemSid[ACardSystemSid["JCB"] = 7] = "JCB";
+    /** Mastercard */
+    ACardSystemSid[ACardSystemSid["MASTERCARD"] = 8] = "MASTERCARD";
+    /** Royal Bank of Canada */
+    ACardSystemSid[ACardSystemSid["ROYAL_BANK"] = 9] = "ROYAL_BANK";
+    /** Scotiabank */
+    ACardSystemSid[ACardSystemSid["SCOTIBANK"] = 10] = "SCOTIBANK";
+    /** TD Canada Trust */
+    ACardSystemSid[ACardSystemSid["TD_CANADA"] = 11] = "TD_CANADA";
+    /** The card system can't be determined */
+    ACardSystemSid[ACardSystemSid["UNDEFINED"] = 13] = "UNDEFINED";
+    /** Union Pay */
+    ACardSystemSid[ACardSystemSid["UNION_PAY"] = 14] = "UNION_PAY";
+    /** Visa */
+    ACardSystemSid[ACardSystemSid["VISA"] = 12] = "VISA";
+})(ACardSystemSid || (ACardSystemSid = {}));
+/** An exception that is thrown in a case of a payment error. */
+export var RsPayException;
+(function (RsPayException) {
+    /** Invalid ABA number chosen */
+    RsPayException[RsPayException["ABAN_EMPTY"] = 58] = "ABAN_EMPTY";
+    /** Invalid ABA number chosen */
+    RsPayException[RsPayException["ABAN_INVALID"] = 57] = "ABAN_INVALID";
+    /** User Authentication Failed */
+    RsPayException[RsPayException["ACCESS_AUTHENTICATE"] = 160] = "ACCESS_AUTHENTICATE";
+    /** Authentication token is not valid */
+    RsPayException[RsPayException["ACCESS_TOKEN_INVALID"] = 181] = "ACCESS_TOKEN_INVALID";
+    /** Account payment entry method is empty */
+    RsPayException[RsPayException["ACCOUNT_ENTRY_EMPTY"] = 63] = "ACCOUNT_ENTRY_EMPTY";
+    /** Account holder type is empty */
+    RsPayException[RsPayException["ACCOUNT_HOLDER_EMPTY"] = 64] = "ACCOUNT_HOLDER_EMPTY";
+    /** Account name is empty */
+    RsPayException[RsPayException["ACCOUNT_NAME_EMPTY"] = 59] = "ACCOUNT_NAME_EMPTY";
+    /** Account name is too long */
+    RsPayException[RsPayException["ACCOUNT_NAME_LONG"] = 60] = "ACCOUNT_NAME_LONG";
+    /** Account number is empty */
+    RsPayException[RsPayException["ACCOUNT_NUMBER_EMPTY"] = 61] = "ACCOUNT_NUMBER_EMPTY";
+    /** Account number invalid */
+    RsPayException[RsPayException["ACCOUNT_NUMBER_INVALID"] = 67] = "ACCOUNT_NUMBER_INVALID";
+    /** Account number is too long */
+    RsPayException[RsPayException["ACCOUNT_NUMBER_LONG"] = 62] = "ACCOUNT_NUMBER_LONG";
+    /** Account number is too short */
+    RsPayException[RsPayException["ACCOUNT_NUMBER_SHORT"] = 66] = "ACCOUNT_NUMBER_SHORT";
+    /** Account owner is empty */
+    RsPayException[RsPayException["ACCOUNT_OWNER_EMPTY"] = 69] = "ACCOUNT_OWNER_EMPTY";
+    /** Account name is too long */
+    RsPayException[RsPayException["ACCOUNT_OWNER_LONG"] = 70] = "ACCOUNT_OWNER_LONG";
+    /** Account owner name does not equal billing name */
+    RsPayException[RsPayException["ACCOUNT_OWNER_DOES_NOT_MATCH"] = 182] = "ACCOUNT_OWNER_DOES_NOT_MATCH";
+    /** Account type is empty */
+    RsPayException[RsPayException["ACCOUNT_TYPE_EMPTY"] = 65] = "ACCOUNT_TYPE_EMPTY";
+    /** ACH: Account Closed */
+    RsPayException[RsPayException["ACH_E02"] = 198] = "ACH_E02";
+    /** ACH: No Account / Unable to Locate Account */
+    RsPayException[RsPayException["ACH_E03"] = 199] = "ACH_E03";
+    /** ACH: Invalid Account Number */
+    RsPayException[RsPayException["ACH_E04"] = 200] = "ACH_E04";
+    /** ACH: Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    RsPayException[RsPayException["ACH_E05"] = 201] = "ACH_E05";
+    /** ACH: Authorization Revoked by Customer */
+    RsPayException[RsPayException["ACH_E07"] = 202] = "ACH_E07";
+    /** ACH: Payment Stopped */
+    RsPayException[RsPayException["ACH_E08"] = 203] = "ACH_E08";
+    /** ACH: Customer Advises Originator Not Known / Not Authorized */
+    RsPayException[RsPayException["ACH_E10"] = 204] = "ACH_E10";
+    /** ACH: Customer Advises Entry Not in Accordance with Authorization */
+    RsPayException[RsPayException["ACH_E11"] = 205] = "ACH_E11";
+    /** ACH: RDFI Not Qualified to Participate */
+    RsPayException[RsPayException["ACH_E13"] = 206] = "ACH_E13";
+    /** ACH: Representative Payee Deceased or Unable to Continue */
+    RsPayException[RsPayException["ACH_E14"] = 207] = "ACH_E14";
+    /** ACH: Beneficiary or Account Holder Deceased */
+    RsPayException[RsPayException["ACH_E15"] = 208] = "ACH_E15";
+    /** ACH: Account Frozen */
+    RsPayException[RsPayException["ACH_E16"] = 209] = "ACH_E16";
+    /** ACH: Invalid Account Number under Questionable Circumstances */
+    RsPayException[RsPayException["ACH_E17"] = 210] = "ACH_E17";
+    /** ACH: Non-Transaction Account */
+    RsPayException[RsPayException["ACH_E20"] = 211] = "ACH_E20";
+    /** ACH: Corporate Customer Advises Not Authorized */
+    RsPayException[RsPayException["ACH_E29"] = 212] = "ACH_E29";
+    /** ACH: Invalid Image */
+    RsPayException[RsPayException["ACH_E92"] = 213] = "ACH_E92";
+    /** ACH: Non-Negotiable */
+    RsPayException[RsPayException["ACH_E93"] = 214] = "ACH_E93";
+    /** ACH: Breach of Warranty */
+    RsPayException[RsPayException["ACH_E95"] = 215] = "ACH_E95";
+    /** ACH: Counterfeit / Forgery */
+    RsPayException[RsPayException["ACH_E96"] = 216] = "ACH_E96";
+    /** ACH: Refer to Maker */
+    RsPayException[RsPayException["ACH_E97"] = 217] = "ACH_E97";
+    /** Insufficient funds */
+    RsPayException[RsPayException["ACH_R01"] = 124] = "ACH_R01";
+    /** Bank account closed */
+    RsPayException[RsPayException["ACH_R02"] = 125] = "ACH_R02";
+    /** No bank account/unable to locate account */
+    RsPayException[RsPayException["ACH_R03"] = 126] = "ACH_R03";
+    /** Invalid bank account number */
+    RsPayException[RsPayException["ACH_R04"] = 127] = "ACH_R04";
+    /** Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    RsPayException[RsPayException["ACH_R05"] = 128] = "ACH_R05";
+    /** Returned per ODFI request */
+    RsPayException[RsPayException["ACH_R06"] = 129] = "ACH_R06";
+    /** Authorization revoked by customer */
+    RsPayException[RsPayException["ACH_R07"] = 130] = "ACH_R07";
+    /** Payment stopped */
+    RsPayException[RsPayException["ACH_R08"] = 131] = "ACH_R08";
+    /** Uncollected funds */
+    RsPayException[RsPayException["ACH_R09"] = 132] = "ACH_R09";
+    /** Customer advises not authorized */
+    RsPayException[RsPayException["ACH_R10"] = 133] = "ACH_R10";
+    /** Check truncation entry return */
+    RsPayException[RsPayException["ACH_R11"] = 134] = "ACH_R11";
+    /** Branch sold to another RDFI */
+    RsPayException[RsPayException["ACH_R12"] = 135] = "ACH_R12";
+    /** RDFI not qualified to participate */
+    RsPayException[RsPayException["ACH_R13"] = 136] = "ACH_R13";
+    /** Representative payee deceased or unable to continue in that capacity */
+    RsPayException[RsPayException["ACH_R14"] = 137] = "ACH_R14";
+    /** Beneficiary or bank account holder */
+    RsPayException[RsPayException["ACH_R15"] = 138] = "ACH_R15";
+    /** Bank account frozen */
+    RsPayException[RsPayException["ACH_R16"] = 139] = "ACH_R16";
+    /** File record edit criteria */
+    RsPayException[RsPayException["ACH_R17"] = 140] = "ACH_R17";
+    /** Improper effective entry date */
+    RsPayException[RsPayException["ACH_R18"] = 141] = "ACH_R18";
+    /** Amount field error */
+    RsPayException[RsPayException["ACH_R19"] = 142] = "ACH_R19";
+    /** Non-payment bank account */
+    RsPayException[RsPayException["ACH_R20"] = 143] = "ACH_R20";
+    /** Invalid company ID number */
+    RsPayException[RsPayException["ACH_R21"] = 144] = "ACH_R21";
+    /** Invalid individual ID number */
+    RsPayException[RsPayException["ACH_R22"] = 145] = "ACH_R22";
+    /** Credit entry refused by receiver */
+    RsPayException[RsPayException["ACH_R23"] = 146] = "ACH_R23";
+    /** Duplicate entry */
+    RsPayException[RsPayException["ACH_R24"] = 147] = "ACH_R24";
+    /** Addenda error */
+    RsPayException[RsPayException["ACH_R25"] = 148] = "ACH_R25";
+    /** Mandatory field error */
+    RsPayException[RsPayException["ACH_R26"] = 149] = "ACH_R26";
+    /** Trace number error */
+    RsPayException[RsPayException["ACH_R27"] = 150] = "ACH_R27";
+    /** Transit routing number check digit error */
+    RsPayException[RsPayException["ACH_R28"] = 151] = "ACH_R28";
+    /** Corporate customer advises not authorized */
+    RsPayException[RsPayException["ACH_R29"] = 152] = "ACH_R29";
+    /** RDFI not participant in check truncation program */
+    RsPayException[RsPayException["ACH_R30"] = 153] = "ACH_R30";
+    /** Permissible return entry (CCD and CTX only) */
+    RsPayException[RsPayException["ACH_R31"] = 154] = "ACH_R31";
+    /** RDFI non-settlement */
+    RsPayException[RsPayException["ACH_R32"] = 155] = "ACH_R32";
+    /** Return of XCK entry */
+    RsPayException[RsPayException["ACH_R33"] = 156] = "ACH_R33";
+    /** Limited participation RDFI */
+    RsPayException[RsPayException["ACH_R34"] = 157] = "ACH_R34";
+    /** Return of improper debit entry */
+    RsPayException[RsPayException["ACH_R35"] = 158] = "ACH_R35";
+    /** ACH: Return of Improper Credit Entry */
+    RsPayException[RsPayException["ACH_R36"] = 218] = "ACH_R36";
+    /** ACH: Source Document Presented for Payment */
+    RsPayException[RsPayException["ACH_R37"] = 219] = "ACH_R37";
+    /** ACH: Stop Payment on Source Document */
+    RsPayException[RsPayException["ACH_R38"] = 220] = "ACH_R38";
+    /** ACH: Improper Source Document */
+    RsPayException[RsPayException["ACH_R39"] = 221] = "ACH_R39";
+    /** ACH: Return of ENR Entry by Federal Government Agency */
+    RsPayException[RsPayException["ACH_R40"] = 222] = "ACH_R40";
+    /** ACH: Invalid Transaction Code */
+    RsPayException[RsPayException["ACH_R41"] = 223] = "ACH_R41";
+    /** ACH: Routing Number / Check Digit Error */
+    RsPayException[RsPayException["ACH_R42"] = 224] = "ACH_R42";
+    /** ACH: Invalid DFI Account Number */
+    RsPayException[RsPayException["ACH_R43"] = 225] = "ACH_R43";
+    /** ACH: Invalid Individual ID Number / Identification */
+    RsPayException[RsPayException["ACH_R44"] = 226] = "ACH_R44";
+    /** ACH: Invalid Individual Name / Company Name */
+    RsPayException[RsPayException["ACH_R45"] = 227] = "ACH_R45";
+    /** ACH: Invalid Representative Payee Indicator */
+    RsPayException[RsPayException["ACH_R46"] = 228] = "ACH_R46";
+    /** ACH: Duplicate Enrollment */
+    RsPayException[RsPayException["ACH_R47"] = 229] = "ACH_R47";
+    /** ACH: State Law Affecting RCK Acceptance */
+    RsPayException[RsPayException["ACH_R50"] = 230] = "ACH_R50";
+    /** ACH: Item is Ineligible, Notice Not Provided, etc */
+    RsPayException[RsPayException["ACH_R51"] = 231] = "ACH_R51";
+    /** ACH: Stop Payment on Item (Adjustment Entries) */
+    RsPayException[RsPayException["ACH_R52"] = 232] = "ACH_R52";
+    /** ACH: Item and ACH Entry Presented for Payment */
+    RsPayException[RsPayException["ACH_R53"] = 233] = "ACH_R53";
+    /** ACH: Misrouted Return */
+    RsPayException[RsPayException["ACH_R61"] = 234] = "ACH_R61";
+    /** ACH: Incorrect Trace Number */
+    RsPayException[RsPayException["ACH_R62"] = 235] = "ACH_R62";
+    /** ACH: Incorrect Dollar Amount */
+    RsPayException[RsPayException["ACH_R63"] = 236] = "ACH_R63";
+    /** ACH: Incorrect Individual Identification */
+    RsPayException[RsPayException["ACH_R64"] = 237] = "ACH_R64";
+    /** ACH: Incorrect Transaction Code */
+    RsPayException[RsPayException["ACH_R65"] = 238] = "ACH_R65";
+    /** ACH: Incorrect Company Identification */
+    RsPayException[RsPayException["ACH_R66"] = 239] = "ACH_R66";
+    /** ACH: Duplicate Return */
+    RsPayException[RsPayException["ACH_R67"] = 240] = "ACH_R67";
+    /** ACH: Untimely Return */
+    RsPayException[RsPayException["ACH_R68"] = 241] = "ACH_R68";
+    /** ACH: Multiple Errors */
+    RsPayException[RsPayException["ACH_R69"] = 242] = "ACH_R69";
+    /** ACH: Permissible Return Entry Not Accepted */
+    RsPayException[RsPayException["ACH_R70"] = 243] = "ACH_R70";
+    /** ACH: Misrouted Dishonored Return */
+    RsPayException[RsPayException["ACH_R71"] = 244] = "ACH_R71";
+    /** ACH: Untimely Dishonored Return */
+    RsPayException[RsPayException["ACH_R72"] = 245] = "ACH_R72";
+    /** ACH: Timely Original Return */
+    RsPayException[RsPayException["ACH_R73"] = 246] = "ACH_R73";
+    /** ACH: Corrected Return */
+    RsPayException[RsPayException["ACH_R74"] = 247] = "ACH_R74";
+    /** ACH: Return Not a Duplicate */
+    RsPayException[RsPayException["ACH_R75"] = 248] = "ACH_R75";
+    /** ACH: No Errors Found */
+    RsPayException[RsPayException["ACH_R76"] = 249] = "ACH_R76";
+    /** ACH: IAT Entry Coding Error */
+    RsPayException[RsPayException["ACH_R80"] = 250] = "ACH_R80";
+    /** ACH: Non-Participant in IAT Program */
+    RsPayException[RsPayException["ACH_R81"] = 251] = "ACH_R81";
+    /** ACH: Invalid Foreign Receiving DFI Identification */
+    RsPayException[RsPayException["ACH_R82"] = 252] = "ACH_R82";
+    /** ACH: Foreign Receiving DFI Unable to Settle */
+    RsPayException[RsPayException["ACH_R83"] = 253] = "ACH_R83";
+    /** ACH: Entry Not Processed by Gateway */
+    RsPayException[RsPayException["ACH_R84"] = 254] = "ACH_R84";
+    /** ACH: Incorrectly Coded Outbound International Payment */
+    RsPayException[RsPayException["ACH_R85"] = 255] = "ACH_R85";
+    /** ACH check type or account type is invalid */
+    RsPayException[RsPayException["ACH_ACCOUNT_TYPE"] = 185] = "ACH_ACCOUNT_TYPE";
+    /** ACH payment method is not supported by processor */
+    RsPayException[RsPayException["ACH_SUPPORT"] = 105] = "ACH_SUPPORT";
+    /** ACH error: uncollected */
+    RsPayException[RsPayException["ACH_UNCOLLECTED"] = 123] = "ACH_UNCOLLECTED";
+    /** Invalid payment address chosen */
+    RsPayException[RsPayException["ADDRESS_INVALID"] = 39] = "ADDRESS_INVALID";
+    /** Chosen payment address does not exist */
+    RsPayException[RsPayException["ADDRESS_NX"] = 40] = "ADDRESS_NX";
+    /** Disagreement with the Payment Agreement */
+    RsPayException[RsPayException["AGREEMENT_DISAGREE"] = 176] = "AGREEMENT_DISAGREE";
+    /** Sum of amounts for all individual payment sources does not equal the total expected amount */
+    RsPayException[RsPayException["AMOUNT_CONSOLIDATE"] = 35] = "AMOUNT_CONSOLIDATE";
+    /** Total package price can't be divided equally between package items without loosing cents */
+    RsPayException[RsPayException["AMOUNT_CONSOLIDATE_PACKAGE"] = 191] = "AMOUNT_CONSOLIDATE_PACKAGE";
+    /** Amount was unexpectedly changed during the purchase process */
+    RsPayException[RsPayException["AMOUNT_CHANGE"] = 179] = "AMOUNT_CHANGE";
+    /** Amount is invalid */
+    RsPayException[RsPayException["AMOUNT_INVALID"] = 34] = "AMOUNT_INVALID";
+    /** Total price of cart greater than `1000000000.00` */
+    RsPayException[RsPayException["AMOUNT_TOTAL"] = 75] = "AMOUNT_TOTAL";
+    /** Amount equals zero */
+    RsPayException[RsPayException["AMOUNT_ZERO"] = 32] = "AMOUNT_ZERO";
+    /** AVS verification failed. Postal code or address are invalid */
+    RsPayException[RsPayException["AVS"] = 14] = "AVS";
+    /** Invalid bank account ID */
+    RsPayException[RsPayException["BANK_ACCOUNT_INVALID"] = 79] = "BANK_ACCOUNT_INVALID";
+    /** Bank account ID does not exist */
+    RsPayException[RsPayException["BANK_ACCOUNT_NX"] = 80] = "BANK_ACCOUNT_NX";
+    /** Bank state branch is empty */
+    RsPayException[RsPayException["BSB_EMPTY"] = 77] = "BSB_EMPTY";
+    /** Bank state branch is invalid */
+    RsPayException[RsPayException["BSB_INVALID"] = 78] = "BSB_INVALID";
+    /** This business is a lost customer */
+    RsPayException[RsPayException["BUSINESS_CHURN"] = 173] = "BUSINESS_CHURN";
+    /** Client must call issuer for further information */
+    RsPayException[RsPayException["CALL"] = 17] = "CALL";
+    /** Card data is valid, but you can not pay with it (e.g. hold placed on card) */
+    RsPayException[RsPayException["CARD_DECLINE"] = 5] = "CARD_DECLINE";
+    /** Invalid payment card chosen */
+    RsPayException[RsPayException["CARD_INVALID"] = 42] = "CARD_INVALID";
+    /** Card over limit */
+    RsPayException[RsPayException["CARD_LIMIT"] = 73] = "CARD_LIMIT";
+    /** Payment card nickname is empty */
+    RsPayException[RsPayException["CARD_NAME_EMPTY"] = 46] = "CARD_NAME_EMPTY";
+    /** Payment card nickname is too long */
+    RsPayException[RsPayException["CARD_NAME_LONG"] = 47] = "CARD_NAME_LONG";
+    /** The customer’s bank has declined the transaction as the credit card number has failed a security check, or the */
+    RsPayException[RsPayException["CARD_NOT_HONOR"] = 71] = "CARD_NOT_HONOR";
+    /** Insufficient funds available */
+    RsPayException[RsPayException["CARD_NSF"] = 72] = "CARD_NSF";
+    /** Chosen payment card does not exist */
+    RsPayException[RsPayException["CARD_NX"] = 43] = "CARD_NX";
+    /** User has chosen payment card but he had no such rights */
+    RsPayException[RsPayException["CARD_SELECT"] = 44] = "CARD_SELECT";
+    /** No such card issuer */
+    RsPayException[RsPayException["CARD_ISSUER_INVALID"] = 184] = "CARD_ISSUER_INVALID";
+    /** Card unsupported */
+    RsPayException[RsPayException["CARD_UNSUPPORTED"] = 190] = "CARD_UNSUPPORTED";
+    /** Element which should be paid with this payment has been canceled and payment should be blocked */
+    RsPayException[RsPayException["CANCELED"] = 177] = "CANCELED";
+    /** Comment for payment method too long */
+    RsPayException[RsPayException["COMMENT_LONG"] = 99] = "COMMENT_LONG";
+    /** Can't connect to payment gateway */
+    RsPayException[RsPayException["CONNECT"] = 8] = "CONNECT";
+    /** Unsupported country */
+    RsPayException[RsPayException["COUNTRY_UNSUPPORTED"] = 164] = "COUNTRY_UNSUPPORTED";
+    /** Gift card belongs to a foreign business */
+    RsPayException[RsPayException["COUPON_BUSINESS"] = 55] = "COUPON_BUSINESS";
+    /** Invalid payment card chosen */
+    RsPayException[RsPayException["COUPON_CURRENCY"] = 54] = "COUPON_CURRENCY";
+    /** Coupon is inactive */
+    RsPayException[RsPayException["COUPON_INACTIVE"] = 97] = "COUPON_INACTIVE";
+    /** Coupon code is invalid (invalid length, or invalid characters encountered) */
+    RsPayException[RsPayException["COUPON_INVALID"] = 51] = "COUPON_INVALID";
+    /** Invalid payment card chosen */
+    RsPayException[RsPayException["COUPON_NX"] = 52] = "COUPON_NX";
+    /** Coupon is redeemed already */
+    RsPayException[RsPayException["COUPON_REDEEM"] = 53] = "COUPON_REDEEM";
+    /** Card credentials (number, csc, month, year) change ability is disabled. E.g. payment processor may not support */
+    RsPayException[RsPayException["CREDENTIAL_SUPPORT"] = 76] = "CREDENTIAL_SUPPORT";
+    /** Invalid card security code (CSC) */
+    RsPayException[RsPayException["CSC_EMPTY"] = 21] = "CSC_EMPTY";
+    /** Invalid card security code (CSC) */
+    RsPayException[RsPayException["CSC_INVALID"] = 2] = "CSC_INVALID";
+    /** Card is expired */
+    RsPayException[RsPayException["DATE_EXPIRE"] = 24] = "DATE_EXPIRE";
+    /** Card is inactive */
+    RsPayException[RsPayException["DATE_INACTIVE"] = 163] = "DATE_INACTIVE";
+    /** Invalid Expiration Date */
+    RsPayException[RsPayException["DATE_INVALID"] = 183] = "DATE_INVALID";
+    /** Month is invalid */
+    RsPayException[RsPayException["DATE_MONTH"] = 22] = "DATE_MONTH";
+    /** Multiple usage of this payment method is not allowed */
+    RsPayException[RsPayException["DATE_YEAR"] = 23] = "DATE_YEAR";
+    /** Duplicate transaction. Transaction data that is selected for comparison is payment gateway-specific */
+    RsPayException[RsPayException["DUPLICATE"] = 1] = "DUPLICATE";
+    /** Error, caused by one of the following cases: */
+    RsPayException[RsPayException["FRAUD"] = 168] = "FRAUD";
+    /** Terminal that should be used for payment is not found */
+    RsPayException[RsPayException["HARDWARE_NOT_FOUND"] = 196] = "HARDWARE_NOT_FOUND";
+    /** Informational field is not filled in */
+    RsPayException[RsPayException["INFO_EMPTY"] = 9] = "INFO_EMPTY";
+    /** Informational field is too long */
+    RsPayException[RsPayException["INFO_LONG"] = 41] = "INFO_LONG";
+    /** Minimum payment amount is less then `1` */
+    RsPayException[RsPayException["INSTALLMENT_AMOUNT_MIN"] = 93] = "INSTALLMENT_AMOUNT_MIN";
+    /** Installment plan: Number of payment is invalid */
+    RsPayException[RsPayException["INSTALLMENT_COUNT_FORMAT"] = 85] = "INSTALLMENT_COUNT_FORMAT";
+    /** Installment plan: Number of payment is too large */
+    RsPayException[RsPayException["INSTALLMENT_COUNT_MAX"] = 87] = "INSTALLMENT_COUNT_MAX";
+    /** Installment plan: Number of payment is too small (less then 2) */
+    RsPayException[RsPayException["INSTALLMENT_COUNT_MIN"] = 86] = "INSTALLMENT_COUNT_MIN";
+    /** Installment date is not specified */
+    RsPayException[RsPayException["INSTALLMENT_DATE_EMPTY"] = 81] = "INSTALLMENT_DATE_EMPTY";
+    /** Installment date format is invalid */
+    RsPayException[RsPayException["INSTALLMENT_DATE_FORMAT"] = 82] = "INSTALLMENT_DATE_FORMAT";
+    /** Installment date is too deep in the future */
+    RsPayException[RsPayException["INSTALLMENT_DATE_FUTURE"] = 84] = "INSTALLMENT_DATE_FUTURE";
+    /** Installment date is in the past (minimum is today) */
+    RsPayException[RsPayException["INSTALLMENT_DATE_PAST"] = 83] = "INSTALLMENT_DATE_PAST";
+    /** Installment plan: Duration of a period is not allowed */
+    RsPayException[RsPayException["INSTALLMENT_DURATION_DISABLE"] = 91] = "INSTALLMENT_DURATION_DISABLE";
+    /** Installment plan: Maximum total duration of installment plan is 100 years */
+    RsPayException[RsPayException["INSTALLMENT_DURATION_MAX"] = 92] = "INSTALLMENT_DURATION_MAX";
+    /** Installment plan: Duration of a period does not exist */
+    RsPayException[RsPayException["INSTALLMENT_DURATION_NX"] = 90] = "INSTALLMENT_DURATION_NX";
+    /** Installment plan: Number of periods between two consecutive payments is invalid */
+    RsPayException[RsPayException["INSTALLMENT_PERIOD_FORMAT"] = 88] = "INSTALLMENT_PERIOD_FORMAT";
+    /** Installment plan: Number of periods between two consecutive payments is too large */
+    RsPayException[RsPayException["INSTALLMENT_PERIOD_MAX"] = 89] = "INSTALLMENT_PERIOD_MAX";
+    /** Template of installment plans: template is not selected */
+    RsPayException[RsPayException["INSTALLMENT_TEMPLATE_EMPTY"] = 95] = "INSTALLMENT_TEMPLATE_EMPTY";
+    /** Template of installment plans: ID of the template does not exist */
+    RsPayException[RsPayException["INSTALLMENT_TEMPLATE_NX"] = 94] = "INSTALLMENT_TEMPLATE_NX";
+    /** Internal errors that occurred in the browser (for example, some form data arrived to servers such that user should */
+    RsPayException[RsPayException["INTERNAL_BROWSER"] = 33] = "INTERNAL_BROWSER";
+    /** Security throttling error */
+    RsPayException[RsPayException["INTERNAL_HIT"] = 192] = "INTERNAL_HIT";
+    /** Internal merchant error */
+    RsPayException[RsPayException["INTERNAL_MERCHANT"] = 186] = "INTERNAL_MERCHANT";
+    /** Some strange service error (e.g. invalid merchant data passed, data format) */
+    RsPayException[RsPayException["INTERNAL_SERVER"] = 6] = "INTERNAL_SERVER";
+    /** Payer email is required for payment, but empty */
+    RsPayException[RsPayException["MAIL_EMPTY"] = 175] = "MAIL_EMPTY";
+    /** The associated merchant account has been closed */
+    RsPayException[RsPayException["MERCHANT_ACCOUNT_CLOSED"] = 189] = "MERCHANT_ACCOUNT_CLOSED";
+    /** Invalid merchant data */
+    RsPayException[RsPayException["MERCHANT_INVALID"] = 7] = "MERCHANT_INVALID";
+    /** Transaction was rejected by gateway */
+    RsPayException[RsPayException["MERCHANT_REJECT"] = 74] = "MERCHANT_REJECT";
+    /** Merchant has invalid settings and does not return customer vault */
+    RsPayException[RsPayException["MERCHANT_SETTINGS_VAULT"] = 166] = "MERCHANT_SETTINGS_VAULT";
+    /** User has no access to the specified payment method */
+    RsPayException[RsPayException["METHOD_ACCESS"] = 18] = "METHOD_ACCESS";
+    /** This method does not support authorization request */
+    RsPayException[RsPayException["METHOD_AUTHORIZE"] = 96] = "METHOD_AUTHORIZE";
+    /** This payment method can not be used with this business */
+    RsPayException[RsPayException["METHOD_BUSINESS"] = 19] = "METHOD_BUSINESS";
+    /** Multiple usage of this payment method is not allowed */
+    RsPayException[RsPayException["METHOD_MULTIPLE"] = 20] = "METHOD_MULTIPLE";
+    /** Cardholder name is not typed in */
+    RsPayException[RsPayException["NAME_EMPTY"] = 25] = "NAME_EMPTY";
+    /** Customer name is invalid (contains invalid characters) */
+    RsPayException[RsPayException["NAME_INVALID"] = 106] = "NAME_INVALID";
+    /** Cardholder name is too long */
+    RsPayException[RsPayException["NAME_LONG"] = 26] = "NAME_LONG";
+    /** Validation Rejection */
+    RsPayException[RsPayException["NMI_PAYSAFE_900"] = 159] = "NMI_PAYSAFE_900";
+    /** Not sufficient funds (debits only) */
+    RsPayException[RsPayException["NMI_PAYSAFE_901"] = 110] = "NMI_PAYSAFE_901";
+    /** Payment stopped/recalled */
+    RsPayException[RsPayException["NMI_PAYSAFE_903"] = 111] = "NMI_PAYSAFE_903";
+    /** Post dated/stale dated */
+    RsPayException[RsPayException["NMI_PAYSAFE_904"] = 112] = "NMI_PAYSAFE_904";
+    /** Account closed */
+    RsPayException[RsPayException["NMI_PAYSAFE_905"] = 113] = "NMI_PAYSAFE_905";
+    /** Account transferred */
+    RsPayException[RsPayException["NMI_PAYSAFE_906"] = 114] = "NMI_PAYSAFE_906";
+    /** No chequing privileges */
+    RsPayException[RsPayException["NMI_PAYSAFE_907"] = 115] = "NMI_PAYSAFE_907";
+    /** Funds not cleared */
+    RsPayException[RsPayException["NMI_PAYSAFE_908"] = 116] = "NMI_PAYSAFE_908";
+    /** Payor/payee deceased */
+    RsPayException[RsPayException["NMI_PAYSAFE_910"] = 117] = "NMI_PAYSAFE_910";
+    /** Account frozen */
+    RsPayException[RsPayException["NMI_PAYSAFE_911"] = 118] = "NMI_PAYSAFE_911";
+    /** Invalid/incorrect account number */
+    RsPayException[RsPayException["NMI_PAYSAFE_912"] = 119] = "NMI_PAYSAFE_912";
+    /** Incorrect payor/payee name */
+    RsPayException[RsPayException["NMI_PAYSAFE_914"] = 120] = "NMI_PAYSAFE_914";
+    /** Refused by payor/payee */
+    RsPayException[RsPayException["NMI_PAYSAFE_915"] = 121] = "NMI_PAYSAFE_915";
+    /** No Return Agreement */
+    RsPayException[RsPayException["NMI_PAYSAFE_998"] = 122] = "NMI_PAYSAFE_998";
+    /** Card number is not typed in */
+    RsPayException[RsPayException["NUMBER_EMPTY"] = 27] = "NUMBER_EMPTY";
+    /** Card number is invalid */
+    RsPayException[RsPayException["NUMBER_INVALID"] = 30] = "NUMBER_INVALID";
+    /** Card number is too long */
+    RsPayException[RsPayException["NUMBER_LONG"] = 28] = "NUMBER_LONG";
+    /** Card number is too long */
+    RsPayException[RsPayException["NUMBER_SHORT"] = 29] = "NUMBER_SHORT";
+    /** Some parameters client has provided are invalid */
+    RsPayException[RsPayException["PARAMETER"] = 4] = "PARAMETER";
+    /** Payment form is in passive mode */
+    RsPayException[RsPayException["PASSIVE"] = 165] = "PASSIVE";
+    /** Error during authentication of the payer */
+    RsPayException[RsPayException["PAYER_AUTHENTICATION"] = 167] = "PAYER_AUTHENTICATION";
+    /** There is other process currently running to update payment. Failed to wait until it ends */
+    RsPayException[RsPayException["PAYMENT_UPDATE_LOCK"] = 174] = "PAYMENT_UPDATE_LOCK";
+    /** Phone number is not specified on user account */
+    RsPayException[RsPayException["PHONE_EMPTY"] = 107] = "PHONE_EMPTY";
+    /** Phone number is invalid */
+    RsPayException[RsPayException["PHONE_INVALID"] = 178] = "PHONE_INVALID";
+    /** Phone number is too long */
+    RsPayException[RsPayException["PHONE_LONG"] = 108] = "PHONE_LONG";
+    /** Transaction error returned by processor */
+    RsPayException[RsPayException["PROCESSOR_ERROR"] = 98] = "PROCESSOR_ERROR";
+    /** Internal error at processor side has occurred */
+    RsPayException[RsPayException["PROCESSOR_INTERNAL"] = 109] = "PROCESSOR_INTERNAL";
+    /** Refund operation is applied too early */
+    RsPayException[RsPayException["REFUND_EARLY"] = 50] = "REFUND_EARLY";
+    /** Amount about to refund is larger then the current rest of the transaction */
+    RsPayException[RsPayException["REFUND_REST"] = 49] = "REFUND_REST";
+    /** Transaction can not be refunded because it is in an invalid status */
+    RsPayException[RsPayException["REFUND_STATUS"] = 48] = "REFUND_STATUS";
+    /** Invalid region chosen */
+    RsPayException[RsPayException["REGION_INVALID"] = 37] = "REGION_INVALID";
+    /** Chosen region does not exist */
+    RsPayException[RsPayException["REGION_NX"] = 38] = "REGION_NX";
+    /** Can not repeat purchase transaction. Reference data is expired and invalid now */
+    RsPayException[RsPayException["REPEAT_INVALID"] = 15] = "REPEAT_INVALID";
+    /** Error during request to service. In case we have not even got response */
+    RsPayException[RsPayException["REQUEST"] = 12] = "REQUEST";
+    /** Too many requests */
+    RsPayException[RsPayException["REQUEST_THROTTLE"] = 172] = "REQUEST_THROTTLE";
+    /** Temporary service error. Repeat request */
+    RsPayException[RsPayException["RETRY"] = 3] = "RETRY";
+    /** Payment is blocked due security reasons (because payment amount is too large) */
+    RsPayException[RsPayException["SECURITY_LARGE"] = 103] = "SECURITY_LARGE";
+    /** Only for test, when there is an error in the test that we cannot influence, for example: “server is not available” */
+    RsPayException[RsPayException["SKIP_IN_TESTS"] = 188] = "SKIP_IN_TESTS";
+    /** Stripe data is empty */
+    RsPayException[RsPayException["STRIPE_EMPTY"] = 31] = "STRIPE_EMPTY";
+    /** Invalid data on magnetic stripe. Maybe some part does not exist */
+    RsPayException[RsPayException["STRIPE_INVALID"] = 16] = "STRIPE_INVALID";
+    /** This recurrent payment token belongs to a different account of this merchant */
+    RsPayException[RsPayException["TOKEN_ACCOUNT"] = 161] = "TOKEN_ACCOUNT";
+    /** Payment token belongs to a different merchant processor */
+    RsPayException[RsPayException["TOKEN_PROCESSOR"] = 162] = "TOKEN_PROCESSOR";
+    /** Transaction does not exist. E.g. we want to make refund using nonexistent reference number */
+    RsPayException[RsPayException["TRANSACTION_NX"] = 13] = "TRANSACTION_NX";
+    /** Transaction is in unexpected status. For example, authorization process started but takes long time. While waiting */
+    RsPayException[RsPayException["UNEXPECTED_TRANSACTION_STATUS"] = 187] = "UNEXPECTED_TRANSACTION_STATUS";
+    /** If the user who pays through the account is a debtor */
+    RsPayException[RsPayException["USER_DEBTOR"] = 194] = "USER_DEBTOR";
+    /** If access denied to an anonymous user */
+    RsPayException[RsPayException["USER_GUEST"] = 56] = "USER_GUEST";
+    /** Error specific for payment processors that stores payer entity */
+    RsPayException[RsPayException["USER_NOT_FOUND"] = 197] = "USER_NOT_FOUND";
+    /** Some unpredicted error happened during void on processor side */
+    RsPayException[RsPayException["VOID_ERROR"] = 193] = "VOID_ERROR";
+    /** Operation Void is not possible, it's too late to do it */
+    RsPayException[RsPayException["VOID_LATE"] = 180] = "VOID_LATE";
+    /** Void operation can be done only for a total transaction amount and cannot be partial */
+    RsPayException[RsPayException["VOID_PARTIAL"] = 100] = "VOID_PARTIAL";
+    /** Void operation is restricted by rules of the system */
+    RsPayException[RsPayException["VOID_RESTRICT"] = 102] = "VOID_RESTRICT";
+    /** Void operation is not supported by the merchant processor */
+    RsPayException[RsPayException["VOID_SUPPORT"] = 101] = "VOID_SUPPORT";
+    /** Timeout waiting for settlement */
+    RsPayException[RsPayException["WAIT_TIMEOUT"] = 104] = "WAIT_TIMEOUT";
+    /** Incorrect payment card type specified */
+    RsPayException[RsPayException["TENDER_TYPE_INVALID"] = 195] = "TENDER_TYPE_INVALID";
+})(RsPayException || (RsPayException = {}));
+/** Paragon ticket status. */
+export var ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid;
+(function (ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid) {
+    /** Ticket was canceled */
+    ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["CANCELLED"] = 1] = "CANCELLED";
+    /** Ticket was completed */
+    ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["COMPLETE"] = 2] = "COMPLETE";
+    /** Ticket in error state */
+    ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["ERROR"] = 3] = "ERROR";
+    /** Ticket is processed */
+    ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["INPROCESS"] = 4] = "INPROCESS";
+    /** Ticket is opened */
+    ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["OPEN"] = 6] = "OPEN";
+    /** Ticket was reversed */
+    ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid[ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid["REVERSED"] = 7] = "REVERSED";
+})(ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid || (ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = {}));
+/** An enum of credit card types. */
+export var ThothWlPayBankCardCardTypeEnum;
+(function (ThothWlPayBankCardCardTypeEnum) {
+    /** Credit Card */
+    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["CREDIT"] = 1] = "CREDIT";
+    /** Debit Card */
+    ThothWlPayBankCardCardTypeEnum[ThothWlPayBankCardCardTypeEnum["DEBIT"] = 2] = "DEBIT";
+})(ThothWlPayBankCardCardTypeEnum || (ThothWlPayBankCardCardTypeEnum = {}));
 /** CS Response code class. */
 export var ThothPayProcessorNuveiCodeCSResponseSid;
 (function (ThothPayProcessorNuveiCodeCSResponseSid) {
@@ -1526,26 +1202,6 @@ export var ThothPayProcessorNuveiCodeCSResponseSid;
     /** No relationship between register and terminal */
     ThothPayProcessorNuveiCodeCSResponseSid[ThothPayProcessorNuveiCodeCSResponseSid["UNMAPPED"] = 19] = "UNMAPPED";
 })(ThothPayProcessorNuveiCodeCSResponseSid || (ThothPayProcessorNuveiCodeCSResponseSid = {}));
-/** Possible states of the visit: book, attended, cancelled, etc. */
-export var WlVisitVisitSid;
-(function (WlVisitVisitSid) {
-    /** Client has attended the session */
-    WlVisitVisitSid[WlVisitVisitSid["ATTEND"] = 3] = "ATTEND";
-    /** Active reservation means that user is going to attend the session */
-    WlVisitVisitSid[WlVisitVisitSid["BOOK"] = 1] = "BOOK";
-    /** Client has cancelled the reservation in time and without penalty */
-    WlVisitVisitSid[WlVisitVisitSid["CANCEL"] = 6] = "CANCEL";
-    /** Client has cancelled his reservation too late */
-    WlVisitVisitSid[WlVisitVisitSid["PENALTY"] = 4] = "PENALTY";
-    /** This state means that visit is registered, but it is unknown is it {@link WlVisitVisitSid} */
-    WlVisitVisitSid[WlVisitVisitSid["PENDING"] = 7] = "PENDING";
-    /** Visit was removed */
-    WlVisitVisitSid[WlVisitVisitSid["REMOVE"] = 8] = "REMOVE";
-    /** Client has missed the session without cancellation */
-    WlVisitVisitSid[WlVisitVisitSid["TRUANCY"] = 5] = "TRUANCY";
-    /** Reservation in a wait list means that user is going to attend the session if someone will cancel his reservation */
-    WlVisitVisitSid[WlVisitVisitSid["WAIT"] = 2] = "WAIT";
-})(WlVisitVisitSid || (WlVisitVisitSid = {}));
 /** List of all custom imports that are supported by system. */
 export var WlImportCustomCustomSid;
 (function (WlImportCustomCustomSid) {
@@ -1590,6 +1246,50 @@ export var WlImportCustomCustomSid;
     /** Custom import which allows to import client reward balance */
     WlImportCustomCustomSid[WlImportCustomCustomSid["REWARD"] = 3] = "REWARD";
 })(WlImportCustomCustomSid || (WlImportCustomCustomSid = {}));
+/** A list of locales. */
+export var CoreLocaleLocaleSid;
+(function (CoreLocaleLocaleSid) {
+    /** Australia */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["AUSTRALIA"] = 4] = "AUSTRALIA";
+    /** Bahamas */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["BAHAMAS"] = 20] = "BAHAMAS";
+    /** Bermuda */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["BERMUDA"] = 19] = "BERMUDA";
+    /** Canada */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["CANADA"] = 2] = "CANADA";
+    /** Cayman Islands */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["CAYMAN"] = 5] = "CAYMAN";
+    /** Cyprus */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["CYPRUS"] = 13] = "CYPRUS";
+    /** Egypt */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["EGYPT"] = 8] = "EGYPT";
+    /** Republic of Ireland */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["IRELAND"] = 18] = "IRELAND";
+    /** Kuwait */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["KUWAIT"] = 14] = "KUWAIT";
+    /** Republic of Mauritius */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["MAURITIUS"] = 16] = "MAURITIUS";
+    /** A special locale that can be used for testing or a business situated in an unknown region */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["NEVERLAND"] = 9] = "NEVERLAND";
+    /** New Zealand */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["NEW_ZEALAND"] = 10] = "NEW_ZEALAND";
+    /** Philippines */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["PHILIPPINES"] = 12] = "PHILIPPINES";
+    /** Saudi Arabia */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["SAUDI_ARABIA"] = 15] = "SAUDI_ARABIA";
+    /** Senegal */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["SENEGAL"] = 17] = "SENEGAL";
+    /** Singapore */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["SINGAPORE"] = 21] = "SINGAPORE";
+    /** South Africa */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["SOUTH_AFRICA"] = 6] = "SOUTH_AFRICA";
+    /** United Arab Emirates */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["UAE"] = 11] = "UAE";
+    /** United Kingdom */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["UK"] = 3] = "UK";
+    /** United States of America */
+    CoreLocaleLocaleSid[CoreLocaleLocaleSid["USA"] = 1] = "USA";
+})(CoreLocaleLocaleSid || (CoreLocaleLocaleSid = {}));
 /** String identifiers for gender. */
 export var AGenderSid;
 (function (AGenderSid) {
@@ -1736,6 +1436,72 @@ export var RsProgramTypeSid;
     /** Special WellnessLiving promote passes that allow to visit specific classes to get acquainted with the business */
     RsProgramTypeSid[RsProgramTypeSid["PROSPECT"] = 5] = "PROSPECT";
 })(RsProgramTypeSid || (RsProgramTypeSid = {}));
+/** A list of currencies. */
+export var CoreLocaleCurrencySid;
+(function (CoreLocaleCurrencySid) {
+    /** United Arab Emirates dirham */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["AED"] = 11] = "AED";
+    /** Australian dollar */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["AUD"] = 6] = "AUD";
+    /** Bermudian Dollar */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["BMD"] = 18] = "BMD";
+    /** Bahamian dollar */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["BSD"] = 19] = "BSD";
+    /** Canadian dollar */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["CAD"] = 4] = "CAD";
+    /** Egypt Pound */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["EGP"] = 8] = "EGP";
+    /** Euro */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["EUR"] = 13] = "EUR";
+    /** British pound */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["GBP"] = 3] = "GBP";
+    /** Kuwaiti dinar */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["KWD"] = 14] = "KWD";
+    /** Cayman Islands dollar */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["KYD"] = 5] = "KYD";
+    /** Mauritian Rupee */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["MUR"] = 16] = "MUR";
+    /** New Zealand Dollar */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["NZD"] = 10] = "NZD";
+    /** Philippines Pesco */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["PHP"] = 12] = "PHP";
+    /** Saudi Riyal */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["SAR"] = 15] = "SAR";
+    /** Singapore dollar */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["SGD"] = 20] = "SGD";
+    /** Unknown code */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["UNKNOWN"] = 2] = "UNKNOWN";
+    /** US dollars */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["USD"] = 1] = "USD";
+    /** West African CFA franc */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["XOF"] = 17] = "XOF";
+    /** South African rand */
+    CoreLocaleCurrencySid[CoreLocaleCurrencySid["ZAR"] = 7] = "ZAR";
+})(CoreLocaleCurrencySid || (CoreLocaleCurrencySid = {}));
+/** A list of payment methods. */
+export var RsPayMethodSid;
+(function (RsPayMethodSid) {
+    /** Payment with personal user account (rs.pay.account) */
+    RsPayMethodSid[RsPayMethodSid["ACCOUNT"] = 7] = "ACCOUNT";
+    /** ACH system (USA-specific direct banking transactions) */
+    RsPayMethodSid[RsPayMethodSid["ACH"] = 9] = "ACH";
+    /** Payment with cash */
+    RsPayMethodSid[RsPayMethodSid["CASH"] = 4] = "CASH";
+    /** Payment with a cheque */
+    RsPayMethodSid[RsPayMethodSid["CHEQUE"] = 5] = "CHEQUE";
+    /** Payment with a coupon */
+    RsPayMethodSid[RsPayMethodSid["COUPON"] = 8] = "COUPON";
+    /** Direct Entry system (australian-specific direct banking transactions) */
+    RsPayMethodSid[RsPayMethodSid["DIRECT_ENTRY"] = 10] = "DIRECT_ENTRY";
+    /** Online payment. Card not present */
+    RsPayMethodSid[RsPayMethodSid["ECOMMERCE"] = 2] = "ECOMMERCE";
+    /** Payment with an external terminal */
+    RsPayMethodSid[RsPayMethodSid["EXTERNAL"] = 6] = "EXTERNAL";
+    /** Special method to be used for migration process */
+    RsPayMethodSid[RsPayMethodSid["IMPORT_ACCRUAL"] = 11] = "IMPORT_ACCRUAL";
+    /** Payment method at a Points of sale */
+    RsPayMethodSid[RsPayMethodSid["POS"] = 1] = "POS";
+})(RsPayMethodSid || (RsPayMethodSid = {}));
 /** List of intents of the user in the business. */
 export var WlLoginMemberIntentsMemberIntentsSid;
 (function (WlLoginMemberIntentsMemberIntentsSid) {
@@ -1978,18 +1744,62 @@ export var RsReportChartViewSid;
     /** Year-by-year comparisons in the column chart */
     RsReportChartViewSid[RsReportChartViewSid["YEAR_COLUMN"] = 4] = "YEAR_COLUMN";
 })(RsReportChartViewSid || (RsReportChartViewSid = {}));
-/** List of image types. */
-export var CoreDriveDriveTypeSid;
-(function (CoreDriveDriveTypeSid) {
-    /** Bmp image */
-    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["BMP"] = 4] = "BMP";
-    /** Gif image */
-    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["GIF"] = 1] = "GIF";
-    /** Jpeg image */
-    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["JPEG"] = 2] = "JPEG";
-    /** Png image */
-    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["PNG"] = 3] = "PNG";
-})(CoreDriveDriveTypeSid || (CoreDriveDriveTypeSid = {}));
+/** Reasons why the client can't book this event. */
+export var WlEventDenyReasonSid;
+(function (WlEventDenyReasonSid) {
+    /** User is trying to book on behalf of another client, but does not have permission to do so */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["ACCESS_DENIED"] = 1] = "ACCESS_DENIED";
+    /** Manual restriction to book business, location or a certain class */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["ACCESS_LIMITED"] = 2] = "ACCESS_LIMITED";
+    /** The business can not take one more client because of business subscription limitations */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["ACCOUNT_LIMIT"] = 3] = "ACCOUNT_LIMIT";
+    /** Class is not available for certain age */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["AGE_RESTRICTION"] = 4] = "AGE_RESTRICTION";
+    /** Liability Release needs to be agreed */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["AGREE_NX"] = 5] = "AGREE_NX";
+    /** Client has unpaid fees */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BALANCE_NEGATIVE"] = 22] = "BALANCE_NEGATIVE";
+    /** It's too early to book a class */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BOOK_EARLY"] = 7] = "BOOK_EARLY";
+    /** It's too late to book a class */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BOOK_LATE"] = 8] = "BOOK_LATE";
+    /** User's visit overlaps with another visit */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BOOK_OVERLAP"] = 25] = "BOOK_OVERLAP";
+    /** User's pricing options do not allow booking another visit within a certain period because of pricing option limitations */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BOOK_RESTRICT"] = 9] = "BOOK_RESTRICT";
+    /** Client is already booked for this session */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BOOKED_ALREADY"] = 6] = "BOOKED_ALREADY";
+    /** Business is inactive */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["BUSINESS_INACTIVE"] = 10] = "BUSINESS_INACTIVE";
+    /** Class is canceled */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["CLASS_CANCELED"] = 11] = "CLASS_CANCELED";
+    /** Class is finished */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["CLASS_FINISHED"] = 26] = "CLASS_FINISHED";
+    /** Class is full */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["CLASS_FULL"] = 14] = "CLASS_FULL";
+    /** Class does not exist anymore */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["CLASS_NOT_AVAILABLE_ANYMORE"] = 15] = "CLASS_NOT_AVAILABLE_ANYMORE";
+    /** Client is flagged at location */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["CLIENT_FLAGGED"] = 12] = "CLIENT_FLAGGED";
+    /** Credit card is required for booking services */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["CREDIT_CARD_REQUIRE"] = 13] = "CREDIT_CARD_REQUIRE";
+    /** Business is closed */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["HOLIDAY"] = 16] = "HOLIDAY";
+    /** Login is required */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["LOGIN_REQUIRED"] = 17] = "LOGIN_REQUIRED";
+    /** Online booking is disabled for the class */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["NOT_BOOKABLE"] = 18] = "NOT_BOOKABLE";
+    /** Online booking is disabled for this type of client */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["NOT_BOOKABLE_BY_TYPE"] = 24] = "NOT_BOOKABLE_BY_TYPE";
+    /** Required personal details missing */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["USER_INFO_MISSING"] = 19] = "USER_INFO_MISSING";
+    /** Visit to another class is required first */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["VISIT_BEFORE"] = 20] = "VISIT_BEFORE";
+    /** The wait list is full */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["WAIT_LIST_LIMIT_MAX"] = 21] = "WAIT_LIST_LIMIT_MAX";
+    /** Client has unsigned waiver */
+    WlEventDenyReasonSid[WlEventDenyReasonSid["WAIVER_NX"] = 23] = "WAIVER_NX";
+})(WlEventDenyReasonSid || (WlEventDenyReasonSid = {}));
 /** A class for the days of the week. */
 export var ADateWeekSid;
 (function (ADateWeekSid) {
@@ -2018,6 +1828,14 @@ export var RsScheduleTimeSid;
     /** Morning */
     RsScheduleTimeSid[RsScheduleTimeSid["MORNING"] = 1] = "MORNING";
 })(RsScheduleTimeSid || (RsScheduleTimeSid = {}));
+/** A list of two answers for any question: Yes or No. */
+export var CoreSidYesNoSid;
+(function (CoreSidYesNoSid) {
+    /** The answer is "no" */
+    CoreSidYesNoSid[CoreSidYesNoSid["NO"] = 2] = "NO";
+    /** The answer is "yes" */
+    CoreSidYesNoSid[CoreSidYesNoSid["YES"] = 1] = "YES";
+})(CoreSidYesNoSid || (CoreSidYesNoSid = {}));
 /** A list of currency codes. */
 export var RsCurrencySid;
 (function (RsCurrencySid) {
@@ -2229,6 +2047,8 @@ export var RsPurchaseItemSid;
     RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE_DEPOSIT"] = 20] = "RESOURCE_DEPOSIT";
     /** Purchase item for appointments */
     RsPurchaseItemSid[RsPurchaseItemSid["SERVICE"] = 6] = "SERVICE";
+    /** Ticket purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TICKET"] = 29] = "TICKET";
     /** Tuition purchase item */
     RsPurchaseItemSid[RsPurchaseItemSid["TUITION"] = 26] = "TUITION";
     /** Tuition fee purchase item */
@@ -2236,14 +2056,6 @@ export var RsPurchaseItemSid;
     /** Tuition prorate purchase item */
     RsPurchaseItemSid[RsPurchaseItemSid["TUITION_PRORATE"] = 28] = "TUITION_PRORATE";
 })(RsPurchaseItemSid || (RsPurchaseItemSid = {}));
-/** A list of two answers for any question: Yes or No. */
-export var CoreSidYesNoSid;
-(function (CoreSidYesNoSid) {
-    /** The answer is "no" */
-    CoreSidYesNoSid[CoreSidYesNoSid["NO"] = 2] = "NO";
-    /** The answer is "yes" */
-    CoreSidYesNoSid[CoreSidYesNoSid["YES"] = 1] = "YES";
-})(CoreSidYesNoSid || (CoreSidYesNoSid = {}));
 /** A list of skin types. */
 export var RsSkinSid;
 (function (RsSkinSid) {
@@ -2298,6 +2110,74 @@ export var WlClassesTabTabSid;
     /** Classes */
     WlClassesTabTabSid[WlClassesTabTabSid["TRAINING"] = 1] = "TRAINING";
 })(WlClassesTabTabSid || (WlClassesTabTabSid = {}));
+/** List of different types for landing pages based on business types. */
+export var RsHomeTourSid;
+(function (RsHomeTourSid) {
+    /** Barbershops */
+    RsHomeTourSid[RsHomeTourSid["BARBERSHOP"] = 26] = "BARBERSHOP";
+    /** Boot camps */
+    RsHomeTourSid[RsHomeTourSid["BOOTCAMP"] = 24] = "BOOTCAMP";
+    /** Boxing studios */
+    RsHomeTourSid[RsHomeTourSid["BOXING"] = 25] = "BOXING";
+    /** Special industry free landing page with only contact us form */
+    RsHomeTourSid[RsHomeTourSid["BUSINESS_MANAGEMENT"] = 21] = "BUSINESS_MANAGEMENT";
+    /** Health clubs */
+    RsHomeTourSid[RsHomeTourSid["CLUB"] = 10] = "CLUB";
+    /** Affiliate Gym */
+    RsHomeTourSid[RsHomeTourSid["CROSSFIT"] = 9] = "CROSSFIT";
+    /** Dance studios */
+    RsHomeTourSid[RsHomeTourSid["DANCE"] = 11] = "DANCE";
+    /** Dental studios */
+    RsHomeTourSid[RsHomeTourSid["DENTAL"] = 14] = "DENTAL";
+    /** Fitness gyms */
+    RsHomeTourSid[RsHomeTourSid["FITNESS"] = 6] = "FITNESS";
+    /** Functional fitness also known as functional training or functional movement */
+    RsHomeTourSid[RsHomeTourSid["FUNCTIONAL_FITNESS"] = 29] = "FUNCTIONAL_FITNESS";
+    /** Fitness gyms */
+    RsHomeTourSid[RsHomeTourSid["GYM"] = 22] = "GYM";
+    /** Health clubs */
+    RsHomeTourSid[RsHomeTourSid["HEALTH_CLUB"] = 23] = "HEALTH_CLUB";
+    /** Health and beauty salons at one place */
+    RsHomeTourSid[RsHomeTourSid["INTEGRATIVE_HEALTH_CENTER"] = 30] = "INTEGRATIVE_HEALTH_CENTER";
+    /** Martial arts */
+    RsHomeTourSid[RsHomeTourSid["MARTIAL_ART"] = 8] = "MARTIAL_ART";
+    /** Massage salons */
+    RsHomeTourSid[RsHomeTourSid["MASSAGE"] = 4] = "MASSAGE";
+    /** Massage salons */
+    RsHomeTourSid[RsHomeTourSid["MEDICAL_SPA"] = 28] = "MEDICAL_SPA";
+    /** Alternative medical offices */
+    RsHomeTourSid[RsHomeTourSid["MEDICINE_ALTERNATIVE"] = 15] = "MEDICINE_ALTERNATIVE";
+    /** Hospitals and private doctors */
+    RsHomeTourSid[RsHomeTourSid["MEDICINE_TRADITIONAL"] = 13] = "MEDICINE_TRADITIONAL";
+    /** Music schools */
+    RsHomeTourSid[RsHomeTourSid["MUSIC"] = 19] = "MUSIC";
+    /** Personal trainings */
+    RsHomeTourSid[RsHomeTourSid["PERSONAL_TRAINING"] = 5] = "PERSONAL_TRAINING";
+    /** Pilates */
+    RsHomeTourSid[RsHomeTourSid["PILATES"] = 7] = "PILATES";
+    /** Play cafes */
+    RsHomeTourSid[RsHomeTourSid["PLAY_CAFE"] = 32] = "PLAY_CAFE";
+    /** Pole dancing studios */
+    RsHomeTourSid[RsHomeTourSid["POLE_DANCING"] = 18] = "POLE_DANCING";
+    /** Salons */
+    RsHomeTourSid[RsHomeTourSid["SALON"] = 3] = "SALON";
+    /** Spa salons */
+    RsHomeTourSid[RsHomeTourSid["SPA"] = 2] = "SPA";
+    /** Spinning */
+    RsHomeTourSid[RsHomeTourSid["SPINNING"] = 17] = "SPINNING";
+    /** Swim schools */
+    RsHomeTourSid[RsHomeTourSid["SWIM_SCHOOL"] = 33] = "SWIM_SCHOOL";
+    /** Tattoo salons */
+    RsHomeTourSid[RsHomeTourSid["TATTOO"] = 31] = "TATTOO";
+    /** Tours and events */
+    RsHomeTourSid[RsHomeTourSid["TOUR"] = 12] = "TOUR";
+    /** Wellness Centers */
+    RsHomeTourSid[RsHomeTourSid["WELLNESS_CENTER"] = 20] = "WELLNESS_CENTER";
+    /** Yoga */
+    RsHomeTourSid[RsHomeTourSid["YOGA"] = 1] = "YOGA";
+    /** Zumba */
+    RsHomeTourSid[RsHomeTourSid["ZUMBA"] = 27] = "ZUMBA";
+})(RsHomeTourSid || (RsHomeTourSid = {}));
 /** List of different directories, which can use wellnessliving as a source of data. */
 export var RsProjectSid;
 (function (RsProjectSid) {
@@ -2438,46 +2318,172 @@ export var RsReviewStatusSid;
     /** Publish */
     RsReviewStatusSid[RsReviewStatusSid["PUBLISH"] = 3] = "PUBLISH";
 })(RsReviewStatusSid || (RsReviewStatusSid = {}));
-/** List of page transaction type. */
-export var RsPayAccountChargeSid;
-(function (RsPayAccountChargeSid) {
-    /** Account charging using payment form */
-    RsPayAccountChargeSid[RsPayAccountChargeSid["AUTO"] = 1] = "AUTO";
-    /** Manual account charge by admin */
-    RsPayAccountChargeSid[RsPayAccountChargeSid["CREDIT"] = 3] = "CREDIT";
-    /** Manual account withdrawal by admin */
-    RsPayAccountChargeSid[RsPayAccountChargeSid["DEBIT"] = 2] = "DEBIT";
-})(RsPayAccountChargeSid || (RsPayAccountChargeSid = {}));
-/** A list of account holder types which can be chosen. */
-export var RsPayBankAchHolderSid;
-(function (RsPayBankAchHolderSid) {
-    /** Account holder is a business */
-    RsPayBankAchHolderSid[RsPayBankAchHolderSid["BUSINESS"] = 2] = "BUSINESS";
-    /** Account holder is a person */
-    RsPayBankAchHolderSid[RsPayBankAchHolderSid["PERSONAL"] = 1] = "PERSONAL";
-})(RsPayBankAchHolderSid || (RsPayBankAchHolderSid = {}));
-/** A list of account types which can be chosen. */
-export var RsPayBankAchTypeSid;
-(function (RsPayBankAchTypeSid) {
-    /** Checking account */
-    RsPayBankAchTypeSid[RsPayBankAchTypeSid["CHECKING"] = 1] = "CHECKING";
-    /** Savings account */
-    RsPayBankAchTypeSid[RsPayBankAchTypeSid["SAVINGS"] = 2] = "SAVINGS";
-})(RsPayBankAchTypeSid || (RsPayBankAchTypeSid = {}));
-/** Sources from which log triage findings can be collected. */
-export var CoreAILogTriageTriageSourceSid;
-(function (CoreAILogTriageTriageSourceSid) {
-    /** Erroneous asynchronous tasks */
-    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ASYNC_TASK"] = 5] = "ASYNC_TASK";
-    /** Erroneous background tasks */
-    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["BACKGROUND_TASK"] = 4] = "BACKGROUND_TASK";
-    /** PHP error log represented by DebugPhpLog */
-    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["ERROR_LOG"] = 1] = "ERROR_LOG";
-    /** Slow-operation log represented by DebugSlowLog */
-    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["SLOW_LOG"] = 2] = "SLOW_LOG";
-    /** Aggregated usage statistics */
-    CoreAILogTriageTriageSourceSid[CoreAILogTriageTriageSourceSid["WATCH_USAGE_STAT"] = 3] = "WATCH_USAGE_STAT";
-})(CoreAILogTriageTriageSourceSid || (CoreAILogTriageTriageSourceSid = {}));
+/** Experience types for class sessions to differentiate virtual and in-person sessions. */
+export var ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum;
+(function (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum) {
+    /** In-person session at a physical location */
+    ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum[ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum["IN_PERSON"] = 1] = "IN_PERSON";
+    /** Virtual session conducted through a virtual provider */
+    ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum[ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum["VIRTUAL"] = 2] = "VIRTUAL";
+})(ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum || (ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = {}));
+/** Stripe device type of reader. */
+export var ThothPayProcessorStripeComTerminalStripeReaderModelSid;
+(function (ThothPayProcessorStripeComTerminalStripeReaderModelSid) {
+    /** The BBPOS Wise Pad 3 is a handheld reader for use with mobile applications */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPAD3"] = 1] = "BBPOS_WISEPAD3";
+    /** The BBPOS Wise POS E is a countertop reader for Stripe Terminal apps */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["BBPOS_WISEPOS_E"] = 4] = "BBPOS_WISEPOS_E";
+    /** SIMULATED Wise POS E */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["SIMULATED_WISEPOS_E"] = 6] = "SIMULATED_WISEPOS_E";
+    /** Stripe Reader M2 is a small, robust reader for use with mobile applications */
+    ThothPayProcessorStripeComTerminalStripeReaderModelSid[ThothPayProcessorStripeComTerminalStripeReaderModelSid["STRIPE_M2"] = 2] = "STRIPE_M2";
+})(ThothPayProcessorStripeComTerminalStripeReaderModelSid || (ThothPayProcessorStripeComTerminalStripeReaderModelSid = {}));
+/** List of possible status of readers. */
+export var ThothPayProcessorTerminalTerminalStatusSid;
+(function (ThothPayProcessorTerminalTerminalStatusSid) {
+    /** Status active */
+    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["ACTIVE"] = 1] = "ACTIVE";
+    /** Status inactive */
+    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["INACTIVE"] = 2] = "INACTIVE";
+    /** Status setup, reader is active but not added to stripe yet */
+    ThothPayProcessorTerminalTerminalStatusSid[ThothPayProcessorTerminalTerminalStatusSid["SETUP"] = 3] = "SETUP";
+})(ThothPayProcessorTerminalTerminalStatusSid || (ThothPayProcessorTerminalTerminalStatusSid = {}));
+/** Payment actors (staff member, user or business owner). */
+export var RsPayActorSid;
+(function (RsPayActorSid) {
+    /** Business owner */
+    RsPayActorSid[RsPayActorSid["BUSINESS"] = 3] = "BUSINESS";
+    /** Staff member */
+    RsPayActorSid[RsPayActorSid["STAFF"] = 1] = "STAFF";
+    /** User */
+    RsPayActorSid[RsPayActorSid["USER"] = 2] = "USER";
+})(RsPayActorSid || (RsPayActorSid = {}));
+/** Statuses of payment intents. */
+export var ThothPayProcessorStripeComPaymentIntentStatusSid;
+(function (ThothPayProcessorStripeComPaymentIntentStatusSid) {
+    /** You may cancel a Payment Intent at any point before it is processing or succeeded. This invalidates the */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["CANCELED"] = 7] = "CANCELED";
+    /** Once required actions are handled, the Payment Intent moves to processing. While for some payment methods */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["PROCESSING"] = 4] = "PROCESSING";
+    /** If the payment requires additional actions, such as authenticating with 3D Secure , the Payment Intent has a status */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_ACTION"] = 3] = "REQUIRES_ACTION";
+    /** Requires capture */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_CAPTURE"] = 6] = "REQUIRES_CAPTURE";
+    /** After the customer provides their payment information, the Payment Intent is ready to be confirmed */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_CONFIRMATION"] = 2] = "REQUIRES_CONFIRMATION";
+    /** When the Payment Intent is created, it has a status of `requires_payment_method` until a payment method is */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["REQUIRES_PAYMENT_METHOD"] = 1] = "REQUIRES_PAYMENT_METHOD";
+    /** A Payment Intent with a status of succeeded means that the payment flow it is driving is complete */
+    ThothPayProcessorStripeComPaymentIntentStatusSid[ThothPayProcessorStripeComPaymentIntentStatusSid["SUCCEEDED"] = 5] = "SUCCEEDED";
+})(ThothPayProcessorStripeComPaymentIntentStatusSid || (ThothPayProcessorStripeComPaymentIntentStatusSid = {}));
+/** Paragon device type of reader. */
+export var ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid;
+(function (ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid) {
+    /** Verifone e285 reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["E285"] = 1] = "E285";
+    /** Verifone P200 reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["P200"] = 2] = "P200";
+    /** Verifone P400 plus reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["P400_PLUS"] = 3] = "P400_PLUS";
+    /** Verifone V200c reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V200_C"] = 4] = "V200_C";
+    /** Verifone V200c plus reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V200_C_PLUS"] = 5] = "V200_C_PLUS";
+    /** Verifone V400c plus reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V400_C_PLUS"] = 7] = "V400_C_PLUS";
+    /** Verifone V400m reader */
+    ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid[ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid["V400_M"] = 6] = "V400_M";
+})(ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid || (ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = {}));
+/** List of supported terminal interaction types. */
+export var ThothPayProcessorTerminalTerminalTypeSid;
+(function (ThothPayProcessorTerminalTerminalTypeSid) {
+    /** Magtek USB */
+    ThothPayProcessorTerminalTerminalTypeSid[ThothPayProcessorTerminalTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
+})(ThothPayProcessorTerminalTerminalTypeSid || (ThothPayProcessorTerminalTerminalTypeSid = {}));
+/** A list of devices supported by credit card reader plugin. */
+export var ThothWlPayCordovaCordovaCcrDeviceSid;
+(function (ThothWlPayCordovaCordovaCcrDeviceSid) {
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_IDT_AUGUSTA"] = 4] = "DC_IDT_AUGUSTA";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_IDT_BT_MAG"] = 5] = "DC_IDT_BT_MAG";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_IDT_UNI_MAG"] = 6] = "DC_IDT_UNI_MAG";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_IDT_UNI_PAY"] = 7] = "DC_IDT_UNI_PAY";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_MAGTEK_AUDIO"] = 11] = "DC_MAGTEK_AUDIO";
+    /** Payment processor: Paragon (ex. Direct Connect) */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_MAGTEK_BLUETOOTH"] = 13] = "DC_MAGTEK_BLUETOOTH";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_MAGTEK_LIGHTNING"] = 12] = "DC_MAGTEK_LIGHTNING";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_MIURA"] = 8] = "DC_MIURA";
+    /** Payment processor: Direct Connect */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["DC_PAX"] = 9] = "DC_PAX";
+    /** Payment processor: NMI */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["NMI_ENTERPRISE"] = 3] = "NMI_ENTERPRISE";
+    /** Payment processor: NMI */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["NMI_IPS"] = 2] = "NMI_IPS";
+    /** Payment processor: NMI */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["NMI_UNIMAG"] = 1] = "NMI_UNIMAG";
+    /** Payment processor: Stripe */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["STRIPE_BBPOS_SIMULATED_WISEPOS_E"] = 17] = "STRIPE_BBPOS_SIMULATED_WISEPOS_E";
+    /** Payment processor: Stripe */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["STRIPE_BBPOS_WISEPAD_3_BLUETOOTH"] = 14] = "STRIPE_BBPOS_WISEPAD_3_BLUETOOTH";
+    /** Payment processor: Stripe */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["STRIPE_BBPOS_WISEPOS_E_INTERNET"] = 15] = "STRIPE_BBPOS_WISEPOS_E_INTERNET";
+    /** Payment processor: Stripe */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["STRIPE_READER_M2_BLUETOOTH"] = 16] = "STRIPE_READER_M2_BLUETOOTH";
+    /** Virtual device for testing purposes */
+    ThothWlPayCordovaCordovaCcrDeviceSid[ThothWlPayCordovaCordovaCcrDeviceSid["VIRTUAL"] = 10] = "VIRTUAL";
+})(ThothWlPayCordovaCordovaCcrDeviceSid || (ThothWlPayCordovaCordovaCcrDeviceSid = {}));
+/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
+export var ThothPayProcessorStripeComTerminalStripeTerminalTypeSid;
+(function (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid) {
+    /** Terminals that work via Stripe javascript SDK */
+    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["JS_SDK"] = 2] = "JS_SDK";
+    /** Magtek USB */
+    ThothPayProcessorStripeComTerminalStripeTerminalTypeSid[ThothPayProcessorStripeComTerminalStripeTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
+})(ThothPayProcessorStripeComTerminalStripeTerminalTypeSid || (ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = {}));
+/** List of {@link ThothPayProcessorPayProcessorSid} supported terminal types. */
+export var ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid;
+(function (ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid) {
+    /** Card terminals that work via OMNI Channel API */
+    ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid[ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid["OMNICHANNEL"] = 2] = "OMNICHANNEL";
+    /** Magtek USB */
+    ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid[ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid["MAGTEK_USB"] = 1] = "MAGTEK_USB";
+})(ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid || (ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = {}));
+/** A list of payment gateways or processors. */
+export var ThothPayProcessorPayProcessorSid;
+(function (ThothPayProcessorPayProcessorSid) {
+    /** Payment gateway for `cybersource.com` */
+    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["CYBER_SOURCE"] = 11] = "CYBER_SOURCE";
+    /** Payment gateway for Direct Connect */
+    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["DIRECT_CONNECT"] = 9] = "DIRECT_CONNECT";
+    /** Payment gateway for Lucy */
+    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["LUCY"] = 2] = "LUCY";
+    /** Payment gateway for Netbanx */
+    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["NETBANX"] = 1] = "NETBANX";
+    /** Payment gateway for NMI */
+    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["NMI"] = 6] = "NMI";
+    /** Payment gateway for Nuvei */
+    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["NUVEI"] = 12] = "NUVEI";
+    /** Payment gateway for Paychoice */
+    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["PAYCHOICE"] = 7] = "PAYCHOICE";
+    /** Payment gateway for `stripe.com` */
+    ThothPayProcessorPayProcessorSid[ThothPayProcessorPayProcessorSid["STRIPE_COM"] = 10] = "STRIPE_COM";
+})(ThothPayProcessorPayProcessorSid || (ThothPayProcessorPayProcessorSid = {}));
+/** A list of money owners from which account money can be transferred. */
+export var RsPayOwnerSid;
+(function (RsPayOwnerSid) {
+    /** Anonymous user (Walk-In) */
+    RsPayOwnerSid[RsPayOwnerSid["ANONYMOUS"] = 3] = "ANONYMOUS";
+    /** Business */
+    RsPayOwnerSid[RsPayOwnerSid["BUSINESS"] = 2] = "BUSINESS";
+    /** System user */
+    RsPayOwnerSid[RsPayOwnerSid["USER"] = 1] = "USER";
+})(RsPayOwnerSid || (RsPayOwnerSid = {}));
 /** `WebAuthn` `credentialDeviceType` values, per the `WebAuthn` specification. */
 export var CorePassportPasskeyPasskeyDeviceTypeEnum;
 (function (CorePassportPasskeyPasskeyDeviceTypeEnum) {
@@ -2494,6 +2500,18 @@ export var CorePassportPasskeyPasskeyCredentialStatusEnum;
     /** The credential was revoked by its owner and may no longer be used to sign in */
     CorePassportPasskeyPasskeyCredentialStatusEnum[CorePassportPasskeyPasskeyCredentialStatusEnum["REVOKED"] = 2] = "REVOKED";
 })(CorePassportPasskeyPasskeyCredentialStatusEnum || (CorePassportPasskeyPasskeyCredentialStatusEnum = {}));
+/** List of image types. */
+export var CoreDriveDriveTypeSid;
+(function (CoreDriveDriveTypeSid) {
+    /** Bmp image */
+    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["BMP"] = 4] = "BMP";
+    /** Gif image */
+    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["GIF"] = 1] = "GIF";
+    /** Jpeg image */
+    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["JPEG"] = 2] = "JPEG";
+    /** Png image */
+    CoreDriveDriveTypeSid[CoreDriveDriveTypeSid["PNG"] = 3] = "PNG";
+})(CoreDriveDriveTypeSid || (CoreDriveDriveTypeSid = {}));
 /** List of responses for Google Captcha token. */
 export var CoreGoogleCaptchaCaptchaResponseSid;
 (function (CoreGoogleCaptchaCaptchaResponseSid) {
@@ -2535,6 +2553,10 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["APPOINTMENT_PERIOD"] = 51] = "APPOINTMENT_PERIOD";
     /** View appointment */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["APPOINTMENT_VIEW"] = 52] = "APPOINTMENT_VIEW";
+    /** Ability to assign billing and diagnostic codes to appointments */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["BILLING_CODE_ASSIGN"] = 252] = "BILLING_CODE_ASSIGN";
+    /** Ability to add a temporary custom billing code at the appointment booking */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["BILLING_CODE_TEMPORARY"] = 253] = "BILLING_CODE_TEMPORARY";
     /** Ability to book clients outside their current paid period */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["BOOK_OUTSIDE_PAID_PERIOD"] = 141] = "BOOK_OUTSIDE_PAID_PERIOD";
     /** Ability to book clients over capacity during or after the services have been scheduled */
@@ -2673,6 +2695,10 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["IMPORT_CLIENT"] = 215] = "IMPORT_CLIENT";
     /** Set up and modify Autymate integration */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_AUTYMATE"] = 163] = "INTEGRATION_AUTYMATE";
+    /** Access to view Bridge Athletic integration */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_BRIDGE_ATHLETIC_ACCESS"] = 251] = "INTEGRATION_BRIDGE_ATHLETIC_ACCESS";
+    /** Access to set up and change Bridge Athletic integration */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_BRIDGE_ATHLETIC_MANAGE"] = 250] = "INTEGRATION_BRIDGE_ATHLETIC_MANAGE";
     /** Set up and modify Brivo integration */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTEGRATION_BRIVO"] = 179] = "INTEGRATION_BRIVO";
     /** Access to set up and change quickbooks integration */
@@ -3407,6 +3433,8 @@ export var RsMailSid;
     RsMailSid[RsMailSid["TASK_ASSIGN"] = 104] = "TASK_ASSIGN";
     /** Send a copy of waiver */
     RsMailSid[RsMailSid["TERM_COPY"] = 99] = "TERM_COPY";
+    /** Sent after a ticketed event is purchased */
+    RsMailSid[RsMailSid["TICKET_PURCHASE"] = 225] = "TICKET_PURCHASE";
     /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
     RsMailSid[RsMailSid["USER_CAMPAIGN"] = 112] = "USER_CAMPAIGN";
     /** Request a video subscription */
@@ -3505,6 +3533,8 @@ export var RsSaleSid;
     RsSaleSid[RsSaleSid["PROMOTION_VIDEO"] = 13] = "PROMOTION_VIDEO";
     /** Products: water, t-shirts, etc. That is available for quick buy */
     RsSaleSid[RsSaleSid["QUICK_BUY"] = 10] = "QUICK_BUY";
+    /** Ticket for a ticketed event */
+    RsSaleSid[RsSaleSid["TICKET"] = 16] = "TICKET";
     /** Tuition */
     RsSaleSid[RsSaleSid["TUITION"] = 14] = "TUITION";
     /** Tuition fees */
@@ -3871,6 +3901,20 @@ export var RsLoginActivityTypeSid;
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["GYM_VISIT"] = 32] = "GYM_VISIT";
     /** Client sent an invite */
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["INVITE_SEND"] = 14] = "INVITE_SEND";
+    /** Lead stage was changed by an automation step */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_AUTOMATION"] = 57] = "LEAD_STAGE_AUTOMATION";
+    /** Lead stage was changed when a client met an automation exit criterion */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_AUTOMATION_EXIT"] = 58] = "LEAD_STAGE_AUTOMATION_EXIT";
+    /** Lead stage was changed when a client completed an automation */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_AUTOMATION_FINISH"] = 59] = "LEAD_STAGE_AUTOMATION_FINISH";
+    /** Lead stage was set when the lead was created */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_CREATED"] = 60] = "LEAD_STAGE_CREATED";
+    /** Lead stage was changed because the previous stage was deleted */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_DELETE"] = 61] = "LEAD_STAGE_DELETE";
+    /** Lead stage was changed manually by a staff member */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_MANUAL"] = 62] = "LEAD_STAGE_MANUAL";
+    /** Lead stage was changed when the client joined a client group */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["LEAD_STAGE_MEMBER_GROUP"] = 63] = "LEAD_STAGE_MEMBER_GROUP";
     /** The user shared location item into Facebook */
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["LOCATION_SHARE_FACEBOOK"] = 39] = "LOCATION_SHARE_FACEBOOK";
     /** The user shared location item into Twitter */
@@ -3966,16 +4010,46 @@ export var WlLocationFlagFlagSourceEnum;
     /** Flag is set because user is sent to collections. This means user has debt and cannot make new purchases */
     WlLocationFlagFlagSourceEnum[WlLocationFlagFlagSourceEnum["COLLECTIONS"] = 1] = "COLLECTIONS";
 })(WlLocationFlagFlagSourceEnum || (WlLocationFlagFlagSourceEnum = {}));
+/** Level at which a client profile field is asked at a given collection entry point. */
+export var WlFieldFieldLevelEnum;
+(function (WlFieldFieldLevelEnum) {
+    /** The field is not asked at this entry point */
+    WlFieldFieldLevelEnum[WlFieldFieldLevelEnum["DONT_ASK"] = 1] = "DONT_ASK";
+    /** The field is asked, but a value is not required */
+    WlFieldFieldLevelEnum[WlFieldFieldLevelEnum["OPTIONAL"] = 2] = "OPTIONAL";
+    /** The field is asked, and a value is required */
+    WlFieldFieldLevelEnum[WlFieldFieldLevelEnum["REQUIRED"] = 3] = "REQUIRED";
+})(WlFieldFieldLevelEnum || (WlFieldFieldLevelEnum = {}));
 /** List of sources from where the user registers. */
 export var WlProfileRegisterSourceSid;
 (function (WlProfileRegisterSourceSid) {
+    /** Source when a user registers while booking a service */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["BOOKING"] = 4] = "BOOKING";
     /** Source when a user registers during purchase or booking */
     WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["BOOKING_AND_PURCHASE"] = 1] = "BOOKING_AND_PURCHASE";
+    /** Source when a guest (an unregistered visitor) books a service or makes a purchase */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["GUEST"] = 6] = "GUEST";
+    /** Source when a user registers while making a purchase */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["PURCHASE"] = 5] = "PURCHASE";
+    /** Source when a client adds a family member (a relative profile) - directly, or as part of booking or purchase */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["RELATIONSHIP"] = 7] = "RELATIONSHIP";
     /** Source when a user registers on self-registration web app, self-registration web app URL, etc */
     WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["SELF"] = 2] = "SELF";
+    /** Source when staff add or edit a client profile */
+    WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["STAFF"] = 8] = "STAFF";
     /** This is a service value, which means to not choose any specific source */
     WlProfileRegisterSourceSid[WlProfileRegisterSourceSid["UNSET_VALUE"] = 3] = "UNSET_VALUE";
 })(WlProfileRegisterSourceSid || (WlProfileRegisterSourceSid = {}));
+/** Action that a client or staff performs with terms and conditions of cart items. */
+export var WlCatalogTermsTermsActionSid;
+(function (WlCatalogTermsTermsActionSid) {
+    /** Terms and conditions are accepted */
+    WlCatalogTermsTermsActionSid[WlCatalogTermsTermsActionSid["AGREE"] = 1] = "AGREE";
+    /** Terms and conditions are declined, so items are removed from the cart */
+    WlCatalogTermsTermsActionSid[WlCatalogTermsTermsActionSid["DECLINE"] = 2] = "DECLINE";
+    /** Terms and conditions are skipped by staff in the point of sale */
+    WlCatalogTermsTermsActionSid[WlCatalogTermsTermsActionSid["SKIP"] = 3] = "SKIP";
+})(WlCatalogTermsTermsActionSid || (WlCatalogTermsTermsActionSid = {}));
 /** Coupon date start rule. */
 export var WlCouponEditActivationSid;
 (function (WlCouponEditActivationSid) {
@@ -4038,6 +4112,16 @@ export var WlShopCategoryShopCategorySortSid;
     /** Sort by name/title */
     WlShopCategoryShopCategorySortSid[WlShopCategoryShopCategorySortSid["NAME"] = 1] = "NAME";
 })(WlShopCategoryShopCategorySortSid || (WlShopCategoryShopCategorySortSid = {}));
+/** List of quick purchase item types. */
+export var WlCatalogQuickPurchaseTypeSid;
+(function (WlCatalogQuickPurchaseTypeSid) {
+    /** Classes */
+    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["CLASSES"] = 224] = "CLASSES";
+    /** Resource */
+    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["RESOURCE"] = 681] = "RESOURCE";
+    /** Service */
+    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["SERVICE"] = 690] = "SERVICE";
+})(WlCatalogQuickPurchaseTypeSid || (WlCatalogQuickPurchaseTypeSid = {}));
 /** Different user flows that can be tracked. */
 export var WlUserTrackingFlowSid;
 (function (WlUserTrackingFlowSid) {
@@ -4170,16 +4254,6 @@ export var WlQuizResponseSourceSid;
     /** Quiz response received during registration process */
     WlQuizResponseSourceSid[WlQuizResponseSourceSid["REGISTRATION"] = 3] = "REGISTRATION";
 })(WlQuizResponseSourceSid || (WlQuizResponseSourceSid = {}));
-/** List of quick purchase item types. */
-export var WlCatalogQuickPurchaseTypeSid;
-(function (WlCatalogQuickPurchaseTypeSid) {
-    /** Classes */
-    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["CLASSES"] = 224] = "CLASSES";
-    /** Resource */
-    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["RESOURCE"] = 681] = "RESOURCE";
-    /** Service */
-    WlCatalogQuickPurchaseTypeSid[WlCatalogQuickPurchaseTypeSid["SERVICE"] = 690] = "SERVICE";
-})(WlCatalogQuickPurchaseTypeSid || (WlCatalogQuickPurchaseTypeSid = {}));
 /** Widget analytics checkout types. */
 export var WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid;
 (function (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid) {
@@ -4774,70 +4848,32 @@ export var WlSocialShareShareObjectSid;
     /** Review */
     WlSocialShareShareObjectSid[WlSocialShareShareObjectSid["REVIEW"] = 2] = "REVIEW";
 })(WlSocialShareShareObjectSid || (WlSocialShareShareObjectSid = {}));
-/** A list of card types. */
-export var WlCardCardSystemSid;
-(function (WlCardCardSystemSid) {
-    /** American Express */
-    WlCardCardSystemSid[WlCardCardSystemSid["AMERICAN_EXPRESS"] = 1] = "AMERICAN_EXPRESS";
-    /** Bank of Montreal (BMO) */
-    WlCardCardSystemSid[WlCardCardSystemSid["BMO"] = 2] = "BMO";
-    /** Canadian Imperial Bank of Commerce (CIBC) */
-    WlCardCardSystemSid[WlCardCardSystemSid["CIBC"] = 3] = "CIBC";
-    /** Diners Club International */
-    WlCardCardSystemSid[WlCardCardSystemSid["DINNER_CLUB"] = 4] = "DINNER_CLUB";
-    /** Discover */
-    WlCardCardSystemSid[WlCardCardSystemSid["DISCOVER"] = 5] = "DISCOVER";
-    /** HSBC Bank Canada */
-    WlCardCardSystemSid[WlCardCardSystemSid["HSBC_CANADA"] = 6] = "HSBC_CANADA";
-    /** Japan Credit Bureau (JCB) */
-    WlCardCardSystemSid[WlCardCardSystemSid["JCB"] = 7] = "JCB";
-    /** Mastercard */
-    WlCardCardSystemSid[WlCardCardSystemSid["MASTERCARD"] = 8] = "MASTERCARD";
-    /** Royal Bank of Canada */
-    WlCardCardSystemSid[WlCardCardSystemSid["ROYAL_BANK"] = 9] = "ROYAL_BANK";
-    /** Scotiabank */
-    WlCardCardSystemSid[WlCardCardSystemSid["SCOTIBANK"] = 10] = "SCOTIBANK";
-    /** TD Canada Trust */
-    WlCardCardSystemSid[WlCardCardSystemSid["TD_CANADA"] = 11] = "TD_CANADA";
-    /** The card system can't be determined */
-    WlCardCardSystemSid[WlCardCardSystemSid["UNDEFINED"] = 13] = "UNDEFINED";
-    /** Union Pay */
-    WlCardCardSystemSid[WlCardCardSystemSid["UNION_PAY"] = 14] = "UNION_PAY";
-    /** Visa */
-    WlCardCardSystemSid[WlCardCardSystemSid["VISA"] = 12] = "VISA";
-})(WlCardCardSystemSid || (WlCardCardSystemSid = {}));
-/** A list of modes in which payment form can be shown. */
-export var RsPayModeSid;
-(function (RsPayModeSid) {
-    /** The form is show in the mobile device */
-    RsPayModeSid[RsPayModeSid["MOBILE"] = 2] = "MOBILE";
-    /** A form is shown in a simple mode */
-    RsPayModeSid[RsPayModeSid["SIMPLE"] = 3] = "SIMPLE";
-    /** A form is shown in the web browser */
-    RsPayModeSid[RsPayModeSid["WEB"] = 1] = "WEB";
-})(RsPayModeSid || (RsPayModeSid = {}));
-/** A list of bank account types. */
-export var RsPayBankSid;
-(function (RsPayBankSid) {
-    /** Bank account for ACH direct bank transactions. USA-specific system */
-    RsPayBankSid[RsPayBankSid["ACH"] = 2] = "ACH";
-    /** A credit card */
-    RsPayBankSid[RsPayBankSid["CARD"] = 1] = "CARD";
-    /** Bank account for Direct Entry direct bank transactions.  Australian-specific system */
-    RsPayBankSid[RsPayBankSid["DIRECT_ENTRY"] = 3] = "DIRECT_ENTRY";
-})(RsPayBankSid || (RsPayBankSid = {}));
-/** A list of SEC codes which can be chosen. */
-export var RsPayBankAchSecSid;
-(function (RsPayBankAchSecSid) {
-    /** Corporate bank account */
-    RsPayBankAchSecSid[RsPayBankAchSecSid["CCD"] = 4] = "CCD";
-    /** Prearranged Payment & Deposit */
-    RsPayBankAchSecSid[RsPayBankAchSecSid["PPD"] = 2] = "PPD";
-    /** Telephone Initiated Entry */
-    RsPayBankAchSecSid[RsPayBankAchSecSid["TEL"] = 3] = "TEL";
-    /** Web Initiated Entry */
-    RsPayBankAchSecSid[RsPayBankAchSecSid["WEB"] = 1] = "WEB";
-})(RsPayBankAchSecSid || (RsPayBankAchSecSid = {}));
+/** List of page transaction type. */
+export var RsPayAccountChargeSid;
+(function (RsPayAccountChargeSid) {
+    /** Account charging using payment form */
+    RsPayAccountChargeSid[RsPayAccountChargeSid["AUTO"] = 1] = "AUTO";
+    /** Manual account charge by admin */
+    RsPayAccountChargeSid[RsPayAccountChargeSid["CREDIT"] = 3] = "CREDIT";
+    /** Manual account withdrawal by admin */
+    RsPayAccountChargeSid[RsPayAccountChargeSid["DEBIT"] = 2] = "DEBIT";
+})(RsPayAccountChargeSid || (RsPayAccountChargeSid = {}));
+/** A list of account holder types which can be chosen. */
+export var RsPayBankAchHolderSid;
+(function (RsPayBankAchHolderSid) {
+    /** Account holder is a business */
+    RsPayBankAchHolderSid[RsPayBankAchHolderSid["BUSINESS"] = 2] = "BUSINESS";
+    /** Account holder is a person */
+    RsPayBankAchHolderSid[RsPayBankAchHolderSid["PERSONAL"] = 1] = "PERSONAL";
+})(RsPayBankAchHolderSid || (RsPayBankAchHolderSid = {}));
+/** A list of account types which can be chosen. */
+export var RsPayBankAchTypeSid;
+(function (RsPayBankAchTypeSid) {
+    /** Checking account */
+    RsPayBankAchTypeSid[RsPayBankAchTypeSid["CHECKING"] = 1] = "CHECKING";
+    /** Savings account */
+    RsPayBankAchTypeSid[RsPayBankAchTypeSid["SAVINGS"] = 2] = "SAVINGS";
+})(RsPayBankAchTypeSid || (RsPayBankAchTypeSid = {}));
 /** List of different OTP code delivery strategies. */
 export var WlPassportLoginEnterOtpDeliveryStrategyEnum;
 (function (WlPassportLoginEnterOtpDeliveryStrategyEnum) {
@@ -5170,6 +5206,66 @@ export var WlBusinessAccountSubscriptionAssetAssetSubscriptionSid;
     /** Professional */
     WlBusinessAccountSubscriptionAssetAssetSubscriptionSid[WlBusinessAccountSubscriptionAssetAssetSubscriptionSid["PROFESSIONAL"] = 2] = "PROFESSIONAL";
 })(WlBusinessAccountSubscriptionAssetAssetSubscriptionSid || (WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = {}));
+/** List of possible plans for BridgeAthleticSubscription subscription. */
+export var WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid;
+(function (WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid) {
+    /** Free */
+    WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid[WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid["FREE"] = 2] = "FREE";
+    /** None */
+    WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid[WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid["NONE"] = 1] = "NONE";
+})(WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid || (WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid = {}));
+/** Term slots available on the Custom Terms settings page. */
+export var WlBusinessCustomTermsCustomTermSid;
+(function (WlBusinessCustomTermsCustomTermSid) {
+    /** Appointment */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["APPOINTMENT"] = 2] = "APPOINTMENT";
+    /** Business */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["BUSINESS"] = 5] = "BUSINESS";
+    /** Class */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["CLASS_TERM"] = 3] = "CLASS_TERM";
+    /** Client */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["CLIENT"] = 4] = "CLIENT";
+    /** Staff */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["STAFF"] = 1] = "STAFF";
+})(WlBusinessCustomTermsCustomTermSid || (WlBusinessCustomTermsCustomTermSid = {}));
+/** Preset options for the {@link WlBusinessCustomTermsCustomTermSid} custom term. */
+export var WlBusinessCustomTermsClientTermOptionSid;
+(function (WlBusinessCustomTermsClientTermOptionSid) {
+    /** Athlete */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["ATHLETE"] = 1] = "ATHLETE";
+    /** Cadet */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CADET"] = 2] = "CADET";
+    /** Camper */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CAMPER"] = 3] = "CAMPER";
+    /** Child */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CHILD"] = 5] = "CHILD";
+    /** Client */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CLIENT"] = 6] = "CLIENT";
+    /** Customer */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["CUSTOMER"] = 7] = "CUSTOMER";
+    /** Dancer */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["DANCER"] = 8] = "DANCER";
+    /** Family */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["FAMILY"] = 9] = "FAMILY";
+    /** Guest */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["GUEST"] = 10] = "GUEST";
+    /** Member */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["MEMBER"] = 11] = "MEMBER";
+    /** Ninja */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["NINJA"] = 12] = "NINJA";
+    /** Participant */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["PARTICIPANT"] = 13] = "PARTICIPANT";
+    /** Patient */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["PATIENT"] = 14] = "PATIENT";
+    /** Patron */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["PATRON"] = 15] = "PATRON";
+    /** Resident */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["RESIDENT"] = 16] = "RESIDENT";
+    /** Student */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["STUDENT"] = 17] = "STUDENT";
+    /** Swimmer */
+    WlBusinessCustomTermsClientTermOptionSid[WlBusinessCustomTermsClientTermOptionSid["SWIMMER"] = 18] = "SWIMMER";
+})(WlBusinessCustomTermsClientTermOptionSid || (WlBusinessCustomTermsClientTermOptionSid = {}));
 /** List of available features in the system that can be shown in owner's header. */
 export var WlPageBackendFeatureFeatureSid;
 (function (WlPageBackendFeatureFeatureSid) {
@@ -5476,6 +5572,70 @@ export var WlReceptionRosterDirectSid;
     /** Redirect user to upcoming schedule */
     WlReceptionRosterDirectSid[WlReceptionRosterDirectSid["SCHEDULE"] = 2] = "SCHEDULE";
 })(WlReceptionRosterDirectSid || (WlReceptionRosterDirectSid = {}));
+/** A list of card types. */
+export var WlCardCardSystemSid;
+(function (WlCardCardSystemSid) {
+    /** American Express */
+    WlCardCardSystemSid[WlCardCardSystemSid["AMERICAN_EXPRESS"] = 1] = "AMERICAN_EXPRESS";
+    /** Bank of Montreal (BMO) */
+    WlCardCardSystemSid[WlCardCardSystemSid["BMO"] = 2] = "BMO";
+    /** Canadian Imperial Bank of Commerce (CIBC) */
+    WlCardCardSystemSid[WlCardCardSystemSid["CIBC"] = 3] = "CIBC";
+    /** Diners Club International */
+    WlCardCardSystemSid[WlCardCardSystemSid["DINNER_CLUB"] = 4] = "DINNER_CLUB";
+    /** Discover */
+    WlCardCardSystemSid[WlCardCardSystemSid["DISCOVER"] = 5] = "DISCOVER";
+    /** HSBC Bank Canada */
+    WlCardCardSystemSid[WlCardCardSystemSid["HSBC_CANADA"] = 6] = "HSBC_CANADA";
+    /** Japan Credit Bureau (JCB) */
+    WlCardCardSystemSid[WlCardCardSystemSid["JCB"] = 7] = "JCB";
+    /** Mastercard */
+    WlCardCardSystemSid[WlCardCardSystemSid["MASTERCARD"] = 8] = "MASTERCARD";
+    /** Royal Bank of Canada */
+    WlCardCardSystemSid[WlCardCardSystemSid["ROYAL_BANK"] = 9] = "ROYAL_BANK";
+    /** Scotiabank */
+    WlCardCardSystemSid[WlCardCardSystemSid["SCOTIBANK"] = 10] = "SCOTIBANK";
+    /** TD Canada Trust */
+    WlCardCardSystemSid[WlCardCardSystemSid["TD_CANADA"] = 11] = "TD_CANADA";
+    /** The card system can't be determined */
+    WlCardCardSystemSid[WlCardCardSystemSid["UNDEFINED"] = 13] = "UNDEFINED";
+    /** Union Pay */
+    WlCardCardSystemSid[WlCardCardSystemSid["UNION_PAY"] = 14] = "UNION_PAY";
+    /** Visa */
+    WlCardCardSystemSid[WlCardCardSystemSid["VISA"] = 12] = "VISA";
+})(WlCardCardSystemSid || (WlCardCardSystemSid = {}));
+/** A list of modes in which payment form can be shown. */
+export var RsPayModeSid;
+(function (RsPayModeSid) {
+    /** The form is show in the mobile device */
+    RsPayModeSid[RsPayModeSid["MOBILE"] = 2] = "MOBILE";
+    /** A form is shown in a simple mode */
+    RsPayModeSid[RsPayModeSid["SIMPLE"] = 3] = "SIMPLE";
+    /** A form is shown in the web browser */
+    RsPayModeSid[RsPayModeSid["WEB"] = 1] = "WEB";
+})(RsPayModeSid || (RsPayModeSid = {}));
+/** A list of bank account types. */
+export var RsPayBankSid;
+(function (RsPayBankSid) {
+    /** Bank account for ACH direct bank transactions. USA-specific system */
+    RsPayBankSid[RsPayBankSid["ACH"] = 2] = "ACH";
+    /** A credit card */
+    RsPayBankSid[RsPayBankSid["CARD"] = 1] = "CARD";
+    /** Bank account for Direct Entry direct bank transactions.  Australian-specific system */
+    RsPayBankSid[RsPayBankSid["DIRECT_ENTRY"] = 3] = "DIRECT_ENTRY";
+})(RsPayBankSid || (RsPayBankSid = {}));
+/** A list of SEC codes which can be chosen. */
+export var RsPayBankAchSecSid;
+(function (RsPayBankAchSecSid) {
+    /** Corporate bank account */
+    RsPayBankAchSecSid[RsPayBankAchSecSid["CCD"] = 4] = "CCD";
+    /** Prearranged Payment & Deposit */
+    RsPayBankAchSecSid[RsPayBankAchSecSid["PPD"] = 2] = "PPD";
+    /** Telephone Initiated Entry */
+    RsPayBankAchSecSid[RsPayBankAchSecSid["TEL"] = 3] = "TEL";
+    /** Web Initiated Entry */
+    RsPayBankAchSecSid[RsPayBankAchSecSid["WEB"] = 1] = "WEB";
+})(RsPayBankAchSecSid || (RsPayBankAchSecSid = {}));
 /** Lifecycle state of a guest pass invitation. */
 export var WlLoginPromotionGuestPassInviteInviteStatusEnum;
 (function (WlLoginPromotionGuestPassInviteInviteStatusEnum) {
@@ -5505,501 +5665,495 @@ export var WlLoginPromotionGuestPassInviteInviteStatusEnum;
     WlLoginPromotionGuestPassInviteInviteStatusEnum[WlLoginPromotionGuestPassInviteInviteStatusEnum["WAITLISTED"] = 11] = "WAITLISTED";
 })(WlLoginPromotionGuestPassInviteInviteStatusEnum || (WlLoginPromotionGuestPassInviteInviteStatusEnum = {}));
 // --- Namespace classes ---
-export class ThothExplorerSearchClassSessionNamespace {
+export class CoreRequestApiApplicationCredentialNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets list of class sessions based on search criteria. */
-    classSessionSearch(params) {
-        return this._client._request('/Thoth/ExplorerSearch/ClassSession/ClassSessionSearch.json', params, 'GET');
+    /** Deletes the specified credential for the application. */
+    credentialDelete(params) {
+        return this._client._request('/Core/Request/Api/Application/Credential/Credential.json', params, 'DELETE');
+    }
+    /** Returns the credential data for the application. */
+    credentialGet(params) {
+        return this._client._request('/Core/Request/Api/Application/Credential/Credential.json', params, 'GET');
+    }
+    /** Saves the credential for the application. */
+    credentialPut(params) {
+        return this._client._request('/Core/Request/Api/Application/Credential/Credential.json', params, 'PUT');
     }
 }
-export class ThothExplorerSearchNamespace {
+export class CoreRequestApiApplicationNamespace {
     constructor(_client) {
         this._client = _client;
-        this.classSession = new ThothExplorerSearchClassSessionNamespace(this._client);
+        this.credential = new CoreRequestApiApplicationCredentialNamespace(this._client);
+    }
+    /** Restricts access to API for all sites, which are given in the list. */
+    originDelete(params) {
+        return this._client._request('/Core/Request/Api/Application/Origin.json', params, 'DELETE');
+    }
+    /** Gets list of all sites, where usage of the API is allowed for the current application. */
+    originGet(params) {
+        return this._client._request('/Core/Request/Api/Application/Origin.json', params, 'GET');
+    }
+    /** Allows access to API for all sites, which are given in the list. */
+    originPut(params) {
+        return this._client._request('/Core/Request/Api/Application/Origin.json', params, 'PUT');
     }
 }
-export class ThothLayoutBeFooterNamespace {
+export class CoreRequestApiNamespace {
     constructor(_client) {
         this._client = _client;
+        this.application = new CoreRequestApiApplicationNamespace(this._client);
     }
-    /** Loads the data required to render the site footer for the given business. */
-    footer(params) {
-        return this._client._request('/Thoth/LayoutBe/Footer/Footer.json', params, 'GET');
+    /** Gets a secret key for signing. */
+    keySecret(params) {
+        return this._client._request('/Core/Request/Api/KeySecret.json', params, 'GET');
     }
 }
-export class ThothLayoutBeNamespace {
+export class CoreRequestTokenNamespace {
     constructor(_client) {
         this._client = _client;
-        this.footer = new ThothLayoutBeFooterNamespace(this._client);
+    }
+    /** Gets new pin code. */
+    tokenPin(params) {
+        return this._client._request('/Core/Request/Token/TokenPin.json', params, 'GET');
     }
 }
-export class ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace {
+export class CoreRequestNamespace {
     constructor(_client) {
         this._client = _client;
+        this.api = new CoreRequestApiNamespace(this._client);
+        this.token = new CoreRequestTokenNamespace(this._client);
     }
-    /** Starts a payment transaction on a `Nuvei` POS terminal. */
-    nuveiTerminalTransactionStart(params) {
-        return this._client._request('/Thoth/PayProcessor/Nuvei/Terminal/OMNIChannelApi/NuveiTerminalTransactionStart.json', params, 'POST');
+    /** Returns the example result for debugging. */
+    example(params) {
+        return this._client._request('/Core/Request/Example.json', params, 'GET');
     }
 }
-export class ThothPayProcessorNuveiTerminalNamespace {
+export class CoreCaptchaNamespace {
     constructor(_client) {
         this._client = _client;
-        this.oMNIChannelApi = new ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace(this._client);
     }
-    /** Cancels a payment made through a `Nuvei` omnichannel terminal. */
-    nuveiOmnichannelTerminalPaymentVoid(params) {
-        return this._client._request('/Thoth/PayProcessor/Nuvei/Terminal/NuveiOmnichannelTerminalPaymentVoid.json', params, 'POST');
+    /** Checks if a CAPTCHA is required for the given captcha type. */
+    captchaRequire(params) {
+        return this._client._request('/Core/Captcha/CaptchaRequire.json', params, 'GET');
     }
 }
-export class ThothPayProcessorNuveiNamespace {
+export class CoreGoogleCaptchaNamespace {
     constructor(_client) {
         this._client = _client;
-        this.terminal = new ThothPayProcessorNuveiTerminalNamespace(this._client);
     }
-    /** Opens a `Nuvei` order for the payment transaction. */
-    nuveiOpenOrder(params) {
-        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiOpenOrder.json', params, 'POST');
+    /** Returns the overridden score for the reCAPTCHA v3. */
+    captchaScoreGet(params) {
+        return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'GET');
     }
-    /** Finalizes the `Nuvei` transaction after successful payer authentication. */
-    nuveiTransactionOnAuthSuccess(params) {
-        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiTransactionOnAuthSuccess.json', params, 'POST');
+    /** Validates the reCAPTCHA v3 token. */
+    captchaScorePost(params) {
+        return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'POST');
     }
-    /** Cancels the `Nuvei` transaction. */
-    nuveiTransactionCancel(params) {
-        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiTransactionCancel.json', params, 'POST');
+    /** Overrides the score for the reCAPTCHA v3. */
+    captchaScorePut(params) {
+        return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'PUT');
     }
-    /** Updates the amount of a previously opened `Nuvei` order. */
-    nuveiUpdateOrder(params) {
-        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiUpdateOrder.json', params, 'POST');
+    /** Saves the user CAPTCHA token for the current session. */
+    googleCaptcha(params) {
+        return this._client._request('/Core/Google/Captcha/GoogleCaptcha.json', params, 'PUT');
     }
 }
-export class ThothPayProcessorNamespace {
+export class CoreGoogleNamespace {
     constructor(_client) {
         this._client = _client;
-        this.nuvei = new ThothPayProcessorNuveiNamespace(this._client);
+        this.captcha = new CoreGoogleCaptchaNamespace(this._client);
     }
-}
-export class ThothReportCoreQueryEngineReportCustomizationNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Loads customization data of the customization form that corresponds to specified report / report page. */
-    reportQueryCustomizationFormGet(params) {
-        return this._client._request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params, 'GET');
-    }
-    /** Saves given data of a customization form into database. */
-    reportQueryCustomizationFormPost(params) {
-        return this._client._request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params, 'POST');
-    }
-}
-export class ThothReportCoreQueryEngineReportNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.customization = new ThothReportCoreQueryEngineReportCustomizationNamespace(this._client);
-    }
-}
-export class ThothReportCoreQueryEngineNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.report = new ThothReportCoreQueryEngineReportNamespace(this._client);
-    }
-}
-export class ThothReportCoreNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.queryEngine = new ThothReportCoreQueryEngineNamespace(this._client);
-    }
-}
-export class ThothNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.explorerSearch = new ThothExplorerSearchNamespace(this._client);
-        this.layoutBe = new ThothLayoutBeNamespace(this._client);
-        this.payProcessor = new ThothPayProcessorNamespace(this._client);
-        this.reportCore = new ThothReportCoreNamespace(this._client);
-    }
-}
-export class WlHardwareStripeComNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Removes terminal. */
-    stripeComHardwareElementDelete(params) {
-        return this._client._request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params, 'DELETE');
-    }
-    /** Fetch terminal information. */
-    stripeComHardwareElementGet(params) {
-        return this._client._request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params, 'GET');
-    }
-    /** Creates terminal. */
-    stripeComHardwareElementPost(params) {
-        return this._client._request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params, 'POST');
-    }
-}
-export class WlHardwareNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.stripeCom = new WlHardwareStripeComNamespace(this._client);
-    }
-}
-export class WlPayProcessorStripeComNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Updates a `Stripe` Payment Intent. */
-    paymentIntentUpdate(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/PaymentIntentUpdate.json', params, 'POST');
-    }
-    /** Gets the `Stripe` public key for a merchant. */
-    stripeComKey(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComKey.json', params, 'POST');
-    }
-    /** Initializes a `Stripe` payment. */
-    stripeComPayInit(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPayInit.json', params, 'POST');
-    }
-    /** Cancels a `Stripe` Payment Intent. */
-    stripeComPaymentIntentCancel(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPaymentIntentCancel.json', params, 'POST');
-    }
-    /** Gets Stripe charge information. */
-    stripeComCharge(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComCharge.json', params, 'GET');
-    }
-    /** Gets a secret from a connection token for the Stripe Terminal SDK. */
-    stripeComConnectionToken(params) {
-        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComConnectionToken.json', params, 'POST');
-    }
-}
-export class WlPayProcessorCyberSourceNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Starts `CyberSource` Payer Authentication setup. */
-    csPaSetup(params) {
-        return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaSetup.json', params, 'POST');
-    }
-    /** Generates a capture context for `CyberSource` Flex Microform. */
-    csCaptureContext(params) {
-        return this._client._request('/Wl/Pay/Processor/CyberSource/CsCaptureContext.json', params, 'POST');
-    }
-    /** Checks `CyberSource` Payer Authentication enrollment. */
-    csPaEnrollment(params) {
-        return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaEnrollment.json', params, 'POST');
-    }
-    /** Validates the `CyberSource` Payer Authentication result. */
-    csPaValidate(params) {
-        return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaValidate.json', params, 'POST');
-    }
-}
-export class WlPayProcessorNuveiNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Starts a `Nuvei` card authorization transaction for a purchase or a card verification. */
+    /** Saves the user CAPTCHA token for the current session. */
     /** @deprecated */
-    nuveiTransactionStart(params) {
-        return this._client._request('/Wl/Pay/Processor/Nuvei/NuveiTransactionStart.json', params, 'POST');
+    googleCaptcha(params) {
+        return this._client._request('/Core/Google/GoogleCaptcha.json', params, 'PUT');
     }
 }
-export class WlPayProcessorNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.stripeCom = new WlPayProcessorStripeComNamespace(this._client);
-        this.cyberSource = new WlPayProcessorCyberSourceNamespace(this._client);
-        this.nuvei = new WlPayProcessorNuveiNamespace(this._client);
-    }
-}
-export class WlPayAccountChargeNamespace {
+export class CoreSidNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Refills the user account balance by the specified payment amount or adjusts it manually. */
-    charge(params) {
-        return this._client._request('/Wl/Pay/Account/Charge/Charge.json', params, 'POST');
+    /** Returns the list of all items for the given Sid class. */
+    coreSid(params) {
+        return this._client._request('/Core/Sid/CoreSid.json', params, 'GET');
     }
 }
-export class WlPayAccountNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.charge = new WlPayAccountChargeNamespace(this._client);
-    }
-    /** Retrieves information about accounts of given user in given business. */
-    account(params) {
-        return this._client._request('/Wl/Pay/Account/Account.json', params, 'GET');
-    }
-}
-export class WlPayBankCardAddNamespace {
+export class CoreWebSocketNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Deletes saved card. */
-    addDelete(params) {
-        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'DELETE');
-    }
-    /** Gets code of bank card widget. */
-    /** @deprecated */
-    addGet(params) {
-        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'GET');
-    }
-    /** Saves new bank card. */
-    addPost(params) {
-        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'POST');
+    /** Checks whether a listener can subscribe to specified channel. Subscribes in a case of positive result. */
+    subscribe(params) {
+        return this._client._request('/Core/WebSocket/Subscribe.json', params, 'POST');
     }
 }
-export class WlPayBankCardWidgetNamespace {
+export class CoreGeoRegionNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets a list of saved bank cards. */
-    widgetSelect(params) {
-        return this._client._request('/Wl/Pay/Bank/Card/Widget/WidgetSelect.json', params, 'GET');
+    /** Retrieves information about countries and regions. */
+    region(params) {
+        return this._client._request('/Core/Geo/Region/Region.json', params, 'GET');
     }
 }
-export class WlPayBankCardNamespace {
+export class CoreGeoNamespace {
     constructor(_client) {
         this._client = _client;
-        this.add = new WlPayBankCardAddNamespace(this._client);
-        this.widget = new WlPayBankCardWidgetNamespace(this._client);
+        this.region = new CoreGeoRegionNamespace(this._client);
     }
-    /** Retrieves information about user's bank cards. */
-    list(params) {
-        return this._client._request('/Wl/Pay/Bank/Card/List.json', params, 'GET');
-    }
-}
-export class WlPayBankAchAddNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Deletes saved ACH. */
-    addDelete(params) {
-        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'DELETE');
-    }
-    /** Gets widget for ACH account add. */
-    addGet(params) {
-        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'GET');
-    }
-    /** Saves new ACH pay method. */
-    addPost(params) {
-        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'POST');
+    /** Returns a list of cities to show in combobox list. */
+    combobox(params) {
+        return this._client._request('/Core/Geo/Combobox.json', params, 'GET');
     }
 }
-export class WlPayBankAchWidgetNamespace {
+export class CoreDebugNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets a list of saved bank account. */
-    widgetSelect(params) {
-        return this._client._request('/Wl/Pay/Bank/Ach/Widget/WidgetSelect.json', params, 'GET');
+    /** Logs new error occurred in browser. */
+    error(params) {
+        return this._client._request('/Core/Debug/Error.json', params, 'POST');
     }
 }
-export class WlPayBankAchNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.add = new WlPayBankAchAddNamespace(this._client);
-        this.widget = new WlPayBankAchWidgetNamespace(this._client);
-    }
-    /** Retrieves information about user's ACH accounts. */
-    list(params) {
-        return this._client._request('/Wl/Pay/Bank/Ach/List.json', params, 'GET');
-    }
-}
-export class WlPayBankNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.card = new WlPayBankCardNamespace(this._client);
-        this.ach = new WlPayBankAchNamespace(this._client);
-    }
-    /** Sets a specified payment method as default. */
-    primary(params) {
-        return this._client._request('/Wl/Pay/Bank/Primary.json', params, 'PUT');
-    }
-}
-export class WlPayFormSurchargeNamespace {
+export class CorePushNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Previews whether a surcharge is allowed for a card. */
-    surchargeTender(params) {
-        return this._client._request('/Wl/Pay/Form/Surcharge/SurchargeTender.json', params, 'GET');
+    /** Adds new device ID for push notifications. */
+    push(params) {
+        return this._client._request('/Core/Push/Push.json', params, 'POST');
     }
 }
-export class WlPayFormNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.surcharge = new WlPayFormSurchargeNamespace(this._client);
-    }
-    /** Returns information about payment environment. */
-    /** @deprecated */
-    environment(params) {
-        return this._client._request('/Wl/Pay/Form/Environment.json', params, 'GET');
-    }
-    /** Returns information about payment environment. */
-    environmentUser(params) {
-        return this._client._request('/Wl/Pay/Form/EnvironmentUser.json', params, 'GET');
-    }
-}
-export class WlPayOwnerNamespace {
+export class CoreTimingNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns information about payment owner. */
-    owner(params) {
-        return this._client._request('/Wl/Pay/Owner/Owner.json', params, 'GET');
+    /** Logs component load timing entries reported by browser. */
+    componentTiming(params) {
+        return this._client._request('/Core/Timing/ComponentTiming.json', params, 'POST');
     }
 }
-export class WlPayMethodNamespace {
+export class CoreTestingAutomationNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns list of active payment methods data. */
-    list(params) {
-        return this._client._request('/Wl/Pay/Method/List.json', params, 'GET');
+    /** Flushes all application caches. */
+    cacheFlush(params) {
+        return this._client._request('/Core/Testing/Automation/CacheFlush.json', params, 'GET');
     }
 }
-export class WlPayAddressWidgetNamespace {
+export class CoreTestingNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.automation = new CoreTestingAutomationNamespace(this._client);
+    }
+}
+export class CoreAILogTriageNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets data for "edit payment address" widget. */
-    widgetEdit(params) {
-        return this._client._request('/Wl/Pay/Address/Widget/WidgetEdit.json', params, 'GET');
+    /** Collects findings for the requested calendar date. */
+    connectionCheck(params) {
+        return this._client._request('/Core/AI/LogTriage/ConnectionCheck.json', params, 'GET');
     }
 }
-export class WlPayAddressNamespace {
+export class CoreAINamespace {
     constructor(_client) {
         this._client = _client;
-        this.widget = new WlPayAddressWidgetNamespace(this._client);
-    }
-    /** Gets user's payment addresses information. */
-    address(params) {
-        return this._client._request('/Wl/Pay/Address/Address.json', params, 'GET');
-    }
-    /** Returns default payment address data that is retrieved from user profile. */
-    profile(params) {
-        return this._client._request('/Wl/Pay/Address/Profile.json', params, 'GET');
+        this.logTriage = new CoreAILogTriageNamespace(this._client);
     }
 }
-export class WlPayTransactionReportNamespace {
+export class CorePassportLoginRegisterNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns All Transactions Report data for the specified date range. */
-    transactionAllPayment(params) {
-        return this._client._request('/Wl/Pay/Transaction/Report/TransactionAllPayment.json', params, 'GET');
+    /** Validates the new user's data and sends a confirmation email to complete registration. */
+    register(params) {
+        return this._client._request('/Core/Passport/Login/Register/Register.json', params, 'POST');
+    }
+    /** Confirms email of a new user and completes registration. */
+    registerConfirm(params) {
+        return this._client._request('/Core/Passport/Login/Register/RegisterConfirm.json', params, 'POST');
     }
 }
-export class WlPayTransactionNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.report = new WlPayTransactionReportNamespace(this._client);
-    }
-}
-export class WlPayNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.processor = new WlPayProcessorNamespace(this._client);
-        this.account = new WlPayAccountNamespace(this._client);
-        this.bank = new WlPayBankNamespace(this._client);
-        this.form = new WlPayFormNamespace(this._client);
-        this.owner = new WlPayOwnerNamespace(this._client);
-        this.method = new WlPayMethodNamespace(this._client);
-        this.address = new WlPayAddressNamespace(this._client);
-        this.transaction = new WlPayTransactionNamespace(this._client);
-    }
-}
-export class WlReportGeneratorNamespace {
+export class CorePassportLoginEnterQuickNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns contents of a report as a table. */
-    query(params) {
-        return this._client._request('/Wl/Report/Generator/Query.json', params, 'POST');
+    /** Generates secret key to verify legitimacy of the request. */
+    enterQuick(params) {
+        return this._client._request('/Core/Passport/Login/Enter/Quick/EnterQuick.json', params, 'GET');
     }
 }
-export class WlReportDashboardNamespace {
+export class CorePassportLoginEnterNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.quick = new CorePassportLoginEnterQuickNamespace(this._client);
+    }
+    /** Signs the user in using their login and hashed password. */
+    enter(params) {
+        return this._client._request('/Core/Passport/Login/Enter/Enter.json', params, 'POST');
+    }
+    /** Generates notepad for user sign in form. */
+    notepad(params) {
+        return this._client._request('/Core/Passport/Login/Enter/Notepad.json', params, 'GET');
+    }
+}
+export class CorePassportLoginSignOutNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Adds new report to a dashboard. */
-    reportDashboardPost(params) {
-        return this._client._request('/Wl/Report/Dashboard/ReportDashboard.json', params, 'POST');
-    }
-    /** Updates added report to a dashboard. */
-    reportDashboardPut(params) {
-        return this._client._request('/Wl/Report/Dashboard/ReportDashboard.json', params, 'PUT');
+    /** Signs user out. */
+    signOut(params) {
+        return this._client._request('/Core/Passport/Login/SignOut/SignOut.json', params, 'POST');
     }
 }
-export class WlReportCustomizationNamespace {
+export class CorePassportLoginNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.register = new CorePassportLoginRegisterNamespace(this._client);
+        this.enter = new CorePassportLoginEnterNamespace(this._client);
+        this.signOut = new CorePassportLoginSignOutNamespace(this._client);
+    }
+    /** Returns information about user that is currently signed in. */
+    info(params) {
+        return this._client._request('/Core/Passport/Login/Info.json', params, 'GET');
+    }
+}
+export class CorePassportChangePasswordNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Loads customization data of the customization form that corresponds to specified report / report page. */
-    customizationFormGet(params) {
-        return this._client._request('/Wl/Report/Customization/CustomizationForm.json', params, 'GET');
+    /** Saves for user new password. */
+    changePasswordApply(params) {
+        return this._client._request('/Core/Passport/ChangePassword/ChangePasswordApply.json', params, 'POST');
     }
-    /** Saves given data of a customization form into database. */
-    customizationFormPost(params) {
-        return this._client._request('/Wl/Report/Customization/CustomizationForm.json', params, 'POST');
+    /** Sends to user "password recovery" mail. */
+    changePasswordBegin(params) {
+        return this._client._request('/Core/Passport/ChangePassword/ChangePasswordBegin.json', params, 'POST');
     }
 }
-export class WlReportFavoriteNamespace {
+export class CorePassportPasskeyNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Removes report controller from favorites. */
-    reportFavoriteDelete(params) {
-        return this._client._request('/Wl/Report/Favorite/ReportFavorite.json', params, 'DELETE');
+    /** Starts the registration ceremony. */
+    passkeyRegisterGet(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyRegister.json', params, 'GET');
     }
-    /** Returns information whether passed report controller (saved report controller) is favorite for the specified user   within specified business. */
-    reportFavoriteGet(params) {
-        return this._client._request('/Wl/Report/Favorite/ReportFavorite.json', params, 'GET');
+    /** Finishes the registration ceremony. */
+    passkeyRegisterPost(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyRegister.json', params, 'POST');
     }
-    /** Adds report controller to favorites. */
-    reportFavoritePost(params) {
-        return this._client._request('/Wl/Report/Favorite/ReportFavorite.json', params, 'POST');
+    /** Revokes one of the signed-in user's passkey credentials. */
+    passkeyCredentialDelete(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'DELETE');
+    }
+    /** Lists the user's registered passkey credentials. */
+    passkeyCredentialGet(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'GET');
+    }
+    /** Starts the authentication ceremony. */
+    passkeyEnterGet(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyEnter.json', params, 'GET');
+    }
+    /** Finishes the authentication ceremony. */
+    passkeyEnterPost(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyEnter.json', params, 'POST');
     }
 }
-export class WlReportSaveNamespace {
+export class CorePassportUserEmailNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns information about saved report. */
-    reportSaveGet(params) {
-        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'GET');
-    }
-    /** Saves new saved report. */
-    reportSavePost(params) {
-        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'POST');
-    }
-    /** Updates existing saved report. */
-    reportSavePut(params) {
-        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'PUT');
+    /** Checks if email address exists. */
+    emailExist(params) {
+        return this._client._request('/Core/Passport/User/Email/EmailExist.json', params, 'GET');
     }
 }
-export class WlReportNamespace {
+export class CorePassportUserNamespace {
     constructor(_client) {
         this._client = _client;
-        this.generator = new WlReportGeneratorNamespace(this._client);
-        this.dashboard = new WlReportDashboardNamespace(this._client);
-        this.customization = new WlReportCustomizationNamespace(this._client);
-        this.favorite = new WlReportFavoriteNamespace(this._client);
-        this.save = new WlReportSaveNamespace(this._client);
+        this.email = new CorePassportUserEmailNamespace(this._client);
     }
-    /** Gets data of required report. */
-    data(params) {
-        return this._client._request('/Wl/Report/Data.json', params, 'GET');
+}
+export class CorePassportEnterJwtNamespace {
+    constructor(_client) {
+        this._client = _client;
     }
-    /** Gets data of required report collection. */
-    pageData(params) {
-        return this._client._request('/Wl/Report/PageData.json', params, 'GET');
+    /** Returns a jwt token that can be used to log user. */
+    jwtToken(params) {
+        return this._client._request('/Core/Passport/Enter/Jwt/JwtToken.json', params, 'GET');
     }
-    /** Checks access to given report. */
-    access(params) {
-        return this._client._request('/Wl/Report/Access.json', params, 'GET');
+}
+export class CorePassportEnterNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.jwt = new CorePassportEnterJwtNamespace(this._client);
+    }
+}
+export class CorePassportNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.login = new CorePassportLoginNamespace(this._client);
+        this.changePassword = new CorePassportChangePasswordNamespace(this._client);
+        this.passkey = new CorePassportPasskeyNamespace(this._client);
+        this.user = new CorePassportUserNamespace(this._client);
+        this.enter = new CorePassportEnterNamespace(this._client);
+    }
+}
+export class CoreSpaApplicationNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets information of application. */
+    spaApplication(params) {
+        return this._client._request('/Core/Spa/Application/SpaApplication.json', params, 'GET');
+    }
+}
+export class CoreSpaNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.application = new CoreSpaApplicationNamespace(this._client);
+    }
+}
+export class CoreDriveImageUploadNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Saves new uploaded image. */
+    imageUploadTemporary(params) {
+        return this._client._request('/Core/Drive/ImageUpload/ImageUploadTemporary.json', params, 'POST');
+    }
+    /** Returns information about the image. */
+    imageUploadGet(params) {
+        return this._client._request('/Core/Drive/ImageUpload/ImageUpload.json', params, 'GET');
+    }
+    /** Loads image information for a list of IDs. The POST method is used instead of the GET method because the maximum permitted URI length is restricted. */
+    imageUploadPost(params) {
+        return this._client._request('/Core/Drive/ImageUpload/ImageUpload.json', params, 'POST');
+    }
+    /** Updates the image. */
+    imageUploadPut(params) {
+        return this._client._request('/Core/Drive/ImageUpload/ImageUpload.json', params, 'PUT');
+    }
+}
+export class CoreDriveNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.imageUpload = new CoreDriveImageUploadNamespace(this._client);
+    }
+}
+export class CoreLocaleLanguageNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Switches the language. */
+    languageSwitch(params) {
+        return this._client._request('/Core/Locale/Language/LanguageSwitch.json', params, 'POST');
+    }
+}
+export class CoreLocaleNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.language = new CoreLocaleLanguageNamespace(this._client);
+    }
+}
+export class CoreNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.request = new CoreRequestNamespace(this._client);
+        this.captcha = new CoreCaptchaNamespace(this._client);
+        this.google = new CoreGoogleNamespace(this._client);
+        this.sid = new CoreSidNamespace(this._client);
+        this.webSocket = new CoreWebSocketNamespace(this._client);
+        this.geo = new CoreGeoNamespace(this._client);
+        this.debug = new CoreDebugNamespace(this._client);
+        this.push = new CorePushNamespace(this._client);
+        this.timing = new CoreTimingNamespace(this._client);
+        this.testing = new CoreTestingNamespace(this._client);
+        this.aI = new CoreAINamespace(this._client);
+        this.passport = new CorePassportNamespace(this._client);
+        this.spa = new CoreSpaNamespace(this._client);
+        this.drive = new CoreDriveNamespace(this._client);
+        this.locale = new CoreLocaleNamespace(this._client);
+    }
+}
+export class SocialMicrosoftNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes the association between a website client and a Microsoft account. */
+    loginDelete(params) {
+        return this._client._request('/Social/Microsoft/Login.json', params, 'DELETE');
+    }
+    /** Collects data for the Microsoft login button. */
+    loginGet(params) {
+        return this._client._request('/Social/Microsoft/Login.json', params, 'GET');
+    }
+    /** Signs a user in with Microsoft. */
+    loginPost(params) {
+        return this._client._request('/Social/Microsoft/Login.json', params, 'POST');
+    }
+}
+export class SocialAppleLoginNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes the association between a website client and the Apple account. Invalidates the tokens and associated client authorizations. */
+    appleLoginDelete(params) {
+        return this._client._request('/Social/Apple/Login/AppleLogin.json', params, 'DELETE');
+    }
+    /** Signs user in with Apple. */
+    appleLoginPost(params) {
+        return this._client._request('/Social/Apple/Login/AppleLogin.json', params, 'POST');
+    }
+}
+export class SocialAppleNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.login = new SocialAppleLoginNamespace(this._client);
+    }
+}
+export class SocialFacebookLoginNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Authorizes user with facebook. */
+    login(params) {
+        return this._client._request('/Social/Facebook/Login/Login.json', params, 'POST');
+    }
+}
+export class SocialFacebookNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.login = new SocialFacebookLoginNamespace(this._client);
+    }
+}
+export class SocialGooglePlusNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Authorizes user with Google. */
+    login(params) {
+        return this._client._request('/Social/Google/Plus/Login.json', params, 'POST');
+    }
+}
+export class SocialGoogleNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.plus = new SocialGooglePlusNamespace(this._client);
+    }
+}
+export class SocialNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.microsoft = new SocialMicrosoftNamespace(this._client);
+        this.apple = new SocialAppleNamespace(this._client);
+        this.facebook = new SocialFacebookNamespace(this._client);
+        this.google = new SocialGoogleNamespace(this._client);
     }
 }
 export class WlMailPatternAutomatedMarketingCustomTemplateNamespace {
@@ -6216,8 +6370,12 @@ export class WlLoginPromotionGuestPassApplyNamespace {
     constructor(_client) {
         this._client = _client;
     }
+    /** Returns a list of login promotions with available guest passes for a visit. */
+    applyGet(params) {
+        return this._client._request('/Wl/Login/Promotion/GuestPass/Apply/Apply.json', params, 'GET');
+    }
     /** Applies the guest pass of the specified login promotion to the attendee's visit. */
-    apply(params) {
+    applyPost(params) {
         return this._client._request('/Wl/Login/Promotion/GuestPass/Apply/Apply.json', params, 'POST');
     }
 }
@@ -6598,9 +6756,19 @@ export class WlProfileAttendanceNamespace {
         return this._client._request('/Wl/Profile/Attendance/AttendanceOverlapList.json', params, 'POST');
     }
 }
+export class WlProfileOverviewQuickContactNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns notification availability flags for the specified client. */
+    quickContactOption(params) {
+        return this._client._request('/Wl/Profile/Overview/QuickContact/QuickContactOption.json', params, 'GET');
+    }
+}
 export class WlProfileOverviewNamespace {
     constructor(_client) {
         this._client = _client;
+        this.quickContact = new WlProfileOverviewQuickContactNamespace(this._client);
     }
     /** This method is called to process POST query. */
     sendMail(params) {
@@ -7226,6 +7394,25 @@ export class WlBusinessUserNamespace {
         this.subscribe = new WlBusinessUserSubscribeNamespace(this._client);
     }
 }
+export class WlBusinessCustomTermsNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the current value of every term slot of {@link WlBusinessCustomTermsNamespace#customTermsGet}. */
+    customTermsGet(params) {
+        return this._client._request('/Wl/Business/Custom/Terms/CustomTerms.json', params, 'GET');
+    }
+    /** Saves {@link WlBusinessCustomTermsCustomTermsGetResponse.a_term_option} as the custom terms of {@link WlBusinessCustomTermsNamespace#customTermsGet}. */
+    customTermsPost(params) {
+        return this._client._request('/Wl/Business/Custom/Terms/CustomTerms.json', params, 'POST');
+    }
+}
+export class WlBusinessCustomNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.terms = new WlBusinessCustomTermsNamespace(this._client);
+    }
+}
 export class WlBusinessNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7247,6 +7434,7 @@ export class WlBusinessNamespace {
         this.franchise = new WlBusinessFranchiseNamespace(this._client);
         this.reward = new WlBusinessRewardNamespace(this._client);
         this.user = new WlBusinessUserNamespace(this._client);
+        this.custom = new WlBusinessCustomNamespace(this._client);
     }
     /** Gets information about businesses where given user is a staff member. */
     businessAccess(params) {
@@ -7263,6 +7451,97 @@ export class WlBusinessNamespace {
     /** Returns detailed information about the specified business, including locale, franchise status, services, tips, social URLs, and logo. */
     data(params) {
         return this._client._request('/Wl/Business/Data.json', params, 'GET');
+    }
+}
+export class WlReportGeneratorNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns contents of a report as a table. */
+    query(params) {
+        return this._client._request('/Wl/Report/Generator/Query.json', params, 'POST');
+    }
+}
+export class WlReportDashboardNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Adds new report to a dashboard. */
+    reportDashboardPost(params) {
+        return this._client._request('/Wl/Report/Dashboard/ReportDashboard.json', params, 'POST');
+    }
+    /** Updates added report to a dashboard. */
+    reportDashboardPut(params) {
+        return this._client._request('/Wl/Report/Dashboard/ReportDashboard.json', params, 'PUT');
+    }
+}
+export class WlReportCustomizationNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Loads customization data of the customization form that corresponds to specified report / report page. */
+    customizationFormGet(params) {
+        return this._client._request('/Wl/Report/Customization/CustomizationForm.json', params, 'GET');
+    }
+    /** Saves given data of a customization form into database. */
+    customizationFormPost(params) {
+        return this._client._request('/Wl/Report/Customization/CustomizationForm.json', params, 'POST');
+    }
+}
+export class WlReportFavoriteNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes report controller from favorites. */
+    reportFavoriteDelete(params) {
+        return this._client._request('/Wl/Report/Favorite/ReportFavorite.json', params, 'DELETE');
+    }
+    /** Returns information whether passed report controller (saved report controller) is favorite for the specified user   within specified business. */
+    reportFavoriteGet(params) {
+        return this._client._request('/Wl/Report/Favorite/ReportFavorite.json', params, 'GET');
+    }
+    /** Adds report controller to favorites. */
+    reportFavoritePost(params) {
+        return this._client._request('/Wl/Report/Favorite/ReportFavorite.json', params, 'POST');
+    }
+}
+export class WlReportSaveNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns information about saved report. */
+    reportSaveGet(params) {
+        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'GET');
+    }
+    /** Saves new saved report. */
+    reportSavePost(params) {
+        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'POST');
+    }
+    /** Updates existing saved report. */
+    reportSavePut(params) {
+        return this._client._request('/Wl/Report/Save/ReportSave.json', params, 'PUT');
+    }
+}
+export class WlReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.generator = new WlReportGeneratorNamespace(this._client);
+        this.dashboard = new WlReportDashboardNamespace(this._client);
+        this.customization = new WlReportCustomizationNamespace(this._client);
+        this.favorite = new WlReportFavoriteNamespace(this._client);
+        this.save = new WlReportSaveNamespace(this._client);
+    }
+    /** Gets data of required report. */
+    data(params) {
+        return this._client._request('/Wl/Report/Data.json', params, 'GET');
+    }
+    /** Gets data of required report collection. */
+    pageData(params) {
+        return this._client._request('/Wl/Report/PageData.json', params, 'GET');
+    }
+    /** Checks access to given report. */
+    access(params) {
+        return this._client._request('/Wl/Report/Access.json', params, 'GET');
     }
 }
 export class WlEventBookEventViewNamespace {
@@ -8025,12 +8304,36 @@ export class WlVisitNoteNamespace {
         this.edit = new WlVisitNoteEditNamespace(this._client);
     }
 }
+export class WlVisitBillingCodeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the billing codes applied to a visit and the history of their changes. */
+    visitBillingCodeAssignGet(params) {
+        return this._client._request('/Wl/Visit/Billing/Code/VisitBillingCodeAssign.json', params, 'GET');
+    }
+    /** Applies billing codes to a visit. */
+    visitBillingCodeAssignPost(params) {
+        return this._client._request('/Wl/Visit/Billing/Code/VisitBillingCodeAssign.json', params, 'POST');
+    }
+    /** Returns the codes suggested for a visit. */
+    visitBillingCodeDefault(params) {
+        return this._client._request('/Wl/Visit/Billing/Code/VisitBillingCodeDefault.json', params, 'GET');
+    }
+}
+export class WlVisitBillingNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.code = new WlVisitBillingCodeNamespace(this._client);
+    }
+}
 export class WlVisitNamespace {
     constructor(_client) {
         this._client = _client;
         this.blame = new WlVisitBlameNamespace(this._client);
         this.pay = new WlVisitPayNamespace(this._client);
         this.note = new WlVisitNoteNamespace(this._client);
+        this.billing = new WlVisitBillingNamespace(this._client);
     }
     /** Gets visit status. */
     visitStatusGet(params) {
@@ -8129,6 +8432,15 @@ export class WlReviewNamespace {
     /** Saves the reply text and optional status update for the given review. */
     reviewReply(params) {
         return this._client._request('/Wl/Review/ReviewReply.json', params, 'POST');
+    }
+}
+export class WlZoomNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Releases a Zoom license used by a business. */
+    zoomUserRelease(params) {
+        return this._client._request('/Wl/Zoom/ZoomUserRelease.json', params, 'PUT');
     }
 }
 export class WlDriveNamespace {
@@ -8249,6 +8561,330 @@ export class WlAlertNamespace {
     /** Sets alerts as already read. */
     alertListPost(params) {
         return this._client._request('/Wl/Alert/AlertList.json', params, 'POST');
+    }
+}
+export class WlTicketPurchaseNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Sends the confirmation of the purchase with the tickets. */
+    ticketPurchaseMail(params) {
+        return this._client._request('/Wl/Ticket/Purchase/TicketPurchaseMail.json', params, 'POST');
+    }
+}
+export class WlTicketNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.purchase = new WlTicketPurchaseNamespace(this._client);
+    }
+    /** Sends the tickets of the purchase. */
+    ticketMail(params) {
+        return this._client._request('/Wl/Ticket/TicketMail.json', params, 'POST');
+    }
+    /** Returns tickets and orders of the session. */
+    ticketList(params) {
+        return this._client._request('/Wl/Ticket/TicketList.json', params, 'GET');
+    }
+    /** Checks in the ticket. */
+    ticketScan(params) {
+        return this._client._request('/Wl/Ticket/TicketScan.json', params, 'POST');
+    }
+    /** Checks in the tickets. */
+    ticketScanList(params) {
+        return this._client._request('/Wl/Ticket/TicketScanList.json', params, 'POST');
+    }
+    /** Undoes the check-in of the ticket. */
+    ticketUndo(params) {
+        return this._client._request('/Wl/Ticket/TicketUndo.json', params, 'POST');
+    }
+}
+export class WlHardwareStripeComNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Removes terminal. */
+    stripeComHardwareElementDelete(params) {
+        return this._client._request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params, 'DELETE');
+    }
+    /** Fetch terminal information. */
+    stripeComHardwareElementGet(params) {
+        return this._client._request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params, 'GET');
+    }
+    /** Creates terminal. */
+    stripeComHardwareElementPost(params) {
+        return this._client._request('/Wl/Hardware/StripeCom/StripeComHardwareElement.json', params, 'POST');
+    }
+}
+export class WlHardwareNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.stripeCom = new WlHardwareStripeComNamespace(this._client);
+    }
+}
+export class WlPayProcessorStripeComNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a secret from a connection token for the Stripe Terminal SDK. */
+    stripeComConnectionToken(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComConnectionToken.json', params, 'POST');
+    }
+    /** Gets Stripe charge information. */
+    stripeComCharge(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComCharge.json', params, 'GET');
+    }
+    /** Initializes a `Stripe` payment. */
+    stripeComPayInit(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPayInit.json', params, 'POST');
+    }
+    /** Updates a `Stripe` Payment Intent. */
+    paymentIntentUpdate(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/PaymentIntentUpdate.json', params, 'POST');
+    }
+    /** Gets the `Stripe` public key for a merchant. */
+    stripeComKey(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComKey.json', params, 'POST');
+    }
+    /** Cancels a `Stripe` Payment Intent. */
+    stripeComPaymentIntentCancel(params) {
+        return this._client._request('/Wl/Pay/Processor/StripeCom/StripeComPaymentIntentCancel.json', params, 'POST');
+    }
+}
+export class WlPayProcessorCyberSourceNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks `CyberSource` Payer Authentication enrollment. */
+    csPaEnrollment(params) {
+        return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaEnrollment.json', params, 'POST');
+    }
+    /** Validates the `CyberSource` Payer Authentication result. */
+    csPaValidate(params) {
+        return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaValidate.json', params, 'POST');
+    }
+    /** Starts `CyberSource` Payer Authentication setup. */
+    csPaSetup(params) {
+        return this._client._request('/Wl/Pay/Processor/CyberSource/CsPaSetup.json', params, 'POST');
+    }
+    /** Generates a capture context for `CyberSource` Flex Microform. */
+    csCaptureContext(params) {
+        return this._client._request('/Wl/Pay/Processor/CyberSource/CsCaptureContext.json', params, 'POST');
+    }
+}
+export class WlPayProcessorNuveiNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Starts a `Nuvei` card authorization transaction for a purchase or a card verification. */
+    /** @deprecated */
+    nuveiTransactionStart(params) {
+        return this._client._request('/Wl/Pay/Processor/Nuvei/NuveiTransactionStart.json', params, 'POST');
+    }
+}
+export class WlPayProcessorNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.stripeCom = new WlPayProcessorStripeComNamespace(this._client);
+        this.cyberSource = new WlPayProcessorCyberSourceNamespace(this._client);
+        this.nuvei = new WlPayProcessorNuveiNamespace(this._client);
+    }
+}
+export class WlPayFormSurchargeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Previews whether a surcharge is allowed for a card. */
+    surchargeTender(params) {
+        return this._client._request('/Wl/Pay/Form/Surcharge/SurchargeTender.json', params, 'GET');
+    }
+}
+export class WlPayFormNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.surcharge = new WlPayFormSurchargeNamespace(this._client);
+    }
+    /** Returns information about payment environment. */
+    /** @deprecated */
+    environment(params) {
+        return this._client._request('/Wl/Pay/Form/Environment.json', params, 'GET');
+    }
+    /** Returns information about payment environment. */
+    environmentUser(params) {
+        return this._client._request('/Wl/Pay/Form/EnvironmentUser.json', params, 'GET');
+    }
+}
+export class WlPayAccountChargeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Refills the user account balance by the specified payment amount or adjusts it manually. */
+    charge(params) {
+        return this._client._request('/Wl/Pay/Account/Charge/Charge.json', params, 'POST');
+    }
+}
+export class WlPayAccountNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.charge = new WlPayAccountChargeNamespace(this._client);
+    }
+    /** Retrieves information about accounts of given user in given business. */
+    account(params) {
+        return this._client._request('/Wl/Pay/Account/Account.json', params, 'GET');
+    }
+}
+export class WlPayBankCardAddNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes saved card. */
+    addDelete(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'DELETE');
+    }
+    /** Gets code of bank card widget. */
+    /** @deprecated */
+    addGet(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'GET');
+    }
+    /** Saves new bank card. */
+    addPost(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Add/Add.json', params, 'POST');
+    }
+}
+export class WlPayBankCardWidgetNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a list of saved bank cards. */
+    widgetSelect(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/Widget/WidgetSelect.json', params, 'GET');
+    }
+}
+export class WlPayBankCardNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.add = new WlPayBankCardAddNamespace(this._client);
+        this.widget = new WlPayBankCardWidgetNamespace(this._client);
+    }
+    /** Retrieves information about user's bank cards. */
+    list(params) {
+        return this._client._request('/Wl/Pay/Bank/Card/List.json', params, 'GET');
+    }
+}
+export class WlPayBankAchWidgetNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets a list of saved bank account. */
+    widgetSelect(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/Widget/WidgetSelect.json', params, 'GET');
+    }
+}
+export class WlPayBankAchAddNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Deletes saved ACH. */
+    addDelete(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'DELETE');
+    }
+    /** Gets widget for ACH account add. */
+    addGet(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'GET');
+    }
+    /** Saves new ACH pay method. */
+    addPost(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/Add/Add.json', params, 'POST');
+    }
+}
+export class WlPayBankAchNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.widget = new WlPayBankAchWidgetNamespace(this._client);
+        this.add = new WlPayBankAchAddNamespace(this._client);
+    }
+    /** Retrieves information about user's ACH accounts. */
+    list(params) {
+        return this._client._request('/Wl/Pay/Bank/Ach/List.json', params, 'GET');
+    }
+}
+export class WlPayBankNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.card = new WlPayBankCardNamespace(this._client);
+        this.ach = new WlPayBankAchNamespace(this._client);
+    }
+    /** Sets a specified payment method as default. */
+    primary(params) {
+        return this._client._request('/Wl/Pay/Bank/Primary.json', params, 'PUT');
+    }
+}
+export class WlPayAddressWidgetNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets data for "edit payment address" widget. */
+    widgetEdit(params) {
+        return this._client._request('/Wl/Pay/Address/Widget/WidgetEdit.json', params, 'GET');
+    }
+}
+export class WlPayAddressNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.widget = new WlPayAddressWidgetNamespace(this._client);
+    }
+    /** Gets user's payment addresses information. */
+    address(params) {
+        return this._client._request('/Wl/Pay/Address/Address.json', params, 'GET');
+    }
+    /** Returns default payment address data that is retrieved from user profile. */
+    profile(params) {
+        return this._client._request('/Wl/Pay/Address/Profile.json', params, 'GET');
+    }
+}
+export class WlPayOwnerNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns information about payment owner. */
+    owner(params) {
+        return this._client._request('/Wl/Pay/Owner/Owner.json', params, 'GET');
+    }
+}
+export class WlPayMethodNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns list of active payment methods data. */
+    list(params) {
+        return this._client._request('/Wl/Pay/Method/List.json', params, 'GET');
+    }
+}
+export class WlPayTransactionReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns All Transactions Report data for the specified date range. */
+    transactionAllPayment(params) {
+        return this._client._request('/Wl/Pay/Transaction/Report/TransactionAllPayment.json', params, 'GET');
+    }
+}
+export class WlPayTransactionNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.report = new WlPayTransactionReportNamespace(this._client);
+    }
+}
+export class WlPayNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.processor = new WlPayProcessorNamespace(this._client);
+        this.form = new WlPayFormNamespace(this._client);
+        this.account = new WlPayAccountNamespace(this._client);
+        this.bank = new WlPayBankNamespace(this._client);
+        this.address = new WlPayAddressNamespace(this._client);
+        this.owner = new WlPayOwnerNamespace(this._client);
+        this.method = new WlPayMethodNamespace(this._client);
+        this.transaction = new WlPayTransactionNamespace(this._client);
     }
 }
 export class WlNotificationSendNamespace {
@@ -8723,6 +9359,15 @@ export class WlCatalogQuizNamespace {
         return this._client._request('/Wl/Catalog/Quiz/Quiz.json', params, 'GET');
     }
 }
+export class WlCatalogTermsNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Performs {@link WlCatalogTermsNamespace#terms} for every item of {@link WlCatalogTermsNamespace#terms}. */
+    terms(params) {
+        return this._client._request('/Wl/Catalog/Terms/Terms.json', params, 'POST');
+    }
+}
 export class WlCatalogStaffAppCatalogCartNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8810,6 +9455,7 @@ export class WlCatalogNamespace {
         this.payment = new WlCatalogPaymentNamespace(this._client);
         this.catalogList = new WlCatalogCatalogListNamespace(this._client);
         this.quiz = new WlCatalogQuizNamespace(this._client);
+        this.terms = new WlCatalogTermsNamespace(this._client);
         this.staffApp = new WlCatalogStaffAppNamespace(this._client);
         this.view = new WlCatalogViewNamespace(this._client);
     }
@@ -9112,6 +9758,10 @@ export class WlAppointmentBookServiceNamespace {
     serviceList(params) {
         return this._client._request('/Wl/Appointment/Book/Service/ServiceList.json', params, 'GET');
     }
+    /** Retrieves the full list of appointment services and categories for a business. */
+    serviceListBusiness(params) {
+        return this._client._request('/Wl/Appointment/Book/Service/ServiceListBusiness.json', params, 'GET');
+    }
 }
 export class WlAppointmentBookPromoteNamespace {
     constructor(_client) {
@@ -9331,10 +9981,36 @@ export class WlBillingBulkNamespace {
         return this._client._request('/Wl/Billing/Bulk/BulkBillingUser.json', params, 'DELETE');
     }
 }
+export class WlBillingCodeNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets the billing code list of the business. */
+    billingCodeList(params) {
+        return this._client._request('/Wl/Billing/Code/BillingCodeList.json', params, 'GET');
+    }
+    /** Removes a custom billing code from the central list of the business. */
+    billingCodeDelete(params) {
+        return this._client._request('/Wl/Billing/Code/BillingCode.json', params, 'DELETE');
+    }
+    /** Returns a single custom billing code of the business. */
+    billingCodeGet(params) {
+        return this._client._request('/Wl/Billing/Code/BillingCode.json', params, 'GET');
+    }
+    /** Edits the value and the description of a custom billing code of the business. */
+    billingCodePost(params) {
+        return this._client._request('/Wl/Billing/Code/BillingCode.json', params, 'POST');
+    }
+    /** Adds a custom billing code to the central list of the business. */
+    billingCodePut(params) {
+        return this._client._request('/Wl/Billing/Code/BillingCode.json', params, 'PUT');
+    }
+}
 export class WlBillingNamespace {
     constructor(_client) {
         this._client = _client;
         this.bulk = new WlBillingBulkNamespace(this._client);
+        this.code = new WlBillingCodeNamespace(this._client);
     }
 }
 export class WlClassesClassListNamespace {
@@ -10161,12 +10837,34 @@ export class WlPageNamespace {
         this.backend = new WlPageBackendNamespace(this._client);
     }
 }
+export class WlDoorAccessBrivoInvitationNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the redemption status of the Brivo mobile pass invitation. */
+    brivoUserInvitationGet(params) {
+        return this._client._request('/Wl/DoorAccess/Brivo/Invitation/BrivoUserInvitation.json', params, 'GET');
+    }
+    /** Sends a Brivo mobile pass invitation to a client. */
+    brivoUserInvitationPost(params) {
+        return this._client._request('/Wl/DoorAccess/Brivo/Invitation/BrivoUserInvitation.json', params, 'POST');
+    }
+}
+export class WlDoorAccessBrivoNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.invitation = new WlDoorAccessBrivoInvitationNamespace(this._client);
+    }
+}
+export class WlDoorAccessNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.brivo = new WlDoorAccessBrivoNamespace(this._client);
+    }
+}
 export class WlNamespace {
     constructor(_client) {
         this._client = _client;
-        this.hardware = new WlHardwareNamespace(this._client);
-        this.pay = new WlPayNamespace(this._client);
-        this.report = new WlReportNamespace(this._client);
         this.mail = new WlMailNamespace(this._client);
         this.staff = new WlStaffNamespace(this._client);
         this.promotion = new WlPromotionNamespace(this._client);
@@ -10174,6 +10872,7 @@ export class WlNamespace {
         this.login = new WlLoginNamespace(this._client);
         this.profile = new WlProfileNamespace(this._client);
         this.business = new WlBusinessNamespace(this._client);
+        this.report = new WlReportNamespace(this._client);
         this.event = new WlEventNamespace(this._client);
         this.session = new WlSessionNamespace(this._client);
         this.quiz = new WlQuizNamespace(this._client);
@@ -10188,6 +10887,7 @@ export class WlNamespace {
         this.sms = new WlSmsNamespace(this._client);
         this.announcement = new WlAnnouncementNamespace(this._client);
         this.review = new WlReviewNamespace(this._client);
+        this.zoom = new WlZoomNamespace(this._client);
         this.drive = new WlDriveNamespace(this._client);
         this.tag = new WlTagNamespace(this._client);
         this.currency = new WlCurrencyNamespace(this._client);
@@ -10196,6 +10896,9 @@ export class WlNamespace {
         this.feedback = new WlFeedbackNamespace(this._client);
         this.holiday = new WlHolidayNamespace(this._client);
         this.alert = new WlAlertNamespace(this._client);
+        this.ticket = new WlTicketNamespace(this._client);
+        this.hardware = new WlHardwareNamespace(this._client);
+        this.pay = new WlPayNamespace(this._client);
         this.notification = new WlNotificationNamespace(this._client);
         this.passport = new WlPassportNamespace(this._client);
         this.discount = new WlDiscountNamespace(this._client);
@@ -10228,487 +10931,124 @@ export class WlNamespace {
         this.calendar = new WlCalendarNamespace(this._client);
         this.social = new WlSocialNamespace(this._client);
         this.page = new WlPageNamespace(this._client);
+        this.doorAccess = new WlDoorAccessNamespace(this._client);
     }
 }
-export class CoreRequestApiApplicationCredentialNamespace {
+export class ThothExplorerSearchClassSessionNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Deletes the specified credential for the application. */
-    credentialDelete(params) {
-        return this._client._request('/Core/Request/Api/Application/Credential/Credential.json', params, 'DELETE');
-    }
-    /** Returns the credential data for the application. */
-    credentialGet(params) {
-        return this._client._request('/Core/Request/Api/Application/Credential/Credential.json', params, 'GET');
-    }
-    /** Saves the credential for the application. */
-    credentialPut(params) {
-        return this._client._request('/Core/Request/Api/Application/Credential/Credential.json', params, 'PUT');
+    /** Gets list of class sessions based on search criteria. */
+    classSessionSearch(params) {
+        return this._client._request('/Thoth/ExplorerSearch/ClassSession/ClassSessionSearch.json', params, 'GET');
     }
 }
-export class CoreRequestApiApplicationNamespace {
+export class ThothExplorerSearchNamespace {
     constructor(_client) {
         this._client = _client;
-        this.credential = new CoreRequestApiApplicationCredentialNamespace(this._client);
-    }
-    /** Restricts access to API for all sites, which are given in the list. */
-    originDelete(params) {
-        return this._client._request('/Core/Request/Api/Application/Origin.json', params, 'DELETE');
-    }
-    /** Gets list of all sites, where usage of the API is allowed for the current application. */
-    originGet(params) {
-        return this._client._request('/Core/Request/Api/Application/Origin.json', params, 'GET');
-    }
-    /** Allows access to API for all sites, which are given in the list. */
-    originPut(params) {
-        return this._client._request('/Core/Request/Api/Application/Origin.json', params, 'PUT');
+        this.classSession = new ThothExplorerSearchClassSessionNamespace(this._client);
     }
 }
-export class CoreRequestApiNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.application = new CoreRequestApiApplicationNamespace(this._client);
-    }
-    /** Gets a secret key for signing. */
-    keySecret(params) {
-        return this._client._request('/Core/Request/Api/KeySecret.json', params, 'GET');
-    }
-}
-export class CoreRequestTokenNamespace {
+export class ThothLayoutBeFooterNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Gets new pin code. */
-    tokenPin(params) {
-        return this._client._request('/Core/Request/Token/TokenPin.json', params, 'GET');
+    /** Loads the data required to render the site footer for the given business. */
+    footer(params) {
+        return this._client._request('/Thoth/LayoutBe/Footer/Footer.json', params, 'GET');
     }
 }
-export class CoreRequestNamespace {
+export class ThothLayoutBeNamespace {
     constructor(_client) {
         this._client = _client;
-        this.api = new CoreRequestApiNamespace(this._client);
-        this.token = new CoreRequestTokenNamespace(this._client);
-    }
-    /** Returns the example result for debugging. */
-    example(params) {
-        return this._client._request('/Core/Request/Example.json', params, 'GET');
+        this.footer = new ThothLayoutBeFooterNamespace(this._client);
     }
 }
-export class CoreCaptchaNamespace {
+export class ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Checks if a CAPTCHA is required for the given captcha type. */
-    captchaRequire(params) {
-        return this._client._request('/Core/Captcha/CaptchaRequire.json', params, 'GET');
+    /** Starts a payment transaction on a `Nuvei` POS terminal. */
+    nuveiTerminalTransactionStart(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/Terminal/OMNIChannelApi/NuveiTerminalTransactionStart.json', params, 'POST');
     }
 }
-export class CoreGoogleCaptchaNamespace {
+export class ThothPayProcessorNuveiTerminalNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.oMNIChannelApi = new ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace(this._client);
+    }
+    /** Cancels a payment made through a `Nuvei` omnichannel terminal. */
+    nuveiOmnichannelTerminalPaymentVoid(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/Terminal/NuveiOmnichannelTerminalPaymentVoid.json', params, 'POST');
+    }
+}
+export class ThothPayProcessorNuveiNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.terminal = new ThothPayProcessorNuveiTerminalNamespace(this._client);
+    }
+    /** Cancels the `Nuvei` transaction. */
+    nuveiTransactionCancel(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiTransactionCancel.json', params, 'POST');
+    }
+    /** Finalizes the `Nuvei` transaction after successful payer authentication. */
+    nuveiTransactionOnAuthSuccess(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiTransactionOnAuthSuccess.json', params, 'POST');
+    }
+    /** Updates the amount of a previously opened `Nuvei` order. */
+    nuveiUpdateOrder(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiUpdateOrder.json', params, 'POST');
+    }
+    /** Opens a `Nuvei` order for the payment transaction. */
+    nuveiOpenOrder(params) {
+        return this._client._request('/Thoth/PayProcessor/Nuvei/NuveiOpenOrder.json', params, 'POST');
+    }
+}
+export class ThothPayProcessorNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.nuvei = new ThothPayProcessorNuveiNamespace(this._client);
+    }
+}
+export class ThothReportCoreQueryEngineReportCustomizationNamespace {
     constructor(_client) {
         this._client = _client;
     }
-    /** Returns the overridden score for the reCAPTCHA v3. */
-    captchaScoreGet(params) {
-        return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'GET');
+    /** Loads customization data of the customization form that corresponds to specified report / report page. */
+    reportQueryCustomizationFormGet(params) {
+        return this._client._request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params, 'GET');
     }
-    /** Validates the reCAPTCHA v3 token. */
-    captchaScorePost(params) {
-        return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'POST');
-    }
-    /** Overrides the score for the reCAPTCHA v3. */
-    captchaScorePut(params) {
-        return this._client._request('/Core/Google/Captcha/CaptchaScore.json', params, 'PUT');
-    }
-    /** Saves the user CAPTCHA token for the current session. */
-    googleCaptcha(params) {
-        return this._client._request('/Core/Google/Captcha/GoogleCaptcha.json', params, 'PUT');
+    /** Saves given data of a customization form into database. */
+    reportQueryCustomizationFormPost(params) {
+        return this._client._request('/Thoth/ReportCore/QueryEngine/Report/Customization/ReportQueryCustomizationForm.json', params, 'POST');
     }
 }
-export class CoreGoogleNamespace {
+export class ThothReportCoreQueryEngineReportNamespace {
     constructor(_client) {
         this._client = _client;
-        this.captcha = new CoreGoogleCaptchaNamespace(this._client);
-    }
-    /** Saves the user CAPTCHA token for the current session. */
-    /** @deprecated */
-    googleCaptcha(params) {
-        return this._client._request('/Core/Google/GoogleCaptcha.json', params, 'PUT');
+        this.customization = new ThothReportCoreQueryEngineReportCustomizationNamespace(this._client);
     }
 }
-export class CoreSidNamespace {
+export class ThothReportCoreQueryEngineNamespace {
     constructor(_client) {
         this._client = _client;
-    }
-    /** Returns the list of all items for the given Sid class. */
-    coreSid(params) {
-        return this._client._request('/Core/Sid/CoreSid.json', params, 'GET');
+        this.report = new ThothReportCoreQueryEngineReportNamespace(this._client);
     }
 }
-export class CoreWebSocketNamespace {
+export class ThothReportCoreNamespace {
     constructor(_client) {
         this._client = _client;
-    }
-    /** Checks whether a listener can subscribe to specified channel. Subscribes in a case of positive result. */
-    subscribe(params) {
-        return this._client._request('/Core/WebSocket/Subscribe.json', params, 'POST');
+        this.queryEngine = new ThothReportCoreQueryEngineNamespace(this._client);
     }
 }
-export class CoreGeoRegionNamespace {
+export class ThothNamespace {
     constructor(_client) {
         this._client = _client;
-    }
-    /** Retrieves information about countries and regions. */
-    region(params) {
-        return this._client._request('/Core/Geo/Region/Region.json', params, 'GET');
-    }
-}
-export class CoreGeoNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.region = new CoreGeoRegionNamespace(this._client);
-    }
-    /** Returns a list of cities to show in combobox list. */
-    combobox(params) {
-        return this._client._request('/Core/Geo/Combobox.json', params, 'GET');
-    }
-}
-export class CoreDebugNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Logs new error occurred in browser. */
-    error(params) {
-        return this._client._request('/Core/Debug/Error.json', params, 'POST');
-    }
-}
-export class CorePushNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Adds new device ID for push notifications. */
-    push(params) {
-        return this._client._request('/Core/Push/Push.json', params, 'POST');
-    }
-}
-export class CoreTestingAutomationNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Flushes all application caches. */
-    cacheFlush(params) {
-        return this._client._request('/Core/Testing/Automation/CacheFlush.json', params, 'GET');
-    }
-}
-export class CoreTestingNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.automation = new CoreTestingAutomationNamespace(this._client);
-    }
-}
-export class CoreAILogTriageNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns a fixed connection value and, when requested, selected findings. */
-    connectionCheck(params) {
-        return this._client._request('/Core/AI/LogTriage/ConnectionCheck.json', params, 'GET');
-    }
-}
-export class CoreAINamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.logTriage = new CoreAILogTriageNamespace(this._client);
-    }
-}
-export class CorePassportLoginRegisterNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Validates the new user's data and sends a confirmation email to complete registration. */
-    register(params) {
-        return this._client._request('/Core/Passport/Login/Register/Register.json', params, 'POST');
-    }
-    /** Confirms email of a new user and completes registration. */
-    registerConfirm(params) {
-        return this._client._request('/Core/Passport/Login/Register/RegisterConfirm.json', params, 'POST');
-    }
-}
-export class CorePassportLoginEnterQuickNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Generates secret key to verify legitimacy of the request. */
-    enterQuick(params) {
-        return this._client._request('/Core/Passport/Login/Enter/Quick/EnterQuick.json', params, 'GET');
-    }
-}
-export class CorePassportLoginEnterNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.quick = new CorePassportLoginEnterQuickNamespace(this._client);
-    }
-    /** Signs the user in using their login and hashed password. */
-    enter(params) {
-        return this._client._request('/Core/Passport/Login/Enter/Enter.json', params, 'POST');
-    }
-    /** Generates notepad for user sign in form. */
-    notepad(params) {
-        return this._client._request('/Core/Passport/Login/Enter/Notepad.json', params, 'GET');
-    }
-}
-export class CorePassportLoginSignOutNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Signs user out. */
-    signOut(params) {
-        return this._client._request('/Core/Passport/Login/SignOut/SignOut.json', params, 'POST');
-    }
-}
-export class CorePassportLoginNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.register = new CorePassportLoginRegisterNamespace(this._client);
-        this.enter = new CorePassportLoginEnterNamespace(this._client);
-        this.signOut = new CorePassportLoginSignOutNamespace(this._client);
-    }
-    /** Returns information about user that is currently signed in. */
-    info(params) {
-        return this._client._request('/Core/Passport/Login/Info.json', params, 'GET');
-    }
-}
-export class CorePassportChangePasswordNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Saves for user new password. */
-    changePasswordApply(params) {
-        return this._client._request('/Core/Passport/ChangePassword/ChangePasswordApply.json', params, 'POST');
-    }
-    /** Sends to user "password recovery" mail. */
-    changePasswordBegin(params) {
-        return this._client._request('/Core/Passport/ChangePassword/ChangePasswordBegin.json', params, 'POST');
-    }
-}
-export class CorePassportPasskeyNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Starts the registration ceremony. */
-    passkeyRegisterGet(params) {
-        return this._client._request('/Core/Passport/Passkey/PasskeyRegister.json', params, 'GET');
-    }
-    /** Finishes the registration ceremony. */
-    passkeyRegisterPost(params) {
-        return this._client._request('/Core/Passport/Passkey/PasskeyRegister.json', params, 'POST');
-    }
-    /** Revokes one of the signed-in user's passkey credentials. */
-    passkeyCredentialDelete(params) {
-        return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'DELETE');
-    }
-    /** Lists the user's registered passkey credentials. */
-    passkeyCredentialGet(params) {
-        return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'GET');
-    }
-    /** Starts the authentication ceremony. */
-    passkeyEnterGet(params) {
-        return this._client._request('/Core/Passport/Passkey/PasskeyEnter.json', params, 'GET');
-    }
-    /** Finishes the authentication ceremony. */
-    passkeyEnterPost(params) {
-        return this._client._request('/Core/Passport/Passkey/PasskeyEnter.json', params, 'POST');
-    }
-}
-export class CorePassportUserEmailNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Checks if email address exists. */
-    emailExist(params) {
-        return this._client._request('/Core/Passport/User/Email/EmailExist.json', params, 'GET');
-    }
-}
-export class CorePassportUserNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.email = new CorePassportUserEmailNamespace(this._client);
-    }
-}
-export class CorePassportEnterJwtNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Returns a jwt token that can be used to log user. */
-    jwtToken(params) {
-        return this._client._request('/Core/Passport/Enter/Jwt/JwtToken.json', params, 'GET');
-    }
-}
-export class CorePassportEnterNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.jwt = new CorePassportEnterJwtNamespace(this._client);
-    }
-}
-export class CorePassportNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.login = new CorePassportLoginNamespace(this._client);
-        this.changePassword = new CorePassportChangePasswordNamespace(this._client);
-        this.passkey = new CorePassportPasskeyNamespace(this._client);
-        this.user = new CorePassportUserNamespace(this._client);
-        this.enter = new CorePassportEnterNamespace(this._client);
-    }
-}
-export class CoreSpaApplicationNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets information of application. */
-    spaApplication(params) {
-        return this._client._request('/Core/Spa/Application/SpaApplication.json', params, 'GET');
-    }
-}
-export class CoreSpaNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.application = new CoreSpaApplicationNamespace(this._client);
-    }
-}
-export class CoreDriveImageUploadNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Saves new uploaded image. */
-    imageUploadTemporary(params) {
-        return this._client._request('/Core/Drive/ImageUpload/ImageUploadTemporary.json', params, 'POST');
-    }
-    /** Returns information about the image. */
-    imageUploadGet(params) {
-        return this._client._request('/Core/Drive/ImageUpload/ImageUpload.json', params, 'GET');
-    }
-    /** Loads image information for a list of IDs. The POST method is used instead of the GET method because the maximum permitted URI length is restricted. */
-    imageUploadPost(params) {
-        return this._client._request('/Core/Drive/ImageUpload/ImageUpload.json', params, 'POST');
-    }
-    /** Updates the image. */
-    imageUploadPut(params) {
-        return this._client._request('/Core/Drive/ImageUpload/ImageUpload.json', params, 'PUT');
-    }
-}
-export class CoreDriveNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.imageUpload = new CoreDriveImageUploadNamespace(this._client);
-    }
-}
-export class CoreLocaleLanguageNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Switches the language. */
-    languageSwitch(params) {
-        return this._client._request('/Core/Locale/Language/LanguageSwitch.json', params, 'POST');
-    }
-}
-export class CoreLocaleNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.language = new CoreLocaleLanguageNamespace(this._client);
-    }
-}
-export class CoreNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.request = new CoreRequestNamespace(this._client);
-        this.captcha = new CoreCaptchaNamespace(this._client);
-        this.google = new CoreGoogleNamespace(this._client);
-        this.sid = new CoreSidNamespace(this._client);
-        this.webSocket = new CoreWebSocketNamespace(this._client);
-        this.geo = new CoreGeoNamespace(this._client);
-        this.debug = new CoreDebugNamespace(this._client);
-        this.push = new CorePushNamespace(this._client);
-        this.testing = new CoreTestingNamespace(this._client);
-        this.aI = new CoreAINamespace(this._client);
-        this.passport = new CorePassportNamespace(this._client);
-        this.spa = new CoreSpaNamespace(this._client);
-        this.drive = new CoreDriveNamespace(this._client);
-        this.locale = new CoreLocaleNamespace(this._client);
-    }
-}
-export class SocialMicrosoftNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Removes the association between a website client and a Microsoft account. */
-    loginDelete(params) {
-        return this._client._request('/Social/Microsoft/Login.json', params, 'DELETE');
-    }
-    /** Collects data for the Microsoft login button. */
-    loginGet(params) {
-        return this._client._request('/Social/Microsoft/Login.json', params, 'GET');
-    }
-    /** Signs a user in with Microsoft. */
-    loginPost(params) {
-        return this._client._request('/Social/Microsoft/Login.json', params, 'POST');
-    }
-}
-export class SocialAppleLoginNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Removes the association between a website client and the Apple account. Invalidates the tokens and associated client authorizations. */
-    appleLoginDelete(params) {
-        return this._client._request('/Social/Apple/Login/AppleLogin.json', params, 'DELETE');
-    }
-    /** Signs user in with Apple. */
-    appleLoginPost(params) {
-        return this._client._request('/Social/Apple/Login/AppleLogin.json', params, 'POST');
-    }
-}
-export class SocialAppleNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.login = new SocialAppleLoginNamespace(this._client);
-    }
-}
-export class SocialFacebookLoginNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Authorizes user with facebook. */
-    login(params) {
-        return this._client._request('/Social/Facebook/Login/Login.json', params, 'POST');
-    }
-}
-export class SocialFacebookNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.login = new SocialFacebookLoginNamespace(this._client);
-    }
-}
-export class SocialGooglePlusNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Authorizes user with Google. */
-    login(params) {
-        return this._client._request('/Social/Google/Plus/Login.json', params, 'POST');
-    }
-}
-export class SocialGoogleNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.plus = new SocialGooglePlusNamespace(this._client);
-    }
-}
-export class SocialNamespace {
-    constructor(_client) {
-        this._client = _client;
-        this.microsoft = new SocialMicrosoftNamespace(this._client);
-        this.apple = new SocialAppleNamespace(this._client);
-        this.facebook = new SocialFacebookNamespace(this._client);
-        this.google = new SocialGoogleNamespace(this._client);
+        this.explorerSearch = new ThothExplorerSearchNamespace(this._client);
+        this.layoutBe = new ThothLayoutBeNamespace(this._client);
+        this.payProcessor = new ThothPayProcessorNamespace(this._client);
+        this.reportCore = new ThothReportCoreNamespace(this._client);
     }
 }
 // --- Client ---
@@ -10722,10 +11062,10 @@ export class WlClient {
         const base = (options.baseUrl != null) ? options.baseUrl : 'https://staging.wellnessliving.com';
         this._baseUrl = (base.charAt(base.length - 1) === '/') ? base.slice(0, -1) : base;
         this._timeout = (options.timeout != null && options.timeout > 0) ? options.timeout : 30000;
-        this.thoth = new ThothNamespace(this);
-        this.wl = new WlNamespace(this);
         this.core = new CoreNamespace(this);
         this.social = new SocialNamespace(this);
+        this.wl = new WlNamespace(this);
+        this.thoth = new ThothNamespace(this);
     }
     _request(path, params, method) {
         const httpMethod = method.toUpperCase();
