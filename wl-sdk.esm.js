@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261110024623
+// OpenAPI spec version: 1.1.20261110063123
 // Build date: 2026-11-10
-// Endpoints: 685
-// Enums: 218
+// Endpoints: 690
+// Enums: 220
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (218 total) ---
+// --- Enum types (220 total) ---
 /** Possible states of the visit: book, attended, cancelled, etc. */
 export var WlVisitVisitSid;
 (function (WlVisitVisitSid) {
@@ -1579,6 +1579,8 @@ export var WlModeModeSid;
     WlModeModeSid[WlModeModeSid["SPA_BACKEND"] = 4] = "SPA_BACKEND";
     /** Client booked session from spa frontend */
     WlModeModeSid[WlModeModeSid["SPA_FRONTEND"] = 3] = "SPA_FRONTEND";
+    /** Staff member checked the client in at the staff check-in kiosk */
+    WlModeModeSid[WlModeModeSid["STAFF_KIOSK"] = 34] = "STAFF_KIOSK";
     /** Created by system */
     WlModeModeSid[WlModeModeSid["SYSTEM"] = 10] = "SYSTEM";
     /** Means that we did not define mode */
@@ -2690,6 +2692,100 @@ export var WlVisitNoteSidNoteSid;
     /** Accompanying medical note for the customer visit */
     WlVisitNoteSidNoteSid[WlVisitNoteSidNoteSid["SOAP"] = 1] = "SOAP";
 })(WlVisitNoteSidNoteSid || (WlVisitNoteSidNoteSid = {}));
+/** Reasons of failed book or check-in. */
+export var WlVisitVisitDenyReasonSid;
+(function (WlVisitVisitDenyReasonSid) {
+    /** The business can not take one more client */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ACCESS_DENIED"] = 1] = "ACCESS_DENIED";
+    /** Access is limited */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ACCESS_LIMITED"] = 2] = "ACCESS_LIMITED";
+    /** The business can not take one more client */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ACCOUNT_LIMIT"] = 3] = "ACCOUNT_LIMIT";
+    /** Class is not available for certain age */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["AGE_RESTRICTION"] = 4] = "AGE_RESTRICTION";
+    /** Liability Release needs to be agreed */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["AGREE_NX"] = 5] = "AGREE_NX";
+    /** Service approval denied */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["APPOINTMENT_DENY"] = 25] = "APPOINTMENT_DENY";
+    /** Service requires staff approval */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["APPOINTMENT_REQUEST"] = 26] = "APPOINTMENT_REQUEST";
+    /** Business Policy restricts Gym Visits */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_GYM_DISABLE"] = 23] = "ATTEND_GYM_DISABLE";
+    /** The client already has a checked-in gym visit on the same local day, at any location of the business */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_ONCE"] = 38] = "ATTEND_ONCE";
+    /** Self check-in not available for this service */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_SELF_DISABLE"] = 22] = "ATTEND_SELF_DISABLE";
+    /** Business policy prevents unpaid check-ins */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_UNPAID"] = 28] = "ATTEND_UNPAID";
+    /** Client is on the Wait List */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_WAIT"] = 27] = "ATTEND_WAIT";
+    /** Client has a negative account balance */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BALANCE_NEGATIVE"] = 37] = "BALANCE_NEGATIVE";
+    /** It's too early to book a class */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOK_EARLY"] = 7] = "BOOK_EARLY";
+    /** It's too late to book a class */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOK_LATE"] = 8] = "BOOK_LATE";
+    /** Visit must be booked before check-in */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOK_NX"] = 24] = "BOOK_NX";
+    /** Cannot book to this class anymore */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOK_RESTRICT"] = 9] = "BOOK_RESTRICT";
+    /** Client is already booked for this session */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOKED_ALREADY"] = 6] = "BOOKED_ALREADY";
+    /** Business is inactive */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BUSINESS_INACTIVE"] = 10] = "BUSINESS_INACTIVE";
+    /** Class is canceled */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CLASS_CANCELED"] = 11] = "CLASS_CANCELED";
+    /** Class is full */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CLASS_FULL"] = 14] = "CLASS_FULL";
+    /** Class does not exist anymore */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CLASS_NOT_AVAILABLE_ANYMORE"] = 15] = "CLASS_NOT_AVAILABLE_ANYMORE";
+    /** Client is flagged at location */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CLIENT_FLAGGED"] = 12] = "CLIENT_FLAGGED";
+    /** Credit card is required for booking services */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CREDIT_CARD_REQUIRE"] = 13] = "CREDIT_CARD_REQUIRE";
+    /** Business is closed */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["HOLIDAY"] = 16] = "HOLIDAY";
+    /** Login is required */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["LOGIN_REQUIRED"] = 17] = "LOGIN_REQUIRED";
+    /** Online booking is disabled for the class */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["NOT_BOOKABLE"] = 18] = "NOT_BOOKABLE";
+    /** Contract not signed */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_CONTRACT"] = 35] = "PAYMENT_CONTRACT";
+    /** Purchase Option expired */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_EXPIRE"] = 36] = "PAYMENT_EXPIRE";
+    /** Purchase Option on hold */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_HOLD"] = 34] = "PAYMENT_HOLD";
+    /** No valid Purchase Option */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_NX"] = 30] = "PAYMENT_NX";
+    /** Purchase Option has no visits left */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_REMAIN"] = 33] = "PAYMENT_REMAIN";
+    /** Purchase Option not active yet */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_START"] = 32] = "PAYMENT_START";
+    /** Attendance limit on Purchase Option reached */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["SCHEDULE_RESTRICT"] = 31] = "SCHEDULE_RESTRICT";
+    /** Check-in could not be completed */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["UNKNOWN"] = 29] = "UNKNOWN";
+    /** Required personal details missing */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["USER_INFO_MISSING"] = 19] = "USER_INFO_MISSING";
+    /** Visit to another class is required first */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["VISIT_BEFORE"] = 20] = "VISIT_BEFORE";
+    /** The wait list is full */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["WAIT_LIST_LIMIT_MAX"] = 21] = "WAIT_LIST_LIMIT_MAX";
+})(WlVisitVisitDenyReasonSid || (WlVisitVisitDenyReasonSid = {}));
+/** Results of a scan at the staff check-in kiosk. */
+export var WlVisitKioskScanResultSid;
+(function (WlVisitKioskScanResultSid) {
+    /** The scanned value is a dynamic barcode of a client that has expired */
+    WlVisitKioskScanResultSid[WlVisitKioskScanResultSid["DYNAMIC_EXPIRED"] = 4] = "DYNAMIC_EXPIRED";
+    /** The business uses QR codes for the member IDs, and the kiosk does not read them */
+    WlVisitKioskScanResultSid[WlVisitKioskScanResultSid["FORMAT_UNSUPPORTED"] = 5] = "FORMAT_UNSUPPORTED";
+    /** The scanned value identifies an active client that the staff member may see */
+    WlVisitKioskScanResultSid[WlVisitKioskScanResultSid["FOUND"] = 1] = "FOUND";
+    /** The scanned value identifies a client whose member ID is inactive */
+    WlVisitKioskScanResultSid[WlVisitKioskScanResultSid["MEMBER_INACTIVE"] = 3] = "MEMBER_INACTIVE";
+    /** No client that the staff member may see matches the scanned value */
+    WlVisitKioskScanResultSid[WlVisitKioskScanResultSid["NOT_FOUND"] = 2] = "NOT_FOUND";
+})(WlVisitKioskScanResultSid || (WlVisitKioskScanResultSid = {}));
 /** Action that a client or staff performs with terms and conditions of cart items. */
 export var WlCatalogTermsTermsActionSid;
 (function (WlCatalogTermsTermsActionSid) {
@@ -6283,6 +6379,15 @@ export class WlBusinessSmsNamespace {
         return this._client._request('/Wl/Business/Sms/SmsSendCheck.json', params, 'POST');
     }
 }
+export class WlBusinessServiceNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns which services are available for the business. */
+    service(params) {
+        return this._client._request('/Wl/Business/Service/Service.json', params, 'GET');
+    }
+}
 export class WlBusinessConfigOptionNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6531,6 +6636,7 @@ export class WlBusinessNamespace {
         this.account = new WlBusinessAccountNamespace(this._client);
         this.design = new WlBusinessDesignNamespace(this._client);
         this.sms = new WlBusinessSmsNamespace(this._client);
+        this.service = new WlBusinessServiceNamespace(this._client);
         this.config = new WlBusinessConfigNamespace(this._client);
         this.lead = new WlBusinessLeadNamespace(this._client);
         this.partner = new WlBusinessPartnerNamespace(this._client);
@@ -6618,6 +6724,27 @@ export class WlVisitPayNamespace {
         return this._client._request('/Wl/Visit/Pay/PayChange.json', params, 'POST');
     }
 }
+export class WlVisitKioskNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the gym check-ins and the failed gym check-in attempts of a local day at the location. */
+    attemptList(params) {
+        return this._client._request('/Wl/Visit/Kiosk/AttemptList.json', params, 'GET');
+    }
+    /** Checks the client in for a gym visit at the staff check-in kiosk. */
+    attend(params) {
+        return this._client._request('/Wl/Visit/Kiosk/Attend.json', params, 'POST');
+    }
+    /** Finds the client by a scanned value. */
+    scan(params) {
+        return this._client._request('/Wl/Visit/Kiosk/Scan.json', params, 'POST');
+    }
+    /** Evaluates a gym check-in of the client. */
+    evaluate(params) {
+        return this._client._request('/Wl/Visit/Kiosk/Evaluate.json', params, 'GET');
+    }
+}
 export class WlVisitBillingCodeNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6669,6 +6796,7 @@ export class WlVisitNamespace {
         this._client = _client;
         this.blame = new WlVisitBlameNamespace(this._client);
         this.pay = new WlVisitPayNamespace(this._client);
+        this.kiosk = new WlVisitKioskNamespace(this._client);
         this.billing = new WlVisitBillingNamespace(this._client);
         this.note = new WlVisitNoteNamespace(this._client);
     }
