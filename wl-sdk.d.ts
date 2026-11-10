@@ -1556,7 +1556,7 @@ export declare enum WlModeModeSid {
     /** Client booked session from spa frontend */
     SPA_FRONTEND = 3,
     /** Staff member checked the client in at the staff check-in kiosk */
-    STAFF_KIOSK = 34,
+    STAFF_KIOSK = 35,
     /** Created by system */
     SYSTEM = 10,
     /** Means that we did not define mode */

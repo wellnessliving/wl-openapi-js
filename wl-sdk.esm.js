@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261110063123
+// OpenAPI spec version: 1.1.20261110074648
 // Build date: 2026-11-10
 // Endpoints: 690
 // Enums: 220
@@ -1580,7 +1580,7 @@ export var WlModeModeSid;
     /** Client booked session from spa frontend */
     WlModeModeSid[WlModeModeSid["SPA_FRONTEND"] = 3] = "SPA_FRONTEND";
     /** Staff member checked the client in at the staff check-in kiosk */
-    WlModeModeSid[WlModeModeSid["STAFF_KIOSK"] = 34] = "STAFF_KIOSK";
+    WlModeModeSid[WlModeModeSid["STAFF_KIOSK"] = 35] = "STAFF_KIOSK";
     /** Created by system */
     WlModeModeSid[WlModeModeSid["SYSTEM"] = 10] = "SYSTEM";
     /** Means that we did not define mode */

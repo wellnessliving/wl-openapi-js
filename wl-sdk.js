@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261110063123
+ * Spec version: 1.1.20261110074648
  * Build date:   2026-11-10
  * Endpoints:    690
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261110063123';
+  WlClient.SPEC_VERSION = '1.1.20261110074648';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (690 total)
@@ -16551,7 +16551,7 @@
     /** Client booked session from spa frontend */
     SPA_FRONTEND: 3,
     /** Staff member checked the client in at the staff check-in kiosk */
-    STAFF_KIOSK: 34,
+    STAFF_KIOSK: 35,
     /** Created by system */
     SYSTEM: 10,
     /** Means that we did not define mode */
