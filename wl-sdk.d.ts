@@ -30582,6 +30582,8 @@ export interface WlAppointmentBookStaffListParams {
     dt_date: string;
     /** User role by whom this api called. @see WlLoginLoginRoleSid */
     id_role: WlLoginLoginRoleSid;
+    /** Whether to find the next time when every staff member can be booked. */
+    is_dt_next: boolean;
     /** `true` - returns service categories that have no staff members available to conduct them. */
     is_unavailable: boolean;
     /** Key of appointment which must be ignored when searches available staff. */
@@ -30590,6 +30592,8 @@ export interface WlAppointmentBookStaffListParams {
     k_location: string;
     /** The key of a service for which to show information. */
     k_service: string;
+    /** Add-ons of the service, as a JSON array of the keys of the add-on options, for example `["15","27... */
+    s_product: string;
     /** Custom appointment duration in minutes. */
     i_duration_custom?: number | null;
     /** User's timezone. */
@@ -30600,6 +30604,8 @@ export interface WlAppointmentBookStaffListParams {
 export interface WlAppointmentBookStaffListResponse {
     /** A list of staff members with information about them. */
     a_staff: Array<{
+        /** The first time from {@link WlAppointmentBookStaffNamespace#list} to the end of the booking window... */
+        dt_next?: string | null;
         /** String identifiers for gender. @see AGenderSid */
         id_gender: AGenderSid;
         /** How many clients can still be booked with the staff member at the requested time. */
@@ -30637,6 +30643,8 @@ export interface WlAppointmentBookStaffStaffListParams {
     i_client: number;
     /** User role by whom this api called. @see WlLoginLoginRoleSid */
     id_role: WlLoginLoginRoleSid;
+    /** Whether to find the next time when every staff member can be booked. */
+    is_dt_next: boolean;
     /** `true` - returns service categories that have no staff members available to conduct them. */
     is_unavailable: boolean;
     /** Key of appointment which must be ignored when searches available staff. */
@@ -30645,6 +30653,8 @@ export interface WlAppointmentBookStaffStaffListParams {
     k_location: string;
     /** The key of a service for which to show information. */
     k_service: string;
+    /** Add-ons of the service, as a JSON array of the keys of the add-on options, for example `["15","27... */
+    s_product: string;
     /** Custom appointment duration in minutes. */
     i_duration_custom?: number | null;
     /** User's timezone. */
@@ -30655,6 +30665,8 @@ export interface WlAppointmentBookStaffStaffListParams {
 export interface WlAppointmentBookStaffStaffListResponse {
     /** A list of staff members with information about them. */
     a_staff: Array<{
+        /** The first time from {@link WlAppointmentBookStaffNamespace#list} to the end of the booking window... */
+        dt_next?: string | null;
         /** String identifiers for gender. @see AGenderSid */
         id_gender: AGenderSid;
         /** How many clients can still be booked with the staff member at the requested time. */
@@ -30692,6 +30704,8 @@ export interface WlAppointmentBookStaffStaffList78Params {
     i_client: number;
     /** User role by whom this api called. @see WlLoginLoginRoleSid */
     id_role: WlLoginLoginRoleSid;
+    /** Whether to find the next time when every staff member can be booked. */
+    is_dt_next: boolean;
     /** `true` - returns service categories that have no staff members available to conduct them. */
     is_unavailable: boolean;
     /** Keys of the selected add-ons of the appointment, in JSON. */
@@ -30702,6 +30716,8 @@ export interface WlAppointmentBookStaffStaffList78Params {
     k_location: string;
     /** The key of a service for which to show information. */
     k_service: string;
+    /** Add-ons of the service, as a JSON array of the keys of the add-on options, for example `["15","27... */
+    s_product: string;
     /** Custom appointment duration in minutes. */
     i_duration_custom?: number | null;
     /** User's timezone. */
@@ -30712,6 +30728,8 @@ export interface WlAppointmentBookStaffStaffList78Params {
 export interface WlAppointmentBookStaffStaffList78Response {
     /** A list of staff members with information about them. */
     a_staff: Array<{
+        /** The first time from {@link WlAppointmentBookStaffNamespace#list} to the end of the booking window... */
+        dt_next?: string | null;
         /** String identifiers for gender. @see AGenderSid */
         id_gender: AGenderSid;
         /** How many clients can still be booked with the staff member at the requested time. */

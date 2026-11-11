@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261111112907
+ * Spec version: 1.1.20261111120912
  * Build date:   2026-11-11
  * Endpoints:    708
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261111112907';
+  WlClient.SPEC_VERSION = '1.1.20261111120912';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (708 total)
@@ -13108,17 +13108,23 @@
    * Returns the list of staff members who can perform the specified service at the given location
    *  on the specified date and time. Each entry includes the staff member's name, image, gender,
    *  and availability. An 'any staff' option is included when the service allows random staff assignment.
+   * 
+   * When {@link WlClient#wlAppointmentBookStaffList} is `true` and {@link WlClient#wlAppointmentBookStaffList} is passed, the list holds the staff
+   *  members who can perform the service at the location, whatever {@link WlClient#wlAppointmentBookStaffList} says, and no
+   * ...
    * @deprecated Use {@link \Wl\Appointment\Book\Staff\StaffListApi} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date The date/time of the appointment selected by user, in the location's time zone.
    * @param {?number} [params.i_duration_custom] Custom appointment duration in minutes.
    * @param {number} params.id_role User role by whom this api called. See {@link WlClient.WlLoginLoginRoleSid}.
+   * @param {boolean} params.is_dt_next Whether to find the next time when every staff member can be booked.
    * @param {boolean} params.is_unavailable `true` - returns service categories that have no staff members available to conduct them.
    * @param {string} params.k_appointment_ignore Key of appointment which must be ignored when searches available staff.
    * @param {string} params.k_location The key of the location.
    * @param {string} params.k_service The key of a service for which to show information.
    * @param {?string} [params.k_timezone] User's timezone.
+   * @param {string} params.s_product Add-ons of the service, as a JSON array of the keys of the add-on options, for example `["15","27...
    * @param {?string} [params.uid] The user key for whom the service is booking.
    * @returns {Promise<Object>} Response data.
    *  `a_staff` {Object[]} A list of staff members with information about them.
@@ -13138,17 +13144,23 @@
    * Returns the list of staff members who can perform the specified service at the given location
    *  on the specified date and time. Each entry includes the staff member's name, image, gender,
    *  and availability. An 'any staff' option is included when the service allows random staff assignment.
+   * 
+   * When {@link WlClient#wlAppointmentBookStaffList} is `true` and {@link WlClient#wlAppointmentBookStaffList} is passed, the list holds the staff
+   *  members who can perform the service at the location, whatever {@link WlClient#wlAppointmentBookStaffList} says, and no
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date The date/time of the appointment selected by user, in the location's time zone.
    * @param {number} params.i_client Count of clients on the appointment.
    * @param {?number} [params.i_duration_custom] Custom appointment duration in minutes.
    * @param {number} params.id_role User role by whom this api called. See {@link WlClient.WlLoginLoginRoleSid}.
+   * @param {boolean} params.is_dt_next Whether to find the next time when every staff member can be booked.
    * @param {boolean} params.is_unavailable `true` - returns service categories that have no staff members available to conduct them.
    * @param {string} params.k_appointment_ignore Key of appointment which must be ignored when searches available staff.
    * @param {string} params.k_location The key of the location.
    * @param {string} params.k_service The key of a service for which to show information.
    * @param {?string} [params.k_timezone] User's timezone.
+   * @param {string} params.s_product Add-ons of the service, as a JSON array of the keys of the add-on options, for example `["15","27...
    * @param {?string} [params.uid] The user key for whom the service is booking.
    * @returns {Promise<Object>} Response data.
    *  `a_staff` {Object[]} A list of staff members with information about them.
@@ -13168,18 +13180,24 @@
    * Returns the list of staff members who can perform the specified service at the given location
    *  on the specified date and time. Each entry includes the staff member's name, image, gender,
    *  and availability. An 'any staff' option is included when the service allows random staff assignment.
+   * 
+   * When {@link WlClient#wlAppointmentBookStaffList} is `true` and {@link WlClient#wlAppointmentBookStaffList} is passed, the list holds the staff
+   *  members who can perform the service at the location, whatever {@link WlClient#wlAppointmentBookStaffList} says, and no
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date The date/time of the appointment selected by user, in the location's time zone.
    * @param {number} params.i_client Count of clients on the appointment.
    * @param {?number} [params.i_duration_custom] Custom appointment duration in minutes.
    * @param {number} params.id_role User role by whom this api called. See {@link WlClient.WlLoginLoginRoleSid}.
+   * @param {boolean} params.is_dt_next Whether to find the next time when every staff member can be booked.
    * @param {boolean} params.is_unavailable `true` - returns service categories that have no staff members available to conduct them.
    * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
    * @param {string} params.k_appointment_ignore Key of appointment which must be ignored when searches available staff.
    * @param {string} params.k_location The key of the location.
    * @param {string} params.k_service The key of a service for which to show information.
    * @param {?string} [params.k_timezone] User's timezone.
+   * @param {string} params.s_product Add-ons of the service, as a JSON array of the keys of the add-on options, for example `["15","27...
    * @param {?string} [params.uid] The user key for whom the service is booking.
    * @returns {Promise<Object>} Response data.
    *  `a_staff` {Object[]} A list of staff members with information about them.
