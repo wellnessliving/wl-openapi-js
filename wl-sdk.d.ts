@@ -16575,6 +16575,63 @@ export interface WlCatalogCatalogListListParams {
         /** Key of item. */
         k_id: string;
     };
+    /** Filter and sort of the paged mode. Read only when {@link WlCatalogCatalogListNamespace#list} is s... */
+    a_filter: {
+        /** Sale types to show. One of {@link RsSaleSid} constants each. Empty to show all the types. */
+        a_sale_id?: Array<number>;
+        /** The categories and the items a widget is configured to show. Empty to show everything. An item is... */
+        a_schema?: {
+            /** The items of the category to show. Each element has the following keys: */
+            a_item?: {
+                /** List of sale categories on the store page. @see RsSaleSid */
+                id_sale: RsSaleSid | null;
+                /** Key of the item, as `k_id` of {@link WlCatalogCatalogListListResponse.a_product}. */
+                k_id: string;
+            };
+            /** `true` to show all the items of the category, `false` to show only the items of `a_item`. */
+            is_all?: boolean;
+            /** Key of the category. `0` for the items without a category. */
+            k_shop_category: string;
+        };
+        /** The items a widget is configured to show, by their types. When at least one of the keys below is ... */
+        a_settings?: {
+            /** Keys of the gift cards to show, as `k_id` of {@link WlCatalogCatalogListListResponse.a_product}. */
+            a_coupon?: Array<string>;
+            /** Keys of the events to show, as `k_id` of {@link WlCatalogCatalogListListResponse.a_product}. */
+            a_event?: Array<string>;
+            /** Keys of the products to show, as `k_id` of {@link WlCatalogCatalogListListResponse.a_product}. */
+            a_product?: Array<string>;
+            /** Keys of the purchase options to show, as `k_id` of {@link WlCatalogCatalogListListResponse.a_prod... */
+            a_promotion?: Array<string>;
+        };
+        /** Categories to show the items of. `0` for the items without a category. Empty to not filter by cat... */
+        a_shop_category?: Array<string>;
+        /** List of possible sort order. @see CoreSidSortOrderSid */
+        id_order?: CoreSidSortOrderSid | null;
+        /** List of Setup -> Store configuration -> Categories and Layout sort options. @see WlShopCategoryShopCategorySortSid */
+        id_sort?: WlShopCategoryShopCategorySortSid;
+        /** `true` to leave out the items hidden from the application, `false` to show them. */
+        is_application_hide?: boolean;
+        /** `true` to show only the items of the default categories of the sidebar, or all the items when the */
+        is_category_default?: boolean;
+        /** Location to show the items of. Empty to show the items of all the locations. */
+        k_location?: string;
+        /** Text to search in the titles of the items. Empty to not search. */
+        text_search?: string;
+    };
+    /** Items to look up by their keys. When not empty, {@link WlCatalogCatalogListListResponse.a_product... */
+    a_item: Array<{
+        /** List of sale categories on the store page. @see RsSaleSid */
+        id_sale?: RsSaleSid | null;
+        /** `true` to find a purchase option by `k_id` whatever its sale type is, `false` otherwise. */
+        is_promotion?: boolean;
+        /** Key of the item, as `k_id` of {@link WlCatalogCatalogListListResponse.a_product}. Not needed for ... */
+        k_id?: string;
+        /** Key of a product option. When set, the product of this option is found, and the other keys are no... */
+        k_shop_product_option?: string;
+    }>;
+    /** Number of the items in a page of the paged mode. See {@link WlCatalogCatalogListNamespace#list}. */
+    i_limit: number;
     /** `true` to consider the requirement to have a credit card for booking */
     is_credit_card_check: boolean;
     /** The business key. */
@@ -16583,9 +16640,11 @@ export interface WlCatalogCatalogListListParams {
     k_location: string;
     /** The key of user. */
     uid: string;
+    /** Offset of the page: the number of the items shown before it. `0` for the first page. */
+    i_last?: number | null;
 }
 export interface WlCatalogCatalogListListResponse {
-    /** The list of all sale items (de-duplicated). Each element has the following keys: */
+    /** The list of all sale items (de-duplicated). In the paged mode, only the items of the page or the ... */
     a_product: Array<{
         /** The list of location keys where the sale item is available. */
         a_location: Array<string>;
@@ -16687,6 +16746,21 @@ export interface WlCatalogCatalogListListResponse {
         /** Direct URL to the catalog view page for this item. */
         url_catalog: string;
     };
+    /** Categories of the sidebar of the paged mode, sorted by their order. Only the categories that have... */
+    a_shop_category: Array<{
+        /** Order of the category in the sidebar. */
+        i_order: number;
+        /** `true` if the category is selected by default, `false` otherwise. */
+        is_default: boolean;
+        /** Key of the category. `0` for the system category of the items without a category. */
+        k_shop_category: string;
+        /** Title of the category. */
+        text_title: string;
+    }>;
+    /** Whether the catalog of the paged mode has no items at all. */
+    is_catalog_empty: boolean;
+    /** Whether there are more items after the page of the paged mode. */
+    is_load_more: boolean;
 }
 export interface WlCatalogCatalogListCatalogProductParams {
     /** Additional data to filter products. */

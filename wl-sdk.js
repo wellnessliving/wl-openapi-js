@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261111002726
+ * Spec version: 1.1.20261111074822
  * Build date:   2026-11-11
  * Endpoints:    708
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261111002726';
+  WlClient.SPEC_VERSION = '1.1.20261111074822';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (708 total)
@@ -5990,16 +5990,27 @@
    * Used to render the full client-facing store catalog for a business. Returns all purchasable items -
    * promotions, products, events, and coupons - merged across the business's categories. The separate
    * de-duplicated list and category list support both the flat and category-tabbed views.
+   * 
+   * In the paged mode, when `i_last` is set or `a_item` is not empty, the items are read from a list cached for
+   * 10 minutes, filtered and sorted by `a_filter`, and one page of them is returned with the categories of the
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_direct_link Arguments from direct purchase link, which can give additional access to products, which are avai...
+   * @param {Object} params.a_filter Filter and sort of the paged mode. Read only when {@link WlClient#wlCatalogCatalogListList} is se...
+   * @param {Object[]} params.a_item Items to look up by their keys. When not empty, {@link WlClient#wlCatalogCatalogListList} holds t...
+   * @param {?number} [params.i_last] Offset of the page: the number of the items shown before it. `0` for the first page.
+   * @param {number} params.i_limit Number of the items in a page of the paged mode. See {@link WlClient#wlCatalogCatalogListList}.
    * @param {boolean} params.is_credit_card_check `true` to consider the requirement to have a credit card for booking
    * @param {string} params.k_business The business key.
    * @param {string} params.k_location The key of a location. If `0`, all products in the business are retrieved.
    * @param {string} params.uid The key of user.
    * @returns {Promise<Object>} Response data.
-   *  `a_product` {Object[]} The list of all sale items (de-duplicated). Each element has the following keys:
+   *  `a_product` {Object[]} The list of all sale items (de-duplicated). In the paged mode, only the items...
    *  `a_product_duplicate` {Object} The list of products to show with duplicates.
+   *  `a_shop_category` {Object[]} Categories of the sidebar of the paged mode, sorted by their order. Only the ...
+   *  `is_catalog_empty` {boolean} Whether the catalog of the paged mode has no items at all.
+   *  `is_load_more` {boolean} Whether there are more items after the page of the paged mode.
    */
   WlClient.prototype.wlCatalogCatalogListList = function(params)
   {
