@@ -25623,6 +25623,14 @@ export interface WlBookProcessPurchasePurchaseElementListResponse {
             k_class: string;
             /** The amount charged for this event right now, including tax. `0.00` when every */
             m_checkout: string | null;
+            /** The taxes charged for this event right now, keyed by tax key. `a_tax` is the tax of the full price. */
+            a_checkout_tax: Array<string>;
+            /** The price charged for this event right now, before discount and tax. */
+            m_checkout_subtotal: string;
+            /** The tax charged for this event right now: the sum of `a_checkout_tax`. */
+            m_checkout_tax: string;
+            /** The discount taken from `m_checkout_subtotal`, `m_discount` is the discount of the full price. */
+            m_discount_checkout: string;
             /** The part of the event cost that is not charged right now, including tax. Goes to the */
             m_deferred: string;
             /** Total discount amount applied to the event, `0.00` if there is none. */
@@ -25687,6 +25695,14 @@ export interface WlBookProcessPurchasePurchaseElementParams {
             k_class: string;
             /** The amount charged for this event right now, including tax. `0.00` when every */
             m_checkout: string | null;
+            /** The taxes charged for this event right now, keyed by tax key. `a_tax` is the tax of the full price. */
+            a_checkout_tax: Array<string>;
+            /** The price charged for this event right now, before discount and tax. */
+            m_checkout_subtotal: string;
+            /** The tax charged for this event right now: the sum of `a_checkout_tax`. */
+            m_checkout_tax: string;
+            /** The discount taken from `m_checkout_subtotal`, `m_discount` is the discount of the full price. */
+            m_discount_checkout: string;
             /** The part of the event cost that is not charged right now, including tax. Goes to the */
             m_deferred: string;
             /** Total discount amount applied to the event, `0.00` if there is none. */
@@ -25764,6 +25780,14 @@ export interface WlBookProcessPurchasePurchaseElementResponse {
             k_class: string;
             /** The amount charged for this event right now, including tax. `0.00` when every */
             m_checkout: string | null;
+            /** The taxes charged for this event right now, keyed by tax key. `a_tax` is the tax of the full price. */
+            a_checkout_tax: Array<string>;
+            /** The price charged for this event right now, before discount and tax. */
+            m_checkout_subtotal: string;
+            /** The tax charged for this event right now: the sum of `a_checkout_tax`. */
+            m_checkout_tax: string;
+            /** The discount taken from `m_checkout_subtotal`, `m_discount` is the discount of the full price. */
+            m_discount_checkout: string;
             /** The part of the event cost that is not charged right now, including tax. Goes to the */
             m_deferred: string;
             /** Total discount amount applied to the event, `0.00` if there is none. */
