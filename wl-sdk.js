@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261112084234
+ * Spec version: 1.1.20261112095815
  * Build date:   2026-11-12
  * Endpoints:    708
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261112084234';
+  WlClient.SPEC_VERSION = '1.1.20261112095815';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (708 total)
@@ -22264,6 +22264,8 @@
     SELF_SIGNUP: 15,
     /** Page to config custom client's app */
     SKIN_APP: 13,
+    /** Staff check-in kiosk of gym visits: the staff member stays signed in */
+    STAFF_RECEPTION: 39,
     /** Link to the page of the support page */
     SUPPORT: 10,
     /** Creation of the user */

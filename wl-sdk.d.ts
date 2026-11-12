@@ -5809,6 +5809,8 @@ export declare enum WlPageBackendFeatureFeatureSid {
     SELF_SIGNUP = 15,
     /** Page to config custom client's app */
     SKIN_APP = 13,
+    /** Staff check-in kiosk of gym visits: the staff member stays signed in */
+    STAFF_RECEPTION = 39,
     /** Link to the page of the support page */
     SUPPORT = 10,
     /** Creation of the user */

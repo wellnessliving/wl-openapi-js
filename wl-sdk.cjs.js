@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261112084234
+// OpenAPI spec version: 1.1.20261112095815
 // Build date: 2026-11-12
 // Endpoints: 708
 // Enums: 224
@@ -6026,6 +6026,8 @@ var WlPageBackendFeatureFeatureSid;
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["SELF_SIGNUP"] = 15] = "SELF_SIGNUP";
     /** Page to config custom client's app */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["SKIN_APP"] = 13] = "SKIN_APP";
+    /** Staff check-in kiosk of gym visits: the staff member stays signed in */
+    WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["STAFF_RECEPTION"] = 39] = "STAFF_RECEPTION";
     /** Link to the page of the support page */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["SUPPORT"] = 10] = "SUPPORT";
     /** Creation of the user */
