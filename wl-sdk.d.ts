@@ -1565,6 +1565,8 @@ export declare enum WlModeModeSid {
     SPA_BACKEND = 4,
     /** Client booked session from spa frontend */
     SPA_FRONTEND = 3,
+    /** Staff member checked the client in at the staff check-in kiosk */
+    STAFF_KIOSK = 35,
     /** Created by system */
     SYSTEM = 10,
     /** Means that we did not define mode */
@@ -4536,6 +4538,98 @@ export declare enum RsRewardActionCategorySid {
     /** Rewards for significant user events */
     USER = 5
 }
+/** Reasons of failed book or check-in. */
+export declare enum WlVisitVisitDenyReasonSid {
+    /** The business can not take one more client */
+    ACCESS_DENIED = 1,
+    /** Access is limited */
+    ACCESS_LIMITED = 2,
+    /** The business can not take one more client */
+    ACCOUNT_LIMIT = 3,
+    /** Class is not available for certain age */
+    AGE_RESTRICTION = 4,
+    /** Liability Release needs to be agreed */
+    AGREE_NX = 5,
+    /** Service approval denied */
+    APPOINTMENT_DENY = 25,
+    /** Service requires staff approval */
+    APPOINTMENT_REQUEST = 26,
+    /** Business Policy restricts Gym Visits */
+    ATTEND_GYM_DISABLE = 23,
+    /** The client already has a checked-in gym visit on the same local day, at any location of the business */
+    ATTEND_ONCE = 38,
+    /** Self check-in not available for this service */
+    ATTEND_SELF_DISABLE = 22,
+    /** Business policy prevents unpaid check-ins */
+    ATTEND_UNPAID = 28,
+    /** Client is on the Wait List */
+    ATTEND_WAIT = 27,
+    /** Client has a negative account balance */
+    BALANCE_NEGATIVE = 37,
+    /** It's too early to book a class */
+    BOOK_EARLY = 7,
+    /** It's too late to book a class */
+    BOOK_LATE = 8,
+    /** Visit must be booked before check-in */
+    BOOK_NX = 24,
+    /** Cannot book to this class anymore */
+    BOOK_RESTRICT = 9,
+    /** Client is already booked for this session */
+    BOOKED_ALREADY = 6,
+    /** Business is inactive */
+    BUSINESS_INACTIVE = 10,
+    /** Class is canceled */
+    CLASS_CANCELED = 11,
+    /** Class is full */
+    CLASS_FULL = 14,
+    /** Class does not exist anymore */
+    CLASS_NOT_AVAILABLE_ANYMORE = 15,
+    /** Client is flagged at location */
+    CLIENT_FLAGGED = 12,
+    /** Credit card is required for booking services */
+    CREDIT_CARD_REQUIRE = 13,
+    /** Business is closed */
+    HOLIDAY = 16,
+    /** Login is required */
+    LOGIN_REQUIRED = 17,
+    /** Online booking is disabled for the class */
+    NOT_BOOKABLE = 18,
+    /** Contract not signed */
+    PAYMENT_CONTRACT = 35,
+    /** Purchase Option expired */
+    PAYMENT_EXPIRE = 36,
+    /** Purchase Option on hold */
+    PAYMENT_HOLD = 34,
+    /** No valid Purchase Option */
+    PAYMENT_NX = 30,
+    /** Purchase Option has no visits left */
+    PAYMENT_REMAIN = 33,
+    /** Purchase Option not active yet */
+    PAYMENT_START = 32,
+    /** Attendance limit on Purchase Option reached */
+    SCHEDULE_RESTRICT = 31,
+    /** Check-in could not be completed */
+    UNKNOWN = 29,
+    /** Required personal details missing */
+    USER_INFO_MISSING = 19,
+    /** Visit to another class is required first */
+    VISIT_BEFORE = 20,
+    /** The wait list is full */
+    WAIT_LIST_LIMIT_MAX = 21
+}
+/** Results of a scan at the staff check-in kiosk. */
+export declare enum WlVisitKioskScanResultSid {
+    /** The scanned value is a dynamic barcode of a client that has expired */
+    DYNAMIC_EXPIRED = 4,
+    /** The business uses QR codes for the member IDs, and the kiosk does not read them */
+    FORMAT_UNSUPPORTED = 5,
+    /** The scanned value identifies an active client that the staff member may see */
+    FOUND = 1,
+    /** The scanned value identifies a client whose member ID is inactive */
+    MEMBER_INACTIVE = 3,
+    /** No client that the staff member may see matches the scanned value */
+    NOT_FOUND = 2
+}
 /** List of possible plans for FitbuilderSubscription subscription. */
 export declare enum WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid {
     /** None */
@@ -6444,6 +6538,15 @@ export interface WlEventEventListGetResponse {
             k_search_tag: string;
             /** Name of the tag. */
             text_title: string;
+        };
+        /** Future sessions of this event that {@link WlEventNamespace#eventListGet} holds, booked or on the ... */
+        a_session_user: {
+            /** Date and time of the session in UTC, in `MySQL` format (for example `2026-11-05 13:00:00`). */
+            dtu_date: string;
+            /** `true` if the user is on the wait list of the session ({@link WlVisitVisitSid}). */
+            is_user_wait: boolean;
+            /** Key of the class period of the session. */
+            k_class_period: string;
         };
         /** Returns how many tickets can be sold for the ticketed event the class belongs to, and how */
         a_ticket_inventory?: {
@@ -14940,6 +15043,8 @@ export interface WlProfileEditCreateResponse {
 export interface WlProfileEditEditGetParams {
     /** `true` to return all active, non-removed profile fields of the business regardless of entry-point... */
     is_field_all: boolean;
+    /** `true` to also return the profile fields that are hidden for the entry point given by */
+    is_level_all: boolean;
     /** Indicates whether to display the form as a user or as a staff member. */
     is_staff: boolean;
     /** The key of the business you're editing. */
@@ -15081,6 +15186,8 @@ export type WlProfileEditEditPutResponse = Record<string, unknown>;
 export interface WlProfileEditEditByTokenGetParams {
     /** `true` to return all active, non-removed profile fields of the business regardless of entry-point... */
     is_field_all: boolean;
+    /** `true` to also return the profile fields that are hidden for the entry point given by */
+    is_level_all: boolean;
     /** Indicates whether to display the form as a user or as a staff member. */
     is_staff: boolean;
     /** The key of the business you're editing. */
@@ -16924,6 +17031,14 @@ export interface WlBusinessSearchBusinessSearchResponse {
     /** Array with business keys that contain given name in their title. */
     a_result: Array<string>;
 }
+export interface WlBusinessServiceServiceParams {
+    /** Business key. */
+    k_business: string;
+}
+export interface WlBusinessServiceServiceResponse {
+    /** Business service availability. */
+    a_services_enabled: Record<string, unknown>;
+}
 export interface WlBusinessDesignBusinessDesignParams {
     /** Business key to get design data. */
     k_business: string;
@@ -18440,6 +18555,8 @@ export interface WlMemberInfoInfoResponse {
         url_profile: string;
         /** Link to user's waiver page. */
         url_waiver: string;
+        /** The client's tasks in the business, ordered by due date, keyed by task key */
+        a_task_list: Record<string, unknown>;
     } | null;
     /** List of users data. */
     a_result_list: {
@@ -18530,6 +18647,8 @@ export interface WlMemberInfoInfoResponse {
             url_profile: string;
             /** Link to user's waiver page. */
             url_waiver: string;
+            /** The client's tasks in the business, ordered by due date, keyed by task key */
+            a_task_list: Record<string, unknown>;
         };
         /** `true` - user is traveller; `false` - not traveller. */
         is_traveller: boolean;
@@ -21760,6 +21879,176 @@ export interface WlVisitPayPayChangePostResponse {
     /** Whether changes applied to visit (if user selected the same promotion, we should do nothing). */
     is_change: boolean;
 }
+export interface WlVisitKioskAttemptListParams {
+    /** Page of the list, from `0`. A page holds 100 attempts. */
+    i_page: number;
+    /** Business key. */
+    k_business: string;
+    /** Key of the location of the kiosk. */
+    k_location: string;
+    /** Local day at the location, in MySQL format, for example `2026-11-05`. */
+    dl_date?: string | null;
+    /** Time in UTC and MySQL format, for example `2026-11-05 14:30:00`: only the attempts made at this t... */
+    dtu_since?: string | null;
+}
+export interface WlVisitKioskAttemptListResponse {
+    /** The attempts of the page, the newest first: */
+    a_attempt: Array<{
+        /** Time of the attempt (of the check-in for a visit), in UTC and MySQL format, for example */
+        dtu_attempt: string;
+        /** Reasons of failed book or check-in. @see WlVisitVisitDenyReasonSid */
+        id_deny_reason: WlVisitVisitDenyReasonSid;
+        /** The source of a visit. @see WlModeModeSid */
+        id_mode: WlModeModeSid;
+        /** `true` for a failed attempt, `false` for a checked-in visit. */
+        is_fail: boolean;
+        /** Location of the attempt. */
+        k_location: string;
+        /** Pass that pays for the visit. `null` for a failed attempt or a visit that no pass pays for. */
+        k_login_promotion: string | null;
+        /** The checked-in visit. `null` for a failed attempt. */
+        k_visit: string | null;
+        /** Key of the failed attempt, the same as the check-in of the kiosk gives ({@link WlVisitKioskNamesp... */
+        s_attempt: string | null;
+        /** Full name of the user who made the attempt. `null` if nobody was signed in. */
+        text_actor_name: string | null;
+        /** First name of the client. `null` for a walk-in. */
+        text_name_first: string | null;
+        /** Last name of the client. `null` for a walk-in. */
+        text_name_last: string | null;
+        /** Title of the pass that pays for the visit. `null` when `k_login_promotion` is `null`. */
+        text_pass: string | null;
+        /** User who made the attempt. `null` if nobody was signed in. */
+        uid_actor: string | null;
+        /** The client. `null` for a walk-in. */
+        uid_attend: string | null;
+        /** Address of the photo of the client, for example `https://example.com/photo.jpg`. `null` for a */
+        url_photo: string | null;
+    }>;
+    /** Number of the gym check-ins and the failed attempts of the whole day. */
+    i_count_all: number;
+    /** Number of the failed attempts of the whole day. */
+    i_count_fail: number;
+    /** Number of the gym check-ins of the whole day. */
+    i_count_success: number;
+    /** Whether the page is the last one. */
+    is_page_last: boolean;
+}
+export type WlVisitKioskAttendParams = Record<string, unknown>;
+export interface WlVisitKioskAttendResponse {
+    /** Time of the check-in of the gym visit that the client already has on the day, in UTC and MySQL fo... */
+    dtu_attend: string | null;
+    /** Time of the check-in in UTC and MySQL format, for example `2026-11-05 14:30:00`. */
+    dtu_register: string | null;
+    /** Number of seconds after which the kiosk closes the message of a failed check-in. */
+    i_attend_quick_close_fail: number;
+    /** Number of seconds after which the kiosk closes the message of a successful check-in. */
+    i_attend_quick_close_success: number;
+    /** Reasons of failed book or check-in. @see WlVisitVisitDenyReasonSid */
+    id_deny_reason: WlVisitVisitDenyReasonSid;
+    /** Reasons of failed book or check-in. @see WlVisitVisitDenyReasonSid */
+    id_unpaid_reason: WlVisitVisitDenyReasonSid;
+    /** Possible states of the visit: book, attended, cancelled, etc. @see WlVisitVisitSid */
+    id_visit: WlVisitVisitSid;
+    /** Whether the kiosk opens the profile of the client after a successful check-in. A setting of the b... */
+    is_attend_quick_navigate: boolean;
+    /** Whether the visit is paid. */
+    is_paid: boolean;
+    /** Location of the gym visit that the client already has on the day, when the check-in is refused fo... */
+    k_location_visit: string | null;
+    /** Pass that pays for the visit. */
+    k_login_promotion: string | null;
+    /** The checked-in visit; when the check-in is refused because the client is already checked in on th... */
+    k_visit: string | null;
+    /** Key of the failed attempt of the check-in, the same as in the list of the attempts of the location */
+    s_attempt: string | null;
+    /** Message of the refusal for the staff member. */
+    text_message: string;
+    /** Title of the pass that pays for the visit. */
+    text_pass: string | null;
+    /** Address of the store where the client may buy a pass, for example `https://example.com/catalog-li... */
+    url_store: string | null;
+}
+export type WlVisitKioskScanParams = Record<string, unknown>;
+export interface WlVisitKioskScanResponse {
+    /** Results of a scan at the staff check-in kiosk. @see WlVisitKioskScanResultSid */
+    id_scan_result: WlVisitKioskScanResultSid;
+    /** First name of the client. */
+    text_name_first: string | null;
+    /** Last name of the client. */
+    text_name_last: string | null;
+    /** Key of the client. */
+    uid: string | null;
+    /** Address of the photo of the client, for example `https://example.com/photo.jpg`. */
+    url_photo: string | null;
+}
+export interface WlVisitKioskEvaluateParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the location of the kiosk. */
+    k_location: string;
+    /** Key of the client. */
+    uid: string;
+    /** Local date and time of the check-in at the location, in MySQL format, for example `2026-11-05 09:... */
+    dtl_date?: string | null;
+}
+export interface WlVisitKioskEvaluateResponse {
+    /** Passes of the client that may pay for a gym visit. */
+    a_login_promotion: Array<{
+        /** Last day of the pass, local date in MySQL format. `null` if the pass does not expire. */
+        dl_expire: string | null;
+        /** Number of the visits that the pass gives, `null` if the pass does not limit them. */
+        i_limit: number | null;
+        /** Number of the visits left before the check-in. `null` if the pass is unlimited. */
+        i_remain: number | null;
+        /** `true` if the pass is limited and has 2 or fewer visits left before the check-in. */
+        is_last: boolean;
+        /** `true` if the pass does not limit the visits. */
+        is_unlimited: boolean;
+        /** `true` if the check-in would take this pass. */
+        is_use: boolean;
+        /** Key of the pass; for a pass inside a package, the key of the package. */
+        k_login_promotion: string;
+        /** Title of the pass. */
+        text_title: string;
+    }>;
+    /** Time of the check-in of the gym visit of the day, in UTC and MySQL format, for example `2026-11-0... */
+    dtu_attend: string | null;
+    /** Reasons of failed book or check-in. @see WlVisitVisitDenyReasonSid */
+    id_deny_reason: WlVisitVisitDenyReasonSid;
+    /** Reasons of failed book or check-in. @see WlVisitVisitDenyReasonSid */
+    id_unpaid_reason: WlVisitVisitDenyReasonSid;
+    /** Whether the gym visit of the day is checked in. */
+    is_attend: boolean;
+    /** Whether the balance of the account of the client (or of the payer of the client) is negative. */
+    is_balance_owing: boolean;
+    /** Whether the client has only expired credit cards. */
+    is_card_expired: boolean;
+    /** Whether a credit card of the client expires in less than a month. */
+    is_card_expiring: boolean;
+    /** Whether the client has a purchase whose contract is not signed. */
+    is_contract: boolean;
+    /** Whether the client is flagged for booking at the location. */
+    is_flag: boolean;
+    /** Whether the client has a required form that is not completed. */
+    is_form_mandatory: boolean;
+    /** Whether the pass that the check-in would take has 2 or fewer visits left. */
+    is_pass_last_visit: boolean;
+    /** Whether a pass of the client has expired. */
+    is_promotion_expired: boolean;
+    /** Whether a pass of the client is on hold. */
+    is_promotion_hold: boolean;
+    /** Whether the client has unpaid visits. */
+    is_unpaid_visit: boolean;
+    /** Whether the business requires a waiver that the client has not signed. */
+    is_waiver: boolean;
+    /** Location of the gym visit of the day; it may be another location of the business. */
+    k_location_visit: string | null;
+    /** Gym visit of the client on the local day of the location. */
+    k_visit: string | null;
+    /** Balance of the account of the client (or of the payer of the client), for example `-25.00`. */
+    m_balance: string | null;
+}
 export interface WlFitbuilderSubscriptionFitbuilderSubscriptionGetParams {
     /** Business key to check Fitbuilder subscription plan. */
     k_business: string;
@@ -22378,6 +22667,8 @@ export interface WlReceptionApplicationMemberInfoResponse {
         url_profile: string;
         /** Link to user's waiver page. */
         url_waiver: string;
+        /** The client's tasks in the business, ordered by due date, keyed by task key */
+        a_task_list: Record<string, unknown>;
     } | null;
     /** The options presented in the web app. */
     a_items: Array<{
@@ -22481,6 +22772,8 @@ export interface WlReceptionApplicationMemberInfoResponse {
             url_profile: string;
             /** Link to user's waiver page. */
             url_waiver: string;
+            /** The client's tasks in the business, ordered by due date, keyed by task key */
+            a_task_list: Record<string, unknown>;
         };
         /** `true` - user is traveller; `false` - not traveller. */
         is_traveller: boolean;
@@ -26458,6 +26751,21 @@ export interface WlBusinessCustomTermsCustomTermsGetParams {
     k_business: string;
 }
 export interface WlBusinessCustomTermsCustomTermsGetResponse {
+    /** Replacement rules that turn the default words of the system into the terms the business has chosen. */
+    a_rule: Array<{
+        /** Whether the rule matches the indefinite article ("a" or "an") before the word and replaces it too. */
+        has_article: boolean;
+        /** Whether the rule matches only if the word is the last in the text or is followed by a punctuation... */
+        has_end: boolean;
+        /** Whether `text_title` starts with a vowel sound, so the article before it is "an", not "a". Makes ... */
+        has_vowel_sound: boolean;
+        /** Replacement for the word found in lowercase ("patient"). */
+        text_lower: string;
+        /** The word to search for, in lowercase. The letter case of the text is ignored when searching. It m... */
+        text_search: string;
+        /** Replacement for the word found with a capital letter ("Patient"). For a word found in capitals us... */
+        text_title: string;
+    }>;
     /** Current value of every term slot. Returned by `get()`, posted to */
     a_term_option: Array<{
         /** Term slots available on the Custom Terms settings page. @see WlBusinessCustomTermsCustomTermSid */
@@ -26484,6 +26792,8 @@ export interface WlAppointmentBookStaffListParams {
     dt_date: string;
     /** User role by whom this api called. @see WlLoginLoginRoleSid */
     id_role: WlLoginLoginRoleSid;
+    /** Whether to find the next time when every staff member can be booked. */
+    is_dt_next: boolean;
     /** `true` - returns service categories that have no staff members available to conduct them. */
     is_unavailable: boolean;
     /** Key of appointment which must be ignored when searches available staff. */
@@ -26492,6 +26802,8 @@ export interface WlAppointmentBookStaffListParams {
     k_location: string;
     /** The key of a service for which to show information. */
     k_service: string;
+    /** Add-ons of the service, as a JSON array of the keys of the add-on options, for example `["15","27... */
+    s_product: string;
     /** Custom appointment duration in minutes. */
     i_duration_custom?: number | null;
     /** User's timezone. */
@@ -26502,6 +26814,8 @@ export interface WlAppointmentBookStaffListParams {
 export interface WlAppointmentBookStaffListResponse {
     /** A list of staff members with information about them. */
     a_staff: Array<{
+        /** The first time from {@link WlAppointmentBookStaffNamespace#list} to the end of the booking window... */
+        dt_next?: string | null;
         /** String identifiers for gender. @see AGenderSid */
         id_gender: AGenderSid | null;
         /** How many clients can still be booked with the staff member at the requested time. */
@@ -26539,6 +26853,8 @@ export interface WlAppointmentBookStaffStaffListParams {
     i_client: number;
     /** User role by whom this api called. @see WlLoginLoginRoleSid */
     id_role: WlLoginLoginRoleSid;
+    /** Whether to find the next time when every staff member can be booked. */
+    is_dt_next: boolean;
     /** `true` - returns service categories that have no staff members available to conduct them. */
     is_unavailable: boolean;
     /** Key of appointment which must be ignored when searches available staff. */
@@ -26547,6 +26863,8 @@ export interface WlAppointmentBookStaffStaffListParams {
     k_location: string;
     /** The key of a service for which to show information. */
     k_service: string;
+    /** Add-ons of the service, as a JSON array of the keys of the add-on options, for example `["15","27... */
+    s_product: string;
     /** Custom appointment duration in minutes. */
     i_duration_custom?: number | null;
     /** User's timezone. */
@@ -26557,6 +26875,8 @@ export interface WlAppointmentBookStaffStaffListParams {
 export interface WlAppointmentBookStaffStaffListResponse {
     /** A list of staff members with information about them. */
     a_staff: Array<{
+        /** The first time from {@link WlAppointmentBookStaffNamespace#list} to the end of the booking window... */
+        dt_next?: string | null;
         /** String identifiers for gender. @see AGenderSid */
         id_gender: AGenderSid | null;
         /** How many clients can still be booked with the staff member at the requested time. */
@@ -32972,6 +33292,12 @@ export declare class WlBusinessSearchNamespace {
     /** Searches for businesses by name and returns matching business keys. */
     businessSearch(params?: WlBusinessSearchBusinessSearchParams): Promise<WlBusinessSearchBusinessSearchResponse>;
 }
+export declare class WlBusinessServiceNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns which services are available for the business. */
+    service(params?: WlBusinessServiceServiceParams): Promise<WlBusinessServiceServiceResponse>;
+}
 export declare class WlBusinessDesignNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -33108,6 +33434,7 @@ export declare class WlBusinessNamespace {
     readonly partner: WlBusinessPartnerNamespace;
     readonly waiver: WlBusinessWaiverNamespace;
     readonly search: WlBusinessSearchNamespace;
+    readonly service: WlBusinessServiceNamespace;
     readonly design: WlBusinessDesignNamespace;
     readonly authorizeSupport: WlBusinessAuthorizeSupportNamespace;
     readonly type: WlBusinessTypeNamespace;
@@ -33650,6 +33977,18 @@ export declare class WlVisitPayNamespace {
     /** Saves user's promotion for certain attendance. */
     payChangePost(params?: WlVisitPayPayChangePostParams): Promise<WlVisitPayPayChangePostResponse>;
 }
+export declare class WlVisitKioskNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the gym check-ins and the failed gym check-in attempts of a local day at the location. */
+    attemptList(params?: WlVisitKioskAttemptListParams): Promise<WlVisitKioskAttemptListResponse>;
+    /** Checks the client in for a gym visit at the staff check-in kiosk. */
+    attend(params?: WlVisitKioskAttendParams): Promise<WlVisitKioskAttendResponse>;
+    /** Finds the client by a scanned value. */
+    scan(params?: WlVisitKioskScanParams): Promise<WlVisitKioskScanResponse>;
+    /** Evaluates a gym check-in of the client. */
+    evaluate(params?: WlVisitKioskEvaluateParams): Promise<WlVisitKioskEvaluateResponse>;
+}
 export declare class WlVisitNoteEditNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -33684,6 +34023,7 @@ export declare class WlVisitNamespace {
     private readonly _client;
     readonly blame: WlVisitBlameNamespace;
     readonly pay: WlVisitPayNamespace;
+    readonly kiosk: WlVisitKioskNamespace;
     readonly note: WlVisitNoteNamespace;
     readonly billing: WlVisitBillingNamespace;
     constructor(_client: WlClient);

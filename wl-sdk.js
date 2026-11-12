@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20261111061829
+ * Spec version: 1.1.20261112053909
  * Build date:   2026-11-12
- * Endpoints:    685
+ * Endpoints:    690
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/production/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261111061829';
+  WlClient.SPEC_VERSION = '1.1.20261112053909';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (685 total)
+  // Generated API methods (690 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -5223,6 +5223,7 @@
    * @param {number} [params.id_family_relation] Family role for a new user. One of {@link WlClient.RsFamilyRelationSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {boolean} params.is_field_all `true` to return all active, non-removed profile fields of the business regardless of entry-point...
+   * @param {boolean} params.is_level_all `true` to also return the profile fields that are hidden for the entry point given by
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.uid The key of the user to edit.
@@ -5310,6 +5311,7 @@
    * @param {number} [params.id_family_relation] Family role for a new user. One of {@link WlClient.RsFamilyRelationSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {boolean} params.is_field_all `true` to return all active, non-removed profile fields of the business regardless of entry-point...
+   * @param {boolean} params.is_level_all `true` to also return the profile fields that are hidden for the entry point given by
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
    * @param {string} params.text_token The security token.
@@ -6225,6 +6227,22 @@
   WlClient.prototype.wlBusinessSearchBusinessSearch = function(params)
   {
     return this.request('/Wl/Business/Search/BusinessSearch.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns which services are available for the business.
+   *
+   * The gym visits (drop-ins) are reported as available when the business allows them.
+   * The current user must be a staff member with access to the business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_services_enabled` {Object} Business service availability.
+   */
+  WlClient.prototype.wlBusinessServiceService = function(params)
+  {
+    return this.request('/Wl/Business/Service/Service.json', params || {}, 'GET');
   };
 
   /**
@@ -8963,6 +8981,133 @@
   WlClient.prototype.wlVisitPayPayChangePost = function(params)
   {
     return this.request('/Wl/Visit/Pay/PayChange.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns the gym check-ins and the failed gym check-in attempts of a local day at the location.
+   *
+   * The list holds the checked-in gym visits of the location and the failed gym check-in attempts at the location,
+   * made from every source (the kiosk, the backend, the self check-in and the others); the visits and the attempts
+   * of the classes and of the appointments are not listed. The newest attempt goes first, 100 attempts a page.
+   * The totals count the whole day. The attempts of the clients whom the staff member may not see (the scope of the
+   * clients of the staff member) are neither listed nor counted. Works in the session of a staff member with access
+   * to the location and the privilege to see the profiles of the clients; no key of a kiosk is needed.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {?string} [params.dl_date] Local day at the location, in MySQL format, for example `2026-11-05`.
+   * @param {?string} [params.dtu_since] Time in UTC and MySQL format, for example `2026-11-05 14:30:00`: only the attempts made at this t...
+   * @param {number} params.i_page Page of the list, from `0`. A page holds 100 attempts.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_location Key of the location of the kiosk.
+   * @returns {Promise<Object>} Response data.
+   *  `a_attempt` {Object[]} The attempts of the page, the newest first:
+   *  `i_count_all` {number} Number of the gym check-ins and the failed attempts of the whole day.
+   *  `i_count_fail` {number} Number of the failed attempts of the whole day.
+   *  `i_count_success` {number} Number of the gym check-ins of the whole day.
+   *  `is_page_last` {boolean} Whether the page is the last one.
+   */
+  WlClient.prototype.wlVisitKioskAttemptList = function(params)
+  {
+    return this.request('/Wl/Visit/Kiosk/AttemptList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Checks the client in for a gym visit at the staff check-in kiosk.
+   *
+   * Works in the session of a staff member with access to the location and the privilege to see the profile of the
+   * client; no key of a kiosk is needed. The visit is checked in from the source "Kiosk". A client is checked in for
+   * a gym visit once a day: a second check-in on the same local day, at any location of the business, is refused
+   * and nothing is written. A booked gym visit of the day at the location of the kiosk is checked in. A refusal
+   * gives its reason, its message and the key of the failed attempt; a refusal for a negative balance does not
+   * show the amount to a staff member who may not see the balances of the clients.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `dtu_attend` {?string} Time of the check-in of the gym visit that the client already has on the day,...
+   *  `dtu_register` {?string} Time of the check-in in UTC and MySQL format, for example `2026-11-05 14:30:00`.
+   *  `i_attend_quick_close_fail` {number} Number of seconds after which the kiosk closes the message of a failed check-in.
+   *  `i_attend_quick_close_success` {number} Number of seconds after which the kiosk closes the message of a successful ch...
+   *  `id_deny_reason` {number} Reasons of failed book or check-in. See {@link WlClient.WlVisitVisitDenyReasonSid}.
+   *  `id_unpaid_reason` {number} Reasons of failed book or check-in. See {@link WlClient.WlVisitVisitDenyReasonSid}.
+   *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc. See {@link WlClient.WlVisitVisitSid}.
+   *  `is_attend_quick_navigate` {boolean} Whether the kiosk opens the profile of the client after a successful check-in...
+   *  `is_paid` {boolean} Whether the visit is paid.
+   *  `k_location_visit` {?string} Location of the gym visit that the client already has on the day, when the ch...
+   *  `k_login_promotion` {?string} Pass that pays for the visit.
+   *  `k_visit` {?string} The checked-in visit; when the check-in is refused because the client is alre...
+   *  `s_attempt` {?string} Key of the failed attempt of the check-in, the same as in the list of the att...
+   *  `text_message` {string} Message of the refusal for the staff member.
+   *  `text_pass` {?string} Title of the pass that pays for the visit.
+   *  `url_store` {?string} Address of the store where the client may buy a pass, for example `https://ex...
+   */
+  WlClient.prototype.wlVisitKioskAttend = function(params)
+  {
+    return this.request('/Wl/Visit/Kiosk/Attend.json', params || {}, 'POST');
+  };
+
+  /**
+   * Finds the client by a scanned value.
+   *
+   * The result is one of:
+   * <ul>
+   *   <li>the client is found: the key, the name and the photo of the client;</li>
+   *   <li>no client that the staff member may see matches the value;</li>
+   *   <li>the member ID of the client is inactive;</li>
+   *   <li>the dynamic barcode has expired;</li>
+   * ...
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `id_scan_result` {number} Results of a scan at the staff check-in kiosk. See {@link WlClient.WlVisitKioskScanResultSid}.
+   *  `text_name_first` {?string} First name of the client.
+   *  `text_name_last` {?string} Last name of the client.
+   *  `uid` {?string} Key of the client.
+   *  `url_photo` {?string} Address of the photo of the client, for example `https://example.com/photo.jpg`.
+   */
+  WlClient.prototype.wlVisitKioskScan = function(params)
+  {
+    return this.request('/Wl/Visit/Kiosk/Scan.json', params || {}, 'POST');
+  };
+
+  /**
+   * Evaluates a gym check-in of the client.
+   *
+   * Finds the gym visit of the client on the local day of the location (at any location of the business), the
+   * first reason why the check-in would be refused, in the order of the check-in, and the reason why the pass of
+   * the client would not pay for the visit. Fills the state of the profile: the balance, the unpaid visits, the
+   * waiver, the contract, the required forms, the credit cards, the flag, the passes on hold and expired, and the
+   * passes that may pay for the visit. Only the first reason is given. Nothing is written: no visit and no failed
+   * attempt.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {?string} [params.dtl_date] Local date and time of the check-in at the location, in MySQL format, for example `2026-11-05 09:...
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_location Key of the location of the kiosk.
+   * @param {string} params.uid Key of the client.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_promotion` {Object[]} Passes of the client that may pay for a gym visit.
+   *  `dtu_attend` {?string} Time of the check-in of the gym visit of the day, in UTC and MySQL format, fo...
+   *  `id_deny_reason` {number} Reasons of failed book or check-in. See {@link WlClient.WlVisitVisitDenyReasonSid}.
+   *  `id_unpaid_reason` {number} Reasons of failed book or check-in. See {@link WlClient.WlVisitVisitDenyReasonSid}.
+   *  `is_attend` {boolean} Whether the gym visit of the day is checked in.
+   *  `is_balance_owing` {boolean} Whether the balance of the account of the client (or of the payer of the clie...
+   *  `is_card_expired` {boolean} Whether the client has only expired credit cards.
+   *  `is_card_expiring` {boolean} Whether a credit card of the client expires in less than a month.
+   *  `is_contract` {boolean} Whether the client has a purchase whose contract is not signed.
+   *  `is_flag` {boolean} Whether the client is flagged for booking at the location.
+   *  `is_form_mandatory` {boolean} Whether the client has a required form that is not completed.
+   *  `is_pass_last_visit` {boolean} Whether the pass that the check-in would take has 2 or fewer visits left.
+   *  `is_promotion_expired` {boolean} Whether a pass of the client has expired.
+   *  `is_promotion_hold` {boolean} Whether a pass of the client is on hold.
+   *  `is_unpaid_visit` {boolean} Whether the client has unpaid visits.
+   *  `is_waiver` {boolean} Whether the business requires a waiver that the client has not signed.
+   *  `k_location_visit` {?string} Location of the gym visit of the day; it may be another location of the busin...
+   *  `k_visit` {?string} Gym visit of the client on the local day of the location.
+   *  `m_balance` {?string} Balance of the account of the client (or of the payer of the client), for exa...
+   */
+  WlClient.prototype.wlVisitKioskEvaluate = function(params)
+  {
+    return this.request('/Wl/Visit/Kiosk/Evaluate.json', params || {}, 'GET');
   };
 
   /**
@@ -11794,10 +11939,14 @@
    * No access check - the terms a business picked (e.g. "Session" instead of "Class") are not sensitive, and
    * public-facing pages (the booking widget, for example) need them to render their own wording for a client
    * who is not signed in.
+   * 
+   * Also returns {@link WlClient#wlBusinessCustomTermsCustomTermsGet}, the ready rules that apply the terms to the English texts of a
+   * client of the API. The rules are as public as the terms they are built from.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
    * @returns {Promise<Object>} Response data.
+   *  `a_rule` {Object[]} Replacement rules that turn the default words of the system into the terms th...
    *  `a_term_option` {Object[]} Current value of every term slot. Returned by `get()`, posted to
    */
   WlClient.prototype.wlBusinessCustomTermsCustomTermsGet = function(params)
@@ -11841,17 +11990,23 @@
    * Returns the list of staff members who can perform the specified service at the given location
    *  on the specified date and time. Each entry includes the staff member's name, image, gender,
    *  and availability. An 'any staff' option is included when the service allows random staff assignment.
+   * 
+   * When {@link WlClient#wlAppointmentBookStaffList} is `true` and {@link WlClient#wlAppointmentBookStaffList} is passed, the list holds the staff
+   *  members who can perform the service at the location, whatever {@link WlClient#wlAppointmentBookStaffList} says, and no
+   * ...
    * @deprecated Use {@link \Wl\Appointment\Book\Staff\StaffListApi} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date The date/time of the appointment selected by user, in the location's time zone.
    * @param {?number} [params.i_duration_custom] Custom appointment duration in minutes.
    * @param {number} params.id_role User role by whom this api called. See {@link WlClient.WlLoginLoginRoleSid}.
+   * @param {boolean} params.is_dt_next Whether to find the next time when every staff member can be booked.
    * @param {boolean} params.is_unavailable `true` - returns service categories that have no staff members available to conduct them.
    * @param {string} params.k_appointment_ignore Key of appointment which must be ignored when searches available staff.
    * @param {string} params.k_location The key of the location.
    * @param {string} params.k_service The key of a service for which to show information.
    * @param {?string} [params.k_timezone] User's timezone.
+   * @param {string} params.s_product Add-ons of the service, as a JSON array of the keys of the add-on options, for example `["15","27...
    * @param {?string} [params.uid] The user key for whom the service is booking.
    * @returns {Promise<Object>} Response data.
    *  `a_staff` {Object[]} A list of staff members with information about them.
@@ -11871,17 +12026,23 @@
    * Returns the list of staff members who can perform the specified service at the given location
    *  on the specified date and time. Each entry includes the staff member's name, image, gender,
    *  and availability. An 'any staff' option is included when the service allows random staff assignment.
+   * 
+   * When {@link WlClient#wlAppointmentBookStaffList} is `true` and {@link WlClient#wlAppointmentBookStaffList} is passed, the list holds the staff
+   *  members who can perform the service at the location, whatever {@link WlClient#wlAppointmentBookStaffList} says, and no
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date The date/time of the appointment selected by user, in the location's time zone.
    * @param {number} params.i_client Count of clients on the appointment.
    * @param {?number} [params.i_duration_custom] Custom appointment duration in minutes.
    * @param {number} params.id_role User role by whom this api called. See {@link WlClient.WlLoginLoginRoleSid}.
+   * @param {boolean} params.is_dt_next Whether to find the next time when every staff member can be booked.
    * @param {boolean} params.is_unavailable `true` - returns service categories that have no staff members available to conduct them.
    * @param {string} params.k_appointment_ignore Key of appointment which must be ignored when searches available staff.
    * @param {string} params.k_location The key of the location.
    * @param {string} params.k_service The key of a service for which to show information.
    * @param {?string} [params.k_timezone] User's timezone.
+   * @param {string} params.s_product Add-ons of the service, as a JSON array of the keys of the add-on options, for example `["15","27...
    * @param {?string} [params.uid] The user key for whom the service is booking.
    * @returns {Promise<Object>} Response data.
    *  `a_staff` {Object[]} A list of staff members with information about them.
@@ -14718,7 +14879,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (236 total)
+  // Enum constants (238 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -16401,6 +16562,8 @@
     SPA_BACKEND: 4,
     /** Client booked session from spa frontend */
     SPA_FRONTEND: 3,
+    /** Staff member checked the client in at the staff check-in kiosk */
+    STAFF_KIOSK: 35,
     /** Created by system */
     SYSTEM: 10,
     /** Means that we did not define mode */
@@ -19991,6 +20154,108 @@
     SOCIAL: 4,
     /** Rewards for significant user events */
     USER: 5,
+  });
+
+  /**
+   * Reasons of failed book or check-in.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVisitVisitDenyReasonSid = Object.freeze({
+    /** The business can not take one more client */
+    ACCESS_DENIED: 1,
+    /** Access is limited */
+    ACCESS_LIMITED: 2,
+    /** The business can not take one more client */
+    ACCOUNT_LIMIT: 3,
+    /** Class is not available for certain age */
+    AGE_RESTRICTION: 4,
+    /** Liability Release needs to be agreed */
+    AGREE_NX: 5,
+    /** Service approval denied */
+    APPOINTMENT_DENY: 25,
+    /** Service requires staff approval */
+    APPOINTMENT_REQUEST: 26,
+    /** Business Policy restricts Gym Visits */
+    ATTEND_GYM_DISABLE: 23,
+    /** The client already has a checked-in gym visit on the same local day, at any location of the business */
+    ATTEND_ONCE: 38,
+    /** Self check-in not available for this service */
+    ATTEND_SELF_DISABLE: 22,
+    /** Business policy prevents unpaid check-ins */
+    ATTEND_UNPAID: 28,
+    /** Client is on the Wait List */
+    ATTEND_WAIT: 27,
+    /** Client has a negative account balance */
+    BALANCE_NEGATIVE: 37,
+    /** It's too early to book a class */
+    BOOK_EARLY: 7,
+    /** It's too late to book a class */
+    BOOK_LATE: 8,
+    /** Visit must be booked before check-in */
+    BOOK_NX: 24,
+    /** Cannot book to this class anymore */
+    BOOK_RESTRICT: 9,
+    /** Client is already booked for this session */
+    BOOKED_ALREADY: 6,
+    /** Business is inactive */
+    BUSINESS_INACTIVE: 10,
+    /** Class is canceled */
+    CLASS_CANCELED: 11,
+    /** Class is full */
+    CLASS_FULL: 14,
+    /** Class does not exist anymore */
+    CLASS_NOT_AVAILABLE_ANYMORE: 15,
+    /** Client is flagged at location */
+    CLIENT_FLAGGED: 12,
+    /** Credit card is required for booking services */
+    CREDIT_CARD_REQUIRE: 13,
+    /** Business is closed */
+    HOLIDAY: 16,
+    /** Login is required */
+    LOGIN_REQUIRED: 17,
+    /** Online booking is disabled for the class */
+    NOT_BOOKABLE: 18,
+    /** Contract not signed */
+    PAYMENT_CONTRACT: 35,
+    /** Purchase Option expired */
+    PAYMENT_EXPIRE: 36,
+    /** Purchase Option on hold */
+    PAYMENT_HOLD: 34,
+    /** No valid Purchase Option */
+    PAYMENT_NX: 30,
+    /** Purchase Option has no visits left */
+    PAYMENT_REMAIN: 33,
+    /** Purchase Option not active yet */
+    PAYMENT_START: 32,
+    /** Attendance limit on Purchase Option reached */
+    SCHEDULE_RESTRICT: 31,
+    /** Check-in could not be completed */
+    UNKNOWN: 29,
+    /** Required personal details missing */
+    USER_INFO_MISSING: 19,
+    /** Visit to another class is required first */
+    VISIT_BEFORE: 20,
+    /** The wait list is full */
+    WAIT_LIST_LIMIT_MAX: 21,
+  });
+
+  /**
+   * Results of a scan at the staff check-in kiosk.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVisitKioskScanResultSid = Object.freeze({
+    /** The scanned value is a dynamic barcode of a client that has expired */
+    DYNAMIC_EXPIRED: 4,
+    /** The business uses QR codes for the member IDs, and the kiosk does not read them */
+    FORMAT_UNSUPPORTED: 5,
+    /** The scanned value identifies an active client that the staff member may see */
+    FOUND: 1,
+    /** The scanned value identifies a client whose member ID is inactive */
+    MEMBER_INACTIVE: 3,
+    /** No client that the staff member may see matches the scanned value */
+    NOT_FOUND: 2,
   });
 
   /**
