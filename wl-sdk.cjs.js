@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261113140100
+// OpenAPI spec version: 1.1.20261113163506
 // Build date: 2026-11-13
 // Endpoints: 708
 // Enums: 225
@@ -2386,6 +2386,8 @@ var RsMailSid;
     RsMailSid[RsMailSid["LEAD_CAPTURE"] = 87] = "LEAD_CAPTURE";
     /** Sent to staff when CAASI captures a new lead from a conversation, */
     RsMailSid[RsMailSid["LEAD_CAPTURE_AI"] = 197] = "LEAD_CAPTURE_AI";
+    /** Sent to a client when they have stayed in a lead stage for a set time without any activity of their own */
+    RsMailSid[RsMailSid["LEAD_STAGE_NO_ACTIVITY"] = 231] = "LEAD_STAGE_NO_ACTIVITY";
     /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
     RsMailSid[RsMailSid["LEAD_STAGE_UPDATED"] = 224] = "LEAD_STAGE_UPDATED";
     /** Sent to client on annual anniversary of the Member Since date */

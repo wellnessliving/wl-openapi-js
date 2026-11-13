@@ -2343,6 +2343,8 @@ export declare enum RsMailSid {
     LEAD_CAPTURE = 87,
     /** Sent to staff when CAASI captures a new lead from a conversation, */
     LEAD_CAPTURE_AI = 197,
+    /** Sent to a client when they have stayed in a lead stage for a set time without any activity of their own */
+    LEAD_STAGE_NO_ACTIVITY = 231,
     /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
     LEAD_STAGE_UPDATED = 224,
     /** Sent to client on annual anniversary of the Member Since date */

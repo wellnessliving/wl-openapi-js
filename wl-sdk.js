@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261113140100
+ * Spec version: 1.1.20261113163506
  * Build date:   2026-11-13
  * Endpoints:    708
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261113140100';
+  WlClient.SPEC_VERSION = '1.1.20261113163506';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (708 total)
@@ -13648,10 +13648,10 @@
   /**
    * Saves new time interval.
    *
-   * Validates the business, location, and resource, checks that the resource is active,
-   *  belongs to the given location, and that the current login has edit access, then creates
-   *  the working or non-working schedule for each selected day and returns the created
-   *  resource period keys.
+   * Validates the business, location, and resource, checks that the location and the resource belong
+   *  to the business, that the resource is active and belongs to the given location, and that the current
+   *  login has edit access, then creates the working or non-working schedule for each selected day
+   *  and returns the created resource period keys.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
@@ -17934,6 +17934,8 @@
     LEAD_CAPTURE: 87,
     /** Sent to staff when CAASI captures a new lead from a conversation, */
     LEAD_CAPTURE_AI: 197,
+    /** Sent to a client when they have stayed in a lead stage for a set time without any activity of their own */
+    LEAD_STAGE_NO_ACTIVITY: 231,
     /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
     LEAD_STAGE_UPDATED: 224,
     /** Sent to client on annual anniversary of the Member Since date */
