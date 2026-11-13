@@ -8524,7 +8524,7 @@ export interface WlTicketTicketListResponse {
         text_name: string;
         /** Key of the buyer, for the link to the profile. `null` for a guest. */
         uid: string | null;
-        /** Link to the PDF file with all tickets of the order. . */
+        /** Link to the PDF file with all tickets of the order. The browser opens the file, it does not save ... */
         url_pdf: string;
         /** Link to the page with all tickets of the order, to view and print them. . */
         url_viewer: string;
