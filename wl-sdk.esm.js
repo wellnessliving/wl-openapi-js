@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261112135510
-// Build date: 2026-11-12
+// OpenAPI spec version: 1.1.20261113062830
+// Build date: 2026-11-13
 // Endpoints: 708
-// Enums: 224
+// Enums: 225
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (224 total) ---
+// --- Enum types (225 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -1552,6 +1552,16 @@ export var RsMailCopySid;
     /** Carbon copy */
     RsMailCopySid[RsMailCopySid["CC"] = 1] = "CC";
 })(RsMailCopySid || (RsMailCopySid = {}));
+/** The step of the funds of a Stripe dispute that failed, and that Finance must do by hand. */
+export var ThothWlPayDisputeFinanceMailFailEnum;
+(function (ThothWlPayDisputeFinanceMailFailEnum) {
+    /** The funds came back to the platform, but the code did not recover them from the studio */
+    ThothWlPayDisputeFinanceMailFailEnum[ThothWlPayDisputeFinanceMailFailEnum["REINSTATED"] = 3] = "REINSTATED";
+    /** The studio was not repaid after a won dispute */
+    ThothWlPayDisputeFinanceMailFailEnum[ThothWlPayDisputeFinanceMailFailEnum["REPAY"] = 2] = "REPAY";
+    /** The transfer of the disputed payment was not reversed */
+    ThothWlPayDisputeFinanceMailFailEnum[ThothWlPayDisputeFinanceMailFailEnum["REVERSE"] = 1] = "REVERSE";
+})(ThothWlPayDisputeFinanceMailFailEnum || (ThothWlPayDisputeFinanceMailFailEnum = {}));
 /** List of pay exceptions. */
 export var ThothWlPayPayExceptionSid;
 (function (ThothWlPayPayExceptionSid) {
@@ -4635,6 +4645,16 @@ export var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTERFACE_WIDGET_VIEW"] = 110] = "INTERFACE_WIDGET_VIEW";
     /** Permission to Receive or Adjust quantity from the Inventory On Hand Report */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INVENTORY_UPDATE"] = 157] = "INVENTORY_UPDATE";
+    /** Add leads */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["LEAD_ADD"] = 255] = "LEAD_ADD";
+    /** Manage lead creation settings */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["LEAD_CREATION_SETTINGS_MANAGE"] = 257] = "LEAD_CREATION_SETTINGS_MANAGE";
+    /** Manage lead sources and fields */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["LEAD_SOURCE_MANAGE"] = 258] = "LEAD_SOURCE_MANAGE";
+    /** Change lead stage */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["LEAD_STAGE_CHANGE"] = 256] = "LEAD_STAGE_CHANGE";
+    /** Manage lead stages */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["LEAD_STAGE_MANAGE"] = 259] = "LEAD_STAGE_MANAGE";
     /** Manage my locations except General information */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["LOCATION_EDIT"] = 9] = "LOCATION_EDIT";
     /** Manage tab Location -> General */

@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261112135510
- * Build date:   2026-11-12
+ * Spec version: 1.1.20261113062830
+ * Build date:   2026-11-13
  * Endpoints:    708
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261112135510';
+  WlClient.SPEC_VERSION = '1.1.20261113062830';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (708 total)
@@ -524,6 +524,9 @@
    * Creates a new user account from the submitted lead capture form data, optionally signs in the new user,
    * and associates the lead with a lead source. Returns an error code in `text_sign_in_error` if sign-in was
    * requested but could not be completed.
+   * 
+   * When the lead is added from the backend ({@link WlClient#wlLeadLeadGet}), the staff member needs the privilege to
+   * add leads ({@link WlClient.WlPrivilegePrivilegeSid}).
    *
    * @param {Object} [params] Request parameters.
    * @param {?boolean} [params.can_use_free_purchase] Whether it is possible to give free promotion when adding a user (only if free promotion is confi...
@@ -4995,6 +4998,9 @@
    * Sets the lead stage of the client.
    *
    * If the client is already in this stage, nothing is changed.
+   * 
+   * The staff member needs the privilege to change the lead stage ({@link WlClient.WlPrivilegePrivilegeSid}). The
+   * privilege to manage client profiles does not give it.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
@@ -15447,7 +15453,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (242 total)
+  // Enum constants (243 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -17082,6 +17088,20 @@
     BCC: 2,
     /** Carbon copy */
     CC: 1,
+  });
+
+  /**
+   * The step of the funds of a Stripe dispute that failed, and that Finance must do by hand.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothWlPayDisputeFinanceMailFailEnum = Object.freeze({
+    /** The funds came back to the platform, but the code did not recover them from the studio */
+    REINSTATED: 3,
+    /** The studio was not repaid after a won dispute */
+    REPAY: 2,
+    /** The transfer of the disputed payment was not reversed */
+    REVERSE: 1,
   });
 
   /**
@@ -20598,6 +20618,16 @@
     INTERFACE_WIDGET_VIEW: 110,
     /** Permission to Receive or Adjust quantity from the Inventory On Hand Report */
     INVENTORY_UPDATE: 157,
+    /** Add leads */
+    LEAD_ADD: 255,
+    /** Manage lead creation settings */
+    LEAD_CREATION_SETTINGS_MANAGE: 257,
+    /** Manage lead sources and fields */
+    LEAD_SOURCE_MANAGE: 258,
+    /** Change lead stage */
+    LEAD_STAGE_CHANGE: 256,
+    /** Manage lead stages */
+    LEAD_STAGE_MANAGE: 259,
     /** Manage my locations except General information */
     LOCATION_EDIT: 9,
     /** Manage tab Location -> General */

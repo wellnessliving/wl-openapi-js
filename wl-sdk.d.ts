@@ -1533,6 +1533,15 @@ export declare enum RsMailCopySid {
     /** Carbon copy */
     CC = 1
 }
+/** The step of the funds of a Stripe dispute that failed, and that Finance must do by hand. */
+export declare enum ThothWlPayDisputeFinanceMailFailEnum {
+    /** The funds came back to the platform, but the code did not recover them from the studio */
+    REINSTATED = 3,
+    /** The studio was not repaid after a won dispute */
+    REPAY = 2,
+    /** The transfer of the disputed payment was not reversed */
+    REVERSE = 1
+}
 /** List of pay exceptions. */
 export declare enum ThothWlPayPayExceptionSid {
     /** Invalid ABA number chosen */
@@ -4508,6 +4517,16 @@ export declare enum WlPrivilegePrivilegeSid {
     INTERFACE_WIDGET_VIEW = 110,
     /** Permission to Receive or Adjust quantity from the Inventory On Hand Report */
     INVENTORY_UPDATE = 157,
+    /** Add leads */
+    LEAD_ADD = 255,
+    /** Manage lead creation settings */
+    LEAD_CREATION_SETTINGS_MANAGE = 257,
+    /** Manage lead sources and fields */
+    LEAD_SOURCE_MANAGE = 258,
+    /** Change lead stage */
+    LEAD_STAGE_CHANGE = 256,
+    /** Manage lead stages */
+    LEAD_STAGE_MANAGE = 259,
     /** Manage my locations except General information */
     LOCATION_EDIT = 9,
     /** Manage tab Location -> General */
