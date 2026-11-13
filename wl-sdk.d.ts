@@ -8524,6 +8524,8 @@ export interface WlTicketTicketListResponse {
         text_name: string;
         /** Key of the buyer, for the link to the profile. `null` for a guest. */
         uid: string | null;
+        /** Link to the PDF file with all tickets of the order. . */
+        url_pdf: string;
         /** Link to the page with all tickets of the order, to view and print them. . */
         url_viewer: string;
     }>;
@@ -15083,6 +15085,10 @@ export interface WlBusinessConfigBusinessConfigResponse {
         i_book_future: number;
         /** Minimum hours|days|months before class should be canceled without penalty. */
         i_cancel: number;
+        /** The low attendance cancellation: a session is cancelled if fewer clients than this are booked. */
+        i_cancel_attendance: number;
+        /** The low attendance cancellation: how long before the session starts the bookings are counted, in ... */
+        i_cancel_attendance_check: number;
         /** Minimum hours|days|months before class should be promoted from wait list. */
         i_promote: number;
         /** Minimum hours|days|months the notifications which are sent for client confirmation required shoul... */
@@ -15097,6 +15103,8 @@ export interface WlBusinessConfigBusinessConfigResponse {
         id_book_future: ADurationSid;
         /** A class for managing time intervals. @see ADurationSid */
         id_cancel: ADurationSid;
+        /** The unit of `i_cancel_attendance_check`: {@link ADurationSid} or {@link ADurationSid}. */
+        id_cancel_attendance_check: number;
         /** A class for managing time intervals. @see ADurationSid */
         id_promote: ADurationSid;
         /** A class for managing time intervals. @see ADurationSid */
@@ -15105,6 +15113,8 @@ export interface WlBusinessConfigBusinessConfigResponse {
         id_promote_require_confirm: ADurationSid;
         /** if `true` - clients with purchase options are only allowed */
         is_book_inside_active_pay_period: boolean;
+        /** `true` if class sessions are cancelled automatically when too few clients are booked, `false` oth... */
+        is_cancel_attendance: boolean;
         /** 1 if a client's automatic payment fails, their account should not be */
         is_disable_promotion: boolean;
         /** Whether to charge penalty after final auto-payment attempt. */
@@ -15125,6 +15135,8 @@ export interface WlBusinessConfigBusinessConfigResponse {
         k_timezone: string;
         /** Penalty amount to charge after final auto-payment attempt. */
         m_payment_penalty: string;
+        /** Only for `business`. `true` if a session cancelled for low attendance shows as Cancelled on the c... */
+        show_cancel_attendance: boolean;
         /** Custom Url of a business */
         url_custom: string;
         /** List of allowed relation types specific to a given business. */
@@ -27263,6 +27275,8 @@ export interface WlCatalogStaffAppCatalogCartEditEditViewParams {
         is_prorate?: boolean;
         /** `true` to use only the prorated amount as the taxable amount. */
         is_prorate_only?: boolean;
+        /** Class the ticket is bought for. Used for a ticket only. Primary key in RsClassSql. */
+        k_class?: string;
         /** Custom prorated amount that overrides the automatically calculated one. */
         m_prorate_custom?: string;
     };
@@ -32136,6 +32150,10 @@ export interface WlEventBookEventViewElementResponse {
         i_book_future: number;
         /** Minimum hours|days|months before class should be canceled without penalty. */
         i_cancel: number;
+        /** The low attendance cancellation: a session is cancelled if fewer clients than this are booked. */
+        i_cancel_attendance: number;
+        /** The low attendance cancellation: how long before the session starts the bookings are counted, in ... */
+        i_cancel_attendance_check: number;
         /** Minimum hours|days|months before class should be promoted from wait list. */
         i_promote: number;
         /** Minimum hours|days|months the notifications which are sent for client confirmation required shoul... */
@@ -32150,6 +32168,8 @@ export interface WlEventBookEventViewElementResponse {
         id_book_future: ADurationSid;
         /** A class for managing time intervals. @see ADurationSid */
         id_cancel: ADurationSid;
+        /** The unit of `i_cancel_attendance_check`: {@link ADurationSid} or {@link ADurationSid}. */
+        id_cancel_attendance_check: number;
         /** A class for managing time intervals. @see ADurationSid */
         id_promote: ADurationSid;
         /** A class for managing time intervals. @see ADurationSid */
@@ -32158,6 +32178,8 @@ export interface WlEventBookEventViewElementResponse {
         id_promote_require_confirm: ADurationSid;
         /** if `true` - clients with purchase options are only allowed */
         is_book_inside_active_pay_period: boolean;
+        /** `true` if class sessions are cancelled automatically when too few clients are booked, `false` oth... */
+        is_cancel_attendance: boolean;
         /** 1 if a client's automatic payment fails, their account should not be */
         is_disable_promotion: boolean;
         /** Whether to charge penalty after final auto-payment attempt. */
@@ -32178,6 +32200,8 @@ export interface WlEventBookEventViewElementResponse {
         k_timezone: string;
         /** Penalty amount to charge after final auto-payment attempt. */
         m_payment_penalty: string;
+        /** Only for `business`. `true` if a session cancelled for low attendance shows as Cancelled on the c... */
+        show_cancel_attendance: boolean;
         /** Custom Url of a business */
         url_custom: string;
     };
