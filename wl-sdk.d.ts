@@ -8524,9 +8524,9 @@ export interface WlTicketTicketListResponse {
         text_name: string;
         /** Key of the buyer, for the link to the profile. `null` for a guest. */
         uid: string | null;
-        /** Link to the PDF file with all tickets of the order. The browser opens the file, it does not save ... */
+        /** Link to the PDF file with the tickets of the order for the event of the list, not for its other i... */
         url_pdf: string;
-        /** Link to the page with all tickets of the order, to view and print them. . */
+        /** Link to the page with the tickets of the order for the event of the list, not for its other insta... */
         url_viewer: string;
     }>;
     /** Staff members of the session, who lead it. Every item has the next structure: */
@@ -8570,6 +8570,8 @@ export interface WlTicketTicketListResponse {
         text_ticket_code: string;
         /** Name of the ticket type. */
         text_type: string;
+        /** Link to the PDF file with this ticket only. The browser opens the file, it does not save it. */
+        url_pdf: string;
         /** Link to the page with this ticket for view and print. */
         url_viewer: string;
     }>;
