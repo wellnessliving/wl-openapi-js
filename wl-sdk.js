@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261112112011
+ * Spec version: 1.1.20261113104852
  * Build date:   2026-11-13
  * Endpoints:    690
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261112112011';
+  WlClient.SPEC_VERSION = '1.1.20261113104852';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (690 total)
@@ -10372,7 +10372,6 @@
    * Each service and category includes an array of location keys where it is available.
    * All active services are returned: unlike the location-scoped list, the result is not filtered by class tab
    * or by online bookability, and removed locations are skipped.
-   * The caller must be a staff member or admin of the business.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
