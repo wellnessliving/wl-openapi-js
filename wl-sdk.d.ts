@@ -27275,7 +27275,7 @@ export interface WlCatalogStaffAppCatalogCartEditEditViewParams {
         is_prorate?: boolean;
         /** `true` to use only the prorated amount as the taxable amount. */
         is_prorate_only?: boolean;
-        /** Class the ticket is bought for. Used for a ticket only. Primary key in RsClassSql. */
+        /** Class the ticket is bought for. Used for a ticket only. */
         k_class?: string;
         /** Custom prorated amount that overrides the automatically calculated one. */
         m_prorate_custom?: string;
