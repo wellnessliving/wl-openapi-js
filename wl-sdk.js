@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261116073416
+ * Spec version: 1.1.20261116122147
  * Build date:   2026-11-16
  * Endpoints:    690
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261116073416';
+  WlClient.SPEC_VERSION = '1.1.20261116122147';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (690 total)
@@ -10500,6 +10500,7 @@
    * @deprecated Use {@link \Wl\Appointment\Book\Schedule\DayTime73Api}
    *
    * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {string} params.dt_date The date to show the available appointment booking schedule.
    * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
@@ -10541,6 +10542,7 @@
    *  and staff availability for the selected date range.
    *
    * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {string} params.dt_date The date to show the available appointment booking schedule.
    * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
@@ -10588,6 +10590,7 @@
    *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
    *
    * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {string} params.dt_date The date to show the available appointment booking schedule.
    * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
@@ -10649,6 +10652,7 @@
    * @deprecated Use {@link \Wl\Appointment\Book\Schedule\Calendar73Api}
    *
    * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {string} params.dt_date The date to show the available appointment booking schedule.
    * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
@@ -10698,6 +10702,7 @@
    *  than usual on production and uses an extended execution time limit.
    *
    * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
    * @param {string[]} params.a_uid List of user keys to book appointments.
    * @param {string} params.dt_date Start date to search next available date in MySQL format. If empty, the search will start from th...
    * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...

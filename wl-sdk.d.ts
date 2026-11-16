@@ -23944,6 +23944,8 @@ export interface WlAppointmentBookServiceServiceListResponse {
     k_location: string;
 }
 export interface WlAppointmentBookScheduleDayTimeParams {
+    /** The list of staff members to limit the availability to. Empty means no limit. */
+    a_staff: Array<string>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The date to show the available appointment booking schedule. */
@@ -24021,6 +24023,8 @@ export interface WlAppointmentBookScheduleDayTimeResponse {
     k_location: string;
 }
 export interface WlAppointmentBookScheduleCalendar73Params {
+    /** The list of staff members to limit the availability to. Empty means no limit. */
+    a_staff: Array<string>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The date to show the available appointment booking schedule. */
@@ -24154,6 +24158,8 @@ export interface WlAppointmentBookScheduleCalendar73Response {
     k_location: string;
 }
 export interface WlAppointmentBookScheduleDayTime73Params {
+    /** The list of staff members to limit the availability to. Empty means no limit. */
+    a_staff: Array<string>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The date to show the available appointment booking schedule. */
@@ -24252,6 +24258,8 @@ export interface WlAppointmentBookScheduleServiceAvailabilityResponse {
     };
 }
 export interface WlAppointmentBookScheduleCalendarParams {
+    /** The list of staff members to limit the availability to. Empty means no limit. */
+    a_staff: Array<string>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The date to show the available appointment booking schedule. */
@@ -24387,6 +24395,8 @@ export interface WlAppointmentBookScheduleCalendarResponse {
     k_location: string;
 }
 export interface WlAppointmentBookScheduleNextAvailableDayParams {
+    /** The list of staff members to limit the availability to. Empty means no limit. */
+    a_staff: Array<string>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** Start date to search next available date in MySQL format. If empty, the search will start from th... */
