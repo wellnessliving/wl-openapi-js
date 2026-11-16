@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261116115741
+ * Spec version: 1.1.20261116130051
  * Build date:   2026-11-16
  * Endpoints:    708
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261116115741';
+  WlClient.SPEC_VERSION = '1.1.20261116130051';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (708 total)
@@ -9365,10 +9365,13 @@
   /**
    * Checks if the user can physically access the location.
    *
-   * There are 3 scenarios where a user can be given access.
-   * Scenario 1 - If a valid member ID used, for instance from a bar code scanner, then the user may have access.
+   * A member ID, for instance from a bar code scanner, is resolved to the user key of the client.
+   * If there is no such member in the business, the access is denied.
+   * Then the user key is checked in the same way regardless of how it was specified.
+   * 
+   * There are 2 scenarios where a user can be given access.
    * Scenario 2 - If a valid uid is used and the user is a staff member, then the user may have access.
-   * Scenario 3 - If a valid uid is used and the client has a session or gym access at this location, then the user may have access.
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_location The location key.
