@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261113104852
+// OpenAPI spec version: 1.1.20261116062346
 // Build date: 2026-11-16
 // Endpoints: 690
-// Enums: 220
+// Enums: 221
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (220 total) ---
+// --- Enum types (221 total) ---
 /** Possible states of the visit: book, attended, cancelled, etc. */
 export var WlVisitVisitSid;
 (function (WlVisitVisitSid) {
@@ -5328,6 +5328,16 @@ export var RsAppointmentEditConflictSid;
     /** Do not create conflicted event */
     RsAppointmentEditConflictSid[RsAppointmentEditConflictSid["SKIP"] = 2] = "SKIP";
 })(RsAppointmentEditConflictSid || (RsAppointmentEditConflictSid = {}));
+/** Different types of range to apply rescheduling. Important for recurring appointments that */
+export var WlAppointmentEditEditRangeSid;
+(function (WlAppointmentEditEditRangeSid) {
+    /** Change all appointment from current one until the end of the recurring appointments */
+    WlAppointmentEditEditRangeSid[WlAppointmentEditEditRangeSid["FORWARD"] = 2] = "FORWARD";
+    /** Change only one appointment */
+    WlAppointmentEditEditRangeSid[WlAppointmentEditEditRangeSid["ONCE"] = 1] = "ONCE";
+    /** Change all appointments withing the given date range */
+    WlAppointmentEditEditRangeSid[WlAppointmentEditEditRangeSid["RANGE"] = 3] = "RANGE";
+})(WlAppointmentEditEditRangeSid || (WlAppointmentEditEditRangeSid = {}));
 /** A list of service price types. */
 export var RsServicePriceSid;
 (function (RsServicePriceSid) {

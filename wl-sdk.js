@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261113104852
+ * Spec version: 1.1.20261116062346
  * Build date:   2026-11-16
  * Endpoints:    690
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261113104852';
+  WlClient.SPEC_VERSION = '1.1.20261116062346';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (690 total)
@@ -10943,8 +10943,12 @@
    * @param {?Object} [params.a_repeat] Data of appointment repeat.
    * @param {Object[]} params.a_resource List of assets.
    * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {number[]} params.a_week New weekdays for a weekly forward reschedule, constants of {@link WlClient.ADateWeekSid}.
+   * @param {string} params.dl_edit_from First local date of the bounded reschedule range, in MySQL format.
+   * @param {string} params.dl_edit_to Last local date of the bounded reschedule range, in MySQL format.
    * @param {string} params.dt_date Date/time of appointment. In location timezone.
    * @param {number} params.i_duration Appointment duration.
+   * @param {number} params.id_edit_range Scope of a staff reschedule of a recurring appointment. See {@link WlClient.WlAppointmentEditEditRangeSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_appointment Appointment key. Empty for a new appointment.
    * @param {string} params.k_location Location to show available appointment booking schedule.
@@ -10952,7 +10956,7 @@
    * @param {string} params.k_service Service key. Empty for asset booking.
    * @param {string} params.k_staff Staff member key.
    * @param {string} params.uid The user key.
-   * @param {string} params.uid_staff Staff member user ID.
+   * @param {string} params.uid_staff Staff member user key.
    * @returns {Promise<Object>} Response data.
    *  `a_conflict` {Object[]} List of appointment booking conflicts.
    *  `k_location` {string} Location to show available appointment booking schedule.
@@ -10976,8 +10980,12 @@
    * @param {?Object} [params.a_repeat] Data of appointment repeat.
    * @param {Object[]} params.a_resource List of assets.
    * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {number[]} params.a_week New weekdays for a weekly forward reschedule, constants of {@link WlClient.ADateWeekSid}.
+   * @param {string} params.dl_edit_from First local date of the bounded reschedule range, in MySQL format.
+   * @param {string} params.dl_edit_to Last local date of the bounded reschedule range, in MySQL format.
    * @param {string} params.dt_date Date/time of appointment. In location timezone.
    * @param {number} params.i_duration Appointment duration.
+   * @param {number} params.id_edit_range Scope of a staff reschedule of a recurring appointment. See {@link WlClient.WlAppointmentEditEditRangeSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_appointment Appointment key. Empty for a new appointment.
    * @param {string} params.k_location Location to show available appointment booking schedule.
@@ -10985,7 +10993,7 @@
    * @param {string} params.k_service Service key. Empty for asset booking.
    * @param {string} params.k_staff Staff member key.
    * @param {string} params.uid The user key.
-   * @param {string} params.uid_staff Staff member user ID.
+   * @param {string} params.uid_staff Staff member user key.
    * @returns {Promise<Object>} Response data.
    *  `a_conflict` {Object[]} List of appointment booking conflicts.
    *  `k_location` {string} Location to show available appointment booking schedule.
@@ -14878,7 +14886,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (238 total)
+  // Enum constants (239 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -20973,6 +20981,20 @@
     IGNORE: 1,
     /** Do not create conflicted event */
     SKIP: 2,
+  });
+
+  /**
+   * Different types of range to apply rescheduling. Important for recurring appointments that
+   *
+   * @enum {number}
+   */
+  WlClient.WlAppointmentEditEditRangeSid = Object.freeze({
+    /** Change all appointment from current one until the end of the recurring appointments */
+    FORWARD: 2,
+    /** Change only one appointment */
+    ONCE: 1,
+    /** Change all appointments withing the given date range */
+    RANGE: 3,
   });
 
   /**

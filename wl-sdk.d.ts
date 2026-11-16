@@ -5138,6 +5138,15 @@ export declare enum RsAppointmentEditConflictSid {
     /** Do not create conflicted event */
     SKIP = 2
 }
+/** Different types of range to apply rescheduling. Important for recurring appointments that */
+export declare enum WlAppointmentEditEditRangeSid {
+    /** Change all appointment from current one until the end of the recurring appointments */
+    FORWARD = 2,
+    /** Change only one appointment */
+    ONCE = 1,
+    /** Change all appointments withing the given date range */
+    RANGE = 3
+}
 /** A list of service price types. */
 export declare enum RsServicePriceSid {
     /** Fixed price */
@@ -24683,6 +24692,12 @@ export interface WlAppointmentBookFinishFinishPostParams {
             /** The asset. */
             k_resource: string;
         };
+        /** New weekdays for a weekly `FORWARD` reschedule, constants of {@link ADateWeekSid}. */
+        a_week?: Array<number>;
+        /** The start of the date range of a recurring reschedule, in MySQL format in the location's time zone. */
+        dl_edit_from?: string;
+        /** The end of the date range of a recurring reschedule, in MySQL format in the location's time zone. */
+        dl_edit_to?: string;
         /** The date/time for the booking in MySQL format in the location's time zone. */
         dt_date: string;
         /** The duration of asset booking in minutes. Specify this for separate asset bookings only. */
@@ -24691,6 +24706,8 @@ export interface WlAppointmentBookFinishFinishPostParams {
         i_index?: number;
         /** List of class tab objects. @see WlClassesTabTabSid */
         id_class_tab?: WlClassesTabTabSid;
+        /** Different types of range to apply rescheduling. Important for recurring appointments that @see WlAppointmentEditEditRangeSid */
+        id_edit_range?: WlAppointmentEditEditRangeSid;
         /** String identifiers for gender. @see AGenderSid */
         id_gender_staff?: AGenderSid;
         /** If `true`, appointment waits unpaid. */
@@ -24886,10 +24903,18 @@ export interface WlAppointmentBookConflictConflict56Params {
     }>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
+    /** New weekdays for a weekly forward reschedule, constants of {@link ADateWeekSid}. */
+    a_week: Array<ADateWeekSid>;
+    /** First local date of the bounded reschedule range, in MySQL format. */
+    dl_edit_from: string;
+    /** Last local date of the bounded reschedule range, in MySQL format. */
+    dl_edit_to: string;
     /** Date/time of appointment. In location timezone. */
     dt_date: string;
     /** Appointment duration. */
     i_duration: number;
+    /** Scope of a staff reschedule of a recurring appointment. @see WlAppointmentEditEditRangeSid */
+    id_edit_range: WlAppointmentEditEditRangeSid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
     is_walk_in: boolean;
     /** Appointment key. Empty for a new appointment. */
@@ -24904,7 +24929,7 @@ export interface WlAppointmentBookConflictConflict56Params {
     k_staff: string;
     /** The user key. */
     uid: string;
-    /** Staff member user ID. */
+    /** Staff member user key. */
     uid_staff: string;
     /** Data of appointment repeat. */
     a_repeat?: {
@@ -24963,10 +24988,18 @@ export interface WlAppointmentBookConflictConflictParams {
     }>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
+    /** New weekdays for a weekly forward reschedule, constants of {@link ADateWeekSid}. */
+    a_week: Array<ADateWeekSid>;
+    /** First local date of the bounded reschedule range, in MySQL format. */
+    dl_edit_from: string;
+    /** Last local date of the bounded reschedule range, in MySQL format. */
+    dl_edit_to: string;
     /** Date/time of appointment. In location timezone. */
     dt_date: string;
     /** Appointment duration. */
     i_duration: number;
+    /** Scope of a staff reschedule of a recurring appointment. @see WlAppointmentEditEditRangeSid */
+    id_edit_range: WlAppointmentEditEditRangeSid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
     is_walk_in: boolean;
     /** Appointment key. Empty for a new appointment. */
@@ -24981,7 +25014,7 @@ export interface WlAppointmentBookConflictConflictParams {
     k_staff: string;
     /** The user key. */
     uid: string;
-    /** Staff member user ID. */
+    /** Staff member user key. */
     uid_staff: string;
     /** Data of appointment repeat. */
     a_repeat?: {
