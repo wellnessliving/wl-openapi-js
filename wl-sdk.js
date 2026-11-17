@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261117130440
+ * Spec version: 1.1.20261117144654
  * Build date:   2026-11-17
  * Endpoints:    709
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261117130440';
+  WlClient.SPEC_VERSION = '1.1.20261117144654';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (709 total)
@@ -1392,7 +1392,7 @@
    *  `k_currency` {string} Key of the currency of all amounts of the answer.
    *  `m_total` {string} Total paid for the tickets of the session, net of refunds. Decimal string, in...
    *  `text_title` {string} Name of the event, with no date in it.
-   *  `url_booking` {string} Link to book the session directly. Empty: the link is not provided yet.
+   *  `url_booking` {string} Link to book the event of the session directly. Empty: the event is not shown...
    */
   WlClient.prototype.wlTicketTicketList = function(params)
   {
