@@ -7530,7 +7530,7 @@ export interface WlTicketTicketListResponse {
     m_total: string;
     /** Name of the event, with no date in it. */
     text_title: string;
-    /** Link to book the session directly. Empty: the link is not provided yet. */
+    /** Link to book the event of the session directly. Empty: the event is not shown on any tab. */
     url_booking: string;
 }
 export type WlTicketTicketScanParams = Record<string, unknown>;
