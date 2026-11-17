@@ -1,25 +1,25 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261116133003
-// Build date: 2026-11-16
-// Endpoints: 690
-// Enums: 221
+// OpenAPI spec version: 1.1.20261116210921
+// Build date: 2026-11-17
+// Endpoints: 706
+// Enums: 225
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsPrivilegeRoleSid = exports.WlVideoCatalogFilterSortFilterSortSid = exports.CoreSidSortOrderSid = exports.WlVideoVideoSourceSid = exports.WlVideoVideoEmbedSourceSid = exports.WlClassesTabTabSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.CoreSidYesNoSid = exports.RsScheduleTimeSid = exports.ADateWeekSid = exports.WlEventDenyReasonSid = exports.AGenderSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlModeModeSid = exports.RsProgramTypeSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsProgramSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.AFlagSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.CoreAmazonRegionAmazonRegionSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlTaskTaskStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlApiError = void 0;
-exports.WlCatalogPurchaseOptionViewSid = exports.WlPromotionGuestPassGuestPassResetTypeSid = exports.WlCouponEditDurationTypeSid = exports.WlCouponEditActivationSid = exports.WlCatalogTermsTermsActionSid = exports.WlVisitKioskScanResultSid = exports.WlVisitVisitDenyReasonSid = exports.WlVisitNoteSidNoteSid = exports.WlVirtualVirtualProviderSid = exports.RsAppointmentPaySid = exports.RsRepeatEndSid = exports.RsProgramCategorySid = exports.WlPromotionEditLimitCycleSid = exports.ASocialSid = exports.RsSaleSid = exports.WlBusinessPolicyChargeSid = exports.WlBusinessPolicyBlameSid = exports.RsBusinessDesignLogoStyleSid = exports.RsBusinessDesignLogoPositionSid = exports.RsPageFrontendHeaderLayoutSid = exports.CoreGoogleCaptchaCaptchaResponseSid = exports.CoreDriveDriveTypeSid = exports.CorePassportPasskeyPasskeyCredentialStatusEnum = exports.CorePassportPasskeyPasskeyDeviceTypeEnum = exports.ThothPayProcessorStripeComPaymentIntentStatusSid = exports.RsPayActorSid = exports.RsPayOwnerSid = exports.ThothPayProcessorPayProcessorSid = exports.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = exports.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = exports.ThothWlPayCordovaCordovaCcrDeviceSid = exports.ThothPayProcessorTerminalTerminalTypeSid = exports.ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = exports.ThothPayProcessorTerminalTerminalStatusSid = exports.ThothPayProcessorStripeComTerminalStripeReaderModelSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.RsReviewStatusSid = exports.RsPayMethodSid = exports.RsProjectSid = exports.RsHomeTourSid = exports.RsSkinSid = exports.WlAnnouncementSortFieldSid = exports.WlAnnouncementAnnouncementStatusEnum = exports.WlBusinessFranchiseTravelTravelModeSid = exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = exports.RsPlaceSid = exports.RsCurrencySid = exports.RsPurchaseItemSid = void 0;
-exports.WlReceptionApplicationMemberInfoColorSid = exports.WlReceptionDesignCheckInSoundSid = exports.WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = exports.RsRewardScoreSid = exports.WlResourceImageImageIconSid = exports.WlResourceLayoutShapeLayoutShapeSid = exports.WlQuizResponseSourceSid = exports.RsReportCategorySid = exports.WlPrivilegePrivilegeSid = exports.RsStaffPaySid = exports.WlIntegrationAutymateAutymateAccessModeSid = exports.WlIntegrationAutymateAutymateStatusSid = exports.WlBusinessFranchiseLocationBusinessFranchiseLocationSid = exports.WlVideoWatchWatchSourceSid = exports.WlClassesRequirePaySid = exports.WlBookProcessProcessSpaSid = exports.WlScheduleDesignWeekDaySid = exports.WlScheduleDesignOptionSid = exports.WlScheduleDesignCellSid = exports.WlScheduleDesignIntervalSid = exports.WlScheduleClassViewDenyReasonSid = exports.WlResourceResourceCategoryEnum = exports.WlProfileAttachAttachPreviewSid = exports.RsProfileNoteSid = exports.WlLocationFlagFlagSourceEnum = exports.RsLoginNoteFlagSid = exports.RsLoginNoteAccessSid = exports.RsLoginActivityTypeSid = exports.WlDesignIconSid = exports.WlProfileRegisterSourceSid = exports.RsFamilyRelationSid = exports.WlFieldFieldLevelEnum = exports.RsMailSid = exports.RsCommissionTypeSid = exports.RsActivationSid = exports.WlServiceBookableSid = exports.WlLoginTypeClientTypeSid = exports.WlPromotionPayPromotionPayHoldSid = exports.WlVisitPassProspectSid = exports.WlProfileSensorSensorTypesSid = exports.CoreQuizResponseResponseStatusSid = exports.WlMemberProgressFieldTypeSid = exports.WlMemberProgressFieldMeasurementSid = exports.WlMemberProgressFieldProgressFieldSid = exports.RsServiceSid = exports.WlLeadStageLeadStageSystemSid = exports.WlLeadStageLeadStageTypeSid = exports.WlLeadStageLeadStageShapeSid = exports.WlCatalogQuickPurchaseTypeSid = exports.WlShopCategoryShopCategorySortSid = void 0;
-exports.WlShopProductPurchaseRestrictionSid = exports.RsTaxSid = exports.RsServicePriceSid = exports.WlAppointmentEditEditRangeSid = exports.RsAppointmentEditConflictSid = exports.WlLoginLoginRoleSid = exports.RsServiceRequireSid = exports.WlServiceServiceBookFlowSid = exports.WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = exports.WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = exports.WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = exports.WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.WlBusinessAccountSubscriptionApiApiSubscriptionSid = exports.WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = exports.WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = exports.WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = exports.WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid = exports.WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = exports.WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = exports.WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = exports.WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = exports.WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = exports.WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = exports.WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid = exports.WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid = exports.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = exports.WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = exports.WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = exports.WlBusinessAccountSubscriptionSmsSmsSubscriptionSid = exports.WlBusinessCustomTermsClientTermOptionSid = exports.WlBusinessCustomTermsCustomTermSid = exports.RsPayAccountChargeSid = exports.RsPayBankAchTypeSid = exports.RsPayBankAchHolderSid = exports.WlSocialShareShareObjectSid = exports.WlReviewReviewListReviewOrderSid = exports.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = exports.WlWidgetAnalyticsWidgetAnalyticsEventSid = exports.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = exports.RsRewardActionCategorySid = exports.WlAiAgentPhoneCallOutcomeEnum = exports.WlCollectorDebtStatusSid = exports.RsFacilitySid = exports.RsAgeSid = exports.WlCouponTypeSid = exports.WlUserTrackingFlowSid = exports.WlReceptionApplicationMemberInfoIconSid = void 0;
-exports.CorePassportNamespace = exports.CorePassportUserNamespace = exports.CorePassportUserEmailNamespace = exports.CorePassportEnterNamespace = exports.CorePassportEnterJwtNamespace = exports.CorePassportChangePasswordNamespace = exports.CorePassportPasskeyNamespace = exports.CorePassportLoginNamespace = exports.CorePassportLoginSignOutNamespace = exports.CorePassportLoginRegisterNamespace = exports.CorePassportLoginEnterNamespace = exports.CorePassportLoginEnterQuickNamespace = exports.CoreTestingNamespace = exports.CoreTestingAutomationNamespace = exports.CoreGoogleNamespace = exports.CoreGoogleCaptchaNamespace = exports.CoreCaptchaNamespace = exports.CoreDebugNamespace = exports.CoreGeoNamespace = exports.CoreGeoRegionNamespace = exports.CorePushNamespace = exports.CoreTimingNamespace = exports.CoreSidNamespace = exports.CoreWebSocketNamespace = exports.CoreRequestNamespace = exports.CoreRequestTokenNamespace = exports.CoreRequestApiNamespace = exports.CoreRequestApiApplicationNamespace = exports.CoreRequestApiApplicationCredentialNamespace = exports.WlLoginPromotionGuestPassInviteInviteStatusEnum = exports.RsPayBankAchSecSid = exports.RsPayBankSid = exports.RsPayModeSid = exports.WlCardCardSystemSid = exports.WlSkinApplicationUpgradeAppUpdateTypeEnum = exports.WlSkinApplicationResourceApplicationCategorySid = exports.WlReceptionRosterDirectSid = exports.WlPassportLoginEnterOtpDeliveryStrategyEnum = exports.WlPageBackendFeatureFeatureSid = exports.WlDiscountDiscountRuleSid = exports.WlBookProcessProcessCheckSid = exports.RsClassModifyModeSid = exports.RsClassModifyActionSid = exports.WlShareShareSid = exports.WlSearchSearchOperationSid = exports.WlMemberGroupShapeSid = exports.WlLeadConversionLeadConversionTypeSid = exports.WlLoginPromotionConvertConvertWhenSid = exports.WlPromotionConvertPromotionConvertSid = exports.WlLoginAttendanceAddOptionSid = void 0;
-exports.WlBusinessRewardNamespace = exports.WlBusinessRewardConfigNamespace = exports.WlBusinessFranchiseNamespace = exports.WlBusinessFranchiseLocationNamespace = exports.WlBusinessCustomNamespace = exports.WlBusinessCustomTermsNamespace = exports.WlBusinessSelectNamespace = exports.WlBusinessPhoneNamespace = exports.WlBusinessClaimNamespace = exports.WlBusinessAuthorizePartnerNamespace = exports.WlBusinessAmazonRegionNamespace = exports.WlBusinessTypeNamespace = exports.WlBusinessSearchNamespace = exports.WlBusinessWaiverNamespace = exports.WlBusinessAuthorizeSupportNamespace = exports.WlBusinessAuthorizeSupportResponseNamespace = exports.WlBusinessAuthorizeSupportRequestNamespace = exports.WlBusinessPartnerNamespace = exports.WlBusinessLeadNamespace = exports.WlBusinessConfigNamespace = exports.WlBusinessConfigOptionNamespace = exports.WlBusinessServiceNamespace = exports.WlBusinessSmsNamespace = exports.WlBusinessSmsChatNamespace = exports.WlBusinessSmsChatDialogNamespace = exports.WlBusinessSmsUnreadNamespace = exports.WlBusinessSmsReadsNamespace = exports.WlBusinessSmsPinNamespace = exports.WlBusinessDesignNamespace = exports.WlBusinessAccountNamespace = exports.WlBusinessAccountSubscriptionNamespace = exports.WlBusinessAccountSubscriptionAchieveNamespace = exports.WlBusinessAccountSubscriptionCollectionsNamespace = exports.SocialNamespace = exports.SocialGoogleNamespace = exports.SocialGooglePlusNamespace = exports.SocialAppleNamespace = exports.SocialAppleLoginNamespace = exports.SocialFacebookNamespace = exports.SocialFacebookLoginNamespace = exports.SocialMicrosoftNamespace = exports.CoreNamespace = exports.CoreDriveNamespace = exports.CoreDriveImageUploadNamespace = exports.CoreAINamespace = exports.CoreAILogTriageNamespace = exports.CoreSpaNamespace = exports.CoreSpaApplicationNamespace = exports.CoreLocaleNamespace = exports.CoreLocaleLanguageNamespace = void 0;
-exports.WlProfilePurchaseNamespace = exports.WlEventNamespace = exports.WlEventBookNamespace = exports.WlEventBookEventListNamespace = exports.WlEventBookEventViewNamespace = exports.WlMailNamespace = exports.WlMailPatternNamespace = exports.WlMailPatternAutomatedMarketingNamespace = exports.WlMailPatternAutomatedMarketingCustomTemplateNamespace = exports.WlLoginNamespace = exports.WlLoginProductNamespace = exports.WlLoginCouponNamespace = exports.WlLoginAgreeNamespace = exports.WlLoginPermissionNamespace = exports.WlLoginPermissionAccessNamespace = exports.WlLoginCodeNamespace = exports.WlLoginRankNamespace = exports.WlLoginMailNamespace = exports.WlLoginMemberNamespace = exports.WlLoginMemberDynamicIdNamespace = exports.WlLoginTypeNamespace = exports.WlLoginSearchNamespace = exports.WlLoginSearchStaffAppNamespace = exports.WlLoginPromotionNamespace = exports.WlLoginPromotionConvertNamespace = exports.WlLoginPromotionGuestPassNamespace = exports.WlLoginPromotionGuestPassClaimNamespace = exports.WlLoginPromotionGuestPassInviteNamespace = exports.WlLoginPromotionGuestPassApplyNamespace = exports.WlLoginAddNamespace = exports.WlLoginAttendanceNamespace = exports.WlLoginAttendanceStaffAppNamespace = exports.WlLoginAttendanceStaffAppVirtualNamespace = exports.WlLoginAttendanceAddNamespace = exports.WlLeadNamespace = exports.WlLeadSourceNamespace = exports.WlLeadStageNamespace = exports.WlVisitNamespace = exports.WlVisitNoteNamespace = exports.WlVisitNoteEditNamespace = exports.WlVisitBillingNamespace = exports.WlVisitBillingCodeNamespace = exports.WlVisitKioskNamespace = exports.WlVisitPayNamespace = exports.WlVisitBlameNamespace = exports.WlPromotionNamespace = exports.WlPromotionIndexNamespace = exports.WlBusinessNamespace = exports.WlBusinessUserNamespace = exports.WlBusinessUserSubscribeNamespace = void 0;
-exports.WlStaffLocationNamespace = exports.WlStaffLoadNamespace = exports.WlVideoNamespace = exports.WlVideoTagNamespace = exports.WlVideoCategoryNamespace = exports.WlVideoLevelNamespace = exports.WlVideoWatchNamespace = exports.WlScheduleNamespace = exports.WlScheduleScheduleListNamespace = exports.WlScheduleScheduleListStaffPeriodNamespace = exports.WlScheduleScheduleListStaffAppNamespace = exports.WlScheduleScheduleListStaffAppResourceNamespace = exports.WlScheduleScheduleListStaffAppLocationNamespace = exports.WlScheduleScheduleListStaffAppClassesNamespace = exports.WlScheduleScheduleListStaffAppServiceNamespace = exports.WlScheduleScheduleListStaffAppFilterNamespace = exports.WlScheduleScheduleListStaffAppFilterEditNamespace = exports.WlScheduleScheduleListStaffAppStaffNamespace = exports.WlScheduleScheduleDesignNamespace = exports.WlSchedulePageNamespace = exports.WlScheduleTabNamespace = exports.WlScheduleClassListNamespace = exports.WlScheduleClassViewNamespace = exports.WlScheduleWorkingTimeNamespace = exports.WlTicketNamespace = exports.WlTicketPurchaseNamespace = exports.WlProfileNamespace = exports.WlProfileFormNamespace = exports.WlProfileFormResponseNamespace = exports.WlProfileAccountNamespace = exports.WlProfileAccountSelectNamespace = exports.WlProfileAttachNamespace = exports.WlProfileWaiverNamespace = exports.WlProfileVisitNamespace = exports.WlProfileRankNamespace = exports.WlProfilePurchaseListNamespace = exports.WlProfileAlertNamespace = exports.WlProfileActivityNamespace = exports.WlProfileEditNamespace = exports.WlProfileEditEmailNamespace = exports.WlProfileAttendanceNamespace = exports.WlProfileAttendanceScheduleNamespace = exports.WlProfileAttendanceScheduleFrontendNamespace = exports.WlProfileTimezoneNamespace = exports.WlProfileTermNamespace = exports.WlProfileContractNamespace = exports.WlProfileContractContractAllNamespace = exports.WlProfileSettingNamespace = exports.WlProfileOverviewNamespace = exports.WlProfileOverviewQuickContactNamespace = void 0;
-exports.WlHardwareStripeComNamespace = exports.WlCurrencyNamespace = exports.WlDriveNamespace = exports.WlReviewNamespace = exports.WlReviewReviewListNamespace = exports.WlFeedbackNamespace = exports.WlHolidayNamespace = exports.WlVirtualNamespace = exports.WlVirtualMeetingNamespace = exports.WlVirtualMeetingZoomNamespace = exports.WlTaxNamespace = exports.WlZoomNamespace = exports.WlSmsNamespace = exports.WlSmsPhoneNamespace = exports.WlCollectorNamespace = exports.WlCollectorDebtStatusNamespace = exports.WlLocationNamespace = exports.WlLocationWorkTimeNamespace = exports.WlLocationFlagNamespace = exports.WlLocationFacilityNamespace = exports.WlLocationLocationRateNamespace = exports.WlLocationViewNamespace = exports.WlRankNamespace = exports.WlSkinNamespace = exports.WlSkinWidgetNamespace = exports.WlSkinApplicationNamespace = exports.WlSkinApplicationResourceNamespace = exports.WlSkinApplicationConnectNamespace = exports.WlFitbuilderNamespace = exports.WlFitbuilderSubscriptionNamespace = exports.WlAnnouncementNamespace = exports.WlSessionNamespace = exports.WlAlertNamespace = exports.WlQuizNamespace = exports.WlQuizResponseNamespace = exports.WlQuizLoginNamespace = exports.WlTagNamespace = exports.WlReportNamespace = exports.WlReportFavoriteNamespace = exports.WlReportCustomizationNamespace = exports.WlReportDashboardNamespace = exports.WlReportSaveNamespace = exports.WlReportGeneratorNamespace = exports.WlStaffNamespace = exports.WlStaffScheduleNamespace = exports.WlStaffScheduleAddNamespace = exports.WlStaffPrivilegeNamespace = exports.WlStaffPayRateNamespace = exports.WlStaffStaffViewNamespace = exports.WlStaffStaffListNamespace = void 0;
-exports.WlAppointmentBookQuestionNamespace = exports.WlAppointmentBookPaymentNamespace = exports.WlAppointmentBookPurchaseNamespace = exports.WlAppointmentBookAssetNamespace = exports.WlAppointmentBookAssetServiceNamespace = exports.WlAppointmentBookConflictNamespace = exports.WlAppointmentBookFinishNamespace = exports.WlAppointmentBookStaffNamespace = exports.WlAppointmentBookScheduleNamespace = exports.WlAppointmentBookServiceNamespace = exports.WlAppointmentRecentNamespace = exports.WlAppointmentMarkNamespace = exports.WlAppointmentRequestNamespace = exports.WlAppointmentCancelNamespace = exports.WlAppointmentWaitListNamespace = exports.WlAppointmentInfoNamespace = exports.WlAppointmentRepeatNamespace = exports.WlAppointmentViewNamespace = exports.WlAppointmentEditNamespace = exports.WlBillingNamespace = exports.WlBillingBulkNamespace = exports.WlBillingCodeNamespace = exports.WlPurchaseNamespace = exports.WlPurchaseShareNamespace = exports.WlPurchaseMailNamespace = exports.WlPurchaseReceiptNamespace = exports.WlPurchaseItemNamespace = exports.WlPayNamespace = exports.WlPayTransactionNamespace = exports.WlPayTransactionReportNamespace = exports.WlPayProcessorNamespace = exports.WlPayProcessorStripeComNamespace = exports.WlPayProcessorNuveiNamespace = exports.WlPayProcessorCyberSourceNamespace = exports.WlPayMethodNamespace = exports.WlPayOwnerNamespace = exports.WlPayAccountNamespace = exports.WlPayAccountChargeNamespace = exports.WlPayBankNamespace = exports.WlPayBankAchNamespace = exports.WlPayBankAchAddNamespace = exports.WlPayBankAchWidgetNamespace = exports.WlPayBankCardNamespace = exports.WlPayBankCardWidgetNamespace = exports.WlPayBankCardAddNamespace = exports.WlPayAddressNamespace = exports.WlPayAddressWidgetNamespace = exports.WlPayFormNamespace = exports.WlPayFormSurchargeNamespace = exports.WlHardwareNamespace = void 0;
-exports.WlBookProcessRelationNamespace = exports.WlBookProcessGuestNamespace = exports.WlBookProcessQuizNamespace = exports.WlBookProcessStoreNamespace = exports.WlBookProcessPaymentNamespace = exports.WlBookProcessInfoNamespace = exports.WlClassesNamespace = exports.WlClassesPeriodNamespace = exports.WlClassesPeriodModifyNamespace = exports.WlClassesPromotionNamespace = exports.WlClassesClassViewNamespace = exports.WlClassesInfoNamespace = exports.WlClassesClassListNamespace = exports.WlMemberNamespace = exports.WlMemberProgressNamespace = exports.WlMemberProgressGoalNamespace = exports.WlMemberProgressGoalEditNamespace = exports.WlMemberProgressFieldNamespace = exports.WlMemberProgressFieldEditNamespace = exports.WlMemberProgressLogNamespace = exports.WlMemberProgressLogCompareNamespace = exports.WlMemberProgressLogImageNamespace = exports.WlMemberProgressLogEditNamespace = exports.WlMemberGroupNamespace = exports.WlMemberGroupEditNamespace = exports.WlMemberGroupGroupListNamespace = exports.WlMemberGroupUserNamespace = exports.WlMemberInfoNamespace = exports.WlMemberPurchaseNamespace = exports.WlCatalogNamespace = exports.WlCatalogViewNamespace = exports.WlCatalogViewImageNamespace = exports.WlCatalogStaffAppNamespace = exports.WlCatalogStaffAppCatalogCouponNamespace = exports.WlCatalogStaffAppCatalogCartEditNamespace = exports.WlCatalogStaffAppCatalogListNamespace = exports.WlCatalogStaffAppCatalogViewNamespace = exports.WlCatalogStaffAppCatalogCartNamespace = exports.WlCatalogStaffAppCatalogCommissionNamespace = exports.WlCatalogQuizNamespace = exports.WlCatalogCartNamespace = exports.WlCatalogTermsNamespace = exports.WlCatalogCatalogListNamespace = exports.WlCatalogPaymentNamespace = exports.WlAppointmentNamespace = exports.WlAppointmentBookNamespace = exports.WlAppointmentBookProductNamespace = exports.WlAppointmentBookQuizNamespace = exports.WlAppointmentBookPromoteNamespace = exports.WlAppointmentBookLocationNamespace = void 0;
-exports.WlAiAgentPhoneNamespace = exports.WlServiceNamespace = exports.WlServiceServiceListNamespace = exports.WlServiceAgeRestrictionNamespace = exports.WlSearchNamespace = exports.WlSearchTagNamespace = exports.WlCouponNamespace = exports.WlCouponCouponListNamespace = exports.WlFamilyNamespace = exports.WlFamilyPayNamespace = exports.WlFamilyRelationNamespace = exports.WlDiscountNamespace = exports.WlDiscountCodeNamespace = exports.WlDiscountCodeEditNamespace = exports.WlReceptionNamespace = exports.WlReceptionApplicationNamespace = exports.WlReceptionRosterNamespace = exports.WlReceptionRosterDesignNamespace = exports.WlReceptionDesignNamespace = exports.WlUserNamespace = exports.WlUserReferrerNamespace = exports.WlUserInfoNamespace = exports.WlResourceNamespace = exports.WlResourceScheduleNamespace = exports.WlResourceScheduleAddNamespace = exports.WlResourceResourceListNamespace = exports.WlResourceTypeNamespace = exports.WlResourceChangeNamespace = exports.WlResourceLayoutNamespace = exports.WlPassportNamespace = exports.WlPassportLoginNamespace = exports.WlPassportLoginRegisterNamespace = exports.WlPassportLoginEnterNamespace = exports.WlNotificationNamespace = exports.WlNotificationOtpNamespace = exports.WlNotificationSendNamespace = exports.WlTuitionNamespace = exports.WlTuitionEnrollmentNamespace = exports.WlIntegrationNamespace = exports.WlIntegrationDragonFlyNamespace = exports.WlIntegrationSamlNamespace = exports.WlIntegrationAutymateNamespace = exports.WlIntegrationCurvesNamespace = exports.WlBookNamespace = exports.WlBookPromoteNamespace = exports.WlBookCancelNamespace = exports.WlBookProcessNamespace = exports.WlBookProcessResourceNamespace = exports.WlBookProcessFrequencyNamespace = exports.WlBookProcessPurchaseNamespace = void 0;
-exports.ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace = exports.ThothLayoutBeNamespace = exports.ThothLayoutBeFooterNamespace = exports.ThothExplorerSearchNamespace = exports.ThothExplorerSearchClassSessionNamespace = exports.WlNamespace = exports.WlPageNamespace = exports.WlPageBackendNamespace = exports.WlPageBackendFeatureNamespace = exports.WlDoorAccessNamespace = exports.WlDoorAccessBrivoNamespace = exports.WlDoorAccessBrivoInvitationNamespace = exports.WlSocialNamespace = exports.WlSocialShareNamespace = exports.WlGoogleNamespace = exports.WlGoogleLoginNamespace = exports.WlFacebookNamespace = exports.WlFacebookLoginNamespace = exports.WlMicrosoftNamespace = exports.WlMicrosoftLoginNamespace = exports.WlGymNamespace = exports.WlGymVisitNamespace = exports.WlInsuranceNamespace = exports.WlInsuranceEnrollmentNamespace = exports.WlInsuranceEnrollmentFieldNamespace = exports.WlInsuranceCatalogNamespace = exports.WlWidgetNamespace = exports.WlWidgetAnalyticsNamespace = exports.WlTaskNamespace = exports.WlTaskEditNamespace = exports.WlCalendarNamespace = exports.WlCalendarCordovaNamespace = exports.WlShopNamespace = exports.WlShopProductNamespace = exports.WlShopProductOptionNamespace = exports.WlShopProductOptionInventoryNamespace = exports.WlShopProductOptionInventoryCountNamespace = exports.WlShopCategoryNamespace = exports.WlShopCategoryStaffAppNamespace = exports.WlRewardNamespace = exports.WlRewardScoreNamespace = exports.WlRewardScoreCurrentNamespace = exports.WlRewardBoardNamespace = exports.WlRewardBoardBoardListNamespace = exports.WlRewardPrizeNamespace = exports.WlRewardActionNamespace = exports.WlRewardActionCategoryListNamespace = exports.WlAiAgentNamespace = exports.WlAiAgentLinkNamespace = exports.WlAiAgentAlertNamespace = void 0;
-exports.WlClient = exports.ThothNamespace = exports.ThothReportCoreNamespace = exports.ThothReportCoreQueryEngineNamespace = exports.ThothReportCoreQueryEngineReportNamespace = exports.ThothReportCoreQueryEngineReportCustomizationNamespace = exports.ThothPayProcessorNamespace = exports.ThothPayProcessorNuveiNamespace = exports.ThothPayProcessorNuveiTerminalNamespace = void 0;
+exports.WlVideoVideoSourceSid = exports.WlVideoVideoEmbedSourceSid = exports.WlClassesTabTabSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.CoreSidYesNoSid = exports.RsScheduleTimeSid = exports.ADateWeekSid = exports.WlEventDenyReasonSid = exports.RsMailSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.WlBusinessAccountWebsiteSid = exports.WlAiAgentPhoneCallOutcomeEnum = exports.ThothWlPayPayExceptionSid = exports.RsMailCopySid = exports.RsPurchaseItemSid = exports.RsServiceSid = exports.AGenderSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlModeModeSid = exports.RsProgramTypeSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsProgramSid = exports.RsDurationTypeSid = exports.ADurationSid = exports.AFlagSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.CoreAmazonRegionAmazonRegionSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlTaskTaskStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlApiError = void 0;
+exports.WlVisitNoteSidNoteSid = exports.WlVirtualVirtualProviderSid = exports.RsAppointmentPaySid = exports.RsRepeatEndSid = exports.RsProgramCategorySid = exports.WlPromotionEditLimitCycleSid = exports.ASocialSid = exports.RsSaleSid = exports.WlBusinessPolicyChargeSid = exports.WlBusinessPolicyBlameSid = exports.RsBusinessDesignLogoStyleSid = exports.RsBusinessDesignLogoPositionSid = exports.RsPageFrontendHeaderLayoutSid = exports.CoreGoogleCaptchaCaptchaResponseSid = exports.CoreDriveDriveTypeSid = exports.CorePassportPasskeyPasskeyCredentialStatusEnum = exports.CorePassportPasskeyPasskeyDeviceTypeEnum = exports.ThothPayProcessorStripeComPaymentIntentStatusSid = exports.RsPayActorSid = exports.RsPayOwnerSid = exports.ThothPayProcessorPayProcessorSid = exports.ThothPayProcessorStripeComTerminalStripeTerminalTypeSid = exports.ThothPayProcessorNuveiTerminalNuveiTerminalTypeSid = exports.ThothWlPayCordovaCordovaCcrDeviceSid = exports.ThothPayProcessorTerminalTerminalTypeSid = exports.ThothPayProcessorDirectConnectTerminalDirectConnectReaderModelSid = exports.ThothPayProcessorTerminalTerminalStatusSid = exports.ThothPayProcessorStripeComTerminalStripeReaderModelSid = exports.ThothExplorerSearchClassSessionSearchWordClassSessionExperienceTypeEnum = exports.RsReviewStatusSid = exports.RsPayMethodSid = exports.RsProjectSid = exports.RsHomeTourSid = exports.RsSkinSid = exports.WlAnnouncementSortFieldSid = exports.WlAnnouncementAnnouncementStatusEnum = exports.WlBusinessFranchiseTravelTravelModeSid = exports.WlBusinessAccountSubscriptionMarketingSuiteMarketingSuiteSubscriptionSid = exports.WlBusinessAccountSubscriptionBaseBaseSubscriptionSid = exports.WlBusinessAccountSubscriptionAchieveAchieveSubscriptionSid = exports.RsPlaceSid = exports.RsCurrencySid = exports.WlQuizQuizFrequencySid = exports.WlQuizActivityActivitySid = exports.RsReportChartViewSid = exports.RsReportPageSid = exports.RsReportGroupSid = exports.RsPrivilegeRoleSid = exports.WlVideoCatalogFilterSortFilterSortSid = exports.CoreSidSortOrderSid = void 0;
+exports.WlResourceLayoutShapeLayoutShapeSid = exports.WlQuizResponseSourceSid = exports.RsReportCategorySid = exports.WlPrivilegePrivilegeSid = exports.RsStaffPaySid = exports.WlIntegrationAutymateAutymateAccessModeSid = exports.WlIntegrationAutymateAutymateStatusSid = exports.WlBusinessFranchiseLocationBusinessFranchiseLocationSid = exports.WlVideoWatchWatchSourceSid = exports.WlClassesRequirePaySid = exports.WlBookProcessProcessSpaSid = exports.WlScheduleDesignWeekDaySid = exports.WlScheduleDesignOptionSid = exports.WlScheduleDesignCellSid = exports.WlScheduleDesignIntervalSid = exports.WlScheduleClassViewDenyReasonSid = exports.WlResourceResourceCategoryEnum = exports.WlProfileAttachAttachPreviewSid = exports.RsProfileNoteSid = exports.WlLocationFlagFlagSourceEnum = exports.RsLoginNoteFlagSid = exports.RsLoginNoteAccessSid = exports.RsLoginActivityTypeSid = exports.WlDesignIconSid = exports.WlProfileRegisterSourceSid = exports.RsFamilyRelationSid = exports.WlFieldFieldLevelEnum = exports.RsCommissionTypeSid = exports.RsActivationSid = exports.WlServiceBookableSid = exports.WlLoginTypeClientTypeSid = exports.WlPromotionPayPromotionPayHoldSid = exports.WlVisitPassProspectSid = exports.WlProfileSensorSensorTypesSid = exports.CoreQuizResponseResponseStatusSid = exports.WlMemberProgressFieldTypeSid = exports.WlMemberProgressFieldMeasurementSid = exports.WlMemberProgressFieldProgressFieldSid = exports.WlLeadStageLeadStageSystemSid = exports.WlLeadStageLeadStageTypeSid = exports.WlLeadStageLeadStageShapeSid = exports.WlCatalogQuickPurchaseTypeSid = exports.WlShopCategoryShopCategorySortSid = exports.WlCatalogPurchaseOptionViewSid = exports.WlPromotionGuestPassGuestPassResetTypeSid = exports.WlCouponEditDurationTypeSid = exports.WlCouponEditActivationSid = exports.WlCatalogTermsTermsActionSid = exports.WlVisitKioskScanResultSid = exports.WlVisitVisitDenyReasonSid = void 0;
+exports.WlAppointmentEditEditRangeSid = exports.RsAppointmentEditConflictSid = exports.WlLoginLoginRoleSid = exports.RsServiceRequireSid = exports.WlServiceServiceBookFlowSid = exports.WlBusinessAccountSubscriptionReviewReviewSubscriptionSid = exports.WlBusinessAccountSubscriptionFitzoneFitzoneSubscriptionSid = exports.WlBusinessAccountSubscriptionZoomZoomSubscriptionSid = exports.WlBusinessAccountSubscriptionQuizQuizSubscriptionSid = exports.WlBusinessAccountSubscriptionApiApiSubscriptionSid = exports.WlBusinessAccountSubscriptionRewardRewardSubscriptionSid = exports.WlBusinessAccountSubscriptionDoorDoorSubscriptionSid = exports.WlBusinessAccountSubscriptionBusinessCoachBusinessCoachSubscriptionSid = exports.WlBusinessAccountSubscriptionPostcardPostcardSubscriptionSid = exports.WlBusinessAccountSubscriptionFitliveFitliveSubscriptionSid = exports.WlBusinessAccountSubscriptionZapierZapierSubscriptionSid = exports.WlBusinessAccountSubscriptionGoHighLevelGoHighLevelSubscriptionSid = exports.WlBusinessAccountSubscriptionFinanceFinanceSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlMailchimpSubscriptionSid = exports.WlBusinessAccountSubscriptionEmlConstantContactSubscriptionSid = exports.WlBusinessAccountSubscriptionEmailEmailSubscriptionSid = exports.WlBusinessAccountSubscriptionAssetAssetSubscriptionSid = exports.WlBusinessAccountSubscriptionBridgeAthleticBridgeAthleticSubscriptionSid = exports.WlBusinessAccountSubscriptionQuickBooksQuickBooksSubscriptionSid = exports.WlBusinessAccountSubscriptionAiAgentAiAgentSubscriptionSid = exports.WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = exports.WlBusinessAccountSubscriptionCollectionsCollectionsSubscriptionSid = exports.WlBusinessAccountSubscriptionSmsSmsSubscriptionSid = exports.WlBusinessCustomTermsClientTermOptionSid = exports.WlBusinessCustomTermsCustomTermSid = exports.RsPayAccountChargeSid = exports.RsPayBankAchTypeSid = exports.RsPayBankAchHolderSid = exports.WlSocialShareShareObjectSid = exports.WlReviewReviewListReviewOrderSid = exports.WlWidgetAnalyticsWidgetAnalyticsEventVersionSid = exports.WlWidgetAnalyticsWidgetAnalyticsEventSid = exports.WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid = exports.RsRewardActionCategorySid = exports.WlCollectorDebtStatusSid = exports.RsFacilitySid = exports.RsAgeSid = exports.WlCouponTypeSid = exports.WlUserTrackingFlowSid = exports.WlReceptionApplicationMemberInfoIconSid = exports.WlReceptionApplicationMemberInfoColorSid = exports.WlReceptionDesignCheckInSoundSid = exports.WlBusinessAccountSubscriptionFitbuilderFitbuilderSubscriptionSid = exports.RsRewardScoreSid = exports.WlResourceImageImageIconSid = void 0;
+exports.CorePassportEnterNamespace = exports.CorePassportEnterJwtNamespace = exports.CorePassportChangePasswordNamespace = exports.CorePassportPasskeyNamespace = exports.CorePassportLoginNamespace = exports.CorePassportLoginSignOutNamespace = exports.CorePassportLoginRegisterNamespace = exports.CorePassportLoginEnterNamespace = exports.CorePassportLoginEnterQuickNamespace = exports.CoreTestingNamespace = exports.CoreTestingAutomationNamespace = exports.CoreGoogleNamespace = exports.CoreGoogleCaptchaNamespace = exports.CoreCaptchaNamespace = exports.CoreDebugNamespace = exports.CoreGeoNamespace = exports.CoreGeoRegionNamespace = exports.CorePushNamespace = exports.CoreSidNamespace = exports.CoreWebSocketNamespace = exports.CoreRequestNamespace = exports.CoreRequestTokenNamespace = exports.CoreRequestApiNamespace = exports.CoreRequestApiApplicationNamespace = exports.CoreRequestApiApplicationCredentialNamespace = exports.WlLoginPromotionGuestPassInviteInviteStatusEnum = exports.RsPayBankAchSecSid = exports.RsPayBankSid = exports.RsPayModeSid = exports.WlCardCardSystemSid = exports.WlSkinApplicationUpgradeAppUpdateTypeEnum = exports.WlSkinApplicationResourceApplicationCategorySid = exports.WlReceptionRosterDirectSid = exports.WlPassportLoginEnterOtpDeliveryStrategyEnum = exports.WlPageBackendFeatureFeatureSid = exports.WlDiscountDiscountRuleSid = exports.WlBookProcessProcessCheckSid = exports.RsClassModifyModeSid = exports.RsClassModifyActionSid = exports.WlShareShareSid = exports.WlSearchSearchOperationSid = exports.WlMemberGroupShapeSid = exports.WlLeadConversionLeadConversionTypeSid = exports.WlLoginPromotionConvertConvertWhenSid = exports.WlPromotionConvertPromotionConvertSid = exports.WlLoginAttendanceAddOptionSid = exports.CoreQuizRenderModeSid = exports.WlShopProductPurchaseRestrictionSid = exports.RsTaxSid = exports.RsServicePriceSid = void 0;
+exports.WlBusinessFranchiseLocationNamespace = exports.WlBusinessCustomNamespace = exports.WlBusinessCustomTermsNamespace = exports.WlBusinessSelectNamespace = exports.WlBusinessPhoneNamespace = exports.WlBusinessClaimNamespace = exports.WlBusinessAuthorizePartnerNamespace = exports.WlBusinessAmazonRegionNamespace = exports.WlBusinessTypeNamespace = exports.WlBusinessSearchNamespace = exports.WlBusinessWaiverNamespace = exports.WlBusinessAuthorizeSupportNamespace = exports.WlBusinessAuthorizeSupportResponseNamespace = exports.WlBusinessAuthorizeSupportRequestNamespace = exports.WlBusinessPartnerNamespace = exports.WlBusinessLeadNamespace = exports.WlBusinessConfigNamespace = exports.WlBusinessConfigOptionNamespace = exports.WlBusinessServiceNamespace = exports.WlBusinessSmsNamespace = exports.WlBusinessSmsChatNamespace = exports.WlBusinessSmsChatDialogNamespace = exports.WlBusinessSmsUnreadNamespace = exports.WlBusinessSmsReadsNamespace = exports.WlBusinessSmsPinNamespace = exports.WlBusinessDesignNamespace = exports.WlBusinessAccountNamespace = exports.WlBusinessAccountSubscriptionNamespace = exports.WlBusinessAccountSubscriptionAchieveNamespace = exports.WlBusinessAccountSubscriptionCollectionsNamespace = exports.SocialNamespace = exports.SocialGoogleNamespace = exports.SocialGooglePlusNamespace = exports.SocialAppleNamespace = exports.SocialAppleLoginNamespace = exports.SocialFacebookNamespace = exports.SocialFacebookLoginNamespace = exports.SocialMicrosoftNamespace = exports.CoreNamespace = exports.CoreDriveNamespace = exports.CoreDriveImageUploadNamespace = exports.CoreAINamespace = exports.CoreAILogTriageNamespace = exports.CoreSpaNamespace = exports.CoreSpaApplicationNamespace = exports.CoreLocaleNamespace = exports.CoreLocaleLanguageNamespace = exports.CorePassportNamespace = exports.CorePassportUserNamespace = exports.CorePassportUserEmailNamespace = void 0;
+exports.WlEventBookEventViewNamespace = exports.WlMailNamespace = exports.WlMailPatternNamespace = exports.WlMailPatternAutomatedMarketingNamespace = exports.WlMailPatternAutomatedMarketingCustomTemplateNamespace = exports.WlLoginNamespace = exports.WlLoginProductNamespace = exports.WlLoginCouponNamespace = exports.WlLoginAgreeNamespace = exports.WlLoginPermissionNamespace = exports.WlLoginPermissionAccessNamespace = exports.WlLoginCodeNamespace = exports.WlLoginRankNamespace = exports.WlLoginMailNamespace = exports.WlLoginMemberNamespace = exports.WlLoginMemberDynamicIdNamespace = exports.WlLoginTypeNamespace = exports.WlLoginSearchNamespace = exports.WlLoginSearchStaffAppNamespace = exports.WlLoginPromotionNamespace = exports.WlLoginPromotionConvertNamespace = exports.WlLoginPromotionGuestPassNamespace = exports.WlLoginPromotionGuestPassClaimNamespace = exports.WlLoginPromotionGuestPassInviteNamespace = exports.WlLoginPromotionGuestPassApplyNamespace = exports.WlLoginAddNamespace = exports.WlLoginAttendanceNamespace = exports.WlLoginAttendanceStaffAppNamespace = exports.WlLoginAttendanceStaffAppVirtualNamespace = exports.WlLoginAttendanceAddNamespace = exports.WlLoginAttendanceRowNamespace = exports.WlLeadNamespace = exports.WlLeadSourceNamespace = exports.WlLeadStageNamespace = exports.WlVisitNamespace = exports.WlVisitNoteNamespace = exports.WlVisitNoteEditNamespace = exports.WlVisitBillingNamespace = exports.WlVisitBillingCodeNamespace = exports.WlVisitKioskNamespace = exports.WlVisitPayNamespace = exports.WlVisitBlameNamespace = exports.WlPromotionNamespace = exports.WlPromotionIndexNamespace = exports.WlBusinessNamespace = exports.WlBusinessUserNamespace = exports.WlBusinessUserSubscribeNamespace = exports.WlBusinessRewardNamespace = exports.WlBusinessRewardConfigNamespace = exports.WlBusinessFranchiseNamespace = void 0;
+exports.WlVideoCategoryNamespace = exports.WlVideoLevelNamespace = exports.WlVideoWatchNamespace = exports.WlScheduleNamespace = exports.WlScheduleScheduleListNamespace = exports.WlScheduleScheduleListStaffPeriodNamespace = exports.WlScheduleScheduleListStaffAppNamespace = exports.WlScheduleScheduleListStaffAppResourceNamespace = exports.WlScheduleScheduleListStaffAppLocationNamespace = exports.WlScheduleScheduleListStaffAppClassesNamespace = exports.WlScheduleScheduleListStaffAppServiceNamespace = exports.WlScheduleScheduleListStaffAppFilterNamespace = exports.WlScheduleScheduleListStaffAppFilterEditNamespace = exports.WlScheduleScheduleListStaffAppStaffNamespace = exports.WlScheduleScheduleDesignNamespace = exports.WlSchedulePageNamespace = exports.WlScheduleTabNamespace = exports.WlScheduleClassListNamespace = exports.WlScheduleClassViewNamespace = exports.WlScheduleWorkingTimeNamespace = exports.WlTicketNamespace = exports.WlTicketPurchaseNamespace = exports.WlProfileNamespace = exports.WlProfileFormNamespace = exports.WlProfileFormResponseNamespace = exports.WlProfileAccountNamespace = exports.WlProfileAccountSelectNamespace = exports.WlProfileAttachNamespace = exports.WlProfileWaiverNamespace = exports.WlProfileVisitNamespace = exports.WlProfileRankNamespace = exports.WlProfilePurchaseListNamespace = exports.WlProfileAlertNamespace = exports.WlProfileActivityNamespace = exports.WlProfileEditNamespace = exports.WlProfileEditEmailNamespace = exports.WlProfileAttendanceNamespace = exports.WlProfileAttendanceScheduleNamespace = exports.WlProfileAttendanceScheduleFrontendNamespace = exports.WlProfileTimezoneNamespace = exports.WlProfileTermNamespace = exports.WlProfileContractNamespace = exports.WlProfileContractContractAllNamespace = exports.WlProfileSettingNamespace = exports.WlProfileOverviewNamespace = exports.WlProfileOverviewQuickContactNamespace = exports.WlProfilePurchaseNamespace = exports.WlEventNamespace = exports.WlEventBookNamespace = exports.WlEventBookEventListNamespace = void 0;
+exports.WlFeedbackNamespace = exports.WlHolidayNamespace = exports.WlVirtualNamespace = exports.WlVirtualMeetingNamespace = exports.WlVirtualMeetingZoomNamespace = exports.WlTaxNamespace = exports.WlZoomNamespace = exports.WlSmsNamespace = exports.WlSmsPhoneNamespace = exports.WlCollectorNamespace = exports.WlCollectorDebtStatusNamespace = exports.WlLocationNamespace = exports.WlLocationWorkTimeNamespace = exports.WlLocationFlagNamespace = exports.WlLocationFacilityNamespace = exports.WlLocationLocationRateNamespace = exports.WlLocationViewNamespace = exports.WlRankNamespace = exports.WlSkinNamespace = exports.WlSkinWidgetNamespace = exports.WlSkinApplicationNamespace = exports.WlSkinApplicationResourceNamespace = exports.WlSkinApplicationConnectNamespace = exports.WlFitbuilderNamespace = exports.WlFitbuilderSubscriptionNamespace = exports.WlAnnouncementNamespace = exports.WlSessionNamespace = exports.WlAlertNamespace = exports.WlQuizNamespace = exports.WlQuizResponseNamespace = exports.WlQuizLoginNamespace = exports.WlTagNamespace = exports.WlReportNamespace = exports.WlReportFavoriteNamespace = exports.WlReportCustomizationNamespace = exports.WlReportDashboardNamespace = exports.WlReportSaveNamespace = exports.WlReportGeneratorNamespace = exports.WlStaffNamespace = exports.WlStaffScheduleNamespace = exports.WlStaffScheduleAddNamespace = exports.WlStaffPasskeyNamespace = exports.WlStaffPrivilegeNamespace = exports.WlStaffPayRateNamespace = exports.WlStaffStaffViewNamespace = exports.WlStaffStaffListNamespace = exports.WlStaffLocationNamespace = exports.WlStaffLoadNamespace = exports.WlVideoNamespace = exports.WlVideoTagNamespace = void 0;
+exports.WlAppointmentBookFinishNamespace = exports.WlAppointmentBookStaffNamespace = exports.WlAppointmentBookScheduleNamespace = exports.WlAppointmentBookServiceNamespace = exports.WlAppointmentPhoneNamespace = exports.WlAppointmentRecentNamespace = exports.WlAppointmentMarkNamespace = exports.WlAppointmentRequestNamespace = exports.WlAppointmentCancelNamespace = exports.WlAppointmentWaitListNamespace = exports.WlAppointmentInfoNamespace = exports.WlAppointmentRepeatNamespace = exports.WlAppointmentViewNamespace = exports.WlAppointmentEditNamespace = exports.WlBillingNamespace = exports.WlBillingBulkNamespace = exports.WlBillingCodeNamespace = exports.WlPurchaseNamespace = exports.WlPurchaseShareNamespace = exports.WlPurchaseMailNamespace = exports.WlPurchaseReceiptNamespace = exports.WlPurchaseItemNamespace = exports.WlPayNamespace = exports.WlPayTransactionNamespace = exports.WlPayTransactionReportNamespace = exports.WlPayProcessorNamespace = exports.WlPayProcessorStripeComNamespace = exports.WlPayProcessorNuveiNamespace = exports.WlPayProcessorCyberSourceNamespace = exports.WlPayMethodNamespace = exports.WlPayOwnerNamespace = exports.WlPayAccountNamespace = exports.WlPayAccountChargeNamespace = exports.WlPayBankNamespace = exports.WlPayBankAchNamespace = exports.WlPayBankAchAddNamespace = exports.WlPayBankAchWidgetNamespace = exports.WlPayBankCardNamespace = exports.WlPayBankCardWidgetNamespace = exports.WlPayBankCardAddNamespace = exports.WlPayAddressNamespace = exports.WlPayAddressWidgetNamespace = exports.WlPayFormNamespace = exports.WlPayFormSurchargeNamespace = exports.WlHardwareNamespace = exports.WlHardwareStripeComNamespace = exports.WlCurrencyNamespace = exports.WlDriveNamespace = exports.WlReviewNamespace = exports.WlReviewReviewListNamespace = void 0;
+exports.WlClassesPeriodModifyNamespace = exports.WlClassesCategoryNamespace = exports.WlClassesPromotionNamespace = exports.WlClassesClassViewNamespace = exports.WlClassesInfoNamespace = exports.WlClassesClassListNamespace = exports.WlMemberNamespace = exports.WlMemberProgressNamespace = exports.WlMemberProgressGoalNamespace = exports.WlMemberProgressGoalEditNamespace = exports.WlMemberProgressFieldNamespace = exports.WlMemberProgressFieldEditNamespace = exports.WlMemberProgressLogNamespace = exports.WlMemberProgressLogCompareNamespace = exports.WlMemberProgressLogImageNamespace = exports.WlMemberProgressLogEditNamespace = exports.WlMemberGroupNamespace = exports.WlMemberGroupEditNamespace = exports.WlMemberGroupGroupListNamespace = exports.WlMemberGroupUserNamespace = exports.WlMemberInfoNamespace = exports.WlMemberPurchaseNamespace = exports.WlCatalogNamespace = exports.WlCatalogViewNamespace = exports.WlCatalogViewImageNamespace = exports.WlCatalogStaffAppNamespace = exports.WlCatalogStaffAppCatalogCouponNamespace = exports.WlCatalogStaffAppCatalogCartEditNamespace = exports.WlCatalogStaffAppCatalogListNamespace = exports.WlCatalogStaffAppCatalogViewNamespace = exports.WlCatalogStaffAppCatalogCartNamespace = exports.WlCatalogStaffAppCatalogCommissionNamespace = exports.WlCatalogQuizNamespace = exports.WlCatalogCartNamespace = exports.WlCatalogTermsNamespace = exports.WlCatalogCatalogListNamespace = exports.WlCatalogPaymentNamespace = exports.WlAppointmentNamespace = exports.WlAppointmentBookNamespace = exports.WlAppointmentBookBlockNamespace = exports.WlAppointmentBookProductNamespace = exports.WlAppointmentBookQuizNamespace = exports.WlAppointmentBookPromoteNamespace = exports.WlAppointmentBookLocationNamespace = exports.WlAppointmentBookQuestionNamespace = exports.WlAppointmentBookPaymentNamespace = exports.WlAppointmentBookPurchaseNamespace = exports.WlAppointmentBookAssetNamespace = exports.WlAppointmentBookAssetServiceNamespace = exports.WlAppointmentBookConflictNamespace = void 0;
+exports.WlFamilyPayNamespace = exports.WlFamilyRelationNamespace = exports.WlDiscountNamespace = exports.WlDiscountCodeNamespace = exports.WlDiscountCodeEditNamespace = exports.WlReceptionNamespace = exports.WlReceptionApplicationNamespace = exports.WlReceptionRosterNamespace = exports.WlReceptionRosterDesignNamespace = exports.WlReceptionDesignNamespace = exports.WlUserNamespace = exports.WlUserReferrerNamespace = exports.WlUserInfoNamespace = exports.WlResourceNamespace = exports.WlResourceScheduleNamespace = exports.WlResourceScheduleAddNamespace = exports.WlResourceResourceListNamespace = exports.WlResourceTypeNamespace = exports.WlResourceChangeNamespace = exports.WlResourceLayoutNamespace = exports.WlPassportNamespace = exports.WlPassportLoginNamespace = exports.WlPassportLoginRegisterNamespace = exports.WlPassportLoginEnterNamespace = exports.WlNotificationNamespace = exports.WlNotificationOtpNamespace = exports.WlNotificationSendNamespace = exports.WlTuitionNamespace = exports.WlTuitionEnrollmentNamespace = exports.WlIntegrationNamespace = exports.WlIntegrationDragonFlyNamespace = exports.WlIntegrationSamlNamespace = exports.WlIntegrationAutymateNamespace = exports.WlIntegrationCurvesNamespace = exports.WlBookNamespace = exports.WlBookPromoteNamespace = exports.WlBookCancelNamespace = exports.WlBookProcessNamespace = exports.WlBookProcessResourceNamespace = exports.WlBookProcessFrequencyNamespace = exports.WlBookProcessPurchaseNamespace = exports.WlBookProcessRelationNamespace = exports.WlBookProcessGuestNamespace = exports.WlBookProcessQuizNamespace = exports.WlBookProcessStoreNamespace = exports.WlBookProcessPaymentNamespace = exports.WlBookProcessInfoNamespace = exports.WlClassesNamespace = exports.WlClassesPeriodNamespace = exports.WlClassesPeriodAddNamespace = void 0;
+exports.WlDoorAccessNamespace = exports.WlDoorAccessBrivoNamespace = exports.WlDoorAccessBrivoInvitationNamespace = exports.WlSocialNamespace = exports.WlSocialShareNamespace = exports.WlGoogleNamespace = exports.WlGoogleLoginNamespace = exports.WlFacebookNamespace = exports.WlFacebookLoginNamespace = exports.WlMicrosoftNamespace = exports.WlMicrosoftLoginNamespace = exports.WlGymNamespace = exports.WlGymVisitNamespace = exports.WlInsuranceNamespace = exports.WlInsuranceEnrollmentNamespace = exports.WlInsuranceEnrollmentFieldNamespace = exports.WlInsuranceCatalogNamespace = exports.WlWidgetNamespace = exports.WlWidgetAnalyticsNamespace = exports.WlTaskNamespace = exports.WlTaskEditNamespace = exports.WlCalendarNamespace = exports.WlCalendarCordovaNamespace = exports.WlShopNamespace = exports.WlShopProductNamespace = exports.WlShopProductOptionNamespace = exports.WlShopProductOptionInventoryNamespace = exports.WlShopProductOptionInventoryCountNamespace = exports.WlShopCategoryNamespace = exports.WlShopCategoryStaffAppNamespace = exports.WlRewardNamespace = exports.WlRewardScoreNamespace = exports.WlRewardScoreCurrentNamespace = exports.WlRewardBoardNamespace = exports.WlRewardBoardBoardListNamespace = exports.WlRewardPrizeNamespace = exports.WlRewardActionNamespace = exports.WlRewardActionCategoryListNamespace = exports.WlAiAgentNamespace = exports.WlAiAgentLinkNamespace = exports.WlAiAgentAlertNamespace = exports.WlAiAgentPhoneNamespace = exports.WlServiceNamespace = exports.WlServiceServiceListNamespace = exports.WlServiceAgeRestrictionNamespace = exports.WlSearchNamespace = exports.WlSearchTagNamespace = exports.WlCouponNamespace = exports.WlCouponCouponListNamespace = exports.WlFamilyNamespace = void 0;
+exports.WlClient = exports.ThothNamespace = exports.ThothReportCoreNamespace = exports.ThothReportCoreQueryEngineNamespace = exports.ThothReportCoreQueryEngineReportNamespace = exports.ThothReportCoreQueryEngineReportCustomizationNamespace = exports.ThothPayProcessorNamespace = exports.ThothPayProcessorNuveiNamespace = exports.ThothPayProcessorNuveiTerminalNamespace = exports.ThothPayProcessorNuveiTerminalOMNIChannelApiNamespace = exports.ThothLayoutBeNamespace = exports.ThothLayoutBeFooterNamespace = exports.ThothExplorerSearchNamespace = exports.ThothExplorerSearchClassSessionNamespace = exports.WlNamespace = exports.WlPageNamespace = exports.WlPageBackendNamespace = exports.WlPageBackendFeatureNamespace = void 0;
 class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -30,7 +30,7 @@ class WlApiError extends Error {
     }
 }
 exports.WlApiError = WlApiError;
-// --- Enum types (221 total) ---
+// --- Enum types (225 total) ---
 /** Possible states of the visit: book, attended, cancelled, etc. */
 var WlVisitVisitSid;
 (function (WlVisitVisitSid) {
@@ -40,6 +40,8 @@ var WlVisitVisitSid;
     WlVisitVisitSid[WlVisitVisitSid["BOOK"] = 1] = "BOOK";
     /** Client has cancelled the reservation in time and without penalty */
     WlVisitVisitSid[WlVisitVisitSid["CANCEL"] = 6] = "CANCEL";
+    /** Client has cancelled the reservation early and qualified for a make-up pass under the business's Make-up */
+    WlVisitVisitSid[WlVisitVisitSid["CANCEL_MAKEUP"] = 9] = "CANCEL_MAKEUP";
     /** Client has cancelled his reservation too late */
     WlVisitVisitSid[WlVisitVisitSid["PENALTY"] = 4] = "PENALTY";
     /** This state means that visit is registered, but it is unknown is it {@link WlVisitVisitSid} */
@@ -1602,6 +1604,8 @@ var WlModeModeSid;
     WlModeModeSid[WlModeModeSid["SYSTEM"] = 10] = "SYSTEM";
     /** Means that we did not define mode */
     WlModeModeSid[WlModeModeSid["UNDEFINED"] = 6] = "UNDEFINED";
+    /** Sale made automatically on wait list promotion */
+    WlModeModeSid[WlModeModeSid["WAIT_LIST_PROMOTION"] = 34] = "WAIT_LIST_PROMOTION";
     /** Client booked session from Attendance Web App */
     WlModeModeSid[WlModeModeSid["WEB_APP_ATTENDANCE"] = 16] = "WEB_APP_ATTENDANCE";
     /** Client checked-in for the session through Check-In Web App */
@@ -1675,6 +1679,1036 @@ var AGenderSid;
     /** Gender is undefined in cases where the user preferred not to identify their gender */
     AGenderSid[AGenderSid["UNDEFINED"] = 3] = "UNDEFINED";
 })(AGenderSid || (exports.AGenderSid = AGenderSid = {}));
+/** Identifiers for services types. */
+var RsServiceSid;
+(function (RsServiceSid) {
+    /** Appointments */
+    RsServiceSid[RsServiceSid["APPOINTMENT"] = 1] = "APPOINTMENT";
+    /** Classes */
+    RsServiceSid[RsServiceSid["CLASSES"] = 2] = "CLASSES";
+    /** Enrolments */
+    RsServiceSid[RsServiceSid["ENROLLMENT"] = 3] = "ENROLLMENT";
+    /** Resources */
+    RsServiceSid[RsServiceSid["RESOURCE"] = 5] = "RESOURCE";
+    /** Visits */
+    RsServiceSid[RsServiceSid["VISIT"] = 4] = "VISIT";
+})(RsServiceSid || (exports.RsServiceSid = RsServiceSid = {}));
+/** A list of purchase types. */
+var RsPurchaseItemSid;
+(function (RsPurchaseItemSid) {
+    /** Personal user's account refill */
+    RsPurchaseItemSid[RsPurchaseItemSid["ACCOUNT"] = 7] = "ACCOUNT";
+    /** Business account payment */
+    RsPurchaseItemSid[RsPurchaseItemSid["ACCOUNT_BUSINESS"] = 11] = "ACCOUNT_BUSINESS";
+    /** Single appointment reservation */
+    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT"] = 8] = "APPOINTMENT";
+    /** Single appointment reservation with deposit */
+    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT_DEPOSIT"] = 18] = "APPOINTMENT_DEPOSIT";
+    /** Tips for the appointment */
+    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT_TIP"] = 22] = "APPOINTMENT_TIP";
+    /** Expense that comes along with the payment business. It contains information about additional services which are */
+    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_EXPENSE"] = 16] = "BUSINESS_EXPENSE";
+    /** A skipped purchase for the business account */
+    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_SKIP"] = 17] = "BUSINESS_SKIP";
+    /** Business subscription payment */
+    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_SUBSCRIPTION"] = 23] = "BUSINESS_SUBSCRIPTION";
+    /** Single classes */
+    RsPurchaseItemSid[RsPurchaseItemSid["CLASS_PERIOD"] = 2] = "CLASS_PERIOD";
+    /** Collectors payments */
+    RsPurchaseItemSid[RsPurchaseItemSid["COLLECTOR_DEBT"] = 24] = "COLLECTOR_DEBT";
+    /** Arbitrary money withdrawal with comment */
+    RsPurchaseItemSid[RsPurchaseItemSid["COMMENT"] = 13] = "COMMENT";
+    /** Gift Cards */
+    RsPurchaseItemSid[RsPurchaseItemSid["COUPON"] = 10] = "COUPON";
+    /** Events and enrollments. Client can not book only one class, he needs to book the whole enrollment */
+    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT"] = 4] = "ENROLLMENT";
+    /** Enrollment reservation with a deposit */
+    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT_DEPOSIT"] = 19] = "ENROLLMENT_DEPOSIT";
+    /** Enrollment reservation with a discount */
+    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT_DISCOUNT"] = 21] = "ENROLLMENT_DISCOUNT";
+    /** Payment by an installment plan */
+    RsPurchaseItemSid[RsPurchaseItemSid["INSTALLMENT"] = 14] = "INSTALLMENT";
+    /** Recurrent payments */
+    RsPurchaseItemSid[RsPurchaseItemSid["MEMBERSHIP"] = 3] = "MEMBERSHIP";
+    /** Products */
+    RsPurchaseItemSid[RsPurchaseItemSid["PRODUCT"] = 9] = "PRODUCT";
+    /** Promotions */
+    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION"] = 1] = "PROMOTION";
+    /** Early cancellation fee for a memberships */
+    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION_CANCEL_FEE"] = 25] = "PROMOTION_CANCEL_FEE";
+    /** A purchase to renew a promotion */
+    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION_RENEW"] = 12] = "PROMOTION_RENEW";
+    /** A purchase to book an asset */
+    RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE"] = 15] = "RESOURCE";
+    /** A purchase to book a deposit asset */
+    RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE_DEPOSIT"] = 20] = "RESOURCE_DEPOSIT";
+    /** Purchase item for appointments */
+    RsPurchaseItemSid[RsPurchaseItemSid["SERVICE"] = 6] = "SERVICE";
+    /** Ticket purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TICKET"] = 29] = "TICKET";
+    /** Tuition purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TUITION"] = 26] = "TUITION";
+    /** Tuition fee purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TUITION_FEE"] = 27] = "TUITION_FEE";
+    /** Tuition prorate purchase item */
+    RsPurchaseItemSid[RsPurchaseItemSid["TUITION_PRORATE"] = 28] = "TUITION_PRORATE";
+})(RsPurchaseItemSid || (exports.RsPurchaseItemSid = RsPurchaseItemSid = {}));
+/** A list of types of mail copies. */
+var RsMailCopySid;
+(function (RsMailCopySid) {
+    /** Blind carbon copy */
+    RsMailCopySid[RsMailCopySid["BCC"] = 2] = "BCC";
+    /** Carbon copy */
+    RsMailCopySid[RsMailCopySid["CC"] = 1] = "CC";
+})(RsMailCopySid || (exports.RsMailCopySid = RsMailCopySid = {}));
+/** List of pay exceptions. */
+var ThothWlPayPayExceptionSid;
+(function (ThothWlPayPayExceptionSid) {
+    /** Invalid ABA number chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ABAN_EMPTY"] = 58] = "ABAN_EMPTY";
+    /** Invalid ABA number chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ABAN_INVALID"] = 57] = "ABAN_INVALID";
+    /** User Authentication Failed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCESS_AUTHENTICATE"] = 160] = "ACCESS_AUTHENTICATE";
+    /** Authentication token is not valid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCESS_TOKEN_INVALID"] = 181] = "ACCESS_TOKEN_INVALID";
+    /** Account payment entry method is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_ENTRY_EMPTY"] = 63] = "ACCOUNT_ENTRY_EMPTY";
+    /** Account holder type is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_HOLDER_EMPTY"] = 64] = "ACCOUNT_HOLDER_EMPTY";
+    /** Account name is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_NAME_EMPTY"] = 59] = "ACCOUNT_NAME_EMPTY";
+    /** Account name is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_NAME_LONG"] = 60] = "ACCOUNT_NAME_LONG";
+    /** Account number is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_NUMBER_EMPTY"] = 61] = "ACCOUNT_NUMBER_EMPTY";
+    /** Account number invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_NUMBER_INVALID"] = 67] = "ACCOUNT_NUMBER_INVALID";
+    /** Account number is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_NUMBER_LONG"] = 62] = "ACCOUNT_NUMBER_LONG";
+    /** Account number is too short */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_NUMBER_SHORT"] = 66] = "ACCOUNT_NUMBER_SHORT";
+    /** Account owner is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_OWNER_EMPTY"] = 69] = "ACCOUNT_OWNER_EMPTY";
+    /** Account name is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_OWNER_LONG"] = 70] = "ACCOUNT_OWNER_LONG";
+    /** Account owner name does not equal billing name */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_OWNER_DOES_NOT_MATCH"] = 182] = "ACCOUNT_OWNER_DOES_NOT_MATCH";
+    /** Account type is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACCOUNT_TYPE_EMPTY"] = 65] = "ACCOUNT_TYPE_EMPTY";
+    /** ACH: Account Closed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E02"] = 198] = "ACH_E02";
+    /** ACH: No Account / Unable to Locate Account */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E03"] = 199] = "ACH_E03";
+    /** ACH: Invalid Account Number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E04"] = 200] = "ACH_E04";
+    /** ACH: Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E05"] = 201] = "ACH_E05";
+    /** ACH: Authorization Revoked by Customer */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E07"] = 202] = "ACH_E07";
+    /** ACH: Payment Stopped */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E08"] = 203] = "ACH_E08";
+    /** ACH: Customer Advises Originator Not Known / Not Authorized */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E10"] = 204] = "ACH_E10";
+    /** ACH: Customer Advises Entry Not in Accordance with Authorization */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E11"] = 205] = "ACH_E11";
+    /** ACH: RDFI Not Qualified to Participate */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E13"] = 206] = "ACH_E13";
+    /** ACH: Representative Payee Deceased or Unable to Continue */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E14"] = 207] = "ACH_E14";
+    /** ACH: Beneficiary or Account Holder Deceased */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E15"] = 208] = "ACH_E15";
+    /** ACH: Account Frozen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E16"] = 209] = "ACH_E16";
+    /** ACH: Invalid Account Number under Questionable Circumstances */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E17"] = 210] = "ACH_E17";
+    /** ACH: Non-Transaction Account */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E20"] = 211] = "ACH_E20";
+    /** ACH: Corporate Customer Advises Not Authorized */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E29"] = 212] = "ACH_E29";
+    /** ACH: Invalid Image */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E92"] = 213] = "ACH_E92";
+    /** ACH: Non-Negotiable */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E93"] = 214] = "ACH_E93";
+    /** ACH: Breach of Warranty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E95"] = 215] = "ACH_E95";
+    /** ACH: Counterfeit / Forgery */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E96"] = 216] = "ACH_E96";
+    /** ACH: Refer to Maker */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_E97"] = 217] = "ACH_E97";
+    /** Insufficient funds */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R01"] = 124] = "ACH_R01";
+    /** Bank account closed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R02"] = 125] = "ACH_R02";
+    /** No bank account/unable to locate account */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R03"] = 126] = "ACH_R03";
+    /** Invalid bank account number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R04"] = 127] = "ACH_R04";
+    /** Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R05"] = 128] = "ACH_R05";
+    /** Returned per ODFI request */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R06"] = 129] = "ACH_R06";
+    /** Authorization revoked by customer */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R07"] = 130] = "ACH_R07";
+    /** Payment stopped */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R08"] = 131] = "ACH_R08";
+    /** Uncollected funds */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R09"] = 132] = "ACH_R09";
+    /** Customer advises not authorized */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R10"] = 133] = "ACH_R10";
+    /** Check truncation entry return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R11"] = 134] = "ACH_R11";
+    /** Branch sold to another RDFI */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R12"] = 135] = "ACH_R12";
+    /** RDFI not qualified to participate */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R13"] = 136] = "ACH_R13";
+    /** Representative payee deceased or unable to continue in that capacity */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R14"] = 137] = "ACH_R14";
+    /** Beneficiary or bank account holder */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R15"] = 138] = "ACH_R15";
+    /** Bank account frozen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R16"] = 139] = "ACH_R16";
+    /** File record edit criteria */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R17"] = 140] = "ACH_R17";
+    /** Improper effective entry date */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R18"] = 141] = "ACH_R18";
+    /** Amount field error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R19"] = 142] = "ACH_R19";
+    /** Non-payment bank account */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R20"] = 143] = "ACH_R20";
+    /** Invalid company ID number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R21"] = 144] = "ACH_R21";
+    /** Invalid individual ID number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R22"] = 145] = "ACH_R22";
+    /** Credit entry refused by receiver */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R23"] = 146] = "ACH_R23";
+    /** Duplicate entry */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R24"] = 147] = "ACH_R24";
+    /** Addenda error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R25"] = 148] = "ACH_R25";
+    /** Mandatory field error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R26"] = 149] = "ACH_R26";
+    /** Trace number error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R27"] = 150] = "ACH_R27";
+    /** Transit routing number check digit error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R28"] = 151] = "ACH_R28";
+    /** Corporate customer advises not authorized */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R29"] = 152] = "ACH_R29";
+    /** RDFI not participant in check truncation program */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R30"] = 153] = "ACH_R30";
+    /** Permissible return entry (CCD and CTX only) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R31"] = 154] = "ACH_R31";
+    /** RDFI non-settlement */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R32"] = 155] = "ACH_R32";
+    /** Return of XCK entry */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R33"] = 156] = "ACH_R33";
+    /** Limited participation RDFI */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R34"] = 157] = "ACH_R34";
+    /** Return of improper debit entry */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R35"] = 158] = "ACH_R35";
+    /** ACH: Return of Improper Credit Entry */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R36"] = 218] = "ACH_R36";
+    /** ACH: Source Document Presented for Payment */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R37"] = 219] = "ACH_R37";
+    /** ACH: Stop Payment on Source Document */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R38"] = 220] = "ACH_R38";
+    /** ACH: Improper Source Document */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R39"] = 221] = "ACH_R39";
+    /** ACH: Return of ENR Entry by Federal Government Agency */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R40"] = 222] = "ACH_R40";
+    /** ACH: Invalid Transaction Code */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R41"] = 223] = "ACH_R41";
+    /** ACH: Routing Number / Check Digit Error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R42"] = 224] = "ACH_R42";
+    /** ACH: Invalid DFI Account Number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R43"] = 225] = "ACH_R43";
+    /** ACH: Invalid Individual ID Number / Identification */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R44"] = 226] = "ACH_R44";
+    /** ACH: Invalid Individual Name / Company Name */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R45"] = 227] = "ACH_R45";
+    /** ACH: Invalid Representative Payee Indicator */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R46"] = 228] = "ACH_R46";
+    /** ACH: Duplicate Enrollment */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R47"] = 229] = "ACH_R47";
+    /** ACH: State Law Affecting RCK Acceptance */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R50"] = 230] = "ACH_R50";
+    /** ACH: Item is Ineligible, Notice Not Provided, etc */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R51"] = 231] = "ACH_R51";
+    /** ACH: Stop Payment on Item (Adjustment Entries) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R52"] = 232] = "ACH_R52";
+    /** ACH: Item and ACH Entry Presented for Payment */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R53"] = 233] = "ACH_R53";
+    /** ACH: Misrouted Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R61"] = 234] = "ACH_R61";
+    /** ACH: Incorrect Trace Number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R62"] = 235] = "ACH_R62";
+    /** ACH: Incorrect Dollar Amount */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R63"] = 236] = "ACH_R63";
+    /** ACH: Incorrect Individual Identification */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R64"] = 237] = "ACH_R64";
+    /** ACH: Incorrect Transaction Code */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R65"] = 238] = "ACH_R65";
+    /** ACH: Incorrect Company Identification */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R66"] = 239] = "ACH_R66";
+    /** ACH: Duplicate Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R67"] = 240] = "ACH_R67";
+    /** ACH: Untimely Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R68"] = 241] = "ACH_R68";
+    /** ACH: Multiple Errors */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R69"] = 242] = "ACH_R69";
+    /** ACH: Permissible Return Entry Not Accepted */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R70"] = 243] = "ACH_R70";
+    /** ACH: Misrouted Dishonored Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R71"] = 244] = "ACH_R71";
+    /** ACH: Untimely Dishonored Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R72"] = 245] = "ACH_R72";
+    /** ACH: Timely Original Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R73"] = 246] = "ACH_R73";
+    /** ACH: Corrected Return */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R74"] = 247] = "ACH_R74";
+    /** ACH: Return Not a Duplicate */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R75"] = 248] = "ACH_R75";
+    /** ACH: No Errors Found */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R76"] = 249] = "ACH_R76";
+    /** ACH: IAT Entry Coding Error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R80"] = 250] = "ACH_R80";
+    /** ACH: Non-Participant in IAT Program */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R81"] = 251] = "ACH_R81";
+    /** ACH: Invalid Foreign Receiving DFI Identification */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R82"] = 252] = "ACH_R82";
+    /** ACH: Foreign Receiving DFI Unable to Settle */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R83"] = 253] = "ACH_R83";
+    /** ACH: Entry Not Processed by Gateway */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R84"] = 254] = "ACH_R84";
+    /** ACH: Incorrectly Coded Outbound International Payment */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_R85"] = 255] = "ACH_R85";
+    /** ACH check type or account type is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_ACCOUNT_TYPE"] = 185] = "ACH_ACCOUNT_TYPE";
+    /** ACH payment method is not supported by processor */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_SUPPORT"] = 105] = "ACH_SUPPORT";
+    /** ACH error: uncollected */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ACH_UNCOLLECTED"] = 123] = "ACH_UNCOLLECTED";
+    /** Invalid payment address chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ADDRESS_INVALID"] = 39] = "ADDRESS_INVALID";
+    /** Chosen payment address does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["ADDRESS_NX"] = 40] = "ADDRESS_NX";
+    /** Disagreement with the Payment Agreement */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AGREEMENT_DISAGREE"] = 176] = "AGREEMENT_DISAGREE";
+    /** Sum of amounts for all individual payment sources does not equal the total expected amount */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AMOUNT_CONSOLIDATE"] = 35] = "AMOUNT_CONSOLIDATE";
+    /** Total package price can't be divided equally between package items without loosing cents */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AMOUNT_CONSOLIDATE_PACKAGE"] = 191] = "AMOUNT_CONSOLIDATE_PACKAGE";
+    /** Amount was unexpectedly changed during the purchase process */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AMOUNT_CHANGE"] = 179] = "AMOUNT_CHANGE";
+    /** Amount is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AMOUNT_INVALID"] = 34] = "AMOUNT_INVALID";
+    /** Total price of cart greater than `1000000000.00` */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AMOUNT_TOTAL"] = 75] = "AMOUNT_TOTAL";
+    /** Amount equals zero */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AMOUNT_ZERO"] = 32] = "AMOUNT_ZERO";
+    /** AVS verification failed. Postal code or address are invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["AVS"] = 14] = "AVS";
+    /** Invalid bank account ID */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["BANK_ACCOUNT_INVALID"] = 79] = "BANK_ACCOUNT_INVALID";
+    /** Bank account ID does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["BANK_ACCOUNT_NX"] = 80] = "BANK_ACCOUNT_NX";
+    /** Bank state branch is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["BSB_EMPTY"] = 77] = "BSB_EMPTY";
+    /** Bank state branch is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["BSB_INVALID"] = 78] = "BSB_INVALID";
+    /** This business is a lost customer */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["BUSINESS_CHURN"] = 173] = "BUSINESS_CHURN";
+    /** Client must call issuer for further information */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CALL"] = 17] = "CALL";
+    /** Card data is valid, but you can not pay with it (e.g. hold placed on card) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_DECLINE"] = 5] = "CARD_DECLINE";
+    /** Invalid payment card chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_INVALID"] = 42] = "CARD_INVALID";
+    /** Card over limit */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_LIMIT"] = 73] = "CARD_LIMIT";
+    /** Payment card nickname is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_NAME_EMPTY"] = 46] = "CARD_NAME_EMPTY";
+    /** Payment card nickname is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_NAME_LONG"] = 47] = "CARD_NAME_LONG";
+    /** The customer’s bank has declined the transaction as the credit card number has failed a security check, or the */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_NOT_HONOR"] = 71] = "CARD_NOT_HONOR";
+    /** Insufficient funds available */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_NSF"] = 72] = "CARD_NSF";
+    /** Chosen payment card does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_NX"] = 43] = "CARD_NX";
+    /** User has chosen payment card but he had no such rights */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_SELECT"] = 44] = "CARD_SELECT";
+    /** No such card issuer */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_ISSUER_INVALID"] = 184] = "CARD_ISSUER_INVALID";
+    /** Card unsupported */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CARD_UNSUPPORTED"] = 190] = "CARD_UNSUPPORTED";
+    /** Element which should be paid with this payment has been canceled and payment should be blocked */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CANCELED"] = 177] = "CANCELED";
+    /** Comment for payment method too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COMMENT_LONG"] = 99] = "COMMENT_LONG";
+    /** Can't connect to payment gateway */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CONNECT"] = 8] = "CONNECT";
+    /** Unsupported country */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUNTRY_UNSUPPORTED"] = 164] = "COUNTRY_UNSUPPORTED";
+    /** Gift card belongs to a foreign business */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUPON_BUSINESS"] = 55] = "COUPON_BUSINESS";
+    /** Invalid payment card chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUPON_CURRENCY"] = 54] = "COUPON_CURRENCY";
+    /** Coupon is inactive */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUPON_INACTIVE"] = 97] = "COUPON_INACTIVE";
+    /** Coupon code is invalid (invalid length, or invalid characters encountered) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUPON_INVALID"] = 51] = "COUPON_INVALID";
+    /** Invalid payment card chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUPON_NX"] = 52] = "COUPON_NX";
+    /** Coupon is redeemed already */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["COUPON_REDEEM"] = 53] = "COUPON_REDEEM";
+    /** Card credentials (number, csc, month, year) change ability is disabled. E.g. payment processor may not support */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CREDENTIAL_SUPPORT"] = 76] = "CREDENTIAL_SUPPORT";
+    /** Invalid card security code (CSC) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CSC_EMPTY"] = 21] = "CSC_EMPTY";
+    /** Invalid card security code (CSC) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["CSC_INVALID"] = 2] = "CSC_INVALID";
+    /** Card is expired */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["DATE_EXPIRE"] = 24] = "DATE_EXPIRE";
+    /** Card is inactive */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["DATE_INACTIVE"] = 163] = "DATE_INACTIVE";
+    /** Invalid Expiration Date */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["DATE_INVALID"] = 183] = "DATE_INVALID";
+    /** Month is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["DATE_MONTH"] = 22] = "DATE_MONTH";
+    /** Multiple usage of this payment method is not allowed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["DATE_YEAR"] = 23] = "DATE_YEAR";
+    /** Duplicate transaction. Transaction data that is selected for comparison is payment gateway-specific */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["DUPLICATE"] = 1] = "DUPLICATE";
+    /** Error, caused by one of the following cases: */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["FRAUD"] = 168] = "FRAUD";
+    /** Terminal that should be used for payment is not found */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["HARDWARE_NOT_FOUND"] = 196] = "HARDWARE_NOT_FOUND";
+    /** Informational field is not filled in */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INFO_EMPTY"] = 9] = "INFO_EMPTY";
+    /** Informational field is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INFO_LONG"] = 41] = "INFO_LONG";
+    /** Minimum payment amount is less then `1` */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_AMOUNT_MIN"] = 93] = "INSTALLMENT_AMOUNT_MIN";
+    /** Installment plan: Number of payment is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_COUNT_FORMAT"] = 85] = "INSTALLMENT_COUNT_FORMAT";
+    /** Installment plan: Number of payment is too large */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_COUNT_MAX"] = 87] = "INSTALLMENT_COUNT_MAX";
+    /** Installment plan: Number of payment is too small (less then 2) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_COUNT_MIN"] = 86] = "INSTALLMENT_COUNT_MIN";
+    /** Installment date is not specified */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DATE_EMPTY"] = 81] = "INSTALLMENT_DATE_EMPTY";
+    /** Installment date format is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DATE_FORMAT"] = 82] = "INSTALLMENT_DATE_FORMAT";
+    /** Installment date is too deep in the future */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DATE_FUTURE"] = 84] = "INSTALLMENT_DATE_FUTURE";
+    /** Installment date is in the past (minimum is today) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DATE_PAST"] = 83] = "INSTALLMENT_DATE_PAST";
+    /** Installment plan: Duration of a period is not allowed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DURATION_DISABLE"] = 91] = "INSTALLMENT_DURATION_DISABLE";
+    /** Installment plan: Maximum total duration of installment plan is 100 years */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DURATION_MAX"] = 92] = "INSTALLMENT_DURATION_MAX";
+    /** Installment plan: Duration of a period does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_DURATION_NX"] = 90] = "INSTALLMENT_DURATION_NX";
+    /** Installment plan: Number of periods between two consecutive payments is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_PERIOD_FORMAT"] = 88] = "INSTALLMENT_PERIOD_FORMAT";
+    /** Installment plan: Number of periods between two consecutive payments is too large */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_PERIOD_MAX"] = 89] = "INSTALLMENT_PERIOD_MAX";
+    /** Template of installment plans: template is not selected */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_TEMPLATE_EMPTY"] = 95] = "INSTALLMENT_TEMPLATE_EMPTY";
+    /** Template of installment plans: ID of the template does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INSTALLMENT_TEMPLATE_NX"] = 94] = "INSTALLMENT_TEMPLATE_NX";
+    /** Internal errors that occurred in the browser (for example, some form data arrived to servers such that user should */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INTERNAL_BROWSER"] = 33] = "INTERNAL_BROWSER";
+    /** Security throttling error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INTERNAL_HIT"] = 192] = "INTERNAL_HIT";
+    /** Internal merchant error */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INTERNAL_MERCHANT"] = 186] = "INTERNAL_MERCHANT";
+    /** Some strange service error (e.g. invalid merchant data passed, data format) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["INTERNAL_SERVER"] = 6] = "INTERNAL_SERVER";
+    /** Payer email is required for payment, but empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["MAIL_EMPTY"] = 175] = "MAIL_EMPTY";
+    /** The associated merchant account has been closed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["MERCHANT_ACCOUNT_CLOSED"] = 189] = "MERCHANT_ACCOUNT_CLOSED";
+    /** Invalid merchant data */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["MERCHANT_INVALID"] = 7] = "MERCHANT_INVALID";
+    /** Transaction was rejected by gateway */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["MERCHANT_REJECT"] = 74] = "MERCHANT_REJECT";
+    /** Merchant has invalid settings and does not return customer vault */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["MERCHANT_SETTINGS_VAULT"] = 166] = "MERCHANT_SETTINGS_VAULT";
+    /** User has no access to the specified payment method */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["METHOD_ACCESS"] = 18] = "METHOD_ACCESS";
+    /** This method does not support authorization request */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["METHOD_AUTHORIZE"] = 96] = "METHOD_AUTHORIZE";
+    /** This payment method can not be used with this business */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["METHOD_BUSINESS"] = 19] = "METHOD_BUSINESS";
+    /** Multiple usage of this payment method is not allowed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["METHOD_MULTIPLE"] = 20] = "METHOD_MULTIPLE";
+    /** Cardholder name is not typed in */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NAME_EMPTY"] = 25] = "NAME_EMPTY";
+    /** Customer name is invalid (contains invalid characters) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NAME_INVALID"] = 106] = "NAME_INVALID";
+    /** Cardholder name is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NAME_LONG"] = 26] = "NAME_LONG";
+    /** Validation Rejection */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_900"] = 159] = "NMI_PAYSAFE_900";
+    /** Not sufficient funds (debits only) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_901"] = 110] = "NMI_PAYSAFE_901";
+    /** Payment stopped/recalled */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_903"] = 111] = "NMI_PAYSAFE_903";
+    /** Post dated/stale dated */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_904"] = 112] = "NMI_PAYSAFE_904";
+    /** Account closed */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_905"] = 113] = "NMI_PAYSAFE_905";
+    /** Account transferred */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_906"] = 114] = "NMI_PAYSAFE_906";
+    /** No chequing privileges */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_907"] = 115] = "NMI_PAYSAFE_907";
+    /** Funds not cleared */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_908"] = 116] = "NMI_PAYSAFE_908";
+    /** Payor/payee deceased */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_910"] = 117] = "NMI_PAYSAFE_910";
+    /** Account frozen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_911"] = 118] = "NMI_PAYSAFE_911";
+    /** Invalid/incorrect account number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_912"] = 119] = "NMI_PAYSAFE_912";
+    /** Incorrect payor/payee name */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_914"] = 120] = "NMI_PAYSAFE_914";
+    /** Refused by payor/payee */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_915"] = 121] = "NMI_PAYSAFE_915";
+    /** No Return Agreement */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NMI_PAYSAFE_998"] = 122] = "NMI_PAYSAFE_998";
+    /** Card number is not typed in */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NUMBER_EMPTY"] = 27] = "NUMBER_EMPTY";
+    /** Card number is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NUMBER_INVALID"] = 30] = "NUMBER_INVALID";
+    /** Card number is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NUMBER_LONG"] = 28] = "NUMBER_LONG";
+    /** Card number is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["NUMBER_SHORT"] = 29] = "NUMBER_SHORT";
+    /** Some parameters client has provided are invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PARAMETER"] = 4] = "PARAMETER";
+    /** Payment form is in passive mode */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PASSIVE"] = 165] = "PASSIVE";
+    /** Error during authentication of the payer */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PAYER_AUTHENTICATION"] = 167] = "PAYER_AUTHENTICATION";
+    /** There is other process currently running to update payment. Failed to wait until it ends */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PAYMENT_UPDATE_LOCK"] = 174] = "PAYMENT_UPDATE_LOCK";
+    /** Phone number is not specified on user account */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PHONE_EMPTY"] = 107] = "PHONE_EMPTY";
+    /** Phone number is invalid */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PHONE_INVALID"] = 178] = "PHONE_INVALID";
+    /** Phone number is too long */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PHONE_LONG"] = 108] = "PHONE_LONG";
+    /** Transaction error returned by processor */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PROCESSOR_ERROR"] = 98] = "PROCESSOR_ERROR";
+    /** Internal error at processor side has occurred */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["PROCESSOR_INTERNAL"] = 109] = "PROCESSOR_INTERNAL";
+    /** Refund operation is applied too early */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REFUND_EARLY"] = 50] = "REFUND_EARLY";
+    /** Amount about to refund is larger then the current rest of the transaction */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REFUND_REST"] = 49] = "REFUND_REST";
+    /** Transaction can not be refunded because it is in an invalid status */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REFUND_STATUS"] = 48] = "REFUND_STATUS";
+    /** Invalid region chosen */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REGION_INVALID"] = 37] = "REGION_INVALID";
+    /** Chosen region does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REGION_NX"] = 38] = "REGION_NX";
+    /** Can not repeat purchase transaction. Reference data is expired and invalid now */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REPEAT_INVALID"] = 15] = "REPEAT_INVALID";
+    /** Error during request to service. In case we have not even got response */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REQUEST"] = 12] = "REQUEST";
+    /** Too many requests */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["REQUEST_THROTTLE"] = 172] = "REQUEST_THROTTLE";
+    /** Temporary service error. Repeat request */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["RETRY"] = 3] = "RETRY";
+    /** Payment is blocked due security reasons (because payment amount is too large) */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["SECURITY_LARGE"] = 103] = "SECURITY_LARGE";
+    /** Only for test, when there is an error in the test that we cannot influence, for example: “server is not available” */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["SKIP_IN_TESTS"] = 188] = "SKIP_IN_TESTS";
+    /** Stripe data is empty */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["STRIPE_EMPTY"] = 31] = "STRIPE_EMPTY";
+    /** Invalid data on magnetic stripe. Maybe some part does not exist */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["STRIPE_INVALID"] = 16] = "STRIPE_INVALID";
+    /** This recurrent payment token belongs to a different account of this merchant */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["TOKEN_ACCOUNT"] = 161] = "TOKEN_ACCOUNT";
+    /** Payment token belongs to a different merchant processor */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["TOKEN_PROCESSOR"] = 162] = "TOKEN_PROCESSOR";
+    /** Transaction does not exist. E.g. we want to make refund using nonexistent reference number */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["TRANSACTION_NX"] = 13] = "TRANSACTION_NX";
+    /** Transaction is in unexpected status. For example, authorization process started but takes long time. While waiting */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["UNEXPECTED_TRANSACTION_STATUS"] = 187] = "UNEXPECTED_TRANSACTION_STATUS";
+    /** If the user who pays through the account is a debtor */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["USER_DEBTOR"] = 194] = "USER_DEBTOR";
+    /** If access denied to an anonymous user */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["USER_GUEST"] = 56] = "USER_GUEST";
+    /** Error specific for payment processors that stores payer entity */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["USER_NOT_FOUND"] = 197] = "USER_NOT_FOUND";
+    /** Some unpredicted error happened during void on processor side */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["VOID_ERROR"] = 193] = "VOID_ERROR";
+    /** Operation Void is not possible, it's too late to do it */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["VOID_LATE"] = 180] = "VOID_LATE";
+    /** Void operation can be done only for a total transaction amount and cannot be partial */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["VOID_PARTIAL"] = 100] = "VOID_PARTIAL";
+    /** Void operation is restricted by rules of the system */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["VOID_RESTRICT"] = 102] = "VOID_RESTRICT";
+    /** Void operation is not supported by the merchant processor */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["VOID_SUPPORT"] = 101] = "VOID_SUPPORT";
+    /** Timeout waiting for settlement */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["WAIT_TIMEOUT"] = 104] = "WAIT_TIMEOUT";
+    /** Incorrect payment card type specified */
+    ThothWlPayPayExceptionSid[ThothWlPayPayExceptionSid["TENDER_TYPE_INVALID"] = 195] = "TENDER_TYPE_INVALID";
+})(ThothWlPayPayExceptionSid || (exports.ThothWlPayPayExceptionSid = ThothWlPayPayExceptionSid = {}));
+/** List of outcomes of a CAASI Phone Agent call. */
+var WlAiAgentPhoneCallOutcomeEnum;
+(function (WlAiAgentPhoneCallOutcomeEnum) {
+    /** The call was resolved by CAASI without staff involvement */
+    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["RESOLVED"] = 1] = "RESOLVED";
+    /** The call was transferred to a live staff member */
+    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["TRANSFERRED"] = 2] = "TRANSFERRED";
+    /** The caller requested a callback from staff */
+    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["CALLBACK_REQUESTED"] = 3] = "CALLBACK_REQUESTED";
+})(WlAiAgentPhoneCallOutcomeEnum || (exports.WlAiAgentPhoneCallOutcomeEnum = WlAiAgentPhoneCallOutcomeEnum = {}));
+/** Possible website subscription plans. */
+var WlBusinessAccountWebsiteSid;
+(function (WlBusinessAccountWebsiteSid) {
+    /** Basic edition */
+    WlBusinessAccountWebsiteSid[WlBusinessAccountWebsiteSid["BASIC"] = 4] = "BASIC";
+    /** Enterprise edition */
+    WlBusinessAccountWebsiteSid[WlBusinessAccountWebsiteSid["ENTERPRISE"] = 3] = "ENTERPRISE";
+    /** No payments considered */
+    WlBusinessAccountWebsiteSid[WlBusinessAccountWebsiteSid["NONE"] = 1] = "NONE";
+    /** Premium edition */
+    WlBusinessAccountWebsiteSid[WlBusinessAccountWebsiteSid["PREMIUM"] = 5] = "PREMIUM";
+    /** Professional edition */
+    WlBusinessAccountWebsiteSid[WlBusinessAccountWebsiteSid["PRO"] = 2] = "PRO";
+})(WlBusinessAccountWebsiteSid || (exports.WlBusinessAccountWebsiteSid = WlBusinessAccountWebsiteSid = {}));
+/** List of possible plans for FitvidSubscription subscription. */
+var WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid;
+(function (WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid) {
+    /** Basic */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["BASIC"] = 2] = "BASIC";
+    /** Enterprise */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["ENTERPRISE"] = 3] = "ENTERPRISE";
+    /** None */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["FREE"] = 1] = "FREE";
+    /** Premium */
+    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["PREMIUM"] = 4] = "PREMIUM";
+})(WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid || (exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = {}));
+/** Mail types. */
+var RsMailSid;
+(function (RsMailSid) {
+    /** Sent when a client abandons a checkout (used in automations) */
+    RsMailSid[RsMailSid["ABANDONED_CHECKOUT"] = 220] = "ABANDONED_CHECKOUT";
+    /** Sent by CASSI phone agent, when client requests a booking url */
+    RsMailSid[RsMailSid["AI_LINK_BOOK"] = 206] = "AI_LINK_BOOK";
+    /** Sent by CASSI phone agent, when client requests a purchase url */
+    RsMailSid[RsMailSid["AI_LINK_PURCHASE"] = 207] = "AI_LINK_PURCHASE";
+    /** Appointment approved by staff */
+    RsMailSid[RsMailSid["APPOINTMENT_APPROVE_STAFF"] = 71] = "APPOINTMENT_APPROVE_STAFF";
+    /** Sent when the AI Agent successfully books an appointment */
+    RsMailSid[RsMailSid["APPOINTMENT_BOOKED_AI"] = 198] = "APPOINTMENT_BOOKED_AI";
+    /** Appointment Cancelled by Client - Early */
+    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_EARLY_USER"] = 33] = "APPOINTMENT_CANCEL_EARLY_USER";
+    /** Appointment Cancelled by Client - Late */
+    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_LATE_USER"] = 35] = "APPOINTMENT_CANCEL_LATE_USER";
+    /** Appointment Cancelled Notification - Staff */
+    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_STAFF"] = 32] = "APPOINTMENT_CANCEL_STAFF";
+    /** Sends to the client when appointment has been cancelled by staff */
+    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_STAFF_USER"] = 80] = "APPOINTMENT_CANCEL_STAFF_USER";
+    /** Sends to the clients when appointment information has been changed */
+    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_GENERAL_CLIENT"] = 114] = "APPOINTMENT_CHANGE_GENERAL_CLIENT";
+    /** Sends to the staff members when appointment information has been changed */
+    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_GENERAL_STAFF"] = 113] = "APPOINTMENT_CHANGE_GENERAL_STAFF";
+    /** Appointment Change Notification - Staff */
+    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_STAFF"] = 36] = "APPOINTMENT_CHANGE_STAFF";
+    /** Appointment Change Notification - Client */
+    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_USER"] = 37] = "APPOINTMENT_CHANGE_USER";
+    /** New Appointment Notification - Staff */
+    RsMailSid[RsMailSid["APPOINTMENT_CREATE_STAFF"] = 31] = "APPOINTMENT_CREATE_STAFF";
+    /** Appointment Confirmation */
+    RsMailSid[RsMailSid["APPOINTMENT_CREATE_USER"] = 30] = "APPOINTMENT_CREATE_USER";
+    /** Multiple Appointment Confirmation (Client) */
+    RsMailSid[RsMailSid["APPOINTMENT_CREATE_USER_MULTIPLE"] = 211] = "APPOINTMENT_CREATE_USER_MULTIPLE";
+    /** Notification to a customer about an appointment that has been canceled because not paid */
+    RsMailSid[RsMailSid["APPOINTMENT_PAY_CANCEL"] = 189] = "APPOINTMENT_PAY_CANCEL";
+    /** Notification to a customer about mandatory payment for an appointment */
+    RsMailSid[RsMailSid["APPOINTMENT_PAY_PAY"] = 188] = "APPOINTMENT_PAY_PAY";
+    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
+    RsMailSid[RsMailSid["APPOINTMENT_REPEAT_CANCEL_CLIENT"] = 103] = "APPOINTMENT_REPEAT_CANCEL_CLIENT";
+    /** Sends one email to staff when several sessions of one or several appointments or single session of recurring */
+    RsMailSid[RsMailSid["APPOINTMENT_REPEAT_CANCEL_STAFF"] = 105] = "APPOINTMENT_REPEAT_CANCEL_STAFF";
+    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
+    RsMailSid[RsMailSid["APPOINTMENT_REPEAT_CANCEL_USER"] = 131] = "APPOINTMENT_REPEAT_CANCEL_USER";
+    /** Sent to staff when the AI Agent receives an appointment request */
+    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_AI"] = 200] = "APPOINTMENT_REQUEST_AI";
+    /** Requested appointment has been denied */
+    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_DENY"] = 88] = "APPOINTMENT_REQUEST_DENY";
+    /** Appointment has been requested */
+    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_STAFF"] = 89] = "APPOINTMENT_REQUEST_STAFF";
+    /** Appointment has been requested */
+    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_USER"] = 90] = "APPOINTMENT_REQUEST_USER";
+    /** Appointment Wait List Cancellation */
+    RsMailSid[RsMailSid["APPOINTMENT_WAIT_REMOVE"] = 195] = "APPOINTMENT_WAIT_REMOVE";
+    /** Sent to staff when the AI Agent logs a billing or payment query */
+    RsMailSid[RsMailSid["BILLING_RELATED_QUERY"] = 204] = "BILLING_RELATED_QUERY";
+    /** Class Booking Confirmation */
+    RsMailSid[RsMailSid["BOOK_ADD_CLASS"] = 1] = "BOOK_ADD_CLASS";
+    /** Class Booking Notification - Staff */
+    RsMailSid[RsMailSid["BOOK_ADD_STAFF"] = 47] = "BOOK_ADD_STAFF";
+    /** Sent if a client cancels a booking (used in automations) */
+    RsMailSid[RsMailSid["BOOK_CANCEL"] = 210] = "BOOK_CANCEL";
+    /** Class Booking (Reservation) Cancelled by Staff */
+    RsMailSid[RsMailSid["BOOK_CANCEL_ADMIN_CLASS"] = 23] = "BOOK_CANCEL_ADMIN_CLASS";
+    /** Enrollment Booking Cancelled by Staff */
+    RsMailSid[RsMailSid["BOOK_CANCEL_ADMIN_ENROLLMENT"] = 57] = "BOOK_CANCEL_ADMIN_ENROLLMENT";
+    /** Enrollment Session Cancellation Notification */
+    RsMailSid[RsMailSid["BOOK_CANCEL_ENROLLMENT_SESSION"] = 128] = "BOOK_CANCEL_ENROLLMENT_SESSION";
+    /** Class Cancelled by Client - Early */
+    RsMailSid[RsMailSid["BOOK_CANCEL_FREE_CLASS"] = 3] = "BOOK_CANCEL_FREE_CLASS";
+    /** Enrollment Cancelled by Client - Early */
+    RsMailSid[RsMailSid["BOOK_CANCEL_FREE_ENROLLMENT"] = 58] = "BOOK_CANCEL_FREE_ENROLLMENT";
+    /** Class Cancelled By Client - Late */
+    RsMailSid[RsMailSid["BOOK_CANCEL_PENALTY_CLASS"] = 4] = "BOOK_CANCEL_PENALTY_CLASS";
+    /** Enrollment Cancelled By Client - Late */
+    RsMailSid[RsMailSid["BOOK_CANCEL_PENALTY_ENROLLMENT"] = 59] = "BOOK_CANCEL_PENALTY_ENROLLMENT";
+    /** Class Booking Cancellation Notification - Staff */
+    RsMailSid[RsMailSid["BOOK_CANCEL_STAFF"] = 48] = "BOOK_CANCEL_STAFF";
+    /** Enrollment Booking Confirmation */
+    RsMailSid[RsMailSid["BOOK_ENROLLMENT"] = 69] = "BOOK_ENROLLMENT";
+    /** Enrollment Booking Cancellation Notification - Staff */
+    RsMailSid[RsMailSid["BOOK_ENROLLMENT_CANCEL_STAFF"] = 92] = "BOOK_ENROLLMENT_CANCEL_STAFF";
+    /** Enrollment Booking Notification - Staff */
+    RsMailSid[RsMailSid["BOOK_ENROLLMENT_STAFF"] = 91] = "BOOK_ENROLLMENT_STAFF";
+    /** Thanks for your interest */
+    RsMailSid[RsMailSid["BOOK_FIRST"] = 73] = "BOOK_FIRST";
+    /** Appointment Wait List Promotion (Client Confirmation Required) */
+    RsMailSid[RsMailSid["BOOK_PROMOTE_CONFIRM_APPOINTMENT"] = 169] = "BOOK_PROMOTE_CONFIRM_APPOINTMENT";
+    /** Waitlist Promotion (Client Confirmation Required) */
+    RsMailSid[RsMailSid["BOOK_PROMOTE_CONFIRM_CLASS"] = 53] = "BOOK_PROMOTE_CONFIRM_CLASS";
+    /** Waitlist Promotion (Client Confirmation Required) */
+    RsMailSid[RsMailSid["BOOK_PROMOTE_CONFIRM_ENROLLMENT"] = 60] = "BOOK_PROMOTE_CONFIRM_ENROLLMENT";
+    /** Appointment Wait List Promotion (Confirmation not Required) */
+    RsMailSid[RsMailSid["BOOK_PROMOTE_DIRECT_APPOINTMENT"] = 168] = "BOOK_PROMOTE_DIRECT_APPOINTMENT";
+    /** Waitlist Promotion (Client Confirmation Not Required) */
+    RsMailSid[RsMailSid["BOOK_PROMOTE_DIRECT_CLASS"] = 8] = "BOOK_PROMOTE_DIRECT_CLASS";
+    /** Waitlist Promotion (Client Confirmation Not Required) */
+    RsMailSid[RsMailSid["BOOK_PROMOTE_DIRECT_ENROLLMENT"] = 61] = "BOOK_PROMOTE_DIRECT_ENROLLMENT";
+    /** Class Reminder */
+    RsMailSid[RsMailSid["BOOK_REMIND_CLASS"] = 25] = "BOOK_REMIND_CLASS";
+    /** Enrollment Reminder */
+    RsMailSid[RsMailSid["BOOK_REMIND_ENROLLMENT"] = 62] = "BOOK_REMIND_ENROLLMENT";
+    /** Appointment Reminder - Staff */
+    RsMailSid[RsMailSid["BOOK_REMIND_SERVICE_STAFF"] = 27] = "BOOK_REMIND_SERVICE_STAFF";
+    /** Appointment Reminder */
+    RsMailSid[RsMailSid["BOOK_REMIND_SERVICE_USER"] = 26] = "BOOK_REMIND_SERVICE_USER";
+    /** Class Booking Confirmation */
+    RsMailSid[RsMailSid["BOOK_REPEAT_ADD"] = 101] = "BOOK_REPEAT_ADD";
+    /** Class Booking Cancelled */
+    RsMailSid[RsMailSid["BOOK_REPEAT_CANCEL"] = 102] = "BOOK_REPEAT_CANCEL";
+    /** Recurrent Class Reservation Wait List */
+    RsMailSid[RsMailSid["BOOK_REPEAT_WAIT"] = 166] = "BOOK_REPEAT_WAIT";
+    /** Class Review Request */
+    RsMailSid[RsMailSid["BOOK_VISIT"] = 39] = "BOOK_VISIT";
+    /** Appointment Reservation Wait List */
+    RsMailSid[RsMailSid["BOOK_WAIT_APPOINTMENT"] = 165] = "BOOK_WAIT_APPOINTMENT";
+    /** Class Reservation Wait List */
+    RsMailSid[RsMailSid["BOOK_WAIT_CLASS"] = 2] = "BOOK_WAIT_CLASS";
+    /** Enrollment Reservation Wait List */
+    RsMailSid[RsMailSid["BOOK_WAIT_ENROLLMENT"] = 63] = "BOOK_WAIT_ENROLLMENT";
+    /** Sent when a business account or location is churned */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_CHURN"] = 154] = "BUSINESS_ACCOUNT_CHURN";
+    /** Sent to business owner if payment for account failed */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_PAY_FAIL"] = 82] = "BUSINESS_ACCOUNT_PAY_FAIL";
+    /** Sent to business owners as notification in one day before payment for account */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_PAY_NOTIFY"] = 83] = "BUSINESS_ACCOUNT_PAY_NOTIFY";
+    /** Sent to business owner on successful payment for account */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_PAY_OK"] = 81] = "BUSINESS_ACCOUNT_PAY_OK";
+    /** Sent when the monthly postcard limit is exceeded */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_POSTCARD_LIMIT"] = 155] = "BUSINESS_ACCOUNT_POSTCARD_LIMIT";
+    /** Sent when subscription price has been overridden and is less than the configured notification threshold */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT"] = 158] = "BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT";
+    /** Sent when subscription price has been overridden twice or more */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE"] = 151] = "BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE";
+    /** Sent when a subscription payment is marked as paid */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT"] = 156] = "BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT";
+    /** Sent when subscription skip payment setting has been changed */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP"] = 134] = "BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP";
+    /** Sent when a new subscription has been added, and the business is paying for fewer locations than they have */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING"] = 152] = "BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING";
+    /** Sent when a user signs up for the virtual service */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_VIRTUAL_SIGNUP"] = 157] = "BUSINESS_ACCOUNT_VIRTUAL_SIGNUP";
+    /** Sent when a business adds more licenses to their `FitLIVE` subscription */
+    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_VIRTUAL_UPGRADE"] = 175] = "BUSINESS_ACCOUNT_VIRTUAL_UPGRADE";
+    /** Sends to client after the first-level onboarding, providing them with login information */
+    RsMailSid[RsMailSid["BUSINESS_CREATE"] = 192] = "BUSINESS_CREATE";
+    /** Email sales@wellnessliving.com when user changes Message Center plan */
+    RsMailSid[RsMailSid["BUSINESS_MESSAGE_SUBSCRIBE"] = 164] = "BUSINESS_MESSAGE_SUBSCRIBE";
+    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to all businesses accounts */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_BANNER"] = 179] = "BUSINESS_PARTNER_BANNER";
+    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to business account */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_BANNER_CUSTOMER"] = 180] = "BUSINESS_PARTNER_BANNER_CUSTOMER";
+    /** Email to the admins that business staff member wants to take a part in the partner program */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_ENROLL"] = 119] = "BUSINESS_PARTNER_ENROLL";
+    /** Email to the staff members of the partner business when a new lead comes in through his partnership */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_NEW"] = 143] = "BUSINESS_PARTNER_REFERRAL_MAIL_NEW";
+    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to partner business */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER"] = 145] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER";
+    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to referral business */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL"] = 148] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL";
+    /** Email to the staff members of the partner business when a referral reaches a certain period of paid subscription */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER"] = 146] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER";
+    /** Email to the staff members of the referred business when they reaches a certain period of paid subscription */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL"] = 147] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL";
+    /** Email to the staff members of the partner business when a referral has been subscribed */
+    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE"] = 144] = "BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE";
+    /** Business registered its business phone number */
+    RsMailSid[RsMailSid["BUSINESS_PHONE"] = 139] = "BUSINESS_PHONE";
+    /** Sent when send/receive SMS in Two-Way SMS chat */
+    RsMailSid[RsMailSid["BUSINESS_SMS_CHAT"] = 141] = "BUSINESS_SMS_CHAT";
+    /** Sent to staff when the AI Agent captures a cancellation request */
+    RsMailSid[RsMailSid["CANCELLATION_REQUEST_AI"] = 202] = "CANCELLATION_REQUEST_AI";
+    /** Sent to staff when CAASI receives a request for booking */
+    RsMailSid[RsMailSid["CLASS_BOOK_AI"] = 201] = "CLASS_BOOK_AI";
+    /** Alerts staff that the AI Agent has completed a class booking for a client */
+    RsMailSid[RsMailSid["CLASS_BOOKED_AI"] = 199] = "CLASS_BOOKED_AI";
+    /** Class Type Modified Has Changed */
+    RsMailSid[RsMailSid["CLASS_EDIT_CLASS"] = 24] = "CLASS_EDIT_CLASS";
+    /** Enrollment Type Modified Has Changed */
+    RsMailSid[RsMailSid["CLASS_EDIT_ENROLLMENT"] = 64] = "CLASS_EDIT_ENROLLMENT";
+    /** Class cancelled by staff */
+    RsMailSid[RsMailSid["CLASS_PERIOD_CANCEL_CLASS"] = 16] = "CLASS_PERIOD_CANCEL_CLASS";
+    /** Enrollment cancelled by staff */
+    RsMailSid[RsMailSid["CLASS_PERIOD_CANCEL_ENROLLMENT"] = 66] = "CLASS_PERIOD_CANCEL_ENROLLMENT";
+    /** Class Schedule Details Changed Modified */
+    RsMailSid[RsMailSid["CLASS_PERIOD_CHANGE_CLASS"] = 17] = "CLASS_PERIOD_CHANGE_CLASS";
+    /** Enrollment Schedule Details Changed Modified */
+    RsMailSid[RsMailSid["CLASS_PERIOD_CHANGE_ENROLLMENT"] = 65] = "CLASS_PERIOD_CHANGE_ENROLLMENT";
+    /** Class Cancellation Notification - Staff */
+    RsMailSid[RsMailSid["CLASSES_CANCEL_STAFF"] = 135] = "CLASSES_CANCEL_STAFF";
+    /** Class Schedule Details Changed */
+    RsMailSid[RsMailSid["CLASSES_PERIOD_CHANGE_CLASSES_STAFF"] = 100] = "CLASSES_PERIOD_CHANGE_CLASSES_STAFF";
+    /** Email to the business members with information about newly added class schedule */
+    RsMailSid[RsMailSid["CLASSES_PROMOTE"] = 109] = "CLASSES_PROMOTE";
+    /** A reminder for the staff about an upcoming recurrent class */
+    RsMailSid[RsMailSid["CLASSES_STAFF_RECURRENT"] = 124] = "CLASSES_STAFF_RECURRENT";
+    /** A notification to the staff about a cancellation of a recurrent class */
+    RsMailSid[RsMailSid["CLASSES_STAFF_RECURRENT_CANCEL"] = 125] = "CLASSES_STAFF_RECURRENT_CANCEL";
+    /** Staff member that conducts the class is changed (a new staff member is added, or an existing staff member is substituted) */
+    RsMailSid[RsMailSid["CLASSES_STAFF_SUBSTITUTION"] = 110] = "CLASSES_STAFF_SUBSTITUTION";
+    /** Send to the staff a remind about an upcoming class session */
+    RsMailSid[RsMailSid["CLASSES_STAFF_SUBSTITUTION_REMIND"] = 117] = "CLASSES_STAFF_SUBSTITUTION_REMIND";
+    /** Sent to the client after a video uploaded to an attendance list is published */
+    RsMailSid[RsMailSid["CLASSES_VIDEO_PUBLISH"] = 161] = "CLASSES_VIDEO_PUBLISH";
+    /** Automated marketing email sent on the client's birthday */
+    RsMailSid[RsMailSid["CLIENT_BIRTHDAY"] = 221] = "CLIENT_BIRTHDAY";
+    /** Send a copy of contract */
+    RsMailSid[RsMailSid["CONTRACT_COPY"] = 98] = "CONTRACT_COPY";
+    /** Sent after purchase of coupon */
+    RsMailSid[RsMailSid["COUPON_PURCHASE"] = 84] = "COUPON_PURCHASE";
+    /** Enrollment Session(s) Booking Confirmation */
+    RsMailSid[RsMailSid["EVENT_BOOK_SESSION_CLIENT"] = 129] = "EVENT_BOOK_SESSION_CLIENT";
+    /** Enrollment Session(s) Booking Notification - Staff */
+    RsMailSid[RsMailSid["EVENT_BOOK_SESSION_STAFF"] = 130] = "EVENT_BOOK_SESSION_STAFF";
+    /** Email to the business members with information about newly added event schedule */
+    RsMailSid[RsMailSid["EVENT_PROMOTE"] = 160] = "EVENT_PROMOTE";
+    /** Sent to the client after a video uploaded to an attendance list is published */
+    RsMailSid[RsMailSid["EVENT_VIDEO_PUBLISH"] = 162] = "EVENT_VIDEO_PUBLISH";
+    /** Staff sent feedback with some comment */
+    RsMailSid[RsMailSid["FEEDBACK_DIALOG"] = 133] = "FEEDBACK_DIALOG";
+    /** New Comment on Logged Result */
+    RsMailSid[RsMailSid["FITBUILDER_MAIL_COMMENT"] = 182] = "FITBUILDER_MAIL_COMMENT";
+    /** New Likes on Comment */
+    RsMailSid[RsMailSid["FITBUILDER_MAIL_LIKE"] = 183] = "FITBUILDER_MAIL_LIKE";
+    /** Thumbs up on Logged Result */
+    RsMailSid[RsMailSid["FITBUILDER_MAIL_THUMB"] = 184] = "FITBUILDER_MAIL_THUMB";
+    /** Workout of the day */
+    RsMailSid[RsMailSid["FITBUILDER_MAIL_WORKOUT"] = 185] = "FITBUILDER_MAIL_WORKOUT";
+    /** Guest Pass invitation expired */
+    RsMailSid[RsMailSid["GUEST_PASS_EXPIRED"] = 218] = "GUEST_PASS_EXPIRED";
+    /** Guest Pass invitation sent */
+    RsMailSid[RsMailSid["GUEST_PASS_INVITATION"] = 217] = "GUEST_PASS_INVITATION";
+    /** Guest Pass invitation reminder */
+    RsMailSid[RsMailSid["GUEST_PASS_REMINDER"] = 219] = "GUEST_PASS_REMINDER";
+    /** For staff members to send emails to support using the help popup */
+    RsMailSid[RsMailSid["HELP_POPUP_EMAIL"] = 150] = "HELP_POPUP_EMAIL";
+    /** Sent when a business enrolls in Autymate */
+    RsMailSid[RsMailSid["INTEGRATION_AUTYMATE_ENROLLMENT"] = 176] = "INTEGRATION_AUTYMATE_ENROLLMENT";
+    /** Sent when a business subscribes to collections */
+    RsMailSid[RsMailSid["INTEGRATION_COLLECTION_ALDOUS"] = 178] = "INTEGRATION_COLLECTION_ALDOUS";
+    /** Email, which is sent when a customer has connected a paid Zoom account */
+    RsMailSid[RsMailSid["INTEGRATION_ZOOM_CONFIRMATION"] = 138] = "INTEGRATION_ZOOM_CONFIRMATION";
+    /** Request a demo from landing page */
+    RsMailSid[RsMailSid["LANDING_CONTACT"] = 97] = "LANDING_CONTACT";
+    /** Sent to staff member informing them that a new client has entered their information into the Lead Capture Widget */
+    RsMailSid[RsMailSid["LEAD_ADDED_STAFF"] = 163] = "LEAD_ADDED_STAFF";
+    /** Sent to the client after they fill out a Lead Capture Form on the website of a business */
+    RsMailSid[RsMailSid["LEAD_CAPTURE"] = 87] = "LEAD_CAPTURE";
+    /** Sent to staff when CAASI captures a new lead from a conversation, */
+    RsMailSid[RsMailSid["LEAD_CAPTURE_AI"] = 197] = "LEAD_CAPTURE_AI";
+    /** Sent to a client when they have stayed in a lead stage for a set time without any activity of their own */
+    RsMailSid[RsMailSid["LEAD_STAGE_NO_ACTIVITY"] = 231] = "LEAD_STAGE_NO_ACTIVITY";
+    /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
+    RsMailSid[RsMailSid["LEAD_STAGE_UPDATED"] = 224] = "LEAD_STAGE_UPDATED";
+    /** Sent to client on annual anniversary of the Member Since date */
+    RsMailSid[RsMailSid["LOGIN_ANNIVERSARY"] = 96] = "LOGIN_ANNIVERSARY";
+    /** Attendance List */
+    RsMailSid[RsMailSid["LOGIN_ATTENDANCE"] = 42] = "LOGIN_ATTENDANCE";
+    /** Sent when user long time did not visit location, and it not has active promotion */
+    RsMailSid[RsMailSid["LOGIN_BACK"] = 79] = "LOGIN_BACK";
+    /** Email to send on the day, when client has birthday */
+    RsMailSid[RsMailSid["LOGIN_BIRTHDAY"] = 49] = "LOGIN_BIRTHDAY";
+    /** Clients Payment Card expires this month */
+    RsMailSid[RsMailSid["LOGIN_CARD_EXPIRE"] = 51] = "LOGIN_CARD_EXPIRE";
+    /** Email address confirmation */
+    RsMailSid[RsMailSid["LOGIN_MAIL_CONFIRM"] = 123] = "LOGIN_MAIL_CONFIRM";
+    /** Custom Client Email #1 */
+    RsMailSid[RsMailSid["LOGIN_MESSAGE"] = 22] = "LOGIN_MESSAGE";
+    /** Client no show */
+    RsMailSid[RsMailSid["LOGIN_PENALTY_APPOINTMENT"] = 72] = "LOGIN_PENALTY_APPOINTMENT";
+    /** Client no show */
+    RsMailSid[RsMailSid["LOGIN_PENALTY_CLASS"] = 15] = "LOGIN_PENALTY_CLASS";
+    /** Client no show */
+    RsMailSid[RsMailSid["LOGIN_PENALTY_ENROLLMENT"] = 67] = "LOGIN_PENALTY_ENROLLMENT";
+    /** Billed to Account. Sent to the client when any purchase was billed to their account balance */
+    RsMailSid[RsMailSid["LOGIN_PURCHASE_ACCOUNT"] = 159] = "LOGIN_PURCHASE_ACCOUNT";
+    /** Sent to a client when they haven't visited in a set number of days, */
+    RsMailSid[RsMailSid["LOGIN_RETENTION"] = 50] = "LOGIN_RETENTION";
+    /** Sent to the client when a new account statement becomes available */
+    RsMailSid[RsMailSid["LOGIN_STATEMENT_NEW"] = 213] = "LOGIN_STATEMENT_NEW";
+    /** Sent to all new users after they create an account for the first time */
+    RsMailSid[RsMailSid["LOGIN_WELCOME"] = 9] = "LOGIN_WELCOME";
+    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
+    RsMailSid[RsMailSid["MARKETING_AUTOMATION_NOTIFY_STAFF"] = 223] = "MARKETING_AUTOMATION_NOTIFY_STAFF";
+    /** Client added to a member group */
+    RsMailSid[RsMailSid["MEMBER_GROUP_USER_ADD"] = 214] = "MEMBER_GROUP_USER_ADD";
+    /** Client removed from a member group */
+    RsMailSid[RsMailSid["MEMBER_GROUP_USER_REMOVE"] = 215] = "MEMBER_GROUP_USER_REMOVE";
+    /** Sent to staff when the AI Agent logs a membership or purchase query */
+    RsMailSid[RsMailSid["MEMBERSHIP_QUERY"] = 203] = "MEMBERSHIP_QUERY";
+    /** Sent OTP code by sms or email to validate phone number or email address */
+    RsMailSid[RsMailSid["NOTIFICATION_OTP"] = 191] = "NOTIFICATION_OTP";
+    /** Sent OTP code by sms and email for the user sign in */
+    RsMailSid[RsMailSid["PASSPORT_LOGIN_ENTER"] = 187] = "PASSPORT_LOGIN_ENTER";
+    /** Notification about email address is changed due to merge */
+    RsMailSid[RsMailSid["PASSPORT_LOGIN_MERGE"] = 205] = "PASSPORT_LOGIN_MERGE";
+    /** Notification to a staff member that a passkey was added to their account */
+    RsMailSid[RsMailSid["PASSPORT_PASSKEY_ADD"] = 226] = "PASSPORT_PASSKEY_ADD";
+    /** Notification to a staff member that a passkey was removed from their account */
+    RsMailSid[RsMailSid["PASSPORT_PASSKEY_REMOVE"] = 227] = "PASSPORT_PASSKEY_REMOVE";
+    /** E-mail with a list of user's payment account transactions for last `62` days */
+    RsMailSid[RsMailSid["PAY_ACCOUNT_INVOICE"] = 85] = "PAY_ACCOUNT_INVOICE";
+    /** Automatic payment success */
+    RsMailSid[RsMailSid["PAY_AUTOMATIC_SUCCESS"] = 116] = "PAY_AUTOMATIC_SUCCESS";
+    /** Funds of a Stripe dispute must be moved by hand */
+    RsMailSid[RsMailSid["PAY_DISPUTE_FUNDS_FAIL"] = 228] = "PAY_DISPUTE_FUNDS_FAIL";
+    /** A client disputed a payment to the studio */
+    RsMailSid[RsMailSid["PAY_DISPUTE_STUDIO"] = 229] = "PAY_DISPUTE_STUDIO";
+    /** A chargeback that Smart Disputes does not take must be contested by Support */
+    RsMailSid[RsMailSid["PAY_DISPUTE_SUPPORT"] = 230] = "PAY_DISPUTE_SUPPORT";
+    /** Transaction failed */
+    RsMailSid[RsMailSid["PAY_TRANSACTION_FAIL"] = 181] = "PAY_TRANSACTION_FAIL";
+    /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
+    RsMailSid[RsMailSid["PHONE_AGENT_CALL_RECEIVED"] = 222] = "PHONE_AGENT_CALL_RECEIVED";
+    /** Request a custom website subscription */
+    RsMailSid[RsMailSid["PRESENCE_ACTIVATE"] = 137] = "PRESENCE_ACTIVATE";
+    /** Sent after purchase of product */
+    RsMailSid[RsMailSid["PRODUCT_PURCHASE"] = 127] = "PRODUCT_PURCHASE";
+    /** Email to inform user that they email is changed */
+    RsMailSid[RsMailSid["PROFILE_MAIL_CHANGE"] = 93] = "PROFILE_MAIL_CHANGE";
+    /** Email to confirm new email address after it was changed */
+    RsMailSid[RsMailSid["PROFILE_MAIL_CONFIRM"] = 86] = "PROFILE_MAIL_CONFIRM";
+    /** Mail to inform the user that their password has been changed */
+    RsMailSid[RsMailSid["PROFILE_PASSWORD_CHANGE"] = 111] = "PROFILE_PASSWORD_CHANGE";
+    /** Mail containing reset password link to allow the user to change their password */
+    RsMailSid[RsMailSid["PROFILE_PASSWORD_RESET"] = 142] = "PROFILE_PASSWORD_RESET";
+    /** Few Pass Visits Remaining */
+    RsMailSid[RsMailSid["PROMOTION_LOW"] = 43] = "PROMOTION_LOW";
+    /** Sent when membership is canceled */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_CANCEL"] = 153] = "PROMOTION_MEMBERSHIP_CANCEL";
+    /** Sent to staff when membership is canceled */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_CANCEL_STAFF"] = 193] = "PROMOTION_MEMBERSHIP_CANCEL_STAFF";
+    /** Sent when membership expires */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_EXPIRE"] = 77] = "PROMOTION_MEMBERSHIP_EXPIRE";
+    /** Membership Payment - Billed to Account */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_PAY_ACCOUNT"] = 106] = "PROMOTION_MEMBERSHIP_PAY_ACCOUNT";
+    /** Automatic Payment Failed */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_PAY_FAIL"] = 55] = "PROMOTION_MEMBERSHIP_PAY_FAIL";
+    /** Membership Payment Confirmation */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_PAY_OK"] = 56] = "PROMOTION_MEMBERSHIP_PAY_OK";
+    /** Sent to the customer after their membership is renewed */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_REACTIVATE"] = 75] = "PROMOTION_MEMBERSHIP_REACTIVATE";
+    /** Sent before certain count of days before membership renews */
+    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_RENEW"] = 78] = "PROMOTION_MEMBERSHIP_RENEW";
+    /** Sent after purchase of promotion */
+    RsMailSid[RsMailSid["PROMOTION_PURCHASE"] = 76] = "PROMOTION_PURCHASE";
+    /** Receipt sent after purchase of promotion */
+    RsMailSid[RsMailSid["PROMOTION_RECEIPT"] = 136] = "PROMOTION_RECEIPT";
+    /** Sent after a client attended a visit using a purchase option (used in automations) */
+    RsMailSid[RsMailSid["PROMOTION_USED"] = 212] = "PROMOTION_USED";
+    /** Sent to the customer when a promotion is paused */
+    RsMailSid[RsMailSid["PURCHASE_HOLD"] = 194] = "PURCHASE_HOLD";
+    /** Sends to the clients when purchase option hold expiring soon */
+    RsMailSid[RsMailSid["PURCHASE_HOLD_EXPIRING"] = 186] = "PURCHASE_HOLD_EXPIRING";
+    /** Purchase Receipt */
+    RsMailSid[RsMailSid["PURCHASE_PAYMENT"] = 52] = "PURCHASE_PAYMENT";
+    /** Purchase Receipt */
+    RsMailSid[RsMailSid["PURCHASE_PAYMENT_ACCOUNT"] = 107] = "PURCHASE_PAYMENT_ACCOUNT";
+    /** Purchase Receipt */
+    RsMailSid[RsMailSid["PURCHASE_PAYMENT_POS"] = 115] = "PURCHASE_PAYMENT_POS";
+    /** Sent to Business Owner when the re-order level has been reached for some product */
+    RsMailSid[RsMailSid["PURCHASE_PRODUCT_INVENTORY"] = 95] = "PURCHASE_PRODUCT_INVENTORY";
+    /** Thanks for purchasing an introductory offer */
+    RsMailSid[RsMailSid["PURCHASE_PROMOTION_INTRODUCTORY"] = 74] = "PURCHASE_PROMOTION_INTRODUCTORY";
+    /** Send refund receipt */
+    RsMailSid[RsMailSid["PURCHASE_REFUND"] = 108] = "PURCHASE_REFUND";
+    /** Quiz form submission - Client */
+    RsMailSid[RsMailSid["QUIZ_FORM_SUBMITTION"] = 172] = "QUIZ_FORM_SUBMITTION";
+    /** Email to wellnessliving team when user changes Quiz Subscription plan */
+    RsMailSid[RsMailSid["QUIZ_INDEX"] = 174] = "QUIZ_INDEX";
+    /** Quiz submitted - Staff */
+    RsMailSid[RsMailSid["QUIZ_NOTIFICATION"] = 171] = "QUIZ_NOTIFICATION";
+    /** Quiz submitted - Staff */
+    RsMailSid[RsMailSid["QUIZ_NOTIFICATION_REMIND"] = 173] = "QUIZ_NOTIFICATION_REMIND";
+    /** Email to wellnessliving team when businesses perform actions which is exporting data */
+    RsMailSid[RsMailSid["REPORT_EXPORT"] = 177] = "REPORT_EXPORT";
+    /** New Customer Review - Staff */
+    RsMailSid[RsMailSid["REVIEW_ADD"] = 38] = "REVIEW_ADD";
+    /** Owner Replied to Review */
+    RsMailSid[RsMailSid["REVIEW_REPLY"] = 45] = "REVIEW_REPLY";
+    /** Client left a review */
+    RsMailSid[RsMailSid["REVIEW_USER_LEFT"] = 216] = "REVIEW_USER_LEFT";
+    /** Event redeems a reward (points or prizes) for client */
+    RsMailSid[RsMailSid["REWARD_PRIZE_CLIENT"] = 120] = "REWARD_PRIZE_CLIENT";
+    /** Event redeems a reward (points or prizes) for staff */
+    RsMailSid[RsMailSid["REWARD_PRIZE_STAFF"] = 121] = "REWARD_PRIZE_STAFF";
+    /** Sale Has Been Made */
+    RsMailSid[RsMailSid["SALE_STAFF"] = 126] = "SALE_STAFF";
+    /** Sent after booking a service (used in automations) */
+    RsMailSid[RsMailSid["SERVICE_BOOK"] = 208] = "SERVICE_BOOK";
+    /** Event when finished push certification for ios devices */
+    RsMailSid[RsMailSid["SKIN_APPLICATION_CONNECT"] = 122] = "SKIN_APPLICATION_CONNECT";
+    /** Notifies staff when CAASI captures a client request for a staff connect, */
+    RsMailSid[RsMailSid["STAFF_CALLBACK_REQUEST"] = 196] = "STAFF_CALLBACK_REQUEST";
+    /** Sends when task assigned to staff */
+    RsMailSid[RsMailSid["TASK_ASSIGN"] = 104] = "TASK_ASSIGN";
+    /** Send a copy of waiver */
+    RsMailSid[RsMailSid["TERM_COPY"] = 99] = "TERM_COPY";
+    /** Sent after a ticketed event is purchased */
+    RsMailSid[RsMailSid["TICKET_PURCHASE"] = 225] = "TICKET_PURCHASE";
+    /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
+    RsMailSid[RsMailSid["USER_CAMPAIGN"] = 112] = "USER_CAMPAIGN";
+    /** Request a video subscription */
+    RsMailSid[RsMailSid["VIDEO_SUBSCRIPTION_UPGRADE"] = 140] = "VIDEO_SUBSCRIPTION_UPGRADE";
+    /** Sent after visit the service */
+    RsMailSid[RsMailSid["VISIT_CAMPAIGN"] = 94] = "VISIT_CAMPAIGN";
+    /** Sent if a client does not show up to a service reserved by (used in automations) */
+    RsMailSid[RsMailSid["VISIT_NOSHOW"] = 209] = "VISIT_NOSHOW";
+    /** Visit receipt */
+    RsMailSid[RsMailSid["VISIT_RECEIPT_RECEIPT"] = 190] = "VISIT_RECEIPT_RECEIPT";
+    /** Email, which is sent when a Zoom license is lack */
+    RsMailSid[RsMailSid["ZOOM_LICENSE_LACK"] = 149] = "ZOOM_LICENSE_LACK";
+})(RsMailSid || (exports.RsMailSid = RsMailSid = {}));
 /** Reasons why the client can't book this event. */
 var WlEventDenyReasonSid;
 (function (WlEventDenyReasonSid) {
@@ -1963,66 +2997,6 @@ var WlQuizQuizFrequencySid;
     /** Client will be asked to complete the quiz only one time when they book a service or purchase item */
     WlQuizQuizFrequencySid[WlQuizQuizFrequencySid["ONCE"] = 3] = "ONCE";
 })(WlQuizQuizFrequencySid || (exports.WlQuizQuizFrequencySid = WlQuizQuizFrequencySid = {}));
-/** A list of purchase types. */
-var RsPurchaseItemSid;
-(function (RsPurchaseItemSid) {
-    /** Personal user's account refill */
-    RsPurchaseItemSid[RsPurchaseItemSid["ACCOUNT"] = 7] = "ACCOUNT";
-    /** Business account payment */
-    RsPurchaseItemSid[RsPurchaseItemSid["ACCOUNT_BUSINESS"] = 11] = "ACCOUNT_BUSINESS";
-    /** Single appointment reservation */
-    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT"] = 8] = "APPOINTMENT";
-    /** Single appointment reservation with deposit */
-    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT_DEPOSIT"] = 18] = "APPOINTMENT_DEPOSIT";
-    /** Tips for the appointment */
-    RsPurchaseItemSid[RsPurchaseItemSid["APPOINTMENT_TIP"] = 22] = "APPOINTMENT_TIP";
-    /** Expense that comes along with the payment business. It contains information about additional services which are */
-    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_EXPENSE"] = 16] = "BUSINESS_EXPENSE";
-    /** A skipped purchase for the business account */
-    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_SKIP"] = 17] = "BUSINESS_SKIP";
-    /** Business subscription payment */
-    RsPurchaseItemSid[RsPurchaseItemSid["BUSINESS_SUBSCRIPTION"] = 23] = "BUSINESS_SUBSCRIPTION";
-    /** Single classes */
-    RsPurchaseItemSid[RsPurchaseItemSid["CLASS_PERIOD"] = 2] = "CLASS_PERIOD";
-    /** Collectors payments */
-    RsPurchaseItemSid[RsPurchaseItemSid["COLLECTOR_DEBT"] = 24] = "COLLECTOR_DEBT";
-    /** Arbitrary money withdrawal with comment */
-    RsPurchaseItemSid[RsPurchaseItemSid["COMMENT"] = 13] = "COMMENT";
-    /** Gift Cards */
-    RsPurchaseItemSid[RsPurchaseItemSid["COUPON"] = 10] = "COUPON";
-    /** Events and enrollments. Client can not book only one class, he needs to book the whole enrollment */
-    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT"] = 4] = "ENROLLMENT";
-    /** Enrollment reservation with a deposit */
-    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT_DEPOSIT"] = 19] = "ENROLLMENT_DEPOSIT";
-    /** Enrollment reservation with a discount */
-    RsPurchaseItemSid[RsPurchaseItemSid["ENROLLMENT_DISCOUNT"] = 21] = "ENROLLMENT_DISCOUNT";
-    /** Payment by an installment plan */
-    RsPurchaseItemSid[RsPurchaseItemSid["INSTALLMENT"] = 14] = "INSTALLMENT";
-    /** Recurrent payments */
-    RsPurchaseItemSid[RsPurchaseItemSid["MEMBERSHIP"] = 3] = "MEMBERSHIP";
-    /** Products */
-    RsPurchaseItemSid[RsPurchaseItemSid["PRODUCT"] = 9] = "PRODUCT";
-    /** Promotions */
-    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION"] = 1] = "PROMOTION";
-    /** Early cancellation fee for a memberships */
-    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION_CANCEL_FEE"] = 25] = "PROMOTION_CANCEL_FEE";
-    /** A purchase to renew a promotion */
-    RsPurchaseItemSid[RsPurchaseItemSid["PROMOTION_RENEW"] = 12] = "PROMOTION_RENEW";
-    /** A purchase to book an asset */
-    RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE"] = 15] = "RESOURCE";
-    /** A purchase to book a deposit asset */
-    RsPurchaseItemSid[RsPurchaseItemSid["RESOURCE_DEPOSIT"] = 20] = "RESOURCE_DEPOSIT";
-    /** Purchase item for appointments */
-    RsPurchaseItemSid[RsPurchaseItemSid["SERVICE"] = 6] = "SERVICE";
-    /** Ticket purchase item */
-    RsPurchaseItemSid[RsPurchaseItemSid["TICKET"] = 29] = "TICKET";
-    /** Tuition purchase item */
-    RsPurchaseItemSid[RsPurchaseItemSid["TUITION"] = 26] = "TUITION";
-    /** Tuition fee purchase item */
-    RsPurchaseItemSid[RsPurchaseItemSid["TUITION_FEE"] = 27] = "TUITION_FEE";
-    /** Tuition prorate purchase item */
-    RsPurchaseItemSid[RsPurchaseItemSid["TUITION_PRORATE"] = 28] = "TUITION_PRORATE";
-})(RsPurchaseItemSid || (exports.RsPurchaseItemSid = RsPurchaseItemSid = {}));
 /** A list of currency codes. */
 var RsCurrencySid;
 (function (RsCurrencySid) {
@@ -2516,7 +3490,7 @@ var CorePassportPasskeyPasskeyCredentialStatusEnum;
 (function (CorePassportPasskeyPasskeyCredentialStatusEnum) {
     /** The credential is active and may be used to sign in */
     CorePassportPasskeyPasskeyCredentialStatusEnum[CorePassportPasskeyPasskeyCredentialStatusEnum["ACTIVE"] = 1] = "ACTIVE";
-    /** The credential was revoked by its owner and may no longer be used to sign in */
+    /** The credential was revoked and may no longer be used to sign in */
     CorePassportPasskeyPasskeyCredentialStatusEnum[CorePassportPasskeyPasskeyCredentialStatusEnum["REVOKED"] = 2] = "REVOKED";
 })(CorePassportPasskeyPasskeyCredentialStatusEnum || (exports.CorePassportPasskeyPasskeyCredentialStatusEnum = CorePassportPasskeyPasskeyCredentialStatusEnum = {}));
 /** List of image types. */
@@ -2696,8 +3670,12 @@ var RsAppointmentPaySid;
 /** List of possible value of virtual integrations. */
 var WlVirtualVirtualProviderSid;
 (function (WlVirtualVirtualProviderSid) {
+    /** The service is delivered in person */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["IN_PERSON"] = 4] = "IN_PERSON";
     /** Virtual integration non implemented */
     WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["NON_INTEGRATED"] = 2] = "NON_INTEGRATED";
+    /** Staff call the client at the number given at booking */
+    WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["PHONE_CALL"] = 3] = "PHONE_CALL";
     /** Virtual Zoom service integration */
     WlVirtualVirtualProviderSid[WlVirtualVirtualProviderSid["ZOOM"] = 1] = "ZOOM";
 })(WlVirtualVirtualProviderSid || (exports.WlVirtualVirtualProviderSid = WlVirtualVirtualProviderSid = {}));
@@ -2929,20 +3907,6 @@ var WlLeadStageLeadStageSystemSid;
     /** A lead which was successfully converted into a client */
     WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["WON"] = 4] = "WON";
 })(WlLeadStageLeadStageSystemSid || (exports.WlLeadStageLeadStageSystemSid = WlLeadStageLeadStageSystemSid = {}));
-/** Identifiers for services types. */
-var RsServiceSid;
-(function (RsServiceSid) {
-    /** Appointments */
-    RsServiceSid[RsServiceSid["APPOINTMENT"] = 1] = "APPOINTMENT";
-    /** Classes */
-    RsServiceSid[RsServiceSid["CLASSES"] = 2] = "CLASSES";
-    /** Enrolments */
-    RsServiceSid[RsServiceSid["ENROLLMENT"] = 3] = "ENROLLMENT";
-    /** Resources */
-    RsServiceSid[RsServiceSid["RESOURCE"] = 5] = "RESOURCE";
-    /** Visits */
-    RsServiceSid[RsServiceSid["VISIT"] = 4] = "VISIT";
-})(RsServiceSid || (exports.RsServiceSid = RsServiceSid = {}));
 /** List of progress log fields. */
 var WlMemberProgressFieldProgressFieldSid;
 (function (WlMemberProgressFieldProgressFieldSid) {
@@ -3103,408 +4067,6 @@ var RsCommissionTypeSid;
     /** Percent type */
     RsCommissionTypeSid[RsCommissionTypeSid["PERCENT"] = 2] = "PERCENT";
 })(RsCommissionTypeSid || (exports.RsCommissionTypeSid = RsCommissionTypeSid = {}));
-/** Mail types. */
-var RsMailSid;
-(function (RsMailSid) {
-    /** Sent when a client abandons a checkout (used in automations) */
-    RsMailSid[RsMailSid["ABANDONED_CHECKOUT"] = 220] = "ABANDONED_CHECKOUT";
-    /** Sent by CASSI phone agent, when client requests a booking url */
-    RsMailSid[RsMailSid["AI_LINK_BOOK"] = 206] = "AI_LINK_BOOK";
-    /** Sent by CASSI phone agent, when client requests a purchase url */
-    RsMailSid[RsMailSid["AI_LINK_PURCHASE"] = 207] = "AI_LINK_PURCHASE";
-    /** Appointment approved by staff */
-    RsMailSid[RsMailSid["APPOINTMENT_APPROVE_STAFF"] = 71] = "APPOINTMENT_APPROVE_STAFF";
-    /** Sent when the AI Agent successfully books an appointment */
-    RsMailSid[RsMailSid["APPOINTMENT_BOOKED_AI"] = 198] = "APPOINTMENT_BOOKED_AI";
-    /** Appointment Cancelled by Client - Early */
-    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_EARLY_USER"] = 33] = "APPOINTMENT_CANCEL_EARLY_USER";
-    /** Appointment Cancelled by Client - Late */
-    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_LATE_USER"] = 35] = "APPOINTMENT_CANCEL_LATE_USER";
-    /** Appointment Cancelled Notification - Staff */
-    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_STAFF"] = 32] = "APPOINTMENT_CANCEL_STAFF";
-    /** Sends to the client when appointment has been cancelled by staff */
-    RsMailSid[RsMailSid["APPOINTMENT_CANCEL_STAFF_USER"] = 80] = "APPOINTMENT_CANCEL_STAFF_USER";
-    /** Sends to the clients when appointment information has been changed */
-    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_GENERAL_CLIENT"] = 114] = "APPOINTMENT_CHANGE_GENERAL_CLIENT";
-    /** Sends to the staff members when appointment information has been changed */
-    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_GENERAL_STAFF"] = 113] = "APPOINTMENT_CHANGE_GENERAL_STAFF";
-    /** Appointment Change Notification - Staff */
-    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_STAFF"] = 36] = "APPOINTMENT_CHANGE_STAFF";
-    /** Appointment Change Notification - Client */
-    RsMailSid[RsMailSid["APPOINTMENT_CHANGE_USER"] = 37] = "APPOINTMENT_CHANGE_USER";
-    /** New Appointment Notification - Staff */
-    RsMailSid[RsMailSid["APPOINTMENT_CREATE_STAFF"] = 31] = "APPOINTMENT_CREATE_STAFF";
-    /** Appointment Confirmation */
-    RsMailSid[RsMailSid["APPOINTMENT_CREATE_USER"] = 30] = "APPOINTMENT_CREATE_USER";
-    /** Multiple Appointment Confirmation (Client) */
-    RsMailSid[RsMailSid["APPOINTMENT_CREATE_USER_MULTIPLE"] = 211] = "APPOINTMENT_CREATE_USER_MULTIPLE";
-    /** Notification to a customer about an appointment that has been canceled because not paid */
-    RsMailSid[RsMailSid["APPOINTMENT_PAY_CANCEL"] = 189] = "APPOINTMENT_PAY_CANCEL";
-    /** Notification to a customer about mandatory payment for an appointment */
-    RsMailSid[RsMailSid["APPOINTMENT_PAY_PAY"] = 188] = "APPOINTMENT_PAY_PAY";
-    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
-    RsMailSid[RsMailSid["APPOINTMENT_REPEAT_CANCEL_CLIENT"] = 103] = "APPOINTMENT_REPEAT_CANCEL_CLIENT";
-    /** Sends one email to staff when several sessions of one or several appointments or single session of recurring */
-    RsMailSid[RsMailSid["APPOINTMENT_REPEAT_CANCEL_STAFF"] = 105] = "APPOINTMENT_REPEAT_CANCEL_STAFF";
-    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
-    RsMailSid[RsMailSid["APPOINTMENT_REPEAT_CANCEL_USER"] = 131] = "APPOINTMENT_REPEAT_CANCEL_USER";
-    /** Sent to staff when the AI Agent receives an appointment request */
-    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_AI"] = 200] = "APPOINTMENT_REQUEST_AI";
-    /** Requested appointment has been denied */
-    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_DENY"] = 88] = "APPOINTMENT_REQUEST_DENY";
-    /** Appointment has been requested */
-    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_STAFF"] = 89] = "APPOINTMENT_REQUEST_STAFF";
-    /** Appointment has been requested */
-    RsMailSid[RsMailSid["APPOINTMENT_REQUEST_USER"] = 90] = "APPOINTMENT_REQUEST_USER";
-    /** Appointment Wait List Cancellation */
-    RsMailSid[RsMailSid["APPOINTMENT_WAIT_REMOVE"] = 195] = "APPOINTMENT_WAIT_REMOVE";
-    /** Sent to staff when the AI Agent logs a billing or payment query */
-    RsMailSid[RsMailSid["BILLING_RELATED_QUERY"] = 204] = "BILLING_RELATED_QUERY";
-    /** Class Booking Confirmation */
-    RsMailSid[RsMailSid["BOOK_ADD_CLASS"] = 1] = "BOOK_ADD_CLASS";
-    /** Class Booking Notification - Staff */
-    RsMailSid[RsMailSid["BOOK_ADD_STAFF"] = 47] = "BOOK_ADD_STAFF";
-    /** Sent if a client cancels a booking (used in automations) */
-    RsMailSid[RsMailSid["BOOK_CANCEL"] = 210] = "BOOK_CANCEL";
-    /** Class Booking (Reservation) Cancelled by Staff */
-    RsMailSid[RsMailSid["BOOK_CANCEL_ADMIN_CLASS"] = 23] = "BOOK_CANCEL_ADMIN_CLASS";
-    /** Enrollment Booking Cancelled by Staff */
-    RsMailSid[RsMailSid["BOOK_CANCEL_ADMIN_ENROLLMENT"] = 57] = "BOOK_CANCEL_ADMIN_ENROLLMENT";
-    /** Enrollment Session Cancellation Notification */
-    RsMailSid[RsMailSid["BOOK_CANCEL_ENROLLMENT_SESSION"] = 128] = "BOOK_CANCEL_ENROLLMENT_SESSION";
-    /** Class Cancelled by Client - Early */
-    RsMailSid[RsMailSid["BOOK_CANCEL_FREE_CLASS"] = 3] = "BOOK_CANCEL_FREE_CLASS";
-    /** Enrollment Cancelled by Client - Early */
-    RsMailSid[RsMailSid["BOOK_CANCEL_FREE_ENROLLMENT"] = 58] = "BOOK_CANCEL_FREE_ENROLLMENT";
-    /** Class Cancelled By Client - Late */
-    RsMailSid[RsMailSid["BOOK_CANCEL_PENALTY_CLASS"] = 4] = "BOOK_CANCEL_PENALTY_CLASS";
-    /** Enrollment Cancelled By Client - Late */
-    RsMailSid[RsMailSid["BOOK_CANCEL_PENALTY_ENROLLMENT"] = 59] = "BOOK_CANCEL_PENALTY_ENROLLMENT";
-    /** Class Booking Cancellation Notification - Staff */
-    RsMailSid[RsMailSid["BOOK_CANCEL_STAFF"] = 48] = "BOOK_CANCEL_STAFF";
-    /** Enrollment Booking Confirmation */
-    RsMailSid[RsMailSid["BOOK_ENROLLMENT"] = 69] = "BOOK_ENROLLMENT";
-    /** Enrollment Booking Cancellation Notification - Staff */
-    RsMailSid[RsMailSid["BOOK_ENROLLMENT_CANCEL_STAFF"] = 92] = "BOOK_ENROLLMENT_CANCEL_STAFF";
-    /** Enrollment Booking Notification - Staff */
-    RsMailSid[RsMailSid["BOOK_ENROLLMENT_STAFF"] = 91] = "BOOK_ENROLLMENT_STAFF";
-    /** Thanks for your interest */
-    RsMailSid[RsMailSid["BOOK_FIRST"] = 73] = "BOOK_FIRST";
-    /** Appointment Wait List Promotion (Client Confirmation Required) */
-    RsMailSid[RsMailSid["BOOK_PROMOTE_CONFIRM_APPOINTMENT"] = 169] = "BOOK_PROMOTE_CONFIRM_APPOINTMENT";
-    /** Waitlist Promotion (Client Confirmation Required) */
-    RsMailSid[RsMailSid["BOOK_PROMOTE_CONFIRM_CLASS"] = 53] = "BOOK_PROMOTE_CONFIRM_CLASS";
-    /** Waitlist Promotion (Client Confirmation Required) */
-    RsMailSid[RsMailSid["BOOK_PROMOTE_CONFIRM_ENROLLMENT"] = 60] = "BOOK_PROMOTE_CONFIRM_ENROLLMENT";
-    /** Appointment Wait List Promotion (Confirmation not Required) */
-    RsMailSid[RsMailSid["BOOK_PROMOTE_DIRECT_APPOINTMENT"] = 168] = "BOOK_PROMOTE_DIRECT_APPOINTMENT";
-    /** Waitlist Promotion (Client Confirmation Not Required) */
-    RsMailSid[RsMailSid["BOOK_PROMOTE_DIRECT_CLASS"] = 8] = "BOOK_PROMOTE_DIRECT_CLASS";
-    /** Waitlist Promotion (Client Confirmation Not Required) */
-    RsMailSid[RsMailSid["BOOK_PROMOTE_DIRECT_ENROLLMENT"] = 61] = "BOOK_PROMOTE_DIRECT_ENROLLMENT";
-    /** Class Reminder */
-    RsMailSid[RsMailSid["BOOK_REMIND_CLASS"] = 25] = "BOOK_REMIND_CLASS";
-    /** Enrollment Reminder */
-    RsMailSid[RsMailSid["BOOK_REMIND_ENROLLMENT"] = 62] = "BOOK_REMIND_ENROLLMENT";
-    /** Appointment Reminder - Staff */
-    RsMailSid[RsMailSid["BOOK_REMIND_SERVICE_STAFF"] = 27] = "BOOK_REMIND_SERVICE_STAFF";
-    /** Appointment Reminder */
-    RsMailSid[RsMailSid["BOOK_REMIND_SERVICE_USER"] = 26] = "BOOK_REMIND_SERVICE_USER";
-    /** Class Booking Confirmation */
-    RsMailSid[RsMailSid["BOOK_REPEAT_ADD"] = 101] = "BOOK_REPEAT_ADD";
-    /** Class Booking Cancelled */
-    RsMailSid[RsMailSid["BOOK_REPEAT_CANCEL"] = 102] = "BOOK_REPEAT_CANCEL";
-    /** Recurrent Class Reservation Wait List */
-    RsMailSid[RsMailSid["BOOK_REPEAT_WAIT"] = 166] = "BOOK_REPEAT_WAIT";
-    /** Class Review Request */
-    RsMailSid[RsMailSid["BOOK_VISIT"] = 39] = "BOOK_VISIT";
-    /** Appointment Reservation Wait List */
-    RsMailSid[RsMailSid["BOOK_WAIT_APPOINTMENT"] = 165] = "BOOK_WAIT_APPOINTMENT";
-    /** Class Reservation Wait List */
-    RsMailSid[RsMailSid["BOOK_WAIT_CLASS"] = 2] = "BOOK_WAIT_CLASS";
-    /** Enrollment Reservation Wait List */
-    RsMailSid[RsMailSid["BOOK_WAIT_ENROLLMENT"] = 63] = "BOOK_WAIT_ENROLLMENT";
-    /** Sent when a business account or location is churned */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_CHURN"] = 154] = "BUSINESS_ACCOUNT_CHURN";
-    /** Sent to business owner if payment for account failed */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_PAY_FAIL"] = 82] = "BUSINESS_ACCOUNT_PAY_FAIL";
-    /** Sent to business owners as notification in one day before payment for account */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_PAY_NOTIFY"] = 83] = "BUSINESS_ACCOUNT_PAY_NOTIFY";
-    /** Sent to business owner on successful payment for account */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_PAY_OK"] = 81] = "BUSINESS_ACCOUNT_PAY_OK";
-    /** Sent when the monthly postcard limit is exceeded */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_POSTCARD_LIMIT"] = 155] = "BUSINESS_ACCOUNT_POSTCARD_LIMIT";
-    /** Sent when subscription price has been overridden and is less than the configured notification threshold */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT"] = 158] = "BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT";
-    /** Sent when subscription price has been overridden twice or more */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE"] = 151] = "BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE";
-    /** Sent when a subscription payment is marked as paid */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT"] = 156] = "BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT";
-    /** Sent when subscription skip payment setting has been changed */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP"] = 134] = "BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP";
-    /** Sent when a new subscription has been added, and the business is paying for fewer locations than they have */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING"] = 152] = "BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING";
-    /** Sent when a user signs up for the virtual service */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_VIRTUAL_SIGNUP"] = 157] = "BUSINESS_ACCOUNT_VIRTUAL_SIGNUP";
-    /** Sent when a business adds more licenses to their `FitLIVE` subscription */
-    RsMailSid[RsMailSid["BUSINESS_ACCOUNT_VIRTUAL_UPGRADE"] = 175] = "BUSINESS_ACCOUNT_VIRTUAL_UPGRADE";
-    /** Sends to client after the first-level onboarding, providing them with login information */
-    RsMailSid[RsMailSid["BUSINESS_CREATE"] = 192] = "BUSINESS_CREATE";
-    /** Email sales@wellnessliving.com when user changes Message Center plan */
-    RsMailSid[RsMailSid["BUSINESS_MESSAGE_SUBSCRIBE"] = 164] = "BUSINESS_MESSAGE_SUBSCRIBE";
-    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to all businesses accounts */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_BANNER"] = 179] = "BUSINESS_PARTNER_BANNER";
-    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to business account */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_BANNER_CUSTOMER"] = 180] = "BUSINESS_PARTNER_BANNER_CUSTOMER";
-    /** Email to the admins that business staff member wants to take a part in the partner program */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_ENROLL"] = 119] = "BUSINESS_PARTNER_ENROLL";
-    /** Email to the staff members of the partner business when a new lead comes in through his partnership */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_NEW"] = 143] = "BUSINESS_PARTNER_REFERRAL_MAIL_NEW";
-    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to partner business */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER"] = 145] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER";
-    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to referral business */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL"] = 148] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL";
-    /** Email to the staff members of the partner business when a referral reaches a certain period of paid subscription */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER"] = 146] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER";
-    /** Email to the staff members of the referred business when they reaches a certain period of paid subscription */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL"] = 147] = "BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL";
-    /** Email to the staff members of the partner business when a referral has been subscribed */
-    RsMailSid[RsMailSid["BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE"] = 144] = "BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE";
-    /** Business registered its business phone number */
-    RsMailSid[RsMailSid["BUSINESS_PHONE"] = 139] = "BUSINESS_PHONE";
-    /** Sent when send/receive SMS in Two-Way SMS chat */
-    RsMailSid[RsMailSid["BUSINESS_SMS_CHAT"] = 141] = "BUSINESS_SMS_CHAT";
-    /** Sent to staff when the AI Agent captures a cancellation request */
-    RsMailSid[RsMailSid["CANCELLATION_REQUEST_AI"] = 202] = "CANCELLATION_REQUEST_AI";
-    /** Sent to staff when CAASI receives a request for booking */
-    RsMailSid[RsMailSid["CLASS_BOOK_AI"] = 201] = "CLASS_BOOK_AI";
-    /** Alerts staff that the AI Agent has completed a class booking for a client */
-    RsMailSid[RsMailSid["CLASS_BOOKED_AI"] = 199] = "CLASS_BOOKED_AI";
-    /** Class Type Modified Has Changed */
-    RsMailSid[RsMailSid["CLASS_EDIT_CLASS"] = 24] = "CLASS_EDIT_CLASS";
-    /** Enrollment Type Modified Has Changed */
-    RsMailSid[RsMailSid["CLASS_EDIT_ENROLLMENT"] = 64] = "CLASS_EDIT_ENROLLMENT";
-    /** Class cancelled by staff */
-    RsMailSid[RsMailSid["CLASS_PERIOD_CANCEL_CLASS"] = 16] = "CLASS_PERIOD_CANCEL_CLASS";
-    /** Enrollment cancelled by staff */
-    RsMailSid[RsMailSid["CLASS_PERIOD_CANCEL_ENROLLMENT"] = 66] = "CLASS_PERIOD_CANCEL_ENROLLMENT";
-    /** Class Schedule Details Changed Modified */
-    RsMailSid[RsMailSid["CLASS_PERIOD_CHANGE_CLASS"] = 17] = "CLASS_PERIOD_CHANGE_CLASS";
-    /** Enrollment Schedule Details Changed Modified */
-    RsMailSid[RsMailSid["CLASS_PERIOD_CHANGE_ENROLLMENT"] = 65] = "CLASS_PERIOD_CHANGE_ENROLLMENT";
-    /** Class Cancellation Notification - Staff */
-    RsMailSid[RsMailSid["CLASSES_CANCEL_STAFF"] = 135] = "CLASSES_CANCEL_STAFF";
-    /** Class Schedule Details Changed */
-    RsMailSid[RsMailSid["CLASSES_PERIOD_CHANGE_CLASSES_STAFF"] = 100] = "CLASSES_PERIOD_CHANGE_CLASSES_STAFF";
-    /** Email to the business members with information about newly added class schedule */
-    RsMailSid[RsMailSid["CLASSES_PROMOTE"] = 109] = "CLASSES_PROMOTE";
-    /** A reminder for the staff about an upcoming recurrent class */
-    RsMailSid[RsMailSid["CLASSES_STAFF_RECURRENT"] = 124] = "CLASSES_STAFF_RECURRENT";
-    /** A notification to the staff about a cancellation of a recurrent class */
-    RsMailSid[RsMailSid["CLASSES_STAFF_RECURRENT_CANCEL"] = 125] = "CLASSES_STAFF_RECURRENT_CANCEL";
-    /** Staff member that conducts the class is changed (a new staff member is added, or an existing staff member is substituted) */
-    RsMailSid[RsMailSid["CLASSES_STAFF_SUBSTITUTION"] = 110] = "CLASSES_STAFF_SUBSTITUTION";
-    /** Send to the staff a remind about an upcoming class session */
-    RsMailSid[RsMailSid["CLASSES_STAFF_SUBSTITUTION_REMIND"] = 117] = "CLASSES_STAFF_SUBSTITUTION_REMIND";
-    /** Sent to the client after a video uploaded to an attendance list is published */
-    RsMailSid[RsMailSid["CLASSES_VIDEO_PUBLISH"] = 161] = "CLASSES_VIDEO_PUBLISH";
-    /** Automated marketing email sent on the client's birthday */
-    RsMailSid[RsMailSid["CLIENT_BIRTHDAY"] = 221] = "CLIENT_BIRTHDAY";
-    /** Send a copy of contract */
-    RsMailSid[RsMailSid["CONTRACT_COPY"] = 98] = "CONTRACT_COPY";
-    /** Sent after purchase of coupon */
-    RsMailSid[RsMailSid["COUPON_PURCHASE"] = 84] = "COUPON_PURCHASE";
-    /** Enrollment Session(s) Booking Confirmation */
-    RsMailSid[RsMailSid["EVENT_BOOK_SESSION_CLIENT"] = 129] = "EVENT_BOOK_SESSION_CLIENT";
-    /** Enrollment Session(s) Booking Notification - Staff */
-    RsMailSid[RsMailSid["EVENT_BOOK_SESSION_STAFF"] = 130] = "EVENT_BOOK_SESSION_STAFF";
-    /** Email to the business members with information about newly added event schedule */
-    RsMailSid[RsMailSid["EVENT_PROMOTE"] = 160] = "EVENT_PROMOTE";
-    /** Sent to the client after a video uploaded to an attendance list is published */
-    RsMailSid[RsMailSid["EVENT_VIDEO_PUBLISH"] = 162] = "EVENT_VIDEO_PUBLISH";
-    /** Staff sent feedback with some comment */
-    RsMailSid[RsMailSid["FEEDBACK_DIALOG"] = 133] = "FEEDBACK_DIALOG";
-    /** New Comment on Logged Result */
-    RsMailSid[RsMailSid["FITBUILDER_MAIL_COMMENT"] = 182] = "FITBUILDER_MAIL_COMMENT";
-    /** New Likes on Comment */
-    RsMailSid[RsMailSid["FITBUILDER_MAIL_LIKE"] = 183] = "FITBUILDER_MAIL_LIKE";
-    /** Thumbs up on Logged Result */
-    RsMailSid[RsMailSid["FITBUILDER_MAIL_THUMB"] = 184] = "FITBUILDER_MAIL_THUMB";
-    /** Workout of the day */
-    RsMailSid[RsMailSid["FITBUILDER_MAIL_WORKOUT"] = 185] = "FITBUILDER_MAIL_WORKOUT";
-    /** Guest Pass invitation expired */
-    RsMailSid[RsMailSid["GUEST_PASS_EXPIRED"] = 218] = "GUEST_PASS_EXPIRED";
-    /** Guest Pass invitation sent */
-    RsMailSid[RsMailSid["GUEST_PASS_INVITATION"] = 217] = "GUEST_PASS_INVITATION";
-    /** Guest Pass invitation reminder */
-    RsMailSid[RsMailSid["GUEST_PASS_REMINDER"] = 219] = "GUEST_PASS_REMINDER";
-    /** For staff members to send emails to support using the help popup */
-    RsMailSid[RsMailSid["HELP_POPUP_EMAIL"] = 150] = "HELP_POPUP_EMAIL";
-    /** Sent when a business enrolls in Autymate */
-    RsMailSid[RsMailSid["INTEGRATION_AUTYMATE_ENROLLMENT"] = 176] = "INTEGRATION_AUTYMATE_ENROLLMENT";
-    /** Sent when a business subscribes to collections */
-    RsMailSid[RsMailSid["INTEGRATION_COLLECTION_ALDOUS"] = 178] = "INTEGRATION_COLLECTION_ALDOUS";
-    /** Email, which is sent when a customer has connected a paid Zoom account */
-    RsMailSid[RsMailSid["INTEGRATION_ZOOM_CONFIRMATION"] = 138] = "INTEGRATION_ZOOM_CONFIRMATION";
-    /** Request a demo from landing page */
-    RsMailSid[RsMailSid["LANDING_CONTACT"] = 97] = "LANDING_CONTACT";
-    /** Sent to staff member informing them that a new client has entered their information into the Lead Capture Widget */
-    RsMailSid[RsMailSid["LEAD_ADDED_STAFF"] = 163] = "LEAD_ADDED_STAFF";
-    /** Sent to the client after they fill out a Lead Capture Form on the website of a business */
-    RsMailSid[RsMailSid["LEAD_CAPTURE"] = 87] = "LEAD_CAPTURE";
-    /** Sent to staff when CAASI captures a new lead from a conversation, */
-    RsMailSid[RsMailSid["LEAD_CAPTURE_AI"] = 197] = "LEAD_CAPTURE_AI";
-    /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
-    RsMailSid[RsMailSid["LEAD_STAGE_UPDATED"] = 224] = "LEAD_STAGE_UPDATED";
-    /** Sent to client on annual anniversary of the Member Since date */
-    RsMailSid[RsMailSid["LOGIN_ANNIVERSARY"] = 96] = "LOGIN_ANNIVERSARY";
-    /** Attendance List */
-    RsMailSid[RsMailSid["LOGIN_ATTENDANCE"] = 42] = "LOGIN_ATTENDANCE";
-    /** Sent when user long time did not visit location, and it not has active promotion */
-    RsMailSid[RsMailSid["LOGIN_BACK"] = 79] = "LOGIN_BACK";
-    /** Email to send on the day, when client has birthday */
-    RsMailSid[RsMailSid["LOGIN_BIRTHDAY"] = 49] = "LOGIN_BIRTHDAY";
-    /** Clients Payment Card expires this month */
-    RsMailSid[RsMailSid["LOGIN_CARD_EXPIRE"] = 51] = "LOGIN_CARD_EXPIRE";
-    /** Email address confirmation */
-    RsMailSid[RsMailSid["LOGIN_MAIL_CONFIRM"] = 123] = "LOGIN_MAIL_CONFIRM";
-    /** Custom Client Email #1 */
-    RsMailSid[RsMailSid["LOGIN_MESSAGE"] = 22] = "LOGIN_MESSAGE";
-    /** Client no show */
-    RsMailSid[RsMailSid["LOGIN_PENALTY_APPOINTMENT"] = 72] = "LOGIN_PENALTY_APPOINTMENT";
-    /** Client no show */
-    RsMailSid[RsMailSid["LOGIN_PENALTY_CLASS"] = 15] = "LOGIN_PENALTY_CLASS";
-    /** Client no show */
-    RsMailSid[RsMailSid["LOGIN_PENALTY_ENROLLMENT"] = 67] = "LOGIN_PENALTY_ENROLLMENT";
-    /** Billed to Account. Sent to the client when any purchase was billed to their account balance */
-    RsMailSid[RsMailSid["LOGIN_PURCHASE_ACCOUNT"] = 159] = "LOGIN_PURCHASE_ACCOUNT";
-    /** Sent to a client when they haven't visited in a set number of days, */
-    RsMailSid[RsMailSid["LOGIN_RETENTION"] = 50] = "LOGIN_RETENTION";
-    /** Sent to the client when a new account statement becomes available */
-    RsMailSid[RsMailSid["LOGIN_STATEMENT_NEW"] = 213] = "LOGIN_STATEMENT_NEW";
-    /** Sent to all new users after they create an account for the first time */
-    RsMailSid[RsMailSid["LOGIN_WELCOME"] = 9] = "LOGIN_WELCOME";
-    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
-    RsMailSid[RsMailSid["MARKETING_AUTOMATION_NOTIFY_STAFF"] = 223] = "MARKETING_AUTOMATION_NOTIFY_STAFF";
-    /** Client added to a member group */
-    RsMailSid[RsMailSid["MEMBER_GROUP_USER_ADD"] = 214] = "MEMBER_GROUP_USER_ADD";
-    /** Client removed from a member group */
-    RsMailSid[RsMailSid["MEMBER_GROUP_USER_REMOVE"] = 215] = "MEMBER_GROUP_USER_REMOVE";
-    /** Sent to staff when the AI Agent logs a membership or purchase query */
-    RsMailSid[RsMailSid["MEMBERSHIP_QUERY"] = 203] = "MEMBERSHIP_QUERY";
-    /** Sent OTP code by sms or email to validate phone number or email address */
-    RsMailSid[RsMailSid["NOTIFICATION_OTP"] = 191] = "NOTIFICATION_OTP";
-    /** Sent OTP code by sms and email for the user sign in */
-    RsMailSid[RsMailSid["PASSPORT_LOGIN_ENTER"] = 187] = "PASSPORT_LOGIN_ENTER";
-    /** Notification about email address is changed due to merge */
-    RsMailSid[RsMailSid["PASSPORT_LOGIN_MERGE"] = 205] = "PASSPORT_LOGIN_MERGE";
-    /** E-mail with a list of user's payment account transactions for last `62` days */
-    RsMailSid[RsMailSid["PAY_ACCOUNT_INVOICE"] = 85] = "PAY_ACCOUNT_INVOICE";
-    /** Automatic payment success */
-    RsMailSid[RsMailSid["PAY_AUTOMATIC_SUCCESS"] = 116] = "PAY_AUTOMATIC_SUCCESS";
-    /** Transaction failed */
-    RsMailSid[RsMailSid["PAY_TRANSACTION_FAIL"] = 181] = "PAY_TRANSACTION_FAIL";
-    /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
-    RsMailSid[RsMailSid["PHONE_AGENT_CALL_RECEIVED"] = 222] = "PHONE_AGENT_CALL_RECEIVED";
-    /** Request a custom website subscription */
-    RsMailSid[RsMailSid["PRESENCE_ACTIVATE"] = 137] = "PRESENCE_ACTIVATE";
-    /** Sent after purchase of product */
-    RsMailSid[RsMailSid["PRODUCT_PURCHASE"] = 127] = "PRODUCT_PURCHASE";
-    /** Email to inform user that they email is changed */
-    RsMailSid[RsMailSid["PROFILE_MAIL_CHANGE"] = 93] = "PROFILE_MAIL_CHANGE";
-    /** Email to confirm new email address after it was changed */
-    RsMailSid[RsMailSid["PROFILE_MAIL_CONFIRM"] = 86] = "PROFILE_MAIL_CONFIRM";
-    /** Mail to inform the user that their password has been changed */
-    RsMailSid[RsMailSid["PROFILE_PASSWORD_CHANGE"] = 111] = "PROFILE_PASSWORD_CHANGE";
-    /** Mail containing reset password link to allow the user to change their password */
-    RsMailSid[RsMailSid["PROFILE_PASSWORD_RESET"] = 142] = "PROFILE_PASSWORD_RESET";
-    /** Few Pass Visits Remaining */
-    RsMailSid[RsMailSid["PROMOTION_LOW"] = 43] = "PROMOTION_LOW";
-    /** Sent when membership is canceled */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_CANCEL"] = 153] = "PROMOTION_MEMBERSHIP_CANCEL";
-    /** Sent to staff when membership is canceled */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_CANCEL_STAFF"] = 193] = "PROMOTION_MEMBERSHIP_CANCEL_STAFF";
-    /** Sent when membership expires */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_EXPIRE"] = 77] = "PROMOTION_MEMBERSHIP_EXPIRE";
-    /** Membership Payment - Billed to Account */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_PAY_ACCOUNT"] = 106] = "PROMOTION_MEMBERSHIP_PAY_ACCOUNT";
-    /** Automatic Payment Failed */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_PAY_FAIL"] = 55] = "PROMOTION_MEMBERSHIP_PAY_FAIL";
-    /** Membership Payment Confirmation */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_PAY_OK"] = 56] = "PROMOTION_MEMBERSHIP_PAY_OK";
-    /** Sent to the customer after their membership is renewed */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_REACTIVATE"] = 75] = "PROMOTION_MEMBERSHIP_REACTIVATE";
-    /** Sent before certain count of days before membership renews */
-    RsMailSid[RsMailSid["PROMOTION_MEMBERSHIP_RENEW"] = 78] = "PROMOTION_MEMBERSHIP_RENEW";
-    /** Sent after purchase of promotion */
-    RsMailSid[RsMailSid["PROMOTION_PURCHASE"] = 76] = "PROMOTION_PURCHASE";
-    /** Receipt sent after purchase of promotion */
-    RsMailSid[RsMailSid["PROMOTION_RECEIPT"] = 136] = "PROMOTION_RECEIPT";
-    /** Sent after a client attended a visit using a purchase option (used in automations) */
-    RsMailSid[RsMailSid["PROMOTION_USED"] = 212] = "PROMOTION_USED";
-    /** Sent to the customer when a promotion is paused */
-    RsMailSid[RsMailSid["PURCHASE_HOLD"] = 194] = "PURCHASE_HOLD";
-    /** Sends to the clients when purchase option hold expiring soon */
-    RsMailSid[RsMailSid["PURCHASE_HOLD_EXPIRING"] = 186] = "PURCHASE_HOLD_EXPIRING";
-    /** Purchase Receipt */
-    RsMailSid[RsMailSid["PURCHASE_PAYMENT"] = 52] = "PURCHASE_PAYMENT";
-    /** Purchase Receipt */
-    RsMailSid[RsMailSid["PURCHASE_PAYMENT_ACCOUNT"] = 107] = "PURCHASE_PAYMENT_ACCOUNT";
-    /** Purchase Receipt */
-    RsMailSid[RsMailSid["PURCHASE_PAYMENT_POS"] = 115] = "PURCHASE_PAYMENT_POS";
-    /** Sent to Business Owner when the re-order level has been reached for some product */
-    RsMailSid[RsMailSid["PURCHASE_PRODUCT_INVENTORY"] = 95] = "PURCHASE_PRODUCT_INVENTORY";
-    /** Thanks for purchasing an introductory offer */
-    RsMailSid[RsMailSid["PURCHASE_PROMOTION_INTRODUCTORY"] = 74] = "PURCHASE_PROMOTION_INTRODUCTORY";
-    /** Send refund receipt */
-    RsMailSid[RsMailSid["PURCHASE_REFUND"] = 108] = "PURCHASE_REFUND";
-    /** Quiz form submission - Client */
-    RsMailSid[RsMailSid["QUIZ_FORM_SUBMITTION"] = 172] = "QUIZ_FORM_SUBMITTION";
-    /** Email to wellnessliving team when user changes Quiz Subscription plan */
-    RsMailSid[RsMailSid["QUIZ_INDEX"] = 174] = "QUIZ_INDEX";
-    /** Quiz submitted - Staff */
-    RsMailSid[RsMailSid["QUIZ_NOTIFICATION"] = 171] = "QUIZ_NOTIFICATION";
-    /** Quiz submitted - Staff */
-    RsMailSid[RsMailSid["QUIZ_NOTIFICATION_REMIND"] = 173] = "QUIZ_NOTIFICATION_REMIND";
-    /** Email to wellnessliving team when businesses perform actions which is exporting data */
-    RsMailSid[RsMailSid["REPORT_EXPORT"] = 177] = "REPORT_EXPORT";
-    /** New Customer Review - Staff */
-    RsMailSid[RsMailSid["REVIEW_ADD"] = 38] = "REVIEW_ADD";
-    /** Owner Replied to Review */
-    RsMailSid[RsMailSid["REVIEW_REPLY"] = 45] = "REVIEW_REPLY";
-    /** Client left a review */
-    RsMailSid[RsMailSid["REVIEW_USER_LEFT"] = 216] = "REVIEW_USER_LEFT";
-    /** Event redeems a reward (points or prizes) for client */
-    RsMailSid[RsMailSid["REWARD_PRIZE_CLIENT"] = 120] = "REWARD_PRIZE_CLIENT";
-    /** Event redeems a reward (points or prizes) for staff */
-    RsMailSid[RsMailSid["REWARD_PRIZE_STAFF"] = 121] = "REWARD_PRIZE_STAFF";
-    /** Sale Has Been Made */
-    RsMailSid[RsMailSid["SALE_STAFF"] = 126] = "SALE_STAFF";
-    /** Sent after booking a service (used in automations) */
-    RsMailSid[RsMailSid["SERVICE_BOOK"] = 208] = "SERVICE_BOOK";
-    /** Event when finished push certification for ios devices */
-    RsMailSid[RsMailSid["SKIN_APPLICATION_CONNECT"] = 122] = "SKIN_APPLICATION_CONNECT";
-    /** Notifies staff when CAASI captures a client request for a staff connect, */
-    RsMailSid[RsMailSid["STAFF_CALLBACK_REQUEST"] = 196] = "STAFF_CALLBACK_REQUEST";
-    /** Sends when task assigned to staff */
-    RsMailSid[RsMailSid["TASK_ASSIGN"] = 104] = "TASK_ASSIGN";
-    /** Send a copy of waiver */
-    RsMailSid[RsMailSid["TERM_COPY"] = 99] = "TERM_COPY";
-    /** Sent after a ticketed event is purchased */
-    RsMailSid[RsMailSid["TICKET_PURCHASE"] = 225] = "TICKET_PURCHASE";
-    /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
-    RsMailSid[RsMailSid["USER_CAMPAIGN"] = 112] = "USER_CAMPAIGN";
-    /** Request a video subscription */
-    RsMailSid[RsMailSid["VIDEO_SUBSCRIPTION_UPGRADE"] = 140] = "VIDEO_SUBSCRIPTION_UPGRADE";
-    /** Sent after visit the service */
-    RsMailSid[RsMailSid["VISIT_CAMPAIGN"] = 94] = "VISIT_CAMPAIGN";
-    /** Sent if a client does not show up to a service reserved by (used in automations) */
-    RsMailSid[RsMailSid["VISIT_NOSHOW"] = 209] = "VISIT_NOSHOW";
-    /** Visit receipt */
-    RsMailSid[RsMailSid["VISIT_RECEIPT_RECEIPT"] = 190] = "VISIT_RECEIPT_RECEIPT";
-    /** Email, which is sent when a Zoom license is lack */
-    RsMailSid[RsMailSid["ZOOM_LICENSE_LACK"] = 149] = "ZOOM_LICENSE_LACK";
-})(RsMailSid || (exports.RsMailSid = RsMailSid = {}));
 /** Level at which a client profile field is asked at a given collection entry point. */
 var WlFieldFieldLevelEnum;
 (function (WlFieldFieldLevelEnum) {
@@ -3608,6 +4170,8 @@ var RsLoginActivityTypeSid;
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_BOOK_TWITTER"] = 48] = "APPOINTMENT_BOOK_TWITTER";
     /** Client cancels an appointment */
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_CANCEL"] = 28] = "APPOINTMENT_CANCEL";
+    /** The phone number of a Phone Call appointment was set or changed */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_PHONE_CHANGE"] = 64] = "APPOINTMENT_PHONE_CHANGE";
     /** Client attends an appointment */
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["APPOINTMENT_VISIT"] = 23] = "APPOINTMENT_VISIT";
     /** Client books an appointment to wait list */
@@ -4178,6 +4742,16 @@ var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INTERFACE_WIDGET_VIEW"] = 110] = "INTERFACE_WIDGET_VIEW";
     /** Permission to Receive or Adjust quantity from the Inventory On Hand Report */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["INVENTORY_UPDATE"] = 157] = "INVENTORY_UPDATE";
+    /** Add leads */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["LEAD_ADD"] = 255] = "LEAD_ADD";
+    /** Manage lead creation settings */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["LEAD_CREATION_SETTINGS_MANAGE"] = 257] = "LEAD_CREATION_SETTINGS_MANAGE";
+    /** Manage lead sources and fields */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["LEAD_SOURCE_MANAGE"] = 258] = "LEAD_SOURCE_MANAGE";
+    /** Change lead stage */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["LEAD_STAGE_CHANGE"] = 256] = "LEAD_STAGE_CHANGE";
+    /** Manage lead stages */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["LEAD_STAGE_MANAGE"] = 259] = "LEAD_STAGE_MANAGE";
     /** Manage my locations except General information */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["LOCATION_EDIT"] = 9] = "LOCATION_EDIT";
     /** Manage tab Location -> General */
@@ -4276,6 +4850,8 @@ var WlPrivilegePrivilegeSid;
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["NOTIFICATION_STAFF_CALLBACK_REQUEST"] = 216] = "NOTIFICATION_STAFF_CALLBACK_REQUEST";
     /** Override late cancel and no show fees */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["OVERRIDE_FEE"] = 164] = "OVERRIDE_FEE";
+    /** Override make-up passes */
+    WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["OVERRIDE_MAKEUP_PASS"] = 254] = "OVERRIDE_MAKEUP_PASS";
     /** Manage partner program */
     WlPrivilegePrivilegeSid[WlPrivilegePrivilegeSid["PARTNER_PROGRAM_MANAGE"] = 94] = "PARTNER_PROGRAM_MANAGE";
     /** Access to Payment Processing */
@@ -4887,16 +5463,6 @@ var WlCollectorDebtStatusSid;
     /** Special status of the debt to indicate that it is currently in update state */
     WlCollectorDebtStatusSid[WlCollectorDebtStatusSid["SYNC"] = 7] = "SYNC";
 })(WlCollectorDebtStatusSid || (exports.WlCollectorDebtStatusSid = WlCollectorDebtStatusSid = {}));
-/** List of outcomes of a CAASI Phone Agent call. */
-var WlAiAgentPhoneCallOutcomeEnum;
-(function (WlAiAgentPhoneCallOutcomeEnum) {
-    /** The call was resolved by CAASI without staff involvement */
-    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["RESOLVED"] = 1] = "RESOLVED";
-    /** The call was transferred to a live staff member */
-    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["TRANSFERRED"] = 2] = "TRANSFERRED";
-    /** The caller requested a callback from staff */
-    WlAiAgentPhoneCallOutcomeEnum[WlAiAgentPhoneCallOutcomeEnum["CALLBACK_REQUESTED"] = 3] = "CALLBACK_REQUESTED";
-})(WlAiAgentPhoneCallOutcomeEnum || (exports.WlAiAgentPhoneCallOutcomeEnum = WlAiAgentPhoneCallOutcomeEnum = {}));
 /** List of default categories of the rewards. */
 var RsRewardActionCategorySid;
 (function (RsRewardActionCategorySid) {
@@ -4998,6 +5564,10 @@ var WlBusinessCustomTermsCustomTermSid;
     WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["CLASS_TERM"] = 3] = "CLASS_TERM";
     /** Client */
     WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["CLIENT"] = 4] = "CLIENT";
+    /** Drop-in */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["DROP_IN"] = 6] = "DROP_IN";
+    /** Purchase Option */
+    WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["PURCHASE_OPTION"] = 7] = "PURCHASE_OPTION";
     /** Staff */
     WlBusinessCustomTermsCustomTermSid[WlBusinessCustomTermsCustomTermSid["STAFF"] = 1] = "STAFF";
 })(WlBusinessCustomTermsCustomTermSid || (exports.WlBusinessCustomTermsCustomTermSid = WlBusinessCustomTermsCustomTermSid = {}));
@@ -5096,6 +5666,8 @@ var WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid;
     WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PREMIUM"] = 3] = "PREMIUM";
     /** Premium (Business Max) */
     WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PREMIUM_MAX"] = 7] = "PREMIUM_MAX";
+    /** Presence Trial */
+    WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PRESENCE_TRIAL"] = 12] = "PRESENCE_TRIAL";
     /** Professional */
     WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid[WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid["PROFESSIONAL"] = 5] = "PROFESSIONAL";
 })(WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid || (exports.WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = WlBusinessAccountSubscriptionWebsiteWebsiteSubscriptionSid = {}));
@@ -5249,18 +5821,6 @@ var WlBusinessAccountSubscriptionApiApiSubscriptionSid;
     /** Premium */
     WlBusinessAccountSubscriptionApiApiSubscriptionSid[WlBusinessAccountSubscriptionApiApiSubscriptionSid["PREMIUM"] = 2] = "PREMIUM";
 })(WlBusinessAccountSubscriptionApiApiSubscriptionSid || (exports.WlBusinessAccountSubscriptionApiApiSubscriptionSid = WlBusinessAccountSubscriptionApiApiSubscriptionSid = {}));
-/** List of possible plans for FitvidSubscription subscription. */
-var WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid;
-(function (WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid) {
-    /** Basic */
-    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["BASIC"] = 2] = "BASIC";
-    /** Enterprise */
-    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["ENTERPRISE"] = 3] = "ENTERPRISE";
-    /** None */
-    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["FREE"] = 1] = "FREE";
-    /** Premium */
-    WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid[WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid["PREMIUM"] = 4] = "PREMIUM";
-})(WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid || (exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = {}));
 /** List of possible plans for QuizSubscription subscription. */
 var WlBusinessAccountSubscriptionQuizQuizSubscriptionSid;
 (function (WlBusinessAccountSubscriptionQuizQuizSubscriptionSid) {
@@ -5383,6 +5943,26 @@ var WlShopProductPurchaseRestrictionSid;
     /** Purchase option available for clients with special login type or member group */
     WlShopProductPurchaseRestrictionSid[WlShopProductPurchaseRestrictionSid["TYPE"] = 3] = "TYPE";
 })(WlShopProductPurchaseRestrictionSid || (exports.WlShopProductPurchaseRestrictionSid = WlShopProductPurchaseRestrictionSid = {}));
+/** List of render modes. */
+var CoreQuizRenderModeSid;
+(function (CoreQuizRenderModeSid) {
+    /** Mode for displaying the error message about access restriction to private quiz */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["ACCESS_DENIED_PRIVATE"] = 8] = "ACCESS_DENIED_PRIVATE";
+    /** Mode to provide ability to perform question amendment */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["AMEND"] = 5] = "AMEND";
+    /** Mode to display only part of the question with answer element */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["AMEND_ADD"] = 7] = "AMEND_ADD";
+    /** Mode to display only answer of the question without actual question information */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["ANSWER"] = 6] = "ANSWER";
+    /** Edit mode on quiz edit form */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["EDIT"] = 2] = "EDIT";
+    /** Preview mode on quiz edit form */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["PREVIEW"] = 1] = "PREVIEW";
+    /** Mode to display element with response */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["REPORT"] = 4] = "REPORT";
+    /** Response mode on the form where response expected */
+    CoreQuizRenderModeSid[CoreQuizRenderModeSid["RESPONSE"] = 3] = "RESPONSE";
+})(CoreQuizRenderModeSid || (exports.CoreQuizRenderModeSid = CoreQuizRenderModeSid = {}));
 /** List of options to add client to attendance list. */
 var WlLoginAttendanceAddOptionSid;
 (function (WlLoginAttendanceAddOptionSid) {
@@ -5606,6 +6186,8 @@ var WlPageBackendFeatureFeatureSid;
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["MARKETING"] = 12] = "MARKETING";
     /** Page with information about partner program */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["PARTNER"] = 19] = "PARTNER";
+    /** Passkeys of the staff members */
+    WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["PASSKEY"] = 38] = "PASSKEY";
     /** Presence landing page, where staff can get their custom website */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["PRESENCE"] = 23] = "PRESENCE";
     /** Quiz form creator */
@@ -5626,6 +6208,8 @@ var WlPageBackendFeatureFeatureSid;
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["SELF_SIGNUP"] = 15] = "SELF_SIGNUP";
     /** Page to config custom client's app */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["SKIN_APP"] = 13] = "SKIN_APP";
+    /** Staff check-in kiosk of gym visits: the staff member stays signed in */
+    WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["STAFF_RECEPTION"] = 39] = "STAFF_RECEPTION";
     /** Link to the page of the support page */
     WlPageBackendFeatureFeatureSid[WlPageBackendFeatureFeatureSid["SUPPORT"] = 10] = "SUPPORT";
     /** Creation of the user */
@@ -5878,16 +6462,6 @@ class CoreSidNamespace {
     }
 }
 exports.CoreSidNamespace = CoreSidNamespace;
-class CoreTimingNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Logs component load timing entries reported by browser. */
-    componentTiming(params) {
-        return this._client._request('/Core/Timing/ComponentTiming.json', params, 'POST');
-    }
-}
-exports.CoreTimingNamespace = CoreTimingNamespace;
 class CorePushNamespace {
     constructor(_client) {
         this._client = _client;
@@ -6080,6 +6654,10 @@ class CorePassportPasskeyNamespace {
     passkeyCredentialGet(params) {
         return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'GET');
     }
+    /** Renames one of the signed-in user's own passkey credentials. */
+    passkeyCredentialPut(params) {
+        return this._client._request('/Core/Passport/Passkey/PasskeyCredential.json', params, 'PUT');
+    }
 }
 exports.CorePassportPasskeyNamespace = CorePassportPasskeyNamespace;
 class CorePassportChangePasswordNamespace {
@@ -6227,7 +6805,6 @@ class CoreNamespace {
         this.request = new CoreRequestNamespace(this._client);
         this.webSocket = new CoreWebSocketNamespace(this._client);
         this.sid = new CoreSidNamespace(this._client);
-        this.timing = new CoreTimingNamespace(this._client);
         this.push = new CorePushNamespace(this._client);
         this.geo = new CoreGeoNamespace(this._client);
         this.debug = new CoreDebugNamespace(this._client);
@@ -6930,6 +7507,10 @@ class WlVisitNamespace {
     visitTotalCount(params) {
         return this._client._request('/Wl/Visit/VisitTotalCount.json', params, 'GET');
     }
+    /** Returns recent visit statistics for the user at the business. */
+    visitRecent(params) {
+        return this._client._request('/Wl/Visit/VisitRecent.json', params, 'GET');
+    }
 }
 exports.WlVisitNamespace = WlVisitNamespace;
 class WlLeadStageNamespace {
@@ -7005,6 +7586,16 @@ class WlLeadNamespace {
     }
 }
 exports.WlLeadNamespace = WlLeadNamespace;
+class WlLoginAttendanceRowNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns data for a single attendance list row. */
+    row(params) {
+        return this._client._request('/Wl/Login/Attendance/Row/Row.json', params, 'GET');
+    }
+}
+exports.WlLoginAttendanceRowNamespace = WlLoginAttendanceRowNamespace;
 class WlLoginAttendanceAddNamespace {
     constructor(_client) {
         this._client = _client;
@@ -7039,6 +7630,7 @@ exports.WlLoginAttendanceStaffAppNamespace = WlLoginAttendanceStaffAppNamespace;
 class WlLoginAttendanceNamespace {
     constructor(_client) {
         this._client = _client;
+        this.row = new WlLoginAttendanceRowNamespace(this._client);
         this.add = new WlLoginAttendanceAddNamespace(this._client);
         this.staffApp = new WlLoginAttendanceStaffAppNamespace(this._client);
     }
@@ -8293,6 +8885,16 @@ class WlStaffPrivilegeNamespace {
     }
 }
 exports.WlStaffPrivilegeNamespace = WlStaffPrivilegeNamespace;
+class WlStaffPasskeyNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Lists the passkeys of the active staff members of the business. */
+    passkeyList(params) {
+        return this._client._request('/Wl/Staff/Passkey/PasskeyList.json', params, 'GET');
+    }
+}
+exports.WlStaffPasskeyNamespace = WlStaffPasskeyNamespace;
 class WlStaffScheduleAddNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8319,6 +8921,7 @@ class WlStaffNamespace {
         this.staffView = new WlStaffStaffViewNamespace(this._client);
         this.payRate = new WlStaffPayRateNamespace(this._client);
         this.privilege = new WlStaffPrivilegeNamespace(this._client);
+        this.passkey = new WlStaffPasskeyNamespace(this._client);
         this.schedule = new WlStaffScheduleNamespace(this._client);
     }
     /** Update or create staff. */
@@ -9506,6 +10109,20 @@ class WlAppointmentRecentNamespace {
     }
 }
 exports.WlAppointmentRecentNamespace = WlAppointmentRecentNamespace;
+class WlAppointmentPhoneNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the number of the visit or the default number for a future booking. */
+    phoneGet(params) {
+        return this._client._request('/Wl/Appointment/Phone/Phone.json', params, 'GET');
+    }
+    /** Changes the number of the visit. */
+    phonePut(params) {
+        return this._client._request('/Wl/Appointment/Phone/Phone.json', params, 'PUT');
+    }
+}
+exports.WlAppointmentPhoneNamespace = WlAppointmentPhoneNamespace;
 class WlAppointmentBookServiceNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9563,6 +10180,18 @@ class WlAppointmentBookScheduleNamespace {
     nextAvailableDay(params) {
         return this._client._request('/Wl/Appointment/Book/Schedule/NextAvailableDay.json', params, 'GET');
     }
+    /** Retrieves a list with all calendar days in specified period with available and unavailable appointment booking schedule. */
+    calendar78(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/Calendar78.json', params, 'GET');
+    }
+    /** Retrieves a list of available appointment booking schedule. */
+    dayTime78(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/DayTime78.json', params, 'GET');
+    }
+    /** Finds and returns the next available date for appointment booking starting from the given date. */
+    nextAvailableDay78(params) {
+        return this._client._request('/Wl/Appointment/Book/Schedule/NextAvailableDay78.json', params, 'GET');
+    }
 }
 exports.WlAppointmentBookScheduleNamespace = WlAppointmentBookScheduleNamespace;
 class WlAppointmentBookStaffNamespace {
@@ -9577,6 +10206,10 @@ class WlAppointmentBookStaffNamespace {
     /** Retrieves an information about staff members for the current service. */
     staffList(params) {
         return this._client._request('/Wl/Appointment/Book/Staff/StaffList.json', params, 'GET');
+    }
+    /** Retrieves an information about staff members for the current service. */
+    staffList78(params) {
+        return this._client._request('/Wl/Appointment/Book/Staff/StaffList78.json', params, 'GET');
     }
 }
 exports.WlAppointmentBookStaffNamespace = WlAppointmentBookStaffNamespace;
@@ -9606,6 +10239,10 @@ class WlAppointmentBookFinishNamespace {
     finish47Post(params) {
         return this._client._request('/Wl/Appointment/Book/Finish/Finish47.json', params, 'POST');
     }
+    /** Changes the client of an appointment in one atomic transaction. */
+    clientChange(params) {
+        return this._client._request('/Wl/Appointment/Book/Finish/ClientChange.json', params, 'POST');
+    }
 }
 exports.WlAppointmentBookFinishNamespace = WlAppointmentBookFinishNamespace;
 class WlAppointmentBookConflictNamespace {
@@ -9620,6 +10257,10 @@ class WlAppointmentBookConflictNamespace {
     /** @deprecated */
     conflict(params) {
         return this._client._request('/Wl/Appointment/Book/Conflict/Conflict.json', params, 'GET');
+    }
+    /** Gets booking conflicts. */
+    conflict78(params) {
+        return this._client._request('/Wl/Appointment/Book/Conflict/Conflict78.json', params, 'GET');
     }
 }
 exports.WlAppointmentBookConflictNamespace = WlAppointmentBookConflictNamespace;
@@ -9660,6 +10301,10 @@ class WlAppointmentBookPurchaseNamespace {
     /** @deprecated */
     purchase(params) {
         return this._client._request('/Wl/Appointment/Book/Purchase/Purchase.json', params, 'GET');
+    }
+    /** Retrieves a list of information about available purchase options. */
+    purchase78(params) {
+        return this._client._request('/Wl/Appointment/Book/Purchase/Purchase78.json', params, 'GET');
     }
 }
 exports.WlAppointmentBookPurchaseNamespace = WlAppointmentBookPurchaseNamespace;
@@ -9753,6 +10398,20 @@ class WlAppointmentBookProductNamespace {
     }
 }
 exports.WlAppointmentBookProductNamespace = WlAppointmentBookProductNamespace;
+class WlAppointmentBookBlockNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Lists the add-ons that can be chosen for an appointment. */
+    addonList(params) {
+        return this._client._request('/Wl/Appointment/Book/Block/AddonList.json', params, 'GET');
+    }
+    /** Finds the selected add-ons that the client is not eligible for. */
+    eligible(params) {
+        return this._client._request('/Wl/Appointment/Book/Block/Eligible.json', params, 'GET');
+    }
+}
+exports.WlAppointmentBookBlockNamespace = WlAppointmentBookBlockNamespace;
 class WlAppointmentBookNamespace {
     constructor(_client) {
         this._client = _client;
@@ -9769,6 +10428,7 @@ class WlAppointmentBookNamespace {
         this.promote = new WlAppointmentBookPromoteNamespace(this._client);
         this.quiz = new WlAppointmentBookQuizNamespace(this._client);
         this.product = new WlAppointmentBookProductNamespace(this._client);
+        this.block = new WlAppointmentBookBlockNamespace(this._client);
     }
 }
 exports.WlAppointmentBookNamespace = WlAppointmentBookNamespace;
@@ -9784,6 +10444,7 @@ class WlAppointmentNamespace {
         this.request = new WlAppointmentRequestNamespace(this._client);
         this.mark = new WlAppointmentMarkNamespace(this._client);
         this.recent = new WlAppointmentRecentNamespace(this._client);
+        this.phone = new WlAppointmentPhoneNamespace(this._client);
         this.book = new WlAppointmentBookNamespace(this._client);
     }
 }
@@ -10203,6 +10864,16 @@ class WlClassesPromotionNamespace {
     }
 }
 exports.WlClassesPromotionNamespace = WlClassesPromotionNamespace;
+class WlClassesCategoryNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the categories of classes and of events of a business. */
+    categoryList(params) {
+        return this._client._request('/Wl/Classes/Category/CategoryList.json', params, 'GET');
+    }
+}
+exports.WlClassesCategoryNamespace = WlClassesCategoryNamespace;
 class WlClassesPeriodModifyNamespace {
     constructor(_client) {
         this._client = _client;
@@ -10217,10 +10888,21 @@ class WlClassesPeriodModifyNamespace {
     }
 }
 exports.WlClassesPeriodModifyNamespace = WlClassesPeriodModifyNamespace;
+class WlClassesPeriodAddNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns list of events in which the current user can schedule a new instance. */
+    eventList(params) {
+        return this._client._request('/Wl/Classes/Period/Add/EventList.json', params, 'GET');
+    }
+}
+exports.WlClassesPeriodAddNamespace = WlClassesPeriodAddNamespace;
 class WlClassesPeriodNamespace {
     constructor(_client) {
         this._client = _client;
         this.modify = new WlClassesPeriodModifyNamespace(this._client);
+        this.add = new WlClassesPeriodAddNamespace(this._client);
     }
 }
 exports.WlClassesPeriodNamespace = WlClassesPeriodNamespace;
@@ -10231,6 +10913,7 @@ class WlClassesNamespace {
         this.info = new WlClassesInfoNamespace(this._client);
         this.classView = new WlClassesClassViewNamespace(this._client);
         this.promotion = new WlClassesPromotionNamespace(this._client);
+        this.category = new WlClassesCategoryNamespace(this._client);
         this.period = new WlClassesPeriodNamespace(this._client);
     }
 }

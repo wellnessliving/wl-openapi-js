@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261116133003
- * Build date:   2026-11-16
- * Endpoints:    690
+ * Spec version: 1.1.20261116210921
+ * Build date:   2026-11-17
+ * Endpoints:    706
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261116133003';
+  WlClient.SPEC_VERSION = '1.1.20261116210921';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (690 total)
+  // Generated API methods (706 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -265,24 +265,6 @@
   WlClient.prototype.coreSidCoreSid = function(params)
   {
     return this.request('/Core/Sid/CoreSid.json', params || {}, 'GET');
-  };
-
-  /**
-   * Logs component load timing entries reported by browser.
-   *
-   * Ignores requests from bots and monitoring user agents. Accepts up to `MAX_ENTRY`
-   *  entries per request, discarding any extra entries. Each entry is written to ComponentTimingLog
-   *  and reported to Cloud Watch as up to three `ComponentTime` data points (one per phase that has a value),
-   *  tagged with `Component` and `Phase` dimensions. Phases of a request entry are 'network', 'request' and
-   *  'server'. Phases of a view entry are 'render', 'startup' and 'view'. A view entry is logged as one record
-   *  together with its requests, and the requests are also reported to Cloud Watch with their own phases.
-   *
-   * @param {Object} [params] Request body fields.
-   * @returns {Promise<Object>} Response data.
-   */
-  WlClient.prototype.coreTimingComponentTiming = function(params)
-  {
-    return this.request('/Core/Timing/ComponentTiming.json', params || {}, 'POST');
   };
 
   /**
@@ -677,6 +659,28 @@
   };
 
   /**
+   * Returns recent visit statistics for the user at the business.
+   *
+   * Counts attended visits in the last 30 and 7 days and finds the last visit that is not a gym check-in
+   *  of today. The day boundaries are computed in the time zone of the location given in
+   *  {@link WlClient#wlVisitVisitRecent}.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_location Location key.
+   * @param {string} params.uid User key.
+   * @returns {Promise<Object>} Response data.
+   *  `dtu_visit_last` {string} Date and time of the last attended visit in UTC, excluding today's gym visits.
+   *  `i_visit_month` {number} Number of attended visits in the last 30 days.
+   *  `i_visit_week` {number} Number of attended visits in the last 7 days.
+   *  `k_location_visit_last` {string} Location key of the last attended visit, excluding today's gym visits.
+   */
+  WlClient.prototype.wlVisitVisitRecent = function(params)
+  {
+    return this.request('/Wl/Visit/VisitRecent.json', params || {}, 'GET');
+  };
+
+  /**
    * Checks if user with specified email already registered for specified business.
    *
    * Looks up an existing account by the given email address. If no account with that email exists,
@@ -720,6 +724,9 @@
    * Creates a new user account from the submitted lead capture form data, optionally signs in the new user,
    * and associates the lead with a lead source. Returns an error code in `text_sign_in_error` if sign-in was
    * requested but could not be completed.
+   * 
+   * When the lead is added from the backend ({@link WlClient#wlLeadLeadGet}), the staff member needs the privilege to
+   * add leads ({@link WlClient.WlPrivilegePrivilegeSid}).
    *
    * @param {Object} [params] Request parameters.
    * @param {?boolean} [params.can_use_free_purchase] Whether it is possible to give free promotion when adding a user (only if free promotion is confi...
@@ -1479,6 +1486,7 @@
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {string} params.k_quiz_login Quiz login key.
+   * @param {string} params.s_secret Secret key of the quiz request given in {@link WlClient#wlQuizQuizElement72Get}.
    * @param {string} params.uid_client UID of the client for which quiz requested.
    * @returns {Promise<Object>} Response data.
    *  `a_access_log` {Object[]} Access log data.
@@ -2336,12 +2344,16 @@
    * Loads the business's white-label status and derives whether the "Powered by WellnessLiving"
    * branding and the Terms and Conditions link should be shown in the footer. The result is stored in
    * {@link WlClient#thothLayoutBeFooterFooter}. The URL of the tour page of the business type, which the badge links to, is
-   * loaded into {@link WlClient#thothLayoutBeFooterFooter}.
+   * loaded into {@link WlClient#thothLayoutBeFooterFooter}. For a business with a white-label plan of the Achieve client app the
+   * links to the app in the stores are loaded too.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key to get footer data for.
    * @returns {Promise<Object>} Response data.
+   *  `is_white_label_achieve` {boolean} Whether the business has a white-label plan of the Achieve client app.
    *  `show_term` {boolean} Whether the "Powered by WellnessLiving" branding and Terms & Conditions links...
+   *  `url_apple_store` {string} URL of the Achieve client app of the business in the Apple App Store, for exa...
+   *  `url_google_play` {string} URL of the Achieve client app of the business in Google Play, for example
    *  `url_tour` {string} URL of the tour page of the business type on the site of `WellnessLiving`.
    */
   WlClient.prototype.thothLayoutBeFooterFooter = function(params)
@@ -3036,11 +3048,13 @@
   /**
    * Revokes one of the signed-in user's passkey credentials.
    *
-   * Marks the credential as revoked rather than deleting the row.  A credential owned by another user can not be
-   * revoked.
+   * Deletes the row of the credential. The audit of the removal is the entry of the sign-in log written by
+   * `PassportPasskey::logWrite()`, not the row. A credential of another user can be revoked only
+   * if PasskeyConfigAbstract::checkManage() allows it.
    *
    * @param {Object} [params] Request parameters.
-   * @param {string} params.k_passkey_credential Key of the credential to revoke.
+   * @param {string} params.json_context JSON-encoded structure with any additional information required by the project-specific
+   * @param {string} params.k_passkey_credential Key of the credential to revoke or to rename.
    * @param {string} params.uid Key of the user whose passkey credentials to manage. `'0'` or empty string to use the
    * @returns {Promise<Object>} Response data.
    */
@@ -3052,16 +3066,36 @@
   /**
    * Lists the user's registered passkey credentials.
    *
-   * Includes revoked credentials.
+   * Includes credentials revoked before revoking started to delete the row.
    *
    * @param {Object} [params] Request parameters.
+   * @param {string} params.json_context JSON-encoded structure with any additional information required by the project-specific
    * @param {string} params.uid Key of the user whose passkey credentials to manage. `'0'` or empty string to use the
    * @returns {Promise<Object>} Response data.
    *  `a_credential` {Object[]} List of the signed-in user's registered passkey credentials.
+   *  `s_rp_id` {string} Relying Party ID of the passkeys, the `rpId` the `WebAuthn` signal methods need.
+   *  `s_user_handle` {string} `WebAuthn` user handle (`user.id`) of the listed user, base64url encoded with...
    */
   WlClient.prototype.corePassportPasskeyPasskeyCredentialGet = function(params)
   {
     return this.request('/Core/Passport/Passkey/PasskeyCredential.json', params || {}, 'GET');
+  };
+
+  /**
+   * Renames one of the signed-in user's own passkey credentials.
+   *
+   * Saves the new name as it is entered, even if another passkey of the user has the same name, so no number is
+   * added. A passkey of another user cannot be renamed, whatever the project configuration allows to manage. The
+   * rename is not written to the sign-in log: the log has only the entries of adding and removing a passkey.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.json_context JSON-encoded structure with any additional information required by the project-specific
+   * @param {string} params.k_passkey_credential Key of the credential to revoke or to rename.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.corePassportPasskeyPasskeyCredentialPut = function(params)
+  {
+    return this.request('/Core/Passport/Passkey/PasskeyCredential.json', params || {}, 'PUT');
   };
 
   /**
@@ -3871,17 +3905,20 @@
    * Gets purchase information.
    *
    * Returns full receipt data for the specified purchase, including business details, customer information,
-   * itemized purchase items, payment methods, pricing summary, and print URLs.
+   * itemized purchase items, payment methods, pricing summary, and print URLs. The access is granted to a user who
+   * has the rights to the purchase, or to anyone who passes a valid {@link WlClient#wlPurchaseReceiptPurchaseReceipt}.
    *
    * @param {Object} [params] Request parameters.
    * @param {boolean} params.is_url_public Whether {@link WlClient#wlPurchaseReceiptPurchaseReceipt} and {@link WlClient#wlPurchaseReceiptPu...
    * @param {?string} [params.k_purchase] The key of the purchase.
+   * @param {string} params.text_token The temporary token that gives access to the receipt without a login.
    * @returns {Promise<Object>} Response data.
    *  `a_account_rest` {Object} Information about the account balance for a user's account after payment for ...
    *  `a_business` {Object} Information about the business.
    *  `a_card` {Object} Payment transaction information. Every element has the following keys:
    *  `a_customer` {Object} Information about the customer.
    *  `a_pay_method` {Object} A list of payment methods for the current purchase. Every element has the fol...
+   *  `a_payor` {Object} Information about the payor (money owner) of the purchase. Empty when the mon...
    *  `a_price` {Object} Complete information about price information for the purchase.
    *  `a_purchase_item` {Object[]} A list of purchase items. Every element has the following keys:
    *  `dtl_purchase` {string} The local date of the purchase in MySQL format.
@@ -3889,6 +3926,7 @@
    *  `html_receipt` {string} HTML representation of the purchase receipt.
    *  `text_purchase_id` {string} The normalized purchase ID.
    *  `text_receipt` {string} The receipt text set in the store settings.
+   *  `uid_payor` {string} The key of the payor (money owner) of the purchase. Primary key in  table.
    *  `url_print` {string} The URL for printing on a normal printer.
    *  `url_print_receipt` {string} The URL for printing on a receipt printer.
    */
@@ -3902,6 +3940,11 @@
    *
    * Validates the caller's access to the purchase and sends a receipt email to the appropriate recipient
    * (staff member or client), recording the action in the mail history log.
+   * 
+   * A guest, who is not signed in, can ask for the receipt of the purchase that the guest has just made: the email
+   * goes to the address that the guest gave when buying, at most three emails for one purchase. Then the error
+   * `access` means that the session of the guest knows nothing of the purchase (the purchase was made in another
+   * ...
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
@@ -4238,13 +4281,13 @@
    *  `i_index` {?number} Index of booked asset.
    *  `id_appointment_pay` {number} The possible payment types an appointment can have. See {@link WlClient.RsAppointmentPaySid}.
    *  `id_virtual_provider` {?number} List of possible value of virtual integrations. See {@link WlClient.WlVirtualVirtualProviderSid}.
+   *  `is_phone_call` {boolean} Whether the booking was made as a Phone Call.
    *  `is_virtual` {boolean} Whether the service is virtual.
    *  `k_location` {string} Location key.
    *  `k_login_promotion` {?string} Purchased promotion which provides this appointment.
    *  `k_resource` {?string} Asset key.
    *  `k_resource_type` {?string} Asset category key.
    *  `k_service` {?string} Service key.
-   *  `k_service_category` {?string} Service category key.
    *  `...` {*}
    */
   WlClient.prototype.wlAppointmentInfoInfo = function(params)
@@ -4409,6 +4452,49 @@
   };
 
   /**
+   * Returns the number of the visit or the default number for a future booking.
+   *
+   * The number of a visit is returned wherever the appointment is returned, like the meeting link of a virtual
+   * appointment: to the client of the visit, to the user who booked it, to a WellnessLiving admin with the privilege
+   * `rs.appointment.edit` and to active staff of the business.
+   * The default number for a future booking is available to a user with the {@link WlClient.WlPrivilegePrivilegeSid}
+   * privilege for the client. The number is returned in the international E.164 format.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_visit Visit key.
+   * @param {string} params.uid Key of the client of a future booking. Used only when `k_visit` is empty.
+   * @returns {Promise<Object>} Response data.
+   *  `text_phone` {?string} The phone number.
+   */
+  WlClient.prototype.wlAppointmentPhonePhoneGet = function(params)
+  {
+    return this.request('/Wl/Appointment/Phone/Phone.json', params || {}, 'GET');
+  };
+
+  /**
+   * Changes the number of the visit.
+   *
+   * The number may be changed by the client of the visit and by the user who booked it, also if they are staff of the
+   * business (active or former), by a WellnessLiving admin with the privilege `rs.appointment.edit`, and by any other
+   * active staff member only for their own appointment and with the privilege to schedule future appointments.
+   * The number of a cancelled visit may not be changed. After the appointment has started, only a WellnessLiving
+   * admin and staff who may change the number as staff may change it; the client and the user who booked may not.
+   * The pencil to change the number in the client profile is shown by the same rule.
+   * ...
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_visit Visit key.
+   * @returns {Promise<Object>} Response data.
+   *  `text_phone` {?string} The phone number.
+   */
+  WlClient.prototype.wlAppointmentPhonePhonePut = function(params)
+  {
+    return this.request('/Wl/Appointment/Phone/Phone.json', params || {}, 'PUT');
+  };
+
+  /**
    * Gets visit status.
    *
    * Checks the specified visit against the business late cancellation and no show rules,
@@ -4502,11 +4588,12 @@
    * client; no key of a kiosk is needed. The visit is checked in from the source "Kiosk". A client is checked in for
    * a gym visit once a day: a second check-in on the same local day, at any location of the business, is refused
    * and nothing is written. A booked gym visit of the day at the location of the kiosk is checked in. A refusal
-   * gives its reason, its message and the key of the failed attempt; a refusal for a negative balance does not
-   * show the amount to a staff member who may not see the balances of the clients.
+   * gives its reason, every reason of the refusal, its message and the key of the failed attempt; a refusal for a
+   * negative balance does not show the amount to a staff member who may not see the balances of the clients.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
+   *  `a_deny_reason` {number[]} Every reason why the check-in has been refused.
    *  `dtu_attend` {?string} Time of the check-in of the gym visit that the client already has on the day,...
    *  `dtu_register` {?string} Time of the check-in in UTC and MySQL format, for example `2026-11-05 14:30:00`.
    *  `i_attend_quick_close_fail` {number} Number of seconds after which the kiosk closes the message of a failed check-in.
@@ -4556,12 +4643,12 @@
   /**
    * Evaluates a gym check-in of the client.
    *
-   * Finds the gym visit of the client on the local day of the location (at any location of the business), the
-   * first reason why the check-in would be refused, in the order of the check-in, and the reason why the pass of
-   * the client would not pay for the visit. Fills the state of the profile: the balance, the unpaid visits, the
-   * waiver, the contract, the required forms, the credit cards, the flag, the passes on hold and expired, and the
-   * passes that may pay for the visit. Only the first reason is given. Nothing is written: no visit and no failed
-   * attempt.
+   * Finds the gym visit of the client on the local day of the location (at any location of the business), every
+   * reason why the check-in would be refused, in the order of the check-in, and the reason why the pass of the
+   * client would not pay for the visit. Fills the state of the profile: the balance, the unpaid visits, the waiver,
+   * the contract, the required forms, the credit cards, the flag, the passes on hold and expired, and the passes that
+   * may pay for the visit. Every reason is given in `a_deny_reason`, and the first one in `id_deny_reason`. Nothing
+   * is written: no visit and no failed attempt.
    *
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.dtl_date] Local date and time of the check-in at the location, in MySQL format, for example `2026-11-05 09:...
@@ -4569,6 +4656,7 @@
    * @param {string} params.k_location Key of the location of the kiosk.
    * @param {string} params.uid Key of the client.
    * @returns {Promise<Object>} Response data.
+   *  `a_deny_reason` {number[]} Every reason why the check-in would be refused, in the order of the check-in.
    *  `a_login_promotion` {Object[]} Passes of the client that may pay for a gym visit.
    *  `dtu_attend` {?string} Time of the check-in of the gym visit of the day, in UTC and MySQL format, fo...
    *  `id_deny_reason` {number} Reasons of failed book or check-in. See {@link WlClient.WlVisitVisitDenyReasonSid}.
@@ -4599,7 +4687,10 @@
    *
    * The checkout endpoint that finalizes a purchase in the client-facing store. Charges the client's
    * selected payment method, applies any discounts and tips, and creates the purchase record. Returns
-   * the resulting purchase key so the frontend can redirect to the confirmation page.
+   * the resulting purchase key so the frontend can redirect to the confirmation page, and the temporary token of the
+   * receipt, which lets an anonymous user, who has no access to the purchase, view the receipt. For an anonymous
+   * user ({@link WlClient#wlCatalogPaymentPayment}) the session also remembers the purchase, so that user can ask for the
+   * emails of the purchase afterwards, and the receipt goes to the email of the order.
    *
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_commission The staff commission earned for this purchase. If this isn't empty, it has the next fields:
@@ -4612,6 +4703,7 @@
    * @returns {Promise<Object>} Response data.
    *  `k_login_activity` {?string} The key of login activity.
    *  `k_purchase` {string} The purchase key created during payment.
+   *  `text_receipt_token` {string} The temporary token that gives access to the receipt of the purchase without ...
    */
   WlClient.prototype.wlCatalogPaymentPayment = function(params)
   {
@@ -4725,16 +4817,27 @@
    * Used to render the full client-facing store catalog for a business. Returns all purchasable items -
    * promotions, products, events, and coupons - merged across the business's categories. The separate
    * de-duplicated list and category list support both the flat and category-tabbed views.
+   * 
+   * In the paged mode, when `i_last` is set or `a_item` is not empty, the items are read from a list cached for
+   * 10 minutes, filtered and sorted by `a_filter`, and one page of them is returned with the categories of the
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_direct_link Arguments from direct purchase link, which can give additional access to products, which are avai...
+   * @param {Object} params.a_filter Filter and sort of the paged mode. Read only when {@link WlClient#wlCatalogCatalogListList} is se...
+   * @param {Object[]} params.a_item Items to look up by their keys. When not empty, {@link WlClient#wlCatalogCatalogListList} holds t...
+   * @param {?number} [params.i_last] Offset of the page: the number of the items shown before it. `0` for the first page.
+   * @param {number} params.i_limit Number of the items in a page of the paged mode. See {@link WlClient#wlCatalogCatalogListList}.
    * @param {boolean} params.is_credit_card_check `true` to consider the requirement to have a credit card for booking
    * @param {string} params.k_business The business key.
    * @param {string} params.k_location The key of a location. If `0`, all products in the business are retrieved.
    * @param {string} params.uid The key of user.
    * @returns {Promise<Object>} Response data.
-   *  `a_product` {Object[]} The list of all sale items (de-duplicated). Each element has the following keys:
+   *  `a_product` {Object[]} The list of all sale items (de-duplicated). In the paged mode, only the items...
    *  `a_product_duplicate` {Object} The list of products to show with duplicates.
+   *  `a_shop_category` {Object[]} Categories of the sidebar of the paged mode, sorted by their order. Only the ...
+   *  `is_catalog_empty` {boolean} Whether the catalog of the paged mode has no items at all.
+   *  `is_load_more` {boolean} Whether there are more items after the page of the paged mode.
    */
   WlClient.prototype.wlCatalogCatalogListList = function(params)
   {
@@ -4957,6 +5060,9 @@
    * Sets the lead stage of the client.
    *
    * If the client is already in this stage, nothing is changed.
+   * 
+   * The staff member needs the privilege to change the lead stage ({@link WlClient.WlPrivilegePrivilegeSid}). The
+   * privilege to manage client profiles does not give it.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
@@ -5059,11 +5165,11 @@
    *  `i_duration` {number} Duration of the session in minutes.
    *  `id_note` {number} A list of types of visit note. See {@link WlClient.WlVisitNoteSidNoteSid}.
    *  `id_service` {number} Identifiers for services types. See {@link WlClient.RsServiceSid}.
+   *  `is_phone_call` {boolean} Whether the booking was made as a Phone Call.
    *  `is_start_virtual_service` {boolean} Whether this service be carried out in Zoom.
    *  `is_ticket` {boolean} Whether the session belongs to a ticketed event.
    *  `k_class` {string} Class identifier. Not empty if service is class or event reservation.
    *  `k_location` {string} Location identifier.
-   *  `k_resource` {string} Resource identifier. Not empty if service is asset reservation.
    *  `...` {*}
    */
   WlClient.prototype.wlLoginAttendanceAttendanceInfo = function(params)
@@ -5100,11 +5206,11 @@
    *  `i_duration` {number} Duration of the session in minutes.
    *  `id_note` {number} A list of types of visit note. See {@link WlClient.WlVisitNoteSidNoteSid}.
    *  `id_service` {number} Identifiers for services types. See {@link WlClient.RsServiceSid}.
+   *  `is_phone_call` {boolean} Whether the booking was made as a Phone Call.
    *  `is_start_virtual_service` {boolean} Whether this service be carried out in Zoom.
    *  `is_ticket` {boolean} Whether the session belongs to a ticketed event.
    *  `k_class` {string} Class identifier. Not empty if service is class or event reservation.
    *  `k_location` {string} Location identifier.
-   *  `k_resource` {string} Resource identifier. Not empty if service is asset reservation.
    *  `...` {*}
    */
   WlClient.prototype.wlLoginAttendanceAttendanceInfoByToken = function(params)
@@ -5817,6 +5923,23 @@
   WlClient.prototype.wlClassesPromotionClassPromotion = function(params)
   {
     return this.request('/Wl/Classes/Promotion/ClassPromotion.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns the categories of classes and of events of a business.
+   *
+   * Every class and every event of a business belongs to one of its categories. Classes and events have separate
+   * lists of categories: `is_event` tells the kind of each category. The list has no counts and no other settings
+   * of the setup page.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the business.
+   * @returns {Promise<Object>} Response data.
+   *  `a_category` {Object[]} The categories of the business: first the categories of classes, then the cat...
+   */
+  WlClient.prototype.wlClassesCategoryCategoryList = function(params)
+  {
+    return this.request('/Wl/Classes/Category/CategoryList.json', params || {}, 'GET');
   };
 
   /**
@@ -6647,7 +6770,9 @@
    * Checks the access to the purchase, finds the order of tickets of the purchase, and sends the email with the
    * tickets and their QR codes to the buyer, or to `text_mail` if it is given. The email is not sent if the pattern
    * is turned off in the business, or if the buyer has turned it off in the notification settings and no address is
-   * given. The codes of the errors are listed in the description of the class.
+   * given. A guest, who is not signed in, gets the email at the address of the order.
+   *  The codes of the errors are listed in the description of
+   * the class.
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
@@ -7481,10 +7606,13 @@
   /**
    * Checks if the user can physically access the location.
    *
-   * There are 3 scenarios where a user can be given access.
-   * Scenario 1 - If a valid member ID used, for instance from a bar code scanner, then the user may have access.
+   * A member ID, for instance from a bar code scanner, is resolved to the user key of the client.
+   * If there is no such member in the business, the access is denied.
+   * Then the user key is checked in the same way regardless of how it was specified.
+   * 
+   * There are 2 scenarios where a user can be given access.
    * Scenario 2 - If a valid uid is used and the user is a staff member, then the user may have access.
-   * Scenario 3 - If a valid uid is used and the client has a session or gym access at this location, then the user may have access.
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_location The location key.
@@ -7668,6 +7796,24 @@
   WlClient.prototype.wlStaffPrivilegePrivilegeList = function(params)
   {
     return this.request('/Wl/Staff/Privilege/PrivilegeList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Lists the passkeys of the active staff members of the business.
+   *
+   * Only staff members who have passkeys are listed. The list does not depend on whether passkey sign-in is enabled
+   * for the business: the passkeys that exist stay visible and removable after the option is turned off. The staff members whose passkeys the signed-in user may not
+   * remove are listed too, with `can_remove` set to `false`: the user sees that they exist, and the removal stays
+   * refused by `delete()`.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the business whose staff passkeys to list.
+   * @returns {Promise<Object>} Response data.
+   *  `a_staff` {Object[]} Active staff members of the business who have at least one active passkey, so...
+   */
+  WlClient.prototype.wlStaffPasskeyPasskeyList = function(params)
+  {
+    return this.request('/Wl/Staff/Passkey/PasskeyList.json', params || {}, 'GET');
   };
 
   /**
@@ -8853,8 +8999,9 @@
    *
    * Validates that the current user has access to the target user's profile and that the payer and
    *  the target user are family relatives. Rejects the request if the payer already pays for another
-   *  user, if another user already pays for the target user, or if either user is restricted by
-   *  franchise rules. Persists the new payer relationship in a database transaction.
+   *  user, if another user already pays for the target user, if the target user pays for a purchase option of
+   *  another user, or if either user is restricted by franchise rules. Persists the new payer relationship in a
+   *  database transaction.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business ID of business to get information for.
@@ -10497,6 +10644,9 @@
    * Returns available time slots for the specified service, location, staff member, and date range.
    *  Each slot includes the start time, duration, available capacity, and staff information. Supports
    *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
    * @deprecated Use {@link \Wl\Appointment\Book\Schedule\DayTime73Api}
    *
    * @param {Object} [params] Request parameters.
@@ -10540,6 +10690,9 @@
    * Returns each day in the requested month marked as available or unavailable for booking the given
    *  service at the given location. Availability is determined by the business schedule, holidays,
    *  and staff availability for the selected date range.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
@@ -10588,6 +10741,9 @@
    * Returns available time slots for the specified service, location, staff member, and date range.
    *  Each slot includes the start time, duration, available capacity, and staff information. Supports
    *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
@@ -10649,6 +10805,9 @@
    * Returns each day in the requested month marked as available or unavailable for booking the given
    *  service at the given location. Availability is determined by the business schedule, holidays,
    *  and staff availability for the selected date range.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
    * @deprecated Use {@link \Wl\Appointment\Book\Schedule\Calendar73Api}
    *
    * @param {Object} [params] Request parameters.
@@ -10700,6 +10859,9 @@
    *  time slot for the given service, location, and optional staff member. Returns the first available
    *  date so the client side can pre-select it in the booking calendar. This request may take longer
    *  than usual on production and uses an extended execution time limit.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
@@ -10732,6 +10894,148 @@
   WlClient.prototype.wlAppointmentBookScheduleNextAvailableDay = function(params)
   {
     return this.request('/Wl/Appointment/Book/Schedule/NextAvailableDay.json', params || {}, 'GET');
+  };
+
+  /**
+   * Retrieves a list with all calendar days in specified period with available and unavailable appointment booking schedule.
+   *
+   * Returns each day in the requested month marked as available or unavailable for booking the given
+   *  service at the given location. Availability is determined by the business schedule, holidays,
+   *  and staff availability for the selected date range.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {string} params.dt_date The date to show the available appointment booking schedule.
+   * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
+   * @param {number} params.i_index An index of the selected asset. `0` for booking of service or if asset is not on layout.
+   * @param {number} params.id_gender_staff The ID of the staff member's gender. See {@link WlClient.AGenderSid}.
+   * @param {boolean} params.is_back_to_back Determines whether multiple appointments are booked in back-to-back mode.
+   * @param {boolean} params.is_month_view If calendar should be displayed in month view mode.
+   * @param {boolean} params.is_staff `true` if the request is made by staff member; in this case booking policy restrictions are ignored.
+   * @param {boolean} params.is_tab_all `true` - search in all tabs.
+   * @param {boolean} params.is_unavailable `true` - return service categories that have no staff members able to conduct them.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
+   * @param {?string} [params.k_class_tab] Current booking tab.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_resource The resource key to show which days are available for booking.
+   * @param {string} params.k_service The service key used for showing the available appointment booking schedule.
+   * @param {?string} [params.k_timezone] Key of timezone.
+   * @param {string} params.s_appointment The staff key to show what days are available for booking.
+   * @param {string} params.s_product A list of service add-ons keys(encoded as JSON string).
+   * @param {string} params.uid The user key.
+   * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
+   * @returns {Promise<Object>} Response data.
+   *  `a_date` {Object[]} A list with all calendar days in the specified month with
+   *  `a_time` {Object} An array with a schedule of available appointment booking times.
+   *  `a_timezone_data` {Object} Information about timezone.
+   *  `a_week_name` {Object} Array with short week day's names (2 letters, i.e. 'Fr') for calendar month v...
+   *  `can_backwards` {boolean} Whether previous calendar period can be shown (start of shown period later th...
+   *  `dt_date` {string} The date to show the available appointment booking schedule.
+   *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
+   *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
+   *  `i_week_end` {number} A class for the days of the week. See {@link WlClient.ADateWeekSid}.
+   *  `i_week_start` {number} A class for the days of the week. See {@link WlClient.ADateWeekSid}.
+   *  `is_waitlist` {boolean} Whether list of available times contains slots with only waitlist booking ava...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookScheduleCalendar78 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Schedule/Calendar78.json', params || {}, 'GET');
+  };
+
+  /**
+   * Retrieves a list of available appointment booking schedule.
+   *
+   * Returns available time slots for the specified service, location, staff member, and date range.
+   *  Each slot includes the start time, duration, available capacity, and staff information. Supports
+   *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {string} params.dt_date The date to show the available appointment booking schedule.
+   * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
+   * @param {number} params.i_index An index of the selected asset. `0` for booking of service or if asset is not on layout.
+   * @param {number} params.id_gender_staff The ID of the staff member's gender. See {@link WlClient.AGenderSid}.
+   * @param {boolean} params.is_back_to_back Determines whether multiple appointments are booked in back-to-back mode.
+   * @param {boolean} params.is_staff `true` if the request is made by staff member; in this case booking policy restrictions are ignored.
+   * @param {boolean} params.is_tab_all `true` - search in all tabs.
+   * @param {boolean} params.is_unavailable `true` - return service categories that have no staff members able to conduct them.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
+   * @param {?string} [params.k_class_tab] Current booking tab.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_resource The resource key to show which days are available for booking.
+   * @param {string} params.k_service The service key used for showing the available appointment booking schedule.
+   * @param {?string} [params.k_timezone] Key of timezone.
+   * @param {string} params.s_appointment The staff key to show what days are available for booking.
+   * @param {string} params.s_product A list of service add-ons keys(encoded as JSON string).
+   * @param {string} params.uid The user key.
+   * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
+   * @returns {Promise<Object>} Response data.
+   *  `a_time` {Object} An array with a schedule of available appointment booking times.
+   *  `dt_date` {string} The date to show the available appointment booking schedule.
+   *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
+   *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
+   *  `is_waitlist` {boolean} Whether list of available times contains slots with only waitlist booking ava...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookScheduleDayTime78 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Schedule/DayTime78.json', params || {}, 'GET');
+  };
+
+  /**
+   * Finds and returns the next available date for appointment booking starting from the given date.
+   *
+   * Searches forward from the specified start date until it finds a day with at least one available
+   *  time slot for the given service, location, and optional staff member. Returns the first available
+   *  date so the client side can pre-select it in the booking calendar. This request may take longer
+   *  than usual on production and uses an extended execution time limit.
+   * 
+   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   * ...
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {string} params.dt_date Start date to search next available date in MySQL format. If empty, the search will start from th...
+   * @param {number} params.i_duration The duration of the asset booking or custom appointment duration in minutes. Zero in case of serv...
+   * @param {number} params.i_index An index of the selected asset. `0` for booking of service or if asset is not on layout.
+   * @param {number} params.id_gender_staff The ID of the staff member's gender. See {@link WlClient.AGenderSid}.
+   * @param {boolean} params.is_back_to_back Determines whether multiple appointments are booked in back-to-back mode.
+   * @param {boolean} params.is_staff `true` if the request is made by staff member; in this case booking policy restrictions are ignored.
+   * @param {boolean} params.is_tab_all `true` - search in all tabs.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
+   * @param {?string} [params.k_class_tab] Current booking tab.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_resource The resource key to show which days are available for booking.
+   * @param {string} params.k_service The service key used for showing the available appointment booking schedule.
+   * @param {?string} [params.k_timezone] Key of timezone.
+   * @param {string} params.s_appointment The staff key to show what days are available for booking.
+   * @param {string} params.s_product A list of service add-ons keys(encoded as JSON string).
+   * @param {string} params.uid The user key.
+   * @param {string} params.uid_staff The staff user key used for showing the available appointment booking schedule.
+   * @returns {Promise<Object>} Response data.
+   *  `dt_date` {string} Start date to search next available date in MySQL format. If empty, the searc...
+   *  `dt_next` {string} Next available date in MySQL format.
+   *  `i_capacity` {?number} Maximum number of clients that can simultaneously book this service.
+   *  `i_capacity_waitlist` {?number} Maximum number of clients that can be placed on the waitlist for this service.
+   *  `is_waitlist` {boolean} Whether list of available times contains slots with only waitlist booking ava...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookScheduleNextAvailableDay78 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Schedule/NextAvailableDay78.json', params || {}, 'GET');
   };
 
   /**
@@ -10804,6 +11108,43 @@
   WlClient.prototype.wlAppointmentBookStaffStaffList = function(params)
   {
     return this.request('/Wl/Appointment/Book/Staff/StaffList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Retrieves an information about staff members for the current service.
+   *
+   * Returns the list of staff members who can perform the specified service at the given location
+   *  on the specified date and time. Each entry includes the staff member's name, image, gender,
+   *  and availability. An 'any staff' option is included when the service allows random staff assignment.
+   * 
+   * When {@link WlClient#wlAppointmentBookStaffList} is `true` and {@link WlClient#wlAppointmentBookStaffList} is passed, the list holds the staff
+   *  members who can perform the service at the location, whatever {@link WlClient#wlAppointmentBookStaffList} says, and no
+   * ...
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.dt_date The date/time of the appointment selected by user, in the location's time zone.
+   * @param {number} params.i_client Count of clients on the appointment.
+   * @param {?number} [params.i_duration_custom] Custom appointment duration in minutes.
+   * @param {number} params.id_role User role by whom this api called. See {@link WlClient.WlLoginLoginRoleSid}.
+   * @param {boolean} params.is_dt_next Whether to find the next time when every staff member can be booked.
+   * @param {boolean} params.is_unavailable `true` - returns service categories that have no staff members available to conduct them.
+   * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
+   * @param {string} params.k_appointment_ignore Key of appointment which must be ignored when searches available staff.
+   * @param {string} params.k_location The key of the location.
+   * @param {string} params.k_service The key of a service for which to show information.
+   * @param {?string} [params.k_timezone] User's timezone.
+   * @param {string} params.s_product Add-ons of the service, as a JSON array of the keys of the add-on options, for example `["15","27...
+   * @param {?string} [params.uid] The user key for whom the service is booking.
+   * @returns {Promise<Object>} Response data.
+   *  `a_staff` {Object[]} A list of staff members with information about them.
+   *  `can_book_unavailable_staff` {boolean} Can staff booked unavailable staff.
+   *  `has_gender` {boolean} Determines whether to select the staff member's gender for the appointment.
+   *  `has_staff` {boolean} Determines whether to select staff member(s) for the appointment.
+   *  `is_gender_different` {boolean} Determines if the staff list has male and female members.
+   */
+  WlClient.prototype.wlAppointmentBookStaffStaffList78 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Staff/StaffList78.json', params || {}, 'GET');
   };
 
   /**
@@ -10936,6 +11277,36 @@
   };
 
   /**
+   * Changes the client of an appointment in one atomic transaction.
+   *
+   * Ends the original client's visit (an early cancel without a fee, or the denial of the request), then books
+   * the new client. If the booking fails, the whole transaction is rolled back: neither the ending of the visit
+   * nor the booking is committed.
+   * 
+   * Returns the newly booked appointment data in {@link WlClient#wlAppointmentBookFinishClientChange},
+   * {@link WlClient#wlAppointmentBookFinishClientChange}, {@link WlClient#wlAppointmentBookFinishClientChange}
+   * ...
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_walk_in `true` if the new client is a walk-in: a client without a profile, who has no key. {@link WlClien...
+   * @param {string} params.k_appointment The appointment key of the original appointment whose client is being changed.
+   * @param {string} params.k_business The business key.
+   * @param {string} params.k_location The location of the original appointment and of the new booking.
+   * @param {string} params.k_visit The visit key of the original visit being cancelled.
+   * @param {string} params.uid_new The user key of the new client to book.
+   * @param {string} params.uid_original The user key of the original client whose visit is being cancelled.
+   * @returns {Promise<Object>} Response data.
+   *  `a_appointment` {Object[]} The booked appointments. Every element has the key:
+   *  `a_login_activity_visit` {string[]} The activity IDs of bookings that have been made.
+   *  `a_visit` {string[]} The visit IDs of the newly booked appointments.
+   *  `a_visit_provider` {string[][]} Keys of booked visits.
+   */
+  WlClient.prototype.wlAppointmentBookFinishClientChange = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Finish/ClientChange.json', params || {}, 'POST');
+  };
+
+  /**
    * Gets booking conflicts.
    *
    * Validates the requested date, duration, location, staff member, and either the selected
@@ -11006,6 +11377,43 @@
   WlClient.prototype.wlAppointmentBookConflictConflict = function(params)
   {
     return this.request('/Wl/Appointment/Book/Conflict/Conflict.json', params || {}, 'GET');
+  };
+
+  /**
+   * Gets booking conflicts.
+   *
+   * Validates the requested date, duration, location, staff member, and either the selected
+   *  asset or service, then checks for scheduling conflicts (staff working hours, holidays,
+   *  asset availability) and, for services with an age restriction, for client age conflicts.
+   *  The result is written to {@link WlClient#wlAppointmentBookConflictConflict56}.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_product List of add-ons.
+   * @param {?Object} [params.a_repeat] Data of appointment repeat.
+   * @param {Object[]} params.a_resource List of assets.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {number[]} params.a_week New weekdays for a weekly forward reschedule, constants of {@link WlClient.ADateWeekSid}.
+   * @param {string} params.dl_edit_from First local date of the bounded reschedule range, in MySQL format.
+   * @param {string} params.dl_edit_to Last local date of the bounded reschedule range, in MySQL format.
+   * @param {string} params.dt_date Date/time of appointment. In location timezone.
+   * @param {number} params.i_duration Appointment duration.
+   * @param {number} params.id_edit_range Scope of a staff reschedule of a recurring appointment. See {@link WlClient.WlAppointmentEditEditRangeSid}.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
+   * @param {string} params.k_appointment Appointment key. Empty for a new appointment.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_resource Asset key. Empty for service booking.
+   * @param {string} params.k_service Service key. Empty for asset booking.
+   * @param {string} params.k_staff Staff member key.
+   * @param {string} params.uid The user key.
+   * @param {string} params.uid_staff Staff member user key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_conflict` {Object[]} List of appointment booking conflicts.
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookConflictConflict78 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Conflict/Conflict78.json', params || {}, 'GET');
   };
 
   /**
@@ -11140,6 +11548,49 @@
   WlClient.prototype.wlAppointmentBookPurchasePurchase = function(params)
   {
     return this.request('/Wl/Appointment/Book/Purchase/Purchase.json', params || {}, 'GET');
+  };
+
+  /**
+   * Retrieves a list of information about available purchase options.
+   *
+   * Extends `get()` to price an appointment that is booked as an add-on of another appointment.
+   * The price of such an appointment is Extra cost that the add-on has for its parent appointment. The regular price of
+   * the add-on is given as the old price if the add-on shows its discount and Extra cost is lower than the regular price.
+   * An add-on is a service only, and it can not require a deposit.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {Object[]} params.a_service List of selected services without current {@link WlClient#wlAppointmentBookPurchasePurchase}.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {string} params.dt_date The date to use to check for expiration of Purchase Options.
+   * @param {number} params.i_duration The asset booking duration.
+   * @param {?number} [params.i_height] Image height in pixels. Please specify this value if you need image to be returned in specific size.
+   * @param {?number} [params.i_width] Image width in pixels. Please specify this value if you need image to be returned in specific size.
+   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {boolean} params.is_backend `true` - get all Purchase Options suitable for appointment.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {?string} [params.k_appointment] Appointment key.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {?string} [params.k_login_promotion] The Purchase Option ID used to pay for the appointment.
+   * @param {string} params.k_resource The resource key.
+   * @param {string} params.k_service The service key used to select available Purchase Options.
+   * @param {?string} [params.k_service_parent] Key of the appointment of which the service `k_service` is an add-on.
+   * @param {?string} [params.k_timezone] The timezone key for {@link WlClient#wlAppointmentBookPurchasePurchase}.
+   * @param {string} params.uid The user key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_login_prize` {Object} Data about the login prize which can be used to pay for service.
+   *  `a_login_promotion` {Object[]} A list of the client's login promotions that can be applied to a given service.
+   *  `a_purchase` {Object[]} An array with information about available Purchase Options.
+   *  `a_reward_prize` {Object} List of redeemable prizes which can be used to pay for service.
+   *  `a_session_pass` {Object} Session pass information in a case if user books same appointment second time...
+   *  `is_single_default` {boolean} Indicates if drop-in rate should be the default purchase option.
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   *  `k_login_promotion` {?string} The Purchase Option ID used to pay for the appointment.
+   *  `k_promotion_default` {string} Default promotion key.
+   *  `text_login_promotion` {string} Login promotion title suitable to pay for the services.
+   */
+  WlClient.prototype.wlAppointmentBookPurchasePurchase78 = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Purchase/Purchase78.json', params || {}, 'GET');
   };
 
   /**
@@ -11470,6 +11921,56 @@
   };
 
   /**
+   * Lists the add-ons that can be chosen for an appointment.
+   *
+   * An add-on is listed if it is linked to the appointment and its service is active and allows to be an add-on. The
+   * list is empty if the appointment does not allow add-ons. An add-on that is booked by staff only is not listed for
+   * a client. The list does not look at the age, the type and the group of the client: an add-on that the client is
+   * not eligible for is found later, when the client is known. The regular price of an add-on is given only if it is
+   * struck through, that is, Show Discount is on, the price of the add-on is fixed and Extra cost is lower.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {boolean} params.is_staff Whether a staff member books for the client. `false` if the client books.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_service Key of the appointment for which the add-ons are chosen.
+   * @param {string} params.uid The user key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_addon` {Object[]} The add-ons that can be chosen for the appointment, in the order in which the...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookBlockAddonList = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Block/AddonList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Finds the selected add-ons that the client is not eligible for.
+   *
+   * Each add-on is checked under the restrictions of its own, independent of the appointment: the age of the client,
+   * the type and the group of the client, and the sale online. The client or the staff member who books for him
+   * removes only these add-ons from the booking, after telling the booker. The appointment and the other add-ons
+   * stay. A guest is not checked, because nothing is known about him before he signs in.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_uid List of user keys to book appointments.
+   * @param {boolean} params.is_staff Whether a staff member books for the client. `false` if the client books.
+   * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
+   * @param {string} params.json_service_addon Keys of the selected add-ons of the appointment, in JSON.
+   * @param {string} params.k_location Location to show available appointment booking schedule.
+   * @param {string} params.k_service Key of the appointment to which the add-ons are added.
+   * @param {string} params.uid The user key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_ineligible` {Object[]} The selected add-ons that the client is not eligible for, in the order in whi...
+   *  `k_location` {string} Location to show available appointment booking schedule.
+   */
+  WlClient.prototype.wlAppointmentBookBlockEligible = function(params)
+  {
+    return this.request('/Wl/Appointment/Book/Block/Eligible.json', params || {}, 'GET');
+  };
+
+  /**
    * Returns the billing codes applied to a visit and the history of their changes.
    *
    * A staff member who can not assign billing codes gets the custom codes only, without the diagnostic codes and
@@ -11482,9 +11983,15 @@
    * @returns {Promise<Object>} Response data.
    *  `a_code` {Object[]} Billing codes applied to the visit, the diagnostic codes first, each type sor...
    *  `a_history` {Object[]} History of the changes of the billing codes of the visit, the latest change f...
+   *  `a_void` {Object[]} Voided billing codes of the visit.
+   *  `dtu_lock` {?string} Date and time the diagnostic codes of the visit were locked, in UTC.
+   *  `is_locked` {boolean} `true` when the diagnostic codes of the visit are locked by a staff member wh...
+   *  `is_receipt_sent` {boolean} `true` when a receipt for this visit has been generated at least once.
    *  `is_signature` {boolean} `true` if the business requires a signature when diagnostic codes of a visit ...
    *  `is_system` {boolean} `true` if the business has the diagnostic codes turned on, `false` otherwise.
    *  `s_code_version` {string} Version of the billing codes of the visit: a value that changes every time th...
+   *  `text_staff_name_lock` {?string} Full name of the staff member who signed and locked the diagnostic codes of t...
+   *  `uid_staff_lock` {?string} Key of the staff member who signed and locked the diagnostic codes of the visit.
    */
   WlClient.prototype.wlVisitBillingCodeVisitBillingCodeAssignGet = function(params)
   {
@@ -11779,6 +12286,25 @@
   };
 
   /**
+   * Returns data for a single attendance list row.
+   *
+   * Loads the visit, its form statuses and the action URLs for each form
+   * that is linked to the visit. The render mode and the URLs follow the
+   * same gates as the legacy appointment panel.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.dtu_date Visit date and time in UTC, MySQL format.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_visit Visit key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_row` {Object} Data for a single attendance list row.
+   */
+  WlClient.prototype.wlLoginAttendanceRowRow = function(params)
+  {
+    return this.request('/Wl/Login/Attendance/Row/Row.json', params || {}, 'GET');
+  };
+
+  /**
    * Gets information about ability of user to pay for given session in any ways.
    *
    * Returns available Purchase Options and session passes that can be used to pay for the specified class session,
@@ -11818,6 +12344,7 @@
    * @param {string} params.k_class_period The class period key.
    * @param {string} params.uid_client The client user key.
    * @returns {Promise<Object>} Response data.
+   *  `a_book_background` {?Object[]} A list of sessions that are being booked asynchronously in the background.
    *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc. See {@link WlClient.WlVisitVisitSid}.
    *  `is_paid` {boolean} If `true`, the visit was automatically paid for in any available way during t...
    *  `k_visit` {string} The key of the booked visit. This will be set on success.
@@ -12279,6 +12806,22 @@
   WlClient.prototype.wlClassesPeriodModifyModifyPost = function(params)
   {
     return this.request('/Wl/Classes/Period/Modify/Modify.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns list of events in which the current user can schedule a new instance.
+   *
+   * Used by the "Schedule event" dialog of the Schedule tab. Only active events are listed, one entry for each
+   * enrollment block. "Manage events" is not required, but the user must be able to schedule future events.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_event` {Object[]} List of events sorted by title. One entry for each enrollment block.
+   */
+  WlClient.prototype.wlClassesPeriodAddEventList = function(params)
+  {
+    return this.request('/Wl/Classes/Period/Add/EventList.json', params || {}, 'GET');
   };
 
   /**
@@ -13584,10 +14127,10 @@
   /**
    * Saves new time interval.
    *
-   * Validates the business, location, and resource, checks that the resource is active,
-   *  belongs to the given location, and that the current login has edit access, then creates
-   *  the working or non-working schedule for each selected day and returns the created
-   *  resource period keys.
+   * Validates the business, location, and resource, checks that the location and the resource belong
+   *  to the business, that the resource is active and belongs to the given location, and that the current
+   *  login has edit access, then creates the working or non-working schedule for each selected day
+   *  and returns the created resource period keys.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
@@ -14891,7 +15434,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (239 total)
+  // Enum constants (243 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -14906,6 +15449,8 @@
     BOOK: 1,
     /** Client has cancelled the reservation in time and without penalty */
     CANCEL: 6,
+    /** Client has cancelled the reservation early and qualified for a make-up pass under the business's Make-up */
+    CANCEL_MAKEUP: 9,
     /** Client has cancelled his reservation too late */
     PENALTY: 4,
     /** This state means that visit is registered, but it is unknown is it {@link WlClient.WlVisitVisitSid} */
@@ -16580,6 +17125,8 @@
     SYSTEM: 10,
     /** Means that we did not define mode */
     UNDEFINED: 6,
+    /** Sale made automatically on wait list promotion */
+    WAIT_LIST_PROMOTION: 34,
     /** Client booked session from Attendance Web App */
     WEB_APP_ATTENDANCE: 16,
     /** Client checked-in for the session through Check-In Web App */
@@ -16664,6 +17211,1068 @@
     MALE: 1,
     /** Gender is undefined in cases where the user preferred not to identify their gender */
     UNDEFINED: 3,
+  });
+
+  /**
+   * Identifiers for services types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsServiceSid = Object.freeze({
+    /** Appointments */
+    APPOINTMENT: 1,
+    /** Classes */
+    CLASSES: 2,
+    /** Enrolments */
+    ENROLLMENT: 3,
+    /** Resources */
+    RESOURCE: 5,
+    /** Visits */
+    VISIT: 4,
+  });
+
+  /**
+   * A list of purchase types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsPurchaseItemSid = Object.freeze({
+    /** Personal user's account refill */
+    ACCOUNT: 7,
+    /** Business account payment */
+    ACCOUNT_BUSINESS: 11,
+    /** Single appointment reservation */
+    APPOINTMENT: 8,
+    /** Single appointment reservation with deposit */
+    APPOINTMENT_DEPOSIT: 18,
+    /** Tips for the appointment */
+    APPOINTMENT_TIP: 22,
+    /** Expense that comes along with the payment business. It contains information about additional services which are */
+    BUSINESS_EXPENSE: 16,
+    /** A skipped purchase for the business account */
+    BUSINESS_SKIP: 17,
+    /** Business subscription payment */
+    BUSINESS_SUBSCRIPTION: 23,
+    /** Single classes */
+    CLASS_PERIOD: 2,
+    /** Collectors payments */
+    COLLECTOR_DEBT: 24,
+    /** Arbitrary money withdrawal with comment */
+    COMMENT: 13,
+    /** Gift Cards */
+    COUPON: 10,
+    /** Events and enrollments. Client can not book only one class, he needs to book the whole enrollment */
+    ENROLLMENT: 4,
+    /** Enrollment reservation with a deposit */
+    ENROLLMENT_DEPOSIT: 19,
+    /** Enrollment reservation with a discount */
+    ENROLLMENT_DISCOUNT: 21,
+    /** Payment by an installment plan */
+    INSTALLMENT: 14,
+    /** Recurrent payments */
+    MEMBERSHIP: 3,
+    /** Products */
+    PRODUCT: 9,
+    /** Promotions */
+    PROMOTION: 1,
+    /** Early cancellation fee for a memberships */
+    PROMOTION_CANCEL_FEE: 25,
+    /** A purchase to renew a promotion */
+    PROMOTION_RENEW: 12,
+    /** A purchase to book an asset */
+    RESOURCE: 15,
+    /** A purchase to book a deposit asset */
+    RESOURCE_DEPOSIT: 20,
+    /** Purchase item for appointments */
+    SERVICE: 6,
+    /** Ticket purchase item */
+    TICKET: 29,
+    /** Tuition purchase item */
+    TUITION: 26,
+    /** Tuition fee purchase item */
+    TUITION_FEE: 27,
+    /** Tuition prorate purchase item */
+    TUITION_PRORATE: 28,
+  });
+
+  /**
+   * A list of types of mail copies.
+   *
+   * @enum {number}
+   */
+  WlClient.RsMailCopySid = Object.freeze({
+    /** Blind carbon copy */
+    BCC: 2,
+    /** Carbon copy */
+    CC: 1,
+  });
+
+  /**
+   * List of pay exceptions.
+   *
+   * @enum {number}
+   */
+  WlClient.ThothWlPayPayExceptionSid = Object.freeze({
+    /** Invalid ABA number chosen */
+    ABAN_EMPTY: 58,
+    /** Invalid ABA number chosen */
+    ABAN_INVALID: 57,
+    /** User Authentication Failed */
+    ACCESS_AUTHENTICATE: 160,
+    /** Authentication token is not valid */
+    ACCESS_TOKEN_INVALID: 181,
+    /** Account payment entry method is empty */
+    ACCOUNT_ENTRY_EMPTY: 63,
+    /** Account holder type is empty */
+    ACCOUNT_HOLDER_EMPTY: 64,
+    /** Account name is empty */
+    ACCOUNT_NAME_EMPTY: 59,
+    /** Account name is too long */
+    ACCOUNT_NAME_LONG: 60,
+    /** Account number is empty */
+    ACCOUNT_NUMBER_EMPTY: 61,
+    /** Account number invalid */
+    ACCOUNT_NUMBER_INVALID: 67,
+    /** Account number is too long */
+    ACCOUNT_NUMBER_LONG: 62,
+    /** Account number is too short */
+    ACCOUNT_NUMBER_SHORT: 66,
+    /** Account owner is empty */
+    ACCOUNT_OWNER_EMPTY: 69,
+    /** Account name is too long */
+    ACCOUNT_OWNER_LONG: 70,
+    /** Account owner name does not equal billing name */
+    ACCOUNT_OWNER_DOES_NOT_MATCH: 182,
+    /** Account type is empty */
+    ACCOUNT_TYPE_EMPTY: 65,
+    /** ACH: Account Closed */
+    ACH_E02: 198,
+    /** ACH: No Account / Unable to Locate Account */
+    ACH_E03: 199,
+    /** ACH: Invalid Account Number */
+    ACH_E04: 200,
+    /** ACH: Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    ACH_E05: 201,
+    /** ACH: Authorization Revoked by Customer */
+    ACH_E07: 202,
+    /** ACH: Payment Stopped */
+    ACH_E08: 203,
+    /** ACH: Customer Advises Originator Not Known / Not Authorized */
+    ACH_E10: 204,
+    /** ACH: Customer Advises Entry Not in Accordance with Authorization */
+    ACH_E11: 205,
+    /** ACH: RDFI Not Qualified to Participate */
+    ACH_E13: 206,
+    /** ACH: Representative Payee Deceased or Unable to Continue */
+    ACH_E14: 207,
+    /** ACH: Beneficiary or Account Holder Deceased */
+    ACH_E15: 208,
+    /** ACH: Account Frozen */
+    ACH_E16: 209,
+    /** ACH: Invalid Account Number under Questionable Circumstances */
+    ACH_E17: 210,
+    /** ACH: Non-Transaction Account */
+    ACH_E20: 211,
+    /** ACH: Corporate Customer Advises Not Authorized */
+    ACH_E29: 212,
+    /** ACH: Invalid Image */
+    ACH_E92: 213,
+    /** ACH: Non-Negotiable */
+    ACH_E93: 214,
+    /** ACH: Breach of Warranty */
+    ACH_E95: 215,
+    /** ACH: Counterfeit / Forgery */
+    ACH_E96: 216,
+    /** ACH: Refer to Maker */
+    ACH_E97: 217,
+    /** Insufficient funds */
+    ACH_R01: 124,
+    /** Bank account closed */
+    ACH_R02: 125,
+    /** No bank account/unable to locate account */
+    ACH_R03: 126,
+    /** Invalid bank account number */
+    ACH_R04: 127,
+    /** Unauthorized Debit to Consumer Account Using Corporate SEC Code */
+    ACH_R05: 128,
+    /** Returned per ODFI request */
+    ACH_R06: 129,
+    /** Authorization revoked by customer */
+    ACH_R07: 130,
+    /** Payment stopped */
+    ACH_R08: 131,
+    /** Uncollected funds */
+    ACH_R09: 132,
+    /** Customer advises not authorized */
+    ACH_R10: 133,
+    /** Check truncation entry return */
+    ACH_R11: 134,
+    /** Branch sold to another RDFI */
+    ACH_R12: 135,
+    /** RDFI not qualified to participate */
+    ACH_R13: 136,
+    /** Representative payee deceased or unable to continue in that capacity */
+    ACH_R14: 137,
+    /** Beneficiary or bank account holder */
+    ACH_R15: 138,
+    /** Bank account frozen */
+    ACH_R16: 139,
+    /** File record edit criteria */
+    ACH_R17: 140,
+    /** Improper effective entry date */
+    ACH_R18: 141,
+    /** Amount field error */
+    ACH_R19: 142,
+    /** Non-payment bank account */
+    ACH_R20: 143,
+    /** Invalid company ID number */
+    ACH_R21: 144,
+    /** Invalid individual ID number */
+    ACH_R22: 145,
+    /** Credit entry refused by receiver */
+    ACH_R23: 146,
+    /** Duplicate entry */
+    ACH_R24: 147,
+    /** Addenda error */
+    ACH_R25: 148,
+    /** Mandatory field error */
+    ACH_R26: 149,
+    /** Trace number error */
+    ACH_R27: 150,
+    /** Transit routing number check digit error */
+    ACH_R28: 151,
+    /** Corporate customer advises not authorized */
+    ACH_R29: 152,
+    /** RDFI not participant in check truncation program */
+    ACH_R30: 153,
+    /** Permissible return entry (CCD and CTX only) */
+    ACH_R31: 154,
+    /** RDFI non-settlement */
+    ACH_R32: 155,
+    /** Return of XCK entry */
+    ACH_R33: 156,
+    /** Limited participation RDFI */
+    ACH_R34: 157,
+    /** Return of improper debit entry */
+    ACH_R35: 158,
+    /** ACH: Return of Improper Credit Entry */
+    ACH_R36: 218,
+    /** ACH: Source Document Presented for Payment */
+    ACH_R37: 219,
+    /** ACH: Stop Payment on Source Document */
+    ACH_R38: 220,
+    /** ACH: Improper Source Document */
+    ACH_R39: 221,
+    /** ACH: Return of ENR Entry by Federal Government Agency */
+    ACH_R40: 222,
+    /** ACH: Invalid Transaction Code */
+    ACH_R41: 223,
+    /** ACH: Routing Number / Check Digit Error */
+    ACH_R42: 224,
+    /** ACH: Invalid DFI Account Number */
+    ACH_R43: 225,
+    /** ACH: Invalid Individual ID Number / Identification */
+    ACH_R44: 226,
+    /** ACH: Invalid Individual Name / Company Name */
+    ACH_R45: 227,
+    /** ACH: Invalid Representative Payee Indicator */
+    ACH_R46: 228,
+    /** ACH: Duplicate Enrollment */
+    ACH_R47: 229,
+    /** ACH: State Law Affecting RCK Acceptance */
+    ACH_R50: 230,
+    /** ACH: Item is Ineligible, Notice Not Provided, etc */
+    ACH_R51: 231,
+    /** ACH: Stop Payment on Item (Adjustment Entries) */
+    ACH_R52: 232,
+    /** ACH: Item and ACH Entry Presented for Payment */
+    ACH_R53: 233,
+    /** ACH: Misrouted Return */
+    ACH_R61: 234,
+    /** ACH: Incorrect Trace Number */
+    ACH_R62: 235,
+    /** ACH: Incorrect Dollar Amount */
+    ACH_R63: 236,
+    /** ACH: Incorrect Individual Identification */
+    ACH_R64: 237,
+    /** ACH: Incorrect Transaction Code */
+    ACH_R65: 238,
+    /** ACH: Incorrect Company Identification */
+    ACH_R66: 239,
+    /** ACH: Duplicate Return */
+    ACH_R67: 240,
+    /** ACH: Untimely Return */
+    ACH_R68: 241,
+    /** ACH: Multiple Errors */
+    ACH_R69: 242,
+    /** ACH: Permissible Return Entry Not Accepted */
+    ACH_R70: 243,
+    /** ACH: Misrouted Dishonored Return */
+    ACH_R71: 244,
+    /** ACH: Untimely Dishonored Return */
+    ACH_R72: 245,
+    /** ACH: Timely Original Return */
+    ACH_R73: 246,
+    /** ACH: Corrected Return */
+    ACH_R74: 247,
+    /** ACH: Return Not a Duplicate */
+    ACH_R75: 248,
+    /** ACH: No Errors Found */
+    ACH_R76: 249,
+    /** ACH: IAT Entry Coding Error */
+    ACH_R80: 250,
+    /** ACH: Non-Participant in IAT Program */
+    ACH_R81: 251,
+    /** ACH: Invalid Foreign Receiving DFI Identification */
+    ACH_R82: 252,
+    /** ACH: Foreign Receiving DFI Unable to Settle */
+    ACH_R83: 253,
+    /** ACH: Entry Not Processed by Gateway */
+    ACH_R84: 254,
+    /** ACH: Incorrectly Coded Outbound International Payment */
+    ACH_R85: 255,
+    /** ACH check type or account type is invalid */
+    ACH_ACCOUNT_TYPE: 185,
+    /** ACH payment method is not supported by processor */
+    ACH_SUPPORT: 105,
+    /** ACH error: uncollected */
+    ACH_UNCOLLECTED: 123,
+    /** Invalid payment address chosen */
+    ADDRESS_INVALID: 39,
+    /** Chosen payment address does not exist */
+    ADDRESS_NX: 40,
+    /** Disagreement with the Payment Agreement */
+    AGREEMENT_DISAGREE: 176,
+    /** Sum of amounts for all individual payment sources does not equal the total expected amount */
+    AMOUNT_CONSOLIDATE: 35,
+    /** Total package price can't be divided equally between package items without loosing cents */
+    AMOUNT_CONSOLIDATE_PACKAGE: 191,
+    /** Amount was unexpectedly changed during the purchase process */
+    AMOUNT_CHANGE: 179,
+    /** Amount is invalid */
+    AMOUNT_INVALID: 34,
+    /** Total price of cart greater than `1000000000.00` */
+    AMOUNT_TOTAL: 75,
+    /** Amount equals zero */
+    AMOUNT_ZERO: 32,
+    /** AVS verification failed. Postal code or address are invalid */
+    AVS: 14,
+    /** Invalid bank account ID */
+    BANK_ACCOUNT_INVALID: 79,
+    /** Bank account ID does not exist */
+    BANK_ACCOUNT_NX: 80,
+    /** Bank state branch is empty */
+    BSB_EMPTY: 77,
+    /** Bank state branch is invalid */
+    BSB_INVALID: 78,
+    /** This business is a lost customer */
+    BUSINESS_CHURN: 173,
+    /** Client must call issuer for further information */
+    CALL: 17,
+    /** Card data is valid, but you can not pay with it (e.g. hold placed on card) */
+    CARD_DECLINE: 5,
+    /** Invalid payment card chosen */
+    CARD_INVALID: 42,
+    /** Card over limit */
+    CARD_LIMIT: 73,
+    /** Payment card nickname is empty */
+    CARD_NAME_EMPTY: 46,
+    /** Payment card nickname is too long */
+    CARD_NAME_LONG: 47,
+    /** The customer’s bank has declined the transaction as the credit card number has failed a security check, or the */
+    CARD_NOT_HONOR: 71,
+    /** Insufficient funds available */
+    CARD_NSF: 72,
+    /** Chosen payment card does not exist */
+    CARD_NX: 43,
+    /** User has chosen payment card but he had no such rights */
+    CARD_SELECT: 44,
+    /** No such card issuer */
+    CARD_ISSUER_INVALID: 184,
+    /** Card unsupported */
+    CARD_UNSUPPORTED: 190,
+    /** Element which should be paid with this payment has been canceled and payment should be blocked */
+    CANCELED: 177,
+    /** Comment for payment method too long */
+    COMMENT_LONG: 99,
+    /** Can't connect to payment gateway */
+    CONNECT: 8,
+    /** Unsupported country */
+    COUNTRY_UNSUPPORTED: 164,
+    /** Gift card belongs to a foreign business */
+    COUPON_BUSINESS: 55,
+    /** Invalid payment card chosen */
+    COUPON_CURRENCY: 54,
+    /** Coupon is inactive */
+    COUPON_INACTIVE: 97,
+    /** Coupon code is invalid (invalid length, or invalid characters encountered) */
+    COUPON_INVALID: 51,
+    /** Invalid payment card chosen */
+    COUPON_NX: 52,
+    /** Coupon is redeemed already */
+    COUPON_REDEEM: 53,
+    /** Card credentials (number, csc, month, year) change ability is disabled. E.g. payment processor may not support */
+    CREDENTIAL_SUPPORT: 76,
+    /** Invalid card security code (CSC) */
+    CSC_EMPTY: 21,
+    /** Invalid card security code (CSC) */
+    CSC_INVALID: 2,
+    /** Card is expired */
+    DATE_EXPIRE: 24,
+    /** Card is inactive */
+    DATE_INACTIVE: 163,
+    /** Invalid Expiration Date */
+    DATE_INVALID: 183,
+    /** Month is invalid */
+    DATE_MONTH: 22,
+    /** Multiple usage of this payment method is not allowed */
+    DATE_YEAR: 23,
+    /** Duplicate transaction. Transaction data that is selected for comparison is payment gateway-specific */
+    DUPLICATE: 1,
+    /** Error, caused by one of the following cases: */
+    FRAUD: 168,
+    /** Terminal that should be used for payment is not found */
+    HARDWARE_NOT_FOUND: 196,
+    /** Informational field is not filled in */
+    INFO_EMPTY: 9,
+    /** Informational field is too long */
+    INFO_LONG: 41,
+    /** Minimum payment amount is less then `1` */
+    INSTALLMENT_AMOUNT_MIN: 93,
+    /** Installment plan: Number of payment is invalid */
+    INSTALLMENT_COUNT_FORMAT: 85,
+    /** Installment plan: Number of payment is too large */
+    INSTALLMENT_COUNT_MAX: 87,
+    /** Installment plan: Number of payment is too small (less then 2) */
+    INSTALLMENT_COUNT_MIN: 86,
+    /** Installment date is not specified */
+    INSTALLMENT_DATE_EMPTY: 81,
+    /** Installment date format is invalid */
+    INSTALLMENT_DATE_FORMAT: 82,
+    /** Installment date is too deep in the future */
+    INSTALLMENT_DATE_FUTURE: 84,
+    /** Installment date is in the past (minimum is today) */
+    INSTALLMENT_DATE_PAST: 83,
+    /** Installment plan: Duration of a period is not allowed */
+    INSTALLMENT_DURATION_DISABLE: 91,
+    /** Installment plan: Maximum total duration of installment plan is 100 years */
+    INSTALLMENT_DURATION_MAX: 92,
+    /** Installment plan: Duration of a period does not exist */
+    INSTALLMENT_DURATION_NX: 90,
+    /** Installment plan: Number of periods between two consecutive payments is invalid */
+    INSTALLMENT_PERIOD_FORMAT: 88,
+    /** Installment plan: Number of periods between two consecutive payments is too large */
+    INSTALLMENT_PERIOD_MAX: 89,
+    /** Template of installment plans: template is not selected */
+    INSTALLMENT_TEMPLATE_EMPTY: 95,
+    /** Template of installment plans: ID of the template does not exist */
+    INSTALLMENT_TEMPLATE_NX: 94,
+    /** Internal errors that occurred in the browser (for example, some form data arrived to servers such that user should */
+    INTERNAL_BROWSER: 33,
+    /** Security throttling error */
+    INTERNAL_HIT: 192,
+    /** Internal merchant error */
+    INTERNAL_MERCHANT: 186,
+    /** Some strange service error (e.g. invalid merchant data passed, data format) */
+    INTERNAL_SERVER: 6,
+    /** Payer email is required for payment, but empty */
+    MAIL_EMPTY: 175,
+    /** The associated merchant account has been closed */
+    MERCHANT_ACCOUNT_CLOSED: 189,
+    /** Invalid merchant data */
+    MERCHANT_INVALID: 7,
+    /** Transaction was rejected by gateway */
+    MERCHANT_REJECT: 74,
+    /** Merchant has invalid settings and does not return customer vault */
+    MERCHANT_SETTINGS_VAULT: 166,
+    /** User has no access to the specified payment method */
+    METHOD_ACCESS: 18,
+    /** This method does not support authorization request */
+    METHOD_AUTHORIZE: 96,
+    /** This payment method can not be used with this business */
+    METHOD_BUSINESS: 19,
+    /** Multiple usage of this payment method is not allowed */
+    METHOD_MULTIPLE: 20,
+    /** Cardholder name is not typed in */
+    NAME_EMPTY: 25,
+    /** Customer name is invalid (contains invalid characters) */
+    NAME_INVALID: 106,
+    /** Cardholder name is too long */
+    NAME_LONG: 26,
+    /** Validation Rejection */
+    NMI_PAYSAFE_900: 159,
+    /** Not sufficient funds (debits only) */
+    NMI_PAYSAFE_901: 110,
+    /** Payment stopped/recalled */
+    NMI_PAYSAFE_903: 111,
+    /** Post dated/stale dated */
+    NMI_PAYSAFE_904: 112,
+    /** Account closed */
+    NMI_PAYSAFE_905: 113,
+    /** Account transferred */
+    NMI_PAYSAFE_906: 114,
+    /** No chequing privileges */
+    NMI_PAYSAFE_907: 115,
+    /** Funds not cleared */
+    NMI_PAYSAFE_908: 116,
+    /** Payor/payee deceased */
+    NMI_PAYSAFE_910: 117,
+    /** Account frozen */
+    NMI_PAYSAFE_911: 118,
+    /** Invalid/incorrect account number */
+    NMI_PAYSAFE_912: 119,
+    /** Incorrect payor/payee name */
+    NMI_PAYSAFE_914: 120,
+    /** Refused by payor/payee */
+    NMI_PAYSAFE_915: 121,
+    /** No Return Agreement */
+    NMI_PAYSAFE_998: 122,
+    /** Card number is not typed in */
+    NUMBER_EMPTY: 27,
+    /** Card number is invalid */
+    NUMBER_INVALID: 30,
+    /** Card number is too long */
+    NUMBER_LONG: 28,
+    /** Card number is too long */
+    NUMBER_SHORT: 29,
+    /** Some parameters client has provided are invalid */
+    PARAMETER: 4,
+    /** Payment form is in passive mode */
+    PASSIVE: 165,
+    /** Error during authentication of the payer */
+    PAYER_AUTHENTICATION: 167,
+    /** There is other process currently running to update payment. Failed to wait until it ends */
+    PAYMENT_UPDATE_LOCK: 174,
+    /** Phone number is not specified on user account */
+    PHONE_EMPTY: 107,
+    /** Phone number is invalid */
+    PHONE_INVALID: 178,
+    /** Phone number is too long */
+    PHONE_LONG: 108,
+    /** Transaction error returned by processor */
+    PROCESSOR_ERROR: 98,
+    /** Internal error at processor side has occurred */
+    PROCESSOR_INTERNAL: 109,
+    /** Refund operation is applied too early */
+    REFUND_EARLY: 50,
+    /** Amount about to refund is larger then the current rest of the transaction */
+    REFUND_REST: 49,
+    /** Transaction can not be refunded because it is in an invalid status */
+    REFUND_STATUS: 48,
+    /** Invalid region chosen */
+    REGION_INVALID: 37,
+    /** Chosen region does not exist */
+    REGION_NX: 38,
+    /** Can not repeat purchase transaction. Reference data is expired and invalid now */
+    REPEAT_INVALID: 15,
+    /** Error during request to service. In case we have not even got response */
+    REQUEST: 12,
+    /** Too many requests */
+    REQUEST_THROTTLE: 172,
+    /** Temporary service error. Repeat request */
+    RETRY: 3,
+    /** Payment is blocked due security reasons (because payment amount is too large) */
+    SECURITY_LARGE: 103,
+    /** Only for test, when there is an error in the test that we cannot influence, for example: “server is not available” */
+    SKIP_IN_TESTS: 188,
+    /** Stripe data is empty */
+    STRIPE_EMPTY: 31,
+    /** Invalid data on magnetic stripe. Maybe some part does not exist */
+    STRIPE_INVALID: 16,
+    /** This recurrent payment token belongs to a different account of this merchant */
+    TOKEN_ACCOUNT: 161,
+    /** Payment token belongs to a different merchant processor */
+    TOKEN_PROCESSOR: 162,
+    /** Transaction does not exist. E.g. we want to make refund using nonexistent reference number */
+    TRANSACTION_NX: 13,
+    /** Transaction is in unexpected status. For example, authorization process started but takes long time. While waiting */
+    UNEXPECTED_TRANSACTION_STATUS: 187,
+    /** If the user who pays through the account is a debtor */
+    USER_DEBTOR: 194,
+    /** If access denied to an anonymous user */
+    USER_GUEST: 56,
+    /** Error specific for payment processors that stores payer entity */
+    USER_NOT_FOUND: 197,
+    /** Some unpredicted error happened during void on processor side */
+    VOID_ERROR: 193,
+    /** Operation Void is not possible, it's too late to do it */
+    VOID_LATE: 180,
+    /** Void operation can be done only for a total transaction amount and cannot be partial */
+    VOID_PARTIAL: 100,
+    /** Void operation is restricted by rules of the system */
+    VOID_RESTRICT: 102,
+    /** Void operation is not supported by the merchant processor */
+    VOID_SUPPORT: 101,
+    /** Timeout waiting for settlement */
+    WAIT_TIMEOUT: 104,
+    /** Incorrect payment card type specified */
+    TENDER_TYPE_INVALID: 195,
+  });
+
+  /**
+   * List of outcomes of a CAASI Phone Agent call.
+   *
+   * @enum {number}
+   */
+  WlClient.WlAiAgentPhoneCallOutcomeEnum = Object.freeze({
+    /** The call was resolved by CAASI without staff involvement */
+    RESOLVED: 1,
+    /** The call was transferred to a live staff member */
+    TRANSFERRED: 2,
+    /** The caller requested a callback from staff */
+    CALLBACK_REQUESTED: 3,
+  });
+
+  /**
+   * Possible website subscription plans.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountWebsiteSid = Object.freeze({
+    /** Basic edition */
+    BASIC: 4,
+    /** Enterprise edition */
+    ENTERPRISE: 3,
+    /** No payments considered */
+    NONE: 1,
+    /** Premium edition */
+    PREMIUM: 5,
+    /** Professional edition */
+    PRO: 2,
+  });
+
+  /**
+   * List of possible plans for FitvidSubscription subscription.
+   *
+   * @enum {number}
+   */
+  WlClient.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = Object.freeze({
+    /** Basic */
+    BASIC: 2,
+    /** Enterprise */
+    ENTERPRISE: 3,
+    /** None */
+    FREE: 1,
+    /** Premium */
+    PREMIUM: 4,
+  });
+
+  /**
+   * Mail types.
+   *
+   * @enum {number}
+   */
+  WlClient.RsMailSid = Object.freeze({
+    /** Sent when a client abandons a checkout (used in automations) */
+    ABANDONED_CHECKOUT: 220,
+    /** Sent by CASSI phone agent, when client requests a booking url */
+    AI_LINK_BOOK: 206,
+    /** Sent by CASSI phone agent, when client requests a purchase url */
+    AI_LINK_PURCHASE: 207,
+    /** Appointment approved by staff */
+    APPOINTMENT_APPROVE_STAFF: 71,
+    /** Sent when the AI Agent successfully books an appointment */
+    APPOINTMENT_BOOKED_AI: 198,
+    /** Appointment Cancelled by Client - Early */
+    APPOINTMENT_CANCEL_EARLY_USER: 33,
+    /** Appointment Cancelled by Client - Late */
+    APPOINTMENT_CANCEL_LATE_USER: 35,
+    /** Appointment Cancelled Notification - Staff */
+    APPOINTMENT_CANCEL_STAFF: 32,
+    /** Sends to the client when appointment has been cancelled by staff */
+    APPOINTMENT_CANCEL_STAFF_USER: 80,
+    /** Sends to the clients when appointment information has been changed */
+    APPOINTMENT_CHANGE_GENERAL_CLIENT: 114,
+    /** Sends to the staff members when appointment information has been changed */
+    APPOINTMENT_CHANGE_GENERAL_STAFF: 113,
+    /** Appointment Change Notification - Staff */
+    APPOINTMENT_CHANGE_STAFF: 36,
+    /** Appointment Change Notification - Client */
+    APPOINTMENT_CHANGE_USER: 37,
+    /** New Appointment Notification - Staff */
+    APPOINTMENT_CREATE_STAFF: 31,
+    /** Appointment Confirmation */
+    APPOINTMENT_CREATE_USER: 30,
+    /** Multiple Appointment Confirmation (Client) */
+    APPOINTMENT_CREATE_USER_MULTIPLE: 211,
+    /** Notification to a customer about an appointment that has been canceled because not paid */
+    APPOINTMENT_PAY_CANCEL: 189,
+    /** Notification to a customer about mandatory payment for an appointment */
+    APPOINTMENT_PAY_PAY: 188,
+    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
+    APPOINTMENT_REPEAT_CANCEL_CLIENT: 103,
+    /** Sends one email to staff when several sessions of one or several appointments or single session of recurring */
+    APPOINTMENT_REPEAT_CANCEL_STAFF: 105,
+    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
+    APPOINTMENT_REPEAT_CANCEL_USER: 131,
+    /** Sent to staff when the AI Agent receives an appointment request */
+    APPOINTMENT_REQUEST_AI: 200,
+    /** Requested appointment has been denied */
+    APPOINTMENT_REQUEST_DENY: 88,
+    /** Appointment has been requested */
+    APPOINTMENT_REQUEST_STAFF: 89,
+    /** Appointment has been requested */
+    APPOINTMENT_REQUEST_USER: 90,
+    /** Appointment Wait List Cancellation */
+    APPOINTMENT_WAIT_REMOVE: 195,
+    /** Sent to staff when the AI Agent logs a billing or payment query */
+    BILLING_RELATED_QUERY: 204,
+    /** Class Booking Confirmation */
+    BOOK_ADD_CLASS: 1,
+    /** Class Booking Notification - Staff */
+    BOOK_ADD_STAFF: 47,
+    /** Sent if a client cancels a booking (used in automations) */
+    BOOK_CANCEL: 210,
+    /** Class Booking (Reservation) Cancelled by Staff */
+    BOOK_CANCEL_ADMIN_CLASS: 23,
+    /** Enrollment Booking Cancelled by Staff */
+    BOOK_CANCEL_ADMIN_ENROLLMENT: 57,
+    /** Enrollment Session Cancellation Notification */
+    BOOK_CANCEL_ENROLLMENT_SESSION: 128,
+    /** Class Cancelled by Client - Early */
+    BOOK_CANCEL_FREE_CLASS: 3,
+    /** Enrollment Cancelled by Client - Early */
+    BOOK_CANCEL_FREE_ENROLLMENT: 58,
+    /** Class Cancelled By Client - Late */
+    BOOK_CANCEL_PENALTY_CLASS: 4,
+    /** Enrollment Cancelled By Client - Late */
+    BOOK_CANCEL_PENALTY_ENROLLMENT: 59,
+    /** Class Booking Cancellation Notification - Staff */
+    BOOK_CANCEL_STAFF: 48,
+    /** Enrollment Booking Confirmation */
+    BOOK_ENROLLMENT: 69,
+    /** Enrollment Booking Cancellation Notification - Staff */
+    BOOK_ENROLLMENT_CANCEL_STAFF: 92,
+    /** Enrollment Booking Notification - Staff */
+    BOOK_ENROLLMENT_STAFF: 91,
+    /** Thanks for your interest */
+    BOOK_FIRST: 73,
+    /** Appointment Wait List Promotion (Client Confirmation Required) */
+    BOOK_PROMOTE_CONFIRM_APPOINTMENT: 169,
+    /** Waitlist Promotion (Client Confirmation Required) */
+    BOOK_PROMOTE_CONFIRM_CLASS: 53,
+    /** Waitlist Promotion (Client Confirmation Required) */
+    BOOK_PROMOTE_CONFIRM_ENROLLMENT: 60,
+    /** Appointment Wait List Promotion (Confirmation not Required) */
+    BOOK_PROMOTE_DIRECT_APPOINTMENT: 168,
+    /** Waitlist Promotion (Client Confirmation Not Required) */
+    BOOK_PROMOTE_DIRECT_CLASS: 8,
+    /** Waitlist Promotion (Client Confirmation Not Required) */
+    BOOK_PROMOTE_DIRECT_ENROLLMENT: 61,
+    /** Class Reminder */
+    BOOK_REMIND_CLASS: 25,
+    /** Enrollment Reminder */
+    BOOK_REMIND_ENROLLMENT: 62,
+    /** Appointment Reminder - Staff */
+    BOOK_REMIND_SERVICE_STAFF: 27,
+    /** Appointment Reminder */
+    BOOK_REMIND_SERVICE_USER: 26,
+    /** Class Booking Confirmation */
+    BOOK_REPEAT_ADD: 101,
+    /** Class Booking Cancelled */
+    BOOK_REPEAT_CANCEL: 102,
+    /** Recurrent Class Reservation Wait List */
+    BOOK_REPEAT_WAIT: 166,
+    /** Class Review Request */
+    BOOK_VISIT: 39,
+    /** Appointment Reservation Wait List */
+    BOOK_WAIT_APPOINTMENT: 165,
+    /** Class Reservation Wait List */
+    BOOK_WAIT_CLASS: 2,
+    /** Enrollment Reservation Wait List */
+    BOOK_WAIT_ENROLLMENT: 63,
+    /** Sent when a business account or location is churned */
+    BUSINESS_ACCOUNT_CHURN: 154,
+    /** Sent to business owner if payment for account failed */
+    BUSINESS_ACCOUNT_PAY_FAIL: 82,
+    /** Sent to business owners as notification in one day before payment for account */
+    BUSINESS_ACCOUNT_PAY_NOTIFY: 83,
+    /** Sent to business owner on successful payment for account */
+    BUSINESS_ACCOUNT_PAY_OK: 81,
+    /** Sent when the monthly postcard limit is exceeded */
+    BUSINESS_ACCOUNT_POSTCARD_LIMIT: 155,
+    /** Sent when subscription price has been overridden and is less than the configured notification threshold */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT: 158,
+    /** Sent when subscription price has been overridden twice or more */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE: 151,
+    /** Sent when a subscription payment is marked as paid */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT: 156,
+    /** Sent when subscription skip payment setting has been changed */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP: 134,
+    /** Sent when a new subscription has been added, and the business is paying for fewer locations than they have */
+    BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING: 152,
+    /** Sent when a user signs up for the virtual service */
+    BUSINESS_ACCOUNT_VIRTUAL_SIGNUP: 157,
+    /** Sent when a business adds more licenses to their `FitLIVE` subscription */
+    BUSINESS_ACCOUNT_VIRTUAL_UPGRADE: 175,
+    /** Sends to client after the first-level onboarding, providing them with login information */
+    BUSINESS_CREATE: 192,
+    /** Email sales@wellnessliving.com when user changes Message Center plan */
+    BUSINESS_MESSAGE_SUBSCRIBE: 164,
+    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to all businesses accounts */
+    BUSINESS_PARTNER_BANNER: 179,
+    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to business account */
+    BUSINESS_PARTNER_BANNER_CUSTOMER: 180,
+    /** Email to the admins that business staff member wants to take a part in the partner program */
+    BUSINESS_PARTNER_ENROLL: 119,
+    /** Email to the staff members of the partner business when a new lead comes in through his partnership */
+    BUSINESS_PARTNER_REFERRAL_MAIL_NEW: 143,
+    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to partner business */
+    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER: 145,
+    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to referral business */
+    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL: 148,
+    /** Email to the staff members of the partner business when a referral reaches a certain period of paid subscription */
+    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER: 146,
+    /** Email to the staff members of the referred business when they reaches a certain period of paid subscription */
+    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL: 147,
+    /** Email to the staff members of the partner business when a referral has been subscribed */
+    BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE: 144,
+    /** Business registered its business phone number */
+    BUSINESS_PHONE: 139,
+    /** Sent when send/receive SMS in Two-Way SMS chat */
+    BUSINESS_SMS_CHAT: 141,
+    /** Sent to staff when the AI Agent captures a cancellation request */
+    CANCELLATION_REQUEST_AI: 202,
+    /** Sent to staff when CAASI receives a request for booking */
+    CLASS_BOOK_AI: 201,
+    /** Alerts staff that the AI Agent has completed a class booking for a client */
+    CLASS_BOOKED_AI: 199,
+    /** Class Type Modified Has Changed */
+    CLASS_EDIT_CLASS: 24,
+    /** Enrollment Type Modified Has Changed */
+    CLASS_EDIT_ENROLLMENT: 64,
+    /** Class cancelled by staff */
+    CLASS_PERIOD_CANCEL_CLASS: 16,
+    /** Enrollment cancelled by staff */
+    CLASS_PERIOD_CANCEL_ENROLLMENT: 66,
+    /** Class Schedule Details Changed Modified */
+    CLASS_PERIOD_CHANGE_CLASS: 17,
+    /** Enrollment Schedule Details Changed Modified */
+    CLASS_PERIOD_CHANGE_ENROLLMENT: 65,
+    /** Class Cancellation Notification - Staff */
+    CLASSES_CANCEL_STAFF: 135,
+    /** Class Schedule Details Changed */
+    CLASSES_PERIOD_CHANGE_CLASSES_STAFF: 100,
+    /** Email to the business members with information about newly added class schedule */
+    CLASSES_PROMOTE: 109,
+    /** A reminder for the staff about an upcoming recurrent class */
+    CLASSES_STAFF_RECURRENT: 124,
+    /** A notification to the staff about a cancellation of a recurrent class */
+    CLASSES_STAFF_RECURRENT_CANCEL: 125,
+    /** Staff member that conducts the class is changed (a new staff member is added, or an existing staff member is substituted) */
+    CLASSES_STAFF_SUBSTITUTION: 110,
+    /** Send to the staff a remind about an upcoming class session */
+    CLASSES_STAFF_SUBSTITUTION_REMIND: 117,
+    /** Sent to the client after a video uploaded to an attendance list is published */
+    CLASSES_VIDEO_PUBLISH: 161,
+    /** Automated marketing email sent on the client's birthday */
+    CLIENT_BIRTHDAY: 221,
+    /** Send a copy of contract */
+    CONTRACT_COPY: 98,
+    /** Sent after purchase of coupon */
+    COUPON_PURCHASE: 84,
+    /** Enrollment Session(s) Booking Confirmation */
+    EVENT_BOOK_SESSION_CLIENT: 129,
+    /** Enrollment Session(s) Booking Notification - Staff */
+    EVENT_BOOK_SESSION_STAFF: 130,
+    /** Email to the business members with information about newly added event schedule */
+    EVENT_PROMOTE: 160,
+    /** Sent to the client after a video uploaded to an attendance list is published */
+    EVENT_VIDEO_PUBLISH: 162,
+    /** Staff sent feedback with some comment */
+    FEEDBACK_DIALOG: 133,
+    /** New Comment on Logged Result */
+    FITBUILDER_MAIL_COMMENT: 182,
+    /** New Likes on Comment */
+    FITBUILDER_MAIL_LIKE: 183,
+    /** Thumbs up on Logged Result */
+    FITBUILDER_MAIL_THUMB: 184,
+    /** Workout of the day */
+    FITBUILDER_MAIL_WORKOUT: 185,
+    /** Guest Pass invitation expired */
+    GUEST_PASS_EXPIRED: 218,
+    /** Guest Pass invitation sent */
+    GUEST_PASS_INVITATION: 217,
+    /** Guest Pass invitation reminder */
+    GUEST_PASS_REMINDER: 219,
+    /** For staff members to send emails to support using the help popup */
+    HELP_POPUP_EMAIL: 150,
+    /** Sent when a business enrolls in Autymate */
+    INTEGRATION_AUTYMATE_ENROLLMENT: 176,
+    /** Sent when a business subscribes to collections */
+    INTEGRATION_COLLECTION_ALDOUS: 178,
+    /** Email, which is sent when a customer has connected a paid Zoom account */
+    INTEGRATION_ZOOM_CONFIRMATION: 138,
+    /** Request a demo from landing page */
+    LANDING_CONTACT: 97,
+    /** Sent to staff member informing them that a new client has entered their information into the Lead Capture Widget */
+    LEAD_ADDED_STAFF: 163,
+    /** Sent to the client after they fill out a Lead Capture Form on the website of a business */
+    LEAD_CAPTURE: 87,
+    /** Sent to staff when CAASI captures a new lead from a conversation, */
+    LEAD_CAPTURE_AI: 197,
+    /** Sent to a client when they have stayed in a lead stage for a set time without any activity of their own */
+    LEAD_STAGE_NO_ACTIVITY: 231,
+    /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
+    LEAD_STAGE_UPDATED: 224,
+    /** Sent to client on annual anniversary of the Member Since date */
+    LOGIN_ANNIVERSARY: 96,
+    /** Attendance List */
+    LOGIN_ATTENDANCE: 42,
+    /** Sent when user long time did not visit location, and it not has active promotion */
+    LOGIN_BACK: 79,
+    /** Email to send on the day, when client has birthday */
+    LOGIN_BIRTHDAY: 49,
+    /** Clients Payment Card expires this month */
+    LOGIN_CARD_EXPIRE: 51,
+    /** Email address confirmation */
+    LOGIN_MAIL_CONFIRM: 123,
+    /** Custom Client Email #1 */
+    LOGIN_MESSAGE: 22,
+    /** Client no show */
+    LOGIN_PENALTY_APPOINTMENT: 72,
+    /** Client no show */
+    LOGIN_PENALTY_CLASS: 15,
+    /** Client no show */
+    LOGIN_PENALTY_ENROLLMENT: 67,
+    /** Billed to Account. Sent to the client when any purchase was billed to their account balance */
+    LOGIN_PURCHASE_ACCOUNT: 159,
+    /** Sent to a client when they haven't visited in a set number of days, */
+    LOGIN_RETENTION: 50,
+    /** Sent to the client when a new account statement becomes available */
+    LOGIN_STATEMENT_NEW: 213,
+    /** Sent to all new users after they create an account for the first time */
+    LOGIN_WELCOME: 9,
+    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
+    MARKETING_AUTOMATION_NOTIFY_STAFF: 223,
+    /** Client added to a member group */
+    MEMBER_GROUP_USER_ADD: 214,
+    /** Client removed from a member group */
+    MEMBER_GROUP_USER_REMOVE: 215,
+    /** Sent to staff when the AI Agent logs a membership or purchase query */
+    MEMBERSHIP_QUERY: 203,
+    /** Sent OTP code by sms or email to validate phone number or email address */
+    NOTIFICATION_OTP: 191,
+    /** Sent OTP code by sms and email for the user sign in */
+    PASSPORT_LOGIN_ENTER: 187,
+    /** Notification about email address is changed due to merge */
+    PASSPORT_LOGIN_MERGE: 205,
+    /** Notification to a staff member that a passkey was added to their account */
+    PASSPORT_PASSKEY_ADD: 226,
+    /** Notification to a staff member that a passkey was removed from their account */
+    PASSPORT_PASSKEY_REMOVE: 227,
+    /** E-mail with a list of user's payment account transactions for last `62` days */
+    PAY_ACCOUNT_INVOICE: 85,
+    /** Automatic payment success */
+    PAY_AUTOMATIC_SUCCESS: 116,
+    /** Funds of a Stripe dispute must be moved by hand */
+    PAY_DISPUTE_FUNDS_FAIL: 228,
+    /** A client disputed a payment to the studio */
+    PAY_DISPUTE_STUDIO: 229,
+    /** A chargeback that Smart Disputes does not take must be contested by Support */
+    PAY_DISPUTE_SUPPORT: 230,
+    /** Transaction failed */
+    PAY_TRANSACTION_FAIL: 181,
+    /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
+    PHONE_AGENT_CALL_RECEIVED: 222,
+    /** Request a custom website subscription */
+    PRESENCE_ACTIVATE: 137,
+    /** Sent after purchase of product */
+    PRODUCT_PURCHASE: 127,
+    /** Email to inform user that they email is changed */
+    PROFILE_MAIL_CHANGE: 93,
+    /** Email to confirm new email address after it was changed */
+    PROFILE_MAIL_CONFIRM: 86,
+    /** Mail to inform the user that their password has been changed */
+    PROFILE_PASSWORD_CHANGE: 111,
+    /** Mail containing reset password link to allow the user to change their password */
+    PROFILE_PASSWORD_RESET: 142,
+    /** Few Pass Visits Remaining */
+    PROMOTION_LOW: 43,
+    /** Sent when membership is canceled */
+    PROMOTION_MEMBERSHIP_CANCEL: 153,
+    /** Sent to staff when membership is canceled */
+    PROMOTION_MEMBERSHIP_CANCEL_STAFF: 193,
+    /** Sent when membership expires */
+    PROMOTION_MEMBERSHIP_EXPIRE: 77,
+    /** Membership Payment - Billed to Account */
+    PROMOTION_MEMBERSHIP_PAY_ACCOUNT: 106,
+    /** Automatic Payment Failed */
+    PROMOTION_MEMBERSHIP_PAY_FAIL: 55,
+    /** Membership Payment Confirmation */
+    PROMOTION_MEMBERSHIP_PAY_OK: 56,
+    /** Sent to the customer after their membership is renewed */
+    PROMOTION_MEMBERSHIP_REACTIVATE: 75,
+    /** Sent before certain count of days before membership renews */
+    PROMOTION_MEMBERSHIP_RENEW: 78,
+    /** Sent after purchase of promotion */
+    PROMOTION_PURCHASE: 76,
+    /** Receipt sent after purchase of promotion */
+    PROMOTION_RECEIPT: 136,
+    /** Sent after a client attended a visit using a purchase option (used in automations) */
+    PROMOTION_USED: 212,
+    /** Sent to the customer when a promotion is paused */
+    PURCHASE_HOLD: 194,
+    /** Sends to the clients when purchase option hold expiring soon */
+    PURCHASE_HOLD_EXPIRING: 186,
+    /** Purchase Receipt */
+    PURCHASE_PAYMENT: 52,
+    /** Purchase Receipt */
+    PURCHASE_PAYMENT_ACCOUNT: 107,
+    /** Purchase Receipt */
+    PURCHASE_PAYMENT_POS: 115,
+    /** Sent to Business Owner when the re-order level has been reached for some product */
+    PURCHASE_PRODUCT_INVENTORY: 95,
+    /** Thanks for purchasing an introductory offer */
+    PURCHASE_PROMOTION_INTRODUCTORY: 74,
+    /** Send refund receipt */
+    PURCHASE_REFUND: 108,
+    /** Quiz form submission - Client */
+    QUIZ_FORM_SUBMITTION: 172,
+    /** Email to wellnessliving team when user changes Quiz Subscription plan */
+    QUIZ_INDEX: 174,
+    /** Quiz submitted - Staff */
+    QUIZ_NOTIFICATION: 171,
+    /** Quiz submitted - Staff */
+    QUIZ_NOTIFICATION_REMIND: 173,
+    /** Email to wellnessliving team when businesses perform actions which is exporting data */
+    REPORT_EXPORT: 177,
+    /** New Customer Review - Staff */
+    REVIEW_ADD: 38,
+    /** Owner Replied to Review */
+    REVIEW_REPLY: 45,
+    /** Client left a review */
+    REVIEW_USER_LEFT: 216,
+    /** Event redeems a reward (points or prizes) for client */
+    REWARD_PRIZE_CLIENT: 120,
+    /** Event redeems a reward (points or prizes) for staff */
+    REWARD_PRIZE_STAFF: 121,
+    /** Sale Has Been Made */
+    SALE_STAFF: 126,
+    /** Sent after booking a service (used in automations) */
+    SERVICE_BOOK: 208,
+    /** Event when finished push certification for ios devices */
+    SKIN_APPLICATION_CONNECT: 122,
+    /** Notifies staff when CAASI captures a client request for a staff connect, */
+    STAFF_CALLBACK_REQUEST: 196,
+    /** Sends when task assigned to staff */
+    TASK_ASSIGN: 104,
+    /** Send a copy of waiver */
+    TERM_COPY: 99,
+    /** Sent after a ticketed event is purchased */
+    TICKET_PURCHASE: 225,
+    /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
+    USER_CAMPAIGN: 112,
+    /** Request a video subscription */
+    VIDEO_SUBSCRIPTION_UPGRADE: 140,
+    /** Sent after visit the service */
+    VISIT_CAMPAIGN: 94,
+    /** Sent if a client does not show up to a service reserved by (used in automations) */
+    VISIT_NOSHOW: 209,
+    /** Visit receipt */
+    VISIT_RECEIPT_RECEIPT: 190,
+    /** Email, which is sent when a Zoom license is lack */
+    ZOOM_LICENSE_LACK: 149,
   });
 
   /**
@@ -17020,70 +18629,6 @@
     FIRST: 2,
     /** Client will be asked to complete the quiz only one time when they book a service or purchase item */
     ONCE: 3,
-  });
-
-  /**
-   * A list of purchase types.
-   *
-   * @enum {number}
-   */
-  WlClient.RsPurchaseItemSid = Object.freeze({
-    /** Personal user's account refill */
-    ACCOUNT: 7,
-    /** Business account payment */
-    ACCOUNT_BUSINESS: 11,
-    /** Single appointment reservation */
-    APPOINTMENT: 8,
-    /** Single appointment reservation with deposit */
-    APPOINTMENT_DEPOSIT: 18,
-    /** Tips for the appointment */
-    APPOINTMENT_TIP: 22,
-    /** Expense that comes along with the payment business. It contains information about additional services which are */
-    BUSINESS_EXPENSE: 16,
-    /** A skipped purchase for the business account */
-    BUSINESS_SKIP: 17,
-    /** Business subscription payment */
-    BUSINESS_SUBSCRIPTION: 23,
-    /** Single classes */
-    CLASS_PERIOD: 2,
-    /** Collectors payments */
-    COLLECTOR_DEBT: 24,
-    /** Arbitrary money withdrawal with comment */
-    COMMENT: 13,
-    /** Gift Cards */
-    COUPON: 10,
-    /** Events and enrollments. Client can not book only one class, he needs to book the whole enrollment */
-    ENROLLMENT: 4,
-    /** Enrollment reservation with a deposit */
-    ENROLLMENT_DEPOSIT: 19,
-    /** Enrollment reservation with a discount */
-    ENROLLMENT_DISCOUNT: 21,
-    /** Payment by an installment plan */
-    INSTALLMENT: 14,
-    /** Recurrent payments */
-    MEMBERSHIP: 3,
-    /** Products */
-    PRODUCT: 9,
-    /** Promotions */
-    PROMOTION: 1,
-    /** Early cancellation fee for a memberships */
-    PROMOTION_CANCEL_FEE: 25,
-    /** A purchase to renew a promotion */
-    PROMOTION_RENEW: 12,
-    /** A purchase to book an asset */
-    RESOURCE: 15,
-    /** A purchase to book a deposit asset */
-    RESOURCE_DEPOSIT: 20,
-    /** Purchase item for appointments */
-    SERVICE: 6,
-    /** Ticket purchase item */
-    TICKET: 29,
-    /** Tuition purchase item */
-    TUITION: 26,
-    /** Tuition fee purchase item */
-    TUITION_FEE: 27,
-    /** Tuition prorate purchase item */
-    TUITION_PRORATE: 28,
   });
 
   /**
@@ -17686,7 +19231,7 @@
   WlClient.CorePassportPasskeyPasskeyCredentialStatusEnum = Object.freeze({
     /** The credential is active and may be used to sign in */
     ACTIVE: 1,
-    /** The credential was revoked by its owner and may no longer be used to sign in */
+    /** The credential was revoked and may no longer be used to sign in */
     REVOKED: 2,
   });
 
@@ -17922,8 +19467,12 @@
    * @enum {number}
    */
   WlClient.WlVirtualVirtualProviderSid = Object.freeze({
+    /** The service is delivered in person */
+    IN_PERSON: 4,
     /** Virtual integration non implemented */
     NON_INTEGRATED: 2,
+    /** Staff call the client at the number given at booking */
+    PHONE_CALL: 3,
     /** Virtual Zoom service integration */
     ZOOM: 1,
   });
@@ -18209,24 +19758,6 @@
   });
 
   /**
-   * Identifiers for services types.
-   *
-   * @enum {number}
-   */
-  WlClient.RsServiceSid = Object.freeze({
-    /** Appointments */
-    APPOINTMENT: 1,
-    /** Classes */
-    CLASSES: 2,
-    /** Enrolments */
-    ENROLLMENT: 3,
-    /** Resources */
-    RESOURCE: 5,
-    /** Visits */
-    VISIT: 4,
-  });
-
-  /**
    * List of progress log fields.
    *
    * @enum {number}
@@ -18431,412 +19962,6 @@
   });
 
   /**
-   * Mail types.
-   *
-   * @enum {number}
-   */
-  WlClient.RsMailSid = Object.freeze({
-    /** Sent when a client abandons a checkout (used in automations) */
-    ABANDONED_CHECKOUT: 220,
-    /** Sent by CASSI phone agent, when client requests a booking url */
-    AI_LINK_BOOK: 206,
-    /** Sent by CASSI phone agent, when client requests a purchase url */
-    AI_LINK_PURCHASE: 207,
-    /** Appointment approved by staff */
-    APPOINTMENT_APPROVE_STAFF: 71,
-    /** Sent when the AI Agent successfully books an appointment */
-    APPOINTMENT_BOOKED_AI: 198,
-    /** Appointment Cancelled by Client - Early */
-    APPOINTMENT_CANCEL_EARLY_USER: 33,
-    /** Appointment Cancelled by Client - Late */
-    APPOINTMENT_CANCEL_LATE_USER: 35,
-    /** Appointment Cancelled Notification - Staff */
-    APPOINTMENT_CANCEL_STAFF: 32,
-    /** Sends to the client when appointment has been cancelled by staff */
-    APPOINTMENT_CANCEL_STAFF_USER: 80,
-    /** Sends to the clients when appointment information has been changed */
-    APPOINTMENT_CHANGE_GENERAL_CLIENT: 114,
-    /** Sends to the staff members when appointment information has been changed */
-    APPOINTMENT_CHANGE_GENERAL_STAFF: 113,
-    /** Appointment Change Notification - Staff */
-    APPOINTMENT_CHANGE_STAFF: 36,
-    /** Appointment Change Notification - Client */
-    APPOINTMENT_CHANGE_USER: 37,
-    /** New Appointment Notification - Staff */
-    APPOINTMENT_CREATE_STAFF: 31,
-    /** Appointment Confirmation */
-    APPOINTMENT_CREATE_USER: 30,
-    /** Multiple Appointment Confirmation (Client) */
-    APPOINTMENT_CREATE_USER_MULTIPLE: 211,
-    /** Notification to a customer about an appointment that has been canceled because not paid */
-    APPOINTMENT_PAY_CANCEL: 189,
-    /** Notification to a customer about mandatory payment for an appointment */
-    APPOINTMENT_PAY_PAY: 188,
-    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
-    APPOINTMENT_REPEAT_CANCEL_CLIENT: 103,
-    /** Sends one email to staff when several sessions of one or several appointments or single session of recurring */
-    APPOINTMENT_REPEAT_CANCEL_STAFF: 105,
-    /** Sends one email to a client when several sessions of one or several appointments or single session of recurring */
-    APPOINTMENT_REPEAT_CANCEL_USER: 131,
-    /** Sent to staff when the AI Agent receives an appointment request */
-    APPOINTMENT_REQUEST_AI: 200,
-    /** Requested appointment has been denied */
-    APPOINTMENT_REQUEST_DENY: 88,
-    /** Appointment has been requested */
-    APPOINTMENT_REQUEST_STAFF: 89,
-    /** Appointment has been requested */
-    APPOINTMENT_REQUEST_USER: 90,
-    /** Appointment Wait List Cancellation */
-    APPOINTMENT_WAIT_REMOVE: 195,
-    /** Sent to staff when the AI Agent logs a billing or payment query */
-    BILLING_RELATED_QUERY: 204,
-    /** Class Booking Confirmation */
-    BOOK_ADD_CLASS: 1,
-    /** Class Booking Notification - Staff */
-    BOOK_ADD_STAFF: 47,
-    /** Sent if a client cancels a booking (used in automations) */
-    BOOK_CANCEL: 210,
-    /** Class Booking (Reservation) Cancelled by Staff */
-    BOOK_CANCEL_ADMIN_CLASS: 23,
-    /** Enrollment Booking Cancelled by Staff */
-    BOOK_CANCEL_ADMIN_ENROLLMENT: 57,
-    /** Enrollment Session Cancellation Notification */
-    BOOK_CANCEL_ENROLLMENT_SESSION: 128,
-    /** Class Cancelled by Client - Early */
-    BOOK_CANCEL_FREE_CLASS: 3,
-    /** Enrollment Cancelled by Client - Early */
-    BOOK_CANCEL_FREE_ENROLLMENT: 58,
-    /** Class Cancelled By Client - Late */
-    BOOK_CANCEL_PENALTY_CLASS: 4,
-    /** Enrollment Cancelled By Client - Late */
-    BOOK_CANCEL_PENALTY_ENROLLMENT: 59,
-    /** Class Booking Cancellation Notification - Staff */
-    BOOK_CANCEL_STAFF: 48,
-    /** Enrollment Booking Confirmation */
-    BOOK_ENROLLMENT: 69,
-    /** Enrollment Booking Cancellation Notification - Staff */
-    BOOK_ENROLLMENT_CANCEL_STAFF: 92,
-    /** Enrollment Booking Notification - Staff */
-    BOOK_ENROLLMENT_STAFF: 91,
-    /** Thanks for your interest */
-    BOOK_FIRST: 73,
-    /** Appointment Wait List Promotion (Client Confirmation Required) */
-    BOOK_PROMOTE_CONFIRM_APPOINTMENT: 169,
-    /** Waitlist Promotion (Client Confirmation Required) */
-    BOOK_PROMOTE_CONFIRM_CLASS: 53,
-    /** Waitlist Promotion (Client Confirmation Required) */
-    BOOK_PROMOTE_CONFIRM_ENROLLMENT: 60,
-    /** Appointment Wait List Promotion (Confirmation not Required) */
-    BOOK_PROMOTE_DIRECT_APPOINTMENT: 168,
-    /** Waitlist Promotion (Client Confirmation Not Required) */
-    BOOK_PROMOTE_DIRECT_CLASS: 8,
-    /** Waitlist Promotion (Client Confirmation Not Required) */
-    BOOK_PROMOTE_DIRECT_ENROLLMENT: 61,
-    /** Class Reminder */
-    BOOK_REMIND_CLASS: 25,
-    /** Enrollment Reminder */
-    BOOK_REMIND_ENROLLMENT: 62,
-    /** Appointment Reminder - Staff */
-    BOOK_REMIND_SERVICE_STAFF: 27,
-    /** Appointment Reminder */
-    BOOK_REMIND_SERVICE_USER: 26,
-    /** Class Booking Confirmation */
-    BOOK_REPEAT_ADD: 101,
-    /** Class Booking Cancelled */
-    BOOK_REPEAT_CANCEL: 102,
-    /** Recurrent Class Reservation Wait List */
-    BOOK_REPEAT_WAIT: 166,
-    /** Class Review Request */
-    BOOK_VISIT: 39,
-    /** Appointment Reservation Wait List */
-    BOOK_WAIT_APPOINTMENT: 165,
-    /** Class Reservation Wait List */
-    BOOK_WAIT_CLASS: 2,
-    /** Enrollment Reservation Wait List */
-    BOOK_WAIT_ENROLLMENT: 63,
-    /** Sent when a business account or location is churned */
-    BUSINESS_ACCOUNT_CHURN: 154,
-    /** Sent to business owner if payment for account failed */
-    BUSINESS_ACCOUNT_PAY_FAIL: 82,
-    /** Sent to business owners as notification in one day before payment for account */
-    BUSINESS_ACCOUNT_PAY_NOTIFY: 83,
-    /** Sent to business owner on successful payment for account */
-    BUSINESS_ACCOUNT_PAY_OK: 81,
-    /** Sent when the monthly postcard limit is exceeded */
-    BUSINESS_ACCOUNT_POSTCARD_LIMIT: 155,
-    /** Sent when subscription price has been overridden and is less than the configured notification threshold */
-    BUSINESS_ACCOUNT_SUBSCRIPTION_DISCOUNT: 158,
-    /** Sent when subscription price has been overridden twice or more */
-    BUSINESS_ACCOUNT_SUBSCRIPTION_OVERRIDE: 151,
-    /** Sent when a subscription payment is marked as paid */
-    BUSINESS_ACCOUNT_SUBSCRIPTION_PAYMENT: 156,
-    /** Sent when subscription skip payment setting has been changed */
-    BUSINESS_ACCOUNT_SUBSCRIPTION_SKIP: 134,
-    /** Sent when a new subscription has been added, and the business is paying for fewer locations than they have */
-    BUSINESS_ACCOUNT_SUBSCRIPTION_UNDERPAYING: 152,
-    /** Sent when a user signs up for the virtual service */
-    BUSINESS_ACCOUNT_VIRTUAL_SIGNUP: 157,
-    /** Sent when a business adds more licenses to their `FitLIVE` subscription */
-    BUSINESS_ACCOUNT_VIRTUAL_UPGRADE: 175,
-    /** Sends to client after the first-level onboarding, providing them with login information */
-    BUSINESS_CREATE: 192,
-    /** Email sales@wellnessliving.com when user changes Message Center plan */
-    BUSINESS_MESSAGE_SUBSCRIBE: 164,
-    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to all businesses accounts */
-    BUSINESS_PARTNER_BANNER: 179,
-    /** Email to the marketing to remind to upload the 'Partner Program 30-Day Notification Banner' to business account */
-    BUSINESS_PARTNER_BANNER_CUSTOMER: 180,
-    /** Email to the admins that business staff member wants to take a part in the partner program */
-    BUSINESS_PARTNER_ENROLL: 119,
-    /** Email to the staff members of the partner business when a new lead comes in through his partnership */
-    BUSINESS_PARTNER_REFERRAL_MAIL_NEW: 143,
-    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to partner business */
-    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_PARTNER: 145,
-    /** Email to the admins when a referral reaches a certain period of paid subscription about sending a check to referral business */
-    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_ADMIN_REFERRAL: 148,
-    /** Email to the staff members of the partner business when a referral reaches a certain period of paid subscription */
-    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_PARTNER: 146,
-    /** Email to the staff members of the referred business when they reaches a certain period of paid subscription */
-    BUSINESS_PARTNER_REFERRAL_MAIL_REACH_REFERRAL: 147,
-    /** Email to the staff members of the partner business when a referral has been subscribed */
-    BUSINESS_PARTNER_REFERRAL_MAIL_SUBSCRIBE: 144,
-    /** Business registered its business phone number */
-    BUSINESS_PHONE: 139,
-    /** Sent when send/receive SMS in Two-Way SMS chat */
-    BUSINESS_SMS_CHAT: 141,
-    /** Sent to staff when the AI Agent captures a cancellation request */
-    CANCELLATION_REQUEST_AI: 202,
-    /** Sent to staff when CAASI receives a request for booking */
-    CLASS_BOOK_AI: 201,
-    /** Alerts staff that the AI Agent has completed a class booking for a client */
-    CLASS_BOOKED_AI: 199,
-    /** Class Type Modified Has Changed */
-    CLASS_EDIT_CLASS: 24,
-    /** Enrollment Type Modified Has Changed */
-    CLASS_EDIT_ENROLLMENT: 64,
-    /** Class cancelled by staff */
-    CLASS_PERIOD_CANCEL_CLASS: 16,
-    /** Enrollment cancelled by staff */
-    CLASS_PERIOD_CANCEL_ENROLLMENT: 66,
-    /** Class Schedule Details Changed Modified */
-    CLASS_PERIOD_CHANGE_CLASS: 17,
-    /** Enrollment Schedule Details Changed Modified */
-    CLASS_PERIOD_CHANGE_ENROLLMENT: 65,
-    /** Class Cancellation Notification - Staff */
-    CLASSES_CANCEL_STAFF: 135,
-    /** Class Schedule Details Changed */
-    CLASSES_PERIOD_CHANGE_CLASSES_STAFF: 100,
-    /** Email to the business members with information about newly added class schedule */
-    CLASSES_PROMOTE: 109,
-    /** A reminder for the staff about an upcoming recurrent class */
-    CLASSES_STAFF_RECURRENT: 124,
-    /** A notification to the staff about a cancellation of a recurrent class */
-    CLASSES_STAFF_RECURRENT_CANCEL: 125,
-    /** Staff member that conducts the class is changed (a new staff member is added, or an existing staff member is substituted) */
-    CLASSES_STAFF_SUBSTITUTION: 110,
-    /** Send to the staff a remind about an upcoming class session */
-    CLASSES_STAFF_SUBSTITUTION_REMIND: 117,
-    /** Sent to the client after a video uploaded to an attendance list is published */
-    CLASSES_VIDEO_PUBLISH: 161,
-    /** Automated marketing email sent on the client's birthday */
-    CLIENT_BIRTHDAY: 221,
-    /** Send a copy of contract */
-    CONTRACT_COPY: 98,
-    /** Sent after purchase of coupon */
-    COUPON_PURCHASE: 84,
-    /** Enrollment Session(s) Booking Confirmation */
-    EVENT_BOOK_SESSION_CLIENT: 129,
-    /** Enrollment Session(s) Booking Notification - Staff */
-    EVENT_BOOK_SESSION_STAFF: 130,
-    /** Email to the business members with information about newly added event schedule */
-    EVENT_PROMOTE: 160,
-    /** Sent to the client after a video uploaded to an attendance list is published */
-    EVENT_VIDEO_PUBLISH: 162,
-    /** Staff sent feedback with some comment */
-    FEEDBACK_DIALOG: 133,
-    /** New Comment on Logged Result */
-    FITBUILDER_MAIL_COMMENT: 182,
-    /** New Likes on Comment */
-    FITBUILDER_MAIL_LIKE: 183,
-    /** Thumbs up on Logged Result */
-    FITBUILDER_MAIL_THUMB: 184,
-    /** Workout of the day */
-    FITBUILDER_MAIL_WORKOUT: 185,
-    /** Guest Pass invitation expired */
-    GUEST_PASS_EXPIRED: 218,
-    /** Guest Pass invitation sent */
-    GUEST_PASS_INVITATION: 217,
-    /** Guest Pass invitation reminder */
-    GUEST_PASS_REMINDER: 219,
-    /** For staff members to send emails to support using the help popup */
-    HELP_POPUP_EMAIL: 150,
-    /** Sent when a business enrolls in Autymate */
-    INTEGRATION_AUTYMATE_ENROLLMENT: 176,
-    /** Sent when a business subscribes to collections */
-    INTEGRATION_COLLECTION_ALDOUS: 178,
-    /** Email, which is sent when a customer has connected a paid Zoom account */
-    INTEGRATION_ZOOM_CONFIRMATION: 138,
-    /** Request a demo from landing page */
-    LANDING_CONTACT: 97,
-    /** Sent to staff member informing them that a new client has entered their information into the Lead Capture Widget */
-    LEAD_ADDED_STAFF: 163,
-    /** Sent to the client after they fill out a Lead Capture Form on the website of a business */
-    LEAD_CAPTURE: 87,
-    /** Sent to staff when CAASI captures a new lead from a conversation, */
-    LEAD_CAPTURE_AI: 197,
-    /** Sent to staff when a lead's stage is updated in the Lead Capture Form */
-    LEAD_STAGE_UPDATED: 224,
-    /** Sent to client on annual anniversary of the Member Since date */
-    LOGIN_ANNIVERSARY: 96,
-    /** Attendance List */
-    LOGIN_ATTENDANCE: 42,
-    /** Sent when user long time did not visit location, and it not has active promotion */
-    LOGIN_BACK: 79,
-    /** Email to send on the day, when client has birthday */
-    LOGIN_BIRTHDAY: 49,
-    /** Clients Payment Card expires this month */
-    LOGIN_CARD_EXPIRE: 51,
-    /** Email address confirmation */
-    LOGIN_MAIL_CONFIRM: 123,
-    /** Custom Client Email #1 */
-    LOGIN_MESSAGE: 22,
-    /** Client no show */
-    LOGIN_PENALTY_APPOINTMENT: 72,
-    /** Client no show */
-    LOGIN_PENALTY_CLASS: 15,
-    /** Client no show */
-    LOGIN_PENALTY_ENROLLMENT: 67,
-    /** Billed to Account. Sent to the client when any purchase was billed to their account balance */
-    LOGIN_PURCHASE_ACCOUNT: 159,
-    /** Sent to a client when they haven't visited in a set number of days, */
-    LOGIN_RETENTION: 50,
-    /** Sent to the client when a new account statement becomes available */
-    LOGIN_STATEMENT_NEW: 213,
-    /** Sent to all new users after they create an account for the first time */
-    LOGIN_WELCOME: 9,
-    /** Sent to selected staff or staff roles when a marketing automation flow reaches a Notify Staff step */
-    MARKETING_AUTOMATION_NOTIFY_STAFF: 223,
-    /** Client added to a member group */
-    MEMBER_GROUP_USER_ADD: 214,
-    /** Client removed from a member group */
-    MEMBER_GROUP_USER_REMOVE: 215,
-    /** Sent to staff when the AI Agent logs a membership or purchase query */
-    MEMBERSHIP_QUERY: 203,
-    /** Sent OTP code by sms or email to validate phone number or email address */
-    NOTIFICATION_OTP: 191,
-    /** Sent OTP code by sms and email for the user sign in */
-    PASSPORT_LOGIN_ENTER: 187,
-    /** Notification about email address is changed due to merge */
-    PASSPORT_LOGIN_MERGE: 205,
-    /** E-mail with a list of user's payment account transactions for last `62` days */
-    PAY_ACCOUNT_INVOICE: 85,
-    /** Automatic payment success */
-    PAY_AUTOMATIC_SUCCESS: 116,
-    /** Transaction failed */
-    PAY_TRANSACTION_FAIL: 181,
-    /** Sent to staff when CAASI's Phone Agent concludes a call, regardless of outcome */
-    PHONE_AGENT_CALL_RECEIVED: 222,
-    /** Request a custom website subscription */
-    PRESENCE_ACTIVATE: 137,
-    /** Sent after purchase of product */
-    PRODUCT_PURCHASE: 127,
-    /** Email to inform user that they email is changed */
-    PROFILE_MAIL_CHANGE: 93,
-    /** Email to confirm new email address after it was changed */
-    PROFILE_MAIL_CONFIRM: 86,
-    /** Mail to inform the user that their password has been changed */
-    PROFILE_PASSWORD_CHANGE: 111,
-    /** Mail containing reset password link to allow the user to change their password */
-    PROFILE_PASSWORD_RESET: 142,
-    /** Few Pass Visits Remaining */
-    PROMOTION_LOW: 43,
-    /** Sent when membership is canceled */
-    PROMOTION_MEMBERSHIP_CANCEL: 153,
-    /** Sent to staff when membership is canceled */
-    PROMOTION_MEMBERSHIP_CANCEL_STAFF: 193,
-    /** Sent when membership expires */
-    PROMOTION_MEMBERSHIP_EXPIRE: 77,
-    /** Membership Payment - Billed to Account */
-    PROMOTION_MEMBERSHIP_PAY_ACCOUNT: 106,
-    /** Automatic Payment Failed */
-    PROMOTION_MEMBERSHIP_PAY_FAIL: 55,
-    /** Membership Payment Confirmation */
-    PROMOTION_MEMBERSHIP_PAY_OK: 56,
-    /** Sent to the customer after their membership is renewed */
-    PROMOTION_MEMBERSHIP_REACTIVATE: 75,
-    /** Sent before certain count of days before membership renews */
-    PROMOTION_MEMBERSHIP_RENEW: 78,
-    /** Sent after purchase of promotion */
-    PROMOTION_PURCHASE: 76,
-    /** Receipt sent after purchase of promotion */
-    PROMOTION_RECEIPT: 136,
-    /** Sent after a client attended a visit using a purchase option (used in automations) */
-    PROMOTION_USED: 212,
-    /** Sent to the customer when a promotion is paused */
-    PURCHASE_HOLD: 194,
-    /** Sends to the clients when purchase option hold expiring soon */
-    PURCHASE_HOLD_EXPIRING: 186,
-    /** Purchase Receipt */
-    PURCHASE_PAYMENT: 52,
-    /** Purchase Receipt */
-    PURCHASE_PAYMENT_ACCOUNT: 107,
-    /** Purchase Receipt */
-    PURCHASE_PAYMENT_POS: 115,
-    /** Sent to Business Owner when the re-order level has been reached for some product */
-    PURCHASE_PRODUCT_INVENTORY: 95,
-    /** Thanks for purchasing an introductory offer */
-    PURCHASE_PROMOTION_INTRODUCTORY: 74,
-    /** Send refund receipt */
-    PURCHASE_REFUND: 108,
-    /** Quiz form submission - Client */
-    QUIZ_FORM_SUBMITTION: 172,
-    /** Email to wellnessliving team when user changes Quiz Subscription plan */
-    QUIZ_INDEX: 174,
-    /** Quiz submitted - Staff */
-    QUIZ_NOTIFICATION: 171,
-    /** Quiz submitted - Staff */
-    QUIZ_NOTIFICATION_REMIND: 173,
-    /** Email to wellnessliving team when businesses perform actions which is exporting data */
-    REPORT_EXPORT: 177,
-    /** New Customer Review - Staff */
-    REVIEW_ADD: 38,
-    /** Owner Replied to Review */
-    REVIEW_REPLY: 45,
-    /** Client left a review */
-    REVIEW_USER_LEFT: 216,
-    /** Event redeems a reward (points or prizes) for client */
-    REWARD_PRIZE_CLIENT: 120,
-    /** Event redeems a reward (points or prizes) for staff */
-    REWARD_PRIZE_STAFF: 121,
-    /** Sale Has Been Made */
-    SALE_STAFF: 126,
-    /** Sent after booking a service (used in automations) */
-    SERVICE_BOOK: 208,
-    /** Event when finished push certification for ios devices */
-    SKIN_APPLICATION_CONNECT: 122,
-    /** Notifies staff when CAASI captures a client request for a staff connect, */
-    STAFF_CALLBACK_REQUEST: 196,
-    /** Sends when task assigned to staff */
-    TASK_ASSIGN: 104,
-    /** Send a copy of waiver */
-    TERM_COPY: 99,
-    /** Sent after a ticketed event is purchased */
-    TICKET_PURCHASE: 225,
-    /** Global email campaigns allows to send email to all clients, business owners, admins, etc */
-    USER_CAMPAIGN: 112,
-    /** Request a video subscription */
-    VIDEO_SUBSCRIPTION_UPGRADE: 140,
-    /** Sent after visit the service */
-    VISIT_CAMPAIGN: 94,
-    /** Sent if a client does not show up to a service reserved by (used in automations) */
-    VISIT_NOSHOW: 209,
-    /** Visit receipt */
-    VISIT_RECEIPT_RECEIPT: 190,
-    /** Email, which is sent when a Zoom license is lack */
-    ZOOM_LICENSE_LACK: 149,
-  });
-
-  /**
    * Level at which a client profile field is asked at a given collection entry point.
    *
    * @enum {number}
@@ -18958,6 +20083,8 @@
     APPOINTMENT_BOOK_TWITTER: 48,
     /** Client cancels an appointment */
     APPOINTMENT_CANCEL: 28,
+    /** The phone number of a Phone Call appointment was set or changed */
+    APPOINTMENT_PHONE_CHANGE: 64,
     /** Client attends an appointment */
     APPOINTMENT_VISIT: 23,
     /** Client books an appointment to wait list */
@@ -19604,6 +20731,16 @@
     INTERFACE_WIDGET_VIEW: 110,
     /** Permission to Receive or Adjust quantity from the Inventory On Hand Report */
     INVENTORY_UPDATE: 157,
+    /** Add leads */
+    LEAD_ADD: 255,
+    /** Manage lead creation settings */
+    LEAD_CREATION_SETTINGS_MANAGE: 257,
+    /** Manage lead sources and fields */
+    LEAD_SOURCE_MANAGE: 258,
+    /** Change lead stage */
+    LEAD_STAGE_CHANGE: 256,
+    /** Manage lead stages */
+    LEAD_STAGE_MANAGE: 259,
     /** Manage my locations except General information */
     LOCATION_EDIT: 9,
     /** Manage tab Location -> General */
@@ -19702,6 +20839,8 @@
     NOTIFICATION_STAFF_CALLBACK_REQUEST: 216,
     /** Override late cancel and no show fees */
     OVERRIDE_FEE: 164,
+    /** Override make-up passes */
+    OVERRIDE_MAKEUP_PASS: 254,
     /** Manage partner program */
     PARTNER_PROGRAM_MANAGE: 94,
     /** Access to Payment Processing */
@@ -20371,20 +21510,6 @@
   });
 
   /**
-   * List of outcomes of a CAASI Phone Agent call.
-   *
-   * @enum {number}
-   */
-  WlClient.WlAiAgentPhoneCallOutcomeEnum = Object.freeze({
-    /** The call was resolved by CAASI without staff involvement */
-    RESOLVED: 1,
-    /** The call was transferred to a live staff member */
-    TRANSFERRED: 2,
-    /** The caller requested a callback from staff */
-    CALLBACK_REQUESTED: 3,
-  });
-
-  /**
    * List of default categories of the rewards.
    *
    * @enum {number}
@@ -20524,6 +21649,10 @@
     CLASS_TERM: 3,
     /** Client */
     CLIENT: 4,
+    /** Drop-in */
+    DROP_IN: 6,
+    /** Purchase Option */
+    PURCHASE_OPTION: 7,
     /** Staff */
     STAFF: 1,
   });
@@ -20638,6 +21767,8 @@
     PREMIUM: 3,
     /** Premium (Business Max) */
     PREMIUM_MAX: 7,
+    /** Presence Trial */
+    PRESENCE_TRIAL: 12,
     /** Professional */
     PROFESSIONAL: 5,
   });
@@ -20857,22 +21988,6 @@
   });
 
   /**
-   * List of possible plans for FitvidSubscription subscription.
-   *
-   * @enum {number}
-   */
-  WlClient.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = Object.freeze({
-    /** Basic */
-    BASIC: 2,
-    /** Enterprise */
-    ENTERPRISE: 3,
-    /** None */
-    FREE: 1,
-    /** Premium */
-    PREMIUM: 4,
-  });
-
-  /**
    * List of possible plans for QuizSubscription subscription.
    *
    * @enum {number}
@@ -21040,6 +22155,30 @@
     INTRODUCTORY: 2,
     /** Purchase option available for clients with special login type or member group */
     TYPE: 3,
+  });
+
+  /**
+   * List of render modes.
+   *
+   * @enum {number}
+   */
+  WlClient.CoreQuizRenderModeSid = Object.freeze({
+    /** Mode for displaying the error message about access restriction to private quiz */
+    ACCESS_DENIED_PRIVATE: 8,
+    /** Mode to provide ability to perform question amendment */
+    AMEND: 5,
+    /** Mode to display only part of the question with answer element */
+    AMEND_ADD: 7,
+    /** Mode to display only answer of the question without actual question information */
+    ANSWER: 6,
+    /** Edit mode on quiz edit form */
+    EDIT: 2,
+    /** Preview mode on quiz edit form */
+    PREVIEW: 1,
+    /** Mode to display element with response */
+    REPORT: 4,
+    /** Response mode on the form where response expected */
+    RESPONSE: 3,
   });
 
   /**
@@ -21312,6 +22451,8 @@
     MARKETING: 12,
     /** Page with information about partner program */
     PARTNER: 19,
+    /** Passkeys of the staff members */
+    PASSKEY: 38,
     /** Presence landing page, where staff can get their custom website */
     PRESENCE: 23,
     /** Quiz form creator */
@@ -21332,6 +22473,8 @@
     SELF_SIGNUP: 15,
     /** Page to config custom client's app */
     SKIN_APP: 13,
+    /** Staff check-in kiosk of gym visits: the staff member stays signed in */
+    STAFF_RECEPTION: 39,
     /** Link to the page of the support page */
     SUPPORT: 10,
     /** Creation of the user */
