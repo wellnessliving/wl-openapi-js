@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261117095854
+ * Spec version: 1.1.20261117132503
  * Build date:   2026-11-17
  * Endpoints:    707
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261117095854';
+  WlClient.SPEC_VERSION = '1.1.20261117132503';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (707 total)
@@ -3920,6 +3920,7 @@
    *  `a_pay_method` {Object} A list of payment methods for the current purchase. Every element has the fol...
    *  `a_payor` {Object} Information about the payor (money owner) of the purchase. Empty when the mon...
    *  `a_price` {Object} Complete information about price information for the purchase.
+   *  `a_purchase_detail` {Object} The details of the purchase that belong to the whole purchase and not to one ...
    *  `a_purchase_item` {Object[]} A list of purchase items. Every element has the following keys:
    *  `dtl_purchase` {string} The local date of the purchase in MySQL format.
    *  `has_signature` {boolean} Determines whether the payment contained a signature.

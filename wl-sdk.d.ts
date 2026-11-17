@@ -6190,6 +6190,9 @@ export interface CoreWebSocketSubscribeResponse {
         /** Key of the changed task. */
         k_task: string;
     } | {
+        /** Time when the device was registered for the pass, in UTC and MySQL format. */
+        dtu_add: string;
+    } | {
         /** A CAS (compare-and-swap) number that allows to track changes in the report storage. */
         i_cas_change: number;
         /** Lists statuses of reports from point of view of its generation. @see ThothReportCoreGeneratorReportGeneratorStatusSid */
@@ -11722,6 +11725,26 @@ export interface WlPurchaseReceiptPurchaseReceiptResponse {
         text_currency: string;
         /** The discount code applied to the purchase. */
         text_discount_code: string;
+    };
+    /** The details of the purchase that belong to the whole purchase and not to one purchase item. The l... */
+    a_purchase_detail: {
+        /** The tickets of the purchase grouped by the event: one element for every instance of an event that... */
+        a_ticket_event: {
+            /** The key of the instance of the event. */
+            k_class: string;
+            /** The title of the event. */
+            text_event_title: string;
+            /** The URL to download the PDF file with all the tickets of the event. The file works without a login. */
+            url_download: string;
+            /** The image of a QR code, as a `data:` URI of a PNG file. A phone that scans the code adds all the ... */
+            url_phone: string;
+            /** The URL of the page to print all the tickets of the event. The page works without a login. */
+            url_print: string;
+            /** The link that adds all the tickets of the event to Apple Wallet at once. It is empty if Apple Wal... */
+            url_wallet_apple: string;
+            /** The link that adds all the tickets of the event to Google Wallet at once. It is empty if Google W... */
+            url_wallet_google: string;
+        };
     };
     /** A list of purchase items. Every element has the following keys: */
     a_purchase_item: Array<{
