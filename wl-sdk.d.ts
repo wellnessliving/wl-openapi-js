@@ -13074,8 +13074,8 @@ export interface WlCatalogCatalogListElementGetResponse {
             /** Staff display name. */
             text_staff: string;
         };
-        /** Date of expiration of coupon, local date in MySQL format. */
-        dl_expire: string;
+        /** Expiration date, local date in MySQL format. Example: `2027-02-01`. */
+        dl_expire: string | null;
         /** Current date, local date in MySQL format. */
         dl_now: string;
         /** Date to activate the coupon on, local date in MySQL format. */
@@ -13172,8 +13172,8 @@ export interface WlCatalogCatalogListElementGetResponse {
             a_component: Record<string, unknown>;
             /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
             a_staff: Record<string, unknown>;
-            /** Date of expiration of coupon, local date in MySQL format. */
-            dl_expire: string;
+            /** Expiration date, local date in MySQL format. Example: `2027-02-01`. */
+            dl_expire: string | null;
             /** Current date, local date in MySQL format. */
             dl_now: string;
             /** Date to activate the coupon on, local date in MySQL format. */
@@ -13415,8 +13415,8 @@ export interface WlCatalogCatalogListElementPostResponse {
             /** Staff display name. */
             text_staff: string;
         };
-        /** Date of expiration of coupon, local date in MySQL format. */
-        dl_expire: string;
+        /** Expiration date, local date in MySQL format. Example: `2027-02-01`. */
+        dl_expire: string | null;
         /** Current date, local date in MySQL format. */
         dl_now: string;
         /** Date to activate the coupon on, local date in MySQL format. */
@@ -13513,8 +13513,8 @@ export interface WlCatalogCatalogListElementPostResponse {
             a_component: Record<string, unknown>;
             /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
             a_staff: Record<string, unknown>;
-            /** Date of expiration of coupon, local date in MySQL format. */
-            dl_expire: string;
+            /** Expiration date, local date in MySQL format. Example: `2027-02-01`. */
+            dl_expire: string | null;
             /** Current date, local date in MySQL format. */
             dl_now: string;
             /** Date to activate the coupon on, local date in MySQL format. */
