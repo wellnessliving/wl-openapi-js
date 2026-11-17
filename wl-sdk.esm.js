@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261116210921
+// OpenAPI spec version: 1.1.20261117054921
 // Build date: 2026-11-17
-// Endpoints: 706
+// Endpoints: 707
 // Enums: 225
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -72,6 +72,156 @@ export var ThothReportCoreGeneratorReportGeneratorStatusSid;
     /** Generation of this report is now completed */
     ThothReportCoreGeneratorReportGeneratorStatusSid[ThothReportCoreGeneratorReportGeneratorStatusSid["READY"] = 3] = "READY";
 })(ThothReportCoreGeneratorReportGeneratorStatusSid || (ThothReportCoreGeneratorReportGeneratorStatusSid = {}));
+/** Reasons of failed book or check-in. */
+export var WlVisitVisitDenyReasonSid;
+(function (WlVisitVisitDenyReasonSid) {
+    /** The business can not take one more client */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ACCESS_DENIED"] = 1] = "ACCESS_DENIED";
+    /** Access is limited */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ACCESS_LIMITED"] = 2] = "ACCESS_LIMITED";
+    /** The business can not take one more client */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ACCOUNT_LIMIT"] = 3] = "ACCOUNT_LIMIT";
+    /** Class is not available for certain age */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["AGE_RESTRICTION"] = 4] = "AGE_RESTRICTION";
+    /** Liability Release needs to be agreed */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["AGREE_NX"] = 5] = "AGREE_NX";
+    /** Service approval denied */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["APPOINTMENT_DENY"] = 25] = "APPOINTMENT_DENY";
+    /** Service requires staff approval */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["APPOINTMENT_REQUEST"] = 26] = "APPOINTMENT_REQUEST";
+    /** Business Policy restricts Gym Visits */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_GYM_DISABLE"] = 23] = "ATTEND_GYM_DISABLE";
+    /** The client already has a checked-in gym visit on the same local day, at any location of the business */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_ONCE"] = 38] = "ATTEND_ONCE";
+    /** Self check-in not available for this service */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_SELF_DISABLE"] = 22] = "ATTEND_SELF_DISABLE";
+    /** Business policy prevents unpaid check-ins */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_UNPAID"] = 28] = "ATTEND_UNPAID";
+    /** Client is on the Wait List */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_WAIT"] = 27] = "ATTEND_WAIT";
+    /** Client has a negative account balance */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BALANCE_NEGATIVE"] = 37] = "BALANCE_NEGATIVE";
+    /** It's too early to book a class */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOK_EARLY"] = 7] = "BOOK_EARLY";
+    /** It's too late to book a class */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOK_LATE"] = 8] = "BOOK_LATE";
+    /** Visit must be booked before check-in */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOK_NX"] = 24] = "BOOK_NX";
+    /** Cannot book to this class anymore */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOK_RESTRICT"] = 9] = "BOOK_RESTRICT";
+    /** Client is already booked for this session */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOKED_ALREADY"] = 6] = "BOOKED_ALREADY";
+    /** Business is inactive */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BUSINESS_INACTIVE"] = 10] = "BUSINESS_INACTIVE";
+    /** Class is canceled */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CLASS_CANCELED"] = 11] = "CLASS_CANCELED";
+    /** Class is full */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CLASS_FULL"] = 14] = "CLASS_FULL";
+    /** Class does not exist anymore */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CLASS_NOT_AVAILABLE_ANYMORE"] = 15] = "CLASS_NOT_AVAILABLE_ANYMORE";
+    /** Client is flagged at location */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CLIENT_FLAGGED"] = 12] = "CLIENT_FLAGGED";
+    /** Credit card is required for booking services */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CREDIT_CARD_REQUIRE"] = 13] = "CREDIT_CARD_REQUIRE";
+    /** Business is closed */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["HOLIDAY"] = 16] = "HOLIDAY";
+    /** Login is required */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["LOGIN_REQUIRED"] = 17] = "LOGIN_REQUIRED";
+    /** Online booking is disabled for the class */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["NOT_BOOKABLE"] = 18] = "NOT_BOOKABLE";
+    /** Contract not signed */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_CONTRACT"] = 35] = "PAYMENT_CONTRACT";
+    /** Purchase Option expired */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_EXPIRE"] = 36] = "PAYMENT_EXPIRE";
+    /** Purchase Option on hold */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_HOLD"] = 34] = "PAYMENT_HOLD";
+    /** No valid Purchase Option */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_NX"] = 30] = "PAYMENT_NX";
+    /** Purchase Option has no visits left */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_REMAIN"] = 33] = "PAYMENT_REMAIN";
+    /** Purchase Option not active yet */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_START"] = 32] = "PAYMENT_START";
+    /** Attendance limit on Purchase Option reached */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["SCHEDULE_RESTRICT"] = 31] = "SCHEDULE_RESTRICT";
+    /** Check-in could not be completed */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["UNKNOWN"] = 29] = "UNKNOWN";
+    /** Required personal details missing */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["USER_INFO_MISSING"] = 19] = "USER_INFO_MISSING";
+    /** Visit to another class is required first */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["VISIT_BEFORE"] = 20] = "VISIT_BEFORE";
+    /** The wait list is full */
+    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["WAIT_LIST_LIMIT_MAX"] = 21] = "WAIT_LIST_LIMIT_MAX";
+})(WlVisitVisitDenyReasonSid || (WlVisitVisitDenyReasonSid = {}));
+/** The source of a visit. */
+export var WlModeModeSid;
+(function (WlModeModeSid) {
+    /** Action made via Api Endpoint. Default for leads created via API, unless overridden */
+    WlModeModeSid[WlModeModeSid["API"] = 28] = "API";
+    /** Registered through `Azure` */
+    WlModeModeSid[WlModeModeSid["AZURE"] = 21] = "AZURE";
+    /** Visit has been checked-in by Brivo Door Access */
+    WlModeModeSid[WlModeModeSid["BRIVO_DOOR_ACCESS"] = 31] = "BRIVO_DOOR_ACCESS";
+    /** Purchase created by a bulk billing batch charge */
+    WlModeModeSid[WlModeModeSid["BULK_BILLING"] = 33] = "BULK_BILLING";
+    /** Visit has been created by `CENTRED` */
+    WlModeModeSid[WlModeModeSid["CENTRED"] = 23] = "CENTRED";
+    /** Visit has been created by `ClassPass` */
+    WlModeModeSid[WlModeModeSid["CLASSPASS_BOOKING"] = 8] = "CLASSPASS_BOOKING";
+    /** Debt paid via collections */
+    WlModeModeSid[WlModeModeSid["COLLECTIONS"] = 22] = "COLLECTIONS";
+    /** Debt paid via collections */
+    WlModeModeSid[WlModeModeSid["COLLECTIONS_FUTURE"] = 26] = "COLLECTIONS_FUTURE";
+    /** Action from Concerto */
+    WlModeModeSid[WlModeModeSid["CONCERTO"] = 27] = "CONCERTO";
+    /** Action made via email */
+    WlModeModeSid[WlModeModeSid["EMAIL"] = 18] = "EMAIL";
+    /** Indicating that the source is Facebook */
+    WlModeModeSid[WlModeModeSid["FACEBOOK"] = 20] = "FACEBOOK";
+    /** Action from Go High Level */
+    WlModeModeSid[WlModeModeSid["GO_HIGH_LEVEL"] = 30] = "GO_HIGH_LEVEL";
+    /** Indicating that the source is Google */
+    WlModeModeSid[WlModeModeSid["GOOGLE"] = 19] = "GOOGLE";
+    /** Visit has been created by Google Booking Service */
+    WlModeModeSid[WlModeModeSid["GOOGLE_BOOKING"] = 7] = "GOOGLE_BOOKING";
+    /** Visit has been created by `GymPass` */
+    WlModeModeSid[WlModeModeSid["GYMPASS_BOOKING"] = 14] = "GYMPASS_BOOKING";
+    /** Visit was created during import */
+    WlModeModeSid[WlModeModeSid["IMPORT"] = 5] = "IMPORT";
+    /** Action made via microsite */
+    WlModeModeSid[WlModeModeSid["MICROSITE"] = 12] = "MICROSITE";
+    /** Indicating that the source is Microsoft */
+    WlModeModeSid[WlModeModeSid["MICROSOFT"] = 24] = "MICROSOFT";
+    /** Client booked session on My Presence Site */
+    WlModeModeSid[WlModeModeSid["MY_PRESENCE_SITE"] = 13] = "MY_PRESENCE_SITE";
+    /** Visit has been created by `Passport Door Access` */
+    WlModeModeSid[WlModeModeSid["PASSPORT_DOOR_ACCESS"] = 32] = "PASSPORT_DOOR_ACCESS";
+    /** Action made via SMS */
+    WlModeModeSid[WlModeModeSid["SMS"] = 17] = "SMS";
+    /** Staff booked session from spa backend */
+    WlModeModeSid[WlModeModeSid["SPA_BACKEND"] = 4] = "SPA_BACKEND";
+    /** Client booked session from spa frontend */
+    WlModeModeSid[WlModeModeSid["SPA_FRONTEND"] = 3] = "SPA_FRONTEND";
+    /** Staff member checked the client in at the staff check-in kiosk */
+    WlModeModeSid[WlModeModeSid["STAFF_KIOSK"] = 35] = "STAFF_KIOSK";
+    /** Created by system */
+    WlModeModeSid[WlModeModeSid["SYSTEM"] = 10] = "SYSTEM";
+    /** Means that we did not define mode */
+    WlModeModeSid[WlModeModeSid["UNDEFINED"] = 6] = "UNDEFINED";
+    /** Sale made automatically on wait list promotion */
+    WlModeModeSid[WlModeModeSid["WAIT_LIST_PROMOTION"] = 34] = "WAIT_LIST_PROMOTION";
+    /** Client booked session from Attendance Web App */
+    WlModeModeSid[WlModeModeSid["WEB_APP_ATTENDANCE"] = 16] = "WEB_APP_ATTENDANCE";
+    /** Client checked-in for the session through Check-In Web App */
+    WlModeModeSid[WlModeModeSid["WEB_APP_CHECK_IN"] = 15] = "WEB_APP_CHECK_IN";
+    /** Staff booked session for client from website backend */
+    WlModeModeSid[WlModeModeSid["WEB_BACKEND"] = 2] = "WEB_BACKEND";
+    /** Client booked session from website frontend */
+    WlModeModeSid[WlModeModeSid["WEB_FRONTEND"] = 1] = "WEB_FRONTEND";
+    /** Action made via widget (purchase, book etc) */
+    WlModeModeSid[WlModeModeSid["WIDGET"] = 11] = "WIDGET";
+    /** Action from Zapier */
+    WlModeModeSid[WlModeModeSid["ZAPIER"] = 25] = "ZAPIER";
+})(WlModeModeSid || (WlModeModeSid = {}));
 /** Statuses of domain verification. */
 export var WlMailDomainDomainVerifyStatusSid;
 (function (WlMailDomainDomainVerifyStatusSid) {
@@ -1532,76 +1682,6 @@ export var RsProgramTypeSid;
     /** Special WellnessLiving promote passes that allow to visit specific classes to get acquainted with the business */
     RsProgramTypeSid[RsProgramTypeSid["PROSPECT"] = 5] = "PROSPECT";
 })(RsProgramTypeSid || (RsProgramTypeSid = {}));
-/** The source of a visit. */
-export var WlModeModeSid;
-(function (WlModeModeSid) {
-    /** Action made via Api Endpoint. Default for leads created via API, unless overridden */
-    WlModeModeSid[WlModeModeSid["API"] = 28] = "API";
-    /** Registered through `Azure` */
-    WlModeModeSid[WlModeModeSid["AZURE"] = 21] = "AZURE";
-    /** Visit has been checked-in by Brivo Door Access */
-    WlModeModeSid[WlModeModeSid["BRIVO_DOOR_ACCESS"] = 31] = "BRIVO_DOOR_ACCESS";
-    /** Purchase created by a bulk billing batch charge */
-    WlModeModeSid[WlModeModeSid["BULK_BILLING"] = 33] = "BULK_BILLING";
-    /** Visit has been created by `CENTRED` */
-    WlModeModeSid[WlModeModeSid["CENTRED"] = 23] = "CENTRED";
-    /** Visit has been created by `ClassPass` */
-    WlModeModeSid[WlModeModeSid["CLASSPASS_BOOKING"] = 8] = "CLASSPASS_BOOKING";
-    /** Debt paid via collections */
-    WlModeModeSid[WlModeModeSid["COLLECTIONS"] = 22] = "COLLECTIONS";
-    /** Debt paid via collections */
-    WlModeModeSid[WlModeModeSid["COLLECTIONS_FUTURE"] = 26] = "COLLECTIONS_FUTURE";
-    /** Action from Concerto */
-    WlModeModeSid[WlModeModeSid["CONCERTO"] = 27] = "CONCERTO";
-    /** Action made via email */
-    WlModeModeSid[WlModeModeSid["EMAIL"] = 18] = "EMAIL";
-    /** Indicating that the source is Facebook */
-    WlModeModeSid[WlModeModeSid["FACEBOOK"] = 20] = "FACEBOOK";
-    /** Action from Go High Level */
-    WlModeModeSid[WlModeModeSid["GO_HIGH_LEVEL"] = 30] = "GO_HIGH_LEVEL";
-    /** Indicating that the source is Google */
-    WlModeModeSid[WlModeModeSid["GOOGLE"] = 19] = "GOOGLE";
-    /** Visit has been created by Google Booking Service */
-    WlModeModeSid[WlModeModeSid["GOOGLE_BOOKING"] = 7] = "GOOGLE_BOOKING";
-    /** Visit has been created by `GymPass` */
-    WlModeModeSid[WlModeModeSid["GYMPASS_BOOKING"] = 14] = "GYMPASS_BOOKING";
-    /** Visit was created during import */
-    WlModeModeSid[WlModeModeSid["IMPORT"] = 5] = "IMPORT";
-    /** Action made via microsite */
-    WlModeModeSid[WlModeModeSid["MICROSITE"] = 12] = "MICROSITE";
-    /** Indicating that the source is Microsoft */
-    WlModeModeSid[WlModeModeSid["MICROSOFT"] = 24] = "MICROSOFT";
-    /** Client booked session on My Presence Site */
-    WlModeModeSid[WlModeModeSid["MY_PRESENCE_SITE"] = 13] = "MY_PRESENCE_SITE";
-    /** Visit has been created by `Passport Door Access` */
-    WlModeModeSid[WlModeModeSid["PASSPORT_DOOR_ACCESS"] = 32] = "PASSPORT_DOOR_ACCESS";
-    /** Action made via SMS */
-    WlModeModeSid[WlModeModeSid["SMS"] = 17] = "SMS";
-    /** Staff booked session from spa backend */
-    WlModeModeSid[WlModeModeSid["SPA_BACKEND"] = 4] = "SPA_BACKEND";
-    /** Client booked session from spa frontend */
-    WlModeModeSid[WlModeModeSid["SPA_FRONTEND"] = 3] = "SPA_FRONTEND";
-    /** Staff member checked the client in at the staff check-in kiosk */
-    WlModeModeSid[WlModeModeSid["STAFF_KIOSK"] = 35] = "STAFF_KIOSK";
-    /** Created by system */
-    WlModeModeSid[WlModeModeSid["SYSTEM"] = 10] = "SYSTEM";
-    /** Means that we did not define mode */
-    WlModeModeSid[WlModeModeSid["UNDEFINED"] = 6] = "UNDEFINED";
-    /** Sale made automatically on wait list promotion */
-    WlModeModeSid[WlModeModeSid["WAIT_LIST_PROMOTION"] = 34] = "WAIT_LIST_PROMOTION";
-    /** Client booked session from Attendance Web App */
-    WlModeModeSid[WlModeModeSid["WEB_APP_ATTENDANCE"] = 16] = "WEB_APP_ATTENDANCE";
-    /** Client checked-in for the session through Check-In Web App */
-    WlModeModeSid[WlModeModeSid["WEB_APP_CHECK_IN"] = 15] = "WEB_APP_CHECK_IN";
-    /** Staff booked session for client from website backend */
-    WlModeModeSid[WlModeModeSid["WEB_BACKEND"] = 2] = "WEB_BACKEND";
-    /** Client booked session from website frontend */
-    WlModeModeSid[WlModeModeSid["WEB_FRONTEND"] = 1] = "WEB_FRONTEND";
-    /** Action made via widget (purchase, book etc) */
-    WlModeModeSid[WlModeModeSid["WIDGET"] = 11] = "WIDGET";
-    /** Action from Zapier */
-    WlModeModeSid[WlModeModeSid["ZAPIER"] = 25] = "ZAPIER";
-})(WlModeModeSid || (WlModeModeSid = {}));
 /** List of general fields in user's profile. */
 export var RsFieldGeneralSid;
 (function (RsFieldGeneralSid) {
@@ -3670,86 +3750,6 @@ export var WlVisitNoteSidNoteSid;
     /** Accompanying medical note for the customer visit */
     WlVisitNoteSidNoteSid[WlVisitNoteSidNoteSid["SOAP"] = 1] = "SOAP";
 })(WlVisitNoteSidNoteSid || (WlVisitNoteSidNoteSid = {}));
-/** Reasons of failed book or check-in. */
-export var WlVisitVisitDenyReasonSid;
-(function (WlVisitVisitDenyReasonSid) {
-    /** The business can not take one more client */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ACCESS_DENIED"] = 1] = "ACCESS_DENIED";
-    /** Access is limited */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ACCESS_LIMITED"] = 2] = "ACCESS_LIMITED";
-    /** The business can not take one more client */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ACCOUNT_LIMIT"] = 3] = "ACCOUNT_LIMIT";
-    /** Class is not available for certain age */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["AGE_RESTRICTION"] = 4] = "AGE_RESTRICTION";
-    /** Liability Release needs to be agreed */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["AGREE_NX"] = 5] = "AGREE_NX";
-    /** Service approval denied */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["APPOINTMENT_DENY"] = 25] = "APPOINTMENT_DENY";
-    /** Service requires staff approval */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["APPOINTMENT_REQUEST"] = 26] = "APPOINTMENT_REQUEST";
-    /** Business Policy restricts Gym Visits */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_GYM_DISABLE"] = 23] = "ATTEND_GYM_DISABLE";
-    /** The client already has a checked-in gym visit on the same local day, at any location of the business */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_ONCE"] = 38] = "ATTEND_ONCE";
-    /** Self check-in not available for this service */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_SELF_DISABLE"] = 22] = "ATTEND_SELF_DISABLE";
-    /** Business policy prevents unpaid check-ins */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_UNPAID"] = 28] = "ATTEND_UNPAID";
-    /** Client is on the Wait List */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["ATTEND_WAIT"] = 27] = "ATTEND_WAIT";
-    /** Client has a negative account balance */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BALANCE_NEGATIVE"] = 37] = "BALANCE_NEGATIVE";
-    /** It's too early to book a class */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOK_EARLY"] = 7] = "BOOK_EARLY";
-    /** It's too late to book a class */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOK_LATE"] = 8] = "BOOK_LATE";
-    /** Visit must be booked before check-in */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOK_NX"] = 24] = "BOOK_NX";
-    /** Cannot book to this class anymore */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOK_RESTRICT"] = 9] = "BOOK_RESTRICT";
-    /** Client is already booked for this session */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BOOKED_ALREADY"] = 6] = "BOOKED_ALREADY";
-    /** Business is inactive */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["BUSINESS_INACTIVE"] = 10] = "BUSINESS_INACTIVE";
-    /** Class is canceled */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CLASS_CANCELED"] = 11] = "CLASS_CANCELED";
-    /** Class is full */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CLASS_FULL"] = 14] = "CLASS_FULL";
-    /** Class does not exist anymore */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CLASS_NOT_AVAILABLE_ANYMORE"] = 15] = "CLASS_NOT_AVAILABLE_ANYMORE";
-    /** Client is flagged at location */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CLIENT_FLAGGED"] = 12] = "CLIENT_FLAGGED";
-    /** Credit card is required for booking services */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["CREDIT_CARD_REQUIRE"] = 13] = "CREDIT_CARD_REQUIRE";
-    /** Business is closed */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["HOLIDAY"] = 16] = "HOLIDAY";
-    /** Login is required */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["LOGIN_REQUIRED"] = 17] = "LOGIN_REQUIRED";
-    /** Online booking is disabled for the class */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["NOT_BOOKABLE"] = 18] = "NOT_BOOKABLE";
-    /** Contract not signed */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_CONTRACT"] = 35] = "PAYMENT_CONTRACT";
-    /** Purchase Option expired */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_EXPIRE"] = 36] = "PAYMENT_EXPIRE";
-    /** Purchase Option on hold */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_HOLD"] = 34] = "PAYMENT_HOLD";
-    /** No valid Purchase Option */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_NX"] = 30] = "PAYMENT_NX";
-    /** Purchase Option has no visits left */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_REMAIN"] = 33] = "PAYMENT_REMAIN";
-    /** Purchase Option not active yet */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["PAYMENT_START"] = 32] = "PAYMENT_START";
-    /** Attendance limit on Purchase Option reached */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["SCHEDULE_RESTRICT"] = 31] = "SCHEDULE_RESTRICT";
-    /** Check-in could not be completed */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["UNKNOWN"] = 29] = "UNKNOWN";
-    /** Required personal details missing */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["USER_INFO_MISSING"] = 19] = "USER_INFO_MISSING";
-    /** Visit to another class is required first */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["VISIT_BEFORE"] = 20] = "VISIT_BEFORE";
-    /** The wait list is full */
-    WlVisitVisitDenyReasonSid[WlVisitVisitDenyReasonSid["WAIT_LIST_LIMIT_MAX"] = 21] = "WAIT_LIST_LIMIT_MAX";
-})(WlVisitVisitDenyReasonSid || (WlVisitVisitDenyReasonSid = {}));
 /** Results of a scan at the staff check-in kiosk. */
 export var WlVisitKioskScanResultSid;
 (function (WlVisitKioskScanResultSid) {
@@ -7331,6 +7331,10 @@ export class WlVisitKioskNamespace {
     /** Evaluates a gym check-in of the client. */
     evaluate(params) {
         return this._client._request('/Wl/Visit/Kiosk/Evaluate.json', params, 'GET');
+    }
+    /** Sends the client an email with the waiver or the contract that the client has not signed. */
+    signSend(params) {
+        return this._client._request('/Wl/Visit/Kiosk/SignSend.json', params, 'POST');
     }
 }
 export class WlVisitBillingCodeNamespace {

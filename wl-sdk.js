@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261116210921
+ * Spec version: 1.1.20261117054921
  * Build date:   2026-11-17
- * Endpoints:    706
+ * Endpoints:    707
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261116210921';
+  WlClient.SPEC_VERSION = '1.1.20261117054921';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (706 total)
+  // Generated API methods (707 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -602,7 +602,7 @@
    *  `dtl_date` {string} The visit date in the location's time zone and in MySQL format.
    *  `i_duration` {number} The service duration (in minutes).
    *  `i_wait_spot` {number} The client's place in a waiting list.
-   *  `id_mode` {number} The source of a visit. See {@link WlClient.WlModeModeSid}.
+   *  `id_mode` {?number} The source of a visit. See {@link WlClient.WlModeModeSid}.
    *  `id_visit` {number} Possible states of the visit: book, attended, cancelled, etc. See {@link WlClient.WlVisitVisitSid}.
    *  `is_event` {boolean} Determines whether the visit is from an event.
    *  `is_request` {boolean} Whether this visit is requested and requires staff confirmation.
@@ -4683,6 +4683,25 @@
   };
 
   /**
+   * Sends the client an email with the waiver or the contract that the client has not signed.
+   *
+   * Without {@link WlClient#wlVisitKioskSignSend} the waiver of the business is sent, if the business requires a
+   * waiver and the client has not signed it. With it, the contract of that purchase item is sent, if it is a
+   * contract of the business that the client has not signed. The email is the copy of the document that the
+   * profile of the client sends, without a date of signing. A normal answer means that the email is queued; the
+   * email address is not returned.
+   * 
+   * ...
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlVisitKioskSignSend = function(params)
+  {
+    return this.request('/Wl/Visit/Kiosk/SignSend.json', params || {}, 'POST');
+  };
+
+  /**
    * Allows to pay items for the client.
    *
    * The checkout endpoint that finalizes a purchase in the client-facing store. Charges the client's
@@ -4694,7 +4713,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_commission The staff commission earned for this purchase. If this isn't empty, it has the next fields:
-   * @param {number} params.id_mode The WellnessLiving mode type (required). One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The WellnessLiving mode type (required). One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_guest Determines if the payment owner is an anonymous user (optional).
    * @param {boolean} params.is_staff Specify this if operations are performed by the staff member (optional).
    * @param {string} params.k_business The business key (required).
@@ -6256,7 +6275,7 @@
    *  inheritance. Returns the identifier of the newly created account.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} [params.id_mode] ID of source mode. One of {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} [params.id_mode] ID of source mode. One of {@link WlClient.WlModeModeSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {?boolean} [params.is_address_inherit] Whether the address be inherited.
    * @param {boolean} params.is_short Indicates whether to display the full profile edit form or the short version.
@@ -6361,7 +6380,7 @@
    *  inheritance. Returns the identifier of the newly created account.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} [params.id_mode] ID of source mode. One of {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} [params.id_mode] ID of source mode. One of {@link WlClient.WlModeModeSid} constants.
    * @param {?number} [params.id_register_source] Registration source ID. See {@link WlClient.WlProfileRegisterSourceSid}.
    * @param {?boolean} [params.is_address_inherit] Whether the address be inherited.
    * @param {boolean} params.is_short Indicates whether to display the full profile edit form or the short version.
@@ -7071,7 +7090,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -7096,7 +7115,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -7132,7 +7151,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -7168,7 +7187,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -8119,7 +8138,7 @@
    * logs the removal, reindexes the client in search, and clears the related report and quiz note caches.
    *
    * @param {Object} [params] Request parameters.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz login key.
    * @param {string} params.k_quiz_login Quiz login key.
@@ -8194,7 +8213,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_quiz_response_key Quiz response key list.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {?string} [params.k_quiz_response] Quiz response key.
@@ -8291,7 +8310,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_quiz_response_key Quiz response key list.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz Quiz key.
    * @param {?string} [params.k_quiz_response] Quiz response key.
@@ -11427,7 +11446,7 @@
    * @param {string} params.dtl_date The selected date and time of the asset booking. It is used in cases when the business booking po...
    * @param {number} params.i_image_height Image height in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {number} params.i_image_width Image width in pixels. Please specify this value if you need image to be returned in specific size.
-   * @param {number} params.id_mode Mode type, one of {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode Mode type, one of {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend This is `true` if asset categories are loaded for back-end mode. Otherwise, this will be `false` ...
    * @param {boolean} params.is_tab_all `true` - search in all tabs.
    * @param {string} params.k_appointment Key of the appointment, if we reschedule existing appointment.
@@ -11482,7 +11501,7 @@
    * @param {number} params.i_duration The asset booking duration.
    * @param {?number} [params.i_height] Image height in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {?number} [params.i_width] Image width in pixels. Please specify this value if you need image to be returned in specific size.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` - get all Purchase Options suitable for appointment.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {?string} [params.k_appointment] Appointment key.
@@ -11524,7 +11543,7 @@
    * @param {number} params.i_duration The asset booking duration.
    * @param {?number} [params.i_height] Image height in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {?number} [params.i_width] Image width in pixels. Please specify this value if you need image to be returned in specific size.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` - get all Purchase Options suitable for appointment.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_location Location to show available appointment booking schedule.
@@ -11565,7 +11584,7 @@
    * @param {number} params.i_duration The asset booking duration.
    * @param {?number} [params.i_height] Image height in pixels. Please specify this value if you need image to be returned in specific size.
    * @param {?number} [params.i_width] Image width in pixels. Please specify this value if you need image to be returned in specific size.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` - get all Purchase Options suitable for appointment.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {?string} [params.k_appointment] Appointment key.
@@ -11604,7 +11623,7 @@
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_book_data Information detailing an appointment booking:
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
+   * @param {?number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
    * @param {number} params.id_purchase_item The purchase item ID. A constant of {@link WlClient.RsPurchaseItemSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {?string} [params.k_business] The business key. Currently used only with {@link WlClient#wlAppointmentBookPaymentPaymentGet} va...
@@ -11644,7 +11663,7 @@
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_book_data Information detailing an appointment booking:
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
+   * @param {?number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
    * @param {number} params.id_purchase_item The purchase item ID. A constant of {@link WlClient.RsPurchaseItemSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_id The item key. Depends on {@link WlClient#wlAppointmentBookPaymentPaymentGet} property.
@@ -11674,7 +11693,7 @@
    * @param {Object} [params] Request parameters.
    * @param {Object} params.a_book_data The booking process information:
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {number} params.id_mode The ID of the source mode. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The ID of the source mode. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.text_coupon_code The gift card code.
@@ -11707,7 +11726,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {number} params.id_mode The ID of the source mode. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The ID of the source mode. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_location Location to show available appointment booking schedule.
    * @param {string} params.text_coupon_code The gift card code.
@@ -11733,7 +11752,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
+   * @param {?number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
    * @param {number} params.id_purchase_item The purchase item ID. A constant of {@link WlClient.RsPurchaseItemSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {?string} [params.k_business] The business key. Currently used only with {@link WlClient#wlAppointmentBookPaymentPaymentGet} va...
@@ -11771,7 +11790,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_uid List of user keys to book appointments.
-   * @param {number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
+   * @param {?number} params.id_mode The key of source mode. A constant of {@link WlClient.WlModeModeSid}.
    * @param {number} params.id_purchase_item The purchase item ID. A constant of {@link WlClient.RsPurchaseItemSid}.
    * @param {boolean} params.is_walk_in If `true`, the client is a walk-in. Otherwise, this will be `false`.
    * @param {string} params.k_id The item key. Depends on {@link WlClient#wlAppointmentBookPaymentPaymentGet} property.
@@ -12791,7 +12810,7 @@
    * @param {string} params.dt_start The start date, returned in MySQL format and the local time.
    * @param {number} params.id_class_modify_action The class modify step type. One of the {@link WlClient.RsClassModifyActionSid} constants.
    * @param {number} params.id_class_modify_mode The modify mode type. One of the {@link WlClient.RsClassModifyModeSid} constants.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {number} params.id_step The class modify action type. One of the {@link WlClient.RsClassModifyModeSid} constants.
    * @param {?boolean} [params.is_back] The step direction.
    * @param {string} params.k_business The business key.
@@ -13257,7 +13276,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -13302,7 +13321,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -13329,7 +13348,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -13374,7 +13393,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -13446,7 +13465,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -13473,7 +13492,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -13500,7 +13519,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -13521,7 +13540,7 @@
    * @param {Object} [params] Request parameters.
    * @param {Object[]} params.a_purchase_item The list of purchase items. Each element has the format `[id_purchase_item]::[k_id]`, where:
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -13544,7 +13563,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -13756,7 +13775,7 @@
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
    * @param {number} params.i_image_height The image height in pixels. Specify this value if you need image to be returned in specific size.
    * @param {number} params.i_image_width The image width in pixels. Specify this value if you need image to be returned in specific size.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_card_authorize Determines if the client must authorize the credit card.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
@@ -13791,7 +13810,7 @@
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
    * @param {number} params.i_image_height The image height in pixels. Specify this value if you need image to be returned in specific size.
    * @param {number} params.i_image_width The image width in pixels. Specify this value if you need image to be returned in specific size.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_card_authorize Determines if the client must authorize the credit card.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
@@ -13831,7 +13850,7 @@
    * @param {number} params.i_count Count of the visits to be created. Not empty only when {@link WlClient#wlBookProcessFrequencyRepe... See {@link WlClient.RsRepeatEndSid}.
    * @param {number} params.i_duration Count of days\weeks\months between recurring bookings.
    * @param {number} params.id_duration Recurring booking interval, one of {@link WlClient.ADurationSid} constants.
-   * @param {number} params.id_mode WellnessLiving mode, one of {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode WellnessLiving mode, one of {@link WlClient.WlModeModeSid} constants.
    * @param {number} params.id_repeat_end Type of repeating, one of {@link WlClient.RsRepeatEndSid} constants.
    * @param {boolean} params.is_cancel `true` when cancelling booking, `false` otherwise.
    * @param {boolean} params.is_new_user `true` if current user is not created yet, `false` otherwise.
@@ -13869,7 +13888,7 @@
    * @param {number} params.i_count Count of the visits to be created. Not empty only when {@link WlClient#wlBookProcessFrequencyRepe... See {@link WlClient.RsRepeatEndSid}.
    * @param {number} params.i_duration Count of days\weeks\months between recurring bookings.
    * @param {number} params.id_duration Recurring booking interval, one of {@link WlClient.ADurationSid} constants.
-   * @param {number} params.id_mode WellnessLiving mode, one of {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode WellnessLiving mode, one of {@link WlClient.WlModeModeSid} constants.
    * @param {number} params.id_repeat_end Type of repeating, one of {@link WlClient.RsRepeatEndSid} constants.
    * @param {boolean} params.is_cancel `true` when cancelling booking, `false` otherwise.
    * @param {boolean} params.is_include_parallel `true` to also include sessions running in parallel at the same time and location
@@ -13901,7 +13920,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_session The selected sessions.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.json_session Selected sessions.
@@ -13925,7 +13944,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_session The selected sessions.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.json_session Selected sessions.
@@ -13953,7 +13972,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_session The selected sessions.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -13978,7 +13997,7 @@
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_session The selected sessions.
    * @param {string} params.dt_date_gmt Date/time to which session is booked.
-   * @param {number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode The mode type. One of the {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend `true` if action is performed as a staff member; `false` otherwise.
    * @param {boolean} params.is_credit_card_check Checking whether the client has a credit card (if configured in the business) will be skipped if ...
    * @param {string} params.k_class_period Key of session which is booked.
@@ -14833,7 +14852,7 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.dt_start The appointment booking date selected by the user.
-   * @param {number} params.id_mode Mode type, one of {@link WlClient.WlModeModeSid} constants.
+   * @param {?number} params.id_mode Mode type, one of {@link WlClient.WlModeModeSid} constants.
    * @param {boolean} params.is_backend If `true`, back-end mode is selected.
    * @param {boolean} params.is_grid_any Whether to show both grid layouts and custom layouts.
    * @param {boolean} params.is_show_unavailable_assets Whether unavailable assets should be included.
@@ -15509,6 +15528,164 @@
     QUEUED: 1,
     /** Generation of this report is now completed */
     READY: 3,
+  });
+
+  /**
+   * Reasons of failed book or check-in.
+   *
+   * @enum {number}
+   */
+  WlClient.WlVisitVisitDenyReasonSid = Object.freeze({
+    /** The business can not take one more client */
+    ACCESS_DENIED: 1,
+    /** Access is limited */
+    ACCESS_LIMITED: 2,
+    /** The business can not take one more client */
+    ACCOUNT_LIMIT: 3,
+    /** Class is not available for certain age */
+    AGE_RESTRICTION: 4,
+    /** Liability Release needs to be agreed */
+    AGREE_NX: 5,
+    /** Service approval denied */
+    APPOINTMENT_DENY: 25,
+    /** Service requires staff approval */
+    APPOINTMENT_REQUEST: 26,
+    /** Business Policy restricts Gym Visits */
+    ATTEND_GYM_DISABLE: 23,
+    /** The client already has a checked-in gym visit on the same local day, at any location of the business */
+    ATTEND_ONCE: 38,
+    /** Self check-in not available for this service */
+    ATTEND_SELF_DISABLE: 22,
+    /** Business policy prevents unpaid check-ins */
+    ATTEND_UNPAID: 28,
+    /** Client is on the Wait List */
+    ATTEND_WAIT: 27,
+    /** Client has a negative account balance */
+    BALANCE_NEGATIVE: 37,
+    /** It's too early to book a class */
+    BOOK_EARLY: 7,
+    /** It's too late to book a class */
+    BOOK_LATE: 8,
+    /** Visit must be booked before check-in */
+    BOOK_NX: 24,
+    /** Cannot book to this class anymore */
+    BOOK_RESTRICT: 9,
+    /** Client is already booked for this session */
+    BOOKED_ALREADY: 6,
+    /** Business is inactive */
+    BUSINESS_INACTIVE: 10,
+    /** Class is canceled */
+    CLASS_CANCELED: 11,
+    /** Class is full */
+    CLASS_FULL: 14,
+    /** Class does not exist anymore */
+    CLASS_NOT_AVAILABLE_ANYMORE: 15,
+    /** Client is flagged at location */
+    CLIENT_FLAGGED: 12,
+    /** Credit card is required for booking services */
+    CREDIT_CARD_REQUIRE: 13,
+    /** Business is closed */
+    HOLIDAY: 16,
+    /** Login is required */
+    LOGIN_REQUIRED: 17,
+    /** Online booking is disabled for the class */
+    NOT_BOOKABLE: 18,
+    /** Contract not signed */
+    PAYMENT_CONTRACT: 35,
+    /** Purchase Option expired */
+    PAYMENT_EXPIRE: 36,
+    /** Purchase Option on hold */
+    PAYMENT_HOLD: 34,
+    /** No valid Purchase Option */
+    PAYMENT_NX: 30,
+    /** Purchase Option has no visits left */
+    PAYMENT_REMAIN: 33,
+    /** Purchase Option not active yet */
+    PAYMENT_START: 32,
+    /** Attendance limit on Purchase Option reached */
+    SCHEDULE_RESTRICT: 31,
+    /** Check-in could not be completed */
+    UNKNOWN: 29,
+    /** Required personal details missing */
+    USER_INFO_MISSING: 19,
+    /** Visit to another class is required first */
+    VISIT_BEFORE: 20,
+    /** The wait list is full */
+    WAIT_LIST_LIMIT_MAX: 21,
+  });
+
+  /**
+   * The source of a visit.
+   *
+   * @enum {number}
+   */
+  WlClient.WlModeModeSid = Object.freeze({
+    /** Action made via Api Endpoint. Default for leads created via API, unless overridden */
+    API: 28,
+    /** Registered through `Azure` */
+    AZURE: 21,
+    /** Visit has been checked-in by Brivo Door Access */
+    BRIVO_DOOR_ACCESS: 31,
+    /** Purchase created by a bulk billing batch charge */
+    BULK_BILLING: 33,
+    /** Visit has been created by `CENTRED` */
+    CENTRED: 23,
+    /** Visit has been created by `ClassPass` */
+    CLASSPASS_BOOKING: 8,
+    /** Debt paid via collections */
+    COLLECTIONS: 22,
+    /** Debt paid via collections */
+    COLLECTIONS_FUTURE: 26,
+    /** Action from Concerto */
+    CONCERTO: 27,
+    /** Action made via email */
+    EMAIL: 18,
+    /** Indicating that the source is Facebook */
+    FACEBOOK: 20,
+    /** Action from Go High Level */
+    GO_HIGH_LEVEL: 30,
+    /** Indicating that the source is Google */
+    GOOGLE: 19,
+    /** Visit has been created by Google Booking Service */
+    GOOGLE_BOOKING: 7,
+    /** Visit has been created by `GymPass` */
+    GYMPASS_BOOKING: 14,
+    /** Visit was created during import */
+    IMPORT: 5,
+    /** Action made via microsite */
+    MICROSITE: 12,
+    /** Indicating that the source is Microsoft */
+    MICROSOFT: 24,
+    /** Client booked session on My Presence Site */
+    MY_PRESENCE_SITE: 13,
+    /** Visit has been created by `Passport Door Access` */
+    PASSPORT_DOOR_ACCESS: 32,
+    /** Action made via SMS */
+    SMS: 17,
+    /** Staff booked session from spa backend */
+    SPA_BACKEND: 4,
+    /** Client booked session from spa frontend */
+    SPA_FRONTEND: 3,
+    /** Staff member checked the client in at the staff check-in kiosk */
+    STAFF_KIOSK: 35,
+    /** Created by system */
+    SYSTEM: 10,
+    /** Means that we did not define mode */
+    UNDEFINED: 6,
+    /** Sale made automatically on wait list promotion */
+    WAIT_LIST_PROMOTION: 34,
+    /** Client booked session from Attendance Web App */
+    WEB_APP_ATTENDANCE: 16,
+    /** Client checked-in for the session through Check-In Web App */
+    WEB_APP_CHECK_IN: 15,
+    /** Staff booked session for client from website backend */
+    WEB_BACKEND: 2,
+    /** Client booked session from website frontend */
+    WEB_FRONTEND: 1,
+    /** Action made via widget (purchase, book etc) */
+    WIDGET: 11,
+    /** Action from Zapier */
+    ZAPIER: 25,
   });
 
   /**
@@ -17065,80 +17242,6 @@
     PASS: 2,
     /** Special WellnessLiving promote passes that allow to visit specific classes to get acquainted with the business */
     PROSPECT: 5,
-  });
-
-  /**
-   * The source of a visit.
-   *
-   * @enum {number}
-   */
-  WlClient.WlModeModeSid = Object.freeze({
-    /** Action made via Api Endpoint. Default for leads created via API, unless overridden */
-    API: 28,
-    /** Registered through `Azure` */
-    AZURE: 21,
-    /** Visit has been checked-in by Brivo Door Access */
-    BRIVO_DOOR_ACCESS: 31,
-    /** Purchase created by a bulk billing batch charge */
-    BULK_BILLING: 33,
-    /** Visit has been created by `CENTRED` */
-    CENTRED: 23,
-    /** Visit has been created by `ClassPass` */
-    CLASSPASS_BOOKING: 8,
-    /** Debt paid via collections */
-    COLLECTIONS: 22,
-    /** Debt paid via collections */
-    COLLECTIONS_FUTURE: 26,
-    /** Action from Concerto */
-    CONCERTO: 27,
-    /** Action made via email */
-    EMAIL: 18,
-    /** Indicating that the source is Facebook */
-    FACEBOOK: 20,
-    /** Action from Go High Level */
-    GO_HIGH_LEVEL: 30,
-    /** Indicating that the source is Google */
-    GOOGLE: 19,
-    /** Visit has been created by Google Booking Service */
-    GOOGLE_BOOKING: 7,
-    /** Visit has been created by `GymPass` */
-    GYMPASS_BOOKING: 14,
-    /** Visit was created during import */
-    IMPORT: 5,
-    /** Action made via microsite */
-    MICROSITE: 12,
-    /** Indicating that the source is Microsoft */
-    MICROSOFT: 24,
-    /** Client booked session on My Presence Site */
-    MY_PRESENCE_SITE: 13,
-    /** Visit has been created by `Passport Door Access` */
-    PASSPORT_DOOR_ACCESS: 32,
-    /** Action made via SMS */
-    SMS: 17,
-    /** Staff booked session from spa backend */
-    SPA_BACKEND: 4,
-    /** Client booked session from spa frontend */
-    SPA_FRONTEND: 3,
-    /** Staff member checked the client in at the staff check-in kiosk */
-    STAFF_KIOSK: 35,
-    /** Created by system */
-    SYSTEM: 10,
-    /** Means that we did not define mode */
-    UNDEFINED: 6,
-    /** Sale made automatically on wait list promotion */
-    WAIT_LIST_PROMOTION: 34,
-    /** Client booked session from Attendance Web App */
-    WEB_APP_ATTENDANCE: 16,
-    /** Client checked-in for the session through Check-In Web App */
-    WEB_APP_CHECK_IN: 15,
-    /** Staff booked session for client from website backend */
-    WEB_BACKEND: 2,
-    /** Client booked session from website frontend */
-    WEB_FRONTEND: 1,
-    /** Action made via widget (purchase, book etc) */
-    WIDGET: 11,
-    /** Action from Zapier */
-    ZAPIER: 25,
   });
 
   /**
@@ -19487,90 +19590,6 @@
     QUICK: 2,
     /** Accompanying medical note for the customer visit */
     SOAP: 1,
-  });
-
-  /**
-   * Reasons of failed book or check-in.
-   *
-   * @enum {number}
-   */
-  WlClient.WlVisitVisitDenyReasonSid = Object.freeze({
-    /** The business can not take one more client */
-    ACCESS_DENIED: 1,
-    /** Access is limited */
-    ACCESS_LIMITED: 2,
-    /** The business can not take one more client */
-    ACCOUNT_LIMIT: 3,
-    /** Class is not available for certain age */
-    AGE_RESTRICTION: 4,
-    /** Liability Release needs to be agreed */
-    AGREE_NX: 5,
-    /** Service approval denied */
-    APPOINTMENT_DENY: 25,
-    /** Service requires staff approval */
-    APPOINTMENT_REQUEST: 26,
-    /** Business Policy restricts Gym Visits */
-    ATTEND_GYM_DISABLE: 23,
-    /** The client already has a checked-in gym visit on the same local day, at any location of the business */
-    ATTEND_ONCE: 38,
-    /** Self check-in not available for this service */
-    ATTEND_SELF_DISABLE: 22,
-    /** Business policy prevents unpaid check-ins */
-    ATTEND_UNPAID: 28,
-    /** Client is on the Wait List */
-    ATTEND_WAIT: 27,
-    /** Client has a negative account balance */
-    BALANCE_NEGATIVE: 37,
-    /** It's too early to book a class */
-    BOOK_EARLY: 7,
-    /** It's too late to book a class */
-    BOOK_LATE: 8,
-    /** Visit must be booked before check-in */
-    BOOK_NX: 24,
-    /** Cannot book to this class anymore */
-    BOOK_RESTRICT: 9,
-    /** Client is already booked for this session */
-    BOOKED_ALREADY: 6,
-    /** Business is inactive */
-    BUSINESS_INACTIVE: 10,
-    /** Class is canceled */
-    CLASS_CANCELED: 11,
-    /** Class is full */
-    CLASS_FULL: 14,
-    /** Class does not exist anymore */
-    CLASS_NOT_AVAILABLE_ANYMORE: 15,
-    /** Client is flagged at location */
-    CLIENT_FLAGGED: 12,
-    /** Credit card is required for booking services */
-    CREDIT_CARD_REQUIRE: 13,
-    /** Business is closed */
-    HOLIDAY: 16,
-    /** Login is required */
-    LOGIN_REQUIRED: 17,
-    /** Online booking is disabled for the class */
-    NOT_BOOKABLE: 18,
-    /** Contract not signed */
-    PAYMENT_CONTRACT: 35,
-    /** Purchase Option expired */
-    PAYMENT_EXPIRE: 36,
-    /** Purchase Option on hold */
-    PAYMENT_HOLD: 34,
-    /** No valid Purchase Option */
-    PAYMENT_NX: 30,
-    /** Purchase Option has no visits left */
-    PAYMENT_REMAIN: 33,
-    /** Purchase Option not active yet */
-    PAYMENT_START: 32,
-    /** Attendance limit on Purchase Option reached */
-    SCHEDULE_RESTRICT: 31,
-    /** Check-in could not be completed */
-    UNKNOWN: 29,
-    /** Required personal details missing */
-    USER_INFO_MISSING: 19,
-    /** Visit to another class is required first */
-    VISIT_BEFORE: 20,
-    /** The wait list is full */
-    WAIT_LIST_LIMIT_MAX: 21,
   });
 
   /**
