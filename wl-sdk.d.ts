@@ -6784,6 +6784,8 @@ export interface WlVisitVisitStatusGetParams {
     k_business: string;
     /** The visit key. */
     k_visit: string;
+    /** The temporary secret of the visit, which gives its status to a client that has no login or has no... */
+    s_status_secret: string;
     /** The time zone key. */
     k_timezone?: string | null;
 }
@@ -11800,6 +11802,8 @@ export interface WlPurchaseReceiptPurchaseReceiptResponse {
         };
         /** List of visit keys. Only available if the purchase item is a class period, */
         a_visit?: Array<string>;
+        /** The temporary secrets of the visits of `a_visit`, by the key of the visit. Only available if the ... */
+        a_visit_secret?: Record<string, unknown>;
         /** The number of items in the purchase. */
         i_count: number;
         /** Program types. @see RsProgramSid */
@@ -14003,7 +14007,7 @@ export interface WlCatalogCartCartParams {
             k_class?: string;
             /** The total amount that will be charged for the tuition item when during purchase. */
             m_checkout?: string;
-            /** The part of the tuition cost that is not charged during purchase. */
+            /** The part of the tuition cost that is not charged during purchase. Always `0.00` for a tuition */
             m_deferred?: string;
         };
         /** Key of login prize used on item. */
@@ -14045,7 +14049,7 @@ export interface WlCatalogCartCartResponse {
             k_class?: string;
             /** The total amount that will be charged for the tuition item when during purchase. */
             m_checkout?: string;
-            /** The part of the tuition cost that is not charged during purchase. */
+            /** The part of the tuition cost that is not charged during purchase. Always `0.00` for a tuition */
             m_deferred?: string;
         };
         /** Key of login prize used on item. */

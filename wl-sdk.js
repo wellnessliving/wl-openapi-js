@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261118085140
+ * Spec version: 1.1.20261118105010
  * Build date:   2026-11-18
  * Endpoints:    711
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261118085140';
+  WlClient.SPEC_VERSION = '1.1.20261118105010';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (711 total)
@@ -586,12 +586,15 @@
    * Returns full details for the specified visit, including date, duration, staff, location,
    * virtual service join URL, assigned resources, downloadable calendar data, and whether
    * the visit can still be cancelled. Handles class, appointment, and gym visit types. Used
-   * to render the visit detail view and action buttons in the client portal.
+   * to render the visit detail view and action buttons in the client portal. A visit of a class can also be read
+   * without a login and without the access of the user by its temporary secret,
+   * {@link WlClient#wlVisitVisitStatusGet}. Such a visit cannot be virtual.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
    * @param {?string} [params.k_timezone] The time zone key.
    * @param {string} params.k_visit The visit key.
+   * @param {string} params.s_status_secret The temporary secret of the visit, which gives its status to a client that has no login or has no...
    * @returns {Promise<Object>} Response data.
    *  `a_cancel` {Object} Information about whether the given user can cancel an online booking and what
    *  `a_resource` {?string[]} An array of service resources.
@@ -13706,9 +13709,9 @@
    * Validates each item in `a_purchase_item` (type, key, installment eligibility, and prize applicability),
    * applies discount codes, login-type discounts, and installment adjustments, then accumulates price, subtotal,
    * discount, tax, and cost totals across all items and returns them as result fields. For tuition
-   * items the totals cover the full cost, so the amount that has to be charged right now, and the
-   * tax portion of it, are reported separately in {@link WlClient#wlBookProcessPurchasePurchaseElementGroup} and
-   * {@link WlClient#wlBookProcessPurchasePurchaseElementGroup}, and the per-component split is written back
+   * items the totals cover the full cost (the prorated first payment for a tuition billed as memberships),
+   * so the amount that has to be charged right now, and the tax portion of it, are reported separately in
+   * {@link WlClient#wlBookProcessPurchasePurchaseElementGroup} and
    * ...
    *
    * @param {Object} [params] Request parameters.
@@ -13742,8 +13745,8 @@
    * Validates the business, location, and user, then for each item in `a_purchase_item_request` computes the price,
    * applicable discount code reduction, login-type discount, and taxes, and returns per-item cost, discount,
    * price, tax, and subtotal amounts in `a_purchase_item_result`. For a tuition the amounts cover the
-   * full cost, and the split between what is charged right now and what is deferred is added to the
-   * same row.
+   * full cost (the prorated first payment for a tuition billed as memberships), and the split between what is
+   * charged right now and what is deferred is added to the same row.
    *
    * @param {Object} [params] Request parameters.
    * @param {Object[]} params.a_purchase_item_request A list of purchase items to get information for. Every element has the next keys:
