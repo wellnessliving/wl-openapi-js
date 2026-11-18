@@ -2546,6 +2546,8 @@ export declare enum RsMailSid {
     QUIZ_NOTIFICATION = 171,
     /** Quiz submitted - Staff */
     QUIZ_NOTIFICATION_REMIND = 173,
+    /** Sent to a client after they submitted a form (used in automations: the trigger "Form submitted") */
+    QUIZ_RESPONSE_SUBMIT = 232,
     /** Email to wellnessliving team when businesses perform actions which is exporting data */
     REPORT_EXPORT = 177,
     /** New Customer Review - Staff */
@@ -7252,6 +7254,8 @@ export type WlAlertAlertListPostResponse = Record<string, unknown>;
 export interface WlQuizQuizListParams {
     /** Whether to show active or inactive quizzes. */
     a_active_id: Array<CoreSidYesNoSid>;
+    /** Whether the requested filter of activity is stored as the default view of the list of the forms o... */
+    is_filter_save: boolean;
     /** Business key within which quiz is managed. */
     k_business: string;
     /** Quiz login key. */
@@ -8290,6 +8294,8 @@ export interface WlVisitVisitStatusGetParams {
     k_business: string;
     /** The visit key. */
     k_visit: string;
+    /** The temporary secret of the visit, which gives its status to a client that has no login or has no... */
+    s_status_secret: string;
     /** The time zone key. */
     k_timezone?: string | null;
 }
@@ -16951,7 +16957,7 @@ export interface WlCatalogCartCartParams {
             k_class?: string;
             /** The total amount that will be charged for the tuition item when during purchase. */
             m_checkout?: string;
-            /** The part of the tuition cost that is not charged during purchase. */
+            /** The part of the tuition cost that is not charged during purchase. Always `0.00` for a tuition */
             m_deferred?: string;
         };
         /** Key of login prize used on item. */
@@ -16993,7 +16999,7 @@ export interface WlCatalogCartCartResponse {
             k_class?: string;
             /** The total amount that will be charged for the tuition item when during purchase. */
             m_checkout?: string;
-            /** The part of the tuition cost that is not charged during purchase. */
+            /** The part of the tuition cost that is not charged during purchase. Always `0.00` for a tuition */
             m_deferred?: string;
         };
         /** Key of login prize used on item. */
@@ -17383,6 +17389,8 @@ export interface WlPurchaseReceiptPurchaseReceiptResponse {
         };
         /** List of visit keys. Only available if the purchase item is a class period, */
         a_visit?: Array<string>;
+        /** The temporary secrets of the visits of `a_visit`, by the key of the visit. Only available if the ... */
+        a_visit_secret?: Record<string, unknown>;
         /** The number of items in the purchase. */
         i_count: number;
         /** Program types. @see RsProgramSid */
@@ -23110,7 +23118,7 @@ export interface WlReceptionApplicationReceptionSchedulePostResponse {
             is_restrict_multiply: boolean;
             /** The login promotion key. */
             k_login_promotion: string;
-            /** The time left on a time-based pass, in hours and minutes, for example `2 h 25 min`. */
+            /** The formatted remaining duration on the promotion. */
             s_remain_measure: string;
             /** If `true`, there's a rollover on the pass with calendar restrictions. Otherwise, this will be `fa... */
             show_remain: boolean;
@@ -23120,6 +23128,8 @@ export interface WlReceptionApplicationReceptionSchedulePostResponse {
             text_book_duration: string;
             /** Minutes of the upcoming visits, as a text for screen readers: `2 hours 25 minutes`. */
             text_book_duration_aria: string;
+            /** Minutes left in this promotion, as a text: `2 h 25 min`. */
+            text_remain_duration: string;
             /** Minutes left in this promotion, as a text for screen readers: `2 hours 25 minutes`. */
             text_remain_duration_aria: string;
             /** Minutes left and minutes of the upcoming visits together, as a text: `2 h 25 min`. */

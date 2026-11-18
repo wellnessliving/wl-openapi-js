@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261118124743
+// OpenAPI spec version: 1.1.20261118162222
 // Build date: 2026-11-18
 // Endpoints: 713
 // Enums: 227
@@ -2573,6 +2573,8 @@ export var RsMailSid;
     RsMailSid[RsMailSid["QUIZ_NOTIFICATION"] = 171] = "QUIZ_NOTIFICATION";
     /** Quiz submitted - Staff */
     RsMailSid[RsMailSid["QUIZ_NOTIFICATION_REMIND"] = 173] = "QUIZ_NOTIFICATION_REMIND";
+    /** Sent to a client after they submitted a form (used in automations: the trigger "Form submitted") */
+    RsMailSid[RsMailSid["QUIZ_RESPONSE_SUBMIT"] = 232] = "QUIZ_RESPONSE_SUBMIT";
     /** Email to wellnessliving team when businesses perform actions which is exporting data */
     RsMailSid[RsMailSid["REPORT_EXPORT"] = 177] = "REPORT_EXPORT";
     /** New Customer Review - Staff */
