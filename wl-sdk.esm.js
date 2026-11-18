@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261117144654
+// OpenAPI spec version: 1.1.20261118103951
 // Build date: 2026-11-18
-// Endpoints: 709
-// Enums: 226
+// Endpoints: 713
+// Enums: 227
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (226 total) ---
+// --- Enum types (227 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -2845,6 +2845,8 @@ export var RsProgramSid;
     RsProgramSid[RsProgramSid["ACCOUNT_MEMBERSHIP"] = 21] = "ACCOUNT_MEMBERSHIP";
     /** Special Time-Based pass that does not allow client to visit anything but fill client's account after purchase */
     RsProgramSid[RsProgramSid["ACCOUNT_PASS"] = 20] = "ACCOUNT_PASS";
+    /** Class Duration Pass */
+    RsProgramSid[RsProgramSid["CLASS_DURATION"] = 26] = "CLASS_DURATION";
     /** Class Guest pass */
     RsProgramSid[RsProgramSid["CLASS_GUEST"] = 25] = "CLASS_GUEST";
     /** Class Pass */
@@ -4112,6 +4114,14 @@ export var WlLeadStageLeadStageSystemSid;
     /** A lead which was successfully converted into a client */
     WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["WON"] = 4] = "WON";
 })(WlLeadStageLeadStageSystemSid || (WlLeadStageLeadStageSystemSid = {}));
+/** Who manages the lead stages of the locations of an Enterprise. */
+export var WlLeadStageLeadStageManagerSid;
+(function (WlLeadStageLeadStageManagerSid) {
+    /** Each location manages its own lead stages, also after the Enterprise Headquarters pushed its stages to it */
+    WlLeadStageLeadStageManagerSid[WlLeadStageLeadStageManagerSid["EACH_LOCATION"] = 1] = "EACH_LOCATION";
+    /** The Enterprise Headquarters manages the lead stages. A location that received a push can view its stages, but */
+    WlLeadStageLeadStageManagerSid[WlLeadStageLeadStageManagerSid["HEADQUARTERS"] = 2] = "HEADQUARTERS";
+})(WlLeadStageLeadStageManagerSid || (WlLeadStageLeadStageManagerSid = {}));
 /** Defines if client has "Late cancel" or "No shows" sessions. */
 export var WlBusinessPolicyBlameSid;
 (function (WlBusinessPolicyBlameSid) {
@@ -7452,9 +7462,23 @@ export class WlProfileAttachNamespace {
         return this._client._request('/Wl/Profile/Attach/AttachList.json', params, 'GET');
     }
 }
+export class WlProfileSettingDeleteNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Checks whether the users can be deleted from the businesses. */
+    deleteGet(params) {
+        return this._client._request('/Wl/Profile/Setting/Delete/Delete.json', params, 'GET');
+    }
+    /** Deletes the account of the users from the businesses. */
+    deletePost(params) {
+        return this._client._request('/Wl/Profile/Setting/Delete/Delete.json', params, 'POST');
+    }
+}
 export class WlProfileSettingNamespace {
     constructor(_client) {
         this._client = _client;
+        this.delete = new WlProfileSettingDeleteNamespace(this._client);
     }
     /** Retrieves a list of user settings and other additional information for the settings page. */
     settingGet(params) {
@@ -7586,6 +7610,14 @@ export class WlLeadStageNamespace {
     /** Sets the lead stage of the client. */
     leadStageUser(params) {
         return this._client._request('/Wl/Lead/Stage/LeadStageUser.json', params, 'POST');
+    }
+    /** Returns the setting "Lead stages are managed by". */
+    leadStageManagerGet(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageManager.json', params, 'GET');
+    }
+    /** Saves the setting "Lead stages are managed by". */
+    leadStageManagerPost(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageManager.json', params, 'POST');
     }
 }
 export class WlLeadSourceNamespace {

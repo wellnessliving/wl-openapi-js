@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261117144654
+ * Spec version: 1.1.20261118103951
  * Build date:   2026-11-18
- * Endpoints:    709
+ * Endpoints:    713
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261117144654';
+  WlClient.SPEC_VERSION = '1.1.20261118103951';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (709 total)
+  // Generated API methods (713 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -4357,11 +4357,11 @@
    *  `f_discount_login_type_percent` {number} The percentage value of the discount for the client type. This is empty if th...
    *  `html_description` {string} The description of the purchased item.
    *  `i_book` {number} The number of sessions remaining for a promotion. This is used only for promo...
+   *  `i_book_duration` {number} Program types. See {@link WlClient.RsProgramTypeSid}.
    *  `i_buy` {number} The number of purchased items bought at the time of purchase.
    *  `i_discount_count` {number} The percentage value of the discount given by a reward prize. This field will...
    *  `i_duration` {number} This field is only added for promotions. Duration of promotion. Measurement u...
    *  `i_left` {number} The number of bookings remaining in this promotion. This value is used only f...
-   *  `i_limit` {number} The number of visits which can be made with this promotion. This is used only...
    *  `...` {*}
    */
   WlClient.prototype.wlProfilePurchasePurchaseElement = function(params)
@@ -5010,6 +5010,39 @@
   WlClient.prototype.wlLeadStageLeadStageUser = function(params)
   {
     return this.request('/Wl/Lead/Stage/LeadStageUser.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns the setting "Lead stages are managed by".
+   *
+   * The setting tells who manages the lead stages of the locations of the Enterprise that received a push of the
+   * lead stages: each location or the Enterprise Headquarters. It is visible to every staff member who can open the
+   * Leads settings and to every staff member who can manage the business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the Enterprise Headquarters business.
+   * @returns {Promise<Object>} Response data.
+   *  `id_lead_stage_manager` {number} Who manages the lead stages of the locations of an Enterprise. See {@link WlClient.WlLeadStageLeadStageManagerSid}.
+   */
+  WlClient.prototype.wlLeadStageLeadStageManagerGet = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageManager.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves the setting "Lead stages are managed by".
+   *
+   * Changing the setting takes effect at every location that received a push of the lead stages, and no new push is
+   * needed. The change is written to the Edit Log of the business. Only a staff member who can manage the business
+   * settings can change the setting.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the Enterprise Headquarters business.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlLeadStageLeadStageManagerPost = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageManager.json', params || {}, 'POST');
   };
 
   /**
@@ -6197,6 +6230,7 @@
    *  `a_pay_method` {Object} A list of payment methods for the current purchase. Every element has the fol...
    *  `a_payor` {Object} Information about the payor (money owner) of the purchase. Empty when the mon...
    *  `a_price` {Object} Complete information about price information for the purchase.
+   *  `a_purchase_detail` {Object} The details of the purchase that belong to the whole purchase and not to one ...
    *  `a_purchase_item` {Object[]} A list of purchase items. Every element has the following keys:
    *  `dtl_purchase` {string} The local date of the purchase in MySQL format.
    *  `has_signature` {boolean} Determines whether the payment contained a signature.
@@ -10744,6 +10778,50 @@
   WlClient.prototype.wlProfileFormResponseResponseList = function(params)
   {
     return this.request('/Wl/Profile/Form/Response/ResponseList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Checks whether the users can be deleted from the businesses.
+   *
+   * Checks the users of {@link WlClient#wlProfileSettingDeleteDeleteGet} in the businesses of {@link WlClient#wlProfileSettingDeleteDeleteGet}, and returns
+   * the users that can be deleted in {@link WlClient#wlProfileSettingDeleteDeleteGet} and the reasons for every user in
+   * {@link WlClient#wlProfileSettingDeleteDeleteGet}. When a client checks their own account and it cannot be deleted, the request
+   * fails with the reason in {@link WlClient#wlProfileSettingDeleteDeleteGet}.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_business The keys of the businesses to delete the account from.
+   * @param {string[]} params.a_uid The keys of the users to delete.
+   * @param {boolean} params.is_backend `true` when a staff member deletes clients, `false` when the client deletes their own account.
+   * @param {string} params.text_application The application ID.
+   * @returns {Promise<Object>} Response data.
+   *  `a_error_info` {Object} The reasons why the account cannot be deleted, for every user.
+   *  `a_uid_valid` {string[]} The keys of the users from {@link WlClient#wlProfileSettingDeleteDeleteGet} t...
+   */
+  WlClient.prototype.wlProfileSettingDeleteDeleteGet = function(params)
+  {
+    return this.request('/Wl/Profile/Setting/Delete/Delete.json', params || {}, 'GET');
+  };
+
+  /**
+   * Deletes the account of the users from the businesses.
+   *
+   * Makes the same checks as `get()`, then anonymizes the profiles of the users in the businesses
+   * of {@link WlClient#wlProfileSettingDeleteDeleteGet} and returns the result for every user in {@link WlClient#wlProfileSettingDeleteDeleteGet}.
+   * A request of a client may require a captcha, as the description of the endpoint says.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_business The keys of the businesses to delete the account from.
+   * @param {string[]} params.a_uid The keys of the users to delete.
+   * @param {boolean} params.is_backend `true` when a staff member deletes clients, `false` when the client deletes their own account.
+   * @param {string} params.text_application The application ID.
+   * @returns {Promise<Object>} Response data.
+   *  `a_delete_result` {Object} The result of the deletion for every user.
+   *  `a_error_info` {Object} The reasons why the account cannot be deleted, for every user.
+   *  `a_uid_valid` {string[]} The keys of the users from {@link WlClient#wlProfileSettingDeleteDeleteGet} t...
+   */
+  WlClient.prototype.wlProfileSettingDeleteDeletePost = function(params)
+  {
+    return this.request('/Wl/Profile/Setting/Delete/Delete.json', params || {}, 'POST');
   };
 
   /**
@@ -15497,7 +15575,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (244 total)
+  // Enum constants (245 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -18506,6 +18584,8 @@
     ACCOUNT_MEMBERSHIP: 21,
     /** Special Time-Based pass that does not allow client to visit anything but fill client's account after purchase */
     ACCOUNT_PASS: 20,
+    /** Class Duration Pass */
+    CLASS_DURATION: 26,
     /** Class Guest pass */
     CLASS_GUEST: 25,
     /** Class Pass */
@@ -20048,6 +20128,18 @@
     WARM: 3,
     /** A lead which was successfully converted into a client */
     WON: 4,
+  });
+
+  /**
+   * Who manages the lead stages of the locations of an Enterprise.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLeadStageLeadStageManagerSid = Object.freeze({
+    /** Each location manages its own lead stages, also after the Enterprise Headquarters pushed its stages to it */
+    EACH_LOCATION: 1,
+    /** The Enterprise Headquarters manages the lead stages. A location that received a push can view its stages, but */
+    HEADQUARTERS: 2,
   });
 
   /**

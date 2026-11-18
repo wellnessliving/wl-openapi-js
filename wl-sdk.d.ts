@@ -2806,6 +2806,8 @@ export declare enum RsProgramSid {
     ACCOUNT_MEMBERSHIP = 21,
     /** Special Time-Based pass that does not allow client to visit anything but fill client's account after purchase */
     ACCOUNT_PASS = 20,
+    /** Class Duration Pass */
+    CLASS_DURATION = 26,
     /** Class Guest pass */
     CLASS_GUEST = 25,
     /** Class Pass */
@@ -4003,6 +4005,13 @@ export declare enum WlLeadStageLeadStageSystemSid {
     WARM = 3,
     /** A lead which was successfully converted into a client */
     WON = 4
+}
+/** Who manages the lead stages of the locations of an Enterprise. */
+export declare enum WlLeadStageLeadStageManagerSid {
+    /** Each location manages its own lead stages, also after the Enterprise Headquarters pushed its stages to it */
+    EACH_LOCATION = 1,
+    /** The Enterprise Headquarters manages the lead stages. A location that received a push can view its stages, but */
+    HEADQUARTERS = 2
 }
 /** Defines if client has "Late cancel" or "No shows" sessions. */
 export declare enum WlBusinessPolicyBlameSid {
@@ -6247,6 +6256,9 @@ export interface CoreWebSocketSubscribeResponse {
     } | {
         /** Url link to redirect to join virtual meeting. */
         url_redirect: string;
+    } | {
+        /** Time when the device was registered for the pass, in UTC and MySQL format. */
+        dtu_add: string;
     } | {
         /** A CAS (compare-and-swap) number that allows to track changes in the report storage. */
         i_cas_change: number;
@@ -11926,6 +11938,8 @@ export interface WlLoginAttendanceAttendanceListResponse {
         text_firstname: string;
         /** The client last name. */
         text_lastname: string;
+        /** The time left on the Purchase Option, in hours and minutes, for example `2 h 25 min`. */
+        text_left: string;
         /** Any notes tied to the client. */
         text_note: string;
         /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
@@ -12199,6 +12213,8 @@ export interface WlLoginAttendanceAttendanceListResponse {
         text_firstname: string;
         /** The client last name. */
         text_lastname: string;
+        /** The time left on the Purchase Option, in hours and minutes, for example `2 h 25 min`. */
+        text_left: string;
         /** Any notes tied to the client. */
         text_note: string;
         /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
@@ -12472,6 +12488,8 @@ export interface WlLoginAttendanceAttendanceListResponse {
         text_firstname: string;
         /** The client last name. */
         text_lastname: string;
+        /** The time left on the Purchase Option, in hours and minutes, for example `2 h 25 min`. */
+        text_left: string;
         /** Any notes tied to the client. */
         text_note: string;
         /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
@@ -12771,6 +12789,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         text_firstname: string;
         /** The client last name. */
         text_lastname: string;
+        /** The time left on the Purchase Option, in hours and minutes, for example `2 h 25 min`. */
+        text_left: string;
         /** Any notes tied to the client. */
         text_note: string;
         /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
@@ -13044,6 +13064,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         text_firstname: string;
         /** The client last name. */
         text_lastname: string;
+        /** The time left on the Purchase Option, in hours and minutes, for example `2 h 25 min`. */
+        text_left: string;
         /** Any notes tied to the client. */
         text_note: string;
         /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
@@ -13317,6 +13339,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         text_firstname: string;
         /** The client last name. */
         text_lastname: string;
+        /** The time left on the Purchase Option, in hours and minutes, for example `2 h 25 min`. */
+        text_left: string;
         /** Any notes tied to the client. */
         text_note: string;
         /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
@@ -13901,6 +13925,8 @@ export interface WlProfilePurchasePurchaseElementResponse {
     html_description: string;
     /** The number of sessions remaining for a promotion. This is used only for promotions. */
     i_book: number;
+    /** Program types. @see RsProgramTypeSid */
+    i_book_duration: RsProgramTypeSid;
     /** The number of purchased items bought at the time of purchase. */
     i_buy: number;
     /** The percentage value of the discount given by a reward prize. This field will be `0` if a discoun... */
@@ -13921,6 +13947,8 @@ export interface WlProfilePurchasePurchaseElementResponse {
     i_renew: number;
     /** This is used only for promotions. This is the number of visits that were attended for the promotion. */
     i_use: number;
+    /** Program types. @see RsProgramTypeSid */
+    i_use_duration: RsProgramTypeSid;
     /** Promotion or package date start rule. @see RsActivationSid */
     id_activation: RsActivationSid;
     /** String identifiers for tax type. @see RsCommissionTypeSid */
@@ -14996,6 +15024,19 @@ export interface WlLeadStageLeadStageUserParams {
     uid: string;
 }
 export type WlLeadStageLeadStageUserResponse = Record<string, unknown>;
+export interface WlLeadStageLeadStageManagerGetParams {
+    /** Key of the Enterprise Headquarters business. */
+    k_business: string;
+}
+export interface WlLeadStageLeadStageManagerGetResponse {
+    /** Who manages the lead stages of the locations of an Enterprise. @see WlLeadStageLeadStageManagerSid */
+    id_lead_stage_manager: WlLeadStageLeadStageManagerSid;
+}
+export interface WlLeadStageLeadStageManagerPostParams {
+    /** Key of the Enterprise Headquarters business. */
+    k_business: string;
+}
+export type WlLeadStageLeadStageManagerPostResponse = Record<string, unknown>;
 export interface WlLeadSourceLeadSourceElementDeleteParams {
     /** Key of the lead source. */
     k_lead_source_replace: string;
@@ -17292,6 +17333,26 @@ export interface WlPurchaseReceiptPurchaseReceiptResponse {
         /** The discount code applied to the purchase. */
         text_discount_code: string;
     };
+    /** The details of the purchase that belong to the whole purchase and not to one purchase item. The l... */
+    a_purchase_detail: {
+        /** The tickets of the purchase grouped by the event: one element for every instance of an event that... */
+        a_ticket_event: {
+            /** The key of the instance of the event. */
+            k_class: string;
+            /** The title of the event. */
+            text_event_title: string;
+            /** The URL to download the PDF file with all the tickets of the event. The file works without a login. */
+            url_download: string;
+            /** The image of a QR code, as a `data:` URI of a PNG file. A phone that scans the code adds all the ... */
+            url_phone: string;
+            /** The URL of the page to print all the tickets of the event. The page works without a login. */
+            url_print: string;
+            /** The link that adds all the tickets of the event to Apple Wallet at once. It is empty if Apple Wal... */
+            url_wallet_apple: string;
+            /** The link that adds all the tickets of the event to Google Wallet at once. It is empty if Google W... */
+            url_wallet_google: string;
+        };
+    };
     /** A list of purchase items. Every element has the following keys: */
     a_purchase_item: Array<{
         /** The purchase item logo. */
@@ -17307,6 +17368,8 @@ export interface WlPurchaseReceiptPurchaseReceiptResponse {
         };
         /** The ticket of the purchase item. Only available if the purchase item is a ticket: one purchase it... */
         a_ticket_info?: {
+            /** The key of the instance of the event the ticket is for. It is the same as `k_class` of `a_ticket_... */
+            k_class: string;
             /** The title of the event the ticket is for. */
             text_event_title: string;
             /** The number of the ticket. */
@@ -23047,12 +23110,26 @@ export interface WlReceptionApplicationReceptionSchedulePostResponse {
             is_restrict_multiply: boolean;
             /** The login promotion key. */
             k_login_promotion: string;
-            /** The formatted remaining duration on the promotion. */
+            /** The time left on a time-based pass, in hours and minutes, for example `2 h 25 min`. */
             s_remain_measure: string;
             /** If `true`, there's a rollover on the pass with calendar restrictions. Otherwise, this will be `fa... */
             show_remain: boolean;
             /** The promotion's program type SID. */
             sid_program_type: string;
+            /** Minutes of the upcoming visits, as a text: `2 h 25 min`. */
+            text_book_duration: string;
+            /** Minutes of the upcoming visits, as a text for screen readers: `2 hours 25 minutes`. */
+            text_book_duration_aria: string;
+            /** Minutes left in this promotion, as a text for screen readers: `2 hours 25 minutes`. */
+            text_remain_duration_aria: string;
+            /** Minutes left and minutes of the upcoming visits together, as a text: `2 h 25 min`. */
+            text_unused_duration: string;
+            /** Minutes left and minutes of the upcoming visits together, as a text for screen readers: */
+            text_unused_duration_aria: string;
+            /** Minutes used for past visits, as a text: `2 h 25 min`. */
+            text_use_duration: string;
+            /** Minutes used for past visits, as a text for screen readers: `2 hours 25 minutes`. */
+            text_use_duration_aria: string;
         };
         /** The list of assets reserved individually at the time of booking containing: */
         a_resources_not_shared: {
@@ -24724,6 +24801,8 @@ export interface WlLoginAttendanceAddAddGetResponse {
     a_login_promotion: Array<{
         /** The login promotion key, available to pay for the session. */
         k_login_promotion: string;
+        /** The time left on the login promotion in hours and minutes, for example `2 h 25 min`. */
+        text_remain_duration: string;
         /** The title of the login promotion. */
         text_title: string;
     }>;
@@ -25198,6 +25277,40 @@ export interface WlProfileFormResponseResponseListResponse {
     can_remove: boolean;
     /** Whether response can be viewed by current user. */
     can_view: boolean;
+}
+export interface WlProfileSettingDeleteDeleteGetParams {
+    /** The keys of the businesses to delete the account from. */
+    a_business: Array<string>;
+    /** The keys of the users to delete. */
+    a_uid: Array<string>;
+    /** `true` when a staff member deletes clients, `false` when the client deletes their own account. */
+    is_backend: boolean;
+    /** The application ID. */
+    text_application: string;
+}
+export interface WlProfileSettingDeleteDeleteGetResponse {
+    /** The reasons why the account cannot be deleted, for every user. */
+    a_error_info: Record<string, unknown>;
+    /** The keys of the users from {@link WlProfileSettingDeleteNamespace#deleteGet} that can be deleted. */
+    a_uid_valid: Array<string>;
+}
+export interface WlProfileSettingDeleteDeletePostParams {
+    /** The keys of the businesses to delete the account from. */
+    a_business: Array<string>;
+    /** The keys of the users to delete. */
+    a_uid: Array<string>;
+    /** `true` when a staff member deletes clients, `false` when the client deletes their own account. */
+    is_backend: boolean;
+    /** The application ID. */
+    text_application: string;
+}
+export interface WlProfileSettingDeleteDeletePostResponse {
+    /** The result of the deletion for every user. */
+    a_delete_result: Record<string, unknown>;
+    /** The reasons why the account cannot be deleted, for every user. */
+    a_error_info: Record<string, unknown>;
+    /** The keys of the users from {@link WlProfileSettingDeleteNamespace#deleteGet} that can be deleted. */
+    a_uid_valid: Array<string>;
 }
 export interface WlBusinessCustomTermsCustomTermsGetParams {
     /** Business key. */
@@ -30971,6 +31084,8 @@ export interface WlAppointmentBookPaymentPaymentGetResponse {
         s_expire: string;
         /** The title of the Purchase Option. */
         s_title: string;
+        /** The time left on the Purchase Option in hours and minutes, for example `2 h 25 min`. */
+        text_remain_duration: string;
     }>;
     /** Information about selected purchase items. */
     a_purchase: Array<{
@@ -31269,6 +31384,8 @@ export interface WlAppointmentBookPaymentPaymentPostGetResponse {
         s_expire: string;
         /** The title of the Purchase Option. */
         s_title: string;
+        /** The time left on the Purchase Option in hours and minutes, for example `2 h 25 min`. */
+        text_remain_duration: string;
     }>;
     /** Information about selected purchase items. */
     a_purchase: Array<{
@@ -34959,8 +35076,17 @@ export declare class WlProfileAttachNamespace {
     /** Returns the list of file attachments for the specified client in the given business. */
     attachList(params?: WlProfileAttachAttachListParams): Promise<WlProfileAttachAttachListResponse>;
 }
+export declare class WlProfileSettingDeleteNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Checks whether the users can be deleted from the businesses. */
+    deleteGet(params?: WlProfileSettingDeleteDeleteGetParams): Promise<WlProfileSettingDeleteDeleteGetResponse>;
+    /** Deletes the account of the users from the businesses. */
+    deletePost(params?: WlProfileSettingDeleteDeletePostParams): Promise<WlProfileSettingDeleteDeletePostResponse>;
+}
 export declare class WlProfileSettingNamespace {
     private readonly _client;
+    readonly delete: WlProfileSettingDeleteNamespace;
     constructor(_client: WlClient);
     /** Retrieves a list of user settings and other additional information for the settings page. */
     settingGet(params?: WlProfileSettingSettingGetParams): Promise<WlProfileSettingSettingGetResponse>;
@@ -35049,6 +35175,10 @@ export declare class WlLeadStageNamespace {
     leadStageList(params?: WlLeadStageLeadStageListParams): Promise<WlLeadStageLeadStageListResponse>;
     /** Sets the lead stage of the client. */
     leadStageUser(params?: WlLeadStageLeadStageUserParams): Promise<WlLeadStageLeadStageUserResponse>;
+    /** Returns the setting "Lead stages are managed by". */
+    leadStageManagerGet(params?: WlLeadStageLeadStageManagerGetParams): Promise<WlLeadStageLeadStageManagerGetResponse>;
+    /** Saves the setting "Lead stages are managed by". */
+    leadStageManagerPost(params?: WlLeadStageLeadStageManagerPostParams): Promise<WlLeadStageLeadStageManagerPostResponse>;
 }
 export declare class WlLeadSourceNamespace {
     private readonly _client;
