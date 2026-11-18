@@ -8048,8 +8048,8 @@ export interface WlTagTagListGetParams {
 export interface WlTagTagListGetResponse {
     /** The tag list. */
     a_list: Array<{
-        /** The sort order of the tag. */
-        i_sort: number;
+        /** The sort order of the tag, starts from zero. A tag sent without it (or with `null`) keeps the sor... */
+        i_sort?: number;
         /** The tag key. */
         k_tag: string;
         /** The tag title. */
@@ -8067,8 +8067,8 @@ export interface WlTagTagListPostParams {
 export interface WlTagTagListPostResponse {
     /** The tag list. */
     a_list: Array<{
-        /** The sort order of the tag. */
-        i_sort: number;
+        /** The sort order of the tag, starts from zero. A tag sent without it (or with `null`) keeps the sor... */
+        i_sort?: number;
         /** The tag key. */
         k_tag: string;
         /** The tag title. */
