@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261118173000
+// OpenAPI spec version: 1.1.20261118223315
 // Build date: 2026-11-18
-// Endpoints: 713
+// Endpoints: 715
 // Enums: 227
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -8628,6 +8628,7 @@ export class WlQuizNamespace {
         this.response = new WlQuizResponseNamespace(this._client);
     }
     /** Returns the list of business quizzes together with client registration and import status. */
+    /** @deprecated */
     quizList(params) {
         return this._client._request('/Wl/Quiz/QuizList.json', params, 'GET');
     }
@@ -8666,6 +8667,10 @@ export class WlQuizNamespace {
     /** @deprecated */
     quizElementPut(params) {
         return this._client._request('/Wl/Quiz/QuizElement.json', params, 'PUT');
+    }
+    /** Returns the list of business quizzes together with client registration and import status. */
+    quizList79(params) {
+        return this._client._request('/Wl/Quiz/QuizList79.json', params, 'GET');
     }
 }
 export class WlSmsPhoneNamespace {
@@ -11274,10 +11279,20 @@ export class WlTaskEditNamespace {
         return this._client._request('/Wl/Task/Edit/Edit.json', params, 'PUT');
     }
 }
+export class WlTaskStaffNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the staff roles and the staff members of the business, for the assignment of tasks. */
+    taskStaffList(params) {
+        return this._client._request('/Wl/Task/Staff/TaskStaffList.json', params, 'GET');
+    }
+}
 export class WlTaskNamespace {
     constructor(_client) {
         this._client = _client;
         this.edit = new WlTaskEditNamespace(this._client);
+        this.staff = new WlTaskStaffNamespace(this._client);
     }
 }
 export class WlWidgetAnalyticsNamespace {

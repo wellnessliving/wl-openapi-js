@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261118173000
+ * Spec version: 1.1.20261118223315
  * Build date:   2026-11-18
- * Endpoints:    713
+ * Endpoints:    715
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261118173000';
+  WlClient.SPEC_VERSION = '1.1.20261118223315';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (713 total)
+  // Generated API methods (715 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -976,11 +976,11 @@
    * Loads the quiz list for the business filtered by active state and search phrase, then
    *  marks which quizzes still require registration for the current login and which quizzes
    *  were imported from an external system. Also stores the requested active-state filter as
-   *  the user's default quiz view, unless the filter is asked not to be stored.
+   *  the user's default quiz view.
+   * @deprecated Use {@link \Wl\Quiz\QuizList79Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {number[]} params.a_active_id Whether to show active or inactive quizzes.
-   * @param {boolean} params.is_filter_save Whether the requested filter of activity is stored as the default view of the list of the forms o...
    * @param {?boolean} [params.is_register_before] Shows which register quizzes must be returned.
    * @param {string} params.k_business Business key within which quiz is managed.
    * @param {string} params.k_quiz_login Quiz login key.
@@ -1179,6 +1179,30 @@
   WlClient.prototype.wlQuizQuizElementPut = function(params)
   {
     return this.request('/Wl/Quiz/QuizElement.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Returns the list of business quizzes together with client registration and import status.
+   *
+   * Loads the quiz list for the business filtered by active state and search phrase, then
+   *  marks which quizzes still require registration for the current login and which quizzes
+   *  were imported from an external system. Also stores the requested active-state filter as
+   *  the user's default quiz view.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number[]} params.a_active_id Whether to show active or inactive quizzes.
+   * @param {boolean} params.is_filter_save Whether the requested filter of activity is stored as the default view of the list of the forms o...
+   * @param {?boolean} [params.is_register_before] Shows which register quizzes must be returned.
+   * @param {string} params.k_business Business key within which quiz is managed.
+   * @param {string} params.k_quiz_login Quiz login key.
+   * @param {string} params.text_search Filter phrase to filter quizzes by name.
+   * @returns {Promise<Object>} Response data.
+   *  `a_list` {Object} List of available quizzes within quiz holder:
+   *  `a_quiz_register` {string[]} List of quiz keys, needed for registration.
+   */
+  WlClient.prototype.wlQuizQuizList79 = function(params)
+  {
+    return this.request('/Wl/Quiz/QuizList79.json', params || {}, 'GET');
   };
 
   /**
@@ -8676,11 +8700,16 @@
    * Validates the submitted task data, saves it in a transaction, reindexes search data for the
    *  previously and newly assigned clients, logs the change, sends an assignment notification
    *  email to newly assigned staff, and notifies the task channel.
+   * 
+   * When a task is added, every staff member gets a task of their own, all of them saved in one transaction: either
+   *  all the tasks are created, or none. When a task is edited, exactly one staff member is given. Inactive staff
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Business key.
    * @param {?string} [params.k_task] Task key.
    * @returns {Promise<Object>} Response data.
+   *  `a_k_task` {string[]} Keys of the tasks saved by the request.
    *  `k_task` {?string} Task key.
    */
   WlClient.prototype.wlTaskEditEditPost = function(params)
@@ -8702,6 +8731,27 @@
   WlClient.prototype.wlTaskEditEditPut = function(params)
   {
     return this.request('/Wl/Task/Edit/Edit.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Returns the staff roles and the staff members of the business, for the assignment of tasks.
+   *
+   * Lists every role of the business that is not removed, and every staff member whose account is not removed, with
+   * the flags that tell whether the staff member is active and whether the current user may assign a new task to
+   * the staff member. In a franchise with the flexible travel mode the staff members of all the businesses of the
+   * franchise are listed; such a staff member who does not work in the current business has no role.
+   * 
+   * The current user must be able to add tasks or to see all the tasks of the business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {?string} [params.k_business] Business key.
+   * @returns {Promise<Object>} Response data.
+   *  `a_role` {Object[]} The staff roles of the business, in the order of the setup of the business.
+   *  `a_staff` {Object[]} The staff members whose accounts are not removed, sorted by name.
+   */
+  WlClient.prototype.wlTaskStaffTaskStaffList = function(params)
+  {
+    return this.request('/Wl/Task/Staff/TaskStaffList.json', params || {}, 'GET');
   };
 
   /**

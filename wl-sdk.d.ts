@@ -7254,8 +7254,6 @@ export type WlAlertAlertListPostResponse = Record<string, unknown>;
 export interface WlQuizQuizListParams {
     /** Whether to show active or inactive quizzes. */
     a_active_id: Array<CoreSidYesNoSid>;
-    /** Whether the requested filter of activity is stored as the default view of the list of the forms o... */
-    is_filter_save: boolean;
     /** Business key within which quiz is managed. */
     k_business: string;
     /** Quiz login key. */
@@ -8270,6 +8268,48 @@ export interface WlQuizQuizElementPutResponse {
     url_quiz: string;
     /** Kiosk direct URL to quiz. */
     url_quiz_kiosk: string;
+}
+export interface WlQuizQuizList79Params {
+    /** Whether to show active or inactive quizzes. */
+    a_active_id: Array<CoreSidYesNoSid>;
+    /** Whether the requested filter of activity is stored as the default view of the list of the forms o... */
+    is_filter_save: boolean;
+    /** Business key within which quiz is managed. */
+    k_business: string;
+    /** Quiz login key. */
+    k_quiz_login: string;
+    /** Filter phrase to filter quizzes by name. */
+    text_search: string;
+    /** Shows which register quizzes must be returned. */
+    is_register_before?: boolean | null;
+}
+export interface WlQuizQuizList79Response {
+    /** List of available quizzes within quiz holder: */
+    a_list: {
+        /** Date and time the quiz was created, in UTC. */
+        dtu_create: string;
+        /** Date and time the quiz was last edited, in UTC. */
+        dtu_edit: string;
+        /** Whether the quiz is active. `true` if active, `false` otherwise. */
+        is_active: boolean;
+        /** Quiz key. */
+        k_quiz: string;
+        /** Quiz form configuration: */
+        a_config: {
+            /** Whether numbering is shown for elements that support numbering. */
+            show_numbering: boolean;
+        };
+        /** Unique random string used for the form kiosk mode page. */
+        s_file: string;
+        /** Quiz title. */
+        text_title: string;
+        /** Key of the user who created the quiz. `null` if unknown or imported. */
+        uid_create: string | null;
+        /** Key of the user who last edited the quiz. `null` if unknown or imported. */
+        uid_edit: string | null;
+    };
+    /** List of quiz keys, needed for registration. */
+    a_quiz_register: Array<string>;
 }
 export interface WlSmsSmsStatusParams {
     /** Business key. */
@@ -22708,6 +22748,8 @@ export interface WlTaskEditEditPostParams {
     k_task?: string | null;
 }
 export interface WlTaskEditEditPostResponse {
+    /** Keys of the tasks saved by the request. */
+    a_k_task: Array<string>;
     /** Task key. */
     k_task: string | null;
 }
@@ -22718,6 +22760,40 @@ export interface WlTaskEditEditPutParams {
     k_task?: string | null;
 }
 export type WlTaskEditEditPutResponse = Record<string, unknown>;
+export interface WlTaskStaffTaskStaffListParams {
+    /** Business key. */
+    k_business?: string | null;
+}
+export interface WlTaskStaffTaskStaffListResponse {
+    /** The staff roles of the business, in the order of the setup of the business. */
+    a_role: Array<{
+        /** Keys of the users of the staff members who have this role, in the order of `a_staff`, active or n... */
+        a_uid_staff: Array<string>;
+        /** String identifiers for rs.privilege.role. @see RsPrivilegeRoleSid */
+        id_privilege_role: RsPrivilegeRoleSid | null;
+        /** Key of the role of the business. `null` for a system role that the business has not changed. */
+        k_business_role: string | null;
+        /** Title of the role. */
+        text_title: string;
+    }>;
+    /** The staff members whose accounts are not removed, sorted by name. */
+    a_staff: Array<{
+        /** String identifiers for rs.privilege.role. @see RsPrivilegeRoleSid */
+        id_privilege_role: RsPrivilegeRoleSid | null;
+        /** `true` if the staff member is active, `false` otherwise. The activity is the one in the current b... */
+        is_active: boolean;
+        /** `true` if the current user may assign a new task to the staff member, `false` otherwise. */
+        is_assignable: boolean;
+        /** Key of the role of the business of the staff member in the current business. `null` if the staff ... */
+        k_business_role: string | null;
+        /** Full name of the staff member. */
+        text_name: string;
+        /** Key of the user of the staff member. */
+        uid_staff: string;
+        /** URL of the photo of the staff member, for example `https://example.com/staff.jpg`. An empty strin... */
+        url_image: string;
+    }>;
+}
 export type WlTicketPurchaseTicketPurchaseMailParams = Record<string, unknown>;
 export type WlTicketPurchaseTicketPurchaseMailResponse = Record<string, unknown>;
 export type WlWidgetAnalyticsWidgetAnalyticsEventParams = Record<string, unknown>;
@@ -35863,6 +35939,7 @@ export declare class WlQuizNamespace {
     readonly response: WlQuizResponseNamespace;
     constructor(_client: WlClient);
     /** Returns the list of business quizzes together with client registration and import status. */
+    /** @deprecated */
     quizList(params?: WlQuizQuizListParams): Promise<WlQuizQuizListResponse>;
     /** Deletes the quiz with the given key. */
     quizElement72Delete(params?: WlQuizQuizElement72DeleteParams): Promise<WlQuizQuizElement72DeleteResponse>;
@@ -35884,6 +35961,8 @@ export declare class WlQuizNamespace {
     /** Updates the active status of the given quiz. */
     /** @deprecated */
     quizElementPut(params?: WlQuizQuizElementPutParams): Promise<WlQuizQuizElementPutResponse>;
+    /** Returns the list of business quizzes together with client registration and import status. */
+    quizList79(params?: WlQuizQuizList79Params): Promise<WlQuizQuizList79Response>;
 }
 export declare class WlSmsPhoneNamespace {
     private readonly _client;
@@ -37579,9 +37658,16 @@ export declare class WlTaskEditNamespace {
     /** Changes task status. */
     editPut(params?: WlTaskEditEditPutParams): Promise<WlTaskEditEditPutResponse>;
 }
+export declare class WlTaskStaffNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the staff roles and the staff members of the business, for the assignment of tasks. */
+    taskStaffList(params?: WlTaskStaffTaskStaffListParams): Promise<WlTaskStaffTaskStaffListResponse>;
+}
 export declare class WlTaskNamespace {
     private readonly _client;
     readonly edit: WlTaskEditNamespace;
+    readonly staff: WlTaskStaffNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlWidgetAnalyticsNamespace {
