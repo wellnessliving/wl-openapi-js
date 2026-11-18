@@ -25335,6 +25335,10 @@ export interface WlBusinessCustomTermsCustomTermsGetResponse {
         has_end: boolean;
         /** Whether `text_title` starts with a vowel sound, so the article before it is "an", not "a". Makes ... */
         has_vowel_sound: boolean;
+        /** Term slots available on the Custom Terms settings page. @see WlBusinessCustomTermsCustomTermSid */
+        id_term: WlBusinessCustomTermsCustomTermSid;
+        /** `true` if the rule replaces the word with the plural form of the term ("patients"), `false` if wi... */
+        is_plural: boolean;
         /** Replacement for the word found in lowercase ("patient"). */
         text_lower: string;
         /** The word to search for, in lowercase. The letter case of the text is ignored when searching. It m... */

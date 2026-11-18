@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261118162222
+ * Spec version: 1.1.20261118171245
  * Build date:   2026-11-18
  * Endpoints:    713
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261118162222';
+  WlClient.SPEC_VERSION = '1.1.20261118171245';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (713 total)
@@ -8166,6 +8166,8 @@
    * Applies the selected promotion or session pass to the visit. Does nothing if the selected
    *  option is already applied to the visit. Verifies that the caller has access to the visit
    *  and that the selected promotion belongs to the visit's client before saving the change.
+   * 
+   * An appointment visit that waits for a payment requested by the system is confirmed as soon as the change pays it.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
