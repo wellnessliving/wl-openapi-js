@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261118051420
+// OpenAPI spec version: 1.1.20261118052751
 // Build date: 2026-11-18
-// Endpoints: 709
-// Enums: 226
+// Endpoints: 711
+// Enums: 227
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (226 total) ---
+// --- Enum types (227 total) ---
 /** Possible states of the visit: book, attended, cancelled, etc. */
 export var WlVisitVisitSid;
 (function (WlVisitVisitSid) {
@@ -1824,6 +1824,16 @@ export var RsMailCopySid;
     /** Carbon copy */
     RsMailCopySid[RsMailCopySid["CC"] = 1] = "CC";
 })(RsMailCopySid || (RsMailCopySid = {}));
+/** The step of the funds of a Stripe dispute that failed, and that Finance must do by hand. */
+export var ThothWlPayDisputeFinanceMailFailEnum;
+(function (ThothWlPayDisputeFinanceMailFailEnum) {
+    /** The funds came back to the platform, but the code did not recover them from the studio */
+    ThothWlPayDisputeFinanceMailFailEnum[ThothWlPayDisputeFinanceMailFailEnum["REINSTATED"] = 3] = "REINSTATED";
+    /** The studio was not repaid after a won dispute */
+    ThothWlPayDisputeFinanceMailFailEnum[ThothWlPayDisputeFinanceMailFailEnum["REPAY"] = 2] = "REPAY";
+    /** The transfer of the disputed payment was not reversed */
+    ThothWlPayDisputeFinanceMailFailEnum[ThothWlPayDisputeFinanceMailFailEnum["REVERSE"] = 1] = "REVERSE";
+})(ThothWlPayDisputeFinanceMailFailEnum || (ThothWlPayDisputeFinanceMailFailEnum = {}));
 /** List of pay exceptions. */
 export var ThothWlPayPayExceptionSid;
 (function (ThothWlPayPayExceptionSid) {
@@ -11847,6 +11857,43 @@ export class ThothPayProcessorNamespace {
         this.nuvei = new ThothPayProcessorNuveiNamespace(this._client);
     }
 }
+export class ThothReportSalesReportClientAccountReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the payer information of the client. */
+    accountHistoryReportInfo(params) {
+        return this._client._request('/Thoth/Report/SalesReport/Client/AccountReport/AccountHistoryReportInfo.json', params, 'GET');
+    }
+}
+export class ThothReportSalesReportClientClientStatementHistoryReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns the PDF of an account statement. */
+    clientStatementHistoryDownload(params) {
+        return this._client._request('/Thoth/Report/SalesReport/Client/ClientStatementHistoryReport/ClientStatementHistoryDownload.json', params, 'GET');
+    }
+}
+export class ThothReportSalesReportClientNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.accountReport = new ThothReportSalesReportClientAccountReportNamespace(this._client);
+        this.clientStatementHistoryReport = new ThothReportSalesReportClientClientStatementHistoryReportNamespace(this._client);
+    }
+}
+export class ThothReportSalesReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.client = new ThothReportSalesReportClientNamespace(this._client);
+    }
+}
+export class ThothReportNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.salesReport = new ThothReportSalesReportNamespace(this._client);
+    }
+}
 export class ThothReportCoreQueryEngineReportCustomizationNamespace {
     constructor(_client) {
         this._client = _client;
@@ -11884,6 +11931,7 @@ export class ThothNamespace {
         this.explorerSearch = new ThothExplorerSearchNamespace(this._client);
         this.layoutBe = new ThothLayoutBeNamespace(this._client);
         this.payProcessor = new ThothPayProcessorNamespace(this._client);
+        this.report = new ThothReportNamespace(this._client);
         this.reportCore = new ThothReportCoreNamespace(this._client);
     }
 }
