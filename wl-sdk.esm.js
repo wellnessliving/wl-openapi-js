@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — stable channel
-// OpenAPI spec version: 1.1.20261117132503
+// OpenAPI spec version: 1.1.20261118051420
 // Build date: 2026-11-18
-// Endpoints: 707
-// Enums: 225
+// Endpoints: 709
+// Enums: 226
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (225 total) ---
+// --- Enum types (226 total) ---
 /** Possible states of the visit: book, attended, cancelled, etc. */
 export var WlVisitVisitSid;
 (function (WlVisitVisitSid) {
@@ -3890,6 +3890,14 @@ export var WlLeadStageLeadStageSystemSid;
     /** A lead which was successfully converted into a client */
     WlLeadStageLeadStageSystemSid[WlLeadStageLeadStageSystemSid["WON"] = 4] = "WON";
 })(WlLeadStageLeadStageSystemSid || (WlLeadStageLeadStageSystemSid = {}));
+/** Who manages the lead stages of the locations of an Enterprise. */
+export var WlLeadStageLeadStageManagerSid;
+(function (WlLeadStageLeadStageManagerSid) {
+    /** Each location manages its own lead stages, also after the Enterprise Headquarters pushed its stages to it */
+    WlLeadStageLeadStageManagerSid[WlLeadStageLeadStageManagerSid["EACH_LOCATION"] = 1] = "EACH_LOCATION";
+    /** The Enterprise Headquarters manages the lead stages. A location that received a push can view its stages, but */
+    WlLeadStageLeadStageManagerSid[WlLeadStageLeadStageManagerSid["HEADQUARTERS"] = 2] = "HEADQUARTERS";
+})(WlLeadStageLeadStageManagerSid || (WlLeadStageLeadStageManagerSid = {}));
 /** List of progress log fields. */
 export var WlMemberProgressFieldProgressFieldSid;
 (function (WlMemberProgressFieldProgressFieldSid) {
@@ -7436,6 +7444,14 @@ export class WlLeadStageNamespace {
     /** Sets the lead stage of the client. */
     leadStageUser(params) {
         return this._client._request('/Wl/Lead/Stage/LeadStageUser.json', params, 'POST');
+    }
+    /** Returns the setting "Lead stages are managed by". */
+    leadStageManagerGet(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageManager.json', params, 'GET');
+    }
+    /** Saves the setting "Lead stages are managed by". */
+    leadStageManagerPost(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageManager.json', params, 'POST');
     }
 }
 export class WlLeadSourceNamespace {

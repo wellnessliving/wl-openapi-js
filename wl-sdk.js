@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261117132503
+ * Spec version: 1.1.20261118051420
  * Build date:   2026-11-18
- * Endpoints:    707
+ * Endpoints:    709
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/stable/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261117132503';
+  WlClient.SPEC_VERSION = '1.1.20261118051420';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (707 total)
+  // Generated API methods (709 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -5092,6 +5092,39 @@
   WlClient.prototype.wlLeadStageLeadStageUser = function(params)
   {
     return this.request('/Wl/Lead/Stage/LeadStageUser.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns the setting "Lead stages are managed by".
+   *
+   * The setting tells who manages the lead stages of the locations of the Enterprise that received a push of the
+   * lead stages: each location or the Enterprise Headquarters. It is visible to every staff member who can open the
+   * Leads settings and to every staff member who can manage the business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the Enterprise Headquarters business.
+   * @returns {Promise<Object>} Response data.
+   *  `id_lead_stage_manager` {number} Who manages the lead stages of the locations of an Enterprise. See {@link WlClient.WlLeadStageLeadStageManagerSid}.
+   */
+  WlClient.prototype.wlLeadStageLeadStageManagerGet = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageManager.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves the setting "Lead stages are managed by".
+   *
+   * Changing the setting takes effect at every location that received a push of the lead stages, and no new push is
+   * needed. The change is written to the Edit Log of the business. Only a staff member who can manage the business
+   * settings can change the setting.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the Enterprise Headquarters business.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlLeadStageLeadStageManagerPost = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageManager.json', params || {}, 'POST');
   };
 
   /**
@@ -15454,7 +15487,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (243 total)
+  // Enum constants (244 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -19775,6 +19808,18 @@
     WARM: 3,
     /** A lead which was successfully converted into a client */
     WON: 4,
+  });
+
+  /**
+   * Who manages the lead stages of the locations of an Enterprise.
+   *
+   * @enum {number}
+   */
+  WlClient.WlLeadStageLeadStageManagerSid = Object.freeze({
+    /** Each location manages its own lead stages, also after the Enterprise Headquarters pushed its stages to it */
+    EACH_LOCATION: 1,
+    /** The Enterprise Headquarters manages the lead stages. A location that received a push can view its stages, but */
+    HEADQUARTERS: 2,
   });
 
   /**

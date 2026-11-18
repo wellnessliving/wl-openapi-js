@@ -3784,6 +3784,13 @@ export declare enum WlLeadStageLeadStageSystemSid {
     /** A lead which was successfully converted into a client */
     WON = 4
 }
+/** Who manages the lead stages of the locations of an Enterprise. */
+export declare enum WlLeadStageLeadStageManagerSid {
+    /** Each location manages its own lead stages, also after the Enterprise Headquarters pushed its stages to it */
+    EACH_LOCATION = 1,
+    /** The Enterprise Headquarters manages the lead stages. A location that received a push can view its stages, but */
+    HEADQUARTERS = 2
+}
 /** List of progress log fields. */
 export declare enum WlMemberProgressFieldProgressFieldSid {
     /** Abdomen field */
@@ -11761,6 +11768,8 @@ export interface WlPurchaseReceiptPurchaseReceiptResponse {
         };
         /** The ticket of the purchase item. Only available if the purchase item is a ticket: one purchase it... */
         a_ticket_info?: {
+            /** The key of the instance of the event the ticket is for. It is the same as `k_class` of `a_ticket_... */
+            k_class: string;
             /** The title of the event the ticket is for. */
             text_event_title: string;
             /** The number of the ticket. */
@@ -14232,6 +14241,19 @@ export interface WlLeadStageLeadStageUserParams {
     uid: string;
 }
 export type WlLeadStageLeadStageUserResponse = Record<string, unknown>;
+export interface WlLeadStageLeadStageManagerGetParams {
+    /** Key of the Enterprise Headquarters business. */
+    k_business: string;
+}
+export interface WlLeadStageLeadStageManagerGetResponse {
+    /** Who manages the lead stages of the locations of an Enterprise. @see WlLeadStageLeadStageManagerSid */
+    id_lead_stage_manager: WlLeadStageLeadStageManagerSid;
+}
+export interface WlLeadStageLeadStageManagerPostParams {
+    /** Key of the Enterprise Headquarters business. */
+    k_business: string;
+}
+export type WlLeadStageLeadStageManagerPostResponse = Record<string, unknown>;
 export interface WlLeadSourceLeadSourceElementDeleteParams {
     /** Key of the lead source. */
     k_lead_source_replace: string;
@@ -34940,6 +34962,10 @@ export declare class WlLeadStageNamespace {
     leadStageList(params?: WlLeadStageLeadStageListParams): Promise<WlLeadStageLeadStageListResponse>;
     /** Sets the lead stage of the client. */
     leadStageUser(params?: WlLeadStageLeadStageUserParams): Promise<WlLeadStageLeadStageUserResponse>;
+    /** Returns the setting "Lead stages are managed by". */
+    leadStageManagerGet(params?: WlLeadStageLeadStageManagerGetParams): Promise<WlLeadStageLeadStageManagerGetResponse>;
+    /** Saves the setting "Lead stages are managed by". */
+    leadStageManagerPost(params?: WlLeadStageLeadStageManagerPostParams): Promise<WlLeadStageLeadStageManagerPostResponse>;
 }
 export declare class WlLeadSourceNamespace {
     private readonly _client;
