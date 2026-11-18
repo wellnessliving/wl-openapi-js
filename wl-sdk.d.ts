@@ -9526,10 +9526,14 @@ export interface WlPayProcessorStripeComStripeComPayInitResponse {
     m_amount: string | null;
     /** Surcharge amount. */
     m_surcharge: string | null;
+    /** ID of the Checkout Session when the client card form runs on a Checkout Session. */
+    s_checkout_session: string | null;
     /** Payment Intent client secret key. */
     s_client_secret: string;
     /** Payment intent ID. */
     s_payment_intent: string;
+    /** Email of the payer from the profile, for the client card form that runs on a Checkout Session. */
+    text_mail_payer: string | null;
     /** Error message. */
     text_message: string | null;
 }
@@ -9542,6 +9546,8 @@ export interface WlPayProcessorStripeComPaymentIntentUpdateParams {
     k_business_merchant: string;
     /** Key of the payment transaction to update. */
     k_pay_transaction: string;
+    /** ID of the Checkout Session to update. */
+    s_checkout_session: string;
     /** Payment intent ID to update. */
     s_payment_intent: string;
     /** Payment owner user key. */
@@ -9908,6 +9914,8 @@ export interface WlPayAccountAccountResponse {
         k_pay_account: string | null;
         /** ID of custom payment method. `null` if this is a user account based on system payment method. */
         k_pay_method: string | null;
+        /** Total amount of pending ACH payments for this account. `'0.00'` when there are no pending payments. */
+        m_pending: string;
         /** Account balance. */
         m_rest: string;
         /** Name of a custom payment method. `null` if this is a user account based on system payment method. */
@@ -31037,6 +31045,38 @@ export interface WlInsuranceEnrollmentFieldEnrollmentFieldListPostParams {
 export type WlInsuranceEnrollmentFieldEnrollmentFieldListPostResponse = Record<string, unknown>;
 export type WlVirtualMeetingZoomZoomMeetingEndParams = Record<string, unknown>;
 export type WlVirtualMeetingZoomZoomMeetingEndResponse = Record<string, unknown>;
+export interface ThothReportSalesReportClientAccountReportAccountHistoryReportInfoParams {
+    /** Business key. */
+    k_business?: string | null;
+    /** Client user key. */
+    uid_client?: string | null;
+}
+export interface ThothReportSalesReportClientAccountReportAccountHistoryReportInfoResponse {
+    /** Whether the client is currently a payer, i.e. pays for at least one relationship member. */
+    is_payer: boolean;
+    /** Whether the client has at least one past account transaction paid on behalf of a relationship mem... */
+    is_payer_has_history: boolean;
+    /** Full name of the user who pays for this client. */
+    text_payer_name: string;
+    /** UID of the user who pays for this client. */
+    uid_payer: string;
+    /** URL of the payer's Balance History and Statements page. */
+    url_payer_balance_history: string;
+    /** URL of the payer's Statement History tab on the Balance History and Statements page. */
+    url_payer_statement_history: string;
+}
+export interface ThothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryDownloadParams {
+    /** Business key. */
+    k_business?: string | null;
+    /** Statement primary key. */
+    k_statement?: string | null;
+}
+export interface ThothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryDownloadResponse {
+    /** Base64-encoded PDF binary content. */
+    s_pdf_base64: string;
+    /** Suggested file name for the downloaded PDF. */
+    text_filename: string;
+}
 export interface ThothReportCoreQueryEngineReportCustomizationReportQueryCustomizationFormGetParams {
     /** Report page CID. */
     cid_page: number;
@@ -35831,6 +35871,34 @@ export declare class ThothPayProcessorNamespace {
     readonly nuvei: ThothPayProcessorNuveiNamespace;
     constructor(_client: WlClient);
 }
+export declare class ThothReportSalesReportClientAccountReportNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the payer information of the client. */
+    accountHistoryReportInfo(params?: ThothReportSalesReportClientAccountReportAccountHistoryReportInfoParams): Promise<ThothReportSalesReportClientAccountReportAccountHistoryReportInfoResponse>;
+}
+export declare class ThothReportSalesReportClientClientStatementHistoryReportNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns the PDF of an account statement. */
+    clientStatementHistoryDownload(params?: ThothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryDownloadParams): Promise<ThothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryDownloadResponse>;
+}
+export declare class ThothReportSalesReportClientNamespace {
+    private readonly _client;
+    readonly accountReport: ThothReportSalesReportClientAccountReportNamespace;
+    readonly clientStatementHistoryReport: ThothReportSalesReportClientClientStatementHistoryReportNamespace;
+    constructor(_client: WlClient);
+}
+export declare class ThothReportSalesReportNamespace {
+    private readonly _client;
+    readonly client: ThothReportSalesReportClientNamespace;
+    constructor(_client: WlClient);
+}
+export declare class ThothReportNamespace {
+    private readonly _client;
+    readonly salesReport: ThothReportSalesReportNamespace;
+    constructor(_client: WlClient);
+}
 export declare class ThothReportCoreQueryEngineReportCustomizationNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -35859,6 +35927,7 @@ export declare class ThothNamespace {
     readonly explorerSearch: ThothExplorerSearchNamespace;
     readonly layoutBe: ThothLayoutBeNamespace;
     readonly payProcessor: ThothPayProcessorNamespace;
+    readonly report: ThothReportNamespace;
     readonly reportCore: ThothReportCoreNamespace;
     constructor(_client: WlClient);
 }

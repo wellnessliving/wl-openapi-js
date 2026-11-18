@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20261117050332
+ * Spec version: 1.1.20261118061629
  * Build date:   2026-11-18
- * Endpoints:    690
+ * Endpoints:    692
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/production/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261117050332';
+  WlClient.SPEC_VERSION = '1.1.20261118061629';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (690 total)
+  // Generated API methods (692 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -2480,8 +2480,10 @@
    *  `k_pay_transaction` {?string} Key of payment transaction that was created.
    *  `m_amount` {?string} Payment amount.
    *  `m_surcharge` {?string} Surcharge amount.
+   *  `s_checkout_session` {?string} ID of the Checkout Session when the client card form runs on a Checkout Session.
    *  `s_client_secret` {string} Payment Intent client secret key.
    *  `s_payment_intent` {string} Payment intent ID.
+   *  `text_mail_payer` {?string} Email of the payer from the profile, for the client card form that runs on a ...
    *  `text_message` {?string} Error message.
    */
   WlClient.prototype.wlPayProcessorStripeComStripeComPayInit = function(params)
@@ -2500,6 +2502,7 @@
    * @param {string} params.k_business Key of the business to update Payment Intent for.
    * @param {string} params.k_business_merchant Key of the business merchant to update Payment Intent for.
    * @param {string} params.k_pay_transaction Key of the payment transaction to update.
+   * @param {string} params.s_checkout_session ID of the Checkout Session to update.
    * @param {string} params.s_payment_intent Payment intent ID to update.
    * @param {?string} [params.uid_purchase] Payment owner user key.
    * @returns {Promise<Object>} Response data.
@@ -13867,6 +13870,47 @@
   WlClient.prototype.wlVirtualMeetingZoomZoomMeetingEnd = function(params)
   {
     return this.request('/Wl/Virtual/Meeting/Zoom/ZoomMeetingEnd.json', params || {}, 'POST');
+  };
+
+  /**
+   * Returns the payer information of the client.
+   *
+   * Tells whether the client pays for relationship members and who pays for the client.
+   * For a client paid for by another user, gives the name of the payer and the links to the payer's
+   * Balance History and Statement History pages.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {?string} [params.k_business] Business key.
+   * @param {?string} [params.uid_client] Client user key.
+   * @returns {Promise<Object>} Response data.
+   *  `is_payer` {boolean} Whether the client is currently a payer, i.e. pays for at least one relations...
+   *  `is_payer_has_history` {boolean} Whether the client has at least one past account transaction paid on behalf o...
+   *  `text_payer_name` {string} Full name of the user who pays for this client.
+   *  `uid_payer` {string} UID of the user who pays for this client.
+   *  `url_payer_balance_history` {string} URL of the payer's Balance History and Statements page.
+   *  `url_payer_statement_history` {string} URL of the payer's Statement History tab on the Balance History and Statement...
+   */
+  WlClient.prototype.thothReportSalesReportClientAccountReportAccountHistoryReportInfo = function(params)
+  {
+    return this.request('/Thoth/Report/SalesReport/Client/AccountReport/AccountHistoryReportInfo.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns the PDF of an account statement.
+   *
+   * Checks that the statement belongs to the business and that the caller has access to the profile of the client,
+   * then gives the PDF as a Base64 string together with a suggested file name.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {?string} [params.k_business] Business key.
+   * @param {?string} [params.k_statement] Statement primary key.
+   * @returns {Promise<Object>} Response data.
+   *  `s_pdf_base64` {string} Base64-encoded PDF binary content.
+   *  `text_filename` {string} Suggested file name for the downloaded PDF.
+   */
+  WlClient.prototype.thothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryDownload = function(params)
+  {
+    return this.request('/Thoth/Report/SalesReport/Client/ClientStatementHistoryReport/ClientStatementHistoryDownload.json', params || {}, 'GET');
   };
 
   /**
