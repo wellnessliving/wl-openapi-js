@@ -601,6 +601,152 @@ export declare enum RsReportSid {
     /** Report with list of businesses connected to FitLIVE */
     ZOOM_SYSTEM_COUNT = 259
 }
+/** Reasons of failed book or check-in. */
+export declare enum WlVisitVisitDenyReasonSid {
+    /** The business can not take one more client */
+    ACCESS_DENIED = 1,
+    /** Access is limited */
+    ACCESS_LIMITED = 2,
+    /** The business can not take one more client */
+    ACCOUNT_LIMIT = 3,
+    /** Class is not available for certain age */
+    AGE_RESTRICTION = 4,
+    /** Liability Release needs to be agreed */
+    AGREE_NX = 5,
+    /** Service approval denied */
+    APPOINTMENT_DENY = 25,
+    /** Service requires staff approval */
+    APPOINTMENT_REQUEST = 26,
+    /** Business Policy restricts Gym Visits */
+    ATTEND_GYM_DISABLE = 23,
+    /** The client already has a checked-in gym visit on the same local day, at any location of the business */
+    ATTEND_ONCE = 38,
+    /** Self check-in not available for this service */
+    ATTEND_SELF_DISABLE = 22,
+    /** Business policy prevents unpaid check-ins */
+    ATTEND_UNPAID = 28,
+    /** Client is on the Wait List */
+    ATTEND_WAIT = 27,
+    /** Client has a negative account balance */
+    BALANCE_NEGATIVE = 37,
+    /** It's too early to book a class */
+    BOOK_EARLY = 7,
+    /** It's too late to book a class */
+    BOOK_LATE = 8,
+    /** Visit must be booked before check-in */
+    BOOK_NX = 24,
+    /** Cannot book to this class anymore */
+    BOOK_RESTRICT = 9,
+    /** Client is already booked for this session */
+    BOOKED_ALREADY = 6,
+    /** Business is inactive */
+    BUSINESS_INACTIVE = 10,
+    /** Class is canceled */
+    CLASS_CANCELED = 11,
+    /** Class is full */
+    CLASS_FULL = 14,
+    /** Class does not exist anymore */
+    CLASS_NOT_AVAILABLE_ANYMORE = 15,
+    /** Client is flagged at location */
+    CLIENT_FLAGGED = 12,
+    /** Credit card is required for booking services */
+    CREDIT_CARD_REQUIRE = 13,
+    /** Business is closed */
+    HOLIDAY = 16,
+    /** Login is required */
+    LOGIN_REQUIRED = 17,
+    /** Online booking is disabled for the class */
+    NOT_BOOKABLE = 18,
+    /** Contract not signed */
+    PAYMENT_CONTRACT = 35,
+    /** Purchase Option expired */
+    PAYMENT_EXPIRE = 36,
+    /** Purchase Option on hold */
+    PAYMENT_HOLD = 34,
+    /** No valid Purchase Option */
+    PAYMENT_NX = 30,
+    /** Purchase Option has no visits left */
+    PAYMENT_REMAIN = 33,
+    /** Purchase Option not active yet */
+    PAYMENT_START = 32,
+    /** Attendance limit on Purchase Option reached */
+    SCHEDULE_RESTRICT = 31,
+    /** Check-in could not be completed */
+    UNKNOWN = 29,
+    /** Required personal details missing */
+    USER_INFO_MISSING = 19,
+    /** Visit to another class is required first */
+    VISIT_BEFORE = 20,
+    /** The wait list is full */
+    WAIT_LIST_LIMIT_MAX = 21
+}
+/** The source of a visit. */
+export declare enum WlModeModeSid {
+    /** Action made via Api Endpoint. Default for leads created via API, unless overridden */
+    API = 28,
+    /** Registered through `Azure` */
+    AZURE = 21,
+    /** Visit has been checked-in by Brivo Door Access */
+    BRIVO_DOOR_ACCESS = 31,
+    /** Purchase created by a bulk billing batch charge */
+    BULK_BILLING = 33,
+    /** Visit has been created by `CENTRED` */
+    CENTRED = 23,
+    /** Visit has been created by `ClassPass` */
+    CLASSPASS_BOOKING = 8,
+    /** Debt paid via collections */
+    COLLECTIONS = 22,
+    /** Debt paid via collections */
+    COLLECTIONS_FUTURE = 26,
+    /** Action from Concerto */
+    CONCERTO = 27,
+    /** Action made via email */
+    EMAIL = 18,
+    /** Indicating that the source is Facebook */
+    FACEBOOK = 20,
+    /** Action from Go High Level */
+    GO_HIGH_LEVEL = 30,
+    /** Indicating that the source is Google */
+    GOOGLE = 19,
+    /** Visit has been created by Google Booking Service */
+    GOOGLE_BOOKING = 7,
+    /** Visit has been created by `GymPass` */
+    GYMPASS_BOOKING = 14,
+    /** Visit was created during import */
+    IMPORT = 5,
+    /** Action made via microsite */
+    MICROSITE = 12,
+    /** Indicating that the source is Microsoft */
+    MICROSOFT = 24,
+    /** Client booked session on My Presence Site */
+    MY_PRESENCE_SITE = 13,
+    /** Visit has been created by `Passport Door Access` */
+    PASSPORT_DOOR_ACCESS = 32,
+    /** Action made via SMS */
+    SMS = 17,
+    /** Staff booked session from spa backend */
+    SPA_BACKEND = 4,
+    /** Client booked session from spa frontend */
+    SPA_FRONTEND = 3,
+    /** Staff member checked the client in at the staff check-in kiosk */
+    STAFF_KIOSK = 35,
+    /** Created by system */
+    SYSTEM = 10,
+    /** Means that we did not define mode */
+    UNDEFINED = 6,
+    /** Client booked session from Attendance Web App */
+    WEB_APP_ATTENDANCE = 16,
+    /** Client checked-in for the session through Check-In Web App */
+    WEB_APP_CHECK_IN = 15,
+    /** Staff booked session for client from website backend */
+    WEB_BACKEND = 2,
+    /** Client booked session from website frontend */
+    WEB_FRONTEND = 1,
+    /** Action made via widget (purchase, book etc) */
+    WIDGET = 11,
+    /** Action from Zapier */
+    ZAPIER = 25
+}
 /** A class for a list of card systems. */
 export declare enum ACardSystemSid {
     /** American Express */
@@ -1516,73 +1662,6 @@ export declare enum WlLoginMemberIntentsMemberIntentsSid {
     VIEW_BOOKINGS = 15,
     /** Customer asks about their purchased memberships, session passes, or packages */
     VIEW_CLIENT_PO_DETAILS = 16
-}
-/** The source of a visit. */
-export declare enum WlModeModeSid {
-    /** Action made via Api Endpoint. Default for leads created via API, unless overridden */
-    API = 28,
-    /** Registered through `Azure` */
-    AZURE = 21,
-    /** Visit has been checked-in by Brivo Door Access */
-    BRIVO_DOOR_ACCESS = 31,
-    /** Purchase created by a bulk billing batch charge */
-    BULK_BILLING = 33,
-    /** Visit has been created by `CENTRED` */
-    CENTRED = 23,
-    /** Visit has been created by `ClassPass` */
-    CLASSPASS_BOOKING = 8,
-    /** Debt paid via collections */
-    COLLECTIONS = 22,
-    /** Debt paid via collections */
-    COLLECTIONS_FUTURE = 26,
-    /** Action from Concerto */
-    CONCERTO = 27,
-    /** Action made via email */
-    EMAIL = 18,
-    /** Indicating that the source is Facebook */
-    FACEBOOK = 20,
-    /** Action from Go High Level */
-    GO_HIGH_LEVEL = 30,
-    /** Indicating that the source is Google */
-    GOOGLE = 19,
-    /** Visit has been created by Google Booking Service */
-    GOOGLE_BOOKING = 7,
-    /** Visit has been created by `GymPass` */
-    GYMPASS_BOOKING = 14,
-    /** Visit was created during import */
-    IMPORT = 5,
-    /** Action made via microsite */
-    MICROSITE = 12,
-    /** Indicating that the source is Microsoft */
-    MICROSOFT = 24,
-    /** Client booked session on My Presence Site */
-    MY_PRESENCE_SITE = 13,
-    /** Visit has been created by `Passport Door Access` */
-    PASSPORT_DOOR_ACCESS = 32,
-    /** Action made via SMS */
-    SMS = 17,
-    /** Staff booked session from spa backend */
-    SPA_BACKEND = 4,
-    /** Client booked session from spa frontend */
-    SPA_FRONTEND = 3,
-    /** Staff member checked the client in at the staff check-in kiosk */
-    STAFF_KIOSK = 35,
-    /** Created by system */
-    SYSTEM = 10,
-    /** Means that we did not define mode */
-    UNDEFINED = 6,
-    /** Client booked session from Attendance Web App */
-    WEB_APP_ATTENDANCE = 16,
-    /** Client checked-in for the session through Check-In Web App */
-    WEB_APP_CHECK_IN = 15,
-    /** Staff booked session for client from website backend */
-    WEB_BACKEND = 2,
-    /** Client booked session from website frontend */
-    WEB_FRONTEND = 1,
-    /** Action made via widget (purchase, book etc) */
-    WIDGET = 11,
-    /** Action from Zapier */
-    ZAPIER = 25
 }
 /** List of member vaccination statuses. */
 export declare enum WlLoginMemberVaccinationStatusVaccinationStatusSid {
@@ -4538,85 +4617,6 @@ export declare enum RsRewardActionCategorySid {
     /** Rewards for significant user events */
     USER = 5
 }
-/** Reasons of failed book or check-in. */
-export declare enum WlVisitVisitDenyReasonSid {
-    /** The business can not take one more client */
-    ACCESS_DENIED = 1,
-    /** Access is limited */
-    ACCESS_LIMITED = 2,
-    /** The business can not take one more client */
-    ACCOUNT_LIMIT = 3,
-    /** Class is not available for certain age */
-    AGE_RESTRICTION = 4,
-    /** Liability Release needs to be agreed */
-    AGREE_NX = 5,
-    /** Service approval denied */
-    APPOINTMENT_DENY = 25,
-    /** Service requires staff approval */
-    APPOINTMENT_REQUEST = 26,
-    /** Business Policy restricts Gym Visits */
-    ATTEND_GYM_DISABLE = 23,
-    /** The client already has a checked-in gym visit on the same local day, at any location of the business */
-    ATTEND_ONCE = 38,
-    /** Self check-in not available for this service */
-    ATTEND_SELF_DISABLE = 22,
-    /** Business policy prevents unpaid check-ins */
-    ATTEND_UNPAID = 28,
-    /** Client is on the Wait List */
-    ATTEND_WAIT = 27,
-    /** Client has a negative account balance */
-    BALANCE_NEGATIVE = 37,
-    /** It's too early to book a class */
-    BOOK_EARLY = 7,
-    /** It's too late to book a class */
-    BOOK_LATE = 8,
-    /** Visit must be booked before check-in */
-    BOOK_NX = 24,
-    /** Cannot book to this class anymore */
-    BOOK_RESTRICT = 9,
-    /** Client is already booked for this session */
-    BOOKED_ALREADY = 6,
-    /** Business is inactive */
-    BUSINESS_INACTIVE = 10,
-    /** Class is canceled */
-    CLASS_CANCELED = 11,
-    /** Class is full */
-    CLASS_FULL = 14,
-    /** Class does not exist anymore */
-    CLASS_NOT_AVAILABLE_ANYMORE = 15,
-    /** Client is flagged at location */
-    CLIENT_FLAGGED = 12,
-    /** Credit card is required for booking services */
-    CREDIT_CARD_REQUIRE = 13,
-    /** Business is closed */
-    HOLIDAY = 16,
-    /** Login is required */
-    LOGIN_REQUIRED = 17,
-    /** Online booking is disabled for the class */
-    NOT_BOOKABLE = 18,
-    /** Contract not signed */
-    PAYMENT_CONTRACT = 35,
-    /** Purchase Option expired */
-    PAYMENT_EXPIRE = 36,
-    /** Purchase Option on hold */
-    PAYMENT_HOLD = 34,
-    /** No valid Purchase Option */
-    PAYMENT_NX = 30,
-    /** Purchase Option has no visits left */
-    PAYMENT_REMAIN = 33,
-    /** Purchase Option not active yet */
-    PAYMENT_START = 32,
-    /** Attendance limit on Purchase Option reached */
-    SCHEDULE_RESTRICT = 31,
-    /** Check-in could not be completed */
-    UNKNOWN = 29,
-    /** Required personal details missing */
-    USER_INFO_MISSING = 19,
-    /** Visit to another class is required first */
-    VISIT_BEFORE = 20,
-    /** The wait list is full */
-    WAIT_LIST_LIMIT_MAX = 21
-}
 /** Results of a scan at the staff check-in kiosk. */
 export declare enum WlVisitKioskScanResultSid {
     /** The scanned value is a dynamic barcode of a client that has expired */
@@ -5265,6 +5265,15 @@ export declare enum RsAppointmentEditConflictSid {
     /** Do not create conflicted event */
     SKIP = 2
 }
+/** Different types of range to apply rescheduling. Important for recurring appointments that */
+export declare enum WlAppointmentEditEditRangeSid {
+    /** Change all appointment from current one until the end of the recurring appointments */
+    FORWARD = 2,
+    /** Change only one appointment */
+    ONCE = 1,
+    /** Change all appointments withing the given date range */
+    RANGE = 3
+}
 /** A list of client booking flow types. */
 export declare enum WlServiceServiceBookFlowSid {
     /** Client selects the date and time and then the staff member */
@@ -5716,6 +5725,17 @@ export interface CoreWebSocketSubscribeResponse {
         k_class_tab_new: string | null;
         /** Old "Book now" tab primary key in {@link WlClassesTabTabSid} table. */
         k_class_tab_old: string | null;
+    } | {
+        /** Time of the attempt (of the check-in for a visit), in UTC and MySQL format, for example `2026-11-... */
+        dtu_attempt: string;
+        /** Reasons of failed book or check-in. @see WlVisitVisitDenyReasonSid */
+        id_deny_reason: WlVisitVisitDenyReasonSid;
+        /** The source of a visit. @see WlModeModeSid */
+        id_mode: WlModeModeSid | null;
+        /** `true` for a failed attempt, `false` for a check-in. */
+        is_fail: boolean;
+        /** Key of the checked-in visit. `null` for a failed attempt. */
+        k_visit: string | null;
     } | {
         /** A class for a list of card systems. @see ACardSystemSid */
         id_card_system: ACardSystemSid | null;
@@ -8531,7 +8551,7 @@ export interface WlVisitVisitStatusGetResponse {
     /** The client's place in a waiting list. */
     i_wait_spot: number;
     /** The source of a visit. @see WlModeModeSid */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** Possible states of the visit: book, attended, cancelled, etc. @see WlVisitVisitSid */
     id_visit: WlVisitVisitSid;
     /** Determines whether the visit is from an event. */
@@ -13873,7 +13893,7 @@ export interface WlBookProcessProcessGroupParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -13912,7 +13932,7 @@ export interface WlBookProcessProcessParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -13963,7 +13983,7 @@ export interface WlBookProcessProcess54Params {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -14014,7 +14034,7 @@ export interface WlBookProcessProcess59Params {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -15143,7 +15163,7 @@ export interface WlProfileEditEditPostParams {
     /** UID of the user, whose email was inherited by the existing client we want to add. */
     uid_relative_key: string;
     /** ID of source mode. One of {@link WlModeModeSid} constants. */
-    id_mode?: WlModeModeSid;
+    id_mode?: WlModeModeSid | null;
     /** Registration source ID. @see WlProfileRegisterSourceSid */
     id_register_source?: WlProfileRegisterSourceSid | null;
     /** Whether the address be inherited. */
@@ -15288,7 +15308,7 @@ export interface WlProfileEditEditByTokenPostParams {
     /** UID of the user, whose email was inherited by the existing client we want to add. */
     uid_relative_key: string;
     /** ID of source mode. One of {@link WlModeModeSid} constants. */
-    id_mode?: WlModeModeSid;
+    id_mode?: WlModeModeSid | null;
     /** Registration source ID. @see WlProfileRegisterSourceSid */
     id_register_source?: WlProfileRegisterSourceSid | null;
     /** Whether the address be inherited. */
@@ -15683,7 +15703,7 @@ export interface WlCatalogPaymentPaymentParams {
         k_staff_pay: string;
     };
     /** The WellnessLiving mode type (required). One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** Determines if the payment owner is an anonymous user (optional). */
     is_guest: boolean;
     /** Specify this if operations are performed by the staff member (optional). */
@@ -15801,8 +15821,8 @@ export interface WlCatalogCatalogListElementGetResponse {
             /** Staff display name. */
             text_staff: string;
         };
-        /** Date of expiration of coupon, local date in MySQL format. */
-        dl_expire: string;
+        /** Expiration date, local date in MySQL format. Example: `2027-02-01`. */
+        dl_expire: string | null;
         /** Current date, local date in MySQL format. */
         dl_now: string;
         /** Date to activate the coupon on, local date in MySQL format. */
@@ -15899,8 +15919,8 @@ export interface WlCatalogCatalogListElementGetResponse {
             a_component: Record<string, unknown>;
             /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
             a_staff: Record<string, unknown>;
-            /** Date of expiration of coupon, local date in MySQL format. */
-            dl_expire: string;
+            /** Expiration date, local date in MySQL format. Example: `2027-02-01`. */
+            dl_expire: string | null;
             /** Current date, local date in MySQL format. */
             dl_now: string;
             /** Date to activate the coupon on, local date in MySQL format. */
@@ -16142,8 +16162,8 @@ export interface WlCatalogCatalogListElementPostResponse {
             /** Staff display name. */
             text_staff: string;
         };
-        /** Date of expiration of coupon, local date in MySQL format. */
-        dl_expire: string;
+        /** Expiration date, local date in MySQL format. Example: `2027-02-01`. */
+        dl_expire: string | null;
         /** Current date, local date in MySQL format. */
         dl_now: string;
         /** Date to activate the coupon on, local date in MySQL format. */
@@ -16240,8 +16260,8 @@ export interface WlCatalogCatalogListElementPostResponse {
             a_component: Record<string, unknown>;
             /** This applies to enrollment/event items. Staff list for class periods. Each element contains: */
             a_staff: Record<string, unknown>;
-            /** Date of expiration of coupon, local date in MySQL format. */
-            dl_expire: string;
+            /** Expiration date, local date in MySQL format. Example: `2027-02-01`. */
+            dl_expire: string | null;
             /** Current date, local date in MySQL format. */
             dl_now: string;
             /** Date to activate the coupon on, local date in MySQL format. */
@@ -17949,7 +17969,7 @@ export interface WlBillingBulkPurchaseItemListGetResponse {
         a_option: {
             /** The product option key. */
             k_shop_product_option: string;
-            /** The regular price of the option. */
+            /** The price of the option: the discount price when the discount of the option is enabled, the regular */
             m_price: string;
             /** The product option title. */
             text_title: string;
@@ -18712,7 +18732,7 @@ export interface WlQuizResponseResponse65DeleteParams {
     /** Quiz response key list. */
     a_quiz_response_key: Array<string>;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** Business key within which quiz is managed. */
     k_business: string;
     /** Quiz key. */
@@ -19114,7 +19134,7 @@ export interface WlQuizResponseResponseDeleteParams {
     /** Quiz response key list. */
     a_quiz_response_key: Array<string>;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** Business key within which quiz is managed. */
     k_business: string;
     /** Quiz key. */
@@ -19510,7 +19530,7 @@ export interface WlQuizResponseResponsePutParams {
 export type WlQuizResponseResponsePutResponse = Record<string, unknown>;
 export interface WlQuizLoginQuizLoginDeleteParams {
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** Business key within which quiz is managed. */
     k_business: string;
     /** Quiz login key. */
@@ -21569,7 +21589,7 @@ export interface WlLeadSourceLeadSourceListResponse {
         /** Sorting order. Only used in the Lead Source widget option. `null` is a temporary value that exist... */
         i_sort: number | null;
         /** The source of a visit. @see WlModeModeSid */
-        id_lead_source: WlModeModeSid;
+        id_lead_source: WlModeModeSid | null;
         /** `true` if this skin will be used for "Add Lead" form or `false` otherwise. */
         is_add_lead: boolean;
         /** Determines whether Lead Source is being used. */
@@ -21907,7 +21927,7 @@ export interface WlVisitKioskAttemptListResponse {
         /** Reasons of failed book or check-in. @see WlVisitVisitDenyReasonSid */
         id_deny_reason: WlVisitVisitDenyReasonSid;
         /** The source of a visit. @see WlModeModeSid */
-        id_mode: WlModeModeSid;
+        id_mode: WlModeModeSid | null;
         /** `true` for a failed attempt, `false` for a checked-in visit. */
         is_fail: boolean;
         /** Location of the attempt. */
@@ -21944,6 +21964,8 @@ export interface WlVisitKioskAttemptListResponse {
 }
 export type WlVisitKioskAttendParams = Record<string, unknown>;
 export interface WlVisitKioskAttendResponse {
+    /** Every reason why the check-in has been refused. */
+    a_deny_reason: Array<WlVisitVisitDenyReasonSid>;
     /** Time of the check-in of the gym visit that the client already has on the day, in UTC and MySQL fo... */
     dtu_attend: string | null;
     /** Time of the check-in in UTC and MySQL format, for example `2026-11-05 14:30:00`. */
@@ -22001,6 +22023,8 @@ export interface WlVisitKioskEvaluateParams {
     dtl_date?: string | null;
 }
 export interface WlVisitKioskEvaluateResponse {
+    /** Every reason why the check-in would be refused, in the order of the check-in. */
+    a_deny_reason: Array<WlVisitVisitDenyReasonSid>;
     /** Passes of the client that may pay for a gym visit. */
     a_login_promotion: Array<{
         /** Last day of the pass, local date in MySQL format. `null` if the pass does not expire. */
@@ -22057,6 +22081,8 @@ export interface WlVisitKioskEvaluateResponse {
     /** Balance of the account of the client (or of the payer of the client), for example `-25.00`. */
     m_balance: string | null;
 }
+export type WlVisitKioskSignSendParams = Record<string, unknown>;
+export type WlVisitKioskSignSendResponse = Record<string, unknown>;
 export interface WlFitbuilderSubscriptionFitbuilderSubscriptionGetParams {
     /** Business key to check Fitbuilder subscription plan. */
     k_business: string;
@@ -23958,6 +23984,14 @@ export interface WlBookProcessPurchasePurchaseElementParams {
             k_class: string;
             /** The amount charged for this event right now, including tax. `0.00` when every */
             m_checkout: string | null;
+            /** The taxes charged for this event right now, keyed by tax key. `a_tax` is the tax of the full price. */
+            a_checkout_tax: Array<string>;
+            /** The price charged for this event right now, before discount and tax. */
+            m_checkout_subtotal: string;
+            /** The tax charged for this event right now: the sum of `a_checkout_tax`. */
+            m_checkout_tax: string;
+            /** The discount taken from `m_checkout_subtotal`, `m_discount` is the discount of the full price. */
+            m_discount_checkout: string;
             /** The part of the event cost that is not charged right now, including tax. Goes to the */
             m_deferred: string;
             /** Total discount amount applied to the event, `0.00` if there is none. */
@@ -24035,6 +24069,14 @@ export interface WlBookProcessPurchasePurchaseElementResponse {
             k_class: string;
             /** The amount charged for this event right now, including tax. `0.00` when every */
             m_checkout: string | null;
+            /** The taxes charged for this event right now, keyed by tax key. `a_tax` is the tax of the full price. */
+            a_checkout_tax: Array<string>;
+            /** The price charged for this event right now, before discount and tax. */
+            m_checkout_subtotal: string;
+            /** The tax charged for this event right now: the sum of `a_checkout_tax`. */
+            m_checkout_tax: string;
+            /** The discount taken from `m_checkout_subtotal`, `m_discount` is the discount of the full price. */
+            m_discount_checkout: string;
             /** The part of the event cost that is not charged right now, including tax. Goes to the */
             m_deferred: string;
             /** Total discount amount applied to the event, `0.00` if there is none. */
@@ -24219,6 +24261,14 @@ export interface WlBookProcessPurchasePurchaseElementListResponse {
             k_class: string;
             /** The amount charged for this event right now, including tax. `0.00` when every */
             m_checkout: string | null;
+            /** The taxes charged for this event right now, keyed by tax key. `a_tax` is the tax of the full price. */
+            a_checkout_tax: Array<string>;
+            /** The price charged for this event right now, before discount and tax. */
+            m_checkout_subtotal: string;
+            /** The tax charged for this event right now: the sum of `a_checkout_tax`. */
+            m_checkout_tax: string;
+            /** The discount taken from `m_checkout_subtotal`, `m_discount` is the discount of the full price. */
+            m_discount_checkout: string;
             /** The part of the event cost that is not charged right now, including tax. Goes to the */
             m_deferred: string;
             /** Total discount amount applied to the event, `0.00` if there is none. */
@@ -24284,7 +24334,7 @@ export interface WlBookProcessPurchasePurchaseParams {
     /** The image width in pixels. Specify this value if you need image to be returned in specific size. */
     i_image_width: number;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Determines if the client must authorize the credit card. */
@@ -24517,7 +24567,7 @@ export interface WlBookProcessPurchasePurchase56Params {
     /** The image width in pixels. Specify this value if you need image to be returned in specific size. */
     i_image_width: number;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Determines if the client must authorize the credit card. */
@@ -24737,7 +24787,7 @@ export interface WlBookProcessInfoInfoGetParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -24891,7 +24941,7 @@ export interface WlBookProcessInfoInfoPostParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -24938,7 +24988,7 @@ export interface WlBookProcessInfoInfo54GetParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -25094,7 +25144,7 @@ export interface WlBookProcessInfoInfo54PostParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -25184,7 +25234,7 @@ export interface WlBookProcessPaymentPaymentParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -25227,7 +25277,7 @@ export interface WlBookProcessStoreStoreParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -25270,7 +25320,7 @@ export interface WlBookProcessStoreStoreGroupParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -25317,7 +25367,7 @@ export interface WlBookProcessFrequencyRepeatParams {
     /** Recurring booking interval, one of {@link ADurationSid} constants. */
     id_duration: ADurationSid;
     /** WellnessLiving mode, one of {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** Type of repeating, one of {@link RsRepeatEndSid} constants. */
     id_repeat_end: RsRepeatEndSid;
     /** `true` when cancelling booking, `false` otherwise. */
@@ -25394,7 +25444,7 @@ export interface WlBookProcessFrequencyRepeatParallelParams {
     /** Recurring booking interval, one of {@link ADurationSid} constants. */
     id_duration: ADurationSid;
     /** WellnessLiving mode, one of {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** Type of repeating, one of {@link RsRepeatEndSid} constants. */
     id_repeat_end: RsRepeatEndSid;
     /** `true` when cancelling booking, `false` otherwise. */
@@ -25466,7 +25516,7 @@ export interface WlBookProcessQuizQuizGetParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -25491,7 +25541,7 @@ export interface WlBookProcessQuizQuizPostParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -25542,7 +25592,7 @@ export interface WlBookProcessResourceResource54GetParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -25612,7 +25662,7 @@ export interface WlBookProcessResourceResource54PostParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -25640,7 +25690,7 @@ export interface WlBookProcessResourceResourceGetParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -25708,7 +25758,7 @@ export interface WlBookProcessResourceResourcePostParams {
     /** Date/time to which session is booked. */
     dt_date_gmt: string;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` if action is performed as a staff member; `false` otherwise. */
     is_backend: boolean;
     /** Checking whether the client has a credit card (if configured in the business) will be skipped if ... */
@@ -27111,6 +27161,12 @@ export interface WlAppointmentBookFinishFinishPostParams {
             /** The asset. */
             k_resource: string;
         };
+        /** New weekdays for a weekly `FORWARD` reschedule, constants of {@link ADateWeekSid}. */
+        a_week?: Array<number>;
+        /** The start of the date range of a recurring reschedule, in MySQL format in the location's time zone. */
+        dl_edit_from?: string;
+        /** The end of the date range of a recurring reschedule, in MySQL format in the location's time zone. */
+        dl_edit_to?: string;
         /** The date/time for the booking in MySQL format in the location's time zone. */
         dt_date: string;
         /** The duration of asset booking in minutes. Specify this for separate asset bookings only. */
@@ -27119,6 +27175,8 @@ export interface WlAppointmentBookFinishFinishPostParams {
         i_index?: number;
         /** List of class tab objects. @see WlClassesTabTabSid */
         id_class_tab?: WlClassesTabTabSid;
+        /** Different types of range to apply rescheduling. Important for recurring appointments that @see WlAppointmentEditEditRangeSid */
+        id_edit_range?: WlAppointmentEditEditRangeSid;
         /** String identifiers for gender. @see AGenderSid */
         id_gender_staff?: AGenderSid | null;
         /** If `true`, appointment waits unpaid. */
@@ -27241,6 +27299,8 @@ export interface WlAppointmentBookFinishFinishMultipleResponse {
     a_visit_provider: Array<Array<string>>;
 }
 export interface WlAppointmentBookScheduleDayTimeParams {
+    /** The list of staff members to limit the availability to. Empty means no limit. */
+    a_staff: Array<string>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The date to show the available appointment booking schedule. */
@@ -27341,6 +27401,8 @@ export interface WlAppointmentBookScheduleServiceAvailabilityResponse {
     };
 }
 export interface WlAppointmentBookScheduleCalendar73Params {
+    /** The list of staff members to limit the availability to. Empty means no limit. */
+    a_staff: Array<string>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The date to show the available appointment booking schedule. */
@@ -27474,6 +27536,8 @@ export interface WlAppointmentBookScheduleCalendar73Response {
     k_location: string;
 }
 export interface WlAppointmentBookScheduleDayTime73Params {
+    /** The list of staff members to limit the availability to. Empty means no limit. */
+    a_staff: Array<string>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The date to show the available appointment booking schedule. */
@@ -27549,6 +27613,8 @@ export interface WlAppointmentBookScheduleDayTime73Response {
     k_location: string;
 }
 export interface WlAppointmentBookScheduleCalendarParams {
+    /** The list of staff members to limit the availability to. Empty means no limit. */
+    a_staff: Array<string>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The date to show the available appointment booking schedule. */
@@ -27684,6 +27750,8 @@ export interface WlAppointmentBookScheduleCalendarResponse {
     k_location: string;
 }
 export interface WlAppointmentBookScheduleNextAvailableDayParams {
+    /** The list of staff members to limit the availability to. Empty means no limit. */
+    a_staff: Array<string>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** Start date to search next available date in MySQL format. If empty, the search will start from th... */
@@ -27772,7 +27840,7 @@ export interface WlAppointmentBookPaymentPaymentGetParams {
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The key of source mode. A constant of {@link WlModeModeSid}. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** The purchase item ID. A constant of {@link RsPurchaseItemSid}. */
     id_purchase_item: RsPurchaseItemSid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
@@ -27884,7 +27952,7 @@ export interface WlAppointmentBookPaymentPaymentPostParams {
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The key of source mode. A constant of {@link WlModeModeSid}. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** The purchase item ID. A constant of {@link RsPurchaseItemSid}. */
     id_purchase_item: RsPurchaseItemSid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
@@ -27957,7 +28025,7 @@ export interface WlAppointmentBookPaymentPaymentMultipleGetParams {
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The ID of the source mode. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
     is_walk_in: boolean;
     /** Location to show available appointment booking schedule. */
@@ -28042,7 +28110,7 @@ export interface WlAppointmentBookPaymentPaymentMultiplePostParams {
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The ID of the source mode. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
     is_walk_in: boolean;
     /** Location to show available appointment booking schedule. */
@@ -28068,7 +28136,7 @@ export interface WlAppointmentBookPaymentPaymentPostGetParams {
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The key of source mode. A constant of {@link WlModeModeSid}. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** The purchase item ID. A constant of {@link RsPurchaseItemSid}. */
     id_purchase_item: RsPurchaseItemSid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
@@ -28147,7 +28215,7 @@ export interface WlAppointmentBookPaymentPaymentPostPostParams {
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
     /** The key of source mode. A constant of {@link WlModeModeSid}. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** The purchase item ID. A constant of {@link RsPurchaseItemSid}. */
     id_purchase_item: RsPurchaseItemSid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
@@ -28619,7 +28687,7 @@ export interface WlAppointmentBookAssetAssetListParams {
     /** Image width in pixels. Please specify this value if you need image to be returned in specific size. */
     i_image_width: number;
     /** Mode type, one of {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** This is `true` if asset categories are loaded for back-end mode. Otherwise, this will be `false` ... */
     is_backend: boolean;
     /** `true` - search in all tabs. */
@@ -28790,7 +28858,7 @@ export interface WlAppointmentBookPurchasePurchaseParams {
     /** The asset booking duration. */
     i_duration: number;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` - get all Purchase Options suitable for appointment. */
     is_backend: boolean;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
@@ -29038,7 +29106,7 @@ export interface WlAppointmentBookPurchasePurchase72Params {
     /** The asset booking duration. */
     i_duration: number;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** `true` - get all Purchase Options suitable for appointment. */
     is_backend: boolean;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
@@ -29270,10 +29338,18 @@ export interface WlAppointmentBookConflictConflict56Params {
     }>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
+    /** New weekdays for a weekly forward reschedule, constants of {@link ADateWeekSid}. */
+    a_week: Array<ADateWeekSid>;
+    /** First local date of the bounded reschedule range, in MySQL format. */
+    dl_edit_from: string;
+    /** Last local date of the bounded reschedule range, in MySQL format. */
+    dl_edit_to: string;
     /** Date/time of appointment. In location timezone. */
     dt_date: string;
     /** Appointment duration. */
     i_duration: number;
+    /** Scope of a staff reschedule of a recurring appointment. @see WlAppointmentEditEditRangeSid */
+    id_edit_range: WlAppointmentEditEditRangeSid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
     is_walk_in: boolean;
     /** Appointment key. Empty for a new appointment. */
@@ -29288,7 +29364,7 @@ export interface WlAppointmentBookConflictConflict56Params {
     k_staff: string;
     /** The user key. */
     uid: string;
-    /** Staff member user ID. */
+    /** Staff member user key. */
     uid_staff: string;
     /** Data of appointment repeat. */
     a_repeat?: {
@@ -29347,10 +29423,18 @@ export interface WlAppointmentBookConflictConflictParams {
     }>;
     /** List of user keys to book appointments. */
     a_uid: Array<string>;
+    /** New weekdays for a weekly forward reschedule, constants of {@link ADateWeekSid}. */
+    a_week: Array<ADateWeekSid>;
+    /** First local date of the bounded reschedule range, in MySQL format. */
+    dl_edit_from: string;
+    /** Last local date of the bounded reschedule range, in MySQL format. */
+    dl_edit_to: string;
     /** Date/time of appointment. In location timezone. */
     dt_date: string;
     /** Appointment duration. */
     i_duration: number;
+    /** Scope of a staff reschedule of a recurring appointment. @see WlAppointmentEditEditRangeSid */
+    id_edit_range: WlAppointmentEditEditRangeSid;
     /** If `true`, the client is a walk-in. Otherwise, this will be `false`. */
     is_walk_in: boolean;
     /** Appointment key. Empty for a new appointment. */
@@ -29365,7 +29449,7 @@ export interface WlAppointmentBookConflictConflictParams {
     k_staff: string;
     /** The user key. */
     uid: string;
-    /** Staff member user ID. */
+    /** Staff member user key. */
     uid_staff: string;
     /** Data of appointment repeat. */
     a_repeat?: {
@@ -30159,7 +30243,7 @@ export interface WlClassesPeriodModifyModifyPostParams {
     /** The modify mode type. One of the {@link RsClassModifyModeSid} constants. */
     id_class_modify_mode: RsClassModifyModeSid;
     /** The mode type. One of the {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** The class modify action type. One of the {@link RsClassModifyModeSid} constants. */
     id_step: RsClassModifyModeSid;
     /** The business key. */
@@ -31816,7 +31900,7 @@ export interface WlAppointmentBookAssetServiceServiceParams {
     /** The appointment booking date selected by the user. */
     dt_start: string;
     /** Mode type, one of {@link WlModeModeSid} constants. */
-    id_mode: WlModeModeSid;
+    id_mode: WlModeModeSid | null;
     /** If `true`, back-end mode is selected. */
     is_backend: boolean;
     /** Whether to show both grid layouts and custom layouts. */
@@ -34028,6 +34112,8 @@ export declare class WlVisitKioskNamespace {
     scan(params?: WlVisitKioskScanParams): Promise<WlVisitKioskScanResponse>;
     /** Evaluates a gym check-in of the client. */
     evaluate(params?: WlVisitKioskEvaluateParams): Promise<WlVisitKioskEvaluateResponse>;
+    /** Sends the client an email with the waiver or the contract that the client has not signed. */
+    signSend(params?: WlVisitKioskSignSendParams): Promise<WlVisitKioskSignSendResponse>;
 }
 export declare class WlVisitNoteEditNamespace {
     private readonly _client;
