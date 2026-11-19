@@ -7227,6 +7227,10 @@ export interface WlEventEventListGetResponse {
             k_location: string;
             /** Resource key, which has category {@link WlResourceResourceCategoryEnum}. */
             k_resource_location: string;
+            /** End time of the scheduled sessions in `MySql` time format (`HH:MM:SS`). */
+            s_time_end: string;
+            /** Start time of the scheduled sessions in `MySql` time format (`HH:MM:SS`). */
+            s_time_start: string;
             /** Identifier of the timezone of the location of the session (for example `America/New_York`). */
             s_timezone_location: string;
             /** Location title. */
