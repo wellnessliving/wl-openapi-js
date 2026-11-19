@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261119131016
+// OpenAPI spec version: 1.1.20261119150545
 // Build date: 2026-11-19
 // Endpoints: 718
 // Enums: 231
@@ -5390,6 +5390,8 @@ var WlTaskManagerManagerTabSid;
     WlTaskManagerManagerTabSid[WlTaskManagerManagerTabSid["COMPLETE"] = 4] = "COMPLETE";
     /** Show tasks in future */
     WlTaskManagerManagerTabSid[WlTaskManagerManagerTabSid["FUTURE"] = 2] = "FUTURE";
+    /** Show the tasks that are overdue: not completed, with the due date and time that have passed */
+    WlTaskManagerManagerTabSid[WlTaskManagerManagerTabSid["OVERDUE"] = 5] = "OVERDUE";
     /** Show tasks for today */
     WlTaskManagerManagerTabSid[WlTaskManagerManagerTabSid["TODAY"] = 1] = "TODAY";
 })(WlTaskManagerManagerTabSid || (exports.WlTaskManagerManagerTabSid = WlTaskManagerManagerTabSid = {}));

@@ -5223,6 +5223,8 @@ export declare enum WlTaskManagerManagerTabSid {
     COMPLETE = 4,
     /** Show tasks in future */
     FUTURE = 2,
+    /** Show the tasks that are overdue: not completed, with the due date and time that have passed */
+    OVERDUE = 5,
     /** Show tasks for today */
     TODAY = 1
 }
@@ -8863,6 +8865,10 @@ export interface WlEventEventListGetResponse {
             k_location: string;
             /** Resource key, which has category {@link WlResourceResourceCategoryEnum}. */
             k_resource_location: string;
+            /** End time of the scheduled sessions in `MySql` time format (`HH:MM:SS`). */
+            s_time_end: string;
+            /** Start time of the scheduled sessions in `MySql` time format (`HH:MM:SS`). */
+            s_time_start: string;
             /** Identifier of the timezone of the location of the session (for example `America/New_York`). */
             s_timezone_location: string;
             /** Location title. */
@@ -22829,6 +22835,8 @@ export interface WlTaskManagerTaskManagerListParams {
     id_privilege_role?: RsPrivilegeRoleSid | null;
     /** The view of the list: whose tasks it shows. One of {@link WlTaskManagerTaskManagerViewEnum} cases. */
     id_view?: WlTaskManagerTaskManagerViewEnum | null;
+    /** Whether to show only the overdue tasks: the tab Overdue. They are the tasks that are not complete... */
+    is_overdue?: boolean | null;
     /** Whether the list is sorted in the reverse order: Z to A, newest first. */
     is_sort_desc?: boolean | null;
     /** Key of the role of the business of the view of a role. */
@@ -22845,6 +22853,8 @@ export interface WlTaskManagerTaskManagerListResponse {
         i_complete: number;
         /** The tasks that are not completed: to do and in progress. */
         i_future: number;
+        /** The tasks that are overdue: not completed, with the due date and time that have passed. */
+        i_overdue: number;
         /** The tasks due today, in the time zone of the business. */
         i_today: number;
     };
@@ -22858,6 +22868,8 @@ export interface WlTaskManagerTaskManagerListResponse {
         html_description: string;
         /** A list of task statuses. @see WlTaskTaskStatusSid */
         id_task_status: WlTaskTaskStatusSid;
+        /** Whether the task is overdue: it is not completed, and its due date and time have passed. The row ... */
+        is_overdue: boolean;
         /** Key of the business of the task: the business of the request, or another location of a franchise ... */
         k_business: string;
         /** Task key. */
@@ -22876,6 +22888,8 @@ export interface WlTaskManagerTaskManagerListResponse {
         text_create: string;
         /** The date and the time when the task is due, as the page shows it: "Fri, Dec 30, 2022 at 3:00 pm". */
         text_due: string;
+        /** How late the task is, as the page shows it under the due date: "2 days overdue" for whole days of... */
+        text_overdue: string;
         /** The full name of the staff member the task is assigned to. An empty string when that user is no s... */
         text_staff: string;
         /** The name of the task. */

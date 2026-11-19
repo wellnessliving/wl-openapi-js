@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261119131016
+ * Spec version: 1.1.20261119150545
  * Build date:   2026-11-19
  * Endpoints:    718
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261119131016';
+  WlClient.SPEC_VERSION = '1.1.20261119150545';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (718 total)
@@ -8755,6 +8755,7 @@
    * @param {?number} [params.id_column_sort] The column that sorts the list. One of {@link WlClient.WlTaskManagerTaskManagerColumnEnum} cases ...
    * @param {?number} [params.id_privilege_role] The system role of the view of a role, a system role that the business has not changed. One of See {@link WlClient.RsPrivilegeRoleSid}.
    * @param {?number} [params.id_view] The view of the list: whose tasks it shows. One of {@link WlClient.WlTaskManagerTaskManagerViewEn... See {@link WlClient.WlTaskManagerTaskManagerViewEnum}.
+   * @param {?boolean} [params.is_overdue] Whether to show only the overdue tasks: the tab Overdue. They are the tasks that are not complete...
    * @param {?boolean} [params.is_sort_desc] Whether the list is sorted in the reverse order: Z to A, newest first.
    * @param {string} params.k_business Key of the business of the page.
    * @param {?string} [params.k_business_role] Key of the role of the business of the view of a role.
@@ -21689,6 +21690,8 @@
     COMPLETE: 4,
     /** Show tasks in future */
     FUTURE: 2,
+    /** Show the tasks that are overdue: not completed, with the due date and time that have passed */
+    OVERDUE: 5,
     /** Show tasks for today */
     TODAY: 1,
   });
