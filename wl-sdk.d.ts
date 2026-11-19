@@ -7553,6 +7553,8 @@ export interface WlTicketTicketListResponse {
     text_title: string;
     /** Link to book the event of the session directly. Empty: the event is not shown on any tab. */
     url_booking: string;
+    /** Link to the checkout page of the event of the session. */
+    url_checkout: string;
 }
 export type WlTicketTicketScanParams = Record<string, unknown>;
 export interface WlTicketTicketScanResponse {
