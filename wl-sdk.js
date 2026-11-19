@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261119113814
+ * Spec version: 1.1.20261119131016
  * Build date:   2026-11-19
  * Endpoints:    718
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261119113814';
+  WlClient.SPEC_VERSION = '1.1.20261119131016';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (718 total)
@@ -8741,7 +8741,8 @@
    * pages, with the counts of the tabs and the staff members the staff filter offers. A staff member without the
    * privilege "All tasks" sees only the tasks assigned to them. In a franchise in the flexible travel mode the tasks of
    * every location are listed, and the filter of the location picks the staff of the home location (the default), of
-   * the other locations or of every location.
+   * the other locations or of every location. The view of the list narrows the tasks to those of the signed-in staff
+   * member or of the staff members who have a staff role, and the counts of the views are given with it.
    *
    * @param {Object} [params] Request parameters.
    * @param {?number[]} [params.a_task_location] The locations of the staff members whose tasks are shown, for a franchise in the flexible travel ...
@@ -8752,15 +8753,20 @@
    * @param {?number} [params.i_page] The number of the page, from 1. The first page when it is not given.
    * @param {?number} [params.i_page_size] How many tasks a page has: 25, 50 or 100. 25 when it is not given.
    * @param {?number} [params.id_column_sort] The column that sorts the list. One of {@link WlClient.WlTaskManagerTaskManagerColumnEnum} cases ...
+   * @param {?number} [params.id_privilege_role] The system role of the view of a role, a system role that the business has not changed. One of See {@link WlClient.RsPrivilegeRoleSid}.
+   * @param {?number} [params.id_view] The view of the list: whose tasks it shows. One of {@link WlClient.WlTaskManagerTaskManagerViewEn... See {@link WlClient.WlTaskManagerTaskManagerViewEnum}.
    * @param {?boolean} [params.is_sort_desc] Whether the list is sorted in the reverse order: Z to A, newest first.
    * @param {string} params.k_business Key of the business of the page.
+   * @param {?string} [params.k_business_role] Key of the role of the business of the view of a role.
    * @param {?string} [params.text_search] The text to search in the names of the tasks and in the names, the emails and the keys of their c...
    * @returns {Promise<Object>} Response data.
    *  `a_count` {Object} How many tasks each tab of the page has:
    *  `a_row` {Object[]} The tasks of the page, in the order of the sort:
-   *  `a_staff` {Object[]} The staff members that the staff filter offers, sorted by the name:
+   *  `a_staff` {Object[]} The staff members that the staff filter offers, sorted by the name: those of ...
+   *  `a_view` {Object} How many open tasks each view of the views panel has:
    *  `can_add` {boolean} Whether the signed-in user may add tasks.
    *  `can_edit` {boolean} Whether the signed-in user may edit the tasks. Without it the user only chang...
+   *  `can_view` {boolean} Whether the page offers the views panel: the user may see the tasks of every ...
    *  `dl_today` {string} Today in the time zone of the business, MySQL format: the day of the tab "Due...
    *  `i_total` {number} How many tasks the selection has over every page.
    *  `id_tab` {number} A list of tabs in task manager report. See {@link WlClient.WlTaskManagerManagerTabSid}.
@@ -15702,7 +15708,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (249 total)
+  // Enum constants (250 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -21719,6 +21725,20 @@
     STATUS: 6,
     /** The name and the description of the task. Always shown: a row without it cannot be read */
     TASK: 1,
+  });
+
+  /**
+   * A view of the Task Manager: whose tasks the list shows.
+   *
+   * @enum {number}
+   */
+  WlClient.WlTaskManagerTaskManagerViewEnum = Object.freeze({
+    /** The tasks of every staff member whose tasks the user may see. The default */
+    ALL: 1,
+    /** The tasks of the signed-in staff member */
+    MINE: 2,
+    /** The tasks of the staff members who have a staff role now */
+    ROLE: 3,
   });
 
   /**

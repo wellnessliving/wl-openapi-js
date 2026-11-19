@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261119113814
+// OpenAPI spec version: 1.1.20261119131016
 // Build date: 2026-11-19
 // Endpoints: 718
-// Enums: 230
+// Enums: 231
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (230 total) ---
+// --- Enum types (231 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -5402,6 +5402,16 @@ export var WlTaskManagerTaskManagerColumnEnum;
     /** The name and the description of the task. Always shown: a row without it cannot be read */
     WlTaskManagerTaskManagerColumnEnum[WlTaskManagerTaskManagerColumnEnum["TASK"] = 1] = "TASK";
 })(WlTaskManagerTaskManagerColumnEnum || (WlTaskManagerTaskManagerColumnEnum = {}));
+/** A view of the Task Manager: whose tasks the list shows. */
+export var WlTaskManagerTaskManagerViewEnum;
+(function (WlTaskManagerTaskManagerViewEnum) {
+    /** The tasks of every staff member whose tasks the user may see. The default */
+    WlTaskManagerTaskManagerViewEnum[WlTaskManagerTaskManagerViewEnum["ALL"] = 1] = "ALL";
+    /** The tasks of the signed-in staff member */
+    WlTaskManagerTaskManagerViewEnum[WlTaskManagerTaskManagerViewEnum["MINE"] = 2] = "MINE";
+    /** The tasks of the staff members who have a staff role now */
+    WlTaskManagerTaskManagerViewEnum[WlTaskManagerTaskManagerViewEnum["ROLE"] = 3] = "ROLE";
+})(WlTaskManagerTaskManagerViewEnum || (WlTaskManagerTaskManagerViewEnum = {}));
 /** Widget analytics checkout types. */
 export var WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid;
 (function (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid) {

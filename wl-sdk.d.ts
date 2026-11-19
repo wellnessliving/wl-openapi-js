@@ -5250,6 +5250,15 @@ export declare enum WlTaskManagerTaskManagerColumnEnum {
     /** The name and the description of the task. Always shown: a row without it cannot be read */
     TASK = 1
 }
+/** A view of the Task Manager: whose tasks the list shows. */
+export declare enum WlTaskManagerTaskManagerViewEnum {
+    /** The tasks of every staff member whose tasks the user may see. The default */
+    ALL = 1,
+    /** The tasks of the signed-in staff member */
+    MINE = 2,
+    /** The tasks of the staff members who have a staff role now */
+    ROLE = 3
+}
 /** Widget analytics checkout types. */
 export declare enum WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid {
     /** Booking checkout type */
@@ -22816,8 +22825,14 @@ export interface WlTaskManagerTaskManagerListParams {
     i_page_size?: number | null;
     /** The column that sorts the list. One of {@link WlTaskManagerTaskManagerColumnEnum} cases but Date ... */
     id_column_sort?: WlTaskManagerTaskManagerColumnEnum | null;
+    /** The system role of the view of a role, a system role that the business has not changed. One of @see RsPrivilegeRoleSid */
+    id_privilege_role?: RsPrivilegeRoleSid | null;
+    /** The view of the list: whose tasks it shows. One of {@link WlTaskManagerTaskManagerViewEnum} cases. */
+    id_view?: WlTaskManagerTaskManagerViewEnum | null;
     /** Whether the list is sorted in the reverse order: Z to A, newest first. */
     is_sort_desc?: boolean | null;
+    /** Key of the role of the business of the view of a role. */
+    k_business_role?: string | null;
     /** The text to search in the names of the tasks and in the names, the emails and the keys of their c... */
     text_search?: string | null;
 }
@@ -22878,17 +22893,37 @@ export interface WlTaskManagerTaskManagerListResponse {
         /** The address of the profile of the staff member the task is assigned to, as the old report linked ... */
         url_staff: string;
     }>;
-    /** The staff members that the staff filter offers, sorted by the name: */
+    /** The staff members that the staff filter offers, sorted by the name: those of the picked view whom... */
     a_staff: Array<{
         /** The full name of the staff member. */
         text_name: string;
         /** Key of the staff member. */
         uid: string;
     }>;
+    /** How many open tasks each view of the views panel has: */
+    a_view: {
+        /** The staff roles of the business that have a staff member whose tasks the user may see, in the ord... */
+        a_role: {
+            /** The tasks that are not completed, of the staff members who have the role now. */
+            i_task: number;
+            /** String identifiers for rs.privilege.role. @see RsPrivilegeRoleSid */
+            id_privilege_role: RsPrivilegeRoleSid | null;
+            /** Key of the role of the business.  `null` for a */
+            k_business_role: string | null;
+            /** Title of the role. */
+            text_title: string;
+        };
+        /** The tasks that are not completed, of every staff member whose tasks the user may see. */
+        i_all: number;
+        /** The tasks that are not completed, of the signed-in staff member. */
+        i_mine: number;
+    };
     /** Whether the signed-in user may add tasks. */
     can_add: boolean;
     /** Whether the signed-in user may edit the tasks. Without it the user only changes their status. */
     can_edit: boolean;
+    /** Whether the page offers the views panel: the user may see the tasks of every staff member, which ... */
+    can_view: boolean;
     /** Today in the time zone of the business, MySQL format: the day of the tab "Due today". */
     dl_today: string;
     /** How many tasks the selection has over every page. */
