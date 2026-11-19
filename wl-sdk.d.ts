@@ -5215,6 +5215,41 @@ export declare enum RsRewardActionCategorySid {
     /** Rewards for significant user events */
     USER = 5
 }
+/** A list of tabs in task manager report. */
+export declare enum WlTaskManagerManagerTabSid {
+    /** Show all tasks */
+    ALL = 3,
+    /** Show tasks in status complete, see {@link WlTaskTaskStatusSid} */
+    COMPLETE = 4,
+    /** Show tasks in future */
+    FUTURE = 2,
+    /** Show tasks for today */
+    TODAY = 1
+}
+/** A list of task location filters. */
+export declare enum WlReportFilterTaskLocationTaskLocationSid {
+    /** Tasks assigned to staff members from current location only */
+    HOME = 1,
+    /** Tasks assigned to staff members from other locations */
+    OTHER = 2
+}
+/** A column of the table of the Task Manager. */
+export declare enum WlTaskManagerTaskManagerColumnEnum {
+    /** The client of the task */
+    CLIENT = 2,
+    /** The staff member who created the task */
+    CREATE = 5,
+    /** The date and the time when the task was created. Hidden by default */
+    DATE_ADD = 7,
+    /** The date and the time when the task is due */
+    DUE = 4,
+    /** The staff member the task is assigned to */
+    STAFF = 3,
+    /** The status of the task */
+    STATUS = 6,
+    /** The name and the description of the task. Always shown: a row without it cannot be read */
+    TASK = 1
+}
 /** Widget analytics checkout types. */
 export declare enum WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid {
     /** Booking checkout type */
@@ -22760,6 +22795,124 @@ export interface WlTaskEditEditPutParams {
     k_task?: string | null;
 }
 export type WlTaskEditEditPutResponse = Record<string, unknown>;
+export interface WlTaskManagerTaskManagerListParams {
+    /** Key of the business of the page. */
+    k_business: string;
+    /** The locations of the staff members whose tasks are shown, for a franchise in the flexible travel ... */
+    a_task_location?: Array<WlReportFilterTaskLocationTaskLocationSid> | null;
+    /** The statuses of the tasks to show. One of {@link WlTaskTaskStatusSid} constants each. */
+    a_task_status?: Array<WlTaskTaskStatusSid> | null;
+    /** Keys of the staff members whose tasks are shown. */
+    a_uid_staff?: Array<string> | null;
+    /** The last day of the due dates of the shown tasks, in the time zone of the business, MySQL format. */
+    dl_due_end?: string | null;
+    /** The first day of the due dates of the shown tasks, in the time zone of the business, MySQL format. */
+    dl_due_start?: string | null;
+    /** The number of the page, from 1. The first page when it is not given. */
+    i_page?: number | null;
+    /** How many tasks a page has: 25, 50 or 100. 25 when it is not given. */
+    i_page_size?: number | null;
+    /** The column that sorts the list. One of {@link WlTaskManagerTaskManagerColumnEnum} cases but Date ... */
+    id_column_sort?: WlTaskManagerTaskManagerColumnEnum | null;
+    /** Whether the list is sorted in the reverse order: Z to A, newest first. */
+    is_sort_desc?: boolean | null;
+    /** The text to search in the names of the tasks and in the names, the emails and the keys of their c... */
+    text_search?: string | null;
+}
+export interface WlTaskManagerTaskManagerListResponse {
+    /** How many tasks each tab of the page has: */
+    a_count: {
+        /** Every task the user may see. */
+        i_all: number;
+        /** The tasks that are completed. */
+        i_complete: number;
+        /** The tasks that are not completed: to do and in progress. */
+        i_future: number;
+        /** The tasks due today, in the time zone of the business. */
+        i_today: number;
+    };
+    /** The tasks of the page, in the order of the sort: */
+    a_row: Array<{
+        /** The date and the time when the task was created, in the time zone of the business, MySQL format. */
+        dtl_add: string;
+        /** The date and the time when the task is due, in the time zone of the business, MySQL format. */
+        dtl_due: string;
+        /** The description of the task, made into HTML from the visual editor. An empty string without one. */
+        html_description: string;
+        /** A list of task statuses. @see WlTaskTaskStatusSid */
+        id_task_status: WlTaskTaskStatusSid;
+        /** Key of the business of the task: the business of the request, or another location of a franchise ... */
+        k_business: string;
+        /** Task key. */
+        k_task: string;
+        /** The date and the time when the task was created, as the page shows it: "Fri, Dec 30, 2022 at 3:00... */
+        text_add: string;
+        /** The email of the client. An empty string when the task has no client or the client has no email. */
+        text_client_mail: string;
+        /** The ID of the client in the business. An empty string when the task has no client or the client h... */
+        text_client_member: string;
+        /** The full name of the client. An empty string when the task has no client. */
+        text_client_name: string;
+        /** The cell phone of the client, formatted. An empty string when the task has no client or the clien... */
+        text_client_phone: string;
+        /** Who created the task. An empty string when the task keeps no author. */
+        text_create: string;
+        /** The date and the time when the task is due, as the page shows it: "Fri, Dec 30, 2022 at 3:00 pm". */
+        text_due: string;
+        /** The full name of the staff member the task is assigned to. An empty string when that user is no s... */
+        text_staff: string;
+        /** The name of the task. */
+        text_title: string;
+        /** Key of the client of the task. `null` when the task has no client. */
+        uid: string | null;
+        /** Key of the user the task is assigned to. */
+        uid_staff: string;
+        /** The address of the photo of the client. An empty string when the task has no client or the client... */
+        url_client_photo: string;
+        /** The address of the profile of the client. An empty string when the task has no client. */
+        url_client_profile: string;
+        /** The address of the form that edits the task. */
+        url_edit: string;
+        /** The address of the profile of the staff member the task is assigned to, as the old report linked ... */
+        url_staff: string;
+    }>;
+    /** The staff members that the staff filter offers, sorted by the name: */
+    a_staff: Array<{
+        /** The full name of the staff member. */
+        text_name: string;
+        /** Key of the staff member. */
+        uid: string;
+    }>;
+    /** Whether the signed-in user may add tasks. */
+    can_add: boolean;
+    /** Whether the signed-in user may edit the tasks. Without it the user only changes their status. */
+    can_edit: boolean;
+    /** Today in the time zone of the business, MySQL format: the day of the tab "Due today". */
+    dl_today: string;
+    /** How many tasks the selection has over every page. */
+    i_total: number;
+    /** A list of tabs in task manager report. @see WlTaskManagerManagerTabSid */
+    id_tab: WlTaskManagerManagerTabSid;
+    /** Whether the page offers the filter of the location: a franchise in the flexible travel mode. */
+    is_task_location: boolean;
+    /** The address of the form that adds a task. */
+    url_add: string;
+}
+export interface WlTaskManagerTaskManagerOptionGetParams {
+    /** Key of the business whose Task Manager the settings belong to. */
+    k_business: string;
+}
+export interface WlTaskManagerTaskManagerOptionGetResponse {
+    /** The shown columns in their order. One of {@link WlTaskManagerTaskManagerColumnEnum} cases each, a... */
+    a_column: Array<WlTaskManagerTaskManagerColumnEnum | null> | null;
+    /** How many tasks a page of the table has: 25, 50 or 100. */
+    i_page_size: number | null;
+}
+export interface WlTaskManagerTaskManagerOptionPutParams {
+    /** Key of the business whose Task Manager the settings belong to. */
+    k_business: string;
+}
+export type WlTaskManagerTaskManagerOptionPutResponse = Record<string, unknown>;
 export interface WlTaskStaffTaskStaffListParams {
     /** Business key. */
     k_business?: string | null;
@@ -37658,6 +37811,16 @@ export declare class WlTaskEditNamespace {
     /** Changes task status. */
     editPut(params?: WlTaskEditEditPutParams): Promise<WlTaskEditEditPutResponse>;
 }
+export declare class WlTaskManagerNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Returns one page of the tasks of the Task Manager. */
+    taskManagerList(params?: WlTaskManagerTaskManagerListParams): Promise<WlTaskManagerTaskManagerListResponse>;
+    /** Returns the settings of the table of the Task Manager of the signed-in staff member. */
+    taskManagerOptionGet(params?: WlTaskManagerTaskManagerOptionGetParams): Promise<WlTaskManagerTaskManagerOptionGetResponse>;
+    /** Saves the settings of the table of the Task Manager of the signed-in staff member. */
+    taskManagerOptionPut(params?: WlTaskManagerTaskManagerOptionPutParams): Promise<WlTaskManagerTaskManagerOptionPutResponse>;
+}
 export declare class WlTaskStaffNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -37667,6 +37830,7 @@ export declare class WlTaskStaffNamespace {
 export declare class WlTaskNamespace {
     private readonly _client;
     readonly edit: WlTaskEditNamespace;
+    readonly manager: WlTaskManagerNamespace;
     readonly staff: WlTaskStaffNamespace;
     constructor(_client: WlClient);
 }

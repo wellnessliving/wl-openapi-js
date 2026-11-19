@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261119094430
+ * Spec version: 1.1.20261119095924
  * Build date:   2026-11-19
- * Endpoints:    715
+ * Endpoints:    718
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261119094430';
+  WlClient.SPEC_VERSION = '1.1.20261119095924';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (715 total)
+  // Generated API methods (718 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -8734,6 +8734,76 @@
   };
 
   /**
+   * Returns one page of the tasks of the Task Manager.
+   *
+   * Gives the tasks that the signed-in staff member may see in the business, searched, filtered, sorted and cut into
+   * pages, with the counts of the tabs and the staff members the staff filter offers. A staff member without the
+   * privilege "All tasks" sees only the tasks assigned to them. In a franchise in the flexible travel mode the tasks of
+   * every location are listed, and the filter of the location picks the staff of the home location (the default), of
+   * the other locations or of every location.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {?number[]} [params.a_task_location] The locations of the staff members whose tasks are shown, for a franchise in the flexible travel ...
+   * @param {?number[]} [params.a_task_status] The statuses of the tasks to show. One of {@link WlClient.WlTaskTaskStatusSid} constants each.
+   * @param {?string[]} [params.a_uid_staff] Keys of the staff members whose tasks are shown.
+   * @param {?string} [params.dl_due_end] The last day of the due dates of the shown tasks, in the time zone of the business, MySQL format.
+   * @param {?string} [params.dl_due_start] The first day of the due dates of the shown tasks, in the time zone of the business, MySQL format.
+   * @param {?number} [params.i_page] The number of the page, from 1. The first page when it is not given.
+   * @param {?number} [params.i_page_size] How many tasks a page has: 25, 50 or 100. 25 when it is not given.
+   * @param {?number} [params.id_column_sort] The column that sorts the list. One of {@link WlClient.WlTaskManagerTaskManagerColumnEnum} cases ...
+   * @param {?boolean} [params.is_sort_desc] Whether the list is sorted in the reverse order: Z to A, newest first.
+   * @param {string} params.k_business Key of the business of the page.
+   * @param {?string} [params.text_search] The text to search in the names of the tasks and in the names, the emails and the keys of their c...
+   * @returns {Promise<Object>} Response data.
+   *  `a_count` {Object} How many tasks each tab of the page has:
+   *  `a_row` {Object[]} The tasks of the page, in the order of the sort:
+   *  `a_staff` {Object[]} The staff members that the staff filter offers, sorted by the name:
+   *  `can_add` {boolean} Whether the signed-in user may add tasks.
+   *  `can_edit` {boolean} Whether the signed-in user may edit the tasks. Without it the user only chang...
+   *  `dl_today` {string} Today in the time zone of the business, MySQL format: the day of the tab "Due...
+   *  `i_total` {number} How many tasks the selection has over every page.
+   *  `id_tab` {number} A list of tabs in task manager report. See {@link WlClient.WlTaskManagerManagerTabSid}.
+   *  `is_task_location` {boolean} Whether the page offers the filter of the location: a franchise in the flexib...
+   *  `url_add` {string} The address of the form that adds a task.
+   */
+  WlClient.prototype.wlTaskManagerTaskManagerList = function(params)
+  {
+    return this.request('/Wl/Task/Manager/TaskManagerList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns the settings of the table of the Task Manager of the signed-in staff member.
+   *
+   * Gives the shown columns in their order and the size of a page that the staff member chose in the business, or
+   * the defaults when they changed nothing: every column but Date created, and 25 tasks a page.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the business whose Task Manager the settings belong to.
+   * @returns {Promise<Object>} Response data.
+   *  `a_column` {??number[]} The shown columns in their order. One of {@link WlClient.WlTaskManagerTaskMan...
+   *  `i_page_size` {?number} How many tasks a page of the table has: 25, 50 or 100.
+   */
+  WlClient.prototype.wlTaskManagerTaskManagerOptionGet = function(params)
+  {
+    return this.request('/Wl/Task/Manager/TaskManagerOption.json', params || {}, 'GET');
+  };
+
+  /**
+   * Saves the settings of the table of the Task Manager of the signed-in staff member.
+   *
+   * Saves the shown columns in their order, or sets them back to the default, and the size of a page. A setting
+   * that is not given stays as it is. The settings are kept per staff member and business.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the business whose Task Manager the settings belong to.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlTaskManagerTaskManagerOptionPut = function(params)
+  {
+    return this.request('/Wl/Task/Manager/TaskManagerOption.json', params || {}, 'PUT');
+  };
+
+  /**
    * Returns the staff roles and the staff members of the business, for the assignment of tasks.
    *
    * Lists every role of the business that is not removed, and every staff member whose account is not removed, with
@@ -15631,7 +15701,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (245 total)
+  // Enum constants (249 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -21598,6 +21668,56 @@
     SOCIAL: 4,
     /** Rewards for significant user events */
     USER: 5,
+  });
+
+  /**
+   * A list of tabs in task manager report.
+   *
+   * @enum {number}
+   */
+  WlClient.WlTaskManagerManagerTabSid = Object.freeze({
+    /** Show all tasks */
+    ALL: 3,
+    /** Show tasks in status complete, see {@link WlClient.WlTaskTaskStatusSid} */
+    COMPLETE: 4,
+    /** Show tasks in future */
+    FUTURE: 2,
+    /** Show tasks for today */
+    TODAY: 1,
+  });
+
+  /**
+   * A list of task location filters.
+   *
+   * @enum {number}
+   */
+  WlClient.WlReportFilterTaskLocationTaskLocationSid = Object.freeze({
+    /** Tasks assigned to staff members from current location only */
+    HOME: 1,
+    /** Tasks assigned to staff members from other locations */
+    OTHER: 2,
+  });
+
+  /**
+   * A column of the table of the Task Manager.
+   *
+   * @enum {number}
+   */
+  WlClient.WlTaskManagerTaskManagerColumnEnum = Object.freeze({
+    /** The client of the task */
+    CLIENT: 2,
+    /** The staff member who created the task */
+    CREATE: 5,
+    /** The date and the time when the task was created. Hidden by default */
+    DATE_ADD: 7,
+    /** The date and the time when the task is due */
+    DUE: 4,
+    /** The staff member the task is assigned to */
+    STAFF: 3,
+    /** The status of the task */
+    STATUS: 6,
+    /** The name and the description of the task. Always shown: a row without it cannot be read */
+    TASK: 1,
   });
 
   /**

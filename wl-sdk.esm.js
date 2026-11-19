@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261119094430
+// OpenAPI spec version: 1.1.20261119095924
 // Build date: 2026-11-19
-// Endpoints: 715
-// Enums: 227
+// Endpoints: 718
+// Enums: 230
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (227 total) ---
+// --- Enum types (230 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -5364,6 +5364,44 @@ export var RsRewardActionCategorySid;
     /** Rewards for significant user events */
     RsRewardActionCategorySid[RsRewardActionCategorySid["USER"] = 5] = "USER";
 })(RsRewardActionCategorySid || (RsRewardActionCategorySid = {}));
+/** A list of tabs in task manager report. */
+export var WlTaskManagerManagerTabSid;
+(function (WlTaskManagerManagerTabSid) {
+    /** Show all tasks */
+    WlTaskManagerManagerTabSid[WlTaskManagerManagerTabSid["ALL"] = 3] = "ALL";
+    /** Show tasks in status complete, see {@link WlTaskTaskStatusSid} */
+    WlTaskManagerManagerTabSid[WlTaskManagerManagerTabSid["COMPLETE"] = 4] = "COMPLETE";
+    /** Show tasks in future */
+    WlTaskManagerManagerTabSid[WlTaskManagerManagerTabSid["FUTURE"] = 2] = "FUTURE";
+    /** Show tasks for today */
+    WlTaskManagerManagerTabSid[WlTaskManagerManagerTabSid["TODAY"] = 1] = "TODAY";
+})(WlTaskManagerManagerTabSid || (WlTaskManagerManagerTabSid = {}));
+/** A list of task location filters. */
+export var WlReportFilterTaskLocationTaskLocationSid;
+(function (WlReportFilterTaskLocationTaskLocationSid) {
+    /** Tasks assigned to staff members from current location only */
+    WlReportFilterTaskLocationTaskLocationSid[WlReportFilterTaskLocationTaskLocationSid["HOME"] = 1] = "HOME";
+    /** Tasks assigned to staff members from other locations */
+    WlReportFilterTaskLocationTaskLocationSid[WlReportFilterTaskLocationTaskLocationSid["OTHER"] = 2] = "OTHER";
+})(WlReportFilterTaskLocationTaskLocationSid || (WlReportFilterTaskLocationTaskLocationSid = {}));
+/** A column of the table of the Task Manager. */
+export var WlTaskManagerTaskManagerColumnEnum;
+(function (WlTaskManagerTaskManagerColumnEnum) {
+    /** The client of the task */
+    WlTaskManagerTaskManagerColumnEnum[WlTaskManagerTaskManagerColumnEnum["CLIENT"] = 2] = "CLIENT";
+    /** The staff member who created the task */
+    WlTaskManagerTaskManagerColumnEnum[WlTaskManagerTaskManagerColumnEnum["CREATE"] = 5] = "CREATE";
+    /** The date and the time when the task was created. Hidden by default */
+    WlTaskManagerTaskManagerColumnEnum[WlTaskManagerTaskManagerColumnEnum["DATE_ADD"] = 7] = "DATE_ADD";
+    /** The date and the time when the task is due */
+    WlTaskManagerTaskManagerColumnEnum[WlTaskManagerTaskManagerColumnEnum["DUE"] = 4] = "DUE";
+    /** The staff member the task is assigned to */
+    WlTaskManagerTaskManagerColumnEnum[WlTaskManagerTaskManagerColumnEnum["STAFF"] = 3] = "STAFF";
+    /** The status of the task */
+    WlTaskManagerTaskManagerColumnEnum[WlTaskManagerTaskManagerColumnEnum["STATUS"] = 6] = "STATUS";
+    /** The name and the description of the task. Always shown: a row without it cannot be read */
+    WlTaskManagerTaskManagerColumnEnum[WlTaskManagerTaskManagerColumnEnum["TASK"] = 1] = "TASK";
+})(WlTaskManagerTaskManagerColumnEnum || (WlTaskManagerTaskManagerColumnEnum = {}));
 /** Widget analytics checkout types. */
 export var WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid;
 (function (WlWidgetAnalyticsWidgetAnalyticsCheckoutTypeSid) {
@@ -11279,6 +11317,23 @@ export class WlTaskEditNamespace {
         return this._client._request('/Wl/Task/Edit/Edit.json', params, 'PUT');
     }
 }
+export class WlTaskManagerNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Returns one page of the tasks of the Task Manager. */
+    taskManagerList(params) {
+        return this._client._request('/Wl/Task/Manager/TaskManagerList.json', params, 'GET');
+    }
+    /** Returns the settings of the table of the Task Manager of the signed-in staff member. */
+    taskManagerOptionGet(params) {
+        return this._client._request('/Wl/Task/Manager/TaskManagerOption.json', params, 'GET');
+    }
+    /** Saves the settings of the table of the Task Manager of the signed-in staff member. */
+    taskManagerOptionPut(params) {
+        return this._client._request('/Wl/Task/Manager/TaskManagerOption.json', params, 'PUT');
+    }
+}
 export class WlTaskStaffNamespace {
     constructor(_client) {
         this._client = _client;
@@ -11292,6 +11347,7 @@ export class WlTaskNamespace {
     constructor(_client) {
         this._client = _client;
         this.edit = new WlTaskEditNamespace(this._client);
+        this.manager = new WlTaskManagerNamespace(this._client);
         this.staff = new WlTaskStaffNamespace(this._client);
     }
 }
