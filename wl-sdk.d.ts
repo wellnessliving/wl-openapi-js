@@ -36143,7 +36143,6 @@ export declare class WlQuizNamespace {
     readonly response: WlQuizResponseNamespace;
     constructor(_client: WlClient);
     /** Returns the list of business quizzes together with client registration and import status. */
-    /** @deprecated */
     quizList(params?: WlQuizQuizListParams): Promise<WlQuizQuizListResponse>;
     /** Deletes the quiz with the given key. */
     quizElement72Delete(params?: WlQuizQuizElement72DeleteParams): Promise<WlQuizQuizElement72DeleteResponse>;

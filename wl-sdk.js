@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261119150545
+ * Spec version: 1.1.20261119191156
  * Build date:   2026-11-19
  * Endpoints:    718
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261119150545';
+  WlClient.SPEC_VERSION = '1.1.20261119191156';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (718 total)
@@ -977,7 +977,6 @@
    *  marks which quizzes still require registration for the current login and which quizzes
    *  were imported from an external system. Also stores the requested active-state filter as
    *  the user's default quiz view.
-   * @deprecated Use {@link \Wl\Quiz\QuizList79Api} instead.
    *
    * @param {Object} [params] Request parameters.
    * @param {number[]} params.a_active_id Whether to show active or inactive quizzes.

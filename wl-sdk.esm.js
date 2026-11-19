@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261119150545
+// OpenAPI spec version: 1.1.20261119191156
 // Build date: 2026-11-19
 // Endpoints: 718
 // Enums: 231
@@ -8678,7 +8678,6 @@ export class WlQuizNamespace {
         this.response = new WlQuizResponseNamespace(this._client);
     }
     /** Returns the list of business quizzes together with client registration and import status. */
-    /** @deprecated */
     quizList(params) {
         return this._client._request('/Wl/Quiz/QuizList.json', params, 'GET');
     }
