@@ -2570,6 +2570,8 @@ export declare enum RsMailSid {
     STAFF_CALLBACK_REQUEST = 196,
     /** Sends when task assigned to staff */
     TASK_ASSIGN = 104,
+    /** Sends to a staff member to remind them that a task is due soon */
+    TASK_REMIND = 233,
     /** Send a copy of waiver */
     TERM_COPY = 99,
     /** Sent after a ticketed event is purchased */
@@ -3857,8 +3859,6 @@ export declare enum RsLoginActivityTypeSid {
     GUEST_PASS_REDEEM_GUEST = 69,
     /** The guest redeemed a guest pass sent by the client */
     GUEST_PASS_REDEEM_HOST = 68,
-    /** A reminder of a guest pass invitation was sent to the guest */
-    GUEST_PASS_REMIND = 71,
     /** A guest pass invitation sent by the client was revoked by a person: a staff member or the client */
     GUEST_PASS_REVOKE_MANUAL = 66,
     /** A guest pass invitation sent by the client was revoked by the system: a renewal, a hold, a transfer or another */
@@ -5228,6 +5228,44 @@ export declare enum RsRewardActionCategorySid {
     SOCIAL = 4,
     /** Rewards for significant user events */
     USER = 5
+}
+/** Number of the weekday in a month for a repeat by months on a weekday, such as the second Tuesday. */
+export declare enum WlTaskRepeatTaskRepeatOrderEnum {
+    /** The first weekday of the month */
+    FIRST = 1,
+    /** The fourth weekday of the month */
+    FOURTH = 4,
+    /** The last weekday of the month: the fourth or the fifth one */
+    LAST = 5,
+    /** The second weekday of the month */
+    SECOND = 2,
+    /** The third weekday of the month */
+    THIRD = 3
+}
+/** When the next task of a series is made. */
+export declare enum WlTaskRepeatTaskRepeatModeEnum {
+    /** The next task is made when the current one is completed */
+    COMPLETED = 2,
+    /** The next task is made on the due date of the current one, whether it is done or not */
+    SCHEDULE = 1
+}
+/** How a series that repeats by months chooses the day of the month. */
+export declare enum WlTaskRepeatTaskRepeatMonthEnum {
+    /** A day of the month, such as the 15th */
+    DAY = 1,
+    /** A weekday of the month, such as the second Tuesday or the last Friday */
+    WEEKDAY = 2
+}
+/** Unit of the repeat of a task. */
+export declare enum WlTaskRepeatTaskRepeatUnitEnum {
+    /** Days */
+    DAY = 1,
+    /** Months */
+    MONTH = 3,
+    /** Weeks */
+    WEEK = 2,
+    /** Years */
+    YEAR = 4
 }
 /** A list of tabs in task manager report. */
 export declare enum WlTaskManagerManagerTabSid {
@@ -7706,6 +7744,8 @@ export interface WlQuizQuizElement72GetResponse {
         is_member_group: boolean;
         /** `true` if all client groups are selected, `false` otherwise. */
         is_member_group_all: boolean;
+        /** `true` if the business cannot send SMS notifications, `false` otherwise. */
+        is_sms_disable: boolean;
         /** Key of the pattern of the custom confirmation. `null` if the form has no pattern yet. */
         k_mail_pattern_live: string | null;
     };
@@ -22843,14 +22883,38 @@ export interface WlTaskEditEditGetParams {
     k_task?: string | null;
 }
 export interface WlTaskEditEditGetResponse {
+    /** Days of the week of a repeat by weeks on a schedule, each one of {@link ADateWeekSid}. */
+    a_repeat_day_week: Array<ADateWeekSid>;
     /** List of staff keys assigned to task. */
     a_staff: Array<string>;
     /** List of staff user IDs assigned to task. */
     a_uid_staff: Array<string>;
     /** Due date. */
     dl_due: string;
+    /** Last day, in the time zone of the business, on which the next task is still made, in the MySQL fo... */
+    dl_repeat_end: string | null;
+    /** Day of the month, 1 to 31, of a repeat by months on a day. */
+    i_repeat_day_month: number | null;
+    /** How a series of repeating tasks ends. */
+    i_repeat_end_count: number | null;
+    /** The number of units of the repeat, 1 to 99: every 2 weeks on a schedule, or the gap after the tas... */
+    i_repeat_every: number | null;
+    /** Number of the weekday in a month for a repeat by months on a weekday, such as the second Tuesday. @see WlTaskRepeatTaskRepeatOrderEnum */
+    i_repeat_month_order: WlTaskRepeatTaskRepeatOrderEnum | null;
+    /** How a series of repeating tasks ends. */
+    id_repeat_end: number | null;
+    /** When the next task of a series is made. @see WlTaskRepeatTaskRepeatModeEnum */
+    id_repeat_mode: WlTaskRepeatTaskRepeatModeEnum | null;
+    /** How a series that repeats by months chooses the day of the month. @see WlTaskRepeatTaskRepeatMonthEnum */
+    id_repeat_month: WlTaskRepeatTaskRepeatMonthEnum | null;
+    /** A class for the days of the week. @see ADateWeekSid */
+    id_repeat_month_weekday: ADateWeekSid;
+    /** Unit of the repeat of a task. @see WlTaskRepeatTaskRepeatUnitEnum */
+    id_repeat_unit: WlTaskRepeatTaskRepeatUnitEnum | null;
     /** A list of task statuses. @see WlTaskTaskStatusSid */
     id_task_status: WlTaskTaskStatusSid;
+    /** Whether the task repeats. The other properties of the repeat are read only if it is `true`. */
+    is_repeat: boolean | null;
     /** Location key. */
     k_location: string | null;
     /** Task title. */
@@ -22938,7 +23002,7 @@ export interface WlTaskManagerTaskManagerListResponse {
         /** A list of task statuses. @see WlTaskTaskStatusSid */
         id_task_status: WlTaskTaskStatusSid;
         /** Whether the task is overdue: it is not completed, and its due date and time have passed. The row ... */
-        is_overdue: boolean;
+        is_late: boolean;
         /** Key of the business of the task: the business of the request, or another location of a franchise ... */
         k_business: string;
         /** Task key. */
@@ -22959,6 +23023,8 @@ export interface WlTaskManagerTaskManagerListResponse {
         text_due: string;
         /** How late the task is, as the page shows it under the due date: "2 days overdue" for whole days of... */
         text_overdue: string;
+        /** Text that tells how the task repeats, such as "Repeats every week on Friday". An empty string if ... */
+        text_repeat: string;
         /** The full name of the staff member the task is assigned to. An empty string when that user is no s... */
         text_staff: string;
         /** The name of the task. */

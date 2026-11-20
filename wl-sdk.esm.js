@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261120081743
+// OpenAPI spec version: 1.1.20261120141908
 // Build date: 2026-11-20
 // Endpoints: 718
-// Enums: 231
+// Enums: 235
 export class WlApiError extends Error {
     constructor(status, body) {
         super('WlSdk: HTTP ' + status);
@@ -13,7 +13,7 @@ export class WlApiError extends Error {
         this.errors = (data != null && data.a_error != null) ? data.a_error : [];
     }
 }
-// --- Enum types (231 total) ---
+// --- Enum types (235 total) ---
 /** List of Google reCaptcha versions. */
 export var CoreGoogleCaptchaCaptchaVersionSid;
 (function (CoreGoogleCaptchaCaptchaVersionSid) {
@@ -2597,6 +2597,8 @@ export var RsMailSid;
     RsMailSid[RsMailSid["STAFF_CALLBACK_REQUEST"] = 196] = "STAFF_CALLBACK_REQUEST";
     /** Sends when task assigned to staff */
     RsMailSid[RsMailSid["TASK_ASSIGN"] = 104] = "TASK_ASSIGN";
+    /** Sends to a staff member to remind them that a task is due soon */
+    RsMailSid[RsMailSid["TASK_REMIND"] = 233] = "TASK_REMIND";
     /** Send a copy of waiver */
     RsMailSid[RsMailSid["TERM_COPY"] = 99] = "TERM_COPY";
     /** Sent after a ticketed event is purchased */
@@ -3957,8 +3959,6 @@ export var RsLoginActivityTypeSid;
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["GUEST_PASS_REDEEM_GUEST"] = 69] = "GUEST_PASS_REDEEM_GUEST";
     /** The guest redeemed a guest pass sent by the client */
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["GUEST_PASS_REDEEM_HOST"] = 68] = "GUEST_PASS_REDEEM_HOST";
-    /** A reminder of a guest pass invitation was sent to the guest */
-    RsLoginActivityTypeSid[RsLoginActivityTypeSid["GUEST_PASS_REMIND"] = 71] = "GUEST_PASS_REMIND";
     /** A guest pass invitation sent by the client was revoked by a person: a staff member or the client */
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["GUEST_PASS_REVOKE_MANUAL"] = 66] = "GUEST_PASS_REVOKE_MANUAL";
     /** A guest pass invitation sent by the client was revoked by the system: a renewal, a hold, a transfer or another */
@@ -5378,6 +5378,48 @@ export var RsRewardActionCategorySid;
     /** Rewards for significant user events */
     RsRewardActionCategorySid[RsRewardActionCategorySid["USER"] = 5] = "USER";
 })(RsRewardActionCategorySid || (RsRewardActionCategorySid = {}));
+/** Number of the weekday in a month for a repeat by months on a weekday, such as the second Tuesday. */
+export var WlTaskRepeatTaskRepeatOrderEnum;
+(function (WlTaskRepeatTaskRepeatOrderEnum) {
+    /** The first weekday of the month */
+    WlTaskRepeatTaskRepeatOrderEnum[WlTaskRepeatTaskRepeatOrderEnum["FIRST"] = 1] = "FIRST";
+    /** The fourth weekday of the month */
+    WlTaskRepeatTaskRepeatOrderEnum[WlTaskRepeatTaskRepeatOrderEnum["FOURTH"] = 4] = "FOURTH";
+    /** The last weekday of the month: the fourth or the fifth one */
+    WlTaskRepeatTaskRepeatOrderEnum[WlTaskRepeatTaskRepeatOrderEnum["LAST"] = 5] = "LAST";
+    /** The second weekday of the month */
+    WlTaskRepeatTaskRepeatOrderEnum[WlTaskRepeatTaskRepeatOrderEnum["SECOND"] = 2] = "SECOND";
+    /** The third weekday of the month */
+    WlTaskRepeatTaskRepeatOrderEnum[WlTaskRepeatTaskRepeatOrderEnum["THIRD"] = 3] = "THIRD";
+})(WlTaskRepeatTaskRepeatOrderEnum || (WlTaskRepeatTaskRepeatOrderEnum = {}));
+/** When the next task of a series is made. */
+export var WlTaskRepeatTaskRepeatModeEnum;
+(function (WlTaskRepeatTaskRepeatModeEnum) {
+    /** The next task is made when the current one is completed */
+    WlTaskRepeatTaskRepeatModeEnum[WlTaskRepeatTaskRepeatModeEnum["COMPLETED"] = 2] = "COMPLETED";
+    /** The next task is made on the due date of the current one, whether it is done or not */
+    WlTaskRepeatTaskRepeatModeEnum[WlTaskRepeatTaskRepeatModeEnum["SCHEDULE"] = 1] = "SCHEDULE";
+})(WlTaskRepeatTaskRepeatModeEnum || (WlTaskRepeatTaskRepeatModeEnum = {}));
+/** How a series that repeats by months chooses the day of the month. */
+export var WlTaskRepeatTaskRepeatMonthEnum;
+(function (WlTaskRepeatTaskRepeatMonthEnum) {
+    /** A day of the month, such as the 15th */
+    WlTaskRepeatTaskRepeatMonthEnum[WlTaskRepeatTaskRepeatMonthEnum["DAY"] = 1] = "DAY";
+    /** A weekday of the month, such as the second Tuesday or the last Friday */
+    WlTaskRepeatTaskRepeatMonthEnum[WlTaskRepeatTaskRepeatMonthEnum["WEEKDAY"] = 2] = "WEEKDAY";
+})(WlTaskRepeatTaskRepeatMonthEnum || (WlTaskRepeatTaskRepeatMonthEnum = {}));
+/** Unit of the repeat of a task. */
+export var WlTaskRepeatTaskRepeatUnitEnum;
+(function (WlTaskRepeatTaskRepeatUnitEnum) {
+    /** Days */
+    WlTaskRepeatTaskRepeatUnitEnum[WlTaskRepeatTaskRepeatUnitEnum["DAY"] = 1] = "DAY";
+    /** Months */
+    WlTaskRepeatTaskRepeatUnitEnum[WlTaskRepeatTaskRepeatUnitEnum["MONTH"] = 3] = "MONTH";
+    /** Weeks */
+    WlTaskRepeatTaskRepeatUnitEnum[WlTaskRepeatTaskRepeatUnitEnum["WEEK"] = 2] = "WEEK";
+    /** Years */
+    WlTaskRepeatTaskRepeatUnitEnum[WlTaskRepeatTaskRepeatUnitEnum["YEAR"] = 4] = "YEAR";
+})(WlTaskRepeatTaskRepeatUnitEnum || (WlTaskRepeatTaskRepeatUnitEnum = {}));
 /** A list of tabs in task manager report. */
 export var WlTaskManagerManagerTabSid;
 (function (WlTaskManagerManagerTabSid) {

@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261120081743
+ * Spec version: 1.1.20261120141908
  * Build date:   2026-11-20
  * Endpoints:    718
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261120081743';
+  WlClient.SPEC_VERSION = '1.1.20261120141908';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (718 total)
@@ -8660,6 +8660,8 @@
    * Deletes the task record, removes any pending due-date reminder, reindexes search data for
    *  the previously assigned client, logs the removal, and notifies the task channel so that
    *  connected clients refresh their task list.
+   * 
+   * If the task carries the rule of a repeat, the repeat ends with it.
    *
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Business key.
@@ -8681,15 +8683,27 @@
    * @param {?string} [params.k_business] Business key.
    * @param {?string} [params.k_task] Task key.
    * @returns {Promise<Object>} Response data.
+   *  `a_repeat_day_week` {number[]} Days of the week of a repeat by weeks on a schedule, each one of {@link WlCli...
    *  `a_staff` {string[]} List of staff keys assigned to task.
    *  `a_uid_staff` {string[]} List of staff user IDs assigned to task.
    *  `dl_due` {string} Due date.
+   *  `dl_repeat_end` {?string} Last day, in the time zone of the business, on which the next task is still m...
+   *  `i_repeat_day_month` {?number} Day of the month, 1 to 31, of a repeat by months on a day.
+   *  `i_repeat_end_count` {?number} How a series of repeating tasks ends.
+   *  `i_repeat_every` {?number} The number of units of the repeat, 1 to 99: every 2 weeks on a schedule, or t...
+   *  `i_repeat_month_order` {?number} Number of the weekday in a month for a repeat by months on a weekday, such as... See {@link WlClient.WlTaskRepeatTaskRepeatOrderEnum}.
+   *  `id_repeat_end` {?number} How a series of repeating tasks ends.
+   *  `id_repeat_mode` {?number} When the next task of a series is made. See {@link WlClient.WlTaskRepeatTaskRepeatModeEnum}.
+   *  `id_repeat_month` {?number} How a series that repeats by months chooses the day of the month. See {@link WlClient.WlTaskRepeatTaskRepeatMonthEnum}.
+   *  `id_repeat_month_weekday` {number} A class for the days of the week. See {@link WlClient.ADateWeekSid}.
+   *  `id_repeat_unit` {?number} Unit of the repeat of a task. See {@link WlClient.WlTaskRepeatTaskRepeatUnitEnum}.
    *  `id_task_status` {number} A list of task statuses. See {@link WlClient.WlTaskTaskStatusSid}.
+   *  `is_repeat` {?boolean} Whether the task repeats. The other properties of the repeat are read only if...
    *  `k_location` {?string} Location key.
    *  `text_title` {string} Task title.
    *  `tl_due` {string} Due time.
    *  `uid` {?string} Client's uid for whom connected task.
-   *  `xml_description` {string} Task description.
+   *  `...` {*}
    */
   WlClient.prototype.wlTaskEditEditGet = function(params)
   {
@@ -8724,6 +8738,10 @@
    *
    * Updates the task status, logs the change, and notifies the task channel so that connected
    *  clients refresh their task list.
+   * 
+   * If the task is set to Completed and repeats "when this one is completed", the next task of the repeat is made,
+   * and its staff are notified as of any new task. A status other than Completed, and a task that was Completed
+   * already, make nothing.
    *
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Business key.
@@ -15710,7 +15728,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (250 total)
+  // Enum constants (254 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -18423,6 +18441,8 @@
     STAFF_CALLBACK_REQUEST: 196,
     /** Sends when task assigned to staff */
     TASK_ASSIGN: 104,
+    /** Sends to a staff member to remind them that a task is due soon */
+    TASK_REMIND: 233,
     /** Send a copy of waiver */
     TERM_COPY: 99,
     /** Sent after a ticketed event is purchased */
@@ -20075,8 +20095,6 @@
     GUEST_PASS_REDEEM_GUEST: 69,
     /** The guest redeemed a guest pass sent by the client */
     GUEST_PASS_REDEEM_HOST: 68,
-    /** A reminder of a guest pass invitation was sent to the guest */
-    GUEST_PASS_REMIND: 71,
     /** A guest pass invitation sent by the client was revoked by a person: a staff member or the client */
     GUEST_PASS_REVOKE_MANUAL: 66,
     /** A guest pass invitation sent by the client was revoked by the system: a renewal, a hold, a transfer or another */
@@ -21691,6 +21709,64 @@
     SOCIAL: 4,
     /** Rewards for significant user events */
     USER: 5,
+  });
+
+  /**
+   * Number of the weekday in a month for a repeat by months on a weekday, such as the second Tuesday.
+   *
+   * @enum {number}
+   */
+  WlClient.WlTaskRepeatTaskRepeatOrderEnum = Object.freeze({
+    /** The first weekday of the month */
+    FIRST: 1,
+    /** The fourth weekday of the month */
+    FOURTH: 4,
+    /** The last weekday of the month: the fourth or the fifth one */
+    LAST: 5,
+    /** The second weekday of the month */
+    SECOND: 2,
+    /** The third weekday of the month */
+    THIRD: 3,
+  });
+
+  /**
+   * When the next task of a series is made.
+   *
+   * @enum {number}
+   */
+  WlClient.WlTaskRepeatTaskRepeatModeEnum = Object.freeze({
+    /** The next task is made when the current one is completed */
+    COMPLETED: 2,
+    /** The next task is made on the due date of the current one, whether it is done or not */
+    SCHEDULE: 1,
+  });
+
+  /**
+   * How a series that repeats by months chooses the day of the month.
+   *
+   * @enum {number}
+   */
+  WlClient.WlTaskRepeatTaskRepeatMonthEnum = Object.freeze({
+    /** A day of the month, such as the 15th */
+    DAY: 1,
+    /** A weekday of the month, such as the second Tuesday or the last Friday */
+    WEEKDAY: 2,
+  });
+
+  /**
+   * Unit of the repeat of a task.
+   *
+   * @enum {number}
+   */
+  WlClient.WlTaskRepeatTaskRepeatUnitEnum = Object.freeze({
+    /** Days */
+    DAY: 1,
+    /** Months */
+    MONTH: 3,
+    /** Weeks */
+    WEEK: 2,
+    /** Years */
+    YEAR: 4,
   });
 
   /**
