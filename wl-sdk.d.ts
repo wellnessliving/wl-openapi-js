@@ -32018,6 +32018,8 @@ export interface WlAppointmentBookAssetAssetListResponse {
         i_padding_after: number;
         /** Padding before each booking of the asset, in minutes. `0` if the asset has no padding before. */
         i_padding_before: number;
+        /** The number of identical units of the asset. One booking takes one unit. */
+        i_quantity: number;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
         /** A list of client booking flow types. @see RsServiceRequireSid */
