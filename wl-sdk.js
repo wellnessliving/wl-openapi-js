@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261119193124
+ * Spec version: 1.1.20261120081743
  * Build date:   2026-11-20
  * Endpoints:    718
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261119193124';
+  WlClient.SPEC_VERSION = '1.1.20261120081743';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (718 total)
@@ -1028,6 +1028,7 @@
    * @returns {Promise<Object>} Response data.
    *  `a_access_log` {Object[]} Access log data.
    *  `a_element` {Object|Object|Object|Object[]} List of quiz elements.
+   *  `a_notification_custom` {Object} Send rules of the custom confirmation of the form: how many client types and ...
    *  `a_setting` {Object} Quiz settings.
    *  `can_amend` {boolean} Whether user has privileges to amend form.
    *  `i_responses` {number} Number of responses for specific quiz.
@@ -1037,6 +1038,7 @@
    *  `k_business_type` {?string} Business type key. Used only for forms in the system business.
    *  `show_numbering` {boolean} Whether to show numbering of the form elements that supports numbering.
    *  `text_title` {string} Quiz form title.
+   *  `url_notification` {string} URL of the page of the global form submission notification, which the custom ...
    *  `url_quiz` {string} Direct URL to quiz.
    *  `url_quiz_kiosk` {string} Kiosk direct URL to quiz.
    */
@@ -20067,6 +20069,20 @@
     FAVORITE_REMOVE_STAFF: 9,
     /** Client added a friend */
     FRIEND_ADD: 10,
+    /** A guest pass invitation sent by the client expired: the guest did not claim it, or claimed it and did not visit */
+    GUEST_PASS_EXPIRE: 70,
+    /** The client redeemed a guest pass sent by another client */
+    GUEST_PASS_REDEEM_GUEST: 69,
+    /** The guest redeemed a guest pass sent by the client */
+    GUEST_PASS_REDEEM_HOST: 68,
+    /** A reminder of a guest pass invitation was sent to the guest */
+    GUEST_PASS_REMIND: 71,
+    /** A guest pass invitation sent by the client was revoked by a person: a staff member or the client */
+    GUEST_PASS_REVOKE_MANUAL: 66,
+    /** A guest pass invitation sent by the client was revoked by the system: a renewal, a hold, a transfer or another */
+    GUEST_PASS_REVOKE_SYSTEM: 67,
+    /** The client sent a guest pass invitation, or a staff member sent it on behalf of the client */
+    GUEST_PASS_SEND: 65,
     /** Client made a gym visit */
     GYM_VISIT: 32,
     /** Client sent an invite */

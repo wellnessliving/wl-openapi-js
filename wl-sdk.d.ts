@@ -3851,6 +3851,20 @@ export declare enum RsLoginActivityTypeSid {
     FAVORITE_REMOVE_STAFF = 9,
     /** Client added a friend */
     FRIEND_ADD = 10,
+    /** A guest pass invitation sent by the client expired: the guest did not claim it, or claimed it and did not visit */
+    GUEST_PASS_EXPIRE = 70,
+    /** The client redeemed a guest pass sent by another client */
+    GUEST_PASS_REDEEM_GUEST = 69,
+    /** The guest redeemed a guest pass sent by the client */
+    GUEST_PASS_REDEEM_HOST = 68,
+    /** A reminder of a guest pass invitation was sent to the guest */
+    GUEST_PASS_REMIND = 71,
+    /** A guest pass invitation sent by the client was revoked by a person: a staff member or the client */
+    GUEST_PASS_REVOKE_MANUAL = 66,
+    /** A guest pass invitation sent by the client was revoked by the system: a renewal, a hold, a transfer or another */
+    GUEST_PASS_REVOKE_SYSTEM = 67,
+    /** The client sent a guest pass invitation, or a staff member sent it on behalf of the client */
+    GUEST_PASS_SEND = 65,
     /** Client made a gym visit */
     GYM_VISIT = 32,
     /** Client sent an invite */
@@ -7674,6 +7688,27 @@ export interface WlQuizQuizElement72GetResponse {
         /** Heading XML. */
         xml_heading: string;
     }>;
+    /** Send rules of the custom confirmation of the form: how many client types and client groups it is ... */
+    a_notification_custom: {
+        /** Number of selected client types. */
+        i_login_type: number;
+        /** Number of all client types of the business. */
+        i_login_type_all: number;
+        /** Number of selected client groups. */
+        i_member_group: number;
+        /** Number of all client groups of the business. */
+        i_member_group_all: number;
+        /** `true` if the confirmation is sent only to specific client types, `false` otherwise. */
+        is_login_type: boolean;
+        /** `true` if all client types are selected, `false` otherwise. */
+        is_login_type_all: boolean;
+        /** `true` if the confirmation is sent only to specific client groups, `false` otherwise. */
+        is_member_group: boolean;
+        /** `true` if all client groups are selected, `false` otherwise. */
+        is_member_group_all: boolean;
+        /** Key of the pattern of the custom confirmation. `null` if the form has no pattern yet. */
+        k_mail_pattern_live: string | null;
+    };
     /** Quiz settings. */
     a_setting: {
         /** List of additional email addresses which should receive email notification after quiz is submitted. */
@@ -7704,6 +7739,14 @@ export interface WlQuizQuizElement72GetResponse {
         is_notify_automated: boolean;
         /** Whether email notification should be sent to client after quiz submitted. */
         is_notify_client: boolean;
+        /** Whether the custom confirmation of the form is turned on: it is sent instead of the global form s... */
+        is_notify_custom?: boolean | null;
+        /** Whether the email of the custom confirmation is activated. */
+        is_notify_custom_mail?: boolean | null;
+        /** Whether the push notification of the custom confirmation is activated. */
+        is_notify_custom_push?: boolean | null;
+        /** Whether the SMS of the custom confirmation is activated. */
+        is_notify_custom_sms?: boolean | null;
         /** Whether email notification should be sent to staff members after quiz is submitted. */
         is_notify_staff: boolean;
         /** Whether form can be edited by franchisee. */
@@ -7741,6 +7784,8 @@ export interface WlQuizQuizElement72GetResponse {
     show_numbering: boolean;
     /** Quiz form title. */
     text_title: string;
+    /** URL of the page of the global form submission notification, which the custom confirmation of the ... */
+    url_notification: string;
     /** Direct URL to quiz. */
     url_quiz: string;
     /** Kiosk direct URL to quiz. */
@@ -7801,6 +7846,14 @@ export interface WlQuizQuizElement72PutResponse {
         is_notify_automated: boolean;
         /** Whether email notification should be sent to client after quiz submitted. */
         is_notify_client: boolean;
+        /** Whether the custom confirmation of the form is turned on: it is sent instead of the global form s... */
+        is_notify_custom?: boolean | null;
+        /** Whether the email of the custom confirmation is activated. */
+        is_notify_custom_mail?: boolean | null;
+        /** Whether the push notification of the custom confirmation is activated. */
+        is_notify_custom_push?: boolean | null;
+        /** Whether the SMS of the custom confirmation is activated. */
+        is_notify_custom_sms?: boolean | null;
         /** Whether email notification should be sent to staff members after quiz is submitted. */
         is_notify_staff: boolean;
         /** Whether form can be edited by franchisee. */
@@ -8192,6 +8245,14 @@ export interface WlQuizQuizElementGetResponse {
         is_notify_automated: boolean;
         /** Whether email notification should be sent to client after quiz submitted. */
         is_notify_client: boolean;
+        /** Whether the custom confirmation of the form is turned on: it is sent instead of the global form s... */
+        is_notify_custom?: boolean | null;
+        /** Whether the email of the custom confirmation is activated. */
+        is_notify_custom_mail?: boolean | null;
+        /** Whether the push notification of the custom confirmation is activated. */
+        is_notify_custom_push?: boolean | null;
+        /** Whether the SMS of the custom confirmation is activated. */
+        is_notify_custom_sms?: boolean | null;
         /** Whether email notification should be sent to staff members after quiz is submitted. */
         is_notify_staff: boolean;
         /** Whether form can be edited by franchisee. */
@@ -8289,6 +8350,14 @@ export interface WlQuizQuizElementPutResponse {
         is_notify_automated: boolean;
         /** Whether email notification should be sent to client after quiz submitted. */
         is_notify_client: boolean;
+        /** Whether the custom confirmation of the form is turned on: it is sent instead of the global form s... */
+        is_notify_custom?: boolean | null;
+        /** Whether the email of the custom confirmation is activated. */
+        is_notify_custom_mail?: boolean | null;
+        /** Whether the push notification of the custom confirmation is activated. */
+        is_notify_custom_push?: boolean | null;
+        /** Whether the SMS of the custom confirmation is activated. */
+        is_notify_custom_sms?: boolean | null;
         /** Whether email notification should be sent to staff members after quiz is submitted. */
         is_notify_staff: boolean;
         /** Whether form can be edited by franchisee. */

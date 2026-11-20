@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261119193124
+// OpenAPI spec version: 1.1.20261120081743
 // Build date: 2026-11-20
 // Endpoints: 718
 // Enums: 231
@@ -3951,6 +3951,20 @@ export var RsLoginActivityTypeSid;
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["FAVORITE_REMOVE_STAFF"] = 9] = "FAVORITE_REMOVE_STAFF";
     /** Client added a friend */
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["FRIEND_ADD"] = 10] = "FRIEND_ADD";
+    /** A guest pass invitation sent by the client expired: the guest did not claim it, or claimed it and did not visit */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["GUEST_PASS_EXPIRE"] = 70] = "GUEST_PASS_EXPIRE";
+    /** The client redeemed a guest pass sent by another client */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["GUEST_PASS_REDEEM_GUEST"] = 69] = "GUEST_PASS_REDEEM_GUEST";
+    /** The guest redeemed a guest pass sent by the client */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["GUEST_PASS_REDEEM_HOST"] = 68] = "GUEST_PASS_REDEEM_HOST";
+    /** A reminder of a guest pass invitation was sent to the guest */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["GUEST_PASS_REMIND"] = 71] = "GUEST_PASS_REMIND";
+    /** A guest pass invitation sent by the client was revoked by a person: a staff member or the client */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["GUEST_PASS_REVOKE_MANUAL"] = 66] = "GUEST_PASS_REVOKE_MANUAL";
+    /** A guest pass invitation sent by the client was revoked by the system: a renewal, a hold, a transfer or another */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["GUEST_PASS_REVOKE_SYSTEM"] = 67] = "GUEST_PASS_REVOKE_SYSTEM";
+    /** The client sent a guest pass invitation, or a staff member sent it on behalf of the client */
+    RsLoginActivityTypeSid[RsLoginActivityTypeSid["GUEST_PASS_SEND"] = 65] = "GUEST_PASS_SEND";
     /** Client made a gym visit */
     RsLoginActivityTypeSid[RsLoginActivityTypeSid["GYM_VISIT"] = 32] = "GYM_VISIT";
     /** Client sent an invite */
