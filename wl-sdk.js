@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261120151827
+ * Spec version: 1.1.20261121085228
  * Build date:   2026-11-21
  * Endpoints:    718
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261120151827';
+  WlClient.SPEC_VERSION = '1.1.20261121085228';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (718 total)
@@ -942,12 +942,16 @@
    *
    * Validates that the user has access to the business, then loads the alert list for the current
    *  user. Additional alert data needed to make alerts tappable is included only when the request
-   *  comes from the staff backend.
+   *  comes from the staff backend. The pinned overdue tasks are loaded only when the client asks for them.
    *
    * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_pinned Whether to return the pinned tasks of {@link WlClient#wlAlertAlertListGet}. `true` to return them...
    * @param {string} params.k_business Key of the business.
    * @returns {Promise<Object>} Response data.
    *  `a_alert_list` {Object[]} List of alerts.
+   *  `a_pinned` {Object[]} The tasks that are pinned to the top of the Alert Center: the open tasks that...
+   *  `is_pinned_more` {boolean} Whether more tasks are pinned than {@link WlClient#wlAlertAlertListGet} has. ...
+   *  `url_pinned_more` {string} The address of the page with every overdue task, the tab Overdue of the Task ...
    */
   WlClient.prototype.wlAlertAlertListGet = function(params)
   {
@@ -4592,6 +4596,7 @@
    *  `dl_purchase` {string} The local date of the purchase in MySQL format.
    *  `dl_send` {string} The local date in MySQL format when mail about purchasing was sent (or will b...
    *  `dl_start` {string} The start date of the promotion. Only available if the item is a promotion.
+   *  `dl_start_first` {?string} The local date in MySQL format when the purchase option first started, before...
    *  `dt_cancel` {string} The local date of cancellation in MySQL format. Only available if the item is...
    *  `dt_hold_end` {string} The end date of the promotion hold. This is used only for promotions on hold.
    *  `dt_hold_start` {string} The start date of the promotion hold. Only available if the item is a promoti...
@@ -4601,7 +4606,6 @@
    *  `html_description` {string} The description of the purchased item.
    *  `i_book` {number} The number of sessions remaining for a promotion. This value is used only for...
    *  `i_book_duration` {number} Displays the number of minutes of sessions that were booked by this promotion...
-   *  `i_buy` {number} The number of purchased items bought at the time of purchase.
    *  `...` {*}
    */
   WlClient.prototype.wlProfilePurchaseListPurchaseListElement = function(params)

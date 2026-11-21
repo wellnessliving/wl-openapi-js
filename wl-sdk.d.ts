@@ -7312,6 +7312,8 @@ export interface WlScheduleCancelPostParams {
 }
 export type WlScheduleCancelPostResponse = Record<string, unknown>;
 export interface WlAlertAlertListGetParams {
+    /** Whether to return the pinned tasks of {@link WlAlertAlertListGetResponse.a_pinned}. `true` to ret... */
+    is_pinned: boolean;
     /** Key of the business. */
     k_business: string;
 }
@@ -7343,6 +7345,25 @@ export interface WlAlertAlertListGetResponse {
         /** Url to user's logo. */
         url_logo: string;
     }>;
+    /** The tasks that are pinned to the top of the Alert Center: the open tasks that are overdue by 24 h... */
+    a_pinned: Array<{
+        /** Task key. */
+        k_task: string;
+        /** Who the task is assigned to and, when there is one, the client: "Assigned to Alice for Bob". An e... */
+        text_assign: string;
+        /** The due date and time in the time zone of the business, as the page of the Task Manager shows a d... */
+        text_due: string;
+        /** How late the task is: "2 days overdue". A pinned task is late 1 day or more. */
+        text_overdue: string;
+        /** The name of the task, in full. */
+        text_title: string;
+        /** The address of the Task Manager that opens the form of the task. */
+        url_task: string;
+    }>;
+    /** Whether more tasks are pinned than {@link WlAlertAlertListGetResponse.a_pinned} has. `true` when ... */
+    is_pinned_more: boolean;
+    /** The address of the page with every overdue task, the tab Overdue of the Task Manager. Empty when */
+    url_pinned_more: string;
 }
 export interface WlAlertAlertListPostParams {
     /** Key of the business. */
@@ -14571,6 +14592,8 @@ export interface WlProfilePurchaseListPurchaseListElementResponse {
     dl_send: string;
     /** The start date of the promotion. Only available if the item is a promotion. */
     dl_start: string;
+    /** The local date in MySQL format when the purchase option first started, before any renewal. */
+    dl_start_first: string | null;
     /** The local date of cancellation in MySQL format. Only available if the item is a membership. */
     dt_cancel: string;
     /** The end date of the promotion hold. This is used only for promotions on hold. */
