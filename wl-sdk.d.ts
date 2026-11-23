@@ -8603,7 +8603,7 @@ export interface WlVisitVisitStatusGetResponse {
     url_book_referral: string | null;
     /** The shortened direct link to start class/event booking on the WellnessLiving website. */
     url_book_referral_short: string | null;
-    /** URL of virtual service. Empty if the visit is not virtual. */
+    /** URL of virtual service. Empty if the visit is not virtual. Also empty for a virtual visit that is... */
     url_virtual_service: string;
 }
 export interface WlVisitVisitStatusPostParams {
