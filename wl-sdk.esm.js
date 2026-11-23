@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261123074211
+// OpenAPI spec version: 1.1.20261123141656
 // Build date: 2026-11-23
-// Endpoints: 718
+// Endpoints: 721
 // Enums: 235
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -11379,7 +11379,7 @@ export class WlTaskEditNamespace {
     editPost(params) {
         return this._client._request('/Wl/Task/Edit/Edit.json', params, 'POST');
     }
-    /** Changes task status. */
+    /** Changes task status or assigns a client to the task. */
     editPut(params) {
         return this._client._request('/Wl/Task/Edit/Edit.json', params, 'PUT');
     }
@@ -11399,6 +11399,18 @@ export class WlTaskManagerNamespace {
     /** Saves the settings of the table of the Task Manager of the signed-in staff member. */
     taskManagerOptionPut(params) {
         return this._client._request('/Wl/Task/Manager/TaskManagerOption.json', params, 'PUT');
+    }
+    /** Removes the tasks that the staff member selected. */
+    taskBulkDelete(params) {
+        return this._client._request('/Wl/Task/Manager/TaskBulk.json', params, 'DELETE');
+    }
+    /** Sends the notification Task reminder to the staff of the selected tasks, now. */
+    taskBulkPost(params) {
+        return this._client._request('/Wl/Task/Manager/TaskBulk.json', params, 'POST');
+    }
+    /** Changes the tasks that the staff member selected. */
+    taskBulkPut(params) {
+        return this._client._request('/Wl/Task/Manager/TaskBulk.json', params, 'PUT');
     }
 }
 export class WlTaskStaffNamespace {

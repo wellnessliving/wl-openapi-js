@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261123074211
+// OpenAPI spec version: 1.1.20261123141656
 // Build date: 2026-11-23
-// Endpoints: 718
+// Endpoints: 721
 // Enums: 235
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ADateWeekSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.AFlagSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsPrivilegeRoleSid = exports.RsPayMethodSid = exports.RsProjectSid = exports.RsHomeTourSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.RsMailSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.ADurationSid = exports.WlBusinessAccountWebsiteSid = exports.WlAiAgentPhoneCallOutcomeEnum = exports.ThothWlPayPayExceptionSid = exports.ThothWlPayDisputeFinanceMailFailEnum = exports.RsMailCopySid = exports.RsPurchaseItemSid = exports.RsServiceSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AGenderSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlModeModeSid = exports.WlVisitVisitDenyReasonSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlTaskTaskStatusSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlApiError = void 0;
@@ -11776,7 +11776,7 @@ class WlTaskEditNamespace {
     editPost(params) {
         return this._client._request('/Wl/Task/Edit/Edit.json', params, 'POST');
     }
-    /** Changes task status. */
+    /** Changes task status or assigns a client to the task. */
     editPut(params) {
         return this._client._request('/Wl/Task/Edit/Edit.json', params, 'PUT');
     }
@@ -11797,6 +11797,18 @@ class WlTaskManagerNamespace {
     /** Saves the settings of the table of the Task Manager of the signed-in staff member. */
     taskManagerOptionPut(params) {
         return this._client._request('/Wl/Task/Manager/TaskManagerOption.json', params, 'PUT');
+    }
+    /** Removes the tasks that the staff member selected. */
+    taskBulkDelete(params) {
+        return this._client._request('/Wl/Task/Manager/TaskBulk.json', params, 'DELETE');
+    }
+    /** Sends the notification Task reminder to the staff of the selected tasks, now. */
+    taskBulkPost(params) {
+        return this._client._request('/Wl/Task/Manager/TaskBulk.json', params, 'POST');
+    }
+    /** Changes the tasks that the staff member selected. */
+    taskBulkPut(params) {
+        return this._client._request('/Wl/Task/Manager/TaskBulk.json', params, 'PUT');
     }
 }
 exports.WlTaskManagerNamespace = WlTaskManagerNamespace;

@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261123074211
+ * Spec version: 1.1.20261123141656
  * Build date:   2026-11-23
- * Endpoints:    718
+ * Endpoints:    721
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261123074211';
+  WlClient.SPEC_VERSION = '1.1.20261123141656';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (718 total)
+  // Generated API methods (721 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -1241,7 +1241,7 @@
    * the visit can still be cancelled. Handles class, appointment, and gym visit types. Used
    * to render the visit detail view and action buttons in the client portal. A visit of a class can also be read
    * without a login and without the access of the user by its temporary secret,
-   * {@link WlClient#wlVisitVisitStatusGet}. Such a visit cannot be virtual.
+   * {@link WlClient#wlVisitVisitStatusGet}. Such a visit has no link to join a virtual service.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
@@ -6126,6 +6126,7 @@
    * @param {Object} [params] Request parameters.
    * @param {Object[]} params.a_item The list of items in the cart.
    * @param {boolean} params.is_auto_apply_prize Whether selected login prize should be auto applied to first applicable item.
+   * @param {boolean} params.is_staff Specify this if the cart is calculated for a staff member in the backend (optional).
    * @param {string} params.k_location The location key.
    * @param {string} params.k_login_prize The login prize key.
    * @param {?string} [params.text_discount_code] The discount code.
@@ -8740,14 +8741,15 @@
   };
 
   /**
-   * Changes task status.
+   * Changes task status or assigns a client to the task.
    *
-   * Updates the task status, logs the change, and notifies the task channel so that connected
-   *  clients refresh their task list.
+   * Updates the task status, the client of the task, or both, logs the change, and notifies the task channel so that
+   * connected clients refresh their task list. The status is changed when {@link WlClient#wlTaskEditEditGet} is given,
+   * and the client when {@link WlClient#wlTaskEditEditGet} is given. At least one of them must be given. The client of the task is
+   * set when it has none, or replaced; it cannot be cleared. Changing the client sends no alert, no notification and
+   * no reminder, and does not touch the reminder or the due date of the task:  The staff member must be allowed to edit the task to change the client.
    * 
-   * If the task is set to Completed and repeats "when this one is completed", the next task of the repeat is made,
-   * and its staff are notified as of any new task. A status other than Completed, and a task that was Completed
-   * already, make nothing.
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.k_business] Business key.
@@ -8834,6 +8836,68 @@
   WlClient.prototype.wlTaskManagerTaskManagerOptionPut = function(params)
   {
     return this.request('/Wl/Task/Manager/TaskManagerOption.json', params || {}, 'PUT');
+  };
+
+  /**
+   * Removes the tasks that the staff member selected.
+   *
+   * Removes them all or none (the same removal as `delete()` does for one task, the series of a repeat
+   * that is left empty goes too). A task that someone removed already is skipped and counted in `i_skip`.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_k_task Keys of the selected tasks, each at most once, no more than 100: the largest size of a page of th...
+   * @param {string} params.k_business Key of the business of the Task Manager. In a franchise in the flexible travel mode the tasks of ...
+   * @returns {Promise<Object>} Response data.
+   *  `i_done` {number} How many of the selected tasks the request changed (or removed, or reminded of).
+   *  `i_skip` {number} How many of the selected tasks the request skipped: a task that someone remov...
+   */
+  WlClient.prototype.wlTaskManagerTaskBulkDelete = function(params)
+  {
+    return this.request('/Wl/Task/Manager/TaskBulk.json', params || {}, 'DELETE');
+  };
+
+  /**
+   * Sends the notification Task reminder to the staff of the selected tasks, now.
+   *
+   * Every staff member who is assigned to a selected task and is active in its business gets it, a completed task
+   * included, and it is sent whether the business turned the notification off or not: the email and the push are
+   * always sent, the text message only if the business has it on. A staff member keeps the choice of their own
+   * profile. A task that has nobody to remind, and a task that someone removed already, are skipped and counted in
+   * `i_skip`. Nothing of the task changes.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_k_task Keys of the selected tasks, each at most once, no more than 100: the largest size of a page of th...
+   * @param {string} params.k_business Key of the business of the Task Manager. In a franchise in the flexible travel mode the tasks of ...
+   * @returns {Promise<Object>} Response data.
+   *  `i_done` {number} How many of the selected tasks the request changed (or removed, or reminded of).
+   *  `i_skip` {number} How many of the selected tasks the request skipped: a task that someone remov...
+   */
+  WlClient.prototype.wlTaskManagerTaskBulkPost = function(params)
+  {
+    return this.request('/Wl/Task/Manager/TaskBulk.json', params || {}, 'POST');
+  };
+
+  /**
+   * Changes the tasks that the staff member selected.
+   *
+   * Sets the status, the due date and time, the client and the staff of every selected task: a field that is not given
+   * keeps the value that the task has. The status alone is the "Mark complete" of the page when it is
+   * {@link WlClient.WlTaskTaskStatusSid}: a task of a repeat "when this one is completed" makes its next task, as
+   * `put()` does for one task; with the status alone a task that has the status already is not changed,
+   * and is skipped and counted in `i_skip`, as a task that someone removed already is. A new due date of a task of a
+   * repeat follows the rules of the repeat, and a staff member who gets a task gets the notification and the alert of
+   * ...
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string[]} params.a_k_task Keys of the selected tasks, each at most once, no more than 100: the largest size of a page of th...
+   * @param {string} params.k_business Key of the business of the Task Manager. In a franchise in the flexible travel mode the tasks of ...
+   * @returns {Promise<Object>} Response data.
+   *  `i_done` {number} How many of the selected tasks the request changed (or removed, or reminded of).
+   *  `i_skip` {number} How many of the selected tasks the request skipped: a task that someone remov...
+   */
+  WlClient.prototype.wlTaskManagerTaskBulkPut = function(params)
+  {
+    return this.request('/Wl/Task/Manager/TaskBulk.json', params || {}, 'PUT');
   };
 
   /**

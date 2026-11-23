@@ -17193,6 +17193,8 @@ export interface WlCatalogCartCartParams {
     }>;
     /** Whether selected login prize should be auto applied to first applicable item. */
     is_auto_apply_prize: boolean;
+    /** Specify this if the cart is calculated for a staff member in the backend (optional). */
+    is_staff: boolean;
     /** The location key. */
     k_location: string;
     /** The login prize key. */
@@ -23018,6 +23020,8 @@ export interface WlTaskManagerTaskManagerListResponse {
     };
     /** The tasks of the page, in the order of the sort: */
     a_row: Array<{
+        /** Whether the signed-in staff member may change the task with the bulk actions of the page and edit... */
+        can_edit: boolean;
         /** The date and the time when the task was created, in the time zone of the business, MySQL format. */
         dtl_add: string;
         /** The date and the time when the task is due, in the time zone of the business, MySQL format. */
@@ -23062,6 +23066,8 @@ export interface WlTaskManagerTaskManagerListResponse {
         url_client_photo: string;
         /** The address of the page Overview of the profile of the client. An empty string when the task has no */
         url_client_profile: string;
+        /** The address of the form of a new task that is a copy of the task, filled in from the saved task. ... */
+        url_duplicate: string;
         /** The address of the form that edits the task. */
         url_edit: string;
         /** The address of the profile of the staff member the task is assigned to, as the old report linked ... */
@@ -23124,6 +23130,42 @@ export interface WlTaskManagerTaskManagerOptionPutParams {
     k_business: string;
 }
 export type WlTaskManagerTaskManagerOptionPutResponse = Record<string, unknown>;
+export interface WlTaskManagerTaskBulkDeleteParams {
+    /** Keys of the selected tasks, each at most once, no more than 100: the largest size of a page of th... */
+    a_k_task: Array<string>;
+    /** Key of the business of the Task Manager. In a franchise in the flexible travel mode the tasks of ... */
+    k_business: string;
+}
+export interface WlTaskManagerTaskBulkDeleteResponse {
+    /** How many of the selected tasks the request changed (or removed, or reminded of). */
+    i_done: number;
+    /** How many of the selected tasks the request skipped: a task that someone removed after the staff m... */
+    i_skip: number;
+}
+export interface WlTaskManagerTaskBulkPostParams {
+    /** Keys of the selected tasks, each at most once, no more than 100: the largest size of a page of th... */
+    a_k_task: Array<string>;
+    /** Key of the business of the Task Manager. In a franchise in the flexible travel mode the tasks of ... */
+    k_business: string;
+}
+export interface WlTaskManagerTaskBulkPostResponse {
+    /** How many of the selected tasks the request changed (or removed, or reminded of). */
+    i_done: number;
+    /** How many of the selected tasks the request skipped: a task that someone removed after the staff m... */
+    i_skip: number;
+}
+export interface WlTaskManagerTaskBulkPutParams {
+    /** Keys of the selected tasks, each at most once, no more than 100: the largest size of a page of th... */
+    a_k_task: Array<string>;
+    /** Key of the business of the Task Manager. In a franchise in the flexible travel mode the tasks of ... */
+    k_business: string;
+}
+export interface WlTaskManagerTaskBulkPutResponse {
+    /** How many of the selected tasks the request changed (or removed, or reminded of). */
+    i_done: number;
+    /** How many of the selected tasks the request skipped: a task that someone removed after the staff m... */
+    i_skip: number;
+}
 export interface WlTaskStaffTaskStaffListParams {
     /** Business key. */
     k_business?: string | null;
@@ -38020,7 +38062,7 @@ export declare class WlTaskEditNamespace {
     editGet(params?: WlTaskEditEditGetParams): Promise<WlTaskEditEditGetResponse>;
     /** Adds or changes task. */
     editPost(params?: WlTaskEditEditPostParams): Promise<WlTaskEditEditPostResponse>;
-    /** Changes task status. */
+    /** Changes task status or assigns a client to the task. */
     editPut(params?: WlTaskEditEditPutParams): Promise<WlTaskEditEditPutResponse>;
 }
 export declare class WlTaskManagerNamespace {
@@ -38032,6 +38074,12 @@ export declare class WlTaskManagerNamespace {
     taskManagerOptionGet(params?: WlTaskManagerTaskManagerOptionGetParams): Promise<WlTaskManagerTaskManagerOptionGetResponse>;
     /** Saves the settings of the table of the Task Manager of the signed-in staff member. */
     taskManagerOptionPut(params?: WlTaskManagerTaskManagerOptionPutParams): Promise<WlTaskManagerTaskManagerOptionPutResponse>;
+    /** Removes the tasks that the staff member selected. */
+    taskBulkDelete(params?: WlTaskManagerTaskBulkDeleteParams): Promise<WlTaskManagerTaskBulkDeleteResponse>;
+    /** Sends the notification Task reminder to the staff of the selected tasks, now. */
+    taskBulkPost(params?: WlTaskManagerTaskBulkPostParams): Promise<WlTaskManagerTaskBulkPostResponse>;
+    /** Changes the tasks that the staff member selected. */
+    taskBulkPut(params?: WlTaskManagerTaskBulkPutParams): Promise<WlTaskManagerTaskBulkPutResponse>;
 }
 export declare class WlTaskStaffNamespace {
     private readonly _client;
