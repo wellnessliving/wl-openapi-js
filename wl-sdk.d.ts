@@ -5205,7 +5205,7 @@ export declare enum RsRewardScoreSid {
 export declare enum WlVisitKioskScanResultSid {
     /** The scanned value is a dynamic barcode of a client that has expired */
     DYNAMIC_EXPIRED = 4,
-    /** The business uses QR codes for the member IDs, and the kiosk does not read them */
+    /** The business uses QR codes, and the scanned value contains `|` but is not a well-formed QR code of a client */
     FORMAT_UNSUPPORTED = 5,
     /** The scanned value identifies an active client that the staff member may see */
     FOUND = 1,
@@ -7082,6 +7082,8 @@ export interface WlStaffStaffElementParams {
 export interface WlStaffStaffElementResponse {
     /** The key of the staff member resolved and used internally by this API. */
     k_staff: string | null;
+    /** User key of a staff member. */
+    uid_staff: string | null;
 }
 export interface WlPromotionPromotionListParams {
     /** Determines whether to return promotions created by Enterprise Locations (for Enterprise Cloud bus... */
@@ -7357,12 +7359,12 @@ export interface WlAlertAlertListGetResponse {
         text_overdue: string;
         /** The name of the task, in full. */
         text_title: string;
-        /** The address of the Task Manager that opens the form of the task. */
+        /** The address of the Task Manager that opens the form of the task, for example */
         url_task: string;
     }>;
     /** Whether more tasks are pinned than {@link WlAlertAlertListGetResponse.a_pinned} has. `true` when ... */
     is_pinned_more: boolean;
-    /** The address of the page with every overdue task, the tab Overdue of the Task Manager. Empty when */
+    /** The address of the page with every overdue task, the tab Overdue of the Task Manager, for example */
     url_pinned_more: string;
 }
 export interface WlAlertAlertListPostParams {
@@ -23058,7 +23060,7 @@ export interface WlTaskManagerTaskManagerListResponse {
         uid_staff: string;
         /** The address of the photo of the client. An empty string when the task has no client or the client... */
         url_client_photo: string;
-        /** The address of the profile of the client. An empty string when the task has no client. */
+        /** The address of the page Overview of the profile of the client. An empty string when the task has no */
         url_client_profile: string;
         /** The address of the form that edits the task. */
         url_edit: string;
