@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261123031754
+ * Spec version: 1.1.20261123054908
  * Build date:   2026-11-23
  * Endpoints:    711
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261123031754';
+  WlClient.SPEC_VERSION = '1.1.20261123054908';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (711 total)
@@ -6636,6 +6636,7 @@
    *  `dl_purchase` {string} The local date of the purchase in MySQL format.
    *  `dl_send` {string} The local date in MySQL format when mail about purchasing was sent (or will b...
    *  `dl_start` {string} The start date of the promotion. Only available if the item is a promotion.
+   *  `dl_start_first` {?string} The local date in MySQL format when the purchase option first started, before...
    *  `dt_cancel` {string} The local date of cancellation in MySQL format. Only available if the item is...
    *  `dt_hold_end` {string} The end date of the promotion hold. This is used only for promotions on hold.
    *  `dt_hold_start` {string} The start date of the promotion hold. Only available if the item is a promoti...
@@ -6645,7 +6646,6 @@
    *  `html_description` {string} The description of the purchased item.
    *  `i_book` {number} The number of sessions remaining for a promotion. This value is used only for...
    *  `i_book_duration` {number} Displays the number of minutes of sessions that were booked by this promotion...
-   *  `i_buy` {number} The number of purchased items bought at the time of purchase.
    *  `...` {*}
    */
   WlClient.prototype.wlProfilePurchaseListPurchaseListElement = function(params)

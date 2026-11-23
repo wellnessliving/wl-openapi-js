@@ -18291,6 +18291,8 @@ export interface WlProfilePurchaseListPurchaseListElementResponse {
     dl_send: string;
     /** The start date of the promotion. Only available if the item is a promotion. */
     dl_start: string;
+    /** The local date in MySQL format when the purchase option first started, before any renewal. */
+    dl_start_first: string | null;
     /** The local date of cancellation in MySQL format. Only available if the item is a membership. */
     dt_cancel: string;
     /** The end date of the promotion hold. This is used only for promotions on hold. */
