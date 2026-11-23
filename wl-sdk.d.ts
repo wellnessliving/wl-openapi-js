@@ -3668,7 +3668,7 @@ export declare enum WlVisitNoteSidNoteSid {
 export declare enum WlVisitKioskScanResultSid {
     /** The scanned value is a dynamic barcode of a client that has expired */
     DYNAMIC_EXPIRED = 4,
-    /** The business uses QR codes for the member IDs, and the kiosk does not read them */
+    /** The business uses QR codes, and the scanned value contains `|` but is not a well-formed QR code of a client */
     FORMAT_UNSUPPORTED = 5,
     /** The scanned value identifies an active client that the staff member may see */
     FOUND = 1,
