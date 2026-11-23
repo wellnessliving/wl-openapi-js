@@ -14023,6 +14023,8 @@ export interface WlCatalogCartCartParams {
     }>;
     /** Whether selected login prize should be auto applied to first applicable item. */
     is_auto_apply_prize: boolean;
+    /** Specify this if the cart is calculated for a staff member in the backend (optional). */
+    is_staff: boolean;
     /** The location key. */
     k_location: string;
     /** The login prize key. */

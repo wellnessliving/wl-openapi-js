@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261123062047
+ * Spec version: 1.1.20261123084708
  * Build date:   2026-11-23
  * Endpoints:    711
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261123062047';
+  WlClient.SPEC_VERSION = '1.1.20261123084708';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (711 total)
@@ -588,7 +588,7 @@
    * the visit can still be cancelled. Handles class, appointment, and gym visit types. Used
    * to render the visit detail view and action buttons in the client portal. A visit of a class can also be read
    * without a login and without the access of the user by its temporary secret,
-   * {@link WlClient#wlVisitVisitStatusGet}. Such a visit cannot be virtual.
+   * {@link WlClient#wlVisitVisitStatusGet}. Such a visit has no link to join a virtual service.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The business key.
@@ -4926,6 +4926,7 @@
    * @param {Object} [params] Request parameters.
    * @param {Object[]} params.a_item The list of items in the cart.
    * @param {boolean} params.is_auto_apply_prize Whether selected login prize should be auto applied to first applicable item.
+   * @param {boolean} params.is_staff Specify this if the cart is calculated for a staff member in the backend (optional).
    * @param {string} params.k_location The location key.
    * @param {string} params.k_login_prize The login prize key.
    * @param {?string} [params.text_discount_code] The discount code.
