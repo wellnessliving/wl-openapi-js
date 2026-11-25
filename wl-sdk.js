@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261125154607
+ * Spec version: 1.1.20261125163336
  * Build date:   2026-11-25
  * Endpoints:    722
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261125154607';
+  WlClient.SPEC_VERSION = '1.1.20261125163336';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (722 total)
@@ -4702,7 +4702,8 @@
    *  `i_minor_age` {number} Age of minor which documents can be signed by parent or legal guardian.
    *  `ip_agree` {?string} The IP address from which the confirmation was carried out.
    *  `is_agree` {boolean} Flag of successful saving agreement.
-   *  `s_name` {string} The user's name.
+   *  `s_name` {string} The full name of the user who signed the waiver.
+   *  `text_sign_for` {string} The full name of the user to show information for, if a relative signed the w...
    *  `url_signature` {string|boolean} The URL to the image with the client's signature.
    */
   WlClient.prototype.wlProfileTermTerm = function(params)
@@ -7258,6 +7259,7 @@
    * @param {string} params.k_visit Key of the visit to cancel.
    * @returns {Promise<Object>} Response data.
    *  `a_appointment_list` {?Object} Information about the appointment.
+   *  `a_makeup` {?Object} The Make-up pass section of the cancellation: the make-up pass that an early ...
    *  `dl_end` {?string} End date of period for appointments cancellation.
    *  `dl_start` {?string} Start date of period for appointments cancellation.
    *  `dtl_max` {?string} Max date of period for appointments cancellation.

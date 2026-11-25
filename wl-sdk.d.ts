@@ -12071,6 +12071,10 @@ export interface WlLoginAttendanceAttendanceListResponse {
             /** User key. */
             uid: string;
         };
+        /** `true` if the visit can be cancelled early with a make-up pass: it is booked and qualifies for a ... */
+        can_makeup_cancel: boolean;
+        /** `true` if the current user may choose whether to issue the make-up pass of an early cancel: the u... */
+        can_makeup_override: boolean;
         /** If `true`, the current user can access this client profile. */
         can_profile: boolean;
         /** The date the session was booked, in UTC. */
@@ -12123,6 +12127,12 @@ export interface WlLoginAttendanceAttendanceListResponse {
         is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
+        /** `true` if the client already holds the maximum number of active make-up passes of the policy: by ... */
+        is_makeup_at_maximum: boolean;
+        /** `true` if the visit is an Early Cancel (Make-up): the client cancelled early, and the visit is us... */
+        is_makeup_cancel: boolean;
+        /** `true` if the client has reached the purchase limit of the make-up pass, so no pass can be issued. */
+        is_makeup_limit: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
         is_penalty: boolean;
         /** This will be `true` if this was the first visit for the Purchase Option used. */
@@ -12174,6 +12184,10 @@ export interface WlLoginAttendanceAttendanceListResponse {
         text_lastname: string;
         /** The time left on the Purchase Option, in hours and minutes, for example `2 h 25 min`. */
         text_left: string;
+        /** The sentence of the Make-up pass section of an early cancel, for example "Jane will receive 1 Mak... */
+        text_makeup_pass: string;
+        /** The outcome of an Early Cancel (Make-up) (`is_makeup_cancel` is `true`): "Make-up Pass issued" or... */
+        text_makeup_status: string;
         /** Any notes tied to the client. */
         text_note: string;
         /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
@@ -12346,6 +12360,10 @@ export interface WlLoginAttendanceAttendanceListResponse {
             /** User key. */
             uid: string;
         };
+        /** `true` if the visit can be cancelled early with a make-up pass: it is booked and qualifies for a ... */
+        can_makeup_cancel: boolean;
+        /** `true` if the current user may choose whether to issue the make-up pass of an early cancel: the u... */
+        can_makeup_override: boolean;
         /** If `true`, the current user can access this client profile. */
         can_profile: boolean;
         /** The date the session was booked, in UTC. */
@@ -12398,6 +12416,12 @@ export interface WlLoginAttendanceAttendanceListResponse {
         is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
+        /** `true` if the client already holds the maximum number of active make-up passes of the policy: by ... */
+        is_makeup_at_maximum: boolean;
+        /** `true` if the visit is an Early Cancel (Make-up): the client cancelled early, and the visit is us... */
+        is_makeup_cancel: boolean;
+        /** `true` if the client has reached the purchase limit of the make-up pass, so no pass can be issued. */
+        is_makeup_limit: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
         is_penalty: boolean;
         /** This will be `true` if this was the first visit for the Purchase Option used. */
@@ -12449,6 +12473,10 @@ export interface WlLoginAttendanceAttendanceListResponse {
         text_lastname: string;
         /** The time left on the Purchase Option, in hours and minutes, for example `2 h 25 min`. */
         text_left: string;
+        /** The sentence of the Make-up pass section of an early cancel, for example "Jane will receive 1 Mak... */
+        text_makeup_pass: string;
+        /** The outcome of an Early Cancel (Make-up) (`is_makeup_cancel` is `true`): "Make-up Pass issued" or... */
+        text_makeup_status: string;
         /** Any notes tied to the client. */
         text_note: string;
         /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
@@ -12621,6 +12649,10 @@ export interface WlLoginAttendanceAttendanceListResponse {
             /** User key. */
             uid: string;
         };
+        /** `true` if the visit can be cancelled early with a make-up pass: it is booked and qualifies for a ... */
+        can_makeup_cancel: boolean;
+        /** `true` if the current user may choose whether to issue the make-up pass of an early cancel: the u... */
+        can_makeup_override: boolean;
         /** If `true`, the current user can access this client profile. */
         can_profile: boolean;
         /** The date the session was booked, in UTC. */
@@ -12673,6 +12705,12 @@ export interface WlLoginAttendanceAttendanceListResponse {
         is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
+        /** `true` if the client already holds the maximum number of active make-up passes of the policy: by ... */
+        is_makeup_at_maximum: boolean;
+        /** `true` if the visit is an Early Cancel (Make-up): the client cancelled early, and the visit is us... */
+        is_makeup_cancel: boolean;
+        /** `true` if the client has reached the purchase limit of the make-up pass, so no pass can be issued. */
+        is_makeup_limit: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
         is_penalty: boolean;
         /** This will be `true` if this was the first visit for the Purchase Option used. */
@@ -12724,6 +12762,10 @@ export interface WlLoginAttendanceAttendanceListResponse {
         text_lastname: string;
         /** The time left on the Purchase Option, in hours and minutes, for example `2 h 25 min`. */
         text_left: string;
+        /** The sentence of the Make-up pass section of an early cancel, for example "Jane will receive 1 Mak... */
+        text_makeup_pass: string;
+        /** The outcome of an Early Cancel (Make-up) (`is_makeup_cancel` is `true`): "Make-up Pass issued" or... */
+        text_makeup_status: string;
         /** Any notes tied to the client. */
         text_note: string;
         /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
@@ -12922,6 +12964,10 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
             /** User key. */
             uid: string;
         };
+        /** `true` if the visit can be cancelled early with a make-up pass: it is booked and qualifies for a ... */
+        can_makeup_cancel: boolean;
+        /** `true` if the current user may choose whether to issue the make-up pass of an early cancel: the u... */
+        can_makeup_override: boolean;
         /** If `true`, the current user can access this client profile. */
         can_profile: boolean;
         /** The date the session was booked, in UTC. */
@@ -12974,6 +13020,12 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
+        /** `true` if the client already holds the maximum number of active make-up passes of the policy: by ... */
+        is_makeup_at_maximum: boolean;
+        /** `true` if the visit is an Early Cancel (Make-up): the client cancelled early, and the visit is us... */
+        is_makeup_cancel: boolean;
+        /** `true` if the client has reached the purchase limit of the make-up pass, so no pass can be issued. */
+        is_makeup_limit: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
         is_penalty: boolean;
         /** This will be `true` if this was the first visit for the Purchase Option used. */
@@ -13025,6 +13077,10 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         text_lastname: string;
         /** The time left on the Purchase Option, in hours and minutes, for example `2 h 25 min`. */
         text_left: string;
+        /** The sentence of the Make-up pass section of an early cancel, for example "Jane will receive 1 Mak... */
+        text_makeup_pass: string;
+        /** The outcome of an Early Cancel (Make-up) (`is_makeup_cancel` is `true`): "Make-up Pass issued" or... */
+        text_makeup_status: string;
         /** Any notes tied to the client. */
         text_note: string;
         /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
@@ -13197,6 +13253,10 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
             /** User key. */
             uid: string;
         };
+        /** `true` if the visit can be cancelled early with a make-up pass: it is booked and qualifies for a ... */
+        can_makeup_cancel: boolean;
+        /** `true` if the current user may choose whether to issue the make-up pass of an early cancel: the u... */
+        can_makeup_override: boolean;
         /** If `true`, the current user can access this client profile. */
         can_profile: boolean;
         /** The date the session was booked, in UTC. */
@@ -13249,6 +13309,12 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
+        /** `true` if the client already holds the maximum number of active make-up passes of the policy: by ... */
+        is_makeup_at_maximum: boolean;
+        /** `true` if the visit is an Early Cancel (Make-up): the client cancelled early, and the visit is us... */
+        is_makeup_cancel: boolean;
+        /** `true` if the client has reached the purchase limit of the make-up pass, so no pass can be issued. */
+        is_makeup_limit: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
         is_penalty: boolean;
         /** This will be `true` if this was the first visit for the Purchase Option used. */
@@ -13300,6 +13366,10 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         text_lastname: string;
         /** The time left on the Purchase Option, in hours and minutes, for example `2 h 25 min`. */
         text_left: string;
+        /** The sentence of the Make-up pass section of an early cancel, for example "Jane will receive 1 Mak... */
+        text_makeup_pass: string;
+        /** The outcome of an Early Cancel (Make-up) (`is_makeup_cancel` is `true`): "Make-up Pass issued" or... */
+        text_makeup_status: string;
         /** Any notes tied to the client. */
         text_note: string;
         /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
@@ -13472,6 +13542,10 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
             /** User key. */
             uid: string;
         };
+        /** `true` if the visit can be cancelled early with a make-up pass: it is booked and qualifies for a ... */
+        can_makeup_cancel: boolean;
+        /** `true` if the current user may choose whether to issue the make-up pass of an early cancel: the u... */
+        can_makeup_override: boolean;
         /** If `true`, the current user can access this client profile. */
         can_profile: boolean;
         /** The date the session was booked, in UTC. */
@@ -13524,6 +13598,12 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         is_guest: boolean;
         /** This will be `true` if details on this visit should be hidden from staff members. */
         is_hidden: boolean;
+        /** `true` if the client already holds the maximum number of active make-up passes of the policy: by ... */
+        is_makeup_at_maximum: boolean;
+        /** `true` if the visit is an Early Cancel (Make-up): the client cancelled early, and the visit is us... */
+        is_makeup_cancel: boolean;
+        /** `true` if the client has reached the purchase limit of the make-up pass, so no pass can be issued. */
+        is_makeup_limit: boolean;
         /** This will be `true` if this visit was cancelled late and a penalty is applied. */
         is_penalty: boolean;
         /** This will be `true` if this was the first visit for the Purchase Option used. */
@@ -13575,6 +13655,10 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
         text_lastname: string;
         /** The time left on the Purchase Option, in hours and minutes, for example `2 h 25 min`. */
         text_left: string;
+        /** The sentence of the Make-up pass section of an early cancel, for example "Jane will receive 1 Mak... */
+        text_makeup_pass: string;
+        /** The outcome of an Early Cancel (Make-up) (`is_makeup_cancel` is `true`): "Make-up Pass issued" or... */
+        text_makeup_status: string;
         /** Any notes tied to the client. */
         text_note: string;
         /** The phone number the staff calls for a Phone Call booking, in the international E.164 format, */
@@ -14524,6 +14608,10 @@ export interface WlProfileWaiverWaiverResponse {
         html_contract: string;
         /** IP address from which agreement was done. */
         ip_agree: string;
+        /** Full name of the user who signed the waiver. It is the name of the user to get information for, if */
+        s_name: string;
+        /** Full name of the user to get information for, if a relative signed the waiver on his behalf. */
+        text_sign_for: string;
         /** URL to agreement signature. */
         url_signature: string;
     }>;
@@ -14877,8 +14965,10 @@ export interface WlProfileTermTermResponse {
     ip_agree: string | null;
     /** Flag of successful saving agreement. */
     is_agree: boolean;
-    /** The user's name. */
+    /** The full name of the user who signed the waiver. */
     s_name: string;
+    /** The full name of the user to show information for, if a relative signed the waiver on his behalf. */
+    text_sign_for: string;
     /** The URL to the image with the client's signature. */
     url_signature: string | boolean;
 }
@@ -20355,6 +20445,25 @@ export interface WlAppointmentCancelConfirmGetResponse {
         k_appointment: string;
         /** Staff name. */
         text_staff: string;
+    } | null;
+    /** The Make-up pass section of the cancellation: the make-up pass that an early or a late cancel of ... */
+    a_makeup: {
+        /** `true` if the current user may choose whether to issue the pass: the user has the privilege "Over... */
+        can_override: boolean;
+        /** The number of the active make-up passes that the policy issued to the client. */
+        i_active: number;
+        /** `true` if the client has reached the purchase limit of the pass: no pass can be issued. */
+        is_limit: boolean;
+        /** `true` if the client already holds the maximum number of active make-up passes of the policy: by ... */
+        is_maximum: boolean;
+        /** The sentence of the expiry of the pass, for example "It expires on Nov 5, 2026.". An empty string... */
+        text_expire: string;
+        /** The sentence of the client at the maximum, for example "Jane already has 2 active make-up passes,... */
+        text_maximum: string;
+        /** The first name of the client who receives the pass. */
+        text_name_first: string;
+        /** The title of the Purchase Option that is issued as the pass. */
+        text_promotion: string;
     } | null;
     /** End date of period for appointments cancellation. */
     dl_end: string | null;
