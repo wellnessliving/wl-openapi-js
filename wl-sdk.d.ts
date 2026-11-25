@@ -2118,6 +2118,8 @@ export declare enum RsSkinSid {
     MOBILE_SCHEDULE = 10,
     /** Asset booking wizard */
     RESOURCE = 16,
+    /** Asset booking widget built by microservice widget team */
+    RESOURCE_FOREIGN = 24,
     /** Review list widget */
     REVIEW_LIST = 4,
     /** General schedule design appearance */

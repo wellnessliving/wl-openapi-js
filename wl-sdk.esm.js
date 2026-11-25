@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — production channel
-// OpenAPI spec version: 1.1.20261124060035
+// OpenAPI spec version: 1.1.20261125051207
 // Build date: 2026-11-25
 // Endpoints: 693
 // Enums: 221
@@ -2165,6 +2165,8 @@ export var RsSkinSid;
     RsSkinSid[RsSkinSid["MOBILE_SCHEDULE"] = 10] = "MOBILE_SCHEDULE";
     /** Asset booking wizard */
     RsSkinSid[RsSkinSid["RESOURCE"] = 16] = "RESOURCE";
+    /** Asset booking widget built by microservice widget team */
+    RsSkinSid[RsSkinSid["RESOURCE_FOREIGN"] = 24] = "RESOURCE_FOREIGN";
     /** Review list widget */
     RsSkinSid[RsSkinSid["REVIEW_LIST"] = 4] = "REVIEW_LIST";
     /** General schedule design appearance */
