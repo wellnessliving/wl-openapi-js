@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261125120729
+// OpenAPI spec version: 1.1.20261125130528
 // Build date: 2026-11-25
-// Endpoints: 721
+// Endpoints: 722
 // Enums: 235
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -11426,12 +11426,22 @@ export class WlTaskStaffNamespace {
         return this._client._request('/Wl/Task/Staff/TaskStaffList.json', params, 'GET');
     }
 }
+export class WlTaskRemindNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Sends the reminder of a task to its staff now. */
+    taskRemind(params) {
+        return this._client._request('/Wl/Task/Remind/TaskRemind.json', params, 'POST');
+    }
+}
 export class WlTaskNamespace {
     constructor(_client) {
         this._client = _client;
         this.edit = new WlTaskEditNamespace(this._client);
         this.manager = new WlTaskManagerNamespace(this._client);
         this.staff = new WlTaskStaffNamespace(this._client);
+        this.remind = new WlTaskRemindNamespace(this._client);
     }
 }
 export class WlWidgetAnalyticsNamespace {

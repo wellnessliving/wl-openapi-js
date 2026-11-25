@@ -23212,6 +23212,13 @@ export interface WlTaskStaffTaskStaffListResponse {
         url_image: string;
     }>;
 }
+export interface WlTaskRemindTaskRemindParams {
+    /** Key of the business in which the staff member works. In a franchise in the flexible travel mode t... */
+    k_business: string;
+    /** Key of the task whose staff get the reminder. */
+    k_task: string;
+}
+export type WlTaskRemindTaskRemindResponse = Record<string, unknown>;
 export type WlTicketPurchaseTicketPurchaseMailParams = Record<string, unknown>;
 export type WlTicketPurchaseTicketPurchaseMailResponse = Record<string, unknown>;
 export type WlWidgetAnalyticsWidgetAnalyticsEventParams = Record<string, unknown>;
@@ -38103,11 +38110,18 @@ export declare class WlTaskStaffNamespace {
     /** Returns the staff roles and the staff members of the business, for the assignment of tasks. */
     taskStaffList(params?: WlTaskStaffTaskStaffListParams): Promise<WlTaskStaffTaskStaffListResponse>;
 }
+export declare class WlTaskRemindNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Sends the reminder of a task to its staff now. */
+    taskRemind(params?: WlTaskRemindTaskRemindParams): Promise<WlTaskRemindTaskRemindResponse>;
+}
 export declare class WlTaskNamespace {
     private readonly _client;
     readonly edit: WlTaskEditNamespace;
     readonly manager: WlTaskManagerNamespace;
     readonly staff: WlTaskStaffNamespace;
+    readonly remind: WlTaskRemindNamespace;
     constructor(_client: WlClient);
 }
 export declare class WlWidgetAnalyticsNamespace {

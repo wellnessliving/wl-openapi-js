@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261125120729
+ * Spec version: 1.1.20261125130528
  * Build date:   2026-11-25
- * Endpoints:    721
+ * Endpoints:    722
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261125120729';
+  WlClient.SPEC_VERSION = '1.1.20261125130528';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (721 total)
+  // Generated API methods (722 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -8923,6 +8923,27 @@
   WlClient.prototype.wlTaskStaffTaskStaffList = function(params)
   {
     return this.request('/Wl/Task/Staff/TaskStaffList.json', params || {}, 'GET');
+  };
+
+  /**
+   * Sends the reminder of a task to its staff now.
+   *
+   * Every staff member who is assigned to the task and is active in its business gets the notification Task reminder,
+   * a completed task included, whether the business turned the notification off or not: the email and the push are
+   * always sent, the text message only if the business has it on. Nothing of the task changes, and the result is
+   * empty.
+   * 
+   * The request is refused, and nothing is sent, when the task does not exist (`task-nx`), nobody is assigned to it
+   * ...
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Key of the business in which the staff member works. In a franchise in the flexible travel mode t...
+   * @param {string} params.k_task Key of the task whose staff get the reminder.
+   * @returns {Promise<Object>} Response data.
+   */
+  WlClient.prototype.wlTaskRemindTaskRemind = function(params)
+  {
+    return this.request('/Wl/Task/Remind/TaskRemind.json', params || {}, 'POST');
   };
 
   /**
