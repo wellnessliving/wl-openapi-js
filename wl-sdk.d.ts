@@ -2274,6 +2274,8 @@ export declare enum RsMailSid {
     BOOK_REMIND_CLASS = 25,
     /** Enrollment Reminder */
     BOOK_REMIND_ENROLLMENT = 62,
+    /** Multiple Appointment Reminder (Client) */
+    BOOK_REMIND_SERVICE_LIST_USER = 234,
     /** Appointment Reminder - Staff */
     BOOK_REMIND_SERVICE_STAFF = 27,
     /** Appointment Reminder */
@@ -13813,6 +13815,8 @@ export interface WlProfileEditEditPostParams {
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
+    /** Key of the session of a class or an event that the client is booking while the profile is saved. */
+    k_class_period: string;
     /** Compound key delimited with a colon. First part is the business key where the selected client exi... */
     text_business_uid_key: string;
     /** The key of the user to edit. */
@@ -13858,6 +13862,8 @@ export interface WlProfileEditEditPutParams {
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
+    /** Key of the session of a class or an event that the client is booking while the profile is saved. */
+    k_class_period: string;
     /** The key of the user to edit. */
     uid: string;
     /** Registration source ID. @see WlProfileRegisterSourceSid */
@@ -13963,6 +13969,8 @@ export interface WlProfileEditEditByTokenPostParams {
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
+    /** Key of the session of a class or an event that the client is booking while the profile is saved. */
+    k_class_period: string;
     /** Compound key delimited with a colon. First part is the business key where the selected client exi... */
     text_business_uid_key: string;
     /** The key of the user to edit. */
@@ -14008,6 +14016,8 @@ export interface WlProfileEditEditByTokenPutParams {
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
+    /** Key of the session of a class or an event that the client is booking while the profile is saved. */
+    k_class_period: string;
     /** The key of the user to edit. */
     uid: string;
     /** Registration source ID. @see WlProfileRegisterSourceSid */
@@ -32486,13 +32496,15 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignGetResponse {
     a_history: Array<{
         /** Date and time of the change in UTC. */
         dtu_change: string;
+        /** `true` when the user who made the change was deleted. `false` for the codes applied by default, f... */
+        is_staff_delete: boolean;
         /** What changed. */
         text_log: string;
         /** Reason of the change the staff member gave. `null` if no reason was given. */
         text_reason: string | null;
         /** Signature of the staff member who made the change. `null` if no signature was given, or if the bu... */
         text_signature: string | null;
-        /** Key of the staff member who made the change. `null` if the user is deleted, for the codes applied by */
+        /** Key of the staff member who made the change. `null` for the codes applied by default, for a void ... */
         uid_staff: string | null;
     }>;
     /** Voided billing codes of the visit. */
@@ -32512,6 +32524,8 @@ export interface WlVisitBillingCodeVisitBillingCodeAssignGetResponse {
     is_receipt_sent: boolean;
     /** `true` if the business requires a signature when diagnostic codes of a visit are saved, `false` o... */
     is_signature: boolean;
+    /** `true` when the diagnostic codes of the visit are locked and the user who signed them was deleted... */
+    is_staff_lock_delete: boolean;
     /** `true` if the business has the diagnostic codes turned on, `false` otherwise. */
     is_system: boolean;
     /** Version of the billing codes of the visit: a value that changes every time the codes of the visit... */

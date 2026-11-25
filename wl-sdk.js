@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261125092556
+ * Spec version: 1.1.20261125120729
  * Build date:   2026-11-25
  * Endpoints:    721
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261125092556';
+  WlClient.SPEC_VERSION = '1.1.20261125120729';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (721 total)
@@ -4162,6 +4162,7 @@
    * @param {boolean} params.is_short Indicates whether to display the full profile edit form or the short version.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
+   * @param {string} params.k_class_period Key of the session of a class or an event that the client is booking while the profile is saved.
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.text_business_uid_key Compound key delimited with a colon. First part is the business key where the selected client exi...
    * @param {string} params.uid The key of the user to edit.
@@ -4192,6 +4193,7 @@
    * @param {?boolean} [params.is_address_inherit] Whether the address be inherited.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
+   * @param {string} params.k_class_period Key of the session of a class or an event that the client is booking while the profile is saved.
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.uid The key of the user to edit.
    * @param {?string} [params.uid_inherit_address] UID of the user, whose address was inherited by the existing client we want to add.
@@ -4267,6 +4269,7 @@
    * @param {boolean} params.is_short Indicates whether to display the full profile edit form or the short version.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
+   * @param {string} params.k_class_period Key of the session of a class or an event that the client is booking while the profile is saved.
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.text_business_uid_key Compound key delimited with a colon. First part is the business key where the selected client exi...
    * @param {string} params.uid The key of the user to edit.
@@ -4297,6 +4300,7 @@
    * @param {?boolean} [params.is_address_inherit] Whether the address be inherited.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
+   * @param {string} params.k_class_period Key of the session of a class or an event that the client is booking while the profile is saved.
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.uid The key of the user to edit.
    * @param {?string} [params.uid_inherit_address] UID of the user, whose address was inherited by the existing client we want to add.
@@ -14085,6 +14089,7 @@
    *  `is_locked` {boolean} `true` when the diagnostic codes of the visit are locked by a staff member wh...
    *  `is_receipt_sent` {boolean} `true` when a receipt for this visit has been generated at least once.
    *  `is_signature` {boolean} `true` if the business requires a signature when diagnostic codes of a visit ...
+   *  `is_staff_lock_delete` {boolean} `true` when the diagnostic codes of the visit are locked and the user who sig...
    *  `is_system` {boolean} `true` if the business has the diagnostic codes turned on, `false` otherwise.
    *  `s_code_version` {string} Version of the billing codes of the visit: a value that changes every time th...
    *  `text_staff_name_lock` {?string} Full name of the staff member who signed and locked the diagnostic codes of t...
@@ -18216,6 +18221,8 @@
     BOOK_REMIND_CLASS: 25,
     /** Enrollment Reminder */
     BOOK_REMIND_ENROLLMENT: 62,
+    /** Multiple Appointment Reminder (Client) */
+    BOOK_REMIND_SERVICE_LIST_USER: 234,
     /** Appointment Reminder - Staff */
     BOOK_REMIND_SERVICE_STAFF: 27,
     /** Appointment Reminder */

@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261125092556
+// OpenAPI spec version: 1.1.20261125120729
 // Build date: 2026-11-25
 // Endpoints: 721
 // Enums: 235
@@ -2318,6 +2318,8 @@ var RsMailSid;
     RsMailSid[RsMailSid["BOOK_REMIND_CLASS"] = 25] = "BOOK_REMIND_CLASS";
     /** Enrollment Reminder */
     RsMailSid[RsMailSid["BOOK_REMIND_ENROLLMENT"] = 62] = "BOOK_REMIND_ENROLLMENT";
+    /** Multiple Appointment Reminder (Client) */
+    RsMailSid[RsMailSid["BOOK_REMIND_SERVICE_LIST_USER"] = 234] = "BOOK_REMIND_SERVICE_LIST_USER";
     /** Appointment Reminder - Staff */
     RsMailSid[RsMailSid["BOOK_REMIND_SERVICE_STAFF"] = 27] = "BOOK_REMIND_SERVICE_STAFF";
     /** Appointment Reminder */
