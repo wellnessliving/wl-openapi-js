@@ -3107,6 +3107,8 @@ export declare enum RsSkinSid {
     MOBILE_SCHEDULE = 10,
     /** Asset booking wizard */
     RESOURCE = 16,
+    /** Asset booking widget built by microservice widget team */
+    RESOURCE_FOREIGN = 24,
     /** Review list widget */
     REVIEW_LIST = 4,
     /** General schedule design appearance */
@@ -4434,9 +4436,9 @@ export declare enum RsStaffPaySid {
     EVENT = 3,
     /** `Hourly` pay role */
     HOUR = 4,
-    /** <tt>Pay Per Client Range<tt> pay role */
+    /** `Pay Per Client Range` pay role */
     RANGE = 5,
-    /** <tt>Tiered Pay Per Client Range<tt> pay role */
+    /** `Tiered Pay Per Client Range` pay role */
     TIERED_RANGE = 6
 }
 /** Wellnessliving-wide privileges. */
@@ -7556,7 +7558,7 @@ export interface WlQuizQuizElement72GetResponse {
         html_subheading: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
-        /** ` true ` if custom markup image is to be deleted `false` otherwise. */
+        /** `true` if custom markup image is to be deleted `false` otherwise. */
         is_delete_custom_markup_image: boolean;
         /** Whether element is required or not. */
         is_require: boolean;
@@ -8085,7 +8087,7 @@ export interface WlQuizQuizElementGetResponse {
         html_subheading: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
-        /** ` true ` if custom markup image is to be deleted `false` otherwise. */
+        /** `true` if custom markup image is to be deleted `false` otherwise. */
         is_delete_custom_markup_image: boolean;
         /** Whether element is required or not. */
         is_require: boolean;
@@ -21150,7 +21152,7 @@ export interface WlQuizResponseResponseGetResponse {
         html_subheading: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
-        /** ` true ` if custom markup image is to be deleted `false` otherwise. */
+        /** `true` if custom markup image is to be deleted `false` otherwise. */
         is_delete_custom_markup_image: boolean;
         /** Whether element is required or not. */
         is_require: boolean;
@@ -21550,7 +21552,7 @@ export interface WlQuizResponseResponse65GetResponse {
         html_subheading: string;
         /** Element ID. One of ElementSid constants. */
         id_element: number;
-        /** ` true ` if custom markup image is to be deleted `false` otherwise. */
+        /** `true` if custom markup image is to be deleted `false` otherwise. */
         is_delete_custom_markup_image: boolean;
         /** Whether element is required or not. */
         is_require: boolean;

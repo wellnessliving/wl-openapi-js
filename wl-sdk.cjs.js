@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261124160046
+// OpenAPI spec version: 1.1.20261125090126
 // Build date: 2026-11-25
 // Endpoints: 721
 // Enums: 235
@@ -3178,6 +3178,8 @@ var RsSkinSid;
     RsSkinSid[RsSkinSid["MOBILE_SCHEDULE"] = 10] = "MOBILE_SCHEDULE";
     /** Asset booking wizard */
     RsSkinSid[RsSkinSid["RESOURCE"] = 16] = "RESOURCE";
+    /** Asset booking widget built by microservice widget team */
+    RsSkinSid[RsSkinSid["RESOURCE_FOREIGN"] = 24] = "RESOURCE_FOREIGN";
     /** Review list widget */
     RsSkinSid[RsSkinSid["REVIEW_LIST"] = 4] = "REVIEW_LIST";
     /** General schedule design appearance */
@@ -4580,9 +4582,9 @@ var RsStaffPaySid;
     RsStaffPaySid[RsStaffPaySid["EVENT"] = 3] = "EVENT";
     /** `Hourly` pay role */
     RsStaffPaySid[RsStaffPaySid["HOUR"] = 4] = "HOUR";
-    /** <tt>Pay Per Client Range<tt> pay role */
+    /** `Pay Per Client Range` pay role */
     RsStaffPaySid[RsStaffPaySid["RANGE"] = 5] = "RANGE";
-    /** <tt>Tiered Pay Per Client Range<tt> pay role */
+    /** `Tiered Pay Per Client Range` pay role */
     RsStaffPaySid[RsStaffPaySid["TIERED_RANGE"] = 6] = "TIERED_RANGE";
 })(RsStaffPaySid || (exports.RsStaffPaySid = RsStaffPaySid = {}));
 /** Wellnessliving-wide privileges. */
