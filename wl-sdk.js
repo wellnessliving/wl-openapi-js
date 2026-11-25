@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261124103516
+ * Spec version: 1.1.20261125032357
  * Build date:   2026-11-25
  * Endpoints:    711
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261124103516';
+  WlClient.SPEC_VERSION = '1.1.20261125032357';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (711 total)
@@ -10292,6 +10292,7 @@
    * 
    * Also returns {@link WlClient#wlBusinessCustomTermsCustomTermsGet}, the ready rules that apply the terms to the English texts of a
    * client of the API. The rules are as public as the terms they are built from.
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
@@ -19060,6 +19061,8 @@
     MOBILE_SCHEDULE: 10,
     /** Asset booking wizard */
     RESOURCE: 16,
+    /** Asset booking widget built by microservice widget team */
+    RESOURCE_FOREIGN: 24,
     /** Review list widget */
     REVIEW_LIST: 4,
     /** General schedule design appearance */
