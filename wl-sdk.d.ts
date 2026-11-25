@@ -28240,7 +28240,7 @@ export interface WlVisitBillingCodeVisitBillingCodeDefaultResponse {
         /** Description of the code. `null` for a temporary code. */
         text_description: string | null;
     }>;
-    /** Codes applied by default to the service of the visit, sorted by the code value. Empty if the visi... */
+    /** Codes applied by default to the service of the visit, in the natural order of the code value (`DE... */
     a_code_service: Array<{
         /** Always `true`: only custom codes can be default codes of a service. */
         is_custom: boolean;
