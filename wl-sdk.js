@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261125032357
+ * Spec version: 1.1.20261125055235
  * Build date:   2026-11-25
  * Endpoints:    711
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261125032357';
+  WlClient.SPEC_VERSION = '1.1.20261125055235';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (711 total)
@@ -6326,6 +6326,7 @@
    * @param {boolean} params.is_short Indicates whether to display the full profile edit form or the short version.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
+   * @param {string} params.k_class_period Key of the session of a class or an event that the client is booking while the profile is saved.
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.text_business_uid_key Compound key delimited with a colon. First part is the business key where the selected client exi...
    * @param {string} params.uid The key of the user to edit.
@@ -6356,6 +6357,7 @@
    * @param {?boolean} [params.is_address_inherit] Whether the address be inherited.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
+   * @param {string} params.k_class_period Key of the session of a class or an event that the client is booking while the profile is saved.
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.uid The key of the user to edit.
    * @param {?string} [params.uid_inherit_address] UID of the user, whose address was inherited by the existing client we want to add.
@@ -6431,6 +6433,7 @@
    * @param {boolean} params.is_short Indicates whether to display the full profile edit form or the short version.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
+   * @param {string} params.k_class_period Key of the session of a class or an event that the client is booking while the profile is saved.
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.text_business_uid_key Compound key delimited with a colon. First part is the business key where the selected client exi...
    * @param {string} params.uid The key of the user to edit.
@@ -6461,6 +6464,7 @@
    * @param {?boolean} [params.is_address_inherit] Whether the address be inherited.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
+   * @param {string} params.k_class_period Key of the session of a class or an event that the client is booking while the profile is saved.
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.uid The key of the user to edit.
    * @param {?string} [params.uid_inherit_address] UID of the user, whose address was inherited by the existing client we want to add.

@@ -17835,6 +17835,8 @@ export interface WlProfileEditEditPostParams {
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
+    /** Key of the session of a class or an event that the client is booking while the profile is saved. */
+    k_class_period: string;
     /** Compound key delimited with a colon. First part is the business key where the selected client exi... */
     text_business_uid_key: string;
     /** The key of the user to edit. */
@@ -17880,6 +17882,8 @@ export interface WlProfileEditEditPutParams {
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
+    /** Key of the session of a class or an event that the client is booking while the profile is saved. */
+    k_class_period: string;
     /** The key of the user to edit. */
     uid: string;
     /** Registration source ID. @see WlProfileRegisterSourceSid */
@@ -17985,6 +17989,8 @@ export interface WlProfileEditEditByTokenPostParams {
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
+    /** Key of the session of a class or an event that the client is booking while the profile is saved. */
+    k_class_period: string;
     /** Compound key delimited with a colon. First part is the business key where the selected client exi... */
     text_business_uid_key: string;
     /** The key of the user to edit. */
@@ -18030,6 +18036,8 @@ export interface WlProfileEditEditByTokenPutParams {
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
+    /** Key of the session of a class or an event that the client is booking while the profile is saved. */
+    k_class_period: string;
     /** The key of the user to edit. */
     uid: string;
     /** Registration source ID. @see WlProfileRegisterSourceSid */
