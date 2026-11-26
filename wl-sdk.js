@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261125172622
+ * Spec version: 1.1.20261126044557
  * Build date:   2026-11-26
  * Endpoints:    711
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261125172622';
+  WlClient.SPEC_VERSION = '1.1.20261126044557';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (711 total)
@@ -6481,6 +6481,10 @@
    * Changes the user's password after verifying the current one, enforcing complexity and
    *  length rules, and sends a password-change notification email. The old password check can
    *  be skipped by staff with the appropriate access level.
+   * 
+   * The password of another person is changed by staff only within the business
+   *  {@link WlClient#wlProfileEditEditPassword}, where the business allows staff to modify passwords and the person is a
+   * ...
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
