@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261125173550
+ * Spec version: 1.1.20261126094601
  * Build date:   2026-11-26
- * Endpoints:    722
+ * Endpoints:    723
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261125173550';
+  WlClient.SPEC_VERSION = '1.1.20261126094601';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (722 total)
+  // Generated API methods (723 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -4317,6 +4317,10 @@
    * Changes the user's password after verifying the current one, enforcing complexity and
    *  length rules, and sends a password-change notification email. The old password check can
    *  be skipped by staff with the appropriate access level.
+   * 
+   * The password of another person is changed by staff only within the business
+   *  {@link WlClient#wlProfileEditEditPassword}, where the business allows staff to modify passwords and the person is a
+   * ...
    *
    * @param {Object} [params] Request body fields.
    * @returns {Promise<Object>} Response data.
@@ -6651,6 +6655,37 @@
   WlClient.prototype.wlCouponCouponListList = function(params)
   {
     return this.request('/Wl/Coupon/CouponList/List.json', params || {}, 'GET');
+  };
+
+  /**
+   * Gets the page of the list of Purchase Options of the business.
+   *
+   * The list holds the Purchase Options of the business that were not removed, filtered by the search words, the
+   * status, the type, the service category, the store category and the location, in the requested order. The daily
+   * deals, the enrollments, the programs of the services that the business has switched off and the programs that
+   * the user has no right to see are never listed.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number[]} params.a_column The optional columns whose data is wanted. Empty to read the default columns only.
+   * @param {?number[]} [params.a_program_category] The service categories to show. `null` to show every category.
+   * @param {?number[]} [params.a_program_type] The types of the Purchase Options to show. `null` to show every type.
+   * @param {?string[]} [params.a_shop_category] The keys of the store categories to show. `null` to show every store category.
+   * @param {number} params.i_page The number of the page to read, the first page is 1.
+   * @param {number} params.i_page_size The number of the Purchase Options on a page.
+   * @param {number} params.id_sort The sort of the list. One of the {@link WlClient.WlPromotionEditorListSortEnum} cases.
+   * @param {number} params.id_status The status of the Purchase Options to show. One of the {@link WlClient.WlPromotionEditorListStatu... See {@link WlClient.WlPromotionEditorListStatusEnum}.
+   * @param {boolean} params.is_shop_category_none Whether the Purchase Options that are in no store category are shown in addition to the requested...
+   * @param {boolean} params.is_sort_desc Whether the list is sorted from the last to the first.
+   * @param {string} params.k_business The key of the business whose Purchase Options are listed.
+   * @param {?string} [params.k_location] The key of the location whose Purchase Options are shown. `null` to show the Purchase Options of ...
+   * @param {?string} [params.text_search] The words to search in the titles of the Purchase Options, and the beginning of their barcodes. `...
+   * @returns {Promise<Object>} Response data.
+   *  `a_promotion` {Object[]} The Purchase Options of the requested page, in the requested order.
+   *  `i_total` {number} The number of the Purchase Options in the whole list, not only on the request...
+   */
+  WlClient.prototype.wlPromotionEditorList = function(params)
+  {
+    return this.request('/Wl/Promotion/Editor/List.json', params || {}, 'GET');
   };
 
   /**
@@ -15827,7 +15862,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // Enum constants (254 total)
+  // Enum constants (257 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -21445,15 +21480,33 @@
   });
 
   /**
-   * Attendance Restriction cycle type.
+   * The optional columns of the list of Purchase Options, whose data is read only when it is asked.
    *
    * @enum {number}
    */
-  WlClient.WlPromotionEditLimitCycleSid = Object.freeze({
-    /** Attendance Restriction is applied at the start of the calendar cycle */
-    CALENDAR: 1,
-    /** Attendance Restriction is applied at the start of the payment cycle */
-    PAYMENT: 2,
+  WlClient.WlPromotionEditorListColumnEnum = Object.freeze({
+    /** The limit of the purchases of one client */
+    BUY_LIMIT: 1,
+    /** The client groups that the Purchase Option is only for */
+    CLIENT_GROUP: 8,
+    /** The client types that the Purchase Option is only for */
+    CLIENT_TYPE: 9,
+    /** Who created the Purchase Option and when */
+    CREATE: 6,
+    /** Who changed the Purchase Option last and when */
+    EDIT: 7,
+    /** The locations where the Purchase Option is sold */
+    LOCATION: 10,
+    /** The date when the Purchase Option is published */
+    PUBLISH: 2,
+    /** Whether the Purchase Option renews itself */
+    RENEW: 3,
+    /** The store categories of the Purchase Option */
+    SHOP_CATEGORY: 11,
+    /** The planned date when the Purchase Option is switched off */
+    STATUS: 4,
+    /** The date when the Purchase Option is unpublished */
+    UNPUBLISH: 5,
   });
 
   /**
@@ -21478,6 +21531,50 @@
     VIDEO: 9,
     /** Purchase options to pay for gym visits: */
     VISIT: 2,
+  });
+
+  /**
+   * The sorts of the list of Purchase Options.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionEditorListSortEnum = Object.freeze({
+    /** By the length of the Purchase Option: the unit of the duration, then its number */
+    LENGTH: 3,
+    /** By the title of the Purchase Option */
+    NAME: 1,
+    /** By the order in which clients see the Purchase Options in the store */
+    ORDER: 5,
+    /** By the price of the Purchase Option */
+    PRICE: 2,
+    /** By the number of the visits that the Purchase Option includes */
+    VISIT: 4,
+  });
+
+  /**
+   * The statuses by which the list of Purchase Options is filtered.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionEditorListStatusEnum = Object.freeze({
+    /** Active Purchase Options: switched on and not expired */
+    ACTIVE: 1,
+    /** Purchase Options of every status */
+    ALL: 3,
+    /** Inactive Purchase Options: switched off or expired */
+    INACTIVE: 2,
+  });
+
+  /**
+   * Attendance Restriction cycle type.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionEditLimitCycleSid = Object.freeze({
+    /** Attendance Restriction is applied at the start of the calendar cycle */
+    CALENDAR: 1,
+    /** Attendance Restriction is applied at the start of the payment cycle */
+    PAYMENT: 2,
   });
 
   /**
