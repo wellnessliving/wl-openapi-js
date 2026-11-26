@@ -4623,7 +4623,7 @@ export declare enum RsRewardActionCategorySid {
 export declare enum WlVisitKioskScanResultSid {
     /** The scanned value is a dynamic barcode of a client that has expired */
     DYNAMIC_EXPIRED = 4,
-    /** The business uses QR codes for the member IDs, and the kiosk does not read them */
+    /** The business uses QR codes, and the scanned value contains `|` but is not a well-formed QR code of a client */
     FORMAT_UNSUPPORTED = 5,
     /** The scanned value identifies an active client that the staff member may see */
     FOUND = 1,
@@ -6545,6 +6545,10 @@ export interface WlEventEventListGetResponse {
             k_location: string;
             /** Resource key, which has category {@link WlResourceResourceCategoryEnum}. */
             k_resource_location: string;
+            /** End time of the scheduled sessions in `MySql` time format (`HH:MM:SS`). */
+            s_time_end: string;
+            /** Start time of the scheduled sessions in `MySql` time format (`HH:MM:SS`). */
+            s_time_start: string;
             /** Identifier of the timezone of the location of the session (for example `America/New_York`). */
             s_timezone_location: string;
             /** Location title. */
@@ -14559,6 +14563,8 @@ export interface WlProfilePurchaseListPurchaseListElementResponse {
     dl_send: string;
     /** The start date of the promotion. Only available if the item is a promotion. */
     dl_start: string;
+    /** The local date in MySQL format when the purchase option first started, before any renewal. */
+    dl_start_first: string | null;
     /** The local date of cancellation in MySQL format. Only available if the item is a membership. */
     dt_cancel: string;
     /** The end date of the promotion hold. This is used only for promotions on hold. */
@@ -28783,6 +28789,8 @@ export interface WlAppointmentBookAssetAssetListResponse {
         html_deny_reason: string;
         /** The resource name. */
         html_title: string;
+        /** The number of identical units of the asset. One booking takes one unit. */
+        i_quantity: number;
         /** Reasons why the client can't book this class. @see WlScheduleClassViewDenyReasonSid */
         id_deny_reason: WlScheduleClassViewDenyReasonSid;
         /** A list of client booking flow types. @see RsServiceRequireSid */

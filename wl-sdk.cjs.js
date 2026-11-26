@@ -1,7 +1,7 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — production channel
-// OpenAPI spec version: 1.1.20261125055732
+// OpenAPI spec version: 1.1.20261126041651
 // Build date: 2026-11-26
 // Endpoints: 693
 // Enums: 221
@@ -4788,7 +4788,7 @@ var WlVisitKioskScanResultSid;
 (function (WlVisitKioskScanResultSid) {
     /** The scanned value is a dynamic barcode of a client that has expired */
     WlVisitKioskScanResultSid[WlVisitKioskScanResultSid["DYNAMIC_EXPIRED"] = 4] = "DYNAMIC_EXPIRED";
-    /** The business uses QR codes for the member IDs, and the kiosk does not read them */
+    /** The business uses QR codes, and the scanned value contains `|` but is not a well-formed QR code of a client */
     WlVisitKioskScanResultSid[WlVisitKioskScanResultSid["FORMAT_UNSUPPORTED"] = 5] = "FORMAT_UNSUPPORTED";
     /** The scanned value identifies an active client that the staff member may see */
     WlVisitKioskScanResultSid[WlVisitKioskScanResultSid["FOUND"] = 1] = "FOUND";

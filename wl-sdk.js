@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (production)
- * Spec version: 1.1.20261125055732
+ * Spec version: 1.1.20261126041651
  * Build date:   2026-11-26
  * Endpoints:    693
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261125055732';
+  WlClient.SPEC_VERSION = '1.1.20261126041651';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (693 total)
@@ -4918,6 +4918,7 @@
    *  `dl_purchase` {string} The local date of the purchase in MySQL format.
    *  `dl_send` {string} The local date in MySQL format when mail about purchasing was sent (or will b...
    *  `dl_start` {string} The start date of the promotion. Only available if the item is a promotion.
+   *  `dl_start_first` {?string} The local date in MySQL format when the purchase option first started, before...
    *  `dt_cancel` {string} The local date of cancellation in MySQL format. Only available if the item is...
    *  `dt_hold_end` {string} The end date of the promotion hold. This is used only for promotions on hold.
    *  `dt_hold_start` {string} The start date of the promotion hold. Only available if the item is a promoti...
@@ -4927,7 +4928,6 @@
    *  `html_description` {string} The description of the purchased item.
    *  `i_book` {number} The number of sessions remaining for a promotion. This value is used only for...
    *  `i_book_duration` {number} Displays the number of minutes of sessions that were booked by this promotion...
-   *  `i_buy` {number} The number of purchased items bought at the time of purchase.
    *  `...` {*}
    */
   WlClient.prototype.wlProfilePurchaseListPurchaseListElement = function(params)
@@ -8996,7 +8996,8 @@
    * of the classes and of the appointments are not listed. The newest attempt goes first, 100 attempts a page.
    * The totals count the whole day. The attempts of the clients whom the staff member may not see (the scope of the
    * clients of the staff member) are neither listed nor counted. Works in the session of a staff member with access
-   * to the location and the privilege to see the profiles of the clients; no key of a kiosk is needed.
+   * to the location and either the privilege to manage the profiles of the clients or the privilege to view the
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {?string} [params.dl_date] Local day at the location, in MySQL format, for example `2026-11-05`.
@@ -9059,7 +9060,7 @@
    *   <li>the client is found: the key, the name and the photo of the client;</li>
    *   <li>no client that the staff member may see matches the value;</li>
    *   <li>the member ID of the client is inactive;</li>
-   *   <li>the dynamic barcode has expired;</li>
+   *   <li>the dynamic barcode has expired, or the 30 seconds of the QR code have passed;</li>
    * ...
    *
    * @param {Object} [params] Request body fields.
@@ -20329,7 +20330,7 @@
   WlClient.WlVisitKioskScanResultSid = Object.freeze({
     /** The scanned value is a dynamic barcode of a client that has expired */
     DYNAMIC_EXPIRED: 4,
-    /** The business uses QR codes for the member IDs, and the kiosk does not read them */
+    /** The business uses QR codes, and the scanned value contains `|` but is not a well-formed QR code of a client */
     FORMAT_UNSUPPORTED: 5,
     /** The scanned value identifies an active client that the staff member may see */
     FOUND: 1,
