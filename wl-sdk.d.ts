@@ -13946,8 +13946,6 @@ export interface WlProfileEditEditPostParams {
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
-    /** Key of the session of a class or an event that the client is booking while the profile is saved. */
-    k_class_period: string;
     /** Compound key delimited with a colon. First part is the business key where the selected client exi... */
     text_business_uid_key: string;
     /** The key of the user to edit. */
@@ -13993,8 +13991,6 @@ export interface WlProfileEditEditPutParams {
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
-    /** Key of the session of a class or an event that the client is booking while the profile is saved. */
-    k_class_period: string;
     /** The key of the user to edit. */
     uid: string;
     /** Registration source ID. @see WlProfileRegisterSourceSid */
@@ -14100,8 +14096,6 @@ export interface WlProfileEditEditByTokenPostParams {
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
-    /** Key of the session of a class or an event that the client is booking while the profile is saved. */
-    k_class_period: string;
     /** Compound key delimited with a colon. First part is the business key where the selected client exi... */
     text_business_uid_key: string;
     /** The key of the user to edit. */
@@ -14147,8 +14141,6 @@ export interface WlProfileEditEditByTokenPutParams {
     is_staff: boolean;
     /** The key of the business you're editing. */
     k_business: string;
-    /** Key of the session of a class or an event that the client is booking while the profile is saved. */
-    k_class_period: string;
     /** The key of the user to edit. */
     uid: string;
     /** Registration source ID. @see WlProfileRegisterSourceSid */
@@ -14655,10 +14647,16 @@ export interface WlProfileWaiverWaiverResponse {
         html_contract: string;
         /** IP address from which agreement was done. */
         ip_agree: string;
-        /** Full name of the user who signed the waiver. It is the name of the user to get information for, if */
+        /** `true` if the waiver is signed, `false` if the agreement has no date of the signature. */
+        is_agree: boolean;
+        /** `true` if this signature no longer counts: the waiver of the business was edited or replaced afte... */
+        is_old: boolean;
+        /** Full name of the user who signed the waiver, as plain text and not escaped. It is the name of the... */
         s_name: string;
-        /** Full name of the user to get information for, if a relative signed the waiver on his behalf. */
+        /** Full name of the user to get information for, as plain text and not escaped, if a relative signed... */
         text_sign_for: string;
+        /** Key of the user who signed the waiver for this user, for example the parent of a minor. */
+        uid_sign: string | null;
         /** URL to agreement signature. */
         url_signature: string;
     }>;

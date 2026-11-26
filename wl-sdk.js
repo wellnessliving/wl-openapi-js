@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261126094601
+ * Spec version: 1.1.20261126153018
  * Build date:   2026-11-26
  * Endpoints:    723
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261126094601';
+  WlClient.SPEC_VERSION = '1.1.20261126153018';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (723 total)
@@ -4039,6 +4039,11 @@
    *
    * Accepts the user's base64-encoded signature image and an optional electronic-signature consent flag, validates
    * both, records the agreement date and signature in the database, and sends a waiver confirmation notification.
+   * 
+   * The agreement also records who signed the waiver for the user. Nobody is recorded when the user signs
+   * themselves. A relative of the user who signs the waiver is recorded as the signer, and `uid_sign` is ignored.
+   * Otherwise (a staff member or an administrator signs the waiver) the main contact sent in `uid_sign` is recorded,
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business The key of business.
@@ -4162,7 +4167,6 @@
    * @param {boolean} params.is_short Indicates whether to display the full profile edit form or the short version.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
-   * @param {string} params.k_class_period Key of the session of a class or an event that the client is booking while the profile is saved.
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.text_business_uid_key Compound key delimited with a colon. First part is the business key where the selected client exi...
    * @param {string} params.uid The key of the user to edit.
@@ -4193,7 +4197,6 @@
    * @param {?boolean} [params.is_address_inherit] Whether the address be inherited.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
-   * @param {string} params.k_class_period Key of the session of a class or an event that the client is booking while the profile is saved.
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.uid The key of the user to edit.
    * @param {?string} [params.uid_inherit_address] UID of the user, whose address was inherited by the existing client we want to add.
@@ -4269,7 +4272,6 @@
    * @param {boolean} params.is_short Indicates whether to display the full profile edit form or the short version.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
-   * @param {string} params.k_class_period Key of the session of a class or an event that the client is booking while the profile is saved.
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.text_business_uid_key Compound key delimited with a colon. First part is the business key where the selected client exi...
    * @param {string} params.uid The key of the user to edit.
@@ -4300,7 +4302,6 @@
    * @param {?boolean} [params.is_address_inherit] Whether the address be inherited.
    * @param {boolean} params.is_staff Indicates whether to display the form as a user or as a staff member.
    * @param {string} params.k_business The key of the business you're editing.
-   * @param {string} params.k_class_period Key of the session of a class or an event that the client is booking while the profile is saved.
    * @param {?string} [params.k_lead_source] Key of the lead source.
    * @param {string} params.uid The key of the user to edit.
    * @param {?string} [params.uid_inherit_address] UID of the user, whose address was inherited by the existing client we want to add.
@@ -4562,8 +4563,8 @@
    *  the profile. When the business belongs to a franchise that shares waivers across all
    *  franchise locations, waivers are loaded from the franchisor business instead. Each waiver
    *  includes the local and UTC agreement dates, the rendered contract text, the IP address used
-   *  to sign, and a link to the signature image, along with the minor age configured for parent
-   *  or guardian consent.
+   *  to sign, whether the signature is old, the user who signed it for the client, and a link to
+   *  the signature image, along with the minor age configured for parent or guardian consent.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business to get information for.
