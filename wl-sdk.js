@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261127145124
+ * Spec version: 1.1.20261127163420
  * Build date:   2026-11-27
  * Endpoints:    727
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261127145124';
+  WlClient.SPEC_VERSION = '1.1.20261127163420';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (727 total)
@@ -11379,6 +11379,8 @@
    *
    * Used in the backend settings editor to show the current enabled or disabled state of the reward
    * program before the staff member makes a change. Always reads live data, bypassing the cache.
+   * 
+   * Anybody may read the state, a guest included: whether a business has a reward program is public information.
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
