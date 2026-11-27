@@ -1,7 +1,7 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261126153018
- * Build date:   2026-11-26
+ * Spec version: 1.1.20261127074639
+ * Build date:   2026-11-27
  * Endpoints:    723
  *
  * Auto-generated from:
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261126153018';
+  WlClient.SPEC_VERSION = '1.1.20261127074639';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (723 total)
@@ -2617,6 +2617,8 @@
    * @param {string} params.s_payment_intent Payment intent ID to update.
    * @param {?string} [params.uid_purchase] Payment owner user key.
    * @returns {Promise<Object>} Response data.
+   *  `m_amount` {string} Payment amount to set.
+   *  `m_surcharge` {string} Surcharge amount to set.
    */
   WlClient.prototype.wlPayProcessorStripeComPaymentIntentUpdate = function(params)
   {
@@ -2820,6 +2822,7 @@
    *  `is_tip` {boolean} Whether tips are accepted.
    *  `m_surcharge` {?string} Surcharge amount for payment with card represented as a fixed amount.
    *  `m_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a fixed amount.
+   *  `text_surcharge_disclosure` {string} The disclosure that the payer sees at the checkout next to the surcharge line...
    */
   WlClient.prototype.wlPayFormEnvironment = function(params)
   {
@@ -2856,6 +2859,7 @@
    *  `is_tip` {boolean} Whether tips are accepted.
    *  `m_surcharge` {?string} Surcharge amount for payment with card represented as a fixed amount.
    *  `m_surcharge_ach` {?string} Surcharge amount for payment with ACH represented as a fixed amount.
+   *  `text_surcharge_disclosure` {string} The disclosure that the payer sees at the checkout next to the surcharge line...
    */
   WlClient.prototype.wlPayFormEnvironmentUser = function(params)
   {
@@ -3969,12 +3973,18 @@
    *
    * Accepts a business key and an email address, validates both, and returns `true` if a user with that email is an
    * active member of the business. Requests are rate-limited per IP unless the caller has the required privilege.
+   * 
+   * With {@link WlClient#wlLoginMailMailUse} set to `true`, the membership in the business is not checked: only
+   * {@link WlClient#wlLoginMailMailUse} is returned, `true` if the email address is used by an account of `WellnessLiving`
+   * that is not a virtual user. The business key is still required and validated, and the same rate limit applies.
    *
    * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_any_business Whether to check the use of the email address by any account of `WellnessLiving` instead of the m...
    * @param {string} params.k_business The business for which the email address search is being performed.
    * @param {string} params.text_mail The email address to check for.
    * @returns {Promise<Object>} Response data.
-   *  `is_exists` {boolean} If `true`, the user with the specified email address exists in specified busi...
+   *  `is_exists` {?boolean} If `true`, the user with the specified email address exists in specified busi...
+   *  `is_use` {?boolean} Whether the email address is used by an account of `WellnessLiving` that is n...
    *  `uid_use` {?string} Key of the user who using email within the business.
    */
   WlClient.prototype.wlLoginMailMailUse = function(params)
@@ -6656,37 +6666,6 @@
   WlClient.prototype.wlCouponCouponListList = function(params)
   {
     return this.request('/Wl/Coupon/CouponList/List.json', params || {}, 'GET');
-  };
-
-  /**
-   * Gets the page of the list of Purchase Options of the business.
-   *
-   * The list holds the Purchase Options of the business that were not removed, filtered by the search words, the
-   * status, the type, the service category, the store category and the location, in the requested order. The daily
-   * deals, the enrollments, the programs of the services that the business has switched off and the programs that
-   * the user has no right to see are never listed.
-   *
-   * @param {Object} [params] Request parameters.
-   * @param {number[]} params.a_column The optional columns whose data is wanted. Empty to read the default columns only.
-   * @param {?number[]} [params.a_program_category] The service categories to show. `null` to show every category.
-   * @param {?number[]} [params.a_program_type] The types of the Purchase Options to show. `null` to show every type.
-   * @param {?string[]} [params.a_shop_category] The keys of the store categories to show. `null` to show every store category.
-   * @param {number} params.i_page The number of the page to read, the first page is 1.
-   * @param {number} params.i_page_size The number of the Purchase Options on a page.
-   * @param {number} params.id_sort The sort of the list. One of the {@link WlClient.WlPromotionEditorListSortEnum} cases.
-   * @param {number} params.id_status The status of the Purchase Options to show. One of the {@link WlClient.WlPromotionEditorListStatu... See {@link WlClient.WlPromotionEditorListStatusEnum}.
-   * @param {boolean} params.is_shop_category_none Whether the Purchase Options that are in no store category are shown in addition to the requested...
-   * @param {boolean} params.is_sort_desc Whether the list is sorted from the last to the first.
-   * @param {string} params.k_business The key of the business whose Purchase Options are listed.
-   * @param {?string} [params.k_location] The key of the location whose Purchase Options are shown. `null` to show the Purchase Options of ...
-   * @param {?string} [params.text_search] The words to search in the titles of the Purchase Options, and the beginning of their barcodes. `...
-   * @returns {Promise<Object>} Response data.
-   *  `a_promotion` {Object[]} The Purchase Options of the requested page, in the requested order.
-   *  `i_total` {number} The number of the Purchase Options in the whole list, not only on the request...
-   */
-  WlClient.prototype.wlPromotionEditorList = function(params)
-  {
-    return this.request('/Wl/Promotion/Editor/List.json', params || {}, 'GET');
   };
 
   /**
@@ -10299,9 +10278,11 @@
    * @param {string} params.k_currency Currency key.
    * @param {string} params.k_location Location key.
    * @param {?string} [params.k_pay_bank] Key of a saved card to preview.
+   * @param {?string} [params.m_amount] Amount of the payment without the surcharge, to calculate SurchargeTenderApi::$m_surcharge for.
    * @param {?string} [params.s_bin] First digits of a newly-typed card number (at least 6).
    * @returns {Promise<Object>} Response data.
    *  `is_allowed` {boolean} Whether a surcharge is allowed for the card identified by
+   *  `m_surcharge` {?string} The surcharge of the payment of SurchargeTenderApi::$m_amount with this card,...
    */
   WlClient.prototype.wlPayFormSurchargeSurchargeTender = function(params)
   {
@@ -12425,6 +12406,40 @@
   };
 
   /**
+   * Gets the page of the list of Purchase Options of the business.
+   *
+   * The list holds the Purchase Options of the business that were not removed, filtered by the search words, the
+   * status, the type, the service category, the store category and the location, in the requested order. The daily
+   * deals, the enrollments, the programs of the services that the business has switched off and the programs that
+   * the user has no right to see are never listed.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {number[]} params.a_column The optional columns whose data is wanted. Empty to read the default columns only.
+   * @param {?number[]} [params.a_program_category] The service categories to show. `null` to show every category.
+   * @param {?number[]} [params.a_program_type] The types of the Purchase Options to show. `null` to show every type.
+   * @param {?string[]} [params.a_shop_category] The keys of the store categories to show. `null` to show every store category.
+   * @param {number} params.i_page The number of the page to read, the first page is 1.
+   * @param {number} params.i_page_size The number of the Purchase Options on a page.
+   * @param {number} params.id_sort The sort of the list. One of the {@link WlClient.WlPromotionEditorListListSortEnum} cases.
+   * @param {number} params.id_status The status of the Purchase Options to show. One of the {@link WlClient.WlPromotionEditorListListS... See {@link WlClient.WlPromotionEditorListListStatusEnum}.
+   * @param {boolean} params.is_shop_category_none Whether the Purchase Options that are in no store category are shown in addition to the requested...
+   * @param {boolean} params.is_sort_desc Whether the list is sorted from the last to the first.
+   * @param {string} params.k_business The key of the business whose Purchase Options are listed.
+   * @param {?string} [params.k_location] The key of the location whose Purchase Options are shown. `null` to show the Purchase Options of ...
+   * @param {?string} [params.text_search] The words to search in the titles of the Purchase Options, and the beginning of their barcodes. `...
+   * @returns {Promise<Object>} Response data.
+   *  `a_filter_location` {Object[]} The locations of the business that the list can be filtered by, in alphabetic...
+   *  `a_filter_program_category` {Object[]} The service categories that the list can be filtered by: the categories that ...
+   *  `a_filter_shop_category` {Object[]} The store categories that the list can be filtered by, in the order of the st...
+   *  `a_promotion` {Object[]} The Purchase Options of the requested page, in the requested order.
+   *  `i_total` {number} The number of the Purchase Options in the whole list, not only on the request...
+   */
+  WlClient.prototype.wlPromotionEditorListList = function(params)
+  {
+    return this.request('/Wl/Promotion/Editor/List/List.json', params || {}, 'GET');
+  };
+
+  /**
    * Loads the list of online store categories for the business.
    *
    * Returns the active shop categories configured for the business, together with their order,
@@ -12673,8 +12688,8 @@
    *  service at the given location. Availability is determined by the business schedule, holidays,
    *  and staff availability for the selected date range.
    * 
-   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
-   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
+   * On a client request (`uid` set, `is_staff` false), time slots with the exact same start time as the client's
+   *  own confirmed bookings of the same service are excluded.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
@@ -12724,8 +12739,8 @@
    *  Each slot includes the start time, duration, available capacity, and staff information. Supports
    *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
    * 
-   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
-   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
+   * On a client request (`uid` set, `is_staff` false), time slots with the exact same start time as the client's
+   *  own confirmed bookings of the same service are excluded.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
@@ -12768,8 +12783,8 @@
    *  Each slot includes the start time, duration, available capacity, and staff information. Supports
    *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
    * 
-   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
-   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
+   * On a client request (`uid` set, `is_staff` false), time slots with the exact same start time as the client's
+   *  own confirmed bookings of the same service are excluded.
    * @deprecated Use {@link \Wl\Appointment\Book\Schedule\DayTime73Api}
    *
    * @param {Object} [params] Request parameters.
@@ -12834,8 +12849,8 @@
    *  service at the given location. Availability is determined by the business schedule, holidays,
    *  and staff availability for the selected date range.
    * 
-   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
-   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
+   * On a client request (`uid` set, `is_staff` false), time slots with the exact same start time as the client's
+   *  own confirmed bookings of the same service are excluded.
    * @deprecated Use {@link \Wl\Appointment\Book\Schedule\Calendar73Api}
    *
    * @param {Object} [params] Request parameters.
@@ -12888,7 +12903,7 @@
    *  date so the client side can pre-select it in the booking calendar. This request may take longer
    *  than usual on production and uses an extended execution time limit.
    * 
-   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   * On a client request (`uid` set, `is_staff` false), time slots with the exact same start time as the client's
    * ...
    *
    * @param {Object} [params] Request parameters.
@@ -12931,8 +12946,8 @@
    *  service at the given location. Availability is determined by the business schedule, holidays,
    *  and staff availability for the selected date range.
    * 
-   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
-   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
+   * On a client request (`uid` set, `is_staff` false), time slots with the exact same start time as the client's
+   *  own confirmed bookings of the same service are excluded.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
@@ -12983,8 +12998,8 @@
    *  Each slot includes the start time, duration, available capacity, and staff information. Supports
    *  both frontend and backend modes, as well as asset bookings and back-to-back scheduling.
    * 
-   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
-   *  same service are excluded, including the future occurrences of the client's never-ending recurring bookings.
+   * On a client request (`uid` set, `is_staff` false), time slots with the exact same start time as the client's
+   *  own confirmed bookings of the same service are excluded.
    *
    * @param {Object} [params] Request parameters.
    * @param {string[]} params.a_staff The list of staff members to limit the availability to. Empty means no limit.
@@ -13029,7 +13044,7 @@
    *  date so the client side can pre-select it in the booking calendar. This request may take longer
    *  than usual on production and uses an extended execution time limit.
    * 
-   * On a client request (`uid` set, `is_staff` false), time slots that overlap the client's own bookings of the
+   * On a client request (`uid` set, `is_staff` false), time slots with the exact same start time as the client's
    * ...
    *
    * @param {Object} [params] Request parameters.
@@ -14589,9 +14604,9 @@
    * Checks the OTP rate limit, generates a new code for the given user, and dispatches it according to the
    * chosen delivery strategy. The user must not be already signed in and must not be an admin.
    * 
-   * There are two ways to specify the delivery channel:
-   * 
-   * **1. Broadcast strategy** (default)
+   * The user is given by {@link WlClient#wlPassportLoginEnterPassportOtpGet} or by {@link WlClient#wlPassportLoginEnterPassportOtpGet}. With the email, the
+   * limit of the requests from the IP address is checked and spent first; only then the request is refused when no
+   * account uses the email (`mail-nx`), when the account is an admin (`user-admin`) or a staff member of the
    * ...
    *
    * @param {Object} [params] Request parameters.
@@ -14600,6 +14615,7 @@
    * @param {boolean} params.is_phone Whether OTP code will be sending to user via email.
    * @param {string} params.k_business Business key.
    * @param {string} params.text_delivery_priority Priority of delivery.
+   * @param {string} params.text_mail Email of an existing account, to use instead of {@link WlClient#wlPassportLoginEnterPassportOtpGet}.
    * @param {string} params.uid User key.
    * @returns {Promise<Object>} Response data.
    *  `text_delivery_selected` {string} Delivery channel that was selected based on the given priorities and user data.
@@ -14615,9 +14631,15 @@
    *
    * Validates the OTP code for the given user, signs in the session, fires the post-login event,
    * completes business registration if applicable, and returns the redirect URL for the business frontend.
+   * 
+   * The user is given by {@link WlClient#wlPassportLoginEnterPassportOtpGet} or by {@link WlClient#wlPassportLoginEnterPassportOtpGet}. With the email, the
+   * limit of the submits from the IP address is checked and spent first; only then the request is refused when no
+   * account uses the email (`mail-nx`), when the account is an admin (`user-admin`) or a staff member of the
+   * ...
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
+   * @param {string} params.text_mail Email of an existing account, to use instead of {@link WlClient#wlPassportLoginEnterPassportOtpGet}.
    * @param {string} params.uid User key.
    * @returns {Promise<Object>} Response data.
    *  `i_attempt_left` {number} Number of attempts left to submit the correct otp code.
@@ -21481,33 +21503,15 @@
   });
 
   /**
-   * The optional columns of the list of Purchase Options, whose data is read only when it is asked.
+   * Attendance Restriction cycle type.
    *
    * @enum {number}
    */
-  WlClient.WlPromotionEditorListColumnEnum = Object.freeze({
-    /** The limit of the purchases of one client */
-    BUY_LIMIT: 1,
-    /** The client groups that the Purchase Option is only for */
-    CLIENT_GROUP: 8,
-    /** The client types that the Purchase Option is only for */
-    CLIENT_TYPE: 9,
-    /** Who created the Purchase Option and when */
-    CREATE: 6,
-    /** Who changed the Purchase Option last and when */
-    EDIT: 7,
-    /** The locations where the Purchase Option is sold */
-    LOCATION: 10,
-    /** The date when the Purchase Option is published */
-    PUBLISH: 2,
-    /** Whether the Purchase Option renews itself */
-    RENEW: 3,
-    /** The store categories of the Purchase Option */
-    SHOP_CATEGORY: 11,
-    /** The planned date when the Purchase Option is switched off */
-    STATUS: 4,
-    /** The date when the Purchase Option is unpublished */
-    UNPUBLISH: 5,
+  WlClient.WlPromotionEditLimitCycleSid = Object.freeze({
+    /** Attendance Restriction is applied at the start of the calendar cycle */
+    CALENDAR: 1,
+    /** Attendance Restriction is applied at the start of the payment cycle */
+    PAYMENT: 2,
   });
 
   /**
@@ -21532,50 +21536,6 @@
     VIDEO: 9,
     /** Purchase options to pay for gym visits: */
     VISIT: 2,
-  });
-
-  /**
-   * The sorts of the list of Purchase Options.
-   *
-   * @enum {number}
-   */
-  WlClient.WlPromotionEditorListSortEnum = Object.freeze({
-    /** By the length of the Purchase Option: the unit of the duration, then its number */
-    LENGTH: 3,
-    /** By the title of the Purchase Option */
-    NAME: 1,
-    /** By the order in which clients see the Purchase Options in the store */
-    ORDER: 5,
-    /** By the price of the Purchase Option */
-    PRICE: 2,
-    /** By the number of the visits that the Purchase Option includes */
-    VISIT: 4,
-  });
-
-  /**
-   * The statuses by which the list of Purchase Options is filtered.
-   *
-   * @enum {number}
-   */
-  WlClient.WlPromotionEditorListStatusEnum = Object.freeze({
-    /** Active Purchase Options: switched on and not expired */
-    ACTIVE: 1,
-    /** Purchase Options of every status */
-    ALL: 3,
-    /** Inactive Purchase Options: switched off or expired */
-    INACTIVE: 2,
-  });
-
-  /**
-   * Attendance Restriction cycle type.
-   *
-   * @enum {number}
-   */
-  WlClient.WlPromotionEditLimitCycleSid = Object.freeze({
-    /** Attendance Restriction is applied at the start of the calendar cycle */
-    CALENDAR: 1,
-    /** Attendance Restriction is applied at the start of the payment cycle */
-    PAYMENT: 2,
   });
 
   /**
@@ -22856,6 +22816,68 @@
     RESOURCE_PERIOD: 4,
     /** Staff working hours */
     STAFF_PERIOD: 3,
+  });
+
+  /**
+   * The optional columns of the list of Purchase Options, whose data is read only when it is asked.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionEditorListListColumnEnum = Object.freeze({
+    /** The limit of the purchases of one client */
+    BUY_LIMIT: 1,
+    /** The client groups that the Purchase Option is only for */
+    CLIENT_GROUP: 8,
+    /** The client types that the Purchase Option is only for */
+    CLIENT_TYPE: 9,
+    /** Who created the Purchase Option and when */
+    CREATE: 6,
+    /** Who changed the Purchase Option last and when */
+    EDIT: 7,
+    /** The locations where the Purchase Option is sold */
+    LOCATION: 10,
+    /** The date when the Purchase Option is published */
+    PUBLISH: 2,
+    /** Whether the Purchase Option renews itself */
+    RENEW: 3,
+    /** The store categories of the Purchase Option */
+    SHOP_CATEGORY: 11,
+    /** The planned date when the Purchase Option is switched off */
+    STATUS: 4,
+    /** The date when the Purchase Option is unpublished */
+    UNPUBLISH: 5,
+  });
+
+  /**
+   * The sorts of the list of Purchase Options.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionEditorListListSortEnum = Object.freeze({
+    /** By the length of the Purchase Option: the unit of the duration, then its number */
+    LENGTH: 3,
+    /** By the title of the Purchase Option */
+    NAME: 1,
+    /** By the order in which clients see the Purchase Options in the store */
+    ORDER: 5,
+    /** By the price of the Purchase Option */
+    PRICE: 2,
+    /** By the number of the visits that the Purchase Option includes */
+    VISIT: 4,
+  });
+
+  /**
+   * The statuses by which the list of Purchase Options is filtered.
+   *
+   * @enum {number}
+   */
+  WlClient.WlPromotionEditorListListStatusEnum = Object.freeze({
+    /** Active Purchase Options: switched on and not expired */
+    ACTIVE: 1,
+    /** Purchase Options of every status */
+    ALL: 3,
+    /** Inactive Purchase Options: switched off or expired */
+    INACTIVE: 2,
   });
 
   /**

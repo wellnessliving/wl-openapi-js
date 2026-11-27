@@ -1,7 +1,7 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261126153018
-// Build date: 2026-11-26
+// OpenAPI spec version: 1.1.20261127074639
+// Build date: 2026-11-27
 // Endpoints: 723
 // Enums: 238
 export class WlApiError extends Error {
@@ -5080,32 +5080,14 @@ export var WlCouponTypeSid;
     /** Quick Gift Card */
     WlCouponTypeSid[WlCouponTypeSid["QUICK"] = 3] = "QUICK";
 })(WlCouponTypeSid || (WlCouponTypeSid = {}));
-/** The optional columns of the list of Purchase Options, whose data is read only when it is asked. */
-export var WlPromotionEditorListColumnEnum;
-(function (WlPromotionEditorListColumnEnum) {
-    /** The limit of the purchases of one client */
-    WlPromotionEditorListColumnEnum[WlPromotionEditorListColumnEnum["BUY_LIMIT"] = 1] = "BUY_LIMIT";
-    /** The client groups that the Purchase Option is only for */
-    WlPromotionEditorListColumnEnum[WlPromotionEditorListColumnEnum["CLIENT_GROUP"] = 8] = "CLIENT_GROUP";
-    /** The client types that the Purchase Option is only for */
-    WlPromotionEditorListColumnEnum[WlPromotionEditorListColumnEnum["CLIENT_TYPE"] = 9] = "CLIENT_TYPE";
-    /** Who created the Purchase Option and when */
-    WlPromotionEditorListColumnEnum[WlPromotionEditorListColumnEnum["CREATE"] = 6] = "CREATE";
-    /** Who changed the Purchase Option last and when */
-    WlPromotionEditorListColumnEnum[WlPromotionEditorListColumnEnum["EDIT"] = 7] = "EDIT";
-    /** The locations where the Purchase Option is sold */
-    WlPromotionEditorListColumnEnum[WlPromotionEditorListColumnEnum["LOCATION"] = 10] = "LOCATION";
-    /** The date when the Purchase Option is published */
-    WlPromotionEditorListColumnEnum[WlPromotionEditorListColumnEnum["PUBLISH"] = 2] = "PUBLISH";
-    /** Whether the Purchase Option renews itself */
-    WlPromotionEditorListColumnEnum[WlPromotionEditorListColumnEnum["RENEW"] = 3] = "RENEW";
-    /** The store categories of the Purchase Option */
-    WlPromotionEditorListColumnEnum[WlPromotionEditorListColumnEnum["SHOP_CATEGORY"] = 11] = "SHOP_CATEGORY";
-    /** The planned date when the Purchase Option is switched off */
-    WlPromotionEditorListColumnEnum[WlPromotionEditorListColumnEnum["STATUS"] = 4] = "STATUS";
-    /** The date when the Purchase Option is unpublished */
-    WlPromotionEditorListColumnEnum[WlPromotionEditorListColumnEnum["UNPUBLISH"] = 5] = "UNPUBLISH";
-})(WlPromotionEditorListColumnEnum || (WlPromotionEditorListColumnEnum = {}));
+/** Attendance Restriction cycle type. */
+export var WlPromotionEditLimitCycleSid;
+(function (WlPromotionEditLimitCycleSid) {
+    /** Attendance Restriction is applied at the start of the calendar cycle */
+    WlPromotionEditLimitCycleSid[WlPromotionEditLimitCycleSid["CALENDAR"] = 1] = "CALENDAR";
+    /** Attendance Restriction is applied at the start of the payment cycle */
+    WlPromotionEditLimitCycleSid[WlPromotionEditLimitCycleSid["PAYMENT"] = 2] = "PAYMENT";
+})(WlPromotionEditLimitCycleSid || (WlPromotionEditLimitCycleSid = {}));
 /** Program type categories. */
 export var RsProgramCategorySid;
 (function (RsProgramCategorySid) {
@@ -5126,38 +5108,6 @@ export var RsProgramCategorySid;
     /** Purchase options to pay for gym visits: */
     RsProgramCategorySid[RsProgramCategorySid["VISIT"] = 2] = "VISIT";
 })(RsProgramCategorySid || (RsProgramCategorySid = {}));
-/** The sorts of the list of Purchase Options. */
-export var WlPromotionEditorListSortEnum;
-(function (WlPromotionEditorListSortEnum) {
-    /** By the length of the Purchase Option: the unit of the duration, then its number */
-    WlPromotionEditorListSortEnum[WlPromotionEditorListSortEnum["LENGTH"] = 3] = "LENGTH";
-    /** By the title of the Purchase Option */
-    WlPromotionEditorListSortEnum[WlPromotionEditorListSortEnum["NAME"] = 1] = "NAME";
-    /** By the order in which clients see the Purchase Options in the store */
-    WlPromotionEditorListSortEnum[WlPromotionEditorListSortEnum["ORDER"] = 5] = "ORDER";
-    /** By the price of the Purchase Option */
-    WlPromotionEditorListSortEnum[WlPromotionEditorListSortEnum["PRICE"] = 2] = "PRICE";
-    /** By the number of the visits that the Purchase Option includes */
-    WlPromotionEditorListSortEnum[WlPromotionEditorListSortEnum["VISIT"] = 4] = "VISIT";
-})(WlPromotionEditorListSortEnum || (WlPromotionEditorListSortEnum = {}));
-/** The statuses by which the list of Purchase Options is filtered. */
-export var WlPromotionEditorListStatusEnum;
-(function (WlPromotionEditorListStatusEnum) {
-    /** Active Purchase Options: switched on and not expired */
-    WlPromotionEditorListStatusEnum[WlPromotionEditorListStatusEnum["ACTIVE"] = 1] = "ACTIVE";
-    /** Purchase Options of every status */
-    WlPromotionEditorListStatusEnum[WlPromotionEditorListStatusEnum["ALL"] = 3] = "ALL";
-    /** Inactive Purchase Options: switched off or expired */
-    WlPromotionEditorListStatusEnum[WlPromotionEditorListStatusEnum["INACTIVE"] = 2] = "INACTIVE";
-})(WlPromotionEditorListStatusEnum || (WlPromotionEditorListStatusEnum = {}));
-/** Attendance Restriction cycle type. */
-export var WlPromotionEditLimitCycleSid;
-(function (WlPromotionEditLimitCycleSid) {
-    /** Attendance Restriction is applied at the start of the calendar cycle */
-    WlPromotionEditLimitCycleSid[WlPromotionEditLimitCycleSid["CALENDAR"] = 1] = "CALENDAR";
-    /** Attendance Restriction is applied at the start of the payment cycle */
-    WlPromotionEditLimitCycleSid[WlPromotionEditLimitCycleSid["PAYMENT"] = 2] = "PAYMENT";
-})(WlPromotionEditLimitCycleSid || (WlPromotionEditLimitCycleSid = {}));
 /** Time intervals on schedule for cells. */
 export var WlScheduleDesignIntervalSid;
 (function (WlScheduleDesignIntervalSid) {
@@ -6138,6 +6088,56 @@ export var RsClassModifyModeSid;
     /** Staff working hours */
     RsClassModifyModeSid[RsClassModifyModeSid["STAFF_PERIOD"] = 3] = "STAFF_PERIOD";
 })(RsClassModifyModeSid || (RsClassModifyModeSid = {}));
+/** The optional columns of the list of Purchase Options, whose data is read only when it is asked. */
+export var WlPromotionEditorListListColumnEnum;
+(function (WlPromotionEditorListListColumnEnum) {
+    /** The limit of the purchases of one client */
+    WlPromotionEditorListListColumnEnum[WlPromotionEditorListListColumnEnum["BUY_LIMIT"] = 1] = "BUY_LIMIT";
+    /** The client groups that the Purchase Option is only for */
+    WlPromotionEditorListListColumnEnum[WlPromotionEditorListListColumnEnum["CLIENT_GROUP"] = 8] = "CLIENT_GROUP";
+    /** The client types that the Purchase Option is only for */
+    WlPromotionEditorListListColumnEnum[WlPromotionEditorListListColumnEnum["CLIENT_TYPE"] = 9] = "CLIENT_TYPE";
+    /** Who created the Purchase Option and when */
+    WlPromotionEditorListListColumnEnum[WlPromotionEditorListListColumnEnum["CREATE"] = 6] = "CREATE";
+    /** Who changed the Purchase Option last and when */
+    WlPromotionEditorListListColumnEnum[WlPromotionEditorListListColumnEnum["EDIT"] = 7] = "EDIT";
+    /** The locations where the Purchase Option is sold */
+    WlPromotionEditorListListColumnEnum[WlPromotionEditorListListColumnEnum["LOCATION"] = 10] = "LOCATION";
+    /** The date when the Purchase Option is published */
+    WlPromotionEditorListListColumnEnum[WlPromotionEditorListListColumnEnum["PUBLISH"] = 2] = "PUBLISH";
+    /** Whether the Purchase Option renews itself */
+    WlPromotionEditorListListColumnEnum[WlPromotionEditorListListColumnEnum["RENEW"] = 3] = "RENEW";
+    /** The store categories of the Purchase Option */
+    WlPromotionEditorListListColumnEnum[WlPromotionEditorListListColumnEnum["SHOP_CATEGORY"] = 11] = "SHOP_CATEGORY";
+    /** The planned date when the Purchase Option is switched off */
+    WlPromotionEditorListListColumnEnum[WlPromotionEditorListListColumnEnum["STATUS"] = 4] = "STATUS";
+    /** The date when the Purchase Option is unpublished */
+    WlPromotionEditorListListColumnEnum[WlPromotionEditorListListColumnEnum["UNPUBLISH"] = 5] = "UNPUBLISH";
+})(WlPromotionEditorListListColumnEnum || (WlPromotionEditorListListColumnEnum = {}));
+/** The sorts of the list of Purchase Options. */
+export var WlPromotionEditorListListSortEnum;
+(function (WlPromotionEditorListListSortEnum) {
+    /** By the length of the Purchase Option: the unit of the duration, then its number */
+    WlPromotionEditorListListSortEnum[WlPromotionEditorListListSortEnum["LENGTH"] = 3] = "LENGTH";
+    /** By the title of the Purchase Option */
+    WlPromotionEditorListListSortEnum[WlPromotionEditorListListSortEnum["NAME"] = 1] = "NAME";
+    /** By the order in which clients see the Purchase Options in the store */
+    WlPromotionEditorListListSortEnum[WlPromotionEditorListListSortEnum["ORDER"] = 5] = "ORDER";
+    /** By the price of the Purchase Option */
+    WlPromotionEditorListListSortEnum[WlPromotionEditorListListSortEnum["PRICE"] = 2] = "PRICE";
+    /** By the number of the visits that the Purchase Option includes */
+    WlPromotionEditorListListSortEnum[WlPromotionEditorListListSortEnum["VISIT"] = 4] = "VISIT";
+})(WlPromotionEditorListListSortEnum || (WlPromotionEditorListListSortEnum = {}));
+/** The statuses by which the list of Purchase Options is filtered. */
+export var WlPromotionEditorListListStatusEnum;
+(function (WlPromotionEditorListListStatusEnum) {
+    /** Active Purchase Options: switched on and not expired */
+    WlPromotionEditorListListStatusEnum[WlPromotionEditorListListStatusEnum["ACTIVE"] = 1] = "ACTIVE";
+    /** Purchase Options of every status */
+    WlPromotionEditorListListStatusEnum[WlPromotionEditorListListStatusEnum["ALL"] = 3] = "ALL";
+    /** Inactive Purchase Options: switched off or expired */
+    WlPromotionEditorListListStatusEnum[WlPromotionEditorListListStatusEnum["INACTIVE"] = 2] = "INACTIVE";
+})(WlPromotionEditorListListStatusEnum || (WlPromotionEditorListListStatusEnum = {}));
 /** List of available features in the system that can be shown in owner's header. */
 export var WlPageBackendFeatureFeatureSid;
 (function (WlPageBackendFeatureFeatureSid) {
@@ -8477,15 +8477,6 @@ export class WlStaffNamespace {
         return this._client._request('/Wl/Staff/StaffElement.json', params, 'POST');
     }
 }
-export class WlPromotionEditorNamespace {
-    constructor(_client) {
-        this._client = _client;
-    }
-    /** Gets the page of the list of Purchase Options of the business. */
-    list(params) {
-        return this._client._request('/Wl/Promotion/Editor/List.json', params, 'GET');
-    }
-}
 export class WlPromotionIndexNamespace {
     constructor(_client) {
         this._client = _client;
@@ -8495,11 +8486,26 @@ export class WlPromotionIndexNamespace {
         return this._client._request('/Wl/Promotion/Index/PromotionIndex.json', params, 'GET');
     }
 }
+export class WlPromotionEditorListNamespace {
+    constructor(_client) {
+        this._client = _client;
+    }
+    /** Gets the page of the list of Purchase Options of the business. */
+    list(params) {
+        return this._client._request('/Wl/Promotion/Editor/List/List.json', params, 'GET');
+    }
+}
+export class WlPromotionEditorNamespace {
+    constructor(_client) {
+        this._client = _client;
+        this.list = new WlPromotionEditorListNamespace(this._client);
+    }
+}
 export class WlPromotionNamespace {
     constructor(_client) {
         this._client = _client;
-        this.editor = new WlPromotionEditorNamespace(this._client);
         this.index = new WlPromotionIndexNamespace(this._client);
+        this.editor = new WlPromotionEditorNamespace(this._client);
     }
     /** Returns promotion list of the specified business. */
     promotionList(params) {

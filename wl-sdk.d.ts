@@ -4948,30 +4948,12 @@ export declare enum WlCouponTypeSid {
     /** Quick Gift Card */
     QUICK = 3
 }
-/** The optional columns of the list of Purchase Options, whose data is read only when it is asked. */
-export declare enum WlPromotionEditorListColumnEnum {
-    /** The limit of the purchases of one client */
-    BUY_LIMIT = 1,
-    /** The client groups that the Purchase Option is only for */
-    CLIENT_GROUP = 8,
-    /** The client types that the Purchase Option is only for */
-    CLIENT_TYPE = 9,
-    /** Who created the Purchase Option and when */
-    CREATE = 6,
-    /** Who changed the Purchase Option last and when */
-    EDIT = 7,
-    /** The locations where the Purchase Option is sold */
-    LOCATION = 10,
-    /** The date when the Purchase Option is published */
-    PUBLISH = 2,
-    /** Whether the Purchase Option renews itself */
-    RENEW = 3,
-    /** The store categories of the Purchase Option */
-    SHOP_CATEGORY = 11,
-    /** The planned date when the Purchase Option is switched off */
-    STATUS = 4,
-    /** The date when the Purchase Option is unpublished */
-    UNPUBLISH = 5
+/** Attendance Restriction cycle type. */
+export declare enum WlPromotionEditLimitCycleSid {
+    /** Attendance Restriction is applied at the start of the calendar cycle */
+    CALENDAR = 1,
+    /** Attendance Restriction is applied at the start of the payment cycle */
+    PAYMENT = 2
 }
 /** Program type categories. */
 export declare enum RsProgramCategorySid {
@@ -4991,35 +4973,6 @@ export declare enum RsProgramCategorySid {
     VIDEO = 9,
     /** Purchase options to pay for gym visits: */
     VISIT = 2
-}
-/** The sorts of the list of Purchase Options. */
-export declare enum WlPromotionEditorListSortEnum {
-    /** By the length of the Purchase Option: the unit of the duration, then its number */
-    LENGTH = 3,
-    /** By the title of the Purchase Option */
-    NAME = 1,
-    /** By the order in which clients see the Purchase Options in the store */
-    ORDER = 5,
-    /** By the price of the Purchase Option */
-    PRICE = 2,
-    /** By the number of the visits that the Purchase Option includes */
-    VISIT = 4
-}
-/** The statuses by which the list of Purchase Options is filtered. */
-export declare enum WlPromotionEditorListStatusEnum {
-    /** Active Purchase Options: switched on and not expired */
-    ACTIVE = 1,
-    /** Purchase Options of every status */
-    ALL = 3,
-    /** Inactive Purchase Options: switched off or expired */
-    INACTIVE = 2
-}
-/** Attendance Restriction cycle type. */
-export declare enum WlPromotionEditLimitCycleSid {
-    /** Attendance Restriction is applied at the start of the calendar cycle */
-    CALENDAR = 1,
-    /** Attendance Restriction is applied at the start of the payment cycle */
-    PAYMENT = 2
 }
 /** Time intervals on schedule for cells. */
 export declare enum WlScheduleDesignIntervalSid {
@@ -5925,6 +5878,53 @@ export declare enum RsClassModifyModeSid {
     RESOURCE_PERIOD = 4,
     /** Staff working hours */
     STAFF_PERIOD = 3
+}
+/** The optional columns of the list of Purchase Options, whose data is read only when it is asked. */
+export declare enum WlPromotionEditorListListColumnEnum {
+    /** The limit of the purchases of one client */
+    BUY_LIMIT = 1,
+    /** The client groups that the Purchase Option is only for */
+    CLIENT_GROUP = 8,
+    /** The client types that the Purchase Option is only for */
+    CLIENT_TYPE = 9,
+    /** Who created the Purchase Option and when */
+    CREATE = 6,
+    /** Who changed the Purchase Option last and when */
+    EDIT = 7,
+    /** The locations where the Purchase Option is sold */
+    LOCATION = 10,
+    /** The date when the Purchase Option is published */
+    PUBLISH = 2,
+    /** Whether the Purchase Option renews itself */
+    RENEW = 3,
+    /** The store categories of the Purchase Option */
+    SHOP_CATEGORY = 11,
+    /** The planned date when the Purchase Option is switched off */
+    STATUS = 4,
+    /** The date when the Purchase Option is unpublished */
+    UNPUBLISH = 5
+}
+/** The sorts of the list of Purchase Options. */
+export declare enum WlPromotionEditorListListSortEnum {
+    /** By the length of the Purchase Option: the unit of the duration, then its number */
+    LENGTH = 3,
+    /** By the title of the Purchase Option */
+    NAME = 1,
+    /** By the order in which clients see the Purchase Options in the store */
+    ORDER = 5,
+    /** By the price of the Purchase Option */
+    PRICE = 2,
+    /** By the number of the visits that the Purchase Option includes */
+    VISIT = 4
+}
+/** The statuses by which the list of Purchase Options is filtered. */
+export declare enum WlPromotionEditorListListStatusEnum {
+    /** Active Purchase Options: switched on and not expired */
+    ACTIVE = 1,
+    /** Purchase Options of every status */
+    ALL = 3,
+    /** Inactive Purchase Options: switched off or expired */
+    INACTIVE = 2
 }
 /** List of available features in the system that can be shown in owner's header. */
 export declare enum WlPageBackendFeatureFeatureSid {
@@ -10458,7 +10458,12 @@ export interface WlPayProcessorStripeComPaymentIntentUpdateParams {
     /** Payment owner user key. */
     uid_purchase?: string | null;
 }
-export type WlPayProcessorStripeComPaymentIntentUpdateResponse = Record<string, unknown>;
+export interface WlPayProcessorStripeComPaymentIntentUpdateResponse {
+    /** Payment amount to set. */
+    m_amount: string;
+    /** Surcharge amount to set. */
+    m_surcharge: string;
+}
 export type WlPayProcessorStripeComStripeComKeyParams = Record<string, unknown>;
 export interface WlPayProcessorStripeComStripeComKeyResponse {
     /** Merchant public key. */
@@ -10764,6 +10769,8 @@ export interface WlPayFormEnvironmentResponse {
     m_surcharge: string | null;
     /** Surcharge amount for payment with ACH represented as a fixed amount. */
     m_surcharge_ach: string | null;
+    /** The disclosure that the payer sees at the checkout next to the surcharge line (SAL-1411). */
+    text_surcharge_disclosure: string;
 }
 export interface WlPayFormEnvironmentUserParams {
     /** The key of the business to retrieve payment information for. */
@@ -10895,6 +10902,8 @@ export interface WlPayFormEnvironmentUserResponse {
     m_surcharge: string | null;
     /** Surcharge amount for payment with ACH represented as a fixed amount. */
     m_surcharge_ach: string | null;
+    /** The disclosure that the payer sees at the checkout next to the surcharge line (SAL-1411). */
+    text_surcharge_disclosure: string;
 }
 export type WlPayBankPrimaryParams = Record<string, unknown>;
 export type WlPayBankPrimaryResponse = Record<string, unknown>;
@@ -13749,6 +13758,8 @@ export interface WlLoginAttendanceAttendanceListByTokenResponse {
     k_location: string;
 }
 export interface WlLoginMailMailUseParams {
+    /** Whether to check the use of the email address by any account of `WellnessLiving` instead of the m... */
+    is_any_business: boolean;
     /** The business for which the email address search is being performed. */
     k_business: string;
     /** The email address to check for. */
@@ -13756,7 +13767,9 @@ export interface WlLoginMailMailUseParams {
 }
 export interface WlLoginMailMailUseResponse {
     /** If `true`, the user with the specified email address exists in specified business. Otherwise, thi... */
-    is_exists: boolean;
+    is_exists: boolean | null;
+    /** Whether the email address is used by an account of `WellnessLiving` that is not a virtual user, i... */
+    is_use: boolean | null;
     /** Key of the user who using email within the business. */
     uid_use: string | null;
 }
@@ -18676,99 +18689,6 @@ export interface WlCouponCouponListListResponse {
         /** The title of the gift card. */
         text_title: string;
     }>;
-}
-export interface WlPromotionEditorListParams {
-    /** The optional columns whose data is wanted. Empty to read the default columns only. */
-    a_column: Array<WlPromotionEditorListColumnEnum>;
-    /** The number of the page to read, the first page is 1. */
-    i_page: number;
-    /** The number of the Purchase Options on a page. */
-    i_page_size: number;
-    /** The sort of the list. One of the {@link WlPromotionEditorListSortEnum} cases. */
-    id_sort: WlPromotionEditorListSortEnum;
-    /** The status of the Purchase Options to show. One of the {@link WlPromotionEditorListStatusEnum} ca... */
-    id_status: WlPromotionEditorListStatusEnum;
-    /** Whether the Purchase Options that are in no store category are shown in addition to the requested... */
-    is_shop_category_none: boolean;
-    /** Whether the list is sorted from the last to the first. */
-    is_sort_desc: boolean;
-    /** The key of the business whose Purchase Options are listed. */
-    k_business: string;
-    /** The service categories to show. `null` to show every category. */
-    a_program_category?: Array<RsProgramCategorySid> | null;
-    /** The types of the Purchase Options to show. `null` to show every type. */
-    a_program_type?: Array<RsProgramTypeSid> | null;
-    /** The keys of the store categories to show. `null` to show every store category. */
-    a_shop_category?: Array<string> | null;
-    /** The key of the location whose Purchase Options are shown. `null` to show the Purchase Options of ... */
-    k_location?: string | null;
-    /** The words to search in the titles of the Purchase Options, and the beginning of their barcodes. `... */
-    text_search?: string | null;
-}
-export interface WlPromotionEditorListResponse {
-    /** The Purchase Options of the requested page, in the requested order. */
-    a_promotion: Array<{
-        /** With the column {@link WlPromotionEditorListColumnEnum}. The titles of the client groups that the... */
-        a_client_group: Array<string>;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. The titles of the client types that the ... */
-        a_client_type: Array<string>;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. The titles of the locations where the Pu... */
-        a_location: Array<string>;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. The titles of the store categories of th... */
-        a_shop_category: Array<string>;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. The date when the Purchase Option is pla... */
-        dl_terminate: string | null;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. The date and time when the Purchase Opti... */
-        dtl_publish: string | null;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. The date and time when the Purchase Opti... */
-        dtl_unpublish: string | null;
-        /** The number of the clients who use the Purchase Option. A client counts once however many purchase... */
-        i_client: number;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. How many times one client can buy the Pu... */
-        i_quantity_limit: number | null;
-        /** Program types. @see RsProgramSid */
-        id_program: RsProgramSid;
-        /** Program types. @see RsProgramTypeSid */
-        id_program_type: RsProgramTypeSid;
-        /** Whether the Purchase Option is active now: it is switched on and has not expired. */
-        is_active: boolean;
-        /** Whether the Purchase Option is an introductory offer. */
-        is_introductory: boolean;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. Whether the Purchase Option is sold in e... */
-        is_location_all: boolean;
-        /** Whether clients can buy the Purchase Option online. `false` if only the staff can sell it. */
-        is_online_sell: boolean;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. Whether the Purchase Option renews itself. */
-        is_renew: boolean;
-        /** The key of the Purchase Option. */
-        k_promotion: string;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. Who created the Purchase Option: the wor... */
-        text_create_by: string;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. When the Purchase Option was created, in... */
-        text_create_date: string;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. Who changed the Purchase Option last, na... */
-        text_edit_by: string;
-        /** With the column {@link WlPromotionEditorListColumnEnum}. When the Purchase Option was changed las... */
-        text_edit_date: string;
-        /** How long the Purchase Option lasts: the number of periods, the last date or the word for no end. ... */
-        text_length: string;
-        /** The price in the currency of the Purchase Option, or the word for a free one. */
-        text_price: string;
-        /** The period that the price of a membership is paid for. Empty for the other types. */
-        text_price_period: string;
-        /** The title of the type of the Purchase Option. */
-        text_program_type: string;
-        /** The titles of the service categories of the Purchase Option, those of its components for a package. */
-        text_service_category: string;
-        /** The title of the Purchase Option in the language of the business. */
-        text_title: string;
-        /** The visits that the Purchase Option includes, with the attending restriction, or the word for no ... */
-        text_visit: string;
-        /** The link to the small image of the Purchase Option. Empty if it has no image. */
-        url_image: string;
-    }>;
-    /** The number of the Purchase Options in the whole list, not only on the requested page. */
-    i_total: number;
 }
 export interface WlPromotionIndexPromotionIndexParams {
     /** Image height in pixels. Please specify this value if you need image to be returned in specific size. */
@@ -24898,12 +24818,16 @@ export interface WlPayFormSurchargeSurchargeTenderParams {
     k_location: string;
     /** Key of a saved card to preview. */
     k_pay_bank?: string | null;
+    /** Amount of the payment without the surcharge, to calculate SurchargeTenderApi::$m_surcharge for. */
+    m_amount?: string | null;
     /** First digits of a newly-typed card number (at least 6). */
     s_bin?: string | null;
 }
 export interface WlPayFormSurchargeSurchargeTenderResponse {
     /** Whether a surcharge is allowed for the card identified by */
     is_allowed: boolean;
+    /** The surcharge of the payment of SurchargeTenderApi::$m_amount with this card, calculated by the s... */
+    m_surcharge: string | null;
 }
 export interface WlPayBankCardListParams {
     /** ID of current business. */
@@ -28659,6 +28583,122 @@ export interface WlClassesPeriodAddEventListResponse {
         /** Title of the event. */
         text_title: string;
     }>;
+}
+export interface WlPromotionEditorListListParams {
+    /** The optional columns whose data is wanted. Empty to read the default columns only. */
+    a_column: Array<WlPromotionEditorListListColumnEnum>;
+    /** The number of the page to read, the first page is 1. */
+    i_page: number;
+    /** The number of the Purchase Options on a page. */
+    i_page_size: number;
+    /** The sort of the list. One of the {@link WlPromotionEditorListListSortEnum} cases. */
+    id_sort: WlPromotionEditorListListSortEnum;
+    /** The status of the Purchase Options to show. One of the {@link WlPromotionEditorListListStatusEnum... */
+    id_status: WlPromotionEditorListListStatusEnum;
+    /** Whether the Purchase Options that are in no store category are shown in addition to the requested... */
+    is_shop_category_none: boolean;
+    /** Whether the list is sorted from the last to the first. */
+    is_sort_desc: boolean;
+    /** The key of the business whose Purchase Options are listed. */
+    k_business: string;
+    /** The service categories to show. `null` to show every category. */
+    a_program_category?: Array<RsProgramCategorySid> | null;
+    /** The types of the Purchase Options to show. `null` to show every type. */
+    a_program_type?: Array<RsProgramTypeSid> | null;
+    /** The keys of the store categories to show. `null` to show every store category. */
+    a_shop_category?: Array<string> | null;
+    /** The key of the location whose Purchase Options are shown. `null` to show the Purchase Options of ... */
+    k_location?: string | null;
+    /** The words to search in the titles of the Purchase Options, and the beginning of their barcodes. `... */
+    text_search?: string | null;
+}
+export interface WlPromotionEditorListListResponse {
+    /** The locations of the business that the list can be filtered by, in alphabetical order. */
+    a_filter_location: Array<{
+        /** The key of the location. */
+        k_location: string;
+        /** The title of the location. */
+        text_title: string;
+    }>;
+    /** The service categories that the list can be filtered by: the categories that are enabled for the ... */
+    a_filter_program_category: Array<{
+        /** Program type categories. @see RsProgramCategorySid */
+        id_program_category: RsProgramCategorySid;
+        /** The title of the service category. */
+        text_title: string;
+    }>;
+    /** The store categories that the list can be filtered by, in the order of the store. The system cate... */
+    a_filter_shop_category: Array<{
+        /** The key of the store category. */
+        k_shop_category: string;
+        /** The title of the store category. */
+        text_title: string;
+    }>;
+    /** The Purchase Options of the requested page, in the requested order. */
+    a_promotion: Array<{
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. The titles of the client groups that... */
+        a_client_group: Array<string>;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. The titles of the client types that ... */
+        a_client_type: Array<string>;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. The titles of the locations where th... */
+        a_location: Array<string>;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. The titles of the store categories o... */
+        a_shop_category: Array<string>;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. The date when the Purchase Option is... */
+        dl_terminate: string | null;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. The date and time when the Purchase ... */
+        dtl_publish: string | null;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. The date and time when the Purchase ... */
+        dtl_unpublish: string | null;
+        /** The number of the clients who use the Purchase Option. A client counts once however many purchase... */
+        i_client: number;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. How many times one client can buy th... */
+        i_quantity_limit: number | null;
+        /** Program types. @see RsProgramSid */
+        id_program: RsProgramSid;
+        /** Program types. @see RsProgramTypeSid */
+        id_program_type: RsProgramTypeSid;
+        /** Whether the Purchase Option is active now: it is switched on and has not expired. */
+        is_active: boolean;
+        /** Whether the Purchase Option is an introductory offer. */
+        is_introductory: boolean;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. Whether the Purchase Option is sold ... */
+        is_location_all: boolean;
+        /** Whether clients can buy the Purchase Option online. `false` if only the staff can sell it. */
+        is_online_sell: boolean;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. Whether the Purchase Option renews i... */
+        is_renew: boolean;
+        /** The key of the Purchase Option. */
+        k_promotion: string;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. Who created the Purchase Option: the... */
+        text_create_by: string;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. When the Purchase Option was created... */
+        text_create_date: string;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. Who changed the Purchase Option last... */
+        text_edit_by: string;
+        /** With the column {@link WlPromotionEditorListListColumnEnum}. When the Purchase Option was changed... */
+        text_edit_date: string;
+        /** How long the Purchase Option lasts: the number of periods, the last date or the word for no end. ... */
+        text_length: string;
+        /** The price in the currency of the Purchase Option, or the word for a free one. */
+        text_price: string;
+        /** The period that the price of a membership is paid for. Empty for the other types. */
+        text_price_period: string;
+        /** The title of the type of the Purchase Option. */
+        text_program_type: string;
+        /** The titles of the service categories of the Purchase Option, those of its components for a package. */
+        text_service_category: string;
+        /** The title of the Purchase Option in the language of the business. */
+        text_title: string;
+        /** The visits that the Purchase Option includes, with the attending restriction, or the word for no ... */
+        text_visit: string;
+        /** The link to the page where the Purchase Option is edited. */
+        url_edit: string;
+        /** The link to the small image of the Purchase Option. Empty if it has no image. */
+        url_image: string;
+    }>;
+    /** The number of the Purchase Options in the whole list, not only on the requested page. */
+    i_total: number;
 }
 export interface WlShopCategoryStaffAppCategoryParams {
     /** Key of business to get categories for. */
@@ -33669,6 +33709,8 @@ export interface WlPassportLoginEnterPassportOtpGetParams {
     k_business: string;
     /** Priority of delivery. */
     text_delivery_priority: string;
+    /** Email of an existing account, to use instead of {@link WlPassportLoginEnterNamespace#passportOtpG... */
+    text_mail: string;
     /** User key. */
     uid: string;
     /** Type of delivery strategy from {@link WlPassportLoginEnterOtpDeliveryStrategyEnum}. */
@@ -33683,6 +33725,8 @@ export interface WlPassportLoginEnterPassportOtpGetResponse {
 export interface WlPassportLoginEnterPassportOtpPostParams {
     /** Business key. */
     k_business: string;
+    /** Email of an existing account, to use instead of {@link WlPassportLoginEnterNamespace#passportOtpG... */
+    text_mail: string;
     /** User key. */
     uid: string;
 }
@@ -36415,22 +36459,27 @@ export declare class WlStaffNamespace {
     /** Update or create staff. */
     staffElement(params?: WlStaffStaffElementParams): Promise<WlStaffStaffElementResponse>;
 }
-export declare class WlPromotionEditorNamespace {
-    private readonly _client;
-    constructor(_client: WlClient);
-    /** Gets the page of the list of Purchase Options of the business. */
-    list(params?: WlPromotionEditorListParams): Promise<WlPromotionEditorListResponse>;
-}
 export declare class WlPromotionIndexNamespace {
     private readonly _client;
     constructor(_client: WlClient);
     /** Gets a list of packages/passes/memberships. */
     promotionIndex(params?: WlPromotionIndexPromotionIndexParams): Promise<WlPromotionIndexPromotionIndexResponse>;
 }
+export declare class WlPromotionEditorListNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Gets the page of the list of Purchase Options of the business. */
+    list(params?: WlPromotionEditorListListParams): Promise<WlPromotionEditorListListResponse>;
+}
+export declare class WlPromotionEditorNamespace {
+    private readonly _client;
+    readonly list: WlPromotionEditorListNamespace;
+    constructor(_client: WlClient);
+}
 export declare class WlPromotionNamespace {
     private readonly _client;
-    readonly editor: WlPromotionEditorNamespace;
     readonly index: WlPromotionIndexNamespace;
+    readonly editor: WlPromotionEditorNamespace;
     constructor(_client: WlClient);
     /** Returns promotion list of the specified business. */
     promotionList(params?: WlPromotionPromotionListParams): Promise<WlPromotionPromotionListResponse>;
