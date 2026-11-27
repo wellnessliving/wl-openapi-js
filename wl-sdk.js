@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261127074639
+ * Spec version: 1.1.20261127090226
  * Build date:   2026-11-27
- * Endpoints:    723
+ * Endpoints:    726
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261127074639';
+  WlClient.SPEC_VERSION = '1.1.20261127090226';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (723 total)
+  // Generated API methods (726 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -5050,6 +5050,29 @@
   };
 
   /**
+   * Gets the lead stage of the client.
+   *
+   * The current user must be allowed to view the profile of the client, as for the profile page of the client (the
+   * privilege to view client profiles and the access to the client), and the client must be one whom the user may see
+   * in this business: a client of the business, or a franchise client by the rules of the franchise. A client without a
+   * stored stage which is not one of the stages of the business, is in the default stage of the business, and that
+   * stage is returned. An empty string is returned only if the business has no stages.
+   * 
+   * ...
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.uid Key of the client whose stage is read or set.
+   * @returns {Promise<Object>} Response data.
+   *  `can_lead_stage_change` {boolean} Whether the current user may change the lead stage of the client.
+   *  `k_lead_stage` {string} Key of the lead stage.
+   */
+  WlClient.prototype.wlLeadStageLeadStageUserGet = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageUser.json', params || {}, 'GET');
+  };
+
+  /**
    * Sets the lead stage of the client.
    *
    * If the client is already in this stage, nothing is changed.
@@ -5059,12 +5082,38 @@
    *
    * @param {Object} [params] Request parameters.
    * @param {string} params.k_business Business key.
-   * @param {string} params.uid Key of the client whose stage is set.
+   * @param {string} params.uid Key of the client whose stage is read or set.
    * @returns {Promise<Object>} Response data.
    */
-  WlClient.prototype.wlLeadStageLeadStageUser = function(params)
+  WlClient.prototype.wlLeadStageLeadStageUserPost = function(params)
   {
     return this.request('/Wl/Lead/Stage/LeadStageUser.json', params || {}, 'POST');
+  };
+
+  /**
+   * Finds out what moving the client into the lead stage is going to do.
+   *
+   * The client must not be in the stage yet. The caller is expected to ask only about a stage the client is not in yet.
+   * The client must be a member of the business, or a franchise client of it: a traveller or an enterprise client.
+   * The access to the profile of the client is not checked, because the Lead Management report and the Recent Leads
+   * widget call this check too, and a check of the profile could block a stage change that they allow now.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {string} params.k_business Business key.
+   * @param {string} params.k_lead_stage Key of the lead stage to move the client into.
+   * @param {string} params.uid Key of the client who is moved.
+   * @returns {Promise<Object>} Response data.
+   *  `a_automation_start` {Object[]} Automations the client is added to by the change.
+   *  `a_automation_stop` {Object[]} Automations the client is removed from by the change.
+   *  `id_lead_stage_type` {number} Types of lead stages. See {@link WlClient.WlLeadStageLeadStageTypeSid}.
+   *  `is_confirm` {boolean} Whether the change must be confirmed by the staff member.
+   *  `is_member_group` {boolean} Whether the business has client groups which convert their clients into a `Wo...
+   *  `text_name_first` {string} First name of the client, or the full name if the client has no first name.
+   *  `text_title` {string} Name of the lead stage the client is moved into.
+   */
+  WlClient.prototype.wlLeadStageLeadStageImpact = function(params)
+  {
+    return this.request('/Wl/Lead/Stage/LeadStageImpact.json', params || {}, 'GET');
   };
 
   /**
@@ -14873,6 +14922,23 @@
   WlClient.prototype.thothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryDownload = function(params)
   {
     return this.request('/Thoth/Report/SalesReport/Client/ClientStatementHistoryReport/ClientStatementHistoryDownload.json', params || {}, 'GET');
+  };
+
+  /**
+   * Returns the HTML of an account statement.
+   *
+   * Checks that the statement belongs to the business and that the caller has access to the profile of the client,
+   * then gives the statement as a complete HTML document for a preview in an isolated frame.
+   *
+   * @param {Object} [params] Request parameters.
+   * @param {?string} [params.k_business] Business key.
+   * @param {?string} [params.k_statement] Statement key.
+   * @returns {Promise<Object>} Response data.
+   *  `html_statement` {string} The complete HTML document of the statement, to be shown in an isolated frame.
+   */
+  WlClient.prototype.thothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryPreview = function(params)
+  {
+    return this.request('/Thoth/Report/SalesReport/Client/ClientStatementHistoryReport/ClientStatementHistoryPreview.json', params || {}, 'GET');
   };
 
   /**

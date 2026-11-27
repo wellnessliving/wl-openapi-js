@@ -15409,13 +15409,65 @@ export interface WlLeadStageLeadStageListResponse {
         url_member_report?: string;
     }>;
 }
-export interface WlLeadStageLeadStageUserParams {
+export interface WlLeadStageLeadStageUserGetParams {
     /** Business key. */
     k_business: string;
-    /** Key of the client whose stage is set. */
+    /** Key of the client whose stage is read or set. */
     uid: string;
 }
-export type WlLeadStageLeadStageUserResponse = Record<string, unknown>;
+export interface WlLeadStageLeadStageUserGetResponse {
+    /** Whether the current user may change the lead stage of the client. */
+    can_lead_stage_change: boolean;
+    /** Key of the lead stage. */
+    k_lead_stage: string;
+}
+export interface WlLeadStageLeadStageUserPostParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the client whose stage is read or set. */
+    uid: string;
+}
+export type WlLeadStageLeadStageUserPostResponse = Record<string, unknown>;
+export interface WlLeadStageLeadStageImpactParams {
+    /** Business key. */
+    k_business: string;
+    /** Key of the lead stage to move the client into. */
+    k_lead_stage: string;
+    /** Key of the client who is moved. */
+    uid: string;
+}
+export interface WlLeadStageLeadStageImpactResponse {
+    /** Automations the client is added to by the change. */
+    a_automation_start: Array<{
+        /** Automation key. */
+        k_automation: string;
+        /** Description of the automation. Empty string if the automation has no description. */
+        text_description: string;
+        /** Name of the automation. */
+        text_title: string;
+    }>;
+    /** Automations the client is removed from by the change. */
+    a_automation_stop: Array<{
+        /** Automation key. */
+        k_automation: string;
+        /** Description of the automation. Empty string if the automation has no description. */
+        text_description: string;
+        /** Name of the stage the automation moves the client into when the client leaves it. Empty string wh... */
+        text_lead_stage_exit: string;
+        /** Name of the automation. */
+        text_title: string;
+    }>;
+    /** Types of lead stages. @see WlLeadStageLeadStageTypeSid */
+    id_lead_stage_type: WlLeadStageLeadStageTypeSid;
+    /** Whether the change must be confirmed by the staff member. */
+    is_confirm: boolean;
+    /** Whether the business has client groups which convert their clients into a `Won` or `Lost` stage. */
+    is_member_group: boolean;
+    /** First name of the client, or the full name if the client has no first name. */
+    text_name_first: string;
+    /** Name of the lead stage the client is moved into. */
+    text_title: string;
+}
 export interface WlLeadStageLeadStageManagerGetParams {
     /** Key of the Enterprise Headquarters business. */
     k_business: string;
@@ -33949,6 +34001,16 @@ export interface ThothReportSalesReportClientClientStatementHistoryReportClientS
     /** Suggested file name for the downloaded PDF. */
     text_filename: string;
 }
+export interface ThothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryPreviewParams {
+    /** Business key. */
+    k_business?: string | null;
+    /** Statement key. */
+    k_statement?: string | null;
+}
+export interface ThothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryPreviewResponse {
+    /** The complete HTML document of the statement, to be shown in an isolated frame. */
+    html_statement: string;
+}
 export type ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartParams = Record<string, unknown>;
 export interface ThothPayProcessorNuveiTerminalOMNIChannelApiNuveiTerminalTransactionStartResponse {
     /** CS Response code class. @see ThothPayProcessorNuveiCodeCSResponseSid */
@@ -35985,8 +36047,12 @@ export declare class WlLeadStageNamespace {
     leadStageElementPut(params?: WlLeadStageLeadStageElementPutParams): Promise<WlLeadStageLeadStageElementPutResponse>;
     /** Gets a list of lead stages of the business. */
     leadStageList(params?: WlLeadStageLeadStageListParams): Promise<WlLeadStageLeadStageListResponse>;
+    /** Gets the lead stage of the client. */
+    leadStageUserGet(params?: WlLeadStageLeadStageUserGetParams): Promise<WlLeadStageLeadStageUserGetResponse>;
     /** Sets the lead stage of the client. */
-    leadStageUser(params?: WlLeadStageLeadStageUserParams): Promise<WlLeadStageLeadStageUserResponse>;
+    leadStageUserPost(params?: WlLeadStageLeadStageUserPostParams): Promise<WlLeadStageLeadStageUserPostResponse>;
+    /** Finds out what moving the client into the lead stage is going to do. */
+    leadStageImpact(params?: WlLeadStageLeadStageImpactParams): Promise<WlLeadStageLeadStageImpactResponse>;
     /** Returns the setting "Lead stages are managed by". */
     leadStageManagerGet(params?: WlLeadStageLeadStageManagerGetParams): Promise<WlLeadStageLeadStageManagerGetResponse>;
     /** Saves the setting "Lead stages are managed by". */
@@ -38871,6 +38937,8 @@ export declare class ThothReportSalesReportClientClientStatementHistoryReportNam
     constructor(_client: WlClient);
     /** Returns the PDF of an account statement. */
     clientStatementHistoryDownload(params?: ThothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryDownloadParams): Promise<ThothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryDownloadResponse>;
+    /** Returns the HTML of an account statement. */
+    clientStatementHistoryPreview(params?: ThothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryPreviewParams): Promise<ThothReportSalesReportClientClientStatementHistoryReportClientStatementHistoryPreviewResponse>;
 }
 export declare class ThothReportSalesReportClientNamespace {
     private readonly _client;

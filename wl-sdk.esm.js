@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261127074639
+// OpenAPI spec version: 1.1.20261127090226
 // Build date: 2026-11-27
-// Endpoints: 723
+// Endpoints: 726
 // Enums: 238
 export class WlApiError extends Error {
     constructor(status, body) {
@@ -7769,9 +7769,17 @@ export class WlLeadStageNamespace {
     leadStageList(params) {
         return this._client._request('/Wl/Lead/Stage/LeadStageList.json', params, 'GET');
     }
+    /** Gets the lead stage of the client. */
+    leadStageUserGet(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageUser.json', params, 'GET');
+    }
     /** Sets the lead stage of the client. */
-    leadStageUser(params) {
+    leadStageUserPost(params) {
         return this._client._request('/Wl/Lead/Stage/LeadStageUser.json', params, 'POST');
+    }
+    /** Finds out what moving the client into the lead stage is going to do. */
+    leadStageImpact(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageImpact.json', params, 'GET');
     }
     /** Returns the setting "Lead stages are managed by". */
     leadStageManagerGet(params) {
@@ -12121,6 +12129,10 @@ export class ThothReportSalesReportClientClientStatementHistoryReportNamespace {
     /** Returns the PDF of an account statement. */
     clientStatementHistoryDownload(params) {
         return this._client._request('/Thoth/Report/SalesReport/Client/ClientStatementHistoryReport/ClientStatementHistoryDownload.json', params, 'GET');
+    }
+    /** Returns the HTML of an account statement. */
+    clientStatementHistoryPreview(params) {
+        return this._client._request('/Thoth/Report/SalesReport/Client/ClientStatementHistoryReport/ClientStatementHistoryPreview.json', params, 'GET');
     }
 }
 export class ThothReportSalesReportClientNamespace {

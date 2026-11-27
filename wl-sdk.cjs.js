@@ -1,9 +1,9 @@
 "use strict";
 // AUTO-GENERATED — DO NOT EDIT
 // WellnessLiving SDK — dev channel
-// OpenAPI spec version: 1.1.20261127074639
+// OpenAPI spec version: 1.1.20261127090226
 // Build date: 2026-11-27
-// Endpoints: 723
+// Endpoints: 726
 // Enums: 238
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ADateWeekSid = exports.WlPromotionPurchaseRestrictionSid = exports.RsDurationTypeSid = exports.AFlagSid = exports.RsProgramTypeSid = exports.RsProgramSid = exports.RsPrivilegeRoleSid = exports.RsPayMethodSid = exports.RsProjectSid = exports.RsHomeTourSid = exports.CoreAmazonRegionAmazonRegionSid = exports.RsRankTypeSid = exports.CoreLocaleLanguageLocaleLanguageSid = exports.CoreLocaleCurrencySid = exports.WlBusinessClaimBusinessClaimStatusSid = exports.RsBusinessCategorySid = exports.WlServiceServiceSid = exports.RsMailSid = exports.WlBusinessAccountSubscriptionFitvidFitvidSubscriptionSid = exports.ADurationSid = exports.WlBusinessAccountWebsiteSid = exports.WlAiAgentPhoneCallOutcomeEnum = exports.ThothWlPayPayExceptionSid = exports.ThothWlPayDisputeFinanceMailFailEnum = exports.RsMailCopySid = exports.RsPurchaseItemSid = exports.RsServiceSid = exports.RsFieldTypeSid = exports.RsFieldGeneralSid = exports.WlLoginMemberVaccinationStatusVaccinationStatusSid = exports.WlLoginMemberIntentsMemberIntentsSid = exports.AGenderSid = exports.CoreLocaleLocaleSid = exports.WlImportCustomCustomSid = exports.ThothPayProcessorNuveiCodeCSResponseSid = exports.ThothWlPayBankCardCardTypeEnum = exports.ThothPayProcessorDirectConnectTicketDirectConnectTicketStatusSid = exports.RsPayException = exports.ACardSystemSid = exports.RsReportSid = exports.WlModeModeSid = exports.WlVisitVisitDenyReasonSid = exports.WlMailVerifyMailVerifyStatusSid = exports.WlMailDomainDomainVerifyStatusSid = exports.ThothReportCoreGeneratorReportGeneratorStatusSid = exports.WlGenderGenderSid = exports.WlVisitVisitSid = exports.WlTaskTaskStatusSid = exports.CoreGoogleCaptchaCaptchaVersionSid = exports.WlApiError = void 0;
@@ -7883,9 +7883,17 @@ class WlLeadStageNamespace {
     leadStageList(params) {
         return this._client._request('/Wl/Lead/Stage/LeadStageList.json', params, 'GET');
     }
+    /** Gets the lead stage of the client. */
+    leadStageUserGet(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageUser.json', params, 'GET');
+    }
     /** Sets the lead stage of the client. */
-    leadStageUser(params) {
+    leadStageUserPost(params) {
         return this._client._request('/Wl/Lead/Stage/LeadStageUser.json', params, 'POST');
+    }
+    /** Finds out what moving the client into the lead stage is going to do. */
+    leadStageImpact(params) {
+        return this._client._request('/Wl/Lead/Stage/LeadStageImpact.json', params, 'GET');
     }
     /** Returns the setting "Lead stages are managed by". */
     leadStageManagerGet(params) {
@@ -12582,6 +12590,10 @@ class ThothReportSalesReportClientClientStatementHistoryReportNamespace {
     /** Returns the PDF of an account statement. */
     clientStatementHistoryDownload(params) {
         return this._client._request('/Thoth/Report/SalesReport/Client/ClientStatementHistoryReport/ClientStatementHistoryDownload.json', params, 'GET');
+    }
+    /** Returns the HTML of an account statement. */
+    clientStatementHistoryPreview(params) {
+        return this._client._request('/Thoth/Report/SalesReport/Client/ClientStatementHistoryReport/ClientStatementHistoryPreview.json', params, 'GET');
     }
 }
 exports.ThothReportSalesReportClientClientStatementHistoryReportNamespace = ThothReportSalesReportClientClientStatementHistoryReportNamespace;
