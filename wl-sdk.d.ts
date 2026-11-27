@@ -29204,6 +29204,8 @@ export interface WlLoginPromotionConvertConvertPostParams {
 }
 export type WlLoginPromotionConvertConvertPostResponse = Record<string, unknown>;
 export interface WlLoginSearchStaffAppListParams {
+    /** `true` - the search ignores the setting of QUICK Auto Check-In of the current staff member, so at... */
+    is_auto_check_in_ignore: boolean;
     /** `true` - search among whole franchise; `false` - search in specified business only. */
     is_franchisee_search_wide: boolean;
     /** The business key number used internally by WellnessLiving. */
