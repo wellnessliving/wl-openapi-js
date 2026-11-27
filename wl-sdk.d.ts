@@ -30297,6 +30297,8 @@ export interface WlProfileEditEmailEditEmail67GetResponse {
     };
     /** Shows, whether client was registered in the business: `true` if user was added to the business, */
     is_added: boolean;
+    /** If `true`, the user who has the specified email is a client or a staff member of a business other... */
+    is_business_foreign: boolean;
     /** If `true`, user is already a member of current business, `false` - otherwise. */
     is_current_member: boolean;
     /** If `true`, then the number of requests has exceeded the rate limit. Otherwise, this will be `false`. */
@@ -30348,6 +30350,8 @@ export interface WlProfileEditEmailEditEmailGetResponse {
     };
     /** Shows, whether client was registered in the business: `true` if user was added to the business, */
     is_added: boolean;
+    /** If `true`, the user who has the specified email is a client or a staff member of a business other... */
+    is_business_foreign: boolean;
     /** If `true`, user is already a member of current business, `false` - otherwise. */
     is_current_member: boolean;
     /** If `true`, then the number of requests has exceeded the rate limit. Otherwise, this will be `false`. */

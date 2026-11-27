@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (stable)
- * Spec version: 1.1.20261127040130
+ * Spec version: 1.1.20261127043739
  * Build date:   2026-11-27
  * Endpoints:    711
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261127040130';
+  WlClient.SPEC_VERSION = '1.1.20261127043739';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (711 total)
@@ -13070,6 +13070,7 @@
    *  `a_business_member_key` {string[]} List of business keys where a user is already a member.
    *  `a_user` {Object} Information about the user who occupies the specified email.
    *  `is_added` {boolean} Shows, whether client was registered in the business: `true` if user was adde...
+   *  `is_business_foreign` {boolean} If `true`, the user who has the specified email is a client or a staff member...
    *  `is_current_member` {boolean} If `true`, user is already a member of current business, `false` - otherwise.
    *  `is_limit` {boolean} If `true`, then the number of requests has exceeded the rate limit. Otherwise...
    *  `is_password_set` {boolean} If `true`, user, who has the specified email, has password set, `false` - oth...
@@ -13118,6 +13119,7 @@
    *  `a_business_member_key` {string[]} List of business keys where a user is already a member.
    *  `a_user` {Object} Information about the user who occupies the specified email.
    *  `is_added` {boolean} Shows, whether client was registered in the business: `true` if user was adde...
+   *  `is_business_foreign` {boolean} If `true`, the user who has the specified email is a client or a staff member...
    *  `is_current_member` {boolean} If `true`, user is already a member of current business, `false` - otherwise.
    *  `is_limit` {boolean} If `true`, then the number of requests has exceeded the rate limit. Otherwise...
    *  `is_password_set` {boolean} If `true`, user, who has the specified email, has password set, `false` - oth...
