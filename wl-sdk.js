@@ -1,6 +1,6 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261127122539
+ * Spec version: 1.1.20261127134124
  * Build date:   2026-11-27
  * Endpoints:    727
  *
@@ -210,7 +210,7 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261127122539';
+  WlClient.SPEC_VERSION = '1.1.20261127134124';
 
   // ---------------------------------------------------------------------------
   // Generated API methods (727 total)
@@ -10746,8 +10746,13 @@
    * When a search string is provided, returns clients whose name or email matches the query within the specified
    * business. When the search string is empty, returns recently viewed clients. Each result includes the client's
    * name, email, phone, member ID, and user key.
+   * 
+   * At a business with Dynamic ID the live dynamic barcode of a client is still matched first. While QUICK Auto
+   * Check-In of the current staff member is on, nothing else is matched, unless
+   * ...
    *
    * @param {Object} [params] Request parameters.
+   * @param {boolean} params.is_auto_check_in_ignore `true` - the search ignores the setting of QUICK Auto Check-In of the current staff member, so at...
    * @param {boolean} params.is_franchisee_search_wide `true` - search among whole franchise; `false` - search in specified business only.
    * @param {string} params.k_business The business key number used internally by WellnessLiving.
    * @param {string} params.text_search The search string. Clients can be matched by name or email.
