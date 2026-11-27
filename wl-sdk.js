@@ -1,8 +1,8 @@
 /*!
  * WellnessLiving JavaScript SDK (dev)
- * Spec version: 1.1.20261127090226
+ * Spec version: 1.1.20261127122539
  * Build date:   2026-11-27
- * Endpoints:    726
+ * Endpoints:    727
  *
  * Auto-generated from:
  * https://github.com/wellnessliving/openapi/blob/main/dev/openapi.yaml
@@ -210,10 +210,10 @@
    * OpenAPI spec version this SDK was generated from.
    * @type {string}
    */
-  WlClient.SPEC_VERSION = '1.1.20261127090226';
+  WlClient.SPEC_VERSION = '1.1.20261127122539';
 
   // ---------------------------------------------------------------------------
-  // Generated API methods (726 total)
+  // Generated API methods (727 total)
   // ---------------------------------------------------------------------------
 
   /**
@@ -10868,6 +10868,7 @@
    *  `a_business_member_key` {string[]} List of business keys where a user is already a member.
    *  `a_user` {Object} Information about the user who occupies the specified email.
    *  `is_added` {boolean} Shows, whether client was registered in the business: `true` if user was adde...
+   *  `is_business_foreign` {boolean} If `true`, the user who has the specified email is a client or a staff member...
    *  `is_current_member` {boolean} If `true`, user is already a member of current business, `false` - otherwise.
    *  `is_limit` {boolean} If `true`, then the number of requests has exceeded the rate limit. Otherwise...
    *  `is_password_set` {boolean} If `true`, user, who has the specified email, has password set, `false` - oth...
@@ -10916,6 +10917,7 @@
    *  `a_business_member_key` {string[]} List of business keys where a user is already a member.
    *  `a_user` {Object} Information about the user who occupies the specified email.
    *  `is_added` {boolean} Shows, whether client was registered in the business: `true` if user was adde...
+   *  `is_business_foreign` {boolean} If `true`, the user who has the specified email is a client or a staff member...
    *  `is_current_member` {boolean} If `true`, user is already a member of current business, `false` - otherwise.
    *  `is_limit` {boolean} If `true`, then the number of requests has exceeded the rate limit. Otherwise...
    *  `is_password_set` {boolean} If `true`, user, who has the specified email, has password set, `false` - oth...
@@ -12436,6 +12438,27 @@
   WlClient.prototype.wlClassesPeriodModifyModifyPost = function(params)
   {
     return this.request('/Wl/Classes/Period/Modify/Modify.json', params || {}, 'POST');
+  };
+
+  /**
+   * Replaces the instructors of one session of a class or an event.
+   *
+   * Sets the given instructors for the session of {@link WlClient#wlClassesPeriodStaffSubstitute} that takes place at
+   * {@link WlClient#wlClassesPeriodStaffSubstitute}. The other sessions of the series keep their instructors: the series is
+   * split around the date, so that the session gets a class period of its own, and the sessions before and after it
+   * get new class periods. Every instructor must work for the business and teach the kind of the session, a class or
+   * an event. The clients booked into the session and the instructors who are added or removed are notified. A call
+   * with the instructors that the session already has changes nothing and notifies nobody.
+   *
+   * @param {Object} [params] Request body fields.
+   * @returns {Promise<Object>} Response data.
+   *  `a_class_period` {string[]} Keys of the class periods that the call created or changed.
+   *  `a_staff` {Object[]} The instructors of the session.
+   *  `is_change` {boolean} Whether the call changed the instructors of the session.
+   */
+  WlClient.prototype.wlClassesPeriodStaffSubstitute = function(params)
+  {
+    return this.request('/Wl/Classes/Period/Staff/Substitute.json', params || {}, 'POST');
   };
 
   /**

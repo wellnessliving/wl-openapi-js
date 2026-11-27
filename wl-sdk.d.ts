@@ -25664,6 +25664,8 @@ export interface WlProfileEditEmailEditEmail67GetResponse {
     };
     /** Shows, whether client was registered in the business: `true` if user was added to the business, */
     is_added: boolean;
+    /** If `true`, the user who has the specified email is a client or a staff member of a business other... */
+    is_business_foreign: boolean;
     /** If `true`, user is already a member of current business, `false` - otherwise. */
     is_current_member: boolean;
     /** If `true`, then the number of requests has exceeded the rate limit. Otherwise, this will be `false`. */
@@ -25715,6 +25717,8 @@ export interface WlProfileEditEmailEditEmailGetResponse {
     };
     /** Shows, whether client was registered in the business: `true` if user was added to the business, */
     is_added: boolean;
+    /** If `true`, the user who has the specified email is a client or a staff member of a business other... */
+    is_business_foreign: boolean;
     /** If `true`, user is already a member of current business, `false` - otherwise. */
     is_current_member: boolean;
     /** If `true`, then the number of requests has exceeded the rate limit. Otherwise, this will be `false`. */
@@ -28622,6 +28626,20 @@ export interface WlClassesPeriodModifyModifyPostResponse {
     k_class: string | null;
     /** The unique hash string. */
     s_id: string;
+}
+export type WlClassesPeriodStaffSubstituteParams = Record<string, unknown>;
+export interface WlClassesPeriodStaffSubstituteResponse {
+    /** Keys of the class periods that the call created or changed. */
+    a_class_period: Array<string>;
+    /** The instructors of the session. */
+    a_staff: Array<{
+        /** Key of the pay rate of the instructor for the session. `null` if the session uses no pay rate of ... */
+        k_staff_pay?: string | null;
+        /** Key of the user of the instructor. */
+        uid_staff: string;
+    }>;
+    /** Whether the call changed the instructors of the session. */
+    is_change: boolean;
 }
 export interface WlClassesPeriodAddEventListParams {
     /** Business key. */
@@ -37739,6 +37757,12 @@ export declare class WlClassesPeriodModifyNamespace {
     /** Makes step in wizard. */
     modifyPost(params?: WlClassesPeriodModifyModifyPostParams): Promise<WlClassesPeriodModifyModifyPostResponse>;
 }
+export declare class WlClassesPeriodStaffNamespace {
+    private readonly _client;
+    constructor(_client: WlClient);
+    /** Replaces the instructors of one session of a class or an event. */
+    substitute(params?: WlClassesPeriodStaffSubstituteParams): Promise<WlClassesPeriodStaffSubstituteResponse>;
+}
 export declare class WlClassesPeriodAddNamespace {
     private readonly _client;
     constructor(_client: WlClient);
@@ -37748,6 +37772,7 @@ export declare class WlClassesPeriodAddNamespace {
 export declare class WlClassesPeriodNamespace {
     private readonly _client;
     readonly modify: WlClassesPeriodModifyNamespace;
+    readonly staff: WlClassesPeriodStaffNamespace;
     readonly add: WlClassesPeriodAddNamespace;
     constructor(_client: WlClient);
 }
